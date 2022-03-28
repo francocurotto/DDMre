@@ -5,7 +5,7 @@
     "LEVEL": 4,
     "ATTACK": 40,
     "DEFENSE": 30,
-    "LIFE": 50,
+    "HEALTH": 50,
     "ABILITY": {
       "NAME": "FLY"
     },
@@ -17,7 +17,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": {
       "NAME": "DIMCUREALL",
       "AMOUNT": 10
@@ -30,7 +30,7 @@
     "LEVEL": 2,
     "ATTACK": 20,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSA2D2G"
   },
@@ -40,7 +40,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": [
       {
         "NAME": "FLY"
@@ -57,7 +57,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSMA2A2"
   },
@@ -67,7 +67,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 20,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "STOPFLY"
     },
@@ -79,7 +79,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": [
       {
         "NAME": "FLY"
@@ -96,7 +96,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSSA2G"
   },
@@ -106,7 +106,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSSA2G"
   },
@@ -116,7 +116,7 @@
     "LEVEL": 2,
     "ATTACK": 20,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": {
       "NAME": "RAISEATTACK",
       "MAX": 1
@@ -129,7 +129,7 @@
     "LEVEL": 2,
     "ATTACK": 20,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": null,
     "CRESTS": "SSSM3DT4"
   },
@@ -139,7 +139,7 @@
     "LEVEL": 2,
     "ATTACK": 20,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": null,
     "CRESTS": "SSSMM2A2"
   },
@@ -149,7 +149,7 @@
     "LEVEL": 1,
     "ATTACK": 0,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "DIMKILLWEAKEST"
     },
@@ -161,7 +161,7 @@
     "LEVEL": 3,
     "ATTACK": 10,
     "DEFENSE": 0,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSM2M3A2D"
   },
@@ -171,7 +171,7 @@
     "LEVEL": 3,
     "ATTACK": 10,
     "DEFENSE": 0,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSM2ADG"
   },
@@ -181,7 +181,7 @@
     "LEVEL": 3,
     "ATTACK": 10,
     "DEFENSE": 0,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSM2M3A4D2"
   },
@@ -191,7 +191,7 @@
     "LEVEL": 3,
     "ATTACK": 10,
     "DEFENSE": 0,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSMM3AD"
   },
@@ -201,7 +201,7 @@
     "LEVEL": 4,
     "ATTACK": 20,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": {
       "NAME": "EXODIA"
     },
@@ -213,7 +213,7 @@
     "LEVEL": 4,
     "ATTACK": 40,
     "DEFENSE": 20,
-    "LIFE": 40,
+    "HEALTH": 40,
     "ABILITY": null,
     "CRESTS": "SM3M4ADG"
   },
@@ -223,7 +223,7 @@
     "LEVEL": 2,
     "ATTACK": 20,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": null,
     "CRESTS": "SSSM2DG2"
   },
@@ -233,7 +233,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSSM2A2"
   },
@@ -243,7 +243,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "BUFFTYPE",
       "TYPE": "SPELLCASTER",
@@ -258,7 +258,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "BUFFTYPE",
       "TYPE": "UNDEAD",
@@ -273,7 +273,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": null,
     "CRESTS": "SSSMAD"
   },
@@ -283,7 +283,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "REDUCEDAMAGE",
       "COST": 2,
@@ -298,7 +298,7 @@
     "LEVEL": 4,
     "ATTACK": 40,
     "DEFENSE": 20,
-    "LIFE": 30,
+    "HEALTH": 30,
     "ABILITY": null,
     "CRESTS": "SM2AD2GT"
   },
@@ -308,7 +308,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": [
       {
         "NAME": "FLY"
@@ -328,7 +328,7 @@
     "LEVEL": 4,
     "ATTACK": 40,
     "DEFENSE": 30,
-    "LIFE": 40,
+    "HEALTH": 40,
     "ABILITY": {
       "NAME": "FLY"
     },
@@ -340,7 +340,7 @@
     "LEVEL": 4,
     "ATTACK": 40,
     "DEFENSE": 20,
-    "LIFE": 40,
+    "HEALTH": 40,
     "ABILITY": {
       "NAME": "ARCHER"
     },
@@ -352,7 +352,7 @@
     "LEVEL": 3,
     "ATTACK": 20,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": {
       "NAME": "FLY"
     },
@@ -364,7 +364,7 @@
     "LEVEL": 1,
     "ATTACK": 0,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "TURNSLOWTYPE",
       "TYPE": "DRAGON"
@@ -377,7 +377,7 @@
     "LEVEL": 2,
     "ATTACK": 20,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSM3G3T"
   },
@@ -387,7 +387,7 @@
     "LEVEL": 3,
     "ATTACK": 20,
     "DEFENSE": 30,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSM3M3AD2"
   },
@@ -397,7 +397,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "BUFFTYPE",
       "TYPE": "WARRIOR",
@@ -412,7 +412,7 @@
     "LEVEL": 3,
     "ATTACK": 30,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": {
       "NAME": "DIMCURE",
       "AMOUNT": 10,
@@ -428,7 +428,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSSD2G4"
   },
@@ -438,7 +438,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "ARCHER"
     },
@@ -450,7 +450,7 @@
     "LEVEL": 1,
     "ATTACK": 20,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSSMT"
   },
@@ -460,7 +460,7 @@
     "LEVEL": 1,
     "ATTACK": 20,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": null,
     "CRESTS": "SSSSMD"
   },
@@ -470,7 +470,7 @@
     "LEVEL": 3,
     "ATTACK": 30,
     "DEFENSE": 30,
-    "LIFE": 40,
+    "HEALTH": 40,
     "ABILITY": {
       "NAME": "FLY"
     },
@@ -482,7 +482,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSSA4D2"
   },
@@ -492,7 +492,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": [
       {
         "NAME": "TUNNELING"
@@ -512,7 +512,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": [
       {
         "NAME": "FLY"
@@ -531,7 +531,7 @@
     "LEVEL": 3,
     "ATTACK": 20,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": {
       "NAME": "DIMKILLTUNNELALL",
       "COST": 4,
@@ -545,7 +545,7 @@
     "LEVEL": 4,
     "ATTACK": 40,
     "DEFENSE": 40,
-    "LIFE": 50,
+    "HEALTH": 50,
     "ABILITY": {
       "NAME": "FLY"
     },
@@ -557,7 +557,7 @@
     "LEVEL": 2,
     "ATTACK": 30,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": null,
     "CRESTS": "SSSM2A7D"
   },
@@ -567,7 +567,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "BUFFTYPE",
       "TYPE": "BEAST",
@@ -582,7 +582,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 40,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": null,
     "CRESTS": "SSSAGT3"
   },
@@ -592,7 +592,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 30,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": {
       "NAME": "KILLBLOCK",
       "COST": 2,
@@ -606,7 +606,7 @@
     "LEVEL": 4,
     "ATTACK": 40,
     "DEFENSE": 20,
-    "LIFE": 30,
+    "HEALTH": 30,
     "ABILITY": {
       "NAME": "FLY"
     },
@@ -618,7 +618,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": {
       "NAME": "REDUCEDAMAGE",
       "COST": 2,
@@ -633,7 +633,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 30,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": null,
     "CRESTS": "SSSMAD"
   },
@@ -643,7 +643,7 @@
     "LEVEL": 2,
     "ATTACK": 20,
     "DEFENSE": 10,
-    "LIFE": 40,
+    "HEALTH": 40,
     "ABILITY": {
       "NAME": "DUNGRAISEATTACK",
       "COST": 1,
@@ -658,7 +658,7 @@
     "LEVEL": 3,
     "ATTACK": 30,
     "DEFENSE": 20,
-    "LIFE": 40,
+    "HEALTH": 40,
     "ABILITY": {
       "NAME": "RAISEATTACK",
       "MAX": 2
@@ -671,7 +671,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": [
       {
         "NAME": "TUNNELING"
@@ -688,7 +688,7 @@
     "LEVEL": 3,
     "ATTACK": 20,
     "DEFENSE": 30,
-    "LIFE": 30,
+    "HEALTH": 30,
     "ABILITY": {
       "NAME": "REDUCEDAMAGE",
       "COST": 3,
@@ -703,7 +703,7 @@
     "LEVEL": 1,
     "ATTACK": 20,
     "DEFENSE": 10,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": [
       {
         "NAME": "ARCHER"
@@ -722,13 +722,13 @@
     "LEVEL": 2,
     "ATTACK": 0,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": [
       {
         "NAME": "TUNNELING"
       },
       {
-        "NAME": "TRADELIFE",
+        "NAME": "TRADEHEALTH",
         "AMOUNT": 10,
         "COST": 2,
         "CREST": "MAGIC"
@@ -742,7 +742,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "BUFFTYPE",
       "TYPE": "DRAGON",
@@ -757,7 +757,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 20,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSSA2T"
   },
@@ -767,7 +767,7 @@
     "LEVEL": 4,
     "ATTACK": 40,
     "DEFENSE": 40,
-    "LIFE": 40,
+    "HEALTH": 40,
     "ABILITY": {
       "NAME": "FLY"
     },
@@ -779,7 +779,7 @@
     "LEVEL": 3,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": null,
     "CRESTS": "SSM4DDG2"
   },
@@ -789,7 +789,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": {
       "NAME": "DIMTRADECREST",
       "COST": 3
@@ -802,7 +802,7 @@
     "LEVEL": 2,
     "ATTACK": 20,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSM2DD"
   },
@@ -812,7 +812,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSSM2D"
   },
@@ -822,7 +822,7 @@
     "LEVEL": 1,
     "ATTACK": 20,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSSAD4"
   },
@@ -832,7 +832,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSDGT"
   },
@@ -842,7 +842,7 @@
     "LEVEL": 3,
     "ATTACK": 0,
     "DEFENSE": 40,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "FROZEN"
     },
@@ -854,7 +854,7 @@
     "LEVEL": 4,
     "ATTACK": 40,
     "DEFENSE": 30,
-    "LIFE": 50,
+    "HEALTH": 50,
     "ABILITY": null,
     "CRESTS": "SM2ADGT2"
   },
@@ -864,7 +864,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSAD2T2"
   },
@@ -874,7 +874,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": {
       "NAME": "TUNNELING"
     },
@@ -886,7 +886,7 @@
     "LEVEL": 4,
     "ATTACK": 30,
     "DEFENSE": 30,
-    "LIFE": 30,
+    "HEALTH": 30,
     "ABILITY": {
       "NAME": "SHIFTDAMAGE",
       "COST": 3,
@@ -900,7 +900,7 @@
     "LEVEL": 4,
     "ATTACK": 30,
     "DEFENSE": 30,
-    "LIFE": 30,
+    "HEALTH": 30,
     "ABILITY": {
       "NAME": "SHIFTDAMAGE",
       "COST": 3,
@@ -914,7 +914,7 @@
     "LEVEL": 4,
     "ATTACK": 30,
     "DEFENSE": 30,
-    "LIFE": 30,
+    "HEALTH": 30,
     "ABILITY": {
       "NAME": "SHIFTDAMAGE",
       "COST": 3,
@@ -928,7 +928,7 @@
     "LEVEL": 4,
     "ATTACK": 40,
     "DEFENSE": 40,
-    "LIFE": 50,
+    "HEALTH": 50,
     "ABILITY": {
       "NAME": "SHIFTDAMAGE",
       "COST": 3,
@@ -942,7 +942,7 @@
     "LEVEL": 2,
     "ATTACK": 30,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": null,
     "CRESTS": "SSSM3AD"
   },
@@ -952,7 +952,7 @@
     "LEVEL": 4,
     "ATTACK": 50,
     "DEFENSE": 40,
-    "LIFE": 60,
+    "HEALTH": 60,
     "ABILITY": {
       "NAME": "MOVELIMIT",
       "LIMIT": 1
@@ -965,7 +965,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": [
       {
         "NAME": "FLY"
@@ -985,7 +985,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "BUFFTYPE",
       "TYPE": "SPELLCASTER",
@@ -1000,7 +1000,7 @@
     "LEVEL": 3,
     "ATTACK": 20,
     "DEFENSE": 30,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": null,
     "CRESTS": "SSMAG3T"
   },
@@ -1010,7 +1010,7 @@
     "LEVEL": 3,
     "ATTACK": 30,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": null,
     "CRESTS": "SSM4ADD2"
   },
@@ -1020,7 +1020,7 @@
     "LEVEL": 4,
     "ATTACK": 30,
     "DEFENSE": 30,
-    "LIFE": 30,
+    "HEALTH": 30,
     "ABILITY": null,
     "CRESTS": "SM8AD8GT4"
   },
@@ -1030,7 +1030,7 @@
     "LEVEL": 1,
     "ATTACK": 20,
     "DEFENSE": 10,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": null,
     "CRESTS": "SSSSAT"
   },
@@ -1040,7 +1040,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSSMA2"
   },
@@ -1050,7 +1050,7 @@
     "LEVEL": 3,
     "ATTACK": 40,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSMAD3T4"
   },
@@ -1060,7 +1060,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "BUFFTYPE",
       "TYPE": "WARRIOR",
@@ -1075,7 +1075,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSSD4G"
   },
@@ -1085,7 +1085,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSSM2M3"
   },
@@ -1095,7 +1095,7 @@
     "LEVEL": 3,
     "ATTACK": 40,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": null,
     "CRESTS": "SSMA2G2T2"
   },
@@ -1105,7 +1105,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSSM2T"
   },
@@ -1115,7 +1115,7 @@
     "LEVEL": 3,
     "ATTACK": 30,
     "DEFENSE": 30,
-    "LIFE": 30,
+    "HEALTH": 30,
     "ABILITY": {
       "NAME": "FLY"
     },
@@ -1127,7 +1127,7 @@
     "LEVEL": 4,
     "ATTACK": 40,
     "DEFENSE": 20,
-    "LIFE": 30,
+    "HEALTH": 30,
     "ABILITY": {
       "NAME": "FLY"
     },
@@ -1139,7 +1139,7 @@
     "LEVEL": 3,
     "ATTACK": 20,
     "DEFENSE": 20,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": null,
     "CRESTS": "SSMAD2G2"
   },
@@ -1149,7 +1149,7 @@
     "LEVEL": 4,
     "ATTACK": 40,
     "DEFENSE": 30,
-    "LIFE": 40,
+    "HEALTH": 40,
     "ABILITY": null,
     "CRESTS": "SMA2DGT"
   },
@@ -1159,7 +1159,7 @@
     "LEVEL": 3,
     "ATTACK": 20,
     "DEFENSE": 20,
-    "LIFE": 30,
+    "HEALTH": 30,
     "ABILITY": null,
     "CRESTS": "SSM2A2DT"
   },
@@ -1169,7 +1169,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSSSMD2"
   },
@@ -1179,7 +1179,7 @@
     "LEVEL": 4,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "PROTECTSELF",
       "COST": 5,
@@ -1193,7 +1193,7 @@
     "LEVEL": 1,
     "ATTACK": 0,
     "DEFENSE": 0,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "STEALMONSTER",
       "COST": 8,
@@ -1207,7 +1207,7 @@
     "LEVEL": 4,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "MINDCONTROL",
       "COST": 8,
@@ -1221,7 +1221,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": {
       "NAME": "PROTECTTYPE",
       "TYPE": "DRAGON"
@@ -1234,7 +1234,7 @@
     "LEVEL": 4,
     "ATTACK": 40,
     "DEFENSE": 40,
-    "LIFE": 30,
+    "HEALTH": 30,
     "ABILITY": {
       "NAME": "FLY"
     },
@@ -1246,7 +1246,7 @@
     "LEVEL": 4,
     "ATTACK": 30,
     "DEFENSE": 30,
-    "LIFE": 40,
+    "HEALTH": 40,
     "ABILITY": null,
     "CRESTS": "SM6DGT2T2"
   },
@@ -1256,7 +1256,7 @@
     "LEVEL": 3,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 10,
+    "HEALTH": 10,
     "ABILITY": null,
     "CRESTS": "SSMA3D2T"
   },
@@ -1266,7 +1266,7 @@
     "LEVEL": 3,
     "ATTACK": 20,
     "DEFENSE": 10,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": {
       "NAME": "DIMBUFFDEADTYPE",
       "TYPE": "SPELLCASTER"
@@ -1279,7 +1279,7 @@
     "LEVEL": 1,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": [
       {
         "NAME": "TUNNELING"
@@ -1298,7 +1298,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 30,
+    "HEALTH": 30,
     "ABILITY": {
       "NAME": "REDUCEDAMAGEINF",
       "CREST": "DEFENSE"
@@ -1311,7 +1311,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": {
       "NAME": "RANGELEVELKILL",
       "RANGE": 3,
@@ -1326,7 +1326,7 @@
     "LEVEL": 2,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 30,
+    "HEALTH": 30,
     "ABILITY": [
       {
         "NAME": "RAISESPEED",
@@ -1345,7 +1345,7 @@
     "LEVEL": 3,
     "ATTACK": 10,
     "DEFENSE": 10,
-    "LIFE": 30,
+    "HEALTH": 30,
     "ABILITY": {
       "NAME": "ROLLLEVELKILL",
       "COST": 2,
@@ -1359,7 +1359,7 @@
     "LEVEL": 3,
     "ATTACK": 20,
     "DEFENSE": 10,
-    "LIFE": 40,
+    "HEALTH": 40,
     "ABILITY": [
       {
         "NAME": "ADDFOEDEFENSE",
@@ -1379,7 +1379,7 @@
     "LEVEL": 3,
     "ATTACK": 20,
     "DEFENSE": 10,
-    "LIFE": 20,
+    "HEALTH": 20,
     "ABILITY": [
       {
         "NAME": "RAISESPEED",
@@ -1399,7 +1399,7 @@
     "LEVEL": 4,
     "ATTACK": 30,
     "DEFENSE": 20,
-    "LIFE": 50,
+    "HEALTH": 50,
     "ABILITY": {
       "NAME": "DISTANCEATTACK",
       "MAX": 2,
@@ -1414,7 +1414,7 @@
     "LEVEL": 4,
     "ATTACK": 30,
     "DEFENSE": 20,
-    "LIFE": 50,
+    "HEALTH": 50,
     "ABILITY": {
       "NAME": "RAISEATTACK",
       "MAX": 3
@@ -1427,7 +1427,7 @@
     "LEVEL": 3,
     "ATTACK": 20,
     "DEFENSE": 20,
-    "LIFE": 30,
+    "HEALTH": 30,
     "ABILITY": {
       "NAME": "BUFFSELF",
       "ATTR": "ATTACK",
