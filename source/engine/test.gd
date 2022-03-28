@@ -1,8 +1,6 @@
 extends SceneTree
+const Engine = preload("res://engine/engine.gd")
 
 func _init():
-    var Engine = load("res://engine/engine.gd")
     var engine = Engine.new()
-    print(engine.dicelib)
-    engine.free()
     quit()
