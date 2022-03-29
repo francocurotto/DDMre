@@ -15,7 +15,7 @@ func _init(diceid, dicedict):
     id = diceid
     level = dicedict["LEVEL"]
     card = create_card(dicedict)
-    sides = create_sides(dicedict["CRESTS"], level)
+    sides = create_sides(dicedict["CRESTS"])
 
 func create_card(cardinfo):
     """
@@ -26,7 +26,7 @@ func create_card(cardinfo):
     elif cardinfo["TYPE"] == "ITEM":
         return ItemCard.new(cardinfo)
 
-func create_sides(string, level):
+func create_sides(string):
     """
     Creates a list of dice sides given a string of crests from
     dice library file.

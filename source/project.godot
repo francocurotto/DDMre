@@ -11,6 +11,7 @@ config_version=4
 [application]
 
 config/name="DDMre"
+run/main_scene="res://interface/Test.tscn"
 config/icon="res://icon.png"
 
 [physics]

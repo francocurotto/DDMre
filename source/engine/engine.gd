@@ -11,10 +11,10 @@ func load_dicelib():
     """
     Creates dice library dictionary from LIBRARY.json.
     """
-    var dicelib = {}
+    dicelib = {}
     var jsonlib = read_jsonlib()
     for key in jsonlib:
-        dicelib[key] = Dice.new(key, jsonlib[key])
+        dicelib[int(key)] = Dice.new(int(key), jsonlib[key])
     return dicelib
 
 func read_jsonlib():
