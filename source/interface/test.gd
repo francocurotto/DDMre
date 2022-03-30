@@ -2,6 +2,10 @@ extends Control
 
 const Engine = preload("res://engine/engine.gd")
 
+var engine
+
 func _init():
-    var engine = Engine.new()
-    var dice = engine.dicelib[1]
+    engine = Engine.new()
+    
+func _ready():
+    $DicelibScroll.fill(engine.dicelib)

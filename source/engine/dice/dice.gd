@@ -46,5 +46,4 @@ func create_sides(string):
     for sidestring in sidestrings:
         sidelist.append(Side.new(sidestring))
 
-    #return sidelist
-    return null
+    return sidelist
