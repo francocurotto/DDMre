@@ -4,11 +4,12 @@
 [ext_resource path="res://interface/dice_item.tscn" type="PackedScene" id=2]
 
 [node name="DicelibScroll" type="ScrollContainer"]
-margin_right = 743.0
-margin_bottom = 331.0
+margin_right = 621.0
+margin_bottom = 325.0
 script = ExtResource( 1 )
 DiceItem = ExtResource( 2 )
 
 [node name="VBox" type="VBoxContainer" parent="."]
-margin_right = 743.0
+margin_right = 621.0
 size_flags_horizontal = 3
+custom_constants/separation = 0
