@@ -1,6 +1,6 @@
 extends "crest.gd"
 
-const name = "SUMMON"
+const NAME = "SUMMON"
 
 func is_summon():
     return true

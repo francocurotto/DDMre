@@ -10,11 +10,11 @@
 
 # Dimension Abilities
 ## DIMCURE (AMOUNT, NUMBER, COST, CREST)
-Restore AMOUNT LIFE to NUMBER (different) player monster(s).
+Restore AMOUNT HEALTH to NUMBER (different) player monster(s).
 Cost: COST x CREST
 
 ## DIMCUREALL (AMOUNT) 
-Restores AMOUNT LIFE to all player monsters. This ability cannot be skipped.
+Restores AMOUNT HEALTH to all player monsters. This ability cannot be skipped.
 
 ## DIMKILLWEAKEST
 Destroy the opponent monster with the least ATTACK (after abilities effect computation).
@@ -103,7 +103,7 @@ Cost: COST x CREST
 Increase ATTR by AMOUNT.
 Cost: COST x CREST
 
-## TRADELIFE (AMOUNT, COST, CREST)
+## TRADEHEALTH (AMOUNT, COST, CREST)
 Deals AMOUNT damage to monster and opponent monster.
 Cost: COST x CREST
 
@@ -133,7 +133,7 @@ Cost: COST x CREST
  
 # Manual Item Abilities
 ## ITEMCURE (AMOUNT)
-Restore monster AMOUNT LIFE.
+Restore monster AMOUNT HEALTH.
 
 ## ITEMDAMAGE (AMOUNT)
 Deals AMOUNT damage to monster.

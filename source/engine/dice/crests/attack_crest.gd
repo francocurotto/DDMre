@@ -1,3 +1,3 @@
 extends "crest.gd"
 
-const name = "ATTACK"
+const NAME = "ATTACK"
