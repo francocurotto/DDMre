@@ -19,30 +19,30 @@ size_flags_horizontal = 3
 
 [node name="Index" type="Label" parent="HBox"]
 margin_top = 3.0
-margin_right = 40.0
+margin_right = 30.0
 margin_bottom = 17.0
-rect_min_size = Vector2( 40, 0 )
+rect_min_size = Vector2( 30, 0 )
 text = "000."
 
 [node name="Name" type="Label" parent="HBox"]
-margin_left = 44.0
+margin_left = 34.0
 margin_top = 3.0
-margin_right = 202.0
+margin_right = 222.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
 text = "Dice Name"
 
 [node name="TLACont" type="VBoxContainer" parent="HBox"]
-margin_left = 206.0
+margin_left = 226.0
 margin_right = 266.0
 margin_bottom = 20.0
 alignment = 1
 
 [node name="TLA" type="RichTextLabel" parent="HBox/TLACont"]
 margin_top = 2.0
-margin_right = 60.0
+margin_right = 40.0
 margin_bottom = 17.0
-rect_min_size = Vector2( 60, 0 )
+rect_min_size = Vector2( 40, 0 )
 bbcode_enabled = true
 bbcode_text = "TLA"
 text = "TLA"
