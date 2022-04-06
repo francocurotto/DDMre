@@ -12,103 +12,100 @@ script = ExtResource( 1 )
 margin_right = 552.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
+custom_constants/separation = 10
 
 [node name="Index" type="Label" parent="HBox"]
 margin_top = 3.0
-margin_right = 30.0
+margin_right = 28.0
 margin_bottom = 17.0
-rect_min_size = Vector2( 30, 0 )
-text = "000."
+size_flags_horizontal = 0
+text = "056."
 
 [node name="Name" type="Label" parent="HBox"]
-margin_left = 34.0
+margin_left = 38.0
 margin_top = 3.0
-margin_right = 256.0
+margin_right = 222.0
 margin_bottom = 17.0
-size_flags_horizontal = 3
-text = "Dice Name"
+rect_min_size = Vector2( 184, 0 )
+text = "Pumpking the King of Ghosts"
 
 [node name="TLACont" type="VBoxContainer" parent="HBox"]
-margin_left = 260.0
-margin_right = 300.0
+margin_left = 232.0
+margin_right = 272.0
 margin_bottom = 20.0
 alignment = 1
 
 [node name="TLA" type="RichTextLabel" parent="HBox/TLACont"]
-margin_top = 2.0
 margin_right = 40.0
-margin_bottom = 17.0
+margin_bottom = 19.0
 rect_min_size = Vector2( 40, 0 )
 bbcode_enabled = true
-bbcode_text = "TLA"
-text = "TLA"
+bbcode_text = "[img=15]res://art/icons/TYPE_UNDEAD.png[/img]3[img=15]res://art/icons/ABILITY.png[/img]"
+text = "3"
 fit_content_height = true
 
 [node name="AttackCont" type="VBoxContainer" parent="HBox"]
-margin_left = 304.0
-margin_right = 336.0
+margin_left = 282.0
+margin_right = 314.0
 margin_bottom = 20.0
 alignment = 1
 
 [node name="Attack" type="RichTextLabel" parent="HBox/AttackCont"]
-margin_top = 2.0
 margin_right = 32.0
-margin_bottom = 17.0
+margin_bottom = 19.0
 rect_min_size = Vector2( 32, 0 )
 bbcode_enabled = true
-bbcode_text = "[right]00A[/right]"
-text = "00A"
+bbcode_text = "[right]20[img=15]res://art/icons/CREST_ATTACK.png[/img][/right]"
+text = "20"
 fit_content_height = true
 
 [node name="DefenseCont" type="VBoxContainer" parent="HBox"]
-margin_left = 340.0
-margin_right = 372.0
+margin_left = 324.0
+margin_right = 356.0
 margin_bottom = 20.0
 alignment = 1
 
 [node name="Defense" type="RichTextLabel" parent="HBox/DefenseCont"]
-margin_top = 2.0
 margin_right = 32.0
-margin_bottom = 17.0
+margin_bottom = 19.0
 rect_min_size = Vector2( 32, 0 )
 bbcode_enabled = true
-bbcode_text = "[right]00D[/right]"
-text = "00D"
+bbcode_text = "[right]20[img=15]res://art/icons/CREST_DEFENSE.png[/img][/right]"
+text = "20"
 fit_content_height = true
 
 [node name="HealthCont" type="VBoxContainer" parent="HBox"]
-margin_left = 376.0
-margin_right = 408.0
+margin_left = 366.0
+margin_right = 398.0
 margin_bottom = 20.0
 alignment = 1
 
 [node name="Health" type="RichTextLabel" parent="HBox/HealthCont"]
-margin_top = 2.0
 margin_right = 32.0
-margin_bottom = 17.0
+margin_bottom = 19.0
 rect_min_size = Vector2( 32, 0 )
 bbcode_enabled = true
-bbcode_text = "[right]00H[/right]"
-text = "00H"
+bbcode_text = "[right]30[img=15]res://art/icons/HEALTH.png[/img][/right]"
+text = "30"
 fit_content_height = true
 
 [node name="SidesCont" type="VBoxContainer" parent="HBox"]
-margin_left = 412.0
-margin_right = 552.0
+margin_left = 408.0
+margin_right = 548.0
 margin_bottom = 20.0
 alignment = 1
 
 [node name="Sides" type="RichTextLabel" parent="HBox/SidesCont"]
-margin_top = 2.0
 margin_right = 140.0
-margin_bottom = 17.0
+margin_bottom = 19.0
 rect_min_size = Vector2( 140, 0 )
 bbcode_enabled = true
-bbcode_text = "[right]S1S1S1S1M1A1[/right]"
-text = "S1S1S1S1M1A1"
+bbcode_text = "[right][img=15]res://art/icons/CREST_SUMMON.png[/img]3[img=15]res://art/icons/CREST_SUMMON.png[/img]3[img=15]res://art/icons/CREST_MOVEMENT.png[/img]1[img=15]res://art/icons/CREST_ATTACK.png[/img]2[img=15]res://art/icons/CREST_DEFENSE.png[/img]3[img=15]res://art/icons/CREST_MAGIC.png[/img]2[/right]"
+text = "331232"
 fit_content_height = true
 
 [node name="Button" type="Button" parent="."]
 show_behind_parent = true
 margin_right = 552.0
 margin_bottom = 20.0
+toggle_mode = true

@@ -12,4 +12,6 @@ func _ready():
 	$Dicepool.fill(engine.player1.dicepool)
 
 func _on_RollButton_pressed():
-	engine.state.update({"name" : "ROLL"})
+	if $Dicepool.rollready():
+		var indeces = $Dicepool.get_selectedindeces()
+		engine.state.update({"name" : "ROLL", "dice" : indeces})

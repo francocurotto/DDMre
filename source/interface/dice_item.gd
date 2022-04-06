@@ -18,7 +18,7 @@ func get_tlastr(dice):
 	string += str(dice.level)
 	if dice.card.ability:
 		string += "[img=" + ICONWIDTH + "]" 
-		string += "res://art/icons/ABILITY" + ".png[/img]"   
+		string += "res://art/icons/ABILITY.png[/img]"   
 	return string
 
 func get_attackstr(card):
