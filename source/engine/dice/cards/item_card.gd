@@ -1,7 +1,7 @@
 extends "summon_card.gd"
 
 func _init(cardinfo).(cardinfo):
-    pass
+	pass
 
 func is_item():
-    return true
+	return true

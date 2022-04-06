@@ -53,3 +53,10 @@ func get_sidesstr(sides):
 		sidesstr += str(side.mult)
 	sidesstr += "[/right]"
 	return sidesstr
+
+func update_index(index):
+	"""
+	Change the current index text to the index input. Used to change the 
+	library id to the pool index.
+	"""
+	$HBox/Index.text = "00".substr(len(str(index))) + str(index) + "."

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://interface/test.gd" type="Script" id=1]
 [ext_resource path="res://interface/dicelib_scroll.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/dicepool.tscn" type="PackedScene" id=3]
 
 [node name="Test" type="Control"]
 anchor_right = 1.0
@@ -9,59 +10,20 @@ anchor_bottom = 1.0
 script = ExtResource( 1 )
 
 [node name="DicelibScroll" parent="." instance=ExtResource( 2 )]
-
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
 visible = false
-margin_right = 139.0
-margin_bottom = 117.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-margin_right = 139.0
-margin_bottom = 28.0
-size_flags_horizontal = 3
-custom_constants/separation = 0
+[node name="Dicepool" parent="." instance=ExtResource( 3 )]
+margin_right = 260.0
+margin_bottom = 125.0
 
-[node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
-margin_right = 139.0
-margin_bottom = 28.0
+[node name="RollButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+margin_right = 49.0
+text = "ROLL!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer/PanelContainer"]
-visible = false
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 132.0
-margin_bottom = 27.0
-size_flags_horizontal = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 132.0
-margin_bottom = 21.0
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/PanelContainer/HBoxContainer"]
-margin_bottom = 14.0
-
-[node name="PanelContainer2" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
-margin_top = 28.0
-margin_right = 139.0
-margin_bottom = 56.0
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/PanelContainer2"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 132.0
-margin_bottom = 21.0
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/PanelContainer2/HBoxContainer2"]
-margin_right = 78.0
-margin_bottom = 14.0
-text = "asdfsdfgsdfg"
-
-[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer/PanelContainer2"]
-visible = false
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 132.0
-margin_bottom = 27.0
-size_flags_horizontal = 3
+[connection signal="pressed" from="RollButton" to="." method="_on_RollButton_pressed"]
