@@ -8,10 +8,6 @@ margin_bottom = 20.0
 size_flags_horizontal = 3
 script = ExtResource( 1 )
 
-[node name="Button" type="Button" parent="."]
-margin_right = 552.0
-margin_bottom = 20.0
-
 [node name="HBox" type="HBoxContainer" parent="."]
 margin_right = 552.0
 margin_bottom = 20.0
@@ -111,3 +107,8 @@ bbcode_enabled = true
 bbcode_text = "[right]S1S1S1S1M1A1[/right]"
 text = "S1S1S1S1M1A1"
 fit_content_height = true
+
+[node name="Button" type="Button" parent="."]
+show_behind_parent = true
+margin_right = 552.0
+margin_bottom = 20.0
