@@ -4,9 +4,9 @@ var player
 var opponent
 var cmdlist = []
 
-func _init(stateplayer, stateopponent):
-	player = stateplayer
-	opponent = stateopponent
+func _init(_player, _opponent):
+	player = _player
+	opponent = _opponent
 
 func update(cmd):
 	"""

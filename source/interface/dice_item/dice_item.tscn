@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://interface/dice_item.gd" type="Script" id=1]
+[ext_resource path="res://interface/dice_item/dice_item.gd" type="Script" id=1]
 
 [node name="DiceItem" type="MarginContainer"]
 margin_right = 552.0

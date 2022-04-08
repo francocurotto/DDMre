@@ -8,15 +8,15 @@ const MagicCrest = preload("res://engine/dice/crests/magic_crest.gd")
 const TrapCrest = preload("res://engine/dice/crests/trap_crest.gd")
 
 const CRESTDICT = {"S" : SummonCrest,
-                   "M" : MovementCrest,
-                   "A" : AttackCrest,
-                   "D" : DefenseCrest,
-                   "G" : MagicCrest,
-                   "T" : TrapCrest}
+				   "M" : MovementCrest,
+				   "A" : AttackCrest,
+				   "D" : DefenseCrest,
+				   "G" : MagicCrest,
+				   "T" : TrapCrest}
 var crest
 var mult
 
 func _init(sidestring):
-    crest = CRESTDICT[sidestring[0]].new()
-    #TODO: support >9 mults
-    mult = int(sidestring[1]) if len(sidestring)>1 else 1
+	crest = CRESTDICT[sidestring[0]].new()
+	#TODO: support >9 mults
+	mult = int(sidestring[1]) if len(sidestring)>1 else 1

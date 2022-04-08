@@ -6,6 +6,8 @@ const Side = preload("res://engine/dice/crests/side.gd")
 const MONSTERTYPES = ["DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR"]
 const CRESTCHARS = ["S", "M", "A", "D", "G", "T"]
 
+signal rolled(side)
+
 var id
 var level
 var card
@@ -47,3 +49,10 @@ func create_sides(string):
 		sidelist.append(Side.new(sidestring))
 
 	return sidelist
+
+func roll():
+	"""
+	Roll the dice and produce a side.
+	"""
+	var side = sides[randi() % sides.size()]
+	emit_signal("rolled", side)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://interface/dicepool.gd" type="Script" id=1]
-[ext_resource path="res://interface/dice_item.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/dice_item/dice_item.tscn" type="PackedScene" id=2]
 
 [node name="Dicepool" type="VBoxContainer"]
 margin_right = 483.0

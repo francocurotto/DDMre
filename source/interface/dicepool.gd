@@ -45,7 +45,7 @@ func rollready():
 	"""
 	return get_nselected() == MAXSELECTED
 
-func get_selectedindeces():
+func get_indeces():
 	"""
 	Return the indeces of the selected dice to roll.
 	"""

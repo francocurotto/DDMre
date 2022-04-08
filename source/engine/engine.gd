@@ -19,8 +19,7 @@ func update(cmd):
 	"""
 	Update engine with given command.
 	"""
-	pass
-	#state.update(cmd)
+	state.update(cmd)
 
 func load_dicelib():
 	"""

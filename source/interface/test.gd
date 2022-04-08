@@ -5,13 +5,14 @@ const Engine = preload("res://engine/engine.gd")
 var engine
 
 func _init():
+	randomize()
 	engine = Engine.new()
 	
 func _ready():
 	#$DicelibScroll.fill(engine.dicelib)
-	$Dicepool.fill(engine.player1.dicepool)
+	$VBox/Dicepool.fill(engine.player1.dicepool)
 
 func _on_RollButton_pressed():
-	if $Dicepool.rollready():
-		var indeces = $Dicepool.get_selectedindeces()
+	if $VBox/Dicepool.rollready():
+		var indeces = $VBox/Dicepool.get_indeces()
 		engine.state.update({"name" : "ROLL", "dice" : indeces})
