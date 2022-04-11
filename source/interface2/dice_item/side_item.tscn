@@ -5,10 +5,12 @@
 [ext_resource path="res://art/icons/CREST_MOVEMENT.png" type="Texture" id=3]
 
 [node name="SideItem" type="TextureRect"]
-margin_right = 24.0
-margin_bottom = 24.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
 texture = ExtResource( 3 )
 expand = true
+stretch_mode = 5
 script = ExtResource( 2 )
 
 [node name="Mult" type="Label" parent="."]

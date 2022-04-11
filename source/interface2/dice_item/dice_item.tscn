@@ -1,18 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://interface2/dice_item/dice_item.gd" type="Script" id=1]
 [ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=2]
-[ext_resource path="res://art/icons/TYPE_DRAGON.png" type="Texture" id=3]
+[ext_resource path="res://art/icons/TYPE_SPELLCASTER.png" type="Texture" id=3]
+[ext_resource path="res://art/icons/HEALTH.png" type="Texture" id=4]
+[ext_resource path="res://art/icons/CREST_DEFENSE.png" type="Texture" id=5]
+[ext_resource path="res://art/icons/CREST_ATTACK.png" type="Texture" id=6]
+[ext_resource path="res://interface2/dice_item/side_item.tscn" type="PackedScene" id=7]
+[ext_resource path="res://art/icons/CREST_SUMMON.png" type="Texture" id=8]
 
 [node name="DiceItem" type="MarginContainer"]
-margin_right = 334.0
+margin_right = 593.0
 margin_bottom = 21.0
 script = ExtResource( 1 )
+diceidx = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 334.0
+margin_right = 593.0
 margin_bottom = 21.0
-custom_constants/separation = 5
+custom_constants/separation = 8
 
 [node name="Index" type="Label" parent="HBoxContainer"]
 margin_right = 22.0
@@ -21,43 +27,161 @@ custom_fonts/font = ExtResource( 2 )
 text = "01."
 
 [node name="Name" type="Label" parent="HBoxContainer"]
-margin_left = 27.0
-margin_right = 241.0
+margin_left = 30.0
+margin_right = 244.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 214, 0 )
 custom_fonts/font = ExtResource( 2 )
-text = "Twin-headed Thunder Dragon"
+text = "Ryu-Kishin"
 
 [node name="TLA" type="HBoxContainer" parent="HBoxContainer"]
-margin_left = 246.0
-margin_right = 297.0
+margin_left = 252.0
+margin_right = 301.0
 margin_bottom = 21.0
 custom_constants/separation = 0
 
 [node name="Type" type="TextureRect" parent="HBoxContainer/TLA"]
-margin_right = 21.0
+margin_right = 20.0
 margin_bottom = 21.0
-rect_min_size = Vector2( 21, 0 )
+rect_min_size = Vector2( 20, 20 )
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 5
 
 [node name="Level" type="Label" parent="HBoxContainer/TLA"]
-margin_left = 21.0
-margin_right = 30.0
+margin_left = 20.0
+margin_right = 29.0
 margin_bottom = 21.0
+rect_min_size = Vector2( 9, 0 )
 custom_fonts/font = ExtResource( 2 )
-text = "3"
+text = "2"
 
 [node name="Ability" type="TextureRect" parent="HBoxContainer/TLA"]
-margin_left = 30.0
-margin_right = 51.0
+margin_left = 29.0
+margin_right = 49.0
 margin_bottom = 21.0
-rect_min_size = Vector2( 21, 0 )
+rect_min_size = Vector2( 20, 20 )
 expand = true
 stretch_mode = 5
 
+[node name="Attack" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 309.0
+margin_right = 347.0
+margin_bottom = 21.0
+custom_constants/separation = 0
+
+[node name="AttackValue" type="Label" parent="HBoxContainer/Attack"]
+margin_right = 18.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 18, 0 )
+custom_fonts/font = ExtResource( 2 )
+text = "10"
+align = 2
+
+[node name="AttackIcon" type="TextureRect" parent="HBoxContainer/Attack"]
+margin_left = 18.0
+margin_right = 38.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 20, 20 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Defense" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 355.0
+margin_right = 393.0
+margin_bottom = 21.0
+custom_constants/separation = 0
+
+[node name="DefenseValue" type="Label" parent="HBoxContainer/Defense"]
+margin_right = 18.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 18, 0 )
+custom_fonts/font = ExtResource( 2 )
+text = "10"
+align = 2
+
+[node name="DefenseIcon" type="TextureRect" parent="HBoxContainer/Defense"]
+margin_left = 18.0
+margin_right = 38.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 20, 20 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="Health" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 401.0
+margin_right = 439.0
+margin_bottom = 21.0
+custom_constants/separation = 0
+
+[node name="HealthValue" type="Label" parent="HBoxContainer/Health"]
+margin_right = 18.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 18, 0 )
+custom_fonts/font = ExtResource( 2 )
+text = "10"
+align = 2
+
+[node name="HealthIcon" type="TextureRect" parent="HBoxContainer/Health"]
+margin_left = 18.0
+margin_right = 38.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 20, 20 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="Sides" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 447.0
+margin_right = 587.0
+margin_bottom = 21.0
+
+[node name="SideItem1" parent="HBoxContainer/Sides" instance=ExtResource( 7 )]
+margin_bottom = 21.0
+texture = ExtResource( 8 )
+crest = "SUMMON"
+mult = 2
+
+[node name="SideItem2" parent="HBoxContainer/Sides" instance=ExtResource( 7 )]
+margin_left = 24.0
+margin_right = 44.0
+margin_bottom = 21.0
+texture = ExtResource( 8 )
+crest = "SUMMON"
+mult = 2
+
+[node name="SideItem3" parent="HBoxContainer/Sides" instance=ExtResource( 7 )]
+margin_left = 48.0
+margin_right = 68.0
+margin_bottom = 21.0
+texture = ExtResource( 8 )
+crest = "SUMMON"
+mult = 2
+
+[node name="SideItem4" parent="HBoxContainer/Sides" instance=ExtResource( 7 )]
+margin_left = 72.0
+margin_right = 92.0
+margin_bottom = 21.0
+
+[node name="SideItem5" parent="HBoxContainer/Sides" instance=ExtResource( 7 )]
+margin_left = 96.0
+margin_right = 116.0
+margin_bottom = 21.0
+texture = ExtResource( 6 )
+crest = "ATTACK"
+mult = 2
+
+[node name="SideItem6" parent="HBoxContainer/Sides" instance=ExtResource( 7 )]
+margin_left = 120.0
+margin_right = 140.0
+margin_bottom = 21.0
+texture = ExtResource( 6 )
+crest = "ATTACK"
+mult = 2
+
 [node name="Button" type="Button" parent="."]
 show_behind_parent = true
-margin_right = 334.0
+margin_right = 593.0
 margin_bottom = 21.0
