@@ -1,16 +1,24 @@
+tool
+
 extends MarginContainer
 
 const COMMON_ABILITIES = ["FLY", "ARCHER", "TUNNELING", "NEUTRAL"]
 const ICONWIDTH = "15"
 
 func update_item(dice):
+	"""
+	Update the dice graphics with information of new dice.
+	"""
 	$HBox/Index.text = "000".substr(len(str(dice.id))) + str(dice.id) + "."
 	$HBox/Name.text = dice.card.name
 	$HBox/TLACont/TLA.bbcode_text = get_tlastr(dice)
 	$HBox/AttackCont/Attack.bbcode_text = get_attackstr(dice.card)
 	$HBox/DefenseCont/Defense.bbcode_text = get_defensestr(dice.card)
 	$HBox/HealthCont/Health.bbcode_text = get_healthstr(dice.card)
-	$HBox/SidesCont/Sides.bbcode_text = get_sidesstr(dice.sides)
+	#$HBox/SidesCont/Sides.bbcode_text = get_sidesstr(dice.sides)
+	for i in dice.sides.size():
+		var sideitem = $HBox/SidesCont.get_child(i)
+		sideitem.update_item(dice.sides[i])
 	
 func get_tlastr(dice):
 	var string = "[img=" + ICONWIDTH + "]"

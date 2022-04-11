@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://interface/test/test.gd" type="Script" id=1]
+[ext_resource path="res://interface/dice_lists/dicepool.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/dice_item/roll_result.tscn" type="PackedScene" id=3]
+
+[node name="Test" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="."]
+margin_right = 600.0
+margin_bottom = 354.0
+
+[node name="Dicepool" parent="VBox" instance=ExtResource( 2 )]
+margin_right = 600.0
+margin_bottom = 315.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBox"]
+margin_top = 319.0
+margin_right = 600.0
+margin_bottom = 382.0
+
+[node name="RollButton" type="Button" parent="VBox/HBoxContainer"]
+margin_right = 398.0
+margin_bottom = 63.0
+size_flags_horizontal = 3
+text = "ROLL!"
+
+[node name="RollResult" parent="VBox/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 402.0
+margin_right = 600.0
+margin_bottom = 63.0
+
+[connection signal="pressed" from="VBox/HBoxContainer/RollButton" to="." method="_on_RollButton_pressed"]

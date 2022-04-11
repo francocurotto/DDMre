@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="DDMre"
-run/main_scene="res://interface/test.tscn"
+run/main_scene="res://interface2/dice_item/side_item.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Globals="*res://Globals.gd"
 
 [physics]
 
