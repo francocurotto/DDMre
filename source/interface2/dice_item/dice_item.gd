@@ -15,10 +15,16 @@ func set_dice(dice):
         $HBoxContainer/Attack/AttackValue.text = str(dice.card.attack)
         $HBoxContainer/Defense/DefenseValue.text = str(dice.card.defense)
         $HBoxContainer/Health/HealthValue.text = str(dice.card.health)
+        $HBoxContainer/Attack/AttackIcon.texture = load("res://art/icons/CREST_ATTACK.png")
+        $HBoxContainer/Defense/DefenseIcon.texture = load("res://art/icons/CREST_DEFENSE.png")
+        $HBoxContainer/Health/HealthIcon.texture = load("res://art/icons/HEALTH.png")
     else: # is item
-        $HBoxContainer/Attack.set_visible(false)
-        $HBoxContainer/Defense.set_visible(false)
-        $HBoxContainer/Health.set_visible(false)
+        $HBoxContainer/Attack/AttackValue.text = ""
+        $HBoxContainer/Defense/DefenseValue.text = ""
+        $HBoxContainer/Health/HealthValue.text = ""
+        $HBoxContainer/Attack/AttackIcon.texture = null
+        $HBoxContainer/Defense/DefenseIcon.texture = null
+        $HBoxContainer/Health/HealthIcon.texture = null
     for i in dice.sides.size():
         $HBoxContainer/Sides.get_child(i).set_side(dice.sides[i])
 

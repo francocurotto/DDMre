@@ -22,3 +22,4 @@ margin_left = -8.0
 margin_top = -15.0
 custom_fonts/font = ExtResource( 1 )
 text = "1"
+align = 2
