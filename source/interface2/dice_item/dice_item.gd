@@ -34,3 +34,6 @@ func set_diceidx(_diceidx):
     var dicelib = Dicelib.new()
     var dice = dicelib.dict[diceidx]
     set_dice(dice)
+
+func set_index(i):
+    $HBoxContainer/Index.text = str(i+1) + "."

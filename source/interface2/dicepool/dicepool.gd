@@ -1,18 +1,20 @@
 tool
-extends VBoxContainer
+extends PanelContainer
 
-export (bool) var set_random_pool setget set_random_pool
+export (bool) var random_pool setget set_random_pool
 
-func set_random_pool(b):
+func set_random_pool(_bool):
     randomize()
     var Dicelib = load("engine/dice/dicelib.gd")
     var dicelib = Dicelib.new()
     var dicelist = []
-    for i in get_child_count():
+    for i in $TPCont/PoolCont.get_child_count():
         var dice = dicelib.dict.values()[randi()%dicelib.dict.size()]
         dicelist.append(dice)
     set_dicepool(dicelist)
 
 func set_dicepool(dicelist):
     for i in dicelist.size():
-        get_child(i).set_dice(dicelist[i])
+        var diceitem = $TPCont/PoolCont.get_child(i)
+        diceitem.set_dice(dicelist[i])
+        diceitem.set_index(i)
