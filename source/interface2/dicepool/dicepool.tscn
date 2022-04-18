@@ -15,7 +15,7 @@ script = ExtResource( 2 )
 margin_left = 8.0
 margin_top = 2.0
 margin_right = 597.0
-margin_bottom = 369.0
+margin_bottom = 394.0
 custom_constants/separation = 0
 
 [node name="Title" type="Label" parent="TPCont"]
@@ -27,7 +27,7 @@ text = "Dice Pool"
 [node name="PoolCont" type="VBoxContainer" parent="TPCont"]
 margin_top = 21.0
 margin_right = 589.0
-margin_bottom = 367.0
+margin_bottom = 392.0
 
 [node name="DiceItem1" parent="TPCont/PoolCont" instance=ExtResource( 1 )]
 
@@ -82,3 +82,7 @@ margin_bottom = 321.0
 [node name="DiceItem14" parent="TPCont/PoolCont" instance=ExtResource( 1 )]
 margin_top = 325.0
 margin_bottom = 346.0
+
+[node name="DiceItem" parent="TPCont/PoolCont" instance=ExtResource( 1 )]
+margin_top = 350.0
+margin_bottom = 371.0

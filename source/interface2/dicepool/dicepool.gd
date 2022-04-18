@@ -3,6 +3,9 @@ extends PanelContainer
 
 export (bool) var random_pool setget set_random_pool
 
+func _ready():
+    set_random_pool(true)
+
 func set_random_pool(_bool):
     randomize()
     var Dicelib = load("engine/dice/dicelib.gd")

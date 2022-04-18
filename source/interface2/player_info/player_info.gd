@@ -10,3 +10,6 @@ func set_random_roll(_bool):
 func set_player(_player):
     player = _player
     $InfoBox/CRHBox/RHBox/HBox/Hearts.set_player(player)
+
+func set_opponent_title():
+    $InfoBox/Title.text = "Opponent Info"

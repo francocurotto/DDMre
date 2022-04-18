@@ -16,61 +16,63 @@ script = ExtResource( 6 )
 [node name="InfoBox" type="VBoxContainer" parent="."]
 margin_left = 8.0
 margin_top = 2.0
-margin_right = 174.0
-margin_bottom = 193.0
+margin_right = 165.0
+margin_bottom = 163.0
 
 [node name="Title" type="Label" parent="InfoBox"]
-margin_right = 166.0
-margin_bottom = 29.0
+margin_right = 157.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 3 )
 text = "Player Info"
 align = 1
 
 [node name="CRHBox" type="HBoxContainer" parent="InfoBox"]
-margin_top = 33.0
-margin_right = 166.0
-margin_bottom = 191.0
+margin_top = 28.0
+margin_right = 157.0
+margin_bottom = 161.0
 custom_constants/separation = 10
 
 [node name="CrestPool" parent="InfoBox/CRHBox" instance=ExtResource( 1 )]
+margin_right = 49.0
+margin_bottom = 133.0
 
 [node name="RHBox" type="VBoxContainer" parent="InfoBox/CRHBox"]
-margin_left = 68.0
-margin_right = 166.0
-margin_bottom = 158.0
+margin_left = 59.0
+margin_right = 157.0
+margin_bottom = 133.0
 
 [node name="RBox" type="VBoxContainer" parent="InfoBox/CRHBox/RHBox"]
 margin_right = 98.0
-margin_bottom = 77.0
+margin_bottom = 64.0
 size_flags_vertical = 3
 custom_constants/separation = 0
 
 [node name="Label" type="Label" parent="InfoBox/CRHBox/RHBox/RBox"]
 margin_right = 98.0
-margin_bottom = 29.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 3 )
 text = "Last Roll"
 align = 1
 
 [node name="LastRoll" parent="InfoBox/CRHBox/RHBox/RBox" instance=ExtResource( 2 )]
-margin_top = 29.0
-margin_bottom = 59.0
+margin_top = 24.0
+margin_bottom = 54.0
 
 [node name="HBox" type="VBoxContainer" parent="InfoBox/CRHBox/RHBox"]
-margin_top = 81.0
+margin_top = 68.0
 margin_right = 98.0
-margin_bottom = 158.0
+margin_bottom = 133.0
 size_flags_vertical = 3
 custom_constants/separation = 0
 
 [node name="Label" type="Label" parent="InfoBox/CRHBox/RHBox/HBox"]
 margin_right = 98.0
-margin_bottom = 29.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 3 )
 text = "Hearts"
 align = 1
 
 [node name="Hearts" parent="InfoBox/CRHBox/RHBox/HBox" instance=ExtResource( 4 )]
-margin_top = 29.0
+margin_top = 24.0
 margin_right = 98.0
-margin_bottom = 59.0
+margin_bottom = 54.0

@@ -14,99 +14,99 @@ custom_constants/separation = 2
 
 [node name="MovementSlot" type="HBoxContainer" parent="."]
 margin_right = 58.0
-margin_bottom = 30.0
+margin_bottom = 25.0
 
 [node name="MovementIcon" type="TextureRect" parent="MovementSlot"]
-margin_right = 30.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 30, 30 )
+margin_right = 25.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 5
 
 [node name="MovementValue" type="Label" parent="MovementSlot"]
-margin_left = 34.0
-margin_right = 58.0
-margin_bottom = 29.0
+margin_left = 29.0
+margin_right = 49.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 6 )
 text = "00"
 
 [node name="AttackSlot" type="HBoxContainer" parent="."]
-margin_top = 32.0
+margin_top = 27.0
 margin_right = 58.0
-margin_bottom = 62.0
+margin_bottom = 52.0
 
 [node name="AttackIcon" type="TextureRect" parent="AttackSlot"]
-margin_right = 30.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 30, 30 )
+margin_right = 25.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
 [node name="AttackValue" type="Label" parent="AttackSlot"]
-margin_left = 34.0
-margin_right = 58.0
-margin_bottom = 29.0
+margin_left = 29.0
+margin_right = 49.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 6 )
 text = "00"
 
 [node name="DefenseSlot" type="HBoxContainer" parent="."]
-margin_top = 64.0
+margin_top = 54.0
 margin_right = 58.0
-margin_bottom = 94.0
+margin_bottom = 79.0
 
 [node name="DefenseIcon" type="TextureRect" parent="DefenseSlot"]
-margin_right = 30.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 30, 30 )
+margin_right = 25.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 5
 
 [node name="DefenseValue" type="Label" parent="DefenseSlot"]
-margin_left = 34.0
-margin_right = 58.0
-margin_bottom = 29.0
+margin_left = 29.0
+margin_right = 49.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 6 )
 text = "00"
 
 [node name="MagicSlot" type="HBoxContainer" parent="."]
-margin_top = 96.0
+margin_top = 81.0
 margin_right = 58.0
-margin_bottom = 126.0
+margin_bottom = 106.0
 
 [node name="MagicIcon" type="TextureRect" parent="MagicSlot"]
-margin_right = 30.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 30, 30 )
+margin_right = 25.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 5
 
 [node name="MagicValue" type="Label" parent="MagicSlot"]
-margin_left = 34.0
-margin_right = 58.0
-margin_bottom = 29.0
+margin_left = 29.0
+margin_right = 49.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 6 )
 text = "00"
 
 [node name="TrapSlot" type="HBoxContainer" parent="."]
-margin_top = 128.0
+margin_top = 108.0
 margin_right = 58.0
-margin_bottom = 158.0
+margin_bottom = 133.0
 
 [node name="TrapIcon" type="TextureRect" parent="TrapSlot"]
-margin_right = 30.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 30, 30 )
+margin_right = 25.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 5
 
 [node name="TrapValue" type="Label" parent="TrapSlot"]
-margin_left = 34.0
-margin_right = 58.0
-margin_bottom = 29.0
+margin_left = 29.0
+margin_right = 49.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 6 )
 text = "00"
