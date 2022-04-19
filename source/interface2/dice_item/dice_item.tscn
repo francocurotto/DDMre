@@ -189,3 +189,4 @@ mult = 2
 show_behind_parent = true
 margin_right = 589.0
 margin_bottom = 21.0
+toggle_mode = true

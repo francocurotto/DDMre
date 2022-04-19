@@ -13,59 +13,75 @@ __meta__ = {
 }
 
 [node name="DiceItem1" parent="." instance=ExtResource( 2 )]
+margin_right = 597.0
+margin_bottom = 21.0
 
 [node name="DiceItem2" parent="." instance=ExtResource( 2 )]
-margin_top = 22.0
-margin_bottom = 44.0
+margin_top = 21.0
+margin_right = 597.0
+margin_bottom = 42.0
 
 [node name="DiceItem3" parent="." instance=ExtResource( 2 )]
-margin_top = 44.0
-margin_bottom = 66.0
+margin_top = 42.0
+margin_right = 597.0
+margin_bottom = 63.0
 
 [node name="DiceItem4" parent="." instance=ExtResource( 2 )]
-margin_top = 66.0
-margin_bottom = 88.0
+margin_top = 63.0
+margin_right = 597.0
+margin_bottom = 84.0
 
 [node name="DiceItem5" parent="." instance=ExtResource( 2 )]
-margin_top = 88.0
-margin_bottom = 110.0
+margin_top = 84.0
+margin_right = 597.0
+margin_bottom = 105.0
 
 [node name="DiceItem6" parent="." instance=ExtResource( 2 )]
-margin_top = 110.0
-margin_bottom = 132.0
+margin_top = 105.0
+margin_right = 597.0
+margin_bottom = 126.0
 
 [node name="DiceItem7" parent="." instance=ExtResource( 2 )]
-margin_top = 132.0
-margin_bottom = 154.0
+margin_top = 126.0
+margin_right = 597.0
+margin_bottom = 147.0
 
 [node name="DiceItem8" parent="." instance=ExtResource( 2 )]
-margin_top = 154.0
-margin_bottom = 176.0
+margin_top = 147.0
+margin_right = 597.0
+margin_bottom = 168.0
 
 [node name="DiceItem9" parent="." instance=ExtResource( 2 )]
-margin_top = 176.0
-margin_bottom = 198.0
+margin_top = 168.0
+margin_right = 597.0
+margin_bottom = 189.0
 
 [node name="DiceItem10" parent="." instance=ExtResource( 2 )]
-margin_top = 198.0
-margin_bottom = 220.0
+margin_top = 189.0
+margin_right = 597.0
+margin_bottom = 210.0
 
 [node name="DiceItem11" parent="." instance=ExtResource( 2 )]
-margin_top = 220.0
-margin_bottom = 242.0
+margin_top = 210.0
+margin_right = 597.0
+margin_bottom = 231.0
 
 [node name="DiceItem12" parent="." instance=ExtResource( 2 )]
-margin_top = 242.0
-margin_bottom = 264.0
+margin_top = 231.0
+margin_right = 597.0
+margin_bottom = 252.0
 
 [node name="DiceItem13" parent="." instance=ExtResource( 2 )]
-margin_top = 264.0
-margin_bottom = 286.0
+margin_top = 252.0
+margin_right = 597.0
+margin_bottom = 273.0
 
 [node name="DiceItem14" parent="." instance=ExtResource( 2 )]
-margin_top = 286.0
-margin_bottom = 308.0
+margin_top = 273.0
+margin_right = 597.0
+margin_bottom = 294.0
 
 [node name="DiceItem15" parent="." instance=ExtResource( 2 )]
-margin_top = 308.0
-margin_bottom = 330.0
+margin_top = 294.0
+margin_right = 597.0
+margin_bottom = 315.0

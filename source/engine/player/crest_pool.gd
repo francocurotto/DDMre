@@ -15,7 +15,6 @@ func add_crests(side):
 	"""
 	Add rolled crests to crest pool.
 	"""
-	print("ROLLED: " + side.crest.NAME + str(side.mult))
 	# if rolled a summon, skip
 	if side.crest.NAME == "SUMMON":
 		return

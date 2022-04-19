@@ -2,6 +2,8 @@ extends "state.gd"
 
 const NAME = "ROLL"
 
+signal dice_rolled(sides)
+
 func _init(_player, _opponent).(_player, _opponent):
 	cmdlist += ["ROLL"]
 	# connect signals
@@ -14,7 +16,7 @@ func ROLL(cmd):
 	
 func get_dicelist(indeces):
 	"""
-	Get a liist of dice from a list of indeces
+	Get a list of dice from a list of indeces
 	"""
 	var dicelist = []
 	for i in indeces:
@@ -27,4 +29,5 @@ func roll_dice(dicelist):
 	"""
 	var sides = []
 	for dice in dicelist:
-		dice.roll()
+		sides.append(dice.roll())
+	emit_signal("dice_rolled", sides)

@@ -12,6 +12,6 @@ var monsters = []
 var items = []
 var tiles = []
 
-func _init(playerid, player_dicepool):
-	id = playerid
-	dicepool = player_dicepool
+func _init(_id, _dicepool):
+	id = _id
+	dicepool = _dicepool

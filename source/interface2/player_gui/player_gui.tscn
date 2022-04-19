@@ -46,6 +46,7 @@ margin_right = 251.0
 margin_bottom = 83.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
+disabled = true
 text = "Roll!"
 
 [node name="EndTurnButton" type="Button" parent="PIBBox/IBBox/ButtonBox"]
@@ -54,4 +55,7 @@ margin_right = 251.0
 margin_bottom = 171.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
+disabled = true
 text = "End Turn"
+
+[connection signal="pressed" from="PIBBox/IBBox/ButtonBox/RollButton" to="." method="_on_RollButton_pressed"]
