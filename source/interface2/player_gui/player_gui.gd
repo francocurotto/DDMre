@@ -9,12 +9,14 @@ export (int, 1, 2) var player = 1 setget set_player
 var engine
 
 func _ready():
+	randomize()
 	engine = Engine.new()
-	engine.state.connect("dice_rolled", $PIBBox/IBBox/PlayerInfo, "on_dice_rolled")
 	$PIBBox/Dicepool.set_dicepool(engine.state.player.dicepool)
 	$PIBBox/IBBox/OpponentInfo.set_opponent_title()
 	$PIBBox/IBBox/PlayerInfo.hide_roll()
 	$PIBBox/IBBox/OpponentInfo.hide_roll()
+	engine.state.connect("dice_rolled", self, "on_dice_rolled")
+# warning-ignore:return_value_discarded
 	$PIBBox/Dicepool.connect("roll_changed", self, "on_roll_changed")
 
 func set_random_pool(_bool):
@@ -32,3 +34,9 @@ func on_roll_changed():
 func _on_RollButton_pressed():
 	var indeces = $PIBBox/Dicepool.get_indeces()
 	engine.state.update({"name" : "ROLL", "dice" : indeces})
+
+func on_dice_rolled(sides, engine_player):
+	if engine_player.id == player:
+		$PIBBox/IBBox/PlayerInfo.update_roll(sides, engine_player)
+	else:
+		$PIBBox/IBBox/OpponentInfo.update_roll(sides, engine_player)

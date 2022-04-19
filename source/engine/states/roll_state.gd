@@ -13,6 +13,7 @@ func _init(_player, _opponent).(_player, _opponent):
 func ROLL(cmd):
 	var dicelist = get_dicelist(cmd["dice"])
 	roll_dice(dicelist)
+	return self
 	
 func get_dicelist(indeces):
 	"""
@@ -30,4 +31,4 @@ func roll_dice(dicelist):
 	var sides = []
 	for dice in dicelist:
 		sides.append(dice.roll())
-	emit_signal("dice_rolled", sides)
+	emit_signal("dice_rolled", sides, player)

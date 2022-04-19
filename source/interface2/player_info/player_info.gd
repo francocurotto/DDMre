@@ -17,6 +17,7 @@ func set_opponent_title():
 func hide_roll():
 	$InfoBox/CRHBox/RHBox/RBox/LastRoll.visible = false
 
-func on_dice_rolled(sides):
-	#TODO!!!!!
-	pass
+func update_roll(sides, engine_player):
+	$InfoBox/CRHBox/RHBox/RBox/LastRoll.set_roll(sides)
+	$InfoBox/CRHBox/RHBox/RBox/LastRoll.visible = true
+	$InfoBox/CRHBox/CrestPool.set_pool(engine_player.crestpool.slots)

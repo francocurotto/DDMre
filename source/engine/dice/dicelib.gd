@@ -5,9 +5,7 @@ const Dice = preload("res://engine/dice/dice.gd")
 var dict = {}
 
 func _init():
-	var jsonlib = read_jsonlib()
-	for key in jsonlib:
-		dict[int(key)] = Dice.new(int(key), jsonlib[key])
+	dict = read_jsonlib()
 
 func read_jsonlib():
 	"""
@@ -23,4 +21,10 @@ func get_randdice():
 	"""
 	Returns a random dice in the library.
 	"""
-	return dict.values()[randi() % dict.size()]
+	return create_dice(randi() % dict.size() + 1)
+
+func create_dice(index):
+	"""
+	Creates dice object from dictionary and return it. 
+	"""
+	return Dice.new(index, dict[str(index)])

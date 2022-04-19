@@ -35,7 +35,7 @@ func set_diceidx(_diceidx):
 	diceidx = _diceidx
 	var Dicelib = load("res://engine/dice/dicelib.gd")
 	var dicelib = Dicelib.new()
-	var dice = dicelib.dict[diceidx]
+	var dice = dicelib.create_dice(diceidx)
 	set_dice(dice)
 
 func set_index(i):

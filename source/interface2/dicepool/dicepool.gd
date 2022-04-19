@@ -17,7 +17,7 @@ func set_random_pool(_bool):
 	var dicelib = Dicelib.new()
 	var dicelist = []
 	for i in $TPCont/PoolCont.get_child_count():
-		var dice = dicelib.dict.values()[randi()%dicelib.dict.size()]
+		var dice = dicelib.get_randdice()
 		dicelist.append(dice)
 	set_dicepool(dicelist)
 

@@ -12,4 +12,4 @@ func update(cmd):
 	"""
 	Update state given command cmd.
 	"""
-	call(cmd["name"], cmd)
+	return call(cmd["name"], cmd)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://art/icons/CREST_MOVEMENT.png" type="Texture" id=1]
 [ext_resource path="res://art/icons/CREST_MAGIC.png" type="Texture" id=2]
@@ -6,14 +6,16 @@
 [ext_resource path="res://art/icons/CREST_TRAP.png" type="Texture" id=4]
 [ext_resource path="res://art/icons/CREST_ATTACK.png" type="Texture" id=5]
 [ext_resource path="res://art/fonts/crestpool.tres" type="DynamicFont" id=6]
+[ext_resource path="res://interface2/player_info/crestpool.gd" type="Script" id=7]
 
 [node name="CrestPool" type="VBoxContainer"]
-margin_right = 58.0
-margin_bottom = 158.0
+margin_right = 49.0
+margin_bottom = 133.0
 custom_constants/separation = 2
+script = ExtResource( 7 )
 
 [node name="MovementSlot" type="HBoxContainer" parent="."]
-margin_right = 58.0
+margin_right = 49.0
 margin_bottom = 25.0
 
 [node name="MovementIcon" type="TextureRect" parent="MovementSlot"]
@@ -33,7 +35,7 @@ text = "00"
 
 [node name="AttackSlot" type="HBoxContainer" parent="."]
 margin_top = 27.0
-margin_right = 58.0
+margin_right = 49.0
 margin_bottom = 52.0
 
 [node name="AttackIcon" type="TextureRect" parent="AttackSlot"]
@@ -53,7 +55,7 @@ text = "00"
 
 [node name="DefenseSlot" type="HBoxContainer" parent="."]
 margin_top = 54.0
-margin_right = 58.0
+margin_right = 49.0
 margin_bottom = 79.0
 
 [node name="DefenseIcon" type="TextureRect" parent="DefenseSlot"]
@@ -73,7 +75,7 @@ text = "00"
 
 [node name="MagicSlot" type="HBoxContainer" parent="."]
 margin_top = 81.0
-margin_right = 58.0
+margin_right = 49.0
 margin_bottom = 106.0
 
 [node name="MagicIcon" type="TextureRect" parent="MagicSlot"]
@@ -93,7 +95,7 @@ text = "00"
 
 [node name="TrapSlot" type="HBoxContainer" parent="."]
 margin_top = 108.0
-margin_right = 58.0
+margin_right = 49.0
 margin_bottom = 133.0
 
 [node name="TrapIcon" type="TextureRect" parent="TrapSlot"]

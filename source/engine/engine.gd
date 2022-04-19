@@ -19,7 +19,7 @@ func update(cmd):
 	"""
 	Update engine with given command.
 	"""
-	state.update(cmd)
+	state = state.update(cmd)
 
 func gen_randompool():
 	"""
