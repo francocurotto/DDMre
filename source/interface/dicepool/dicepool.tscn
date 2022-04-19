@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://interface2/dice_item/dice_item.tscn" type="PackedScene" id=1]
-[ext_resource path="res://interface2/dicepool/dicepool.gd" type="Script" id=2]
+[ext_resource path="res://interface/dice_item/dice_item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://interface/dicepool/dicepool.gd" type="Script" id=2]
 [ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=3]
 [ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=4]
 

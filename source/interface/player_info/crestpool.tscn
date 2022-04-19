@@ -6,7 +6,7 @@
 [ext_resource path="res://art/icons/CREST_TRAP.png" type="Texture" id=4]
 [ext_resource path="res://art/icons/CREST_ATTACK.png" type="Texture" id=5]
 [ext_resource path="res://art/fonts/crestpool.tres" type="DynamicFont" id=6]
-[ext_resource path="res://interface2/player_info/crestpool.gd" type="Script" id=7]
+[ext_resource path="res://interface/player_info/crestpool.gd" type="Script" id=7]
 
 [node name="CrestPool" type="VBoxContainer"]
 margin_right = 49.0
