@@ -3,8 +3,6 @@ extends Reference
 const MonsterCard = preload("res://engine/dice/cards/monster_card.gd")
 const ItemCard = preload("res://engine/dice/cards/item_card.gd")
 const Side = preload("res://engine/dice/crests/side.gd")
-const MONSTERTYPES = ["DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR"]
-const CRESTCHARS = ["S", "M", "A", "D", "G", "T"]
 
 signal rolled(side)
 
@@ -23,7 +21,7 @@ func create_card(cardinfo):
 	"""
 	Creates card object with cardinfo dictionary.
 	"""
-	if cardinfo["TYPE"] in MONSTERTYPES:
+	if cardinfo["TYPE"] in Globals.TYPES:
 		return MonsterCard.new(cardinfo)
 	elif cardinfo["TYPE"] == "ITEM":
 		return ItemCard.new(cardinfo)
@@ -36,7 +34,7 @@ func create_sides(string):
 	# first break the string into a list of side strings
 	var sidestrings = []
 	for chr in string:
-		if chr in CRESTCHARS:
+		if chr in Globals.CRESTDICT.values():
 			sidestrings.append(chr)
 			if chr == "S": # add level as multiplier
 				sidestrings[-1] += str(level)

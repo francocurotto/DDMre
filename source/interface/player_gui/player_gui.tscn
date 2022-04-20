@@ -1,47 +1,53 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://interface/dicepool/dicepool.tscn" type="PackedScene" id=1]
 [ext_resource path="res://interface/player_info/player_info.tscn" type="PackedScene" id=2]
 [ext_resource path="res://art/fonts/crestpool.tres" type="DynamicFont" id=3]
 [ext_resource path="res://interface/player_gui/player_gui.gd" type="Script" id=4]
+[ext_resource path="res://interface/dungeon/dungeon.tscn" type="PackedScene" id=5]
 
 [node name="PlayerGUI" type="PanelContainer"]
+self_modulate = Color( 0, 0, 0, 1 )
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 4 )
 
-[node name="PIBBox" type="VBoxContainer" parent="."]
+[node name="PDBox" type="HBoxContainer" parent="."]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 612.0
+margin_right = 1004.0
 margin_bottom = 584.0
 
-[node name="Dicepool" parent="PIBBox" instance=ExtResource( 1 )]
+[node name="PIBBox" type="VBoxContainer" parent="PDBox"]
+margin_right = 605.0
+margin_bottom = 577.0
+
+[node name="Dicepool" parent="PDBox/PIBBox" instance=ExtResource( 1 )]
 margin_right = 605.0
 margin_bottom = 402.0
 
-[node name="IBBox" type="HBoxContainer" parent="PIBBox"]
+[node name="IBBox" type="HBoxContainer" parent="PDBox/PIBBox"]
 margin_top = 406.0
 margin_right = 605.0
 margin_bottom = 577.0
 
-[node name="PlayerInfo" parent="PIBBox/IBBox" instance=ExtResource( 2 )]
+[node name="PlayerInfo" parent="PDBox/PIBBox/IBBox" instance=ExtResource( 2 )]
 margin_right = 173.0
 margin_bottom = 171.0
 
-[node name="OpponentInfo" parent="PIBBox/IBBox" instance=ExtResource( 2 )]
+[node name="OpponentInfo" parent="PDBox/PIBBox/IBBox" instance=ExtResource( 2 )]
 margin_left = 177.0
 margin_right = 350.0
 margin_bottom = 171.0
 player = 2
 
-[node name="ButtonBox" type="VBoxContainer" parent="PIBBox/IBBox"]
+[node name="ButtonBox" type="VBoxContainer" parent="PDBox/PIBBox/IBBox"]
 margin_left = 354.0
 margin_right = 605.0
 margin_bottom = 171.0
 size_flags_horizontal = 3
 
-[node name="RollButton" type="Button" parent="PIBBox/IBBox/ButtonBox"]
+[node name="RollButton" type="Button" parent="PDBox/PIBBox/IBBox/ButtonBox"]
 margin_right = 251.0
 margin_bottom = 83.0
 size_flags_vertical = 3
@@ -49,7 +55,7 @@ custom_fonts/font = ExtResource( 3 )
 disabled = true
 text = "Roll!"
 
-[node name="EndTurnButton" type="Button" parent="PIBBox/IBBox/ButtonBox"]
+[node name="EndTurnButton" type="Button" parent="PDBox/PIBBox/IBBox/ButtonBox"]
 margin_top = 87.0
 margin_right = 251.0
 margin_bottom = 171.0
@@ -58,4 +64,10 @@ custom_fonts/font = ExtResource( 3 )
 disabled = true
 text = "End Turn"
 
-[connection signal="pressed" from="PIBBox/IBBox/ButtonBox/RollButton" to="." method="_on_RollButton_pressed"]
+[node name="Dungeon" parent="PDBox" instance=ExtResource( 5 )]
+margin_left = 609.0
+margin_right = 997.0
+margin_bottom = 577.0
+alignment = 1
+
+[connection signal="pressed" from="PDBox/PIBBox/IBBox/ButtonBox/RollButton" to="." method="_on_RollButton_pressed"]

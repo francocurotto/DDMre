@@ -2,17 +2,20 @@ extends Reference
 
 const Dicelib = preload("res://engine/dice/dicelib.gd")
 const Player = preload("res://engine/player/player.gd")
+const Dungeon = preload("res://engine/dungeon/dungeon.gd")
 const RollState = preload("res://engine/states/roll_state.gd")
 
 var dicelib
 var player1
 var player2
+var dungeon
 var state
 
 func _init():
 	dicelib = Dicelib.new()
 	player1 = Player.new(1, gen_randompool())
 	player2 = Player.new(2, gen_randompool())
+	dungeon = Dungeon.new()
 	state = RollState.new(player1, player2)
 
 func update(cmd):

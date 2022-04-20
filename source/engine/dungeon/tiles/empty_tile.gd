@@ -1,4 +1,4 @@
 extends "tile.gd"
 
-func is_block():
+func is_empty():
 	return true
