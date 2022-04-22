@@ -1,4 +1,8 @@
 extends "tile.gd"
 
-func is_path():
-	return true
+const NAME = "PATH"
+
+var player
+
+func _init(_player):
+    player = _player
