@@ -3,26 +3,28 @@ Define the initial layout by locating the empty tiles, block tiles, dungeon path
 
 Example:
 ```
-DUNGEON:
-OOOOOOLOOOOOO
-OOOOOOPOOOOOO
-OOOOOOPOOOOOO
-OOOOOOPOOOOOO
-OOOOOOPOOOOOO
-OOOOOOPOOOOOO
-OOOOOOPOOOOOO
-OOOOOOOOOOOOO
-OOOOOOOOOOOOO
-XXXXXXOXXXXXX
-OOOOOOOOOOOOO
-OOOOOOOOOOOOO
-OOOOOOpOOOOOO
-OOOOOOpOOOOOO
-OOOOOOpOOOOOO
-OOOOOOpOOOOOO
-OOOOOOpOOOOOO
-OOOOOOpOOOOOO
-OOOOOOlOOOOOO
+{
+  "DUNGEON": [
+    "OOOOOOLOOOOOO",
+    "OOOOOOPOOOOOO",
+    "OOOOOOPOOOOOO",
+    "OOOOOOPOOOOOO",
+    "OOOOOOPOOOOOO",
+    "OOOOOOPOOOOOO",
+    "OOOOOOPOOOOOO",
+    "OOOOOOPOOOOOO",
+    "OOOOOOOOOOOOO",
+    "XXXXXOOOXXXXX",
+    "OOOOOOOOOOOOO",
+    "OOOOOOpOOOOOO",
+    "OOOOOOpOOOOOO",
+    "OOOOOOpOOOOOO",
+    "OOOOOOpOOOOOO",
+    "OOOOOOpOOOOOO",
+    "OOOOOOpOOOOOO",
+    "OOOOOOpOOOOOO",
+    "OOOOOOlOOOOOO"]
+}
 ```
 - `O`: empty tile
 - `X`: block tile
@@ -39,8 +41,8 @@ Place player summons at the start of the game. Summons must be placed on a tile 
 
 Example:
 ```
-SUMMONS1: [g2-5,g4-1,g6-10]
-SUMMONS2: [g17-15,g14-9,g12-2]
+"SUMMONS1": ["g2-5","g4-1","g6-10"]
+"SUMMONS2": ["g17-15","g14-9","g12-2"]
 ```
 - `g2-5`: 
     - `g2` : location in dungeon
@@ -52,8 +54,8 @@ Indicate the initial crest for each players.
 
 Example:
 ```
-CRESTS1: {movement:9,attack:1,defense:3,magic:5,trap:2}
-CRESTS2: {movement:0,attack:5,defense:4,magic:1,trap:1}
+"CRESTS1": {"movement":9,"attack":1,"defense":3,"magic":5,"trap":2}
+"CRESTS2": {"movement":0,"attack":5,"defense":4,"magic":1,"trap":1}
 ```
 
 ## Hearts
@@ -61,8 +63,8 @@ Indicate the initial hearts for each player.
 
 Example:
 ```
-HEARTS1: 3
-HEARTS2: 1
+"HEARTS1": 3
+"HEARTS2": 1
 ```
 
 ### Note on Debug options
