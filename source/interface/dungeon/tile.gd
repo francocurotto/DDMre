@@ -1,5 +1,8 @@
 extends TextureRect
 
+const PATHDICT = {1 : "res://art/icons/TILE_BLUE.png",
+                  2 : "res://art/icons/TILE_RED.png"}
+
 func set_tile(tile):
     match tile.NAME:
         "EMPTY": 
@@ -7,7 +10,8 @@ func set_tile(tile):
         "BLOCK":
             texture = load("res://art/icons/TILE_WHITE.png")
         "PATH":
-            if tile.player.id == 1:
-                texture = load("res://art/icons/TILE_BLUE.png")
-            elif tile.player.id == 2:
-                texture = load("res://art/icons/TILE_RED.png")
+            set_path_tile(tile)
+            
+func set_path_tile(tile):
+    var id = tile.player.id
+    texture = load(PATHDICT[id])

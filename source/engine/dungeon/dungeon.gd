@@ -1,7 +1,6 @@
 extends Reference
 
 const EmptyTile = preload("res://engine/dungeon/tiles/empty_tile.gd")
-const PathTile = preload("res://engine/dungeon/tiles/path_tile.gd")
 const BlockTile = preload("res://engine/dungeon/tiles/block_tile.gd")
 
 var array = []
@@ -22,13 +21,13 @@ func create_tile(engine, chr):
         "O":
             return EmptyTile.new()
         "l":
-            return PathTile.new(engine.player1)
+            return engine.player1.create_ml_tile()
         "L":
-            return PathTile.new(engine.player2)
+            return engine.player2.create_ml_tile()
         "p":
-            return PathTile.new(engine.player1)
+            return engine.player1.create_tile()
         "P":
-            return PathTile.new(engine.player2)
+            return engine.player2.create_tile()
         "X":
             return BlockTile.new()
 
