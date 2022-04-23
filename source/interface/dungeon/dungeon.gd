@@ -13,7 +13,3 @@ func set_tiles(edungeon):
             var tile = row.get_child(j)
             var etile = erow[j]
             tile.set_tile(etile)
-
-func set_tile(tile, etile):
-    if etile.is_empty():
-        tile.texture = load("res://art/icons/TILE_BLACK.png")
