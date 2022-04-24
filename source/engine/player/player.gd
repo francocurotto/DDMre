@@ -7,7 +7,7 @@ const PathTile = preload("res://engine/dungeon/tiles/path_tile.gd")
 var id
 var dicepool
 var crestpool = CrestPool.new()
-var monsterlord = MonsterLord.new()
+var monsterlord = MonsterLord.new(self)
 var dimdice = []
 var monsters = []
 var items = []

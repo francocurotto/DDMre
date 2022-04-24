@@ -1,6 +1,11 @@
+tool
 extends VBoxContainer
 
-func _ready():
+export (String) var layout = "default" setget set_dungeon
+
+func set_dungeon(_layout):
+    layout = _layout
+    #Globals.dungpath = "res://dungeon/" + layout + ".json" 
     var Engine = load("res://engine/engine.gd")
     var engine = Engine.new()
     set_tiles(engine.dungeon)
