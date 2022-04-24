@@ -1,6 +1,6 @@
 extends "tile.gd"
 
-const Dungobj = preload("res://engine/dungobj/dungobj.gd")
+const Noneobj = preload("res://engine/dungobj/noneobj.gd")
 const NAME = "PATH"
 
 var player
@@ -9,7 +9,7 @@ var content
 
 func _init(_player):
     player = _player
-    content = Dungobj.new()
+    content = Noneobj.new()
 
 func get_player_id():
     return player.id

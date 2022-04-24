@@ -11,11 +11,11 @@ var player2
 var dungeon
 var state
 
-func _init():
+func _init(layout := Globals.DUNGPATH):
     dicelib = Dicelib.new()
     player1 = Player.new(1, gen_randompool())
     player2 = Player.new(2, gen_randompool())
-    dungeon = Dungeon.new(self)
+    dungeon = Dungeon.new(self, layout)
     state = RollState.new(player1, player2)
 
 func update(cmd):

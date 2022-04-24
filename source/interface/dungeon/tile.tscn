@@ -8,7 +8,6 @@ margin_right = 28.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 28, 28 )
 script = ExtResource( 2 )
-dungobj_type = "NONE"
 
 [node name="TileRect" type="TextureRect" parent="."]
 margin_right = 28.0

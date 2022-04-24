@@ -5,8 +5,8 @@ const BlockTile = preload("res://engine/dungeon/tiles/block_tile.gd")
 
 var array = []
 
-func _init(engine):
-    var jsondung = read_jsondung()
+func _init(engine, layout):
+    var jsondung = read_jsondung(layout)
     for strrow in jsondung["DUNGEON"]:
         var row = []
         for chr in strrow:
@@ -31,12 +31,12 @@ func create_tile(engine, chr):
         "X":
             return BlockTile.new()
 
-func read_jsondung():
+func read_jsondung(layout):
     """
     Reads the json that defines the dungeon.
     """
     var file = File.new()
-    file.open(Globals.DUNGPATH, File.READ)
+    file.open(layout, File.READ)
     var jsondung = parse_json(file.get_as_text())
     file.close()
     return jsondung
