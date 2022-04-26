@@ -39,7 +39,6 @@ margin_bottom = 171.0
 margin_left = 177.0
 margin_right = 350.0
 margin_bottom = 171.0
-player = 2
 
 [node name="ButtonBox" type="VBoxContainer" parent="PDBox/PIBBox/IBBox"]
 margin_left = 354.0

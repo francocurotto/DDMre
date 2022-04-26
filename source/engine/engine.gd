@@ -11,10 +11,10 @@ var player2
 var dungeon
 var state
 
-func _init(layout := Globals.DUNGPATH):
+func _init(layout:=Globals.DUNGPATH, pool1:=Globals.POOL1PATH, pool2:=Globals.POOL2PATH):
     dicelib = Dicelib.new()
-    player1 = Player.new(1, gen_randompool())
-    player2 = Player.new(2, gen_randompool())
+    player1 = Player.new(1, dicelib.create_dicepool(pool1))
+    player2 = Player.new(2, dicelib.create_dicepool(pool2))
     dungeon = Dungeon.new(self, layout)
     state = RollState.new(player1, player2)
 
@@ -24,11 +24,3 @@ func update(cmd):
     """
     state = state.update(cmd)
 
-func gen_randompool():
-    """
-    Creates a dice pool of random dice from the dicelib.
-    """
-    var pool = []
-    for i in 15:
-        pool.append(dicelib.get_randdice())
-    return pool

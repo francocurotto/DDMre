@@ -18,18 +18,12 @@ func create_tile(engine, chr):
     Create the appropiate tile given the character from the dungeon json.
     """
     match chr:
-        "O":
-            return EmptyTile.new()
-        "l":
-            return engine.player1.create_ml_tile()
-        "L":
-            return engine.player2.create_ml_tile()
-        "p":
-            return engine.player1.create_tile()
-        "P":
-            return engine.player2.create_tile()
-        "X":
-            return BlockTile.new()
+        "O": return EmptyTile.new()
+        "l": return engine.player1.create_ml_tile()
+        "L": return engine.player2.create_ml_tile()
+        "p": return engine.player1.create_tile()
+        "P": return engine.player2.create_tile()
+        "X": return BlockTile.new()
 
 func read_jsondung(layout):
     """

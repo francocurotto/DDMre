@@ -17,14 +17,36 @@ func read_jsonlib():
     file.close()
     return jsonlib
 
-func get_randdice():
+func create_dicepool(filepath):
     """
-    Returns a random dice in the library.
+    Create dice pool list from json file.
     """
-    return create_dice(randi() % dict.size() + 1)
+    var file = File.new()
+    file.open(filepath, File.READ)
+    var indexlist = parse_json(file.get_as_text())
+    file.close()
+    var dicelist = []
+    for i in indexlist:
+        dicelist.append(create_dice(i))
+    return dicelist
 
 func create_dice(index):
     """
     Creates dice object from dictionary and return it. 
     """
     return Dice.new(index, dict[str(index)])
+
+func create_randdice():
+    """
+    Returns a random dice in the library.
+    """
+    return create_dice(randi() % dict.size() + 1)
+
+func create_randpool():
+    """
+    Creates a random dice pool.
+    """
+    var dicelist = []
+    for _i in range(15):
+        dicelist.append(create_randdice())
+    return dicelist

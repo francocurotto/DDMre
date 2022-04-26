@@ -33,8 +33,6 @@ margin_bottom = 161.0
 custom_constants/separation = 10
 
 [node name="CrestPool" parent="InfoBox/CRHBox" instance=ExtResource( 1 )]
-margin_right = 49.0
-margin_bottom = 133.0
 
 [node name="RHBox" type="VBoxContainer" parent="InfoBox/CRHBox"]
 margin_left = 59.0

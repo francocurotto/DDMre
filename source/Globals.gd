@@ -3,6 +3,8 @@ extends Node
 # filepath
 const LIBPATH = "res://LIBRARY.json"
 const DUNGPATH = "res://dungeons/default.json"
+const POOL1PATH = "res://dicepools/test1.json"
+const POOL2PATH = "res://dicepools/test2.json"
 
 # arrays, dictionaries
 const CRESTS = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
