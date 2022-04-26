@@ -8,6 +8,9 @@ func set_player(player):
     $InfoBox/CRHBox/RHBox/HBox/Hearts.set_player_hearts(player.id, player.monsterlord.hearts)
     $InfoBox/CRHBox/CrestPool.set_pool(player.crestpool.slots)
 
+func set_last_roll(sides):
+    $InfoBox/CRHBox/RHBox/RBox/LastRoll.set_roll(sides)
+
 func set_opponent_title():
     $InfoBox/Title.text = "Opponent Info"
 
