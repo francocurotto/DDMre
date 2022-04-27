@@ -10,6 +10,7 @@ func set_player(player):
 
 func set_last_roll(sides):
     $InfoBox/CRHBox/RHBox/RBox/LastRoll.set_roll(sides)
+    $InfoBox/CRHBox/RHBox/RBox/LastRoll.visible = true
 
 func set_opponent_title():
     $InfoBox/Title.text = "Opponent Info"
