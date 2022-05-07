@@ -20,6 +20,7 @@ func _ready():
     $P2GUI.connect("make_roll", self, "send_roll")
     # warning-ignore:return_value_discarded
     engine.state.connect("dice_rolled", self, "on_dice_rolled")
+
 func set_guis():
     $P1GUI.set_duel(engine.player1, engine.player2, engine.dungeon)
     $P2GUI.set_duel(engine.player2, engine.player1, engine.dungeon)

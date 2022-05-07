@@ -3,14 +3,24 @@ extends Reference
 const EmptyTile = preload("res://engine/dungeon/tiles/empty_tile.gd")
 const BlockTile = preload("res://engine/dungeon/tiles/block_tile.gd")
 
+const HEIGHT = 19
+const WIDTH = 13 
+
 var array = []
 
-func _init(engine, layout):
-    var jsondung = read_jsondung(layout)
-    for strrow in jsondung["DUNGEON"]:
+func _init():
+    for _i in range(HEIGHT):
         var row = []
-        for chr in strrow:
-            row.append(create_tile(engine, chr))
+        for _j in range(WIDTH):
+            row.append(EmptyTile.new())
+        array.append(row)
+
+func set_layout(engine, layout):
+    for i in range(len(array)):
+        var row = array[i]
+        var layrow = layout[i]
+        for j in range(len(row)):
+            row[j] = create_tile(engine, layrow[j])
         array.append(row)
 
 func create_tile(engine, chr):
@@ -24,13 +34,3 @@ func create_tile(engine, chr):
         "p": return engine.player1.create_tile()
         "P": return engine.player2.create_tile()
         "X": return BlockTile.new()
-
-func read_jsondung(layout):
-    """
-    Reads the json that defines the dungeon.
-    """
-    var file = File.new()
-    file.open(layout, File.READ)
-    var jsondung = parse_json(file.get_as_text())
-    file.close()
-    return jsondung

@@ -8,9 +8,9 @@ const HEARTDICT = {1 : "res://art/icons/HEART_BLUE.png",
                    2 : "res://art/icons/HEART_RED.png"}
 
 func set_player_hearts(_playerid, _hearts):
-    for i in range(hearts):
+    for i in range(_hearts):
         get_child(i).texture = load(HEARTDICT[_playerid])
-    for i in range(get_child_count(), hearts, -1):
+    for i in range(get_child_count(), _hearts, -1):
         get_child(i-1).texture = load("res://art/icons/HEART_BLACK.png")
 
 func set_playerid(_playerid):
