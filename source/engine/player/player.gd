@@ -32,3 +32,9 @@ func create_ml_tile():
     var tile = create_tile()
     tile.content = monsterlord
     return tile
+
+func summon_card(idx):
+    """
+    Summon card in position idx from the dicepool.
+    """
+    return dicepool[idx].card.summon(self)

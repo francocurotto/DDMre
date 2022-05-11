@@ -1,4 +1,4 @@
-extends Reference
+extends "dungobj.gd"
 
 var player
 var player_id setget , get_player_id

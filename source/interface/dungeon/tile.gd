@@ -11,7 +11,7 @@ export (int, 1, 2) var player_dungobj = 1 setget set_player_dungobj
 
 func set_tile(tile):
     set_tile_bare(tile.NAME, tile.get("player_id"))
-    if "content" in tile:
+    if tile.is_path():
         set_dungobj(tile.content.NAME, tile.content.get("player_id"))
 
 func set_tile_bare(_tile_type, _player_tile):
@@ -25,7 +25,7 @@ func set_dungobj(_dungobj_type, _dungobj_player):
         $DungobjRect.texture = null
         return
     var icon = _dungobj_type
-    if icon in ["DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM"]:
+    if icon in Globals.TYPES + ["ITEM"]:
         icon = "TYPE_" + icon
     $DungobjRect.texture = load("res://art/icons/" + icon + ".png")
     $DungobjRect.modulate = MODDICT[_dungobj_player]

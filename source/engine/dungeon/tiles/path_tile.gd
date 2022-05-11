@@ -13,3 +13,6 @@ func _init(_player):
 
 func get_player_id():
     return player.id
+
+func is_path():     return true
+func is_occupied(): return content.is_content()
