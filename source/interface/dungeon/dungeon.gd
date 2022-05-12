@@ -11,7 +11,7 @@ func _ready():
 func set_dungeon(dungeon, playerid):
     for i in range(get_child_count()):
         var row = dungeon.array[i]
-        if playerid == 2: i = get_child_count()-1-i # v-flip dungeon for player2
+        if playerid == 1: i = get_child_count()-1-i # v-flip dungeon for player1
         var irow = get_child(i)
         for j in range(irow.get_child_count()):
             var tile = row[j]

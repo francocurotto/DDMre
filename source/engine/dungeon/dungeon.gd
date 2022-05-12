@@ -18,10 +18,9 @@ func _init():
 func set_layout(engine, layout):
     for i in range(len(array)):
         var row = array[i]
-        var layrow = layout[i]
+        var layrow = layout[len(array)-i-1]
         for j in range(len(row)):
-            row[j] = create_tile(engine, layrow[j])
-        array.append(row)
+            array[i][j] = create_tile(engine, layrow[j])
 
 func create_tile(engine, chr):
     """
@@ -34,3 +33,6 @@ func create_tile(engine, chr):
         "p": return engine.player1.create_tile()
         "P": return engine.player2.create_tile()
         "X": return BlockTile.new()
+
+func place_dungobj(pos, dungobj):
+    array[pos[0]][pos[1]].content = dungobj

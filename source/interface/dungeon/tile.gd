@@ -1,12 +1,12 @@
 tool
 extends MarginContainer
 
-const MODDICT = {1 : Color(0.8,1.0,1.0,1), 2 : Color(1.0,0.9,0.9,1.0)}
+const MODDICT = {1 : Color(0.5,1.0,1.0,1.0), 2 : Color(1.0,0.75,0.75,1.0)}
 
 export (String, "EMPTY", "BLOCK", "PATH") var tile_type = "EMPTY" setget set_tile_type
 export (int, 1, 2) var player_tile = 1 setget set_player_tile
 export (String, "NONE", "MONSTER_LORD", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", 
-    "ITEM") var dungobj_type = "EMPTY" setget set_dungobj_type
+    "ITEM") var dungobj_type = "NONE" setget set_dungobj_type
 export (int, 1, 2) var player_dungobj = 1 setget set_player_dungobj
 
 func set_tile(tile):
@@ -19,6 +19,7 @@ func set_tile_bare(_tile_type, _player_tile):
     if _tile_type == "PATH":
         icon += "_P" + str(_player_tile)
     $TileRect.texture = load("res://art/icons/" + icon + ".png")
+    $DungobjRect.texture = null
 
 func set_dungobj(_dungobj_type, _dungobj_player):
     if _dungobj_type == "NONE" or _dungobj_type == null:

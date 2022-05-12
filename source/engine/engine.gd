@@ -31,7 +31,7 @@ func set_initstate(initpath):
         match initkey:
             "DUNGEON": dungeon.set_layout(self, initdict["DUNGEON"])
             "SUMMONS1": set_initsummons(player1, initdict["SUMMONS1"])
-            #"SUMMONS2": set_initsummons(player2, initdict["SUMMONS2"])
+            "SUMMONS2": set_initsummons(player2, initdict["SUMMONS2"])
             "CREST1": set_initcrests(player1, initdict["CREST1"])
             "CREST2": set_initcrests(player2, initdict["CREST2"])
             "HEARTS1": player1.monsterlord.hearts = initdict["HEARTS1"]
@@ -46,7 +46,7 @@ func set_initsummons(player, summonlist):
         var pos = Globals.str2pos(summondict["POS"])
         var idx = Globals.int2diceidx(summondict["DICE"])
         var summon = player.summon_card(idx)
-        #dungeon.place_dunobj(pos, summon)
+        dungeon.place_dungobj(pos, summon)
 
 func read_jsoninit(initpath):
     """

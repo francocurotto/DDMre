@@ -18,7 +18,7 @@ expand = true
 stretch_mode = 5
 
 [node name="DungobjRect" type="TextureRect" parent="."]
-modulate = Color( 0.8, 1, 1, 1 )
+modulate = Color( 0.5, 1, 1, 1 )
 margin_right = 28.0
 margin_bottom = 28.0
 expand = true
