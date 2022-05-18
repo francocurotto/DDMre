@@ -4,22 +4,24 @@
 [ext_resource path="res://interface/game_mode/local.gd" type="Script" id=2]
 
 [node name="Local" type="PanelContainer"]
-margin_left = 1.0
-margin_top = -2.0
-margin_right = 1026.0
-margin_bottom = 603.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="P1GUI" parent="." instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1018.0
-margin_bottom = 598.0
+margin_right = 1273.0
+margin_bottom = 713.0
 
 [node name="P2GUI" parent="." instance=ExtResource( 1 )]
 visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1018.0
-margin_bottom = 598.0
+margin_right = 1273.0
+margin_bottom = 713.0
 playerid = 2

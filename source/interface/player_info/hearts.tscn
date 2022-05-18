@@ -3,33 +3,36 @@
 [ext_resource path="res://interface/player_info/hearts.gd" type="Script" id=2]
 [ext_resource path="res://art/icons/HEART_BLUE.png" type="Texture" id=3]
 
-[node name="Hearts" type="HBoxContainer"]
+[node name="Hearts" type="VBoxContainer"]
 margin_right = 30.0
-margin_bottom = 30.0
+margin_bottom = 98.0
 script = ExtResource( 2 )
 
 [node name="Heart1" type="TextureRect" parent="."]
 margin_right = 30.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 30, 30 )
+size_flags_vertical = 3
 texture = ExtResource( 3 )
 expand = true
-stretch_mode = 5
+stretch_mode = 6
 
 [node name="Heart2" type="TextureRect" parent="."]
-margin_left = 34.0
-margin_right = 64.0
-margin_bottom = 30.0
+margin_top = 34.0
+margin_right = 30.0
+margin_bottom = 64.0
 rect_min_size = Vector2( 30, 30 )
+size_flags_vertical = 3
 texture = ExtResource( 3 )
 expand = true
-stretch_mode = 5
+stretch_mode = 6
 
 [node name="Heart3" type="TextureRect" parent="."]
-margin_left = 68.0
-margin_right = 98.0
-margin_bottom = 30.0
+margin_top = 68.0
+margin_right = 30.0
+margin_bottom = 98.0
 rect_min_size = Vector2( 30, 30 )
+size_flags_vertical = 3
 texture = ExtResource( 3 )
 expand = true
-stretch_mode = 5
+stretch_mode = 6

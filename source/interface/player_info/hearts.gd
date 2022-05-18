@@ -1,5 +1,5 @@
 tool
-extends HBoxContainer
+extends VBoxContainer
 
 export (int, 1, 2) var playerid = 1 setget set_playerid
 export (int, 3) var hearts = 3 setget set_hearts

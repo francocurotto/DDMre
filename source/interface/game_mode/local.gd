@@ -14,9 +14,9 @@ func _ready():
     set_guis()
     # connections
     # warning-ignore:return_value_discarded
-    $P1GUI.connect("make_roll", self, "send_roll")
+    #$P1GUI.connect("make_roll", self, "send_roll")
     # warning-ignore:return_value_discarded
-    $P2GUI.connect("make_roll", self, "send_roll")
+    #$P2GUI.connect("make_roll", self, "send_roll")
     # warning-ignore:return_value_discarded
     engine.state.connect("dice_rolled", self, "on_dice_rolled")
 
