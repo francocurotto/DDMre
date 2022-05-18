@@ -8,11 +8,10 @@ export (String, "default", "test") var layout = "default" setget set_layout
 #signal make_roll(indeces)
 
 func _ready():
-    #$PDBox/PIBBox/IBBox/PlayerInfo.hide_roll()
-    #$PDBox/PIBBox/IBBox/OpponentInfo.hide_roll()
     $PDIBox/InfoBox/PInfoBox/OpponentInfo.set_opponent_title()
+    $PDIBox/PROBox/RollGUI.show_rolls(false)
     # warning-ignore:return_value_discarded
-    #$PDIBox/PROBox/Dicepool.connect("roll_changed", self, "on_roll_changed")
+    $PDIBox/PROBox/Dicepool.connect("roll_changed", self, "on_roll_changed")
     if Engine.editor_hint:
         var Engine = load("engine/engine.gd")
         var engine = Engine.new("res://dungeons/" + layout + ".json")
@@ -33,8 +32,8 @@ func set_player_opponent(player, opponent):
 func set_dungeon(dungeon, _playerid):
     $PDIBox/Dungeon.set_dungeon(dungeon, _playerid)
 
-#func on_roll_changed():
-#    $PDBox/PIBBox/IBBox/ButtonBox/RollButton.disabled = not $PDBox/PIBBox/Dicepool.roll_ready()
+func on_roll_changed():
+    $PDIBox/PROBox/RollGUI.set_roll_button($PDIBox/PROBox/Dicepool.roll_ready())
 
 #func _on_RollButton_pressed():
 #    var indeces = $PDBox/PIBBox/Dicepool.get_indeces()
