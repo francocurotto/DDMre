@@ -63,3 +63,5 @@ size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 disabled = true
 text = "End Turn"
+
+[connection signal="pressed" from="PlayerPanel/BPBox/RollButton" to="." method="_on_RollButton_pressed"]

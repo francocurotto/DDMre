@@ -14,9 +14,9 @@ func _ready():
     set_guis()
     # connections
     # warning-ignore:return_value_discarded
-    #$P1GUI.connect("make_roll", self, "send_roll")
+    $P1GUI.connect("make_roll", self, "send_roll")
     # warning-ignore:return_value_discarded
-    #$P2GUI.connect("make_roll", self, "send_roll")
+    $P2GUI.connect("make_roll", self, "send_roll")
     # warning-ignore:return_value_discarded
     engine.state.connect("dice_rolled", self, "on_dice_rolled")
 
@@ -29,8 +29,10 @@ func send_roll(indeces):
 
 func on_dice_rolled(sides, player):
     set_guis()
-    var gui = get_children()[player.id-1]
-    gui.set_last_roll(sides)
+    var player_gui = get_children()[player.id-1]
+    var opponent_gui = get_children()[player.id%2]
+    player_gui.set_player_roll(sides)
+    opponent_gui.set_opponent_roll(sides)
     
 func set_playerid(_playerid):
     engine = Engine.new("res://dungeons/" + layout + ".json")

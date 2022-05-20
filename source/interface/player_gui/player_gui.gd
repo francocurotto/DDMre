@@ -5,13 +5,15 @@ export (bool) var random_pool setget set_random_pool
 export (int, 1, 2) var playerid = 1 setget set_playerid
 export (String, "default", "test") var layout = "default" setget set_layout
 
-#signal make_roll(indeces)
+signal make_roll(indeces)
 
 func _ready():
     $PDIBox/InfoBox/PInfoBox/OpponentInfo.set_opponent_title()
-    $PDIBox/PROBox/RollGUI.show_rolls(false)
+    $PDIBox/PROBox/RollGUI.hide_rolls()
     # warning-ignore:return_value_discarded
     $PDIBox/PROBox/Dicepool.connect("roll_changed", self, "on_roll_changed")
+    # warning-ignore:return_value_discarded
+    $PDIBox/PROBox/RollGUI.connect("roll_pressed", self, "on_roll_pressed")
     if Engine.editor_hint:
         var Engine = load("engine/engine.gd")
         var engine = Engine.new("res://dungeons/" + layout + ".json")
@@ -21,8 +23,11 @@ func set_duel(player, opponent, dungeon):
     set_player_opponent(player, opponent)
     set_dungeon(dungeon, player.id)
 
-#func set_last_roll(sides):
-#    $PDBox/PIBBox/IBBox/PlayerInfo.set_last_roll(sides)
+func set_player_roll(sides):
+    $PDIBox/PROBox/RollGUI.update_roll_player(sides)
+
+func set_opponent_roll(sides):
+    $PDIBox/PROBox/RollGUI.update_roll_opponent(sides)
     
 func set_player_opponent(player, opponent):
     $PDIBox/PROBox/Dicepool.set_dicepool(player.dicepool)
@@ -35,9 +40,9 @@ func set_dungeon(dungeon, _playerid):
 func on_roll_changed():
     $PDIBox/PROBox/RollGUI.set_roll_button($PDIBox/PROBox/Dicepool.roll_ready())
 
-#func _on_RollButton_pressed():
-#    var indeces = $PDBox/PIBBox/Dicepool.get_indeces()
-#    emit_signal("make_roll", indeces)
+func on_roll_pressed():
+    var indeces = $PDIBox/PROBox/Dicepool.get_indeces()
+    emit_signal("make_roll", indeces)
 
 func set_random_pool(_bool):
     $PDIBox/PROBox/Dicepool.set_random_pool(_bool)
