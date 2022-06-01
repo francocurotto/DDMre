@@ -30,14 +30,7 @@ func set_dice(dice):
         $HBoxContainer/Health/HealthIcon.texture = null
     for i in dice.sides.size():
         $HBoxContainer/Sides.get_child(i).set_side(dice.sides[i])
-
-func set_diceidx(_diceidx):
-    diceidx = _diceidx
-    var Dicelib = load("res://engine/dice/dicelib.gd")
-    var dicelib = Dicelib.new()
-    var dice = dicelib.create_dice(diceidx)
-    set_dice(dice)
-
+        
 func set_index(i):
     $HBoxContainer/Index.text = str(i+1) + "."
 
@@ -51,3 +44,10 @@ func disable_unselected():
 func enable_unused():
     if not used:
         $Button.disabled = false
+
+func set_diceidx(_diceidx):
+    diceidx = _diceidx
+    var Dicelib = load("res://engine/dice/dicelib.gd")
+    var dicelib = Dicelib.new()
+    var dice = dicelib.create_dice(diceidx)
+    set_dice(dice)

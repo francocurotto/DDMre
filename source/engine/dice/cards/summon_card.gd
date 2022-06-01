@@ -9,7 +9,7 @@ func _init(cardinfo):
     name = cardinfo["NAME"]
     type = cardinfo["TYPE"]
     level = cardinfo["LEVEL"]
-    ability = cardinfo["ABILITY"] #TODO: change to proper abi
+    ability = cardinfo["ABILITY"] #TODO: change to proper ability
 
 func is_monster():
     return false
