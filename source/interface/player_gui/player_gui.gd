@@ -23,12 +23,6 @@ func set_duel(player, opponent, dungeon):
     set_player_opponent(player, opponent)
     set_dungeon(dungeon, player.id)
 
-func set_player_roll(sides):
-    $PDIBox/PROBox/RollGUI.update_roll_player(sides)
-
-func set_opponent_roll(sides):
-    $PDIBox/PROBox/RollGUI.update_roll_opponent(sides)
-    
 func set_player_opponent(player, opponent):
     $PDIBox/PROBox/Dicepool.set_dicepool(player.dicepool)
     $PDIBox/InfoBox/PInfoBox/PlayerInfo.set_player(player)
@@ -36,6 +30,12 @@ func set_player_opponent(player, opponent):
 
 func set_dungeon(dungeon, _playerid):
     $PDIBox/Dungeon.set_dungeon(dungeon, _playerid)
+
+func set_player_roll(sides):
+    $PDIBox/PROBox/RollGUI.update_roll_player(sides)
+
+func set_opponent_roll(sides):
+    $PDIBox/PROBox/RollGUI.update_roll_opponent(sides)
 
 func on_roll_changed():
     $PDIBox/PROBox/RollGUI.set_roll_button($PDIBox/PROBox/Dicepool.roll_ready())

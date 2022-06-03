@@ -42,23 +42,23 @@ size_flags_vertical = 0
 
 [node name="InfoBox" type="VBoxContainer" parent="PDIBox"]
 margin_left = 997.0
-margin_right = 1241.0
+margin_right = 1258.0
 margin_bottom = 568.0
 
 [node name="PInfoBox" type="HBoxContainer" parent="PDIBox/InfoBox"]
-margin_right = 244.0
+margin_right = 261.0
 margin_bottom = 173.0
 
 [node name="PlayerInfo" parent="PDIBox/InfoBox/PInfoBox" instance=ExtResource( 2 )]
-margin_right = 120.0
+margin_right = 128.0
 margin_bottom = 173.0
 
 [node name="OpponentInfo" parent="PDIBox/InfoBox/PInfoBox" instance=ExtResource( 2 )]
-margin_left = 124.0
-margin_right = 244.0
+margin_left = 132.0
+margin_right = 261.0
 margin_bottom = 173.0
 
-[node name="PanelContainer" parent="PDIBox/InfoBox" instance=ExtResource( 6 )]
+[node name="ItemInfo" parent="PDIBox/InfoBox" instance=ExtResource( 6 )]
 margin_top = 177.0
-margin_right = 244.0
+margin_right = 261.0
 margin_bottom = 568.0
