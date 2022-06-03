@@ -5,7 +5,7 @@ export(PackedScene) var SideItem
 export (int, 1, 124) var diceidx = 89 setget set_diceidx
 
 func _ready():
-    set_diceidx(diceidx)
+    clear_grid()
 
 func set_dice(dice):
     clear_grid()
