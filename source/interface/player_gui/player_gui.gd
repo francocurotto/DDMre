@@ -17,6 +17,12 @@ func _ready():
     $PDIBox/PROBox/Dicepool.connect("roll_changed", self, "on_roll_changed")
     # warning-ignore:return_value_discarded
     $PDIBox/PROBox/RollGUI.connect("roll_pressed", self, "on_roll_pressed")
+    # warning-ignore:return_value_discarded
+    $PDIBox/PROBox/Dicepool.connect("mouse_entered_dice", 
+        $PDIBox/InfoBox/ItemInfo, "on_mouse_entered_dice")
+    # warning-ignore:return_value_discarded
+    $PDIBox/PROBox/Dicepool.connect("mouse_exited_dice", 
+        $PDIBox/InfoBox/ItemInfo, "on_mouse_exited_dice")
     if Engine.editor_hint:
         var Engine = load("engine/engine.gd")
 # warning-ignore:shadowed_variable
@@ -31,6 +37,7 @@ func set_duel(_engine, _player, _opponent):
     $PDIBox/InfoBox/PInfoBox/PlayerInfo.set_player(player)
     $PDIBox/InfoBox/PInfoBox/OpponentInfo.set_player(opponent)
     $PDIBox/Dungeon.set_dungeon(engine.dungeon, player)
+    $PDIBox/InfoBox/ItemInfo.set_player(player)
 
 func set_player_roll(sides):
     $PDIBox/PROBox/RollGUI.update_roll_player(sides)

@@ -6,6 +6,9 @@ export (int, 1, 124) var diceidx = 89 setget set_diceidx
 var selected = false setget , get_selected
 var used = false
 
+signal mouse_entered_diceitem(diceitem)
+signal mouse_exited_diceitem
+
 func set_dice(dice):
     $HBoxContainer/Name.text =  dice.card.name
     $HBoxContainer/TLA/Type.texture = load("res://art/icons/TYPE_" + dice.card.type + ".png")
@@ -44,6 +47,12 @@ func disable_unselected():
 func enable_unused():
     if not used:
         $Button.disabled = false
+
+func _on_Button_mouse_entered():
+    emit_signal("mouse_entered_diceitem", self)
+
+func _on_Button_mouse_exited():
+    emit_signal("mouse_exited_diceitem")
 
 func set_diceidx(_diceidx):
     diceidx = _diceidx

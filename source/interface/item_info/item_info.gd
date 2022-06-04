@@ -4,8 +4,13 @@ extends PanelContainer
 export(PackedScene) var SideItem
 export (int, 1, 124) var diceidx = 89 setget set_diceidx
 
+var player
+
 func _ready():
     clear_grid()
+    
+func set_player(_player):
+    player = _player
 
 func set_dice(dice):
     clear_grid()
@@ -41,6 +46,13 @@ func add_sides(sides):
         sidesbox.add_child(sideitem)
     $InfoBox/InfoGrid.add_child(label)
     $InfoBox/InfoGrid.add_child(sidesbox)
+
+func on_mouse_entered_dice(idx):
+    var dice = player.dicepool[idx]
+    set_dice(dice)
+
+func on_mouse_exited_dice():
+    clear_grid()
 
 func set_diceidx(_diceidx):
     diceidx = _diceidx

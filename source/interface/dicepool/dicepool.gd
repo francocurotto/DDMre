@@ -7,10 +7,14 @@ export (String, "test1", "test2") var pool setget set_dicepool_tool
 var dicepool
 
 signal roll_changed
+signal mouse_entered_dice(idx)
+signal mouse_exited_dice
 
 func _ready():
     for diceitem in $TPCont/PoolCont.get_children():
         diceitem.get_node("Button").connect("pressed", self, "_on_diceitem_pressed")
+        diceitem.connect("mouse_entered_diceitem", self, "_on_mouse_entered_diceitem")
+        diceitem.connect("mouse_exited_diceitem", self, "_on_mouse_exited_diceitem")
     if Engine.editor_hint:
         set_random_pool(true)
 
@@ -30,6 +34,13 @@ func _on_diceitem_pressed():
         disable_unselected()
     else:
         enable_unused()
+
+func _on_mouse_entered_diceitem(diceitem):
+    var idx = diceitem.get_index()
+    emit_signal("mouse_entered_dice", idx)
+
+func _on_mouse_exited_diceitem():
+    emit_signal("mouse_exited_dice")
 
 func get_nselected():
     var n = 0

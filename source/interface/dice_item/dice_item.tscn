@@ -190,3 +190,6 @@ show_behind_parent = true
 margin_right = 589.0
 margin_bottom = 21.0
 toggle_mode = true
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_Button_mouse_exited"]
