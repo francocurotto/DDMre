@@ -5,31 +5,32 @@ export (bool) var random_pool setget set_random_pool
 export (int, 1, 2) var playerid = 1 setget set_playerid
 export (String, "default", "test") var layout = "default" setget set_layout
 
-signal make_roll(indeces)
+var engine
+var player
+var opponent
 
 func _ready():
     $PDIBox/InfoBox/PInfoBox/OpponentInfo.set_opponent_title()
     $PDIBox/PROBox/RollGUI.hide_rolls()
+    # connections
     # warning-ignore:return_value_discarded
     $PDIBox/PROBox/Dicepool.connect("roll_changed", self, "on_roll_changed")
     # warning-ignore:return_value_discarded
     $PDIBox/PROBox/RollGUI.connect("roll_pressed", self, "on_roll_pressed")
     if Engine.editor_hint:
         var Engine = load("engine/engine.gd")
+# warning-ignore:shadowed_variable
         var engine = Engine.new("res://dungeons/" + layout + ".json")
-        set_duel(engine.player1, engine.player2, engine.dungeon)
+        set_duel(engine, engine.player1, engine.player2)
 
-func set_duel(player, opponent, dungeon):
-    set_player_opponent(player, opponent)
-    set_dungeon(dungeon, player.id)
-
-func set_player_opponent(player, opponent):
+func set_duel(_engine, _player, _opponent):
+    engine = _engine
+    player = _player
+    opponent = _opponent
     $PDIBox/PROBox/Dicepool.set_dicepool(player.dicepool)
     $PDIBox/InfoBox/PInfoBox/PlayerInfo.set_player(player)
     $PDIBox/InfoBox/PInfoBox/OpponentInfo.set_player(opponent)
-
-func set_dungeon(dungeon, _playerid):
-    $PDIBox/Dungeon.set_dungeon(dungeon, _playerid)
+    $PDIBox/Dungeon.set_dungeon(engine.dungeon, player)
 
 func set_player_roll(sides):
     $PDIBox/PROBox/RollGUI.update_roll_player(sides)
@@ -42,7 +43,7 @@ func on_roll_changed():
 
 func on_roll_pressed():
     var indeces = $PDIBox/PROBox/Dicepool.get_indeces()
-    emit_signal("make_roll", indeces)
+    engine.state.update({"name" : "ROLL", "dice" : indeces})
 
 func set_random_pool(_bool):
     $PDIBox/PROBox/Dicepool.set_random_pool(_bool)
@@ -57,8 +58,9 @@ func set_layout(_layout):
 
 func set_duel_tool(_playerid, _layout):
     var Engine = load("engine/engine.gd")
+# warning-ignore:shadowed_variable
     var engine = Engine.new("res://dungeons/" + _layout + ".json")
     if _playerid == 1:
-        set_duel(engine.player1, engine.player2, engine.dungeon)
+        set_duel(engine, engine.player1, engine.player2)
     elif _playerid == 2:
-        set_duel(engine.player2, engine.player1, engine.dungeon)
+        set_duel(engine, engine.player2, engine.player1)

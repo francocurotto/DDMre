@@ -7,6 +7,15 @@ export (int, 3) var hearts = 3 setget set_hearts
 const HEARTDICT = {1 : "res://art/icons/HEART_BLUE.png",
                    2 : "res://art/icons/HEART_RED.png"}
 
+var player
+
+func set_player(_player):
+    player = _player
+    update_hearts()
+
+func update_hearts():
+    set_player_hearts(player.id, player.monsterlord.hearts)
+
 func set_player_hearts(_playerid, _hearts):
     for i in range(_hearts):
         get_child(i).texture = load(HEARTDICT[_playerid])

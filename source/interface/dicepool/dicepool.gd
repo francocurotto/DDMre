@@ -1,21 +1,27 @@
 tool
 extends PanelContainer
 
-signal roll_changed
-
 export (bool) var random_pool setget set_random_pool
 export (String, "test1", "test2") var pool setget set_dicepool_tool
 
+var dicepool
+
+signal roll_changed
+
 func _ready():
-    if Engine.editor_hint:
-        set_random_pool(true)
     for diceitem in $TPCont/PoolCont.get_children():
         diceitem.get_node("Button").connect("pressed", self, "_on_diceitem_pressed")
+    if Engine.editor_hint:
+        set_random_pool(true)
 
-func set_dicepool(dicelist):
-    for i in dicelist.size():
+func set_dicepool(_dicepool):
+    dicepool = _dicepool
+    set_diceitems()
+
+func set_diceitems():
+    for i in range(dicepool.size()):
         var diceitem = $TPCont/PoolCont.get_child(i)
-        diceitem.set_dice(dicelist[i])
+        diceitem.set_dice(dicepool[i])
         diceitem.set_index(i)
 
 func _on_diceitem_pressed():

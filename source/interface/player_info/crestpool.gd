@@ -1,12 +1,18 @@
 tool
 extends VBoxContainer
 
-func set_pool(slots):
-    set_slot($MovementSlot/MovementValue, slots["MOVEMENT"])
-    set_slot($AttackSlot/AttackValue,     slots["ATTACK"])
-    set_slot($DefenseSlot/DefenseValue,   slots["DEFENSE"])
-    set_slot($MagicSlot/MagicValue,       slots["MAGIC"])
-    set_slot($TrapSlot/TrapValue,         slots["TRAP"])
+var crestpool
+
+func set_crestpool(_crestpool):
+    crestpool = _crestpool
+    update_slots()
+
+func update_slots():
+    set_slot($MovementSlot/MovementValue, crestpool.slots["MOVEMENT"])
+    set_slot($AttackSlot/AttackValue,     crestpool.slots["ATTACK"])
+    set_slot($DefenseSlot/DefenseValue,   crestpool.slots["DEFENSE"])
+    set_slot($MagicSlot/MagicValue,       crestpool.slots["MAGIC"])
+    set_slot($TrapSlot/TrapValue,         crestpool.slots["TRAP"])
 
 func set_slot(label, value):
     label.text = str(value).pad_zeros(2)
