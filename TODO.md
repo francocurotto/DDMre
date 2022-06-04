@@ -1,4 +1,4 @@
 ### TODO
-- (interface, new branch): add engine reference to individual interface elements 
+- (interface): smooth out iteminfo
+- (interface): add dungobj to iteminfo
 - (interface): create dice/summon info
-- (interface): create output

@@ -2,7 +2,7 @@ tool
 extends PanelContainer
 
 export (bool) var random_pool setget set_random_pool
-export (String, "test1", "test2") var pool setget set_dicepool_tool
+export (String, "test1", "test2") var pool = "test1" setget set_dicepool_tool
 
 var dicepool
 
