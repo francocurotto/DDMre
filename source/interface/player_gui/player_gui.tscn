@@ -22,17 +22,16 @@ size_flags_vertical = 0
 
 [node name="PROBox" type="VBoxContainer" parent="PDIBox"]
 margin_right = 601.0
-margin_bottom = 450.0
+margin_bottom = 394.0
 size_flags_vertical = 0
 
 [node name="Dicepool" parent="PDIBox/PROBox" instance=ExtResource( 1 )]
 margin_right = 601.0
-margin_bottom = 404.0
 
 [node name="RollGUI" parent="PDIBox/PROBox" instance=ExtResource( 3 )]
-margin_top = 408.0
+margin_top = 352.0
 margin_right = 601.0
-margin_bottom = 450.0
+margin_bottom = 394.0
 
 [node name="Dungeon" parent="PDIBox" instance=ExtResource( 5 )]
 margin_left = 605.0

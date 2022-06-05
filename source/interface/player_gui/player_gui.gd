@@ -3,7 +3,7 @@ extends PanelContainer
 
 export (bool) var random_pool setget set_random_pool
 export (int, 1, 2) var playerid = 1 setget set_playerid
-export (String, "default", "test") var layout = "default" setget set_layout
+export (String, "default", "test") var layout = "test" setget set_layout
 
 var engine
 var player
@@ -23,6 +23,12 @@ func _ready():
     # warning-ignore:return_value_discarded
     $PDIBox/PROBox/Dicepool.connect("mouse_exited_dice", 
         $PDIBox/InfoBox/ItemInfo, "on_mouse_exited_dice")
+    # warning-ignore:return_value_discarded
+    $PDIBox/Dungeon.connect("mouse_entered_dungobj", 
+        $PDIBox/InfoBox/ItemInfo, "on_mouse_entered_dungobj")
+    # warning-ignore:return_value_discarded
+    $PDIBox/Dungeon.connect("mouse_exited_dungobj", 
+        $PDIBox/InfoBox/ItemInfo, "on_mouse_exited_dungobj")
     if Engine.editor_hint:
         var Engine = load("engine/engine.gd")
 # warning-ignore:shadowed_variable

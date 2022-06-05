@@ -9,7 +9,16 @@ export (String, "NONE", "MONSTER_LORD", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAS
     "ITEM") var dungobj_type = "NONE" setget set_dungobj_type
 export (int, 1, 2) var player_dungobj = 1 setget set_player_dungobj
 
-func set_tile(tile):
+var tile
+
+signal mouse_entered_dungobj(dungobj)
+signal mouse_exited_dungobj
+
+func set_tile(_tile):
+    tile = _tile
+    update_tile()
+
+func update_tile():
     set_tile_bare(tile.NAME, tile.get("player_id"))
     if tile.is_path():
         set_dungobj(tile.content.NAME, tile.content.get("player_id"))
@@ -30,6 +39,13 @@ func set_dungobj(_dungobj_type, _dungobj_player):
         icon = "TYPE_" + icon
     $DungobjRect.texture = load("res://art/icons/" + icon + ".png")
     $DungobjRect.modulate = MODDICT[_dungobj_player]
+
+func _on_DungobjRect_mouse_entered():
+    if tile.is_path():
+        emit_signal("mouse_entered_dungobj", tile.content)
+
+func _on_DungobjRect_mouse_exited():
+    emit_signal("mouse_exited_dungobj")
 
 func set_tile_type(_tile_type):
     tile_type = _tile_type

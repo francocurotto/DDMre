@@ -1,13 +1,20 @@
 tool
 extends VBoxContainer
 
-export (String, "default", "test") var layout = "default" setget set_layout
+export (String, "default", "test") var layout = "test" setget set_layout
 export (int, 1, 2) var playerid = 1 setget set_playerid
 
 var dungeon
 var player
 
+signal mouse_entered_dungobj(dungobj)
+signal mouse_exited_dungobj(dungobj)
+
 func _ready():
+    for row in get_children():
+        for t in row.get_children():
+            t.connect("mouse_entered_dungobj", self, "on_mouse_entered_dungobj")
+            t.connect("mouse_exited_dungobj", self, "on_mouse_exited_dungobj")
     if Engine.editor_hint:
         set_dungeon_tool(layout, playerid)
 
@@ -25,6 +32,12 @@ func update_dungeon():
             var tile = row[j]
             var itile = irow.get_child(j)
             itile.set_tile(tile)
+
+func on_mouse_entered_dungobj(dungobj):
+    emit_signal("mouse_entered_dungobj", dungobj)
+
+func on_mouse_exited_dungobj():
+    emit_signal("mouse_exited_dungobj")
             
 func set_dungeon_tool(_layout, _playerid):
     var Engine = load("res://engine/engine.gd")

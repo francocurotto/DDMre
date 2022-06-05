@@ -4,7 +4,7 @@ extends PanelContainer
 const Engine = preload("res://engine/engine.gd")
 
 export (int, 1, 2) var playerid = 1 setget set_playerid
-export (String, "default", "test") var layout = "default" setget set_layout
+export (String, "default", "test") var layout = "test" setget set_layout
 
 var engine
 

@@ -11,10 +11,10 @@ signal mouse_entered_dice(idx)
 signal mouse_exited_dice
 
 func _ready():
-    for diceitem in $TPCont/PoolCont.get_children():
-        diceitem.get_node("Button").connect("pressed", self, "_on_diceitem_pressed")
-        diceitem.connect("mouse_entered_diceitem", self, "_on_mouse_entered_diceitem")
-        diceitem.connect("mouse_exited_diceitem", self, "_on_mouse_exited_diceitem")
+    for ditem in $TPCont/PoolCont.get_children():
+        ditem.get_node("Button").connect("pressed", self, "on_diceitem_pressed")
+        ditem.connect("mouse_entered_diceitem", self, "on_mouse_entered_diceitem")
+        ditem.connect("mouse_exited_diceitem", self, "on_mouse_exited_diceitem")
     if Engine.editor_hint:
         set_random_pool(true)
 
@@ -28,18 +28,18 @@ func set_diceitems():
         diceitem.set_dice(dicepool[i])
         diceitem.set_index(i)
 
-func _on_diceitem_pressed():
+func on_diceitem_pressed():
     emit_signal("roll_changed")
     if get_nselected() >= 3:
         disable_unselected()
     else:
         enable_unused()
 
-func _on_mouse_entered_diceitem(diceitem):
+func on_mouse_entered_diceitem(diceitem):
     var idx = diceitem.get_index()
     emit_signal("mouse_entered_dice", idx)
 
-func _on_mouse_exited_diceitem():
+func on_mouse_exited_diceitem():
     emit_signal("mouse_exited_dice")
 
 func get_nselected():
