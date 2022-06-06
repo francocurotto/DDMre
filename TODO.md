@@ -1,5 +1,6 @@
 ### TODO
-- (engine): add name to players (Blue, Red)
-- (interface): create dice/summon info
+- implement text output
+    - implement engine text output
+- implement dungeon state
 
 ### FIX
