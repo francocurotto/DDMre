@@ -21,7 +21,6 @@ func set_guis():
     $P2GUI.set_duel(engine, engine.player2, engine.player1) 
 
 func on_dice_rolled(sides, player):
-    set_guis()
     var player_gui = get_children()[player.id-1]
     var opponent_gui = get_children()[player.id%2]
     player_gui.set_player_roll(sides)

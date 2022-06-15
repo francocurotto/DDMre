@@ -1,6 +1,7 @@
 ### TODO
 - implement text output
-    - implement engine text output
+    - make it autoscroll
 - implement dungeon state
 
 ### FIX
+- add crests to dungeon init

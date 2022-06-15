@@ -31,7 +31,7 @@ func _ready():
         $PDIBox/InfoBox/ItemInfo, "on_mouse_exited_dungobj")
     if Engine.editor_hint:
         var Engine = load("engine/engine.gd")
-# warning-ignore:shadowed_variable
+        # warning-ignore:shadowed_variable
         var engine = Engine.new("res://dungeons/" + layout + ".json")
         set_duel(engine, engine.player1, engine.player2)
 
@@ -44,6 +44,9 @@ func set_duel(_engine, _player, _opponent):
     $PDIBox/InfoBox/PInfoBox/OpponentInfo.set_player(opponent)
     $PDIBox/Dungeon.set_dungeon(engine.dungeon, player)
     $PDIBox/InfoBox/ItemInfo.set_player(player)
+    # engine connection
+    engine.messager.connect("engine_message", $PDIBox/PROBox/TextOutput,
+        "on_engine_message")
 
 func set_player_roll(sides):
     $PDIBox/PROBox/RollGUI.update_roll_player(sides)

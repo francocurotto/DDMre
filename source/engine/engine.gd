@@ -4,20 +4,26 @@ const Dicelib = preload("res://engine/dice/dicelib.gd")
 const Player = preload("res://engine/player/player.gd")
 const Dungeon = preload("res://engine/dungeon/dungeon.gd")
 const RollState = preload("res://engine/states/roll_state.gd")
+const Messager = preload("res://engine/output/messager.gd")
 
 var dicelib
 var player1
 var player2
 var dungeon
 var state
+var messager
 
 func _init(initpath:=Globals.DUNGPATH, pool1:=Globals.POOL1PATH, pool2:=Globals.POOL2PATH):
+    # duel objects
     dicelib = Dicelib.new()
     player1 = Player.new(1, dicelib.create_dicepool(pool1))
     player2 = Player.new(2, dicelib.create_dicepool(pool2))
     dungeon = Dungeon.new()
     state = RollState.new(player1, player2)
     set_initstate(initpath)
+    
+    # output objects
+    messager = Messager.new(self)
 
 func update(cmd):
     """

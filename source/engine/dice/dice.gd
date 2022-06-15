@@ -34,7 +34,7 @@ func create_sides(string):
     # first break the string into a list of side strings
     var sidestrings = []
     for chr in string:
-        if chr in Globals.CRESTDICT.values():
+        if chr in Globals.CRESTCHARS:
             sidestrings.append(chr)
             if chr == "S": # add level as multiplier
                 sidestrings[-1] += str(level)
