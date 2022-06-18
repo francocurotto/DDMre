@@ -35,13 +35,13 @@ func set_initstate(initpath):
     var initdict = read_jsoninit(initpath)
     for initkey in initdict:
         match initkey:
-            "DUNGEON": dungeon.set_layout(self, initdict["DUNGEON"])
+            "DUNGEON" : dungeon.set_layout(self, initdict["DUNGEON"])
             "SUMMONS1": set_initsummons(player1, initdict["SUMMONS1"])
             "SUMMONS2": set_initsummons(player2, initdict["SUMMONS2"])
-            "CREST1": set_initcrests(player1, initdict["CREST1"])
-            "CREST2": set_initcrests(player2, initdict["CREST2"])
-            "HEARTS1": player1.monsterlord.hearts = initdict["HEARTS1"]
-            "HEARTS2": player2.monsterlord.hearts = initdict["HEARTS2"]
+            "CRESTS1" : set_initcrests(player1, initdict["CRESTS1"])
+            "CRESTS2" : set_initcrests(player2, initdict["CRESTS2"])
+            "HEARTS1" : player1.monsterlord.hearts = initdict["HEARTS1"]
+            "HEARTS2" : player2.monsterlord.hearts = initdict["HEARTS2"]
             
 func set_initcrests(player, crests):
     for crest in crests:
