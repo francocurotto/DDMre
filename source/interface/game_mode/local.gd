@@ -25,6 +25,8 @@ func on_dice_rolled(sides, player):
     var opponent_gui = get_children()[player.id%2]
     player_gui.set_player_roll(sides)
     opponent_gui.set_opponent_roll(sides)
+    player_gui.update_player_crestpool()
+    opponent_gui.update_opponent_crestpool()
     
 func set_playerid(_playerid):
     engine = Engine.new("res://dungeons/" + layout + ".json")

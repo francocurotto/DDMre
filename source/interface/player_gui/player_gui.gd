@@ -57,6 +57,12 @@ func set_opponent_roll(sides):
 func on_roll_changed():
     $PDIBox/PROBox/RollGUI.set_roll_button($PDIBox/PROBox/Dicepool.roll_ready())
 
+func update_player_crestpool():
+    $PDIBox/InfoBox/PInfoBox/PlayerInfo.update_crestpool()
+
+func update_opponent_crestpool():
+    $PDIBox/InfoBox/PInfoBox/OpponentInfo.update_crestpool()
+
 func on_roll_pressed():
     var indeces = $PDIBox/PROBox/Dicepool.get_indeces()
     engine.state.update({"name" : "ROLL", "dice" : indeces})

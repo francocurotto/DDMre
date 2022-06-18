@@ -13,6 +13,9 @@ func set_player(_player):
 func set_opponent_title():
     $InfoBox/Title.text = "Opponent"
 
+func update_crestpool():
+    $InfoBox/CHBox/CrestPool.update_slots()
+
 func set_playerid(_playerid):
     playerid = _playerid
     $InfoBox/CHBox/Hearts.set_player_hearts(playerid, 3)
