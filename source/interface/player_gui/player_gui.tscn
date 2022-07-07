@@ -12,14 +12,16 @@
 self_modulate = Color( 0, 0, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = -8.0
+margin_bottom = -138.0
 script = ExtResource( 4 )
 
 [node name="PDIBox" type="HBoxContainer" parent="."]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1273.0
+margin_right = 1265.0
 margin_bottom = 575.0
-size_flags_vertical = 0
+size_flags_vertical = 3
 
 [node name="PROBox" type="VBoxContainer" parent="PDIBox"]
 margin_right = 601.0
@@ -41,13 +43,14 @@ margin_bottom = 568.0
 [node name="Dungeon" parent="PDIBox" instance=ExtResource( 5 )]
 margin_left = 605.0
 margin_right = 993.0
-margin_bottom = 568.0
-size_flags_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="InfoBox" type="VBoxContainer" parent="PDIBox"]
 margin_left = 997.0
 margin_right = 1258.0
 margin_bottom = 568.0
+size_flags_horizontal = 3
 
 [node name="PInfoBox" type="HBoxContainer" parent="PDIBox/InfoBox"]
 margin_right = 261.0

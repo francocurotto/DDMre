@@ -1,5 +1,5 @@
 tool
-extends VBoxContainer
+extends AspectRatioContainer
 
 export (String, "default", "test") var layout = "test" setget set_layout
 export (int, 1, 2) var playerid = 1 setget set_playerid
@@ -11,7 +11,7 @@ signal mouse_entered_dungobj(dungobj)
 signal mouse_exited_dungobj(dungobj)
 
 func _ready():
-    for row in get_children():
+    for row in $Cols.get_children():
         for t in row.get_children():
             t.connect("mouse_entered_dungobj", self, "on_mouse_entered_dungobj")
             t.connect("mouse_exited_dungobj", self, "on_mouse_exited_dungobj")
@@ -24,10 +24,10 @@ func set_dungeon(_dungeon, _player):
     update_dungeon()
 
 func update_dungeon():
-    for i in range(get_child_count()):
+    for i in range($Cols.get_child_count()):
         var row = dungeon.array[i]
-        if player.id == 1: i = get_child_count()-1-i # v-flip dungeon for player1
-        var irow = get_child(i)
+        if player.id == 1: i = $Cols.get_child_count()-1-i # v-flip dungeon for player1
+        var irow = $Cols.get_child(i)
         for j in range(irow.get_child_count()):
             var tile = row[j]
             var itile = irow.get_child(j)
