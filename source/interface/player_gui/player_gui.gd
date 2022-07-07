@@ -3,7 +3,7 @@ extends PanelContainer
 
 export (bool) var random_pool setget set_random_pool
 export (int, 1, 2) var playerid = 1 setget set_playerid
-export (String, "default", "test") var layout = "test" setget set_layout
+export (String, "default", "test1", "test2") var layout = "test2" setget set_layout
 
 var engine
 var player
@@ -13,20 +13,14 @@ func _ready():
     $PDIBox/InfoBox/PInfoBox/OpponentInfo.set_opponent_title()
     $PDIBox/PROBox/RollGUI.hide_rolls()
     # connections
-    # warning-ignore:return_value_discarded
     $PDIBox/PROBox/Dicepool.connect("roll_changed", self, "on_roll_changed")
-    # warning-ignore:return_value_discarded
     $PDIBox/PROBox/RollGUI.connect("roll_pressed", self, "on_roll_pressed")
-    # warning-ignore:return_value_discarded
     $PDIBox/PROBox/Dicepool.connect("mouse_entered_dice", 
         $PDIBox/InfoBox/ItemInfo, "on_mouse_entered_dice")
-    # warning-ignore:return_value_discarded
     $PDIBox/PROBox/Dicepool.connect("mouse_exited_dice", 
         $PDIBox/InfoBox/ItemInfo, "on_mouse_exited_dice")
-    # warning-ignore:return_value_discarded
     $PDIBox/Dungeon.connect("mouse_entered_dungobj", 
         $PDIBox/InfoBox/ItemInfo, "on_mouse_entered_dungobj")
-    # warning-ignore:return_value_discarded
     $PDIBox/Dungeon.connect("mouse_exited_dungobj", 
         $PDIBox/InfoBox/ItemInfo, "on_mouse_exited_dungobj")
     if Engine.editor_hint:
@@ -65,7 +59,7 @@ func update_opponent_crestpool():
 
 func on_roll_pressed():
     var indeces = $PDIBox/PROBox/Dicepool.get_indeces()
-    engine.state.update({"name" : "ROLL", "dice" : indeces})
+    engine.update({"name" : "ROLL", "dice" : indeces})
 
 func set_random_pool(_bool):
     $PDIBox/PROBox/Dicepool.set_random_pool(_bool)

@@ -2,6 +2,8 @@ extends "state.gd"
 
 const NAME = "ROLL"
 
+var DungeonState = load("engine/states/dungeon_state.gd")
+
 signal dice_rolled(sides)
 
 func _init(_player, _opponent).(_player, _opponent):
@@ -13,7 +15,7 @@ func _init(_player, _opponent).(_player, _opponent):
 func ROLL(cmd):
     var dicelist = get_dicelist(cmd["dice"])
     roll_dice(dicelist)
-    return self
+    return DungeonState.new(player, opponent)
     
 func get_dicelist(indeces):
     """

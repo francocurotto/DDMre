@@ -4,7 +4,7 @@ extends PanelContainer
 const Engine = preload("res://engine/engine.gd")
 
 export (int, 1, 2) var playerid = 1 setget set_playerid
-export (String, "default", "test") var layout = "test" setget set_layout
+export (String, "default", "test1", "test2") var layout = "test2" setget set_layout
 
 var engine
 
@@ -13,7 +13,6 @@ func _ready():
     engine = Engine.new()
     set_guis()
     # connections
-    # warning-ignore:return_value_discarded
     engine.state.connect("dice_rolled", self, "on_dice_rolled")
 
 func set_guis():

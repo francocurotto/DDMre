@@ -1,8 +1,8 @@
 tool
 extends AspectRatioContainer
 
-export (String, "default", "test") var layout = "test" setget set_layout
 export (int, 1, 2) var playerid = 1 setget set_playerid
+export (String, "default", "test1", "test2") var layout = "test2" setget set_layout
 
 var dungeon
 var player
