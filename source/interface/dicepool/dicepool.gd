@@ -15,7 +15,7 @@ func _ready():
         ditem.get_node("Button").connect("pressed", self, "on_diceitem_pressed")
         ditem.connect("mouse_entered_diceitem", self, "on_mouse_entered_diceitem")
         ditem.connect("mouse_exited_diceitem", self, "on_mouse_exited_diceitem")
-    if Engine.editor_hint:
+    if Engine.editor_hint or get_parent() == get_tree().root:
         set_random_pool(true)
 
 func set_dicepool(_dicepool):

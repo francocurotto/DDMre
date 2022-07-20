@@ -10,20 +10,20 @@ var player
 var opponent
 
 func _ready():
-    $PDIBox/InfoBox/PInfoBox/OpponentInfo.set_opponent_title()
-    $PDIBox/PROBox/RollGUI.hide_rolls()
+    $PDBox/PRIBox/InfoBox/OpponentInfo.set_opponent_title()
+    $PDBox/PRIBox/RollGUI.hide_rolls()
     # connections
-    $PDIBox/PROBox/Dicepool.connect("roll_changed", self, "on_roll_changed")
-    $PDIBox/PROBox/RollGUI.connect("roll_pressed", self, "on_roll_pressed")
-    $PDIBox/PROBox/Dicepool.connect("mouse_entered_dice", 
-        $PDIBox/InfoBox/ItemInfo, "on_mouse_entered_dice")
-    $PDIBox/PROBox/Dicepool.connect("mouse_exited_dice", 
-        $PDIBox/InfoBox/ItemInfo, "on_mouse_exited_dice")
-    $PDIBox/Dungeon.connect("mouse_entered_dungobj", 
-        $PDIBox/InfoBox/ItemInfo, "on_mouse_entered_dungobj")
-    $PDIBox/Dungeon.connect("mouse_exited_dungobj", 
-        $PDIBox/InfoBox/ItemInfo, "on_mouse_exited_dungobj")
-    if Engine.editor_hint:
+    $PDBox/PRIBox/Dicepool.connect("roll_changed", self, "on_roll_changed")
+    $PDBox/PRIBox/RollGUI.connect("roll_pressed", self, "on_roll_pressed")
+    $PDBox/PRIBox/Dicepool.connect("mouse_entered_dice", 
+        $PDBox/PRIBox/InfoBox/ItemInfo, "on_mouse_entered_dice")
+    $PDBox/PRIBox/Dicepool.connect("mouse_exited_dice", 
+        $PDBox/PRIBox/InfoBox/ItemInfo, "on_mouse_exited_dice")
+    $PDBox/Dungeon.connect("mouse_entered_dungobj", 
+        $PDBox/PRIBox/InfoBox/ItemInfo, "on_mouse_entered_dungobj")
+    $PDBox/Dungeon.connect("mouse_exited_dungobj", 
+        $PDBox/PRIBox/InfoBox/ItemInfo, "on_mouse_exited_dungobj")
+    if Engine.editor_hint or get_parent() == get_tree().root:
         var Engine = load("engine/engine.gd")
         # warning-ignore:shadowed_variable
         var engine = Engine.new("res://dungeons/" + layout + ".json")
@@ -33,36 +33,33 @@ func set_duel(_engine, _player, _opponent):
     engine = _engine
     player = _player
     opponent = _opponent
-    $PDIBox/PROBox/Dicepool.set_dicepool(player.dicepool)
-    $PDIBox/InfoBox/PInfoBox/PlayerInfo.set_player(player)
-    $PDIBox/InfoBox/PInfoBox/OpponentInfo.set_player(opponent)
-    $PDIBox/Dungeon.set_dungeon(engine.dungeon, player)
-    $PDIBox/InfoBox/ItemInfo.set_player(player)
-    # engine connection
-    engine.messager.connect("engine_message", $PDIBox/PROBox/TextOutput,
-        "on_engine_message")
+    $PDBox/PRIBox/Dicepool.set_dicepool(player.dicepool)
+    $PDBox/PRIBox/InfoBox/PlayerInfo.set_player(player)
+    $PDBox/PRIBox/InfoBox/OpponentInfo.set_player(opponent)
+    $PDBox/Dungeon.set_dungeon(engine.dungeon, player)
+    $PDBox/PRIBox/InfoBox/ItemInfo.set_player(player)
 
 func set_player_roll(sides):
-    $PDIBox/PROBox/RollGUI.update_roll_player(sides)
+    $PDBox/PRIBox/RollGUI.update_roll_player(sides)
 
 func set_opponent_roll(sides):
-    $PDIBox/PROBox/RollGUI.update_roll_opponent(sides)
+    $PDBox/PRIBox/RollGUI.update_roll_opponent(sides)
 
 func on_roll_changed():
-    $PDIBox/PROBox/RollGUI.set_roll_button($PDIBox/PROBox/Dicepool.roll_ready())
+    $PDBox/PRIBox/RollGUI.set_roll_button($PDBox/PRIBox/Dicepool.roll_ready())
 
 func update_player_crestpool():
-    $PDIBox/InfoBox/PInfoBox/PlayerInfo.update_crestpool()
+    $PDBox/PRIBox/InfoBox/PlayerInfo.update_crestpool()
 
 func update_opponent_crestpool():
-    $PDIBox/InfoBox/PInfoBox/OpponentInfo.update_crestpool()
+    $PDBox/PRIBox/InfoBox/OpponentInfo.update_crestpool()
 
 func on_roll_pressed():
-    var indeces = $PDIBox/PROBox/Dicepool.get_indeces()
+    var indeces = $PDBox/PRIBox/Dicepool.get_indeces()
     engine.update({"name" : "ROLL", "dice" : indeces})
 
 func set_random_pool(_bool):
-    $PDIBox/PROBox/Dicepool.set_random_pool(_bool)
+    $PDBox/PRIBox/Dicepool.set_random_pool(_bool)
     
 func set_playerid(_playerid):
     playerid = _playerid
@@ -74,7 +71,7 @@ func set_layout(_layout):
 
 func set_duel_tool(_playerid, _layout):
     var Engine = load("engine/engine.gd")
-# warning-ignore:shadowed_variable
+    # warning-ignore:shadowed_variable
     var engine = Engine.new("res://dungeons/" + _layout + ".json")
     if _playerid == 1:
         set_duel(engine, engine.player1, engine.player2)
