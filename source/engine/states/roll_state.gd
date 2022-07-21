@@ -33,4 +33,4 @@ func roll_dice(dicelist):
     var sides = []
     for dice in dicelist:
         sides.append(dice.roll())
-    emit_signal("dice_rolled", sides, player)
+    emit_signal("dice_rolled", sides)

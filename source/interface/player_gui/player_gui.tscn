@@ -21,9 +21,12 @@ margin_top = 7.0
 margin_right = 1265.0
 margin_bottom = 578.0
 size_flags_vertical = 3
+custom_constants/separation = 10
+alignment = 1
 
 [node name="PRIBox" type="VBoxContainer" parent="PDBox"]
-margin_right = 601.0
+margin_left = 129.0
+margin_right = 730.0
 margin_bottom = 571.0
 
 [node name="Dicepool" parent="PDBox/PRIBox" instance=ExtResource( 1 )]
@@ -39,23 +42,21 @@ margin_top = 398.0
 margin_right = 601.0
 margin_bottom = 571.0
 
-[node name="OpponentInfo" parent="PDBox/PRIBox/InfoBox" instance=ExtResource( 2 )]
-margin_right = 166.0
-margin_bottom = 173.0
-
 [node name="PlayerInfo" parent="PDBox/PRIBox/InfoBox" instance=ExtResource( 2 )]
-margin_left = 170.0
-margin_right = 336.0
-margin_bottom = 173.0
+margin_right = 101.0
+
+[node name="OpponentInfo" parent="PDBox/PRIBox/InfoBox" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_right = 206.0
 
 [node name="ItemInfo" parent="PDBox/PRIBox/InfoBox" instance=ExtResource( 6 )]
-margin_left = 340.0
+margin_left = 210.0
 margin_right = 601.0
 margin_bottom = 173.0
 
 [node name="Dungeon" parent="PDBox" instance=ExtResource( 5 )]
-margin_left = 605.0
-margin_right = 1258.0
+margin_left = 740.0
+margin_right = 1128.0
 margin_bottom = 571.0
-size_flags_horizontal = 3
 size_flags_vertical = 3
+stretch_mode = 1

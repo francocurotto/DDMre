@@ -44,15 +44,21 @@ func set_player_roll(sides):
 
 func set_opponent_roll(sides):
     $PDBox/PRIBox/RollGUI.update_roll_opponent(sides)
-
-func on_roll_changed():
-    $PDBox/PRIBox/RollGUI.set_roll_button($PDBox/PRIBox/Dicepool.roll_ready())
-
+    
 func update_player_crestpool():
     $PDBox/PRIBox/InfoBox/PlayerInfo.update_crestpool()
 
 func update_opponent_crestpool():
     $PDBox/PRIBox/InfoBox/OpponentInfo.update_crestpool()
+
+func on_roll_changed():
+    $PDBox/PRIBox/RollGUI.set_roll_button($PDBox/PRIBox/Dicepool.roll_ready())
+
+func on_state_update_roll(): #TODO
+    pass
+
+func on_state_update_dungeon(): #TODO
+    pass
 
 func on_roll_pressed():
     var indeces = $PDBox/PRIBox/Dicepool.get_indeces()

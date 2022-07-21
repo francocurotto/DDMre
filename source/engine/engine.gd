@@ -13,6 +13,8 @@ var dungeon
 var state
 var messager
 
+signal state_update(state_name)
+
 func _init(initpath:=Globals.DUNGPATH, pool1:=Globals.POOL1PATH, pool2:=Globals.POOL2PATH):
     # duel objects
     dicelib = Dicelib.new()
@@ -21,15 +23,13 @@ func _init(initpath:=Globals.DUNGPATH, pool1:=Globals.POOL1PATH, pool2:=Globals.
     dungeon = Dungeon.new()
     state = RollState.new(player1, player2)
     set_initstate(initpath)
-    
-    # output objects
-    messager = Messager.new(self)
 
 func update(cmd):
     """
     Update engine with given command.
     """
     state = state.update(cmd)
+    emit_signal("state_update", state.NAME)
 
 func set_initstate(initpath):
     var initdict = read_jsoninit(initpath)

@@ -7,6 +7,7 @@
 margin_right = 388.0
 margin_bottom = 568.0
 ratio = 0.684
+alignment_horizontal = 0
 script = ExtResource( 2 )
 
 [node name="Cols" type="VBoxContainer" parent="."]

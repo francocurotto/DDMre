@@ -9,6 +9,7 @@
 margin_right = 82.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 261, 0 )
+size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = ExtResource( 1 )
 script = ExtResource( 3 )
