@@ -15,6 +15,7 @@ func _ready():
     # connections
     $PDBox/PRIBox/Dicepool.connect("roll_changed", self, "on_roll_changed")
     $PDBox/PRIBox/RollGUI.connect("roll_pressed", self, "on_roll_pressed")
+    $PDBox/PRIBox/RollGUI.connect("endturn_pressed", self, "on_endturn_pressed")
     $PDBox/PRIBox/Dicepool.connect("mouse_entered_dice", 
         $PDBox/PRIBox/InfoBox/ItemInfo, "on_mouse_entered_dice")
     $PDBox/PRIBox/Dicepool.connect("mouse_exited_dice", 
@@ -54,8 +55,11 @@ func update_opponent_crestpool():
 func on_roll_changed():
     $PDBox/PRIBox/RollGUI.set_roll_button($PDBox/PRIBox/Dicepool.roll_ready())
 
-func on_state_update_roll(): #TODO
-    pass
+func on_state_update_roll():
+    $PDBox/PRIBox/Dicepool.enable_all()
+    $PDBox/PRIBox/Dicepool.release_all()
+    $PDBox/PRIBox/RollGUI.enable_roll()
+    $PDBox/PRIBox/RollGUI.disable_endturn()
 
 func on_state_update_dungeon():
     $PDBox/PRIBox/Dicepool.disable_all()
@@ -65,6 +69,9 @@ func on_state_update_dungeon():
 func on_roll_pressed():
     var indeces = $PDBox/PRIBox/Dicepool.get_indeces()
     engine.update({"name" : "ROLL", "dice" : indeces})
+
+func on_endturn_pressed():
+    engine.update({"name" : "ENDTURN"})
 
 func set_random_pool(_bool):
     $PDBox/PRIBox/Dicepool.set_random_pool(_bool)

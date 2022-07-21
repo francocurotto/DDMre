@@ -65,3 +65,4 @@ disabled = true
 text = "End Turn"
 
 [connection signal="pressed" from="PlayerPanel/BPBox/RollButton" to="." method="_on_RollButton_pressed"]
+[connection signal="pressed" from="EndTurnButton" to="." method="_on_EndTurnButton_pressed"]

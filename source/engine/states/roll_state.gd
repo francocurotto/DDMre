@@ -8,9 +8,6 @@ signal dice_rolled(sides)
 
 func _init(_player, _opponent).(_player, _opponent):
     cmdlist += ["ROLL"]
-    # connect signals
-    for dice in player.dicepool:
-        dice.connect("rolled", player.crestpool, "add_crests")
 
 func ROLL(cmd):
     var dicelist = get_dicelist(cmd["dice"])

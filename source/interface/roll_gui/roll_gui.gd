@@ -5,6 +5,7 @@ export (bool) var roll_player_dice setget set_random_roll_player
 export (bool) var roll_opp_dice setget set_random_roll_opponent
 
 signal roll_pressed
+signal endturn_pressed
 
 func set_roll_button(enable):
     $PlayerPanel/BPBox/RollButton.disabled = not enable
@@ -20,11 +21,20 @@ func update_roll_opponent(sides):
 func _on_RollButton_pressed():
     emit_signal("roll_pressed")
     
+func _on_EndTurnButton_pressed():
+    emit_signal("endturn_pressed")
+    
+func enable_roll():
+    $PlayerPanel/BPBox/RollButton.disabled = false
+    
 func disable_roll():
     $PlayerPanel/BPBox/RollButton.disabled = true
     
 func enable_endturn():
     $EndTurnButton.disabled = false
+
+func disable_endturn():
+    $EndTurnButton.disabled = true
 
 func hide_rolls():
     $PlayerPanel/BPBox/PlayerRoll.show_roll(false)

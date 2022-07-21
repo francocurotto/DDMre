@@ -14,6 +14,7 @@ var state
 var messager
 
 signal state_update(state_name)
+signal next_turn
 
 func _init(initpath:=Globals.DUNGPATH, pool1:=Globals.POOL1PATH, pool2:=Globals.POOL2PATH):
     # duel objects
@@ -23,13 +24,26 @@ func _init(initpath:=Globals.DUNGPATH, pool1:=Globals.POOL1PATH, pool2:=Globals.
     dungeon = Dungeon.new()
     state = RollState.new(player1, player2)
     set_initstate(initpath)
+    # connections
+    for dice in player1.dicepool:
+        dice.connect("rolled", player1.crestpool, "add_crests")
+    for dice in player2.dicepool:
+        dice.connect("rolled", player2.crestpool, "add_crests")
 
 func update(cmd):
     """
     Update engine with given command.
     """
-    state = state.update(cmd)
-    emit_signal("state_update", state.NAME)
+    # get new state info
+    var newstate = state.update(cmd)
+    var state_update = newstate != state
+    var next_turn = newstate.is_other_turn(state)
+    # perform the update
+    state = newstate
+    if state_update:
+        emit_signal("state_update", state.NAME)
+    if next_turn:
+        emit_signal("next_turn")
 
 func set_initstate(initpath):
     var initdict = read_jsoninit(initpath)
