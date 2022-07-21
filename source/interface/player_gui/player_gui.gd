@@ -57,8 +57,10 @@ func on_roll_changed():
 func on_state_update_roll(): #TODO
     pass
 
-func on_state_update_dungeon(): #TODO
-    pass
+func on_state_update_dungeon():
+    $PDBox/PRIBox/Dicepool.disable_all()
+    $PDBox/PRIBox/RollGUI.disable_roll()
+    $PDBox/PRIBox/RollGUI.enable_endturn()
 
 func on_roll_pressed():
     var indeces = $PDBox/PRIBox/Dicepool.get_indeces()

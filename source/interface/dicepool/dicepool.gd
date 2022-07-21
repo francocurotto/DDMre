@@ -48,6 +48,10 @@ func get_nselected():
         n += int(diceitem.selected)
     return n
 
+func disable_all():
+    for diceitem in $TPCont/PoolCont.get_children():
+        diceitem.disable()
+
 func disable_unselected():
     for diceitem in $TPCont/PoolCont.get_children():
         diceitem.disable_unselected()

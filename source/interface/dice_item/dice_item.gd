@@ -40,6 +40,9 @@ func set_index(i):
 func get_selected():
     return $Button.pressed and not $Button.disabled
 
+func disable():
+    $Button.disabled = true
+
 func disable_unselected():
     if not self.selected:
         $Button.disabled = true

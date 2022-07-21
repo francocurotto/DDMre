@@ -19,6 +19,12 @@ func update_roll_opponent(sides):
 
 func _on_RollButton_pressed():
     emit_signal("roll_pressed")
+    
+func disable_roll():
+    $PlayerPanel/BPBox/RollButton.disabled = true
+    
+func enable_endturn():
+    $EndTurnButton.disabled = false
 
 func hide_rolls():
     $PlayerPanel/BPBox/PlayerRoll.show_roll(false)
