@@ -1,5 +1,8 @@
 extends "tile.gd"
 
+# constants
 const NAME = "BLOCK"
 
-func is_block(): return true
+# "is" functions
+func is_block():
+    return true

@@ -1,5 +1,8 @@
 extends "tile.gd"
 
+# constants
 const NAME = "EMPTY"
 
-func is_empty(): return true
+# "is" functions
+func is_empty():
+    return true

@@ -1,5 +1,6 @@
 extends "summon_card.gd"
 
+# preloads
 const summondict = {
     "DRAGON"      : preload("res://engine/dungobj/dragon.gd"),
     "SPELLCASTER" : preload("res://engine/dungobj/spellcaster.gd"),
@@ -7,6 +8,7 @@ const summondict = {
     "BEAST"       : preload("res://engine/dungobj/beast.gd"),
     "WARRIOR"     : preload("res://engine/dungobj/warrior.gd")}
 
+# variables
 var attack
 var defense
 var health
@@ -16,8 +18,13 @@ func _init(cardinfo).(cardinfo):
     defense = cardinfo["DEFENSE"]
     health = cardinfo["HEALTH"]
 
+# public functions
+func summon(player):
+    """
+    Return a summon object from card.
+    """
+    return summondict[type].new(self, player)
+
+# "is" functions
 func is_monster():
     return true
-
-func summon(player):
-    return summondict[type].new(self, player)

@@ -1,5 +1,6 @@
 extends Reference
 
+# variables
 var name
 var type
 var level
@@ -11,7 +12,9 @@ func _init(cardinfo):
     level = cardinfo["LEVEL"]
     ability = cardinfo["ABILITY"] #TODO: change to proper ability
 
+# "is" functions
 func is_monster():
     return false
+
 func is_item():
     return false

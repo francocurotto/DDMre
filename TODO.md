@@ -1,4 +1,5 @@
 ### TODO
+- status line
 - implement dungeon state
 
 ### FIX

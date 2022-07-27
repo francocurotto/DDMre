@@ -1,5 +1,6 @@
 extends Reference
 
+# preloads
 const SummonCrest = preload("res://engine/dice/crests/summon_crest.gd")
 const MovementCrest = preload("res://engine/dice/crests/movement_crest.gd")
 const AttackCrest = preload("res://engine/dice/crests/attack_crest.gd")
@@ -7,12 +8,15 @@ const DefenseCrest = preload("res://engine/dice/crests/defense_crest.gd")
 const MagicCrest = preload("res://engine/dice/crests/magic_crest.gd")
 const TrapCrest = preload("res://engine/dice/crests/trap_crest.gd")
 
+# constants
 const CRESTDICT = {"S" : SummonCrest,
                    "M" : MovementCrest,
                    "A" : AttackCrest,
                    "D" : DefenseCrest,
                    "G" : MagicCrest,
                    "T" : TrapCrest}
+
+# variables
 var crest
 var mult
 
