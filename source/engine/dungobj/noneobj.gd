@@ -1,5 +1,8 @@
 extends "dungobj.gd"
 
+# constants
 const NAME = "NONE"
 
-func is_none(): return true
+# "is" functions
+func is_none():
+    return true

@@ -1,5 +1,6 @@
 extends Reference
 
+# variables
 var player
 var opponent
 var cmdlist = []
@@ -8,6 +9,7 @@ func _init(_player, _opponent):
     player = _player
     opponent = _opponent
 
+# public functions
 func update(cmd):
     """
     Update state given command cmd.

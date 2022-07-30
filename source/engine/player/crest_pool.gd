@@ -1,9 +1,9 @@
 extends Reference
 
+# constants
 const LIMIT = 99
 
-signal hit_crest_limit(crestname)
-
+# variables
 var slots = {
     "MOVEMENT" : 0,
     "ATTACK"   : 0,
@@ -11,9 +11,13 @@ var slots = {
     "MAGIC"    : 0,
     "TRAP"     : 0}
 
+# signals
+signal hit_crest_limit(crestname)
+
+# public functions
 func add_crests(side):
     """
-    Add rolled crests to crest pool.
+    Add rolled side to crest pool.
     """
     # if rolled a summon, skip
     if side.crest.NAME == "SUMMON":

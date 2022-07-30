@@ -1,5 +1,6 @@
 extends "summon.gd"
 
+# variables
 var attack
 var defense
 var health
@@ -9,4 +10,6 @@ func _init(_card, _player).(_card, _player):
     defense = card.defense
     health = card.health
 
-func is_monster(): return true
+# "is" functions
+func is_monster():
+    return true

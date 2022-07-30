@@ -20,6 +20,9 @@ func _init():
 
 # public functions
 func set_layout(engine, layout):
+    """
+    Set the layout of the dungeon given a dictionary.
+    """
     for i in range(len(array)):
         var row = array[i]
         var layrow = layout[len(array)-i-1]
@@ -27,6 +30,9 @@ func set_layout(engine, layout):
             array[i][j] = create_tile(engine, layrow[j])
 
 func place_dungobj(pos, dungobj):
+    """
+    Place a dungobj in the dungeon at specified position.
+    """
     array[pos[0]][pos[1]].content = dungobj
 
 # private functions
