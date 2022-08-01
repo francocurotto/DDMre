@@ -5,7 +5,6 @@ const Dicelib = preload("res://engine/dice/dicelib.gd")
 const Player = preload("res://engine/player/player.gd")
 const Dungeon = preload("res://engine/dungeon/dungeon.gd")
 const RollState = preload("res://engine/states/roll_state.gd")
-const Messager = preload("res://engine/output/messager.gd")
 
 # variables
 var dicelib

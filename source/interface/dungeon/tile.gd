@@ -19,21 +19,31 @@ func set_tile(_tile):
     update_tile()
 
 func update_tile():
-    set_tile_bare(tile.NAME, tile.get("player_id"))
-    if tile.is_path():
-        set_dungobj(tile.content.NAME, tile.content.get("player_id"))
+    # case not path
+    if not tile.is_path():
+        set_tile_bare(tile.NAME)
+    # case path
+    else:
+        set_tile_bare(tile.NAME, tile.player.id)
+        # case no content (TODO: modify for vortex?)
+        if tile.content.is_none():
+            set_dungobj(tile.content.NAME)
+        # case content
+        else:
+            set_dungobj(tile.content.NAME, tile.content.player.id)
 
-func set_tile_bare(_tile_type, _player_tile):
+func set_tile_bare(_tile_type, _player_tile=null):
     var icon = "TILE_" + _tile_type
     if _tile_type == "PATH":
         icon += "_P" + str(_player_tile)
     $TileRect.texture = load("res://art/icons/" + icon + ".png")
-    $DungobjRect.texture = null
 
-func set_dungobj(_dungobj_type, _dungobj_player):
-    if _dungobj_type == "NONE" or _dungobj_type == null:
+func set_dungobj(_dungobj_type, _dungobj_player=null):
+    # case no content
+    if _dungobj_type == "NONE":
         $DungobjRect.texture = null
         return
+    # case content
     var icon = _dungobj_type
     if icon in Globals.TYPES + ["ITEM"]:
         icon = "TYPE_" + icon

@@ -1,8 +1,6 @@
 # Code and Nodes Styles
 
-## Code Style
-### Naming: camel case
-### Order (checked till dungeon)
+## Code Order Engine
 - extends
 - preloads
 - constants
@@ -13,4 +11,3 @@
     - public functions
     - private functions
     - "is" functions
-### Docstring Style: imperative
