@@ -47,6 +47,10 @@ margin_right = 178.0
 [node name="Tile7" parent="Cols/Row19" instance=ExtResource( 1 )]
 margin_left = 180.0
 margin_right = 208.0
+tile_type = "PATH"
+player_tile = 2
+dungobj_type = "MONSTER_LORD"
+player_dungobj = 2
 
 [node name="Tile8" parent="Cols/Row19" instance=ExtResource( 1 )]
 margin_left = 210.0
@@ -1073,6 +1077,8 @@ margin_right = 178.0
 [node name="Tile7" parent="Cols/Row1" instance=ExtResource( 1 )]
 margin_left = 180.0
 margin_right = 208.0
+tile_type = "PATH"
+dungobj_type = "MONSTER_LORD"
 
 [node name="Tile8" parent="Cols/Row1" instance=ExtResource( 1 )]
 margin_left = 210.0

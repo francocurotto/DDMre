@@ -1,9 +1,4 @@
-tool
 extends PanelContainer
-
-export (bool) var random_pool setget set_random_pool
-export (int, 1, 2) var playerid = 1 setget set_playerid
-export (String, "default", "test1", "test2") var layout = "test2" setget set_layout
 
 var engine
 var player
@@ -24,11 +19,6 @@ func _ready():
         $PDBox/PRIBox/InfoBox/ItemInfo, "on_mouse_entered_dungobj")
     $PDBox/Dungeon.connect("mouse_exited_dungobj", 
         $PDBox/PRIBox/InfoBox/ItemInfo, "on_mouse_exited_dungobj")
-    if Engine.editor_hint or get_parent() == get_tree().root:
-        var Engine = load("engine/engine.gd")
-        # warning-ignore:shadowed_variable
-        var engine = Engine.new("res://dungeons/" + layout + ".json")
-        set_duel(engine, engine.player1, engine.player2)
 
 func set_duel(_engine, _player, _opponent):
     engine = _engine
@@ -75,20 +65,3 @@ func on_endturn_pressed():
 
 func set_random_pool(_bool):
     $PDBox/PRIBox/Dicepool.set_random_pool(_bool)
-    
-func set_playerid(_playerid):
-    playerid = _playerid
-    set_duel_tool(playerid, layout)
-
-func set_layout(_layout):
-    layout = _layout
-    set_duel_tool(playerid, layout)
-
-func set_duel_tool(_playerid, _layout):
-    var Engine = load("engine/engine.gd")
-    # warning-ignore:shadowed_variable
-    var engine = Engine.new("res://dungeons/" + _layout + ".json")
-    if _playerid == 1:
-        set_duel(engine, engine.player1, engine.player2)
-    elif _playerid == 2:
-        set_duel(engine, engine.player2, engine.player1)

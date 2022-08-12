@@ -1,10 +1,6 @@
-tool
 extends PanelContainer
 
 const Engine = preload("res://engine/engine.gd")
-
-export (int, 1, 2) var playerid = 1 setget set_playerid
-export (String, "default", "test1", "test2") var layout = "test2" setget set_layout
 
 var engine
 
@@ -51,15 +47,3 @@ func get_player_gui():
 
 func get_opponent_gui():
     return get_children()[engine.state.opponent.id-1]
-
-func set_playerid(_playerid):
-    engine = Engine.new("res://dungeons/" + layout + ".json")
-    playerid = _playerid
-    set_guis()
-    $P1GUI.visible = playerid%2
-    $P2GUI.visible = (playerid+1)%2
-
-func set_layout(_layout):
-    layout = _layout
-    engine = Engine.new("res://dungeons/" + layout + ".json")
-    set_guis()
