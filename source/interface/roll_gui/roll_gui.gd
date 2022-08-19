@@ -1,47 +1,50 @@
 tool
 extends HBoxContainer
 
-export (bool) var roll_player_dice setget set_random_roll_player
-export (bool) var roll_opp_dice setget set_random_roll_opponent
+# onready variables
+onready var roll_button = $PlayerPanel/BPBox/RollButton
+onready var player_roll = $PlayerPanel/BPBox/PlayerRoll
+onready var opponent_roll = $OppPanel/LOBox/OppRoll
+onready var endturn_button = $EndTurnButton
 
+# signals
 signal roll_pressed
 signal endturn_pressed
 
+# set functions
 func set_roll_button(enable):
-    $PlayerPanel/BPBox/RollButton.disabled = not enable
+    roll_button.disabled = not enable
 
 func update_roll_player(sides):
-    $PlayerPanel/BPBox/PlayerRoll.set_roll(sides)
-    $PlayerPanel/BPBox/PlayerRoll.show_roll(true)
+    player_roll.set_roll(sides)
+    player_roll.show_roll(true)
 
 func update_roll_opponent(sides):
-    $OppPanel/LOBox/OppRoll.set_roll(sides)
-    $OppPanel/LOBox/OppRoll.show_roll(true)
+    opponent_roll.set_roll(sides)
+    opponent_roll.show_roll(true)
 
+func enable_roll():
+    roll_button.disabled = false
+    
+func disable_roll():
+    roll_button.disabled = true
+    
+func enable_endturn():
+    endturn_button.disabled = false
+
+func disable_endturn():
+    endturn_button.disabled = true
+
+func hide_rolls():
+    player_roll.show_roll(false)
+    opponent_roll.show_roll(false)
+
+func hide_player_roll():
+    player_roll.show_roll(false)
+
+# signals callback
 func _on_RollButton_pressed():
     emit_signal("roll_pressed")
     
 func _on_EndTurnButton_pressed():
     emit_signal("endturn_pressed")
-    
-func enable_roll():
-    $PlayerPanel/BPBox/RollButton.disabled = false
-    
-func disable_roll():
-    $PlayerPanel/BPBox/RollButton.disabled = true
-    
-func enable_endturn():
-    $EndTurnButton.disabled = false
-
-func disable_endturn():
-    $EndTurnButton.disabled = true
-
-func hide_rolls():
-    $PlayerPanel/BPBox/PlayerRoll.show_roll(false)
-    $OppPanel/LOBox/OppRoll.show_roll(false)
-
-func set_random_roll_player(_bool):
-    $PlayerPanel/BPBox/PlayerRoll.set_random_roll(_bool)
-
-func set_random_roll_opponent(_bool):
-    $OppPanel/LOBox/OppRoll.set_random_roll(_bool)

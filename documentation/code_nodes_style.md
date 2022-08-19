@@ -10,18 +10,20 @@
     - `_init`
     - public functions
     - private functions
-    - "is" functions
+    - is functions
 
 ## Code Order Interface
 - tools/extends
 - export variables
+- preloads
+- constants
 - variables
 - onready variables
 - signals
 - functions:
     - `_ready`
-    - "set" functions
-    - "get" functions
+    - set functions
+    - get functions
     - public functions
     - signals callbacks
     - private functions

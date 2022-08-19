@@ -1,20 +1,30 @@
 tool
 extends PanelContainer
 
+# export variables
 export (int, 1, 2) var playerid = 1 setget set_playerid
+export (String, "Player", "Opponent") var title = "Player" setget set_title
 
+# variables
 var player
 
-func set_player(_player):
-    player = _player
-    $InfoBox/CHBox/Hearts.set_player(player)
-    $InfoBox/CHBox/CrestPool.set_crestpool(player.crestpool)
+# onready variables
+onready var hearts = $InfoBox/CHBox/Hearts
+onready var crestpool = $InfoBox/CHBox/CrestPool
 
-func set_opponent_title():
-    $InfoBox/Title.text = "Opponent"
+# set functions
+func set_infobox(_player, _title):
+    player = _player
+    hearts.set_player(player)
+    crestpool.set_crestpool(player.crestpool)
+    set_title(_title)
 
 func update_crestpool():
-    $InfoBox/CHBox/CrestPool.update_slots()
+    crestpool.update_slots()
+
+func set_title(_title):
+    title = _title
+    $InfoBox/Title.text = title
 
 func set_playerid(_playerid):
     playerid = _playerid

@@ -30,9 +30,11 @@ margin_right = 730.0
 margin_bottom = 571.0
 
 [node name="Dicepool" parent="PDBox/PRIBox" instance=ExtResource( 1 )]
+unique_name_in_owner = true
 margin_right = 601.0
 
 [node name="RollGUI" parent="PDBox/PRIBox" instance=ExtResource( 3 )]
+unique_name_in_owner = true
 margin_top = 352.0
 margin_right = 601.0
 margin_bottom = 394.0
@@ -43,18 +45,24 @@ margin_right = 601.0
 margin_bottom = 571.0
 
 [node name="PlayerInfo" parent="PDBox/PRIBox/InfoBox" instance=ExtResource( 2 )]
+unique_name_in_owner = true
 margin_right = 101.0
 
 [node name="OpponentInfo" parent="PDBox/PRIBox/InfoBox" instance=ExtResource( 2 )]
+unique_name_in_owner = true
 margin_left = 105.0
 margin_right = 206.0
+playerid = 2
+title = "Opponent"
 
 [node name="ItemInfo" parent="PDBox/PRIBox/InfoBox" instance=ExtResource( 6 )]
+unique_name_in_owner = true
 margin_left = 210.0
 margin_right = 601.0
 margin_bottom = 173.0
 
 [node name="Dungeon" parent="PDBox" instance=ExtResource( 5 )]
+unique_name_in_owner = true
 margin_left = 740.0
 margin_right = 1128.0
 margin_bottom = 571.0

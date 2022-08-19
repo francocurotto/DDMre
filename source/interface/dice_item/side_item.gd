@@ -28,6 +28,6 @@ func position_mult():
     $Mult.anchor_top = 1
     $Mult.anchor_right = 1
     $Mult.anchor_bottom = 1
-    var multsize = $Mult.get_size()
+    var multsize = .get_size()
     $Mult.margin_left = -1 * multsize.x
     $Mult.margin_top =  -1 * multsize.y

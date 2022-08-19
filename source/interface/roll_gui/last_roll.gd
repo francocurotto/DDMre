@@ -1,8 +1,10 @@
 tool
 extends HBoxContainer
 
+# export variables
 export (bool) var roll_dice setget set_random_roll
 
+# set functions
 func set_roll(roll):
     for i in roll.size():
         get_child(i).set_side(roll[i])

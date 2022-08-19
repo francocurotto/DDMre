@@ -1,14 +1,18 @@
 tool
 extends VBoxContainer
 
+# export variables
 export (int, 1, 2) var playerid = 1 setget set_playerid
 export (int, 3) var hearts = 3 setget set_hearts
 
+# constnants
 const HEARTDICT = {1 : "res://art/icons/HEART_BLUE.png",
                    2 : "res://art/icons/HEART_RED.png"}
 
+# variables
 var player
 
+# set functions
 func set_player(_player):
     player = _player
     update_hearts()

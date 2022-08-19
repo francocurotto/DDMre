@@ -58,7 +58,7 @@ func set_index(i):
 
 # public functions
 func get_selected():
-    return $Button.pressed and not $Button.disabled
+    return button.pressed and not button.disabled
 
 func enable():
     button.disabled = false

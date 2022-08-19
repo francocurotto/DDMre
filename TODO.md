@@ -1,9 +1,7 @@
 ### TODO
-- status line
-- implement dungeon state
+- status lines: turn number, state
+- implement dungeon states
 
 ### FIX
 
 ### Improvements
-- files cleanup
-- Code cleanup
