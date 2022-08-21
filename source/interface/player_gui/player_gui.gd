@@ -10,11 +10,11 @@ onready var dicepool = $"%Dicepool"
 onready var rollgui = $"%RollGUI"
 onready var playerinfo = $"%PlayerInfo"
 onready var opponentinfo = $"%OpponentInfo"
+onready var duelinfo = $"%DuelInfo"
 onready var iteminfo = $"%ItemInfo"
 onready var dungeon = $"%Dungeon"
 
 func _ready():
-    #$PDBox/PRIBox/InfoBox/OpponentInfo.set_opponent_title()
     rollgui.hide_rolls()
     # connections
     dicepool.connect("roll_changed", self, "on_roll_changed")
@@ -49,6 +49,9 @@ func update_opponent_crestpool():
     opponentinfo.update_crestpool()
 
 # signals callback
+func on_state_update(state):
+    duelinfo.on_state_update(state)
+
 func on_state_update_roll():
     dicepool.enable_all()
     dicepool.release_all()
@@ -60,6 +63,9 @@ func on_state_update_dungeon():
     dicepool.disable_all()
     rollgui.disable_roll()
     rollgui.enable_endturn()
+
+func on_next_turn(turn):
+    duelinfo.on_next_turn(turn)
 
 func on_roll_changed():
     rollgui.set_roll_button(dicepool.roll_ready())

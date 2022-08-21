@@ -1,6 +1,5 @@
 ### TODO
-- status lines: turn number, state
-- implement dungeon states
+- implement dungeon state
 
 ### FIX
 

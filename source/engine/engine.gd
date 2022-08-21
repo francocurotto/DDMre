@@ -12,7 +12,7 @@ var player1
 var player2
 var dungeon
 var state
-var messager
+var turn = 1
 
 # signals
 signal state_update(state_name)
@@ -46,7 +46,8 @@ func update(cmd):
     if state_update:
         emit_signal("state_update", state.NAME)
     if next_turn:
-        emit_signal("next_turn")
+        turn += 1
+        emit_signal("next_turn", turn)
 
 # private functions
 func set_initstate(initpath):
