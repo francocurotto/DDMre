@@ -9,7 +9,7 @@ var DungeonState = load("engine/states/dungeon_state.gd")
 # signals
 signal dice_rolled(sides)
 
-func _init(_player, _opponent).(_player, _opponent):
+func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     cmdlist += ["ROLL"]
 
 # public functions
@@ -19,7 +19,7 @@ func ROLL(cmd):
     """
     var dicelist = get_dicelist(cmd["dice"])
     roll_dice(dicelist)
-    return DungeonState.new(player, opponent)
+    return DungeonState.new(player, opponent, dungeon)
 
 # private functions
 func get_dicelist(indeces):

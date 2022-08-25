@@ -24,6 +24,7 @@ func _ready():
     dicepool.connect("mouse_exited_dice", iteminfo, "on_mouse_exited_dice")
     dungeon.connect("mouse_entered_dungobj", iteminfo, "on_mouse_entered_dungobj")
     dungeon.connect("mouse_exited_dungobj", iteminfo, "on_mouse_exited_dungobj")
+    dungeon.connect("move_input", self, "on_move_input")
 
 # set functions
 func set_duel(_engine, _player, _opponent):
@@ -35,6 +36,11 @@ func set_duel(_engine, _player, _opponent):
     opponentinfo.set_infobox(opponent, "Opponent")
     dungeon.set_dungeon(engine.dungeon, player)
     iteminfo.set_player(player)
+
+func update_gui():
+    dungeon.update_dungeon()
+    playerinfo.update_infobox()
+    opponentinfo.update_infobox()
 
 func set_player_roll(sides):
     rollgui.update_roll_player(sides)
@@ -58,11 +64,13 @@ func on_state_update_roll():
     rollgui.enable_roll()
     rollgui.hide_player_roll()
     rollgui.disable_endturn()
+    dungeon.disable_tilebuttons()
 
 func on_state_update_dungeon():
     dicepool.disable_all()
     rollgui.disable_roll()
     rollgui.enable_endturn()
+    dungeon.enable_tilebuttons()
 
 func on_next_turn(turn):
     duelinfo.on_next_turn(turn)
@@ -75,4 +83,8 @@ func on_roll_pressed():
     engine.update({"name" : "ROLL", "dice" : indeces})
 
 func on_endturn_pressed():
+    dungeon.unselect_tile()
     engine.update({"name" : "ENDTURN"})
+
+func on_move_input(pos1, pos2):
+    engine.update({"name" : "MOVE", "origin" : pos1, "dest" : pos2})

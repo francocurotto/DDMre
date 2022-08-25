@@ -10,12 +10,6 @@ const POOL2PATH = "res://dicepools/test2.json"
 # arrays, dictionaries
 const CRESTS = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
 const CRESTCHARS = ["S", "M", "A", "D", "G", "T"]
-const CRESTDICT = {"SUMMON"   : "★",
-                   "MOVEMENT" : "⬆",
-                   "ATTACK"   : "⚔",
-                   "DEFENSE"  : "⛨",
-                   "MAGIC"    : "✡",
-                   "TRAP"     : "⚡"}
 const TYPES = ["DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR"]
 
 # IO functions

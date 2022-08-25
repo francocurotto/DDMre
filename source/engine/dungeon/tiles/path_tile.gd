@@ -14,9 +14,16 @@ func _init(_player):
     player = _player
     content = Noneobj.new()
 
-# "is" functions
+# is functions
 func is_path():
     return true
 
 func is_occupied():
     return content.is_content()
+    
+func is_reachable():
+    return not content.is_target()
+
+# public functions
+func empty_tile():
+    content = Noneobj.new()

@@ -1,4 +1,4 @@
-Here I document the mistakes and oddities that I found while analysing the original game while working in this project. Most of the mistakes stem from weirdly of flat out wrong implementation of monster abilities. Since my goal is of reimplementation, unless stated otherwise, those weird behavior are kept in the reimplemented game.
+Here I document the mistakes and oddities that I found while analysing the original game while working in this project. Most of the mistakes stem from weirdly or flat out wrong implementation of monster abilities. Since my goal is of reimplementation, unless stated otherwise, those weird behavior are kept in the reimplemented game.
 
 # Weird logic
 - In the original, a block tile forbid the dimension of a dice not only in its position, but in its 4 adjacent neighbors. In this implementation, a block in forbids dimensions only in its position, but the original behavior can be replicated by adding more block tiles.
@@ -19,4 +19,4 @@ It make more sense to compute the cost by only using ints to get:
 - For Magician Dragon second ability, it says that it destroys everything a within a 3x3 grid, but instead, it destroys everything at range 3.
 
 # Bugs
-- When the attack or defense of a monster goes over 120 by many BUFFTYPE abilities, the stat goes immediately down to 0 for some reason. Still unsure how that affect actual attacks and guards.
+- When the attack or defense of a monster goes over 120 by many BUFFTYPE abilities, the stat goes immediately down to 0 for some reason. Still unsure how that affects actual attacks and guards.

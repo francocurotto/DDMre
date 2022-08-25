@@ -10,6 +10,6 @@ func _init(_card, _player).(_card, _player):
     defense = card.defense
     health = card.health
 
-# "is" functions
+# is functions
 func is_monster():
     return true

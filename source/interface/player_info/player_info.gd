@@ -19,8 +19,15 @@ func set_infobox(_player, _title):
     crestpool.set_crestpool(player.crestpool)
     set_title(_title)
 
+func update_infobox():
+    update_crestpool()
+    update_hearts()
+
 func update_crestpool():
     crestpool.update_slots()
+
+func update_hearts():
+    hearts.update_hearts()
 
 func set_title(_title):
     title = _title

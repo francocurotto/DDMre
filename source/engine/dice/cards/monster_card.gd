@@ -23,7 +23,9 @@ func summon(player):
     """
     Return a summon object from card.
     """
-    return summondict[type].new(self, player)
+    var monster = summondict[type].new(self, player)
+    player.monsters.append(monster)
+    return monster
 
 # "is" functions
 func is_monster():

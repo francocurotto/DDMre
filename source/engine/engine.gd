@@ -17,6 +17,7 @@ var turn = 1
 # signals
 signal state_update(state_name)
 signal next_turn
+signal duel_update
 
 func _init(initpath:=Globals.DUNGPATH, pool1:=Globals.POOL1PATH, pool2:=Globals.POOL2PATH):
     # duel objects
@@ -24,7 +25,7 @@ func _init(initpath:=Globals.DUNGPATH, pool1:=Globals.POOL1PATH, pool2:=Globals.
     player1 = Player.new(1, dicelib.create_dicepool(pool1))
     player2 = Player.new(2, dicelib.create_dicepool(pool2))
     dungeon = Dungeon.new()
-    state = RollState.new(player1, player2)
+    state = RollState.new(player1, player2, dungeon)
     set_initstate(initpath)
     # connections
     for dice in player1.dicepool:
@@ -43,11 +44,16 @@ func update(cmd):
     var next_turn = newstate.is_other_turn(state)
     # perform the update
     state = newstate
+    emit_signal("duel_update")
     if state_update:
         emit_signal("state_update", state.NAME)
     if next_turn:
         turn += 1
         emit_signal("next_turn", turn)
+
+# signals callbacks
+func on_duel_update():
+    emit_signal("duel_update")
 
 # private functions
 func set_initstate(initpath):

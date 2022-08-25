@@ -43,4 +43,6 @@ func summon_card(idx):
     """
     Summon card in position idx from the dicepool.
     """
+    var dice = dicepool[idx]
+    dimdice.append(dice) # add dice to dimensioned dice
     return dicepool[idx].card.summon(self)

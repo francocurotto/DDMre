@@ -11,7 +11,9 @@ func summon(player):
     """
     Return a item object from card.
     """
-    return Item.new(self, player)
+    var item = Item.new(self, player)
+    player.items.append(item)
+    return item
 
 # "is" functions
 func is_item():

@@ -1,6 +1,6 @@
 extends Reference
 
-# "is" functions
+# is functions
 func is_none():
     return false
 

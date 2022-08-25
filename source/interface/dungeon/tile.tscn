@@ -26,5 +26,11 @@ margin_bottom = 28.0
 expand = true
 stretch_mode = 5
 
-[connection signal="mouse_entered" from="DungobjRect" to="." method="_on_DungobjRect_mouse_entered"]
-[connection signal="mouse_exited" from="DungobjRect" to="." method="_on_DungobjRect_mouse_exited"]
+[node name="TileButton" type="Button" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 28.0
+margin_bottom = 28.0
+
+[connection signal="mouse_entered" from="TileButton" to="." method="_on_TileButton_mouse_entered"]
+[connection signal="mouse_exited" from="TileButton" to="." method="_on_TileButton_mouse_exited"]
+[connection signal="pressed" from="TileButton" to="." method="_on_TileButton_pressed"]

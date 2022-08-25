@@ -17,6 +17,7 @@ func _ready():
     # connections
     engine.connect("state_update", self, "on_state_update")
     engine.connect("next_turn", self, "on_next_turn")
+    engine.connect("duel_update", self, "on_duel_update")
     # run first state update
     on_state_update(engine.state.NAME)
     on_next_turn(1)
@@ -34,6 +35,10 @@ func on_next_turn(turn):
     get_opponent_gui().visible = false
     p1gui.on_next_turn(turn)
     p2gui.on_next_turn(turn)
+
+func on_duel_update():
+    p1gui.update_gui()
+    p2gui.update_gui()
 
 func on_dice_rolled(sides):
     get_player_gui().set_player_roll(sides)

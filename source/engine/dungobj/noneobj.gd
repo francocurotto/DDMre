@@ -3,6 +3,6 @@ extends "dungobj.gd"
 # constants
 const NAME = "NONE"
 
-# "is" functions
+# is functions
 func is_none():
     return true

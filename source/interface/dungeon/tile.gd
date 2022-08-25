@@ -10,6 +10,7 @@ export (int, 1, 2) var player_dungobj = 1 setget set_player_dungobj
 
 # constants
 const MODDICT = {1 : Color(0.5,1.0,1.0,1.0), 2 : Color(1.0,0.75,0.75,1.0)}
+const SELECTMOD = Color(1.0,1.0,0.5,1.0)
 
 # variables
 var tile
@@ -17,6 +18,8 @@ var tile
 # signals
 signal mouse_entered_dungobj(dungobj)
 signal mouse_exited_dungobj
+signal monster_pressed(tile)
+signal reachable_path_pressed(tile)
 
 # set functions
 func set_tile(_tile):
@@ -40,6 +43,18 @@ func set_dungobj(_dungobj_type, _dungobj_player=null):
         icon = "TYPE_" + icon
     $DungobjRect.texture = load("res://art/icons/" + icon + ".png")
     $DungobjRect.modulate = MODDICT[_dungobj_player]
+
+func set_selectmod():
+    $DungobjRect.modulate = SELECTMOD
+
+func unset_selectmod():
+    $DungobjRect.modulate = MODDICT[tile.player.id]
+
+func enable_button():
+    $TileButton.disabled = false
+
+func disable_button():
+    $TileButton.disabled = true
 
 func set_tile_type(_tile_type):
     tile_type = _tile_type
@@ -73,9 +88,17 @@ func update_tile():
             set_dungobj(tile.content.NAME, tile.content.player.id)
 
 # signals callback
-func _on_DungobjRect_mouse_entered():
-    if tile.is_path():
+func _on_TileButton_mouse_entered():
+    if tile and tile.is_path():
         emit_signal("mouse_entered_dungobj", tile.content)
 
-func _on_DungobjRect_mouse_exited():
+func _on_TileButton_mouse_exited():
     emit_signal("mouse_exited_dungobj")
+
+func _on_TileButton_pressed():
+    # case monster pressed
+    if tile and tile.is_path() and tile.content.is_monster():
+        emit_signal("monster_pressed", self)
+    # case reachable path is pressed
+    elif tile and tile.is_path() and tile.is_reachable():
+        emit_signal("reachable_path_pressed", self)
