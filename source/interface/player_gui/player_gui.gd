@@ -61,7 +61,6 @@ func on_state_update(state):
 func on_state_update_roll():
     dicepool.enable_all()
     dicepool.release_all()
-    rollgui.enable_roll()
     rollgui.hide_player_roll()
     rollgui.disable_endturn()
     dungeon.disable_tilebuttons()
