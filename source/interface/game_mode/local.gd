@@ -1,4 +1,4 @@
-extends PanelContainer
+extends MarginContainer
 
 # preloads
 const Engine = preload("res://engine/engine.gd")
