@@ -12,10 +12,10 @@ const WIDTH = 13
 var array = []
 
 func _init():
-    for _i in range(HEIGHT):
+    for i in range(HEIGHT):
         var row = []
-        for _j in range(WIDTH):
-            row.append(EmptyTile.new())
+        for j in range(WIDTH):
+            row.append(EmptyTile.new(i, j))
         array.append(row)
 
 # public functions
@@ -27,7 +27,7 @@ func set_layout(engine, layout):
         var row = array[i]
         var layrow = layout[len(array)-i-1]
         for j in range(len(row)):
-            array[i][j] = create_tile(engine, layrow[j])
+            array[i][j] = create_tile(engine, layrow[j], i, j)
 
 func place_dungobj(pos, dungobj):
     """
@@ -36,14 +36,14 @@ func place_dungobj(pos, dungobj):
     array[pos[0]][pos[1]].content = dungobj
 
 # private functions
-func create_tile(engine, chr):
+func create_tile(engine, chr, i, j):
     """
     Create the appropiate tile given the character from the dungeon json.
     """
     match chr:
-        "O": return EmptyTile.new()
-        "l": return engine.player1.create_ml_tile()
-        "L": return engine.player2.create_ml_tile()
-        "p": return engine.player1.create_tile()
-        "P": return engine.player2.create_tile()
-        "X": return BlockTile.new()
+        "O": return EmptyTile.new(i, j)
+        "l": return engine.player1.create_ml_tile(i, j)
+        "L": return engine.player2.create_ml_tile(i, j)
+        "p": return engine.player1.create_tile(i, j)
+        "P": return engine.player2.create_tile(i, j)
+        "X": return BlockTile.new(i, j)

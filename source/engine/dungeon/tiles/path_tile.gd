@@ -10,7 +10,7 @@ const NAME = "PATH"
 var player
 var content
 
-func _init(_player):
+func _init(_y, _x, _player).(_y, _x):
     player = _player
     content = Noneobj.new()
 

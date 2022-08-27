@@ -1,6 +1,18 @@
 extends Reference
 
-# "is" functions
+var y
+var x
+var pos setget , get_pos
+
+func _init(_y, _x):
+    y = _y
+    x = _x
+
+# public functions
+func get_pos():
+    return [y, x]
+
+# is functions
 func is_empty():
     return false
 

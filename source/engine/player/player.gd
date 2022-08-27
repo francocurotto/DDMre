@@ -23,19 +23,19 @@ func _init(_id, _dicepool):
     dicepool = _dicepool
 
 # public functions
-func create_tile():
+func create_tile(i, j):
     """
     Create a path tile for the specific player.
     """
-    var tile = PathTile.new(self)
+    var tile = PathTile.new(i, j, self)
     tiles.append(tile)
     return tile
 
-func create_ml_tile():
+func create_ml_tile(i, j):
     """
     Create a path tile with the player's monster lord as content.
     """
-    var tile = create_tile()
+    var tile = create_tile(i, j)
     tile.content = monsterlord
     return tile
 

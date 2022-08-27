@@ -3,7 +3,7 @@ extends AspectRatioContainer
 # variables
 var dungeon
 var player
-var selected_tile = null
+var selected_itile = null
 
 # onready variables
 onready var cols = $Cols
@@ -55,39 +55,30 @@ func on_mouse_entered_dungobj(dungobj):
 func on_mouse_exited_dungobj():
     emit_signal("mouse_exited_dungobj")
 
-func on_monster_pressed(tilenode):
+func on_monster_pressed(itile):
     # case player monster pressed
-    if tilenode.tile.content in player.monsters:
+    if itile.tile.content in player.monsters:
         # case monster selected
-        if not selected_tile:
-            select_tile(tilenode)
+        if not selected_itile:
+            select_tile(itile)
         # case monster unselected
-        elif tilenode == selected_tile:
+        elif itile == selected_itile:
             unselect_tile()
 
-func on_reachable_path_pressed(tilenode):
+func on_reachable_path_pressed(itile):
         # case trying to move
-        if selected_tile:
-            var pos1 = get_pos(selected_tile)
-            var pos2 = get_pos(tilenode)
+        if selected_itile:
+            var pos1 = selected_itile.tile.pos
+            var pos2 = itile.tile.pos
             emit_signal("move_input", pos1, pos2)
             unselect_tile()
 
 # private
-func select_tile(tilenode):
-    selected_tile = tilenode
-    selected_tile.set_selectmod()
+func select_tile(itile):
+    selected_itile = itile
+    selected_itile.set_selectmod()
 
 func unselect_tile():
-    if selected_tile:
-        selected_tile.unset_selectmod()
-        selected_tile = null
-
-func get_pos(tile):
-    for i in range(cols.get_child_count()):
-        var irow = cols.get_child(i)
-        for j in range(irow.get_child_count()):
-            var itile = irow.get_child(j)
-            if itile == tile:
-                if player.id == 1: i = cols.get_child_count()-1-i # v-flip dungeon for player1
-                return [i, j]
+    if selected_itile:
+        selected_itile.unset_selectmod()
+        selected_itile = null
