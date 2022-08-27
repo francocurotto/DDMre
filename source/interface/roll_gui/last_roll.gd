@@ -10,8 +10,7 @@ func set_roll(roll):
         get_child(i).set_side(roll[i])
 
 func show_roll(_bool):
-    for side_item in get_children():
-        side_item.visible = _bool
+    modulate = Color(1,1,1,_bool)
 
 func set_random_roll(_bool):
     randomize()

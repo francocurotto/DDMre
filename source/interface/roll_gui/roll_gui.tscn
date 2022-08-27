@@ -29,6 +29,7 @@ disabled = true
 text = "Roll!"
 
 [node name="PlayerRoll" parent="PlayerPanel/BPBox" instance=ExtResource( 1 )]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 49.0
 margin_right = 147.0
 
@@ -52,6 +53,7 @@ custom_fonts/font = ExtResource( 2 )
 text = "Opponent Roll:"
 
 [node name="OppRoll" parent="OppPanel/LOBox" instance=ExtResource( 1 )]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 111.0
 margin_right = 209.0
 

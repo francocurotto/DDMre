@@ -146,6 +146,7 @@ custom_constants/separation = 2
 margin_bottom = 21.0
 texture = ExtResource( 8 )
 crest = "SUMMON"
+mult = 3
 
 [node name="SideItem2" parent="HBoxContainer/Sides" instance=ExtResource( 7 )]
 margin_left = 22.0
@@ -153,6 +154,7 @@ margin_right = 42.0
 margin_bottom = 21.0
 texture = ExtResource( 8 )
 crest = "SUMMON"
+mult = 3
 
 [node name="SideItem3" parent="HBoxContainer/Sides" instance=ExtResource( 7 )]
 margin_left = 44.0
@@ -165,6 +167,7 @@ margin_right = 86.0
 margin_bottom = 21.0
 texture = ExtResource( 6 )
 crest = "ATTACK"
+mult = 2
 
 [node name="SideItem5" parent="HBoxContainer/Sides" instance=ExtResource( 7 )]
 margin_left = 88.0
@@ -172,6 +175,7 @@ margin_right = 108.0
 margin_bottom = 21.0
 texture = ExtResource( 3 )
 crest = "MAGIC"
+mult = 2
 
 [node name="SideItem6" parent="HBoxContainer/Sides" instance=ExtResource( 7 )]
 margin_left = 110.0
@@ -179,6 +183,7 @@ margin_right = 130.0
 margin_bottom = 21.0
 texture = ExtResource( 10 )
 crest = "TRAP"
+mult = 2
 
 [node name="Button" type="Button" parent="."]
 show_behind_parent = true

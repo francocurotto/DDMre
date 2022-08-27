@@ -1,19 +1,29 @@
+tool
 extends TextureRect
+
+export (String, "SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP") var crest = "MOVEMENT" setget set_crest
+export (int, 1, 9) var mult = 1 setget set_mult
+
+func _ready():
+    position_mult()
 
 # set functions
 func set_side(side):
     set_crest(side.crest.NAME)
     set_mult(side.mult)
-    position_mult(side.crest.NAME)
 
-func set_crest(crest):
-    texture = load("res://art/icons/CREST_" + crest  + ".png")
+func set_crest(_crest):
+    crest = _crest
+    texture = load("res://art/icons/CREST_" + _crest  + ".png")
+    position_mult()
 
-func set_mult(mult):
-    $Mult.text = str(mult)
+func set_mult(_mult):
+    mult = _mult
+    $Mult.text = str(_mult)
+    position_mult()
 
 # private functions
-func position_mult(crest):
+func position_mult():
     if crest == "SUMMON":
         position_mult_center()
     else:
