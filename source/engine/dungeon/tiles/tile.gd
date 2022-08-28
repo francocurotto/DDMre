@@ -1,16 +1,9 @@
 extends Reference
 
-var y
-var x
-var pos setget , get_pos
+var pos
 
-func _init(_y, _x):
-    y = _y
-    x = _x
-
-# public functions
-func get_pos():
-    return [y, x]
+func _init(y, x):
+    pos = Pos.new(y, x)
 
 # is functions
 func is_empty():
@@ -27,3 +20,17 @@ func is_occupied():
 
 func is_reachable():
     return false
+
+class Pos:
+    """
+    Class for position of tiles in dungeon.
+    """
+    var y
+    var x
+    
+    func _init(_y, _x):
+        y = _y
+        x = _x
+    
+    func toarray():
+        return [y,x]

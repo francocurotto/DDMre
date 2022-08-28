@@ -50,6 +50,12 @@ func set_selectmod():
 func unset_selectmod():
     $DungobjRect.modulate = MODDICT[tile.player.id]
 
+func set_movetile():
+    $MoveRect.visible = true
+
+func unset_movetile():
+    $MoveRect.visible = false
+
 func enable_button():
     $TileButton.disabled = false
 

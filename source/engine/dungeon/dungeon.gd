@@ -35,6 +35,14 @@ func place_dungobj(pos, dungobj):
     """
     array[pos[0]][pos[1]].content = dungobj
 
+func get_moveposs(player, initpos):
+    """
+    Get all the posible positions a monster at position initpos could move
+    with all the avilable movement crests from player.
+    """
+    # TODO: implement
+    return []
+
 # private functions
 func create_tile(engine, chr, i, j):
     """
