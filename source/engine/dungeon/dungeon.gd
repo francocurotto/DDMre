@@ -41,7 +41,8 @@ func get_moveposs(player, initpos):
     with all the avilable movement crests from player.
     """
     # TODO: implement
-    return []
+    var reachposs = get_reachable_neighbours_poss(initpos)
+    return reachposs
 
 # private functions
 func create_tile(engine, chr, i, j):
@@ -55,3 +56,33 @@ func create_tile(engine, chr, i, j):
         "p": return engine.player1.create_tile(i, j)
         "P": return engine.player2.create_tile(i, j)
         "X": return BlockTile.new(i, j)
+
+func get_reachable_neighbours_poss(pos):
+    """
+    Get neighbours positions to pos that are reachable tiles.
+    """
+    var neigposs = get_neighbours_poss(pos)
+    var reachposs = []
+    for neigpos in neigposs:
+        var tile = array[neigpos.y][neigpos.x]
+        if tile.is_reachable():
+            reachposs.append(neigpos)
+    return reachposs
+
+func get_neighbours_poss(pos):
+    """
+    Get neighbours positions to pos.
+    """
+    var neigdeltas = [[0,1], [0,-1], [1,0], [-1,0]]
+    var neigposs = []
+    for neigdelta in neigdeltas:
+        var newpos = pos.add_array(neigdelta)
+        if pos_within_dungeon(newpos):
+            neigposs.append(newpos)
+    return neigposs
+
+func pos_within_dungeon(pos):
+    """
+    Check if position is within dungeon limits.
+    """
+    return 0 <= pos.y and pos.y <= HEIGHT and 0 <= pos.x and pos.x <= WIDTH

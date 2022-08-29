@@ -84,12 +84,12 @@ func select_tile(itile):
 func unselect_tile():
     selected_itile.unset_selectmod()
     selected_itile = null
-    for row in get_children():
-        for itile in row.get_childen():
+    for row in cols.get_children():
+        for itile in row.get_children():
             itile.unset_movetile() 
 
 func pos2itile(pos):
     if player.id == 1:
-        return get_child(get_child_count()-pos.y-1).get_child(pos.x)
+        return cols.get_child(cols.get_child_count()-pos.y-1).get_child(pos.x)
     else: # player.id == 2
-        return get_child(pos.y).get_child(pos.x)
+        return cols.get_child(pos.y).get_child(pos.x)

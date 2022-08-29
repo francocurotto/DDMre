@@ -34,3 +34,6 @@ class Pos:
     
     func toarray():
         return [y,x]
+    
+    func add_array(array):
+        return Pos.new(y+array[0], x+array[1])
