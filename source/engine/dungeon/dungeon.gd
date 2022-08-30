@@ -54,7 +54,7 @@ func get_moveposs(player, initpos):
     # init queue, use dictionary to mix positions and move counter
     movequeue.append({pos=initpos,count=0})
     
-    # iteration
+    # iterations
     while not movequeue.empty():
         # get move item information
         var moveitem = movequeue.pop_front()
@@ -76,6 +76,31 @@ func get_moveposs(player, initpos):
     # remove initial position
     poslist.pop_front()
     return poslist
+
+func get_movepath(pos1, pos2):
+    """
+    Find the shortest path from pos1 to pos2 in the dungeon.
+    """
+    # init data
+    var pathqueue = [[pos1]]
+    var visited = []
+    
+    # iterations
+    while not pathqueue.empty():
+        # get curent path
+        var path = pathqueue.pop_front()
+        # check for getting to destination
+        var lastpos = path[-1]
+        if lastpos == pos2:
+            return path
+        # expand path with neighbours and add to queue
+        visited.append(lastpos)
+        var reachposs = get_reachable_neighbours_poss(lastpos)
+        for reachpos in reachposs:
+            if not visited.has(reachpos):
+                pathqueue.append(path+[reachpos])
+     # case not path found   
+    return []
 
 # private functions
 func create_tile(engine, chr, i, j):
