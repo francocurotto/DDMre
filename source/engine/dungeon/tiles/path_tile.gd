@@ -19,7 +19,7 @@ func is_path():
     return true
 
 func is_occupied():
-    return content.is_content()
+    return not content.is_none()
     
 func is_reachable():
     return not content.is_target()

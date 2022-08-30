@@ -6,9 +6,6 @@ func _init(y, x):
     pos = Pos.new(y, x)
 
 # is functions
-func is_empty():
-    return false
-
 func is_path():
     return false
 

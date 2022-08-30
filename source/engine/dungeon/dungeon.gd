@@ -38,11 +38,34 @@ func place_dungobj(pos, dungobj):
 func get_moveposs(player, initpos):
     """
     Get all the posible positions a monster at position initpos could move
-    with all the avilable movement crests from player.
+    with all the available movement crests from player.
     """
-    # TODO: implement
-    var reachposs = get_reachable_neighbours_poss(initpos)
-    return reachposs
+    # needed varaibles
+    var poslist = [initpos]
+    var movequeue = []
+    var movecrests = player.crestpool.slots["MOVEMENT"]
+    
+    # init queue
+    movequeue.append(MoveCount.new(initpos, 0))
+    
+    # iteration
+    var i = 0
+    while not movequeue.empty():
+        var currmovecount = movequeue.pop_front()
+        var currcount = currmovecount.count
+        var currpos = currmovecount.pos
+        # if move crests are surpassed skip pos
+        if currcount+1 > movecrests:
+            continue
+        var currtile = array[currpos.y][currpos.x]
+        if currcount==0 or (currtile.is_path() and not currtile.is_occupied()):
+            var reachposs = get_reachable_neighbours_poss(currpos)
+            for reachpos in reachposs:
+                if not pos_in_list(poslist, reachpos):
+                    poslist.append(reachpos)
+                    movequeue.append(MoveCount.new(reachpos, currcount+1))
+    poslist.pop_front()
+    return poslist
 
 # private functions
 func create_tile(engine, chr, i, j):
@@ -86,3 +109,16 @@ func pos_within_dungeon(pos):
     Check if position is within dungeon limits.
     """
     return 0 <= pos.y and pos.y <= HEIGHT and 0 <= pos.x and pos.x <= WIDTH
+
+func pos_in_list(list, pos):
+    for listpos in list:
+        if listpos.y == pos.y and listpos.x == pos.x:
+            return true
+    return false
+
+class MoveCount:
+    var pos
+    var count
+    func _init(_pos, _count):
+        pos = _pos
+        count = _count
