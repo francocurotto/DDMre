@@ -11,8 +11,8 @@ func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
 
 # public functions
 func MOVE(cmd):
-    var tile_origin = dungeon.array[cmd["origin"][0]][cmd["origin"][1]]
-    var tile_dest = dungeon.array[cmd["dest"][0]][cmd["dest"][1]]
+    var tile_origin = dungeon.array[cmd["origin"][1]][cmd["origin"][0]]
+    var tile_dest = dungeon.array[cmd["dest"][1]][cmd["dest"][0]]
     tile_dest.content = tile_origin.content
     tile_origin.empty_tile()
     return self

@@ -70,7 +70,7 @@ func on_reachable_path_pressed(itile):
         if selected_itile:
             var pos1 = selected_itile.tile.pos
             var pos2 = itile.tile.pos
-            emit_signal("move_input", pos1.toarray(), pos2.toarray())
+            emit_signal("move_input", pos1, pos2)
             unselect_tile()
 
 # private

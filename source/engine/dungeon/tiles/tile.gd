@@ -3,7 +3,7 @@ extends Reference
 var pos
 
 func _init(y, x):
-    pos = Pos.new(y, x)
+    pos = Vector2(x, y)
 
 # is functions
 func is_path():
@@ -17,20 +17,3 @@ func is_occupied():
 
 func is_reachable():
     return false
-
-class Pos:
-    """
-    Class for position of tiles in dungeon.
-    """
-    var y
-    var x
-    
-    func _init(_y, _x):
-        y = _y
-        x = _x
-    
-    func toarray():
-        return [y,x]
-    
-    func add_array(array):
-        return Pos.new(y+array[0], x+array[1])

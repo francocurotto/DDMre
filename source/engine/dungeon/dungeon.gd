@@ -45,25 +45,31 @@ func get_moveposs(player, initpos):
     var movequeue = []
     var movecrests = player.crestpool.slots["MOVEMENT"]
     
-    # init queue
-    movequeue.append(MoveCount.new(initpos, 0))
+    # init queue, use dictionary to mix positions and move counter
+    movequeue.append({pos=initpos,count=0})
     
     # iteration
     var i = 0
     while not movequeue.empty():
-        var currmovecount = movequeue.pop_front()
-        var currcount = currmovecount.count
-        var currpos = currmovecount.pos
+        print(i); i+=1
+        # get move item information
+        var moveitem = movequeue.pop_front()
+        var pos = moveitem.pos
+        var count = moveitem.count
         # if move crests are surpassed skip pos
-        if currcount+1 > movecrests:
+        if count+1 > movecrests:
             continue
-        var currtile = array[currpos.y][currpos.x]
-        if currcount==0 or (currtile.is_path() and not currtile.is_occupied()):
-            var reachposs = get_reachable_neighbours_poss(currpos)
+        # check if tile is passable
+        var tile = array[pos.y][pos.x]
+        if count==0 or (tile.is_path() and not tile.is_occupied()):
+            # get next reachable positions
+            var reachposs = get_reachable_neighbours_poss(pos)
+            # check to add next positions to poslist
             for reachpos in reachposs:
-                if not pos_in_list(poslist, reachpos):
+                if not poslist.has(reachpos):
                     poslist.append(reachpos)
-                    movequeue.append(MoveCount.new(reachpos, currcount+1))
+                    movequeue.append({pos=reachpos, count=count+1})
+    # remove initial position
     poslist.pop_front()
     return poslist
 
@@ -96,10 +102,10 @@ func get_neighbours_poss(pos):
     """
     Get neighbours positions to pos.
     """
-    var neigdeltas = [[0,1], [0,-1], [1,0], [-1,0]]
+    var deltas = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
     var neigposs = []
-    for neigdelta in neigdeltas:
-        var newpos = pos.add_array(neigdelta)
+    for delta in deltas:
+        var newpos = pos + delta
         if pos_within_dungeon(newpos):
             neigposs.append(newpos)
     return neigposs
@@ -109,16 +115,3 @@ func pos_within_dungeon(pos):
     Check if position is within dungeon limits.
     """
     return 0 <= pos.y and pos.y <= HEIGHT and 0 <= pos.x and pos.x <= WIDTH
-
-func pos_in_list(list, pos):
-    for listpos in list:
-        if listpos.y == pos.y and listpos.x == pos.x:
-            return true
-    return false
-
-class MoveCount:
-    var pos
-    var count
-    func _init(_pos, _count):
-        pos = _pos
-        count = _count
