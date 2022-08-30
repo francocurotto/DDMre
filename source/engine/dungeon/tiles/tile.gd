@@ -17,3 +17,6 @@ func is_occupied():
 
 func is_reachable():
     return false
+
+func is_passable():
+    return false

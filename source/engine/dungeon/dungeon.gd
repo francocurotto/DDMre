@@ -29,6 +29,12 @@ func set_layout(engine, layout):
         for j in range(len(row)):
             array[i][j] = create_tile(engine, layrow[j], i, j)
 
+func get_tile(pos):
+    """
+    Returns the tile at postion pos.
+    """
+    return array[pos.y][pos.x]
+
 func place_dungobj(pos, dungobj):
     """
     Place a dungobj in the dungeon at specified position.
@@ -49,9 +55,7 @@ func get_moveposs(player, initpos):
     movequeue.append({pos=initpos,count=0})
     
     # iteration
-    var i = 0
     while not movequeue.empty():
-        print(i); i+=1
         # get move item information
         var moveitem = movequeue.pop_front()
         var pos = moveitem.pos
@@ -60,8 +64,8 @@ func get_moveposs(player, initpos):
         if count+1 > movecrests:
             continue
         # check if tile is passable
-        var tile = array[pos.y][pos.x]
-        if count==0 or (tile.is_path() and not tile.is_occupied()):
+        var tile = get_tile(pos)
+        if pos==initpos or tile.is_passable():
             # get next reachable positions
             var reachposs = get_reachable_neighbours_poss(pos)
             # check to add next positions to poslist
@@ -93,8 +97,7 @@ func get_reachable_neighbours_poss(pos):
     var neigposs = get_neighbours_poss(pos)
     var reachposs = []
     for neigpos in neigposs:
-        var tile = array[neigpos.y][neigpos.x]
-        if tile.is_reachable():
+        if get_tile(neigpos).is_reachable():
             reachposs.append(neigpos)
     return reachposs
 

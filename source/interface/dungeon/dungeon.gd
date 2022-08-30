@@ -70,7 +70,7 @@ func on_reachable_path_pressed(itile):
         if selected_itile:
             var pos1 = selected_itile.tile.pos
             var pos2 = itile.tile.pos
-            emit_signal("move_input", pos1, pos2)
+            emit_signal("move_input", [pos1.y,pos1.x], [pos2.y, pos2.x])
             unselect_tile()
 
 # private
@@ -79,7 +79,7 @@ func select_tile(itile):
     selected_itile.set_selectmod()
     var moveposs = dungeon.get_moveposs(player, itile.tile.pos)
     for movepos in moveposs:
-        pos2itile(movepos).set_movetile()
+        get_itile(movepos).set_movetile()
 
 func unselect_tile():
     selected_itile.unset_selectmod()
@@ -88,7 +88,7 @@ func unselect_tile():
         for itile in row.get_children():
             itile.unset_movetile() 
 
-func pos2itile(pos):
+func get_itile(pos):
     if player.id == 1:
         return cols.get_child(cols.get_child_count()-pos.y-1).get_child(pos.x)
     else: # player.id == 2

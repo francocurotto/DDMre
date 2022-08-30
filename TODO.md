@@ -1,8 +1,8 @@
 ### TODO
 - implement dungeon state
     - implement MOVE command
-        - add dungeon get tile
-        - better tile check at get_moveposs
+        - add movement cost to move command
+        - test with different layouts
     - implement ATTACK command
 
 ### FIX
