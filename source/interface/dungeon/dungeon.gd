@@ -82,8 +82,9 @@ func select_tile(itile):
         get_itile(movepos).set_movetile()
 
 func unselect_tile():
-    selected_itile.unset_selectmod()
-    selected_itile = null
+    if selected_itile:
+        selected_itile.unset_selectmod()
+        selected_itile = null
     for row in cols.get_children():
         for itile in row.get_children():
             itile.unset_movetile() 
