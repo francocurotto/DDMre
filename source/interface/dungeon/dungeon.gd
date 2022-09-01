@@ -60,10 +60,10 @@ func on_monster_pressed(itile):
     if itile.tile.content in player.monsters:
         # case monster selected
         if not selected_itile:
-            select_tile(itile)
+            select_itile(itile)
         # case monster unselected
         elif itile == selected_itile:
-            unselect_tile()
+            unselect_itile()
 
 func on_reachable_path_pressed(itile):
         # case trying to move
@@ -71,23 +71,35 @@ func on_reachable_path_pressed(itile):
             var pos1 = selected_itile.tile.pos
             var pos2 = itile.tile.pos
             emit_signal("move_input", pos1, pos2)
-            unselect_tile()
+            unselect_itile()
 
 # private
-func select_tile(itile):
+func select_itile(itile):
+    # modifications in selected itile
     selected_itile = itile
     selected_itile.set_selectmod()
+    # modifications in move tiles
     var moveposs = dungeon.get_moveposs(player, itile.tile.pos)
     for movepos in moveposs:
         get_itile(movepos).set_movetile()
+    # modifications in attack tiles
+    var attackposs = dungeon.get_attackposs(player, itile.tile.pos)
+    for attackpos in attackposs:
+        get_itile(attackpos).set_attacktile()
 
-func unselect_tile():
+func unselect_itile():
+    # modifications in selected itile
     if selected_itile:
         selected_itile.unset_selectmod()
         selected_itile = null
+    # modifications in move tiles    
     for row in cols.get_children():
         for itile in row.get_children():
-            itile.unset_movetile() 
+            itile.unset_movetile()
+    # modifications in attack tiles
+    for row in cols.get_children():
+        for itile in row.get_children():
+            itile.unset_attacktile() 
 
 func get_itile(pos):
     if player.id == 1:

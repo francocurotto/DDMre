@@ -77,6 +77,22 @@ func get_moveposs(player, initpos):
     poslist.pop_front()
     return poslist
 
+func get_attackposs(player, pos):
+    """
+    Get all the posible positions a monster at position pos could attack
+    given the available attack crests.
+    """
+    # check for available attack crests
+    if player.crestpool.slots["ATTACK"] <= 0:
+        return []
+    
+    var targetposs = get_target_neighbours_poss(pos)
+    var attackposs = []
+    for targetpos in targetposs:
+        if get_tile(targetpos).content.player.id != player.id:
+            attackposs.append(targetpos)
+    return attackposs
+
 func get_movepath(pos1, pos2):
     """
     Find the shortest path from pos1 to pos2 in the dungeon.
@@ -93,12 +109,15 @@ func get_movepath(pos1, pos2):
         var lastpos = path[-1]
         if lastpos == pos2:
             return path
-        # expand path with neighbours and add to queue
         visited.append(lastpos)
-        var reachposs = get_reachable_neighbours_poss(lastpos)
-        for reachpos in reachposs:
-            if not visited.has(reachpos):
-                pathqueue.append(path+[reachpos])
+        # check if tile is passable
+        var tile = get_tile(lastpos)
+        if lastpos==pos1 or tile.is_passable():
+            # expand path with neighbours and add to queue
+            var reachposs = get_reachable_neighbours_poss(lastpos)
+            for reachpos in reachposs:
+                if not visited.has(reachpos):
+                    pathqueue.append(path+[reachpos])
      # case not path found   
     return []
 
@@ -125,6 +144,18 @@ func get_reachable_neighbours_poss(pos):
         if get_tile(neigpos).is_reachable():
             reachposs.append(neigpos)
     return reachposs
+
+func get_target_neighbours_poss(pos):
+    """
+    Get neighbours positions to pos that have a target in that tile.
+    """
+    var neigposs = get_neighbours_poss(pos)
+    var targetposs = []
+    for neigpos in neigposs:
+        var tile = get_tile(neigpos)
+        if tile.is_path() and tile.content.is_target():
+            targetposs.append(neigpos)
+    return targetposs
 
 func get_neighbours_poss(pos):
     """

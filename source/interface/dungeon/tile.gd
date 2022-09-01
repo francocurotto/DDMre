@@ -56,6 +56,12 @@ func set_movetile():
 func unset_movetile():
     $MoveRect.visible = false
 
+func set_attacktile():
+    $AttackRect.visible = true
+
+func unset_attacktile():
+    $AttackRect.visible = false
+
 func enable_button():
     $TileButton.disabled = false
 
