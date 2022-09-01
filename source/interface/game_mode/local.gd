@@ -36,7 +36,7 @@ func on_next_turn(turn):
     p1gui.on_next_turn(turn)
     p2gui.on_next_turn(turn)
 
-func on_duel_update():
+func on_duel_update(_cmdname):
     p1gui.update_gui()
     p2gui.update_gui()
 

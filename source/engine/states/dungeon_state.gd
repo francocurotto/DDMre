@@ -29,6 +29,8 @@ func MOVE(cmd):
         tile_origin.empty_tile()
         # pay the cost of the movement
         player.crestpool.slots["MOVEMENT"] -= len(path)-1
+        # emit update signal
+        emit_signal("duel_update", cmd["name"])
     return self
     
 func ENDTURN(_cmd):

@@ -32,7 +32,7 @@ func _init(initpath:=Globals.DUNGPATH, pool1:=Globals.POOL1PATH, pool2:=Globals.
         dice.connect("rolled", player1.crestpool, "add_crests")
     for dice in player2.dicepool:
         dice.connect("rolled", player2.crestpool, "add_crests")
-
+        
 # public functions
 func update(cmd):
     """
@@ -41,19 +41,19 @@ func update(cmd):
     # get new state info
     var newstate = state.update(cmd)
     var state_update = newstate != state
-    var next_turn = newstate.is_other_turn(state)
+    var next_turn = newstate.player != state.player
     # perform the update
     state = newstate
-    emit_signal("duel_update")
     if state_update:
+        state.connect("duel_update", self, "on_duel_update")
         emit_signal("state_update", state.NAME)
     if next_turn:
         turn += 1
         emit_signal("next_turn", turn)
 
 # signals callbacks
-func on_duel_update():
-    emit_signal("duel_update")
+func on_duel_update(cmdname):
+    emit_signal("duel_update", cmdname)
 
 # private functions
 func set_initstate(initpath):

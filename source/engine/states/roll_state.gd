@@ -19,6 +19,7 @@ func ROLL(cmd):
     """
     var dicelist = get_dicelist(cmd["dice"])
     roll_dice(dicelist)
+    emit_signal("duel_update", cmd["name"])
     return DungeonState.new(player, opponent, dungeon)
 
 # private functions

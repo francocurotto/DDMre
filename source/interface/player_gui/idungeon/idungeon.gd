@@ -47,6 +47,7 @@ func update_dungeon():
             var tile = row[j]
             var itile = irow.get_child(j)
             itile.set_tile(tile)
+    unselect_itile()
 
 # signals callbacks
 func on_mouse_entered_dungobj(dungobj):
@@ -71,7 +72,6 @@ func on_reachable_path_pressed(itile):
             var pos1 = selected_itile.tile.pos
             var pos2 = itile.tile.pos
             emit_signal("move_input", pos1, pos2)
-            unselect_itile()
 
 # private
 func select_itile(itile):
