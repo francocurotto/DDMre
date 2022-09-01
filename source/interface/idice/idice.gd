@@ -16,7 +16,7 @@ onready var defense_value = $HBoxContainer/Defense/DefenseValue
 onready var defense_icon = $HBoxContainer/Defense/DefenseIcon
 onready var health_value = $HBoxContainer/Health/HealthValue
 onready var health_icon = $HBoxContainer/Health/HealthIcon
-onready var sides = $HBoxContainer/Sides
+onready var isides = $HBoxContainer/ISides
 onready var button = $Button
 
 # signals
@@ -51,7 +51,7 @@ func set_dice(dice):
         defense_icon.texture = null
         health_icon.texture = null
     for i in dice.sides.size():
-        sides.get_child(i).set_side(dice.sides[i])
+        isides.get_child(i).set_side(dice.sides[i])
 
 func set_index(i):
     index.text = str(i+1) + "."

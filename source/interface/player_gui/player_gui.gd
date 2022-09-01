@@ -12,7 +12,7 @@ onready var playerinfo = $"%PlayerInfo"
 onready var opponentinfo = $"%OpponentInfo"
 onready var duelinfo = $"%DuelInfo"
 onready var iteminfo = $"%ItemInfo"
-onready var dungeon = $"%Dungeon"
+onready var idungeon = $"%IDungeon"
 
 func _ready():
     rollgui.hide_rolls()
@@ -22,9 +22,9 @@ func _ready():
     rollgui.connect("endturn_pressed", self, "on_endturn_pressed")
     dicepool.connect("mouse_entered_dice", iteminfo, "on_mouse_entered_dice")
     dicepool.connect("mouse_exited_dice", iteminfo, "on_mouse_exited_dice")
-    dungeon.connect("mouse_entered_dungobj", iteminfo, "on_mouse_entered_dungobj")
-    dungeon.connect("mouse_exited_dungobj", iteminfo, "on_mouse_exited_dungobj")
-    dungeon.connect("move_input", self, "on_move_input")
+    idungeon.connect("mouse_entered_dungobj", iteminfo, "on_mouse_entered_dungobj")
+    idungeon.connect("mouse_exited_dungobj", iteminfo, "on_mouse_exited_dungobj")
+    idungeon.connect("move_input", self, "on_move_input")
 
 # set functions
 func set_duel(_engine, _player, _opponent):
@@ -34,11 +34,11 @@ func set_duel(_engine, _player, _opponent):
     dicepool.set_dicepool(player.dicepool)
     playerinfo.set_infobox(player, "Player")
     opponentinfo.set_infobox(opponent, "Opponent")
-    dungeon.set_dungeon(engine.dungeon, player)
+    idungeon.set_dungeon(engine.dungeon, player)
     iteminfo.set_player(player)
 
 func update_gui():
-    dungeon.update_dungeon()
+    idungeon.update_dungeon()
     playerinfo.update_infobox()
     opponentinfo.update_infobox()
 
@@ -63,13 +63,13 @@ func on_state_update_roll():
     dicepool.release_all()
     rollgui.hide_player_roll()
     rollgui.disable_endturn()
-    dungeon.disable_tilebuttons()
+    idungeon.disable_itilebuttons()
 
 func on_state_update_dungeon():
     dicepool.disable_all()
     rollgui.disable_roll()
     rollgui.enable_endturn()
-    dungeon.enable_tilebuttons()
+    idungeon.enable_itilebuttons()
 
 func on_next_turn(turn):
     duelinfo.on_next_turn(turn)
@@ -82,7 +82,7 @@ func on_roll_pressed():
     engine.update({"name" : "ROLL", "dice" : indeces})
 
 func on_endturn_pressed():
-    dungeon.unselect_tile()
+    idungeon.unselect_itile()
     engine.update({"name" : "ENDTURN"})
 
 func on_move_input(pos1, pos2):

@@ -27,12 +27,12 @@ func set_dungeon(_dungeon, _player):
     player = _player
     update_dungeon()
 
-func enable_tilebuttons():
+func enable_itilebuttons():
     for row in cols.get_children():
         for t in row.get_children():
             t.enable_button()
 
-func disable_tilebuttons():
+func disable_itilebuttons():
     for row in cols.get_children():
         for t in row.get_children():
             t.disable_button()
@@ -78,11 +78,11 @@ func select_itile(itile):
     # modifications in selected itile
     selected_itile = itile
     selected_itile.set_selectmod()
-    # modifications in move tiles
+    # modifications in move itiles
     var moveposs = dungeon.get_moveposs(player, itile.tile.pos)
     for movepos in moveposs:
         get_itile(movepos).set_movetile()
-    # modifications in attack tiles
+    # modifications in attack itiles
     var attackposs = dungeon.get_attackposs(player, itile.tile.pos)
     for attackpos in attackposs:
         get_itile(attackpos).set_attacktile()
@@ -92,11 +92,11 @@ func unselect_itile():
     if selected_itile:
         selected_itile.unset_selectmod()
         selected_itile = null
-    # modifications in move tiles    
+    # modifications in move itiles    
     for row in cols.get_children():
         for itile in row.get_children():
             itile.unset_movetile()
-    # modifications in attack tiles
+    # modifications in attack itiles
     for row in cols.get_children():
         for itile in row.get_children():
             itile.unset_attacktile() 

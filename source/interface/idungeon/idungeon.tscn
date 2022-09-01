@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://interface/dungeon/tile.tscn" type="PackedScene" id=1]
-[ext_resource path="res://interface/dungeon/dungeon.gd" type="Script" id=2]
+[ext_resource path="res://interface/idungeon/itile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://interface/idungeon/idungeon.gd" type="Script" id=2]
 
-[node name="Dungeon" type="AspectRatioContainer"]
+[node name="IDungeon" type="AspectRatioContainer"]
 margin_right = 388.0
 margin_bottom = 568.0
 ratio = 0.684
