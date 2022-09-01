@@ -20,6 +20,7 @@ signal mouse_entered_dungobj(dungobj)
 signal mouse_exited_dungobj
 signal monster_pressed(tile)
 signal reachable_path_pressed(tile)
+signal monster_lord_pressed(tile)
 
 # set functions
 func set_tile(_tile):
@@ -114,3 +115,6 @@ func _on_TileButton_pressed():
     # case reachable path is pressed
     elif tile and tile.is_path() and tile.is_reachable():
         emit_signal("reachable_path_pressed", self)
+    # case reachable path is pressed
+    elif tile and tile.is_path() and tile.content.is_monster_lord():
+        emit_signal("monster_lord_pressed", self)

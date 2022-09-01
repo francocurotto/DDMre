@@ -12,6 +12,7 @@ onready var cols = $Cols
 signal mouse_entered_dungobj(dungobj)
 signal mouse_exited_dungobj(dungobj)
 signal move_input(pos1, pos2)
+signal attack_input(pos1, pos2)
 
 func _ready():
     for row in cols.get_children():
@@ -20,6 +21,7 @@ func _ready():
             t.connect("mouse_exited_dungobj", self, "on_mouse_exited_dungobj")
             t.connect("monster_pressed", self, "on_monster_pressed")
             t.connect("reachable_path_pressed", self, "on_reachable_path_pressed")
+            t.connect("monster_lord_pressed", self, "on_monster_lord_pressed")
 
 # set functions
 func set_dungeon(_dungeon, _player):
@@ -57,14 +59,21 @@ func on_mouse_exited_dungobj():
     emit_signal("mouse_exited_dungobj")
 
 func on_monster_pressed(itile):
+    var monster = itile.tile.content
     # case player monster pressed
-    if itile.tile.content in player.monsters:
+    if monster in player.monsters:
         # case monster selected
         if not selected_itile:
             select_itile(itile)
         # case monster unselected
         elif itile == selected_itile:
             unselect_itile()
+    # case opponent monster
+    else:
+        if selected_itile:
+            var pos1 = selected_itile.tile.pos
+            var pos2 = itile.tile.pos
+            emit_signal("attack_input", pos1, pos2)
 
 func on_reachable_path_pressed(itile):
         # case trying to move
@@ -72,6 +81,13 @@ func on_reachable_path_pressed(itile):
             var pos1 = selected_itile.tile.pos
             var pos2 = itile.tile.pos
             emit_signal("move_input", pos1, pos2)
+
+func on_monster_lord_pressed(itile):
+    # case attacking monster lord
+    if selected_itile and itile.tile.content != player.monster_lord:
+        var pos1 = selected_itile.tile.pos
+        var pos2 = itile.tile.pos
+        emit_signal("attack_input", pos1, pos2)
 
 # private
 func select_itile(itile):

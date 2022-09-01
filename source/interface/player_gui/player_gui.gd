@@ -25,6 +25,7 @@ func _ready():
     idungeon.connect("mouse_entered_dungobj", iteminfo, "on_mouse_entered_dungobj")
     idungeon.connect("mouse_exited_dungobj", iteminfo, "on_mouse_exited_dungobj")
     idungeon.connect("move_input", self, "on_move_input")
+    idungeon.connect("attack_input", self, "on_attack_input")
 
 # set functions
 func set_duel(_engine, _player, _opponent):
@@ -87,3 +88,6 @@ func on_endturn_pressed():
 
 func on_move_input(pos1, pos2):
     engine.update({"name" : "MOVE", "origin" : pos1, "dest" : pos2})
+
+func on_attack_input(pos1, pos2):
+    engine.update({"name" : "ATTACK", "origin" : pos1, "dest" : pos2})
