@@ -48,11 +48,11 @@ func set_player_roll(sides):
 func set_opponent_roll(sides):
     rollgui.update_roll_opponent(sides)
     
-func update_player_crestpool():
-    playerinfo.update_crestpool()
+func update_player_icrestpool():
+    playerinfo.update_icrestpool()
 
-func update_opponent_crestpool():
-    opponentinfo.update_crestpool()
+func update_opponent_icrestpool():
+    opponentinfo.update_icrestpool()
 
 # signals callback
 func on_state_update(state):

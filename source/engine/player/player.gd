@@ -1,7 +1,7 @@
 extends Reference
 
 # preloads
-const CrestPool = preload("res://engine/player/crest_pool.gd")
+const CrestPool = preload("res://engine/player/crestpool.gd")
 const MonsterLord = preload("res://engine/dungobj/monster_lord.gd")
 const PathTile = preload("res://engine/dungeon/tiles/path_tile.gd")
 const namedict = {1: "BLUE", 2: "RED"}

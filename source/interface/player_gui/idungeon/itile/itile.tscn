@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://interface/idungeon/itile.gd" type="Script" id=1]
+[ext_resource path="res://interface/player_gui/idungeon/itile/itile.gd" type="Script" id=1]
 [ext_resource path="res://art/icons/TILE_ATTACK.png" type="Texture" id=2]
-[ext_resource path="res://art/icons/TILE_MOVE.png" type="Texture" id=3]
-[ext_resource path="res://art/icons/TILE_EMPTY.png" type="Texture" id=4]
+[ext_resource path="res://art/icons/TILE_EMPTY.png" type="Texture" id=3]
+[ext_resource path="res://art/icons/TILE_MOVE.png" type="Texture" id=4]
 
 [node name="ITile" type="MarginContainer"]
 margin_right = 28.0
@@ -17,7 +17,7 @@ script = ExtResource( 1 )
 margin_right = 28.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 28, 28 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 5
 
@@ -25,7 +25,7 @@ stretch_mode = 5
 visible = false
 margin_right = 28.0
 margin_bottom = 28.0
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 expand = true
 stretch_mode = 5
 

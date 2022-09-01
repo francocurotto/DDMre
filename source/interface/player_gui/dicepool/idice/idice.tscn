@@ -1,20 +1,20 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=1]
-[ext_resource path="res://interface/idice/iside.tscn" type="PackedScene" id=2]
-[ext_resource path="res://art/icons/HEALTH.png" type="Texture" id=3]
-[ext_resource path="res://art/icons/CREST_ATTACK.png" type="Texture" id=4]
-[ext_resource path="res://art/icons/CREST_DEFENSE.png" type="Texture" id=5]
-[ext_resource path="res://art/icons/CREST_MAGIC.png" type="Texture" id=6]
-[ext_resource path="res://art/icons/CREST_TRAP.png" type="Texture" id=7]
-[ext_resource path="res://art/icons/TYPE_DRAGON.png" type="Texture" id=8]
-[ext_resource path="res://art/icons/CREST_SUMMON.png" type="Texture" id=9]
-[ext_resource path="res://interface/idice/idice.gd" type="Script" id=10]
+[ext_resource path="res://interface/player_gui/dicepool/idice/idice.gd" type="Script" id=2]
+[ext_resource path="res://art/icons/CREST_SUMMON.png" type="Texture" id=3]
+[ext_resource path="res://art/icons/CREST_MAGIC.png" type="Texture" id=4]
+[ext_resource path="res://art/icons/CREST_TRAP.png" type="Texture" id=5]
+[ext_resource path="res://art/icons/HEALTH.png" type="Texture" id=6]
+[ext_resource path="res://art/icons/TYPE_DRAGON.png" type="Texture" id=7]
+[ext_resource path="res://art/icons/CREST_ATTACK.png" type="Texture" id=8]
+[ext_resource path="res://art/icons/CREST_DEFENSE.png" type="Texture" id=9]
+[ext_resource path="res://interface/player_gui/dicepool/idice/iside/iside.tscn" type="PackedScene" id=10]
 
 [node name="IDice" type="MarginContainer"]
 margin_right = 589.0
 margin_bottom = 21.0
-script = ExtResource( 10 )
+script = ExtResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 589.0
@@ -47,7 +47,7 @@ custom_constants/separation = 0
 margin_right = 20.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 expand = true
 stretch_mode = 5
 
@@ -86,7 +86,7 @@ margin_left = 18.0
 margin_right = 38.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 4 )
+texture = ExtResource( 8 )
 expand = true
 stretch_mode = 5
 
@@ -109,7 +109,7 @@ margin_left = 18.0
 margin_right = 38.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 5 )
+texture = ExtResource( 9 )
 expand = true
 stretch_mode = 5
 
@@ -132,7 +132,7 @@ margin_left = 18.0
 margin_right = 38.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 3 )
+texture = ExtResource( 6 )
 expand = true
 stretch_mode = 5
 
@@ -142,46 +142,46 @@ margin_right = 589.0
 margin_bottom = 21.0
 custom_constants/separation = 2
 
-[node name="SideItem1" parent="HBoxContainer/ISides" instance=ExtResource( 2 )]
+[node name="SideItem1" parent="HBoxContainer/ISides" instance=ExtResource( 10 )]
 margin_bottom = 21.0
-texture = ExtResource( 9 )
+texture = ExtResource( 3 )
 crest = "SUMMON"
 mult = 3
 
-[node name="SideItem2" parent="HBoxContainer/ISides" instance=ExtResource( 2 )]
+[node name="SideItem2" parent="HBoxContainer/ISides" instance=ExtResource( 10 )]
 margin_left = 22.0
 margin_right = 42.0
 margin_bottom = 21.0
-texture = ExtResource( 9 )
+texture = ExtResource( 3 )
 crest = "SUMMON"
 mult = 3
 
-[node name="SideItem3" parent="HBoxContainer/ISides" instance=ExtResource( 2 )]
+[node name="SideItem3" parent="HBoxContainer/ISides" instance=ExtResource( 10 )]
 margin_left = 44.0
 margin_right = 64.0
 margin_bottom = 21.0
 
-[node name="SideItem4" parent="HBoxContainer/ISides" instance=ExtResource( 2 )]
+[node name="SideItem4" parent="HBoxContainer/ISides" instance=ExtResource( 10 )]
 margin_left = 66.0
 margin_right = 86.0
 margin_bottom = 21.0
-texture = ExtResource( 4 )
+texture = ExtResource( 8 )
 crest = "ATTACK"
 mult = 2
 
-[node name="SideItem5" parent="HBoxContainer/ISides" instance=ExtResource( 2 )]
+[node name="SideItem5" parent="HBoxContainer/ISides" instance=ExtResource( 10 )]
 margin_left = 88.0
 margin_right = 108.0
 margin_bottom = 21.0
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 crest = "MAGIC"
 mult = 2
 
-[node name="SideItem6" parent="HBoxContainer/ISides" instance=ExtResource( 2 )]
+[node name="SideItem6" parent="HBoxContainer/ISides" instance=ExtResource( 10 )]
 margin_left = 110.0
 margin_right = 130.0
 margin_bottom = 21.0
-texture = ExtResource( 7 )
+texture = ExtResource( 5 )
 crest = "TRAP"
 mult = 2
 

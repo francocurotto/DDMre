@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://art/fonts/BitstreamVeraSansMonoBold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://art/icons/CREST_MOVEMENT.png" type="Texture" id=3]
+[ext_resource path="res://art/icons/CREST_MOVEMENT.png" type="Texture" id=2]
 
 [sub_resource type="GDScript" id=2]
 script/source = "tool
@@ -66,7 +66,7 @@ font_data = ExtResource( 1 )
 margin_right = 20.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 expand = true
 stretch_mode = 5
 script = SubResource( 2 )

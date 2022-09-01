@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=1]
-[ext_resource path="res://art/fonts/crestpool.tres" type="DynamicFont" id=2]
-[ext_resource path="res://interface/item_info/item_info.gd" type="Script" id=3]
-[ext_resource path="res://interface/idice/iside.tscn" type="PackedScene" id=4]
+[ext_resource path="res://interface/player_gui/dicepool/idice/iside/iside.tscn" type="PackedScene" id=2]
+[ext_resource path="res://art/fonts/crestpool.tres" type="DynamicFont" id=3]
+[ext_resource path="res://interface/player_gui/item_info/item_info.gd" type="Script" id=4]
 
 [node name="ItemInfo" type="PanelContainer"]
 margin_right = 82.0
@@ -12,8 +12,8 @@ rect_min_size = Vector2( 261, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = ExtResource( 1 )
-script = ExtResource( 3 )
-SideItem = ExtResource( 4 )
+script = ExtResource( 4 )
+SideItem = ExtResource( 2 )
 
 [node name="InfoBox" type="VBoxContainer" parent="."]
 margin_left = 6.0
@@ -24,7 +24,7 @@ margin_bottom = 34.0
 [node name="Title" type="Label" parent="InfoBox"]
 margin_right = 249.0
 margin_bottom = 24.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Item Info"
 align = 1
 

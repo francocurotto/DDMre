@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=1]
-[ext_resource path="res://interface/duel_info/duel_info.gd" type="Script" id=2]
-[ext_resource path="res://art/fonts/crestpool.tres" type="DynamicFont" id=3]
+[ext_resource path="res://art/fonts/crestpool.tres" type="DynamicFont" id=2]
+[ext_resource path="res://interface/player_gui/duel_info/duel_info.gd" type="Script" id=3]
 
 [node name="DuelInfo" type="PanelContainer"]
 margin_right = 14.0
 margin_bottom = 14.0
 custom_styles/panel = ExtResource( 1 )
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="LabelBox" type="VBoxContainer" parent="."]
 margin_left = 6.0
@@ -19,12 +19,12 @@ margin_bottom = 58.0
 [node name="TurnCount" type="Label" parent="LabelBox"]
 margin_right = 99.0
 margin_bottom = 24.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 2 )
 text = "Turn: 1"
 
 [node name="StateLabel" type="Label" parent="LabelBox"]
 margin_top = 28.0
 margin_right = 99.0
 margin_bottom = 52.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 2 )
 text = "State: ROLL"

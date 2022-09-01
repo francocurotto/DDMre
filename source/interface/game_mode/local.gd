@@ -42,9 +42,9 @@ func on_duel_update():
 
 func on_dice_rolled(sides):
     get_player_gui().set_player_roll(sides)
-    get_player_gui().update_player_crestpool()
+    get_player_gui().update_player_icrestpool()
     get_opponent_gui().set_opponent_roll(sides)
-    get_opponent_gui().update_opponent_crestpool()
+    get_opponent_gui().update_opponent_icrestpool()
 
 # private functions
 func set_guis():

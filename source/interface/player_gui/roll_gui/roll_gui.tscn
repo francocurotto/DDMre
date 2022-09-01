@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://interface/roll_gui/last_roll.tscn" type="PackedScene" id=1]
-[ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=2]
-[ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=3]
-[ext_resource path="res://interface/roll_gui/roll_gui.gd" type="Script" id=4]
+[ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=1]
+[ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=2]
+[ext_resource path="res://interface/player_gui/roll_gui/last_roll/last_roll.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/player_gui/roll_gui/roll_gui.gd" type="Script" id=4]
 
 [node name="RollGUI" type="HBoxContainer"]
 margin_right = 466.0
@@ -13,7 +13,7 @@ script = ExtResource( 4 )
 [node name="PlayerPanel" type="PanelContainer" parent="."]
 margin_right = 159.0
 margin_bottom = 42.0
-custom_styles/panel = ExtResource( 3 )
+custom_styles/panel = ExtResource( 2 )
 
 [node name="BPBox" type="HBoxContainer" parent="PlayerPanel"]
 margin_left = 6.0
@@ -24,11 +24,11 @@ margin_bottom = 36.0
 [node name="RollButton" type="Button" parent="PlayerPanel/BPBox"]
 margin_right = 45.0
 margin_bottom = 30.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
 disabled = true
 text = "Roll!"
 
-[node name="PlayerRoll" parent="PlayerPanel/BPBox" instance=ExtResource( 1 )]
+[node name="PlayerRoll" parent="PlayerPanel/BPBox" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 49.0
 margin_right = 147.0
@@ -37,7 +37,7 @@ margin_right = 147.0
 margin_left = 163.0
 margin_right = 384.0
 margin_bottom = 42.0
-custom_styles/panel = ExtResource( 3 )
+custom_styles/panel = ExtResource( 2 )
 
 [node name="LOBox" type="HBoxContainer" parent="OppPanel"]
 margin_left = 6.0
@@ -49,10 +49,10 @@ margin_bottom = 36.0
 margin_top = 4.0
 margin_right = 107.0
 margin_bottom = 25.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
 text = "Opponent Roll:"
 
-[node name="OppRoll" parent="OppPanel/LOBox" instance=ExtResource( 1 )]
+[node name="OppRoll" parent="OppPanel/LOBox" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 111.0
 margin_right = 209.0
@@ -62,7 +62,7 @@ margin_left = 388.0
 margin_right = 466.0
 margin_bottom = 42.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
 disabled = true
 text = "End Turn"
 

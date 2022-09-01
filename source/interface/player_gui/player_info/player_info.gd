@@ -10,21 +10,21 @@ var player
 
 # onready variables
 onready var hearts = $InfoBox/CHBox/Hearts
-onready var crestpool = $InfoBox/CHBox/CrestPool
+onready var icrestpool = $InfoBox/CHBox/ICrestPool
 
 # set functions
 func set_infobox(_player, _title):
     player = _player
     hearts.set_player(player)
-    crestpool.set_crestpool(player.crestpool)
+    icrestpool.set_crestpool(player.crestpool)
     set_title(_title)
 
 func update_infobox():
-    update_crestpool()
+    update_icrestpool()
     update_hearts()
 
-func update_crestpool():
-    crestpool.update_slots()
+func update_icrestpool():
+    icrestpool.update_slots()
 
 func update_hearts():
     hearts.update_hearts()
