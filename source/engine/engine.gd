@@ -18,6 +18,7 @@ var turn = 1
 signal state_update(state_name)
 signal next_turn
 signal duel_update
+signal player_lost(player)
 
 func _init(initpath:=Globals.DUNGPATH, pool1:=Globals.POOL1PATH, pool2:=Globals.POOL2PATH):
     # duel objects
@@ -34,6 +35,8 @@ func _init(initpath:=Globals.DUNGPATH, pool1:=Globals.POOL1PATH, pool2:=Globals.
         dice.connect("rolled", player2.crestpool, "add_crests")
     player1.connect("monster_death", dungeon, "on_monster_death")
     player2.connect("monster_death", dungeon, "on_monster_death")
+    player1.connect("player_lost", self, "on_player_lost")
+    player2.connect("player_lost", self, "on_player_lost")
         
 # public functions
 func update(cmd):
@@ -56,6 +59,9 @@ func update(cmd):
 # signals callbacks
 func on_duel_update(cmdname):
     emit_signal("duel_update", cmdname)
+
+func on_player_lost(player):
+    emit_signal("player_lost", player)
 
 # private functions
 func set_initstate(initpath):

@@ -26,7 +26,7 @@
                {"POS":"g11", "DICE":14}],
   "CRESTS1": {
     "MOVEMENT": 99,
-    "ATTACK"  : 1,
+    "ATTACK"  : 3,
     "DEFENSE" : 0,
     "MAGIC"   : 0,
     "TRAP"    : 0},

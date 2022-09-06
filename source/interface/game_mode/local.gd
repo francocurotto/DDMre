@@ -18,6 +18,7 @@ func _ready():
     engine.connect("state_update", self, "on_state_update")
     engine.connect("next_turn", self, "on_next_turn")
     engine.connect("duel_update", self, "on_duel_update")
+    engine.connect("player_lost", self, "on_player_lost")
     # run first state update
     on_state_update(engine.state.NAME)
     on_next_turn(1)
@@ -45,6 +46,9 @@ func on_dice_rolled(sides):
     get_player_gui().update_player_icrestpool()
     get_opponent_gui().set_opponent_roll(sides)
     get_opponent_gui().update_opponent_icrestpool()
+
+func on_player_lost(player):
+    get_tree().quit()
 
 # private functions
 func set_guis():
