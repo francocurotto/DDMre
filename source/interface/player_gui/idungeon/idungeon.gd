@@ -84,7 +84,7 @@ func on_reachable_path_pressed(itile):
 
 func on_monster_lord_pressed(itile):
     # case attacking monster lord
-    if selected_itile and itile.tile.content != player.monster_lord:
+    if selected_itile and itile.tile.content != player.monsterlord:
         var pos1 = selected_itile.tile.pos
         var pos2 = itile.tile.pos
         emit_signal("attack_input", pos1, pos2)

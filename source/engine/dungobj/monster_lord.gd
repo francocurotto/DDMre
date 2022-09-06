@@ -6,9 +6,18 @@ const NAME = "MONSTER_LORD"
 # variables
 var hearts = 3
 
+# signals
+signal hearts_depleted
+
 func _init(_player).(_player):
     pass
 
 # is functions
 func is_monster_lord():
     return true
+
+# public functions
+func receive_damage():
+    hearts -= 1
+    if hearts <= 0:
+        emit_signal("hearts_depleted")

@@ -121,6 +121,16 @@ func get_movepath(pos1, pos2):
      # case not path found   
     return []
 
+# signals callback
+func on_monster_death(monster):
+    """
+    When a monster dies, remove monster from dungeon.
+    """
+    for row in array:
+        for tile in row:
+            if tile.is_path() and tile.content == monster:
+                tile.empty_tile()
+    
 # private functions
 func create_tile(engine, chr, i, j):
     """

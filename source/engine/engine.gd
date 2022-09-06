@@ -32,6 +32,8 @@ func _init(initpath:=Globals.DUNGPATH, pool1:=Globals.POOL1PATH, pool2:=Globals.
         dice.connect("rolled", player1.crestpool, "add_crests")
     for dice in player2.dicepool:
         dice.connect("rolled", player2.crestpool, "add_crests")
+    player1.connect("monster_death", dungeon, "on_monster_death")
+    player2.connect("monster_death", dungeon, "on_monster_death")
         
 # public functions
 func update(cmd):

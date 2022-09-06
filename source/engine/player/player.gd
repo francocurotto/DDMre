@@ -17,6 +17,9 @@ var monsters = []
 var items = []
 var tiles = []
 
+# signals
+signal monster_death
+
 func _init(_id, _dicepool):
     id = _id
     name = namedict[id]
@@ -46,3 +49,8 @@ func summon_card(idx):
     var dice = dicepool[idx]
     dimdice.append(dice) # add dice to dimensioned dice
     return dicepool[idx].card.summon(self)
+
+# signals callback
+func on_monster_death(monster):
+    monsters.erase(monster)
+    emit_signal("monster_death", monster)

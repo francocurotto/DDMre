@@ -8,6 +8,9 @@ var RollState = load("engine/states/roll_state.gd")
 
 func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     cmdlist += ["MOVE", "ENDTURN"]
+    # reset player monster cooldown
+    for monster in player.monsters:
+        monster.cooldown = false
 
 # public functions
 func MOVE(cmd):
@@ -27,12 +30,9 @@ func MOVE(cmd):
     # case missing movement crests
     elif len(path)-1 > player.crestpool.slots["MOVEMENT"]:
         print("Not enough MOVEMENT crests.")
+    # perform movement
     else: # case valid movement
-        move_dungobj(tile_origin, tile_dest)
-        # pay the cost of the movement
-        player.crestpool.slots["MOVEMENT"] -= len(path)-1
-        # emit update signal
-        emit_signal("duel_update", cmd["name"])
+        perform_movement(tile_origin, tile_dest, path, cmd["name"])
     return self
 
 func ATTACK(cmd):
@@ -51,13 +51,11 @@ func ATTACK(cmd):
     # check enough ATTACK crests
     elif  player.crestpool.slots["ATTACK"] < 1:
         print("Not enough ATTACK crests.")
-    # valid attack
+    elif tile_origin.content.cooldown:
+        print("Monster in cooldown.")
+    # perform attack
     else:
-        var monster = tile_origin.content
-        var target = tile_dest.content
-        monster.attack(target)
-        # pay the cost of attack
-        player.crestpool.slots["ATTACK"] -= 1
+        perform_attack(tile_origin, tile_dest, cmd["name"])
     return self
     
 func ENDTURN(_cmd):
@@ -66,10 +64,29 @@ func ENDTURN(_cmd):
     """
     return RollState.new(opponent, player, dungeon)
 
-func move_dungobj(tile1, tile2):
+# private functions
+func perform_movement(tile1, tile2, path, cmdname):
     """
-    Move content from tile1 to tile2. Content in tile2 in overwritten.
+    Move content from tile1 to tile2 and pay movement crest.
     """
     tile2.content = tile1.content
     tile1.empty_tile()
-        
+    # pay the cost of the movement
+    player.crestpool.slots["MOVEMENT"] -= len(path)-1
+    # emit duel update signal
+    emit_signal("duel_update", cmdname)
+
+func perform_attack(tile1, tile2, cmdname):
+    """
+    Perform attack from tile1 to tile2 and pay attack crest.
+    """
+    var monster = tile1.content
+    var target = tile2.content
+    if target.is_monster():
+        monster.attack_monster(target, false)
+    elif target.is_monster_lord():
+        monster.attack_monster_lord(target)
+    # pay the cost of attack
+    player.crestpool.slots["ATTACK"] -= 1
+    emit_signal("duel_update", cmdname)
+    
