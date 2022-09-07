@@ -59,9 +59,9 @@ func ATTACK(cmd):
         print("Target out of reach.")
     # the attack is valid
     else:
-        # if oppoennt can defend, go to reply state
-        if opponent.crestpool.slots["DEFENSE"] >= 1:
-            return ReplyState.new(opponent, player, dungeon)
+        # if opponent can defend, go to reply state
+        if opponent.crestpool.slots["DEFENSE"] >= 1 and target.is_monster():
+            return ReplyState.new(opponent, player, dungeon, monster, target)
         # perform unguarded attack
         perform_attack(monster, target, cmd["name"])
     return self

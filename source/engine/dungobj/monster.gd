@@ -40,20 +40,20 @@ func receive_attack_damage(damage):
     if health <= 0:
         emit_signal("monster_death", self)
 
-func get_power(monster): # written just to avoid editor error
-    return monster.attack
+func get_power(attacked): # written just to avoid editor error
+    return attacked.attack
 
-func get_attacker_power_dragon(monster):
-    return monster.attack
+func get_attacker_power_dragon(attacker):
+    return attacker.attack
 
-func get_attacker_power_spellcaster(monster):
-    return monster.attack
+func get_attacker_power_spellcaster(attacker):
+    return attacker.attack
 
-func get_attacker_power_undead(monster):
-    return monster.attack
+func get_attacker_power_undead(attacker):
+    return attacker.attack
 
-func get_attacker_power_beast(monster):
-    return monster.attack
+func get_attacker_power_beast(attacker):
+    return attacker.attack
 
-func get_attacker_power_warrior(monster):
-    return monster.attack
+func get_attacker_power_warrior(attacker):
+    return attacker.attack
