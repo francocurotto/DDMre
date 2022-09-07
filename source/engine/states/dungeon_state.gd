@@ -5,6 +5,7 @@ const NAME = "DUNGEON"
 
 # variables
 var RollState = load("engine/states/roll_state.gd")
+var ReplyState = load("engine/states/reply_state.gd")
 
 func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     cmdlist += ["MOVE", "ENDTURN"]
@@ -44,18 +45,25 @@ func ATTACK(cmd):
     var pos_dest = Vector2(cmd["dest"][0], cmd["dest"][1])
     var tile_origin = dungeon.get_tile(pos_origin)
     var tile_dest = dungeon.get_tile(pos_dest)
+    var monster = tile_origin.content
+    var target = tile_dest.content
 
-    # check valid attack
-    if not pos_dest in dungeon.get_attackposs(player, pos_origin):
-        print("Target out of reach.")
     # check enough ATTACK crests
-    elif  player.crestpool.slots["ATTACK"] < 1:
+    if  player.crestpool.slots["ATTACK"] < 1:
         print("Not enough ATTACK crests.")
-    elif tile_origin.content.cooldown:
+    # check if monster already in cooldown
+    elif monster.cooldown:
         print("Monster in cooldown.")
-    # perform attack
+    # check valid attack
+    elif not pos_dest in dungeon.get_attackposs(player, pos_origin):
+        print("Target out of reach.")
+    # the attack is valid
     else:
-        perform_attack(tile_origin, tile_dest, cmd["name"])
+        # if oppoennt can defend, go to reply state
+        if opponent.crestpool.slots["DEFENSE"] >= 1:
+            return ReplyState.new(opponent, player, dungeon)
+        # perform unguarded attack
+        perform_attack(monster, target, cmd["name"])
     return self
     
 func ENDTURN(_cmd):
@@ -69,6 +77,7 @@ func perform_movement(tile1, tile2, path, cmdname):
     """
     Move content from tile1 to tile2 and pay movement crest.
     """
+    # make the movement
     tile2.content = tile1.content
     tile1.empty_tile()
     # pay the cost of the movement
@@ -76,12 +85,10 @@ func perform_movement(tile1, tile2, path, cmdname):
     # emit duel update signal
     emit_signal("duel_update", cmdname)
 
-func perform_attack(tile1, tile2, cmdname):
+func perform_attack(monster, target, cmdname):
     """
     Perform attack from tile1 to tile2 and pay attack crest.
     """
-    var monster = tile1.content
-    var target = tile2.content
     if target.is_monster():
         monster.attack_monster(target, false)
     elif target.is_monster_lord():

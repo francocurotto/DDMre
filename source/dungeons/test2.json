@@ -33,7 +33,7 @@
   "CRESTS2": {
     "MOVEMENT": 10,
     "ATTACK"  : 1,
-    "DEFENSE" : 0,
+    "DEFENSE" : 1,
     "MAGIC"   : 0,
     "TRAP"    : 0},
   "HEARTS1": 3,

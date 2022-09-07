@@ -85,6 +85,10 @@ func get_attackposs(player, pos):
     # check for available attack crests
     if player.crestpool.slots["ATTACK"] <= 0:
         return []
+        
+    # check of monster in cooldown 
+    if get_tile(pos).content.cooldown:
+        return []
     
     var targetposs = get_target_neighbours_poss(pos)
     var attackposs = []

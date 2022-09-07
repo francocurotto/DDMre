@@ -30,6 +30,7 @@ func on_state_update(state_name):
     match state_name:
         "ROLL" : on_state_update_roll()
         "DUNGEON" : on_state_update_dungeon()
+        "REPLY" : on_state_update_reply()
 
 func on_next_turn(turn):
     get_player_gui().visible = true
@@ -47,7 +48,7 @@ func on_dice_rolled(sides):
     get_opponent_gui().set_opponent_roll(sides)
     get_opponent_gui().update_opponent_icrestpool()
 
-func on_player_lost(player):
+func on_player_lost(_player):
     get_tree().quit()
 
 # private functions
@@ -63,6 +64,9 @@ func on_state_update_roll():
 
 func on_state_update_dungeon():
     get_player_gui().on_state_update_dungeon()
+
+func on_state_update_reply():
+    get_player_gui().on_state_update_reply()
 
 func get_player_gui():
     return get_children()[engine.state.player.id-1]

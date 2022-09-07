@@ -1,8 +1,7 @@
 ### TODO
-- implement dungeon state
-    - implement ATTACK command
+- implement reply state
     - implement GUARD command
-    - implement end of duel
+    - implement WAIT command
 
 ### FIX
 

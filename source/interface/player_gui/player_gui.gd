@@ -72,6 +72,12 @@ func on_state_update_dungeon():
     rollgui.enable_endturn()
     idungeon.enable_itilebuttons()
 
+func on_state_update_reply():
+    dicepool.disable_all()
+    rollgui.disable_roll()
+    rollgui.disable_endturn()
+    idungeon.disable_itilebuttons()
+
 func on_next_turn(turn):
     duelinfo.on_next_turn(turn)
 
