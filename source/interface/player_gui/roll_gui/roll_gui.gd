@@ -8,8 +8,8 @@ onready var opponent_roll = $OppPanel/LOBox/OppRoll
 onready var endturn_button = $EndTurnButton
 
 # signals
-signal roll_pressed
-signal endturn_pressed
+signal roll_input
+signal endturn_input
 
 # set functions
 func set_roll_button(enable):
@@ -44,7 +44,7 @@ func hide_player_roll():
 
 # signals callback
 func _on_RollButton_pressed():
-    emit_signal("roll_pressed")
+    emit_signal("roll_input")
     
 func _on_EndTurnButton_pressed():
-    emit_signal("endturn_pressed")
+    emit_signal("endturn_input")

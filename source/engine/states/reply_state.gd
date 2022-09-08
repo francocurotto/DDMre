@@ -14,15 +14,17 @@ func _init(_player, _opponent, _dungeon, _attacker, _attacked).(_player, _oppone
     cmdlist += ["GUARD", "WAIT"]
 
 # public functions
-func GUARD(_cmd):
+func GUARD(cmd):
     """
     Excecute the GUARD command.
     """
-    pass
+    emit_signal("duel_update", cmd["name"])
+    return DungeonState.new(opponent, player, dungeon)
 
 # public functions
-func WAIT(_cmd):
+func WAIT(cmd):
     """
     Excecute the WAIT command.
     """
-    pass
+    emit_signal("duel_update", cmd["name"])
+    return DungeonState.new(opponent, player, dungeon)

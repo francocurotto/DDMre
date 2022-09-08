@@ -11,6 +11,9 @@ signal dice_rolled(sides)
 
 func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     cmdlist += ["ROLL"]
+    # reset player monster cooldown
+    for monster in player.monsters:
+        monster.cooldown = false
 
 # public functions
 func ROLL(cmd):

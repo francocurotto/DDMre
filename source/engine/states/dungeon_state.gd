@@ -9,9 +9,6 @@ var ReplyState = load("engine/states/reply_state.gd")
 
 func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     cmdlist += ["MOVE", "ENDTURN"]
-    # reset player monster cooldown
-    for monster in player.monsters:
-        monster.cooldown = false
 
 # public functions
 func MOVE(cmd):

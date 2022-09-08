@@ -10,8 +10,8 @@ onready var attacked_name = $ReplyBox/AttackedName
 #onready var attacked_stats = $ReplyBox/AttackedStats
 
 # signals
-signal input_guard
-signal input_wait
+signal guard_input
+signal wait_input
 
 # set functions
 func set_reply(_reply_state):
@@ -19,7 +19,7 @@ func set_reply(_reply_state):
 
 # signals callback
 func _on_GuardButton_pressed():
-    emit_signal("input_guard")
+    emit_signal("guard_input")
 
 func _on_WaitButton_pressed():
-    emit_signal("input_wait")
+    emit_signal("wait_input")

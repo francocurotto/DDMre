@@ -46,7 +46,7 @@ func update(cmd):
     # get new state info
     var newstate = state.update(cmd)
     var state_update = newstate != state
-    var next_turn = newstate.player != state.player
+    var next_turn = newstate.player != state.player and newstate.NAME == "ROLL"
     # perform the update
     state = newstate
     if state_update:

@@ -18,14 +18,16 @@ func _ready():
     rollgui.hide_rolls()
     # connections
     dicepool.connect("roll_changed", self, "on_roll_changed")
-    rollgui.connect("roll_pressed", self, "on_roll_pressed")
-    rollgui.connect("endturn_pressed", self, "on_endturn_pressed")
     dicepool.connect("mouse_entered_dice", iteminfo, "on_mouse_entered_dice")
     dicepool.connect("mouse_exited_dice", iteminfo, "on_mouse_exited_dice")
     idungeon.connect("mouse_entered_summon", iteminfo, "on_mouse_entered_summon")
     idungeon.connect("mouse_exited_summon", iteminfo, "on_mouse_exited_summon")
+    rollgui.connect("roll_input", self, "on_roll_input")
+    rollgui.connect("endturn_input", self, "on_endturn_input")
     idungeon.connect("move_input", self, "on_move_input")
     idungeon.connect("attack_input", self, "on_attack_input")
+    iteminfo.connect("guard_input", self, "on_guard_input")
+    iteminfo.connect("wait_input", self, "on_wait_input")
 
 # set functions
 func set_duel(_engine, _player, _opponent):
@@ -71,6 +73,7 @@ func on_state_update_dungeon():
     rollgui.disable_roll()
     rollgui.enable_endturn()
     idungeon.enable_itilebuttons()
+    iteminfo.clear_grid()
 
 func on_state_update_reply():
     dicepool.disable_all()
@@ -78,6 +81,7 @@ func on_state_update_reply():
     rollgui.disable_endturn()
     idungeon.disable_itilebuttons()
     iteminfo.enable_replyinfo()
+    iteminfo.set_replyinfo_visible()
 
 func on_next_turn(turn):
     duelinfo.on_next_turn(turn)
@@ -85,11 +89,11 @@ func on_next_turn(turn):
 func on_roll_changed():
     rollgui.set_roll_button(dicepool.roll_ready())
 
-func on_roll_pressed():
+func on_roll_input():
     var indeces = dicepool.get_indeces()
     engine.update({"name" : "ROLL", "dice" : indeces})
 
-func on_endturn_pressed():
+func on_endturn_input():
     idungeon.unselect_itile()
     engine.update({"name" : "ENDTURN"})
 
@@ -98,3 +102,9 @@ func on_move_input(pos1, pos2):
 
 func on_attack_input(pos1, pos2):
     engine.update({"name" : "ATTACK", "origin" : pos1, "dest" : pos2})
+
+func on_guard_input():
+    engine.update({"name" : "GUARD"})
+
+func on_wait_input():
+    engine.update({"name" : "WAIT"})

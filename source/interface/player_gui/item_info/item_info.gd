@@ -10,8 +10,14 @@ var player
 onready var infogrid = $InfoBox/InfoGrid
 onready var replyinfo = $InfoBox/ReplyInfo
 
+# signals
+signal guard_input
+signal wait_input
+
 func _ready():
     clear_grid()
+    replyinfo.connect("guard_input", self, "on_guard_input")
+    replyinfo.connect("wait_input", self, "on_wait_input")
 
 # set functions 
 func set_player(_player):
@@ -49,8 +55,12 @@ func clear_grid():
 func enable_replyinfo():
     replyinfo.enabled = true
 
-func disable_relyinfo():
+func set_replyinfo_visible():
+    replyinfo.visible = true
+
+func turnoff_replyinfo():
     replyinfo.enabled = false
+    clear_grid()
 
 # signals callback
 func on_mouse_entered_dice(idx):
@@ -60,7 +70,7 @@ func on_mouse_entered_dice(idx):
 func on_mouse_exited_dice():
     clear_grid()
     if replyinfo.enabled:
-        replyinfo.visible = true        
+        set_replyinfo_visible()        
 
 func on_mouse_entered_summon(summon):
     set_dungobj(summon)
@@ -68,8 +78,15 @@ func on_mouse_entered_summon(summon):
 func on_mouse_exited_summon():
     clear_grid()
     if replyinfo.enabled:
-        replyinfo.visible = true        
+        set_replyinfo_visible()
 
+func on_guard_input():
+    turnoff_replyinfo()
+    emit_signal("guard_input")
+
+func on_wait_input():
+    turnoff_replyinfo()
+    emit_signal("wait_input")   
 
 # private functions
 func add_text(str1, str2):

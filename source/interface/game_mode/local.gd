@@ -33,8 +33,7 @@ func on_state_update(state_name):
         "REPLY" : on_state_update_reply()
 
 func on_next_turn(turn):
-    get_player_gui().visible = true
-    get_opponent_gui().visible = false
+    set_player_gui()
     p1gui.on_next_turn(turn)
     p2gui.on_next_turn(turn)
 
@@ -63,13 +62,20 @@ func on_state_update_roll():
     get_player_gui().on_state_update_roll()
 
 func on_state_update_dungeon():
+    set_player_gui()
     get_player_gui().on_state_update_dungeon()
 
 func on_state_update_reply():
+    set_player_gui()
     get_player_gui().on_state_update_reply()
 
+# private functions
 func get_player_gui():
     return get_children()[engine.state.player.id-1]
 
 func get_opponent_gui():
     return get_children()[engine.state.opponent.id-1]
+
+func set_player_gui():
+    get_player_gui().visible = true
+    get_opponent_gui().visible = false
