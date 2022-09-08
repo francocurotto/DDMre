@@ -9,16 +9,16 @@ var selected_itile = null
 onready var cols = $Cols
 
 # signals
-signal mouse_entered_dungobj(dungobj)
-signal mouse_exited_dungobj(dungobj)
+signal mouse_entered_summon(summon)
+signal mouse_exited_summon(summon)
 signal move_input(pos1, pos2)
 signal attack_input(pos1, pos2)
 
 func _ready():
     for row in cols.get_children():
         for t in row.get_children():
-            t.connect("mouse_entered_dungobj", self, "on_mouse_entered_dungobj")
-            t.connect("mouse_exited_dungobj", self, "on_mouse_exited_dungobj")
+            t.connect("mouse_entered_summon", self, "on_mouse_entered_summon")
+            t.connect("mouse_exited_summon", self, "on_mouse_exited_summon")
             t.connect("monster_pressed", self, "on_monster_pressed")
             t.connect("reachable_path_pressed", self, "on_reachable_path_pressed")
             t.connect("monster_lord_pressed", self, "on_monster_lord_pressed")
@@ -52,11 +52,11 @@ func update_dungeon():
     unselect_itile()
 
 # signals callbacks
-func on_mouse_entered_dungobj(dungobj):
-    emit_signal("mouse_entered_dungobj", dungobj)
+func on_mouse_entered_summon(summon):
+    emit_signal("mouse_entered_summon", summon)
 
-func on_mouse_exited_dungobj():
-    emit_signal("mouse_exited_dungobj")
+func on_mouse_exited_summon():
+    emit_signal("mouse_exited_summon")
 
 func on_monster_pressed(itile):
     var monster = itile.tile.content

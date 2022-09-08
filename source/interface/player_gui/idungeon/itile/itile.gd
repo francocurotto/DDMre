@@ -16,8 +16,8 @@ const SELECTMOD = Color(1.0,1.0,0.5,1.0)
 var tile
 
 # signals
-signal mouse_entered_dungobj(dungobj)
-signal mouse_exited_dungobj
+signal mouse_entered_summon(summon)
+signal mouse_exited_summon
 signal monster_pressed(tile)
 signal reachable_path_pressed(tile)
 signal monster_lord_pressed(tile)
@@ -102,11 +102,11 @@ func update_tile():
 
 # signals callback
 func _on_TileButton_mouse_entered():
-    if tile and tile.is_path():
-        emit_signal("mouse_entered_dungobj", tile.content)
+    if tile and tile.is_path() and tile.content.is_summon():
+        emit_signal("mouse_entered_summon", tile.content)
 
 func _on_TileButton_mouse_exited():
-    emit_signal("mouse_exited_dungobj")
+    emit_signal("mouse_exited_summon")
 
 func _on_TileButton_pressed():
     # case monster pressed

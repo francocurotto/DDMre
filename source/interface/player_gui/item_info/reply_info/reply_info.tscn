@@ -260,3 +260,6 @@ margin_right = 205.0
 margin_bottom = 27.0
 custom_fonts/font = ExtResource( 2 )
 text = "WAIT"
+
+[connection signal="pressed" from="ReplyBox/Buttons/GuardButton" to="." method="_on_GuardButton_pressed"]
+[connection signal="pressed" from="ReplyBox/Buttons/WaitButton" to="." method="_on_WaitButton_pressed"]

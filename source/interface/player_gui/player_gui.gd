@@ -22,8 +22,8 @@ func _ready():
     rollgui.connect("endturn_pressed", self, "on_endturn_pressed")
     dicepool.connect("mouse_entered_dice", iteminfo, "on_mouse_entered_dice")
     dicepool.connect("mouse_exited_dice", iteminfo, "on_mouse_exited_dice")
-    idungeon.connect("mouse_entered_dungobj", iteminfo, "on_mouse_entered_dungobj")
-    idungeon.connect("mouse_exited_dungobj", iteminfo, "on_mouse_exited_dungobj")
+    idungeon.connect("mouse_entered_summon", iteminfo, "on_mouse_entered_summon")
+    idungeon.connect("mouse_exited_summon", iteminfo, "on_mouse_exited_summon")
     idungeon.connect("move_input", self, "on_move_input")
     idungeon.connect("attack_input", self, "on_attack_input")
 
@@ -77,6 +77,7 @@ func on_state_update_reply():
     rollgui.disable_roll()
     rollgui.disable_endturn()
     idungeon.disable_itilebuttons()
+    iteminfo.enable_replyinfo()
 
 func on_next_turn(turn):
     duelinfo.on_next_turn(turn)

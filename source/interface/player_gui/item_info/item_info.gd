@@ -8,6 +8,7 @@ var player
 
 # onready variables
 onready var infogrid = $InfoBox/InfoGrid
+onready var replyinfo = $InfoBox/ReplyInfo
 
 func _ready():
     clear_grid()
@@ -40,9 +41,16 @@ func set_dungobj(dungobj):
         add_text("HEALTH:", str(dungobj.card.health)+"/"+str(dungobj.health))
 
 func clear_grid():
+    replyinfo.visible = false
     for child in infogrid.get_children():
         infogrid.remove_child(child)
         child.queue_free()
+
+func enable_replyinfo():
+    replyinfo.enabled = true
+
+func disable_relyinfo():
+    replyinfo.enabled = false
 
 # signals callback
 func on_mouse_entered_dice(idx):
@@ -51,12 +59,17 @@ func on_mouse_entered_dice(idx):
 
 func on_mouse_exited_dice():
     clear_grid()
+    if replyinfo.enabled:
+        replyinfo.visible = true        
 
-func on_mouse_entered_dungobj(dungobj):
-    set_dungobj(dungobj)
+func on_mouse_entered_summon(summon):
+    set_dungobj(summon)
 
-func on_mouse_exited_dungobj():
+func on_mouse_exited_summon():
     clear_grid()
+    if replyinfo.enabled:
+        replyinfo.visible = true        
+
 
 # private functions
 func add_text(str1, str2):
