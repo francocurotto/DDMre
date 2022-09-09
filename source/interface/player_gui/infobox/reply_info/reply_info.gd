@@ -5,9 +5,7 @@ var enabled = false
 
 # onready variables
 onready var attacker_name = $ReplyBox/AttackerName
-#onready var attacker_stats = $ReplyBox/AttackerStats
 onready var attacked_name = $ReplyBox/AttackedName
-#onready var attacked_stats = $ReplyBox/AttackedStats
 
 # signals
 signal guard_input

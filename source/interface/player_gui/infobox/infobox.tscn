@@ -3,8 +3,8 @@
 [ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=1]
 [ext_resource path="res://interface/player_gui/dicepool/idice/iside/iside.tscn" type="PackedScene" id=2]
 [ext_resource path="res://art/fonts/crestpool.tres" type="DynamicFont" id=3]
-[ext_resource path="res://interface/player_gui/item_info/item_info.gd" type="Script" id=4]
-[ext_resource path="res://interface/player_gui/item_info/reply_info/reply_info.tscn" type="PackedScene" id=5]
+[ext_resource path="res://interface/player_gui/infobox/item_info.gd" type="Script" id=4]
+[ext_resource path="res://interface/player_gui/infobox/reply_info/reply_info.tscn" type="PackedScene" id=5]
 
 [node name="ItemInfo" type="PanelContainer"]
 margin_right = 82.0

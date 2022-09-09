@@ -8,5 +8,6 @@
     - refactor replyinfo visibility
 
 ### FIX
+- fix opponent can see player item in item_info
 
 ### IMPROVEMENTS

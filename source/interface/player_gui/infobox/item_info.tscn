@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=1]
+[ext_resource path="res://interface/player_gui/dicepool/idice/iside/iside.tscn" type="PackedScene" id=2]
+[ext_resource path="res://art/fonts/crestpool.tres" type="DynamicFont" id=3]
+[ext_resource path="res://interface/player_gui/infobox/item_info.gd" type="Script" id=4]
+[ext_resource path="res://interface/player_gui/infobox/reply_info/reply_info.tscn" type="PackedScene" id=5]
+
+[node name="ItemInfo" type="PanelContainer"]
+margin_right = 82.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 261, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 1 )
+script = ExtResource( 4 )
+SideItem = ExtResource( 2 )
+
+[node name="InfoBox" type="VBoxContainer" parent="."]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 255.0
+margin_bottom = 34.0
+
+[node name="Title" type="Label" parent="InfoBox"]
+margin_right = 249.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 3 )
+text = "Info Box"
+align = 1
+
+[node name="InfoGrid" type="GridContainer" parent="InfoBox"]
+margin_top = 28.0
+margin_right = 249.0
+margin_bottom = 28.0
+columns = 2
+
+[node name="ReplyInfo" parent="InfoBox" instance=ExtResource( 5 )]
+visible = false
+margin_top = 32.0
+margin_right = 249.0
+margin_bottom = 209.0

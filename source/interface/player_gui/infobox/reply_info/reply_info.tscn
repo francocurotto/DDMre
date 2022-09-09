@@ -4,15 +4,15 @@
 [ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=2]
 [ext_resource path="res://art/icons/TYPE_DRAGON.png" type="Texture" id=3]
 [ext_resource path="res://art/icons/CREST_ATTACK.png" type="Texture" id=4]
-[ext_resource path="res://art/icons/HEALTH.png" type="Texture" id=5]
-[ext_resource path="res://art/icons/CREST_DEFENSE.png" type="Texture" id=6]
-[ext_resource path="res://art/icons/ATTACK_ARROW.png" type="Texture" id=7]
-[ext_resource path="res://interface/player_gui/item_info/reply_info/reply_info.gd" type="Script" id=8]
+[ext_resource path="res://art/icons/CREST_DEFENSE.png" type="Texture" id=5]
+[ext_resource path="res://art/icons/HEALTH.png" type="Texture" id=6]
+[ext_resource path="res://interface/player_gui/infobox/reply_info/reply_info.gd" type="Script" id=7]
+[ext_resource path="res://art/icons/ATTACK_ARROW.png" type="Texture" id=8]
 
 [node name="ReplyInfo" type="MarginContainer"]
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 
 [node name="ReplyBox" type="VBoxContainer" parent="."]
 margin_right = 238.0
@@ -99,7 +99,7 @@ margin_left = 18.0
 margin_right = 38.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
@@ -120,7 +120,7 @@ margin_left = 40.0
 margin_right = 60.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 expand = true
 stretch_mode = 5
 
@@ -129,7 +129,7 @@ margin_top = 53.0
 margin_right = 238.0
 margin_bottom = 93.0
 rect_min_size = Vector2( 0, 40 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6
 
@@ -215,7 +215,7 @@ margin_left = 18.0
 margin_right = 38.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
@@ -236,7 +236,7 @@ margin_left = 40.0
 margin_right = 60.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 expand = true
 stretch_mode = 5
 
