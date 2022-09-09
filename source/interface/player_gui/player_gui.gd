@@ -11,23 +11,23 @@ onready var rollgui = $"%RollGUI"
 onready var playerinfo = $"%PlayerInfo"
 onready var opponentinfo = $"%OpponentInfo"
 onready var duelinfo = $"%DuelInfo"
-onready var iteminfo = $"%ItemInfo"
+onready var infobox = $"%InfoBox"
 onready var idungeon = $"%IDungeon"
 
 func _ready():
     rollgui.hide_rolls()
     # connections
     dicepool.connect("roll_changed", self, "on_roll_changed")
-    dicepool.connect("mouse_entered_dice", iteminfo, "on_mouse_entered_dice")
-    dicepool.connect("mouse_exited_dice", iteminfo, "on_mouse_exited_dice")
-    idungeon.connect("mouse_entered_summon", iteminfo, "on_mouse_entered_summon")
-    idungeon.connect("mouse_exited_summon", iteminfo, "on_mouse_exited_summon")
+    dicepool.connect("mouse_entered_dice", infobox, "on_mouse_entered_dice")
+    dicepool.connect("mouse_exited_dice", infobox, "on_mouse_exited_dice")
+    idungeon.connect("mouse_entered_summon", infobox, "on_mouse_entered_summon")
+    idungeon.connect("mouse_exited_summon", infobox, "on_mouse_exited_summon")
     rollgui.connect("roll_input", self, "on_roll_input")
     rollgui.connect("endturn_input", self, "on_endturn_input")
     idungeon.connect("move_input", self, "on_move_input")
     idungeon.connect("attack_input", self, "on_attack_input")
-    iteminfo.connect("guard_input", self, "on_guard_input")
-    iteminfo.connect("wait_input", self, "on_wait_input")
+    infobox.connect("guard_input", self, "on_guard_input")
+    infobox.connect("wait_input", self, "on_wait_input")
 
 # set functions
 func set_duel(_engine, _player, _opponent):
@@ -38,7 +38,7 @@ func set_duel(_engine, _player, _opponent):
     playerinfo.set_infobox(player, "Player")
     opponentinfo.set_infobox(opponent, "Opponent")
     idungeon.set_dungeon(engine.dungeon, player)
-    iteminfo.set_player(player)
+    infobox.set_player(player)
 
 func update_gui():
     idungeon.update_dungeon()
@@ -60,6 +60,7 @@ func update_opponent_icrestpool():
 # signals callback
 func on_state_update(state):
     duelinfo.on_state_update(state)
+    infobox.on_state_update(state)
 
 func on_state_update_roll():
     dicepool.enable_all()
@@ -73,15 +74,12 @@ func on_state_update_dungeon():
     rollgui.disable_roll()
     rollgui.enable_endturn()
     idungeon.enable_itilebuttons()
-    iteminfo.clear_grid()
 
 func on_state_update_reply():
     dicepool.disable_all()
     rollgui.disable_roll()
     rollgui.disable_endturn()
     idungeon.disable_itilebuttons()
-    iteminfo.enable_replyinfo()
-    iteminfo.set_replyinfo_visible()
 
 func on_next_turn(turn):
     duelinfo.on_next_turn(turn)

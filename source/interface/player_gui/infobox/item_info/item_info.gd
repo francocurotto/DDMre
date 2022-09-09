@@ -10,7 +10,8 @@ var player
 func set_player(_player):
     player = _player
 
-func set_dice(dice):
+func set_dice(idx):
+    var dice = player.dicepool[idx]
     clear_grid()
     add_attribute("NAME:", dice.card.name)
     add_attribute("TYPE:", dice.card.type)

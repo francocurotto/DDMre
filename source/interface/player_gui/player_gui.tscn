@@ -5,7 +5,7 @@
 [ext_resource path="res://interface/player_gui/roll_gui/roll_gui.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/player_gui/player_gui.gd" type="Script" id=4]
 [ext_resource path="res://interface/player_gui/idungeon/idungeon.tscn" type="PackedScene" id=5]
-[ext_resource path="res://interface/player_gui/infobox/item_info.tscn" type="PackedScene" id=6]
+[ext_resource path="res://interface/player_gui/infobox/infobox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://interface/player_gui/duel_info/duel_info.tscn" type="PackedScene" id=7]
 
 [node name="PlayerGUI" type="PanelContainer"]
@@ -40,37 +40,37 @@ margin_top = 352.0
 margin_right = 601.0
 margin_bottom = 394.0
 
-[node name="InfoBox" type="HBoxContainer" parent="PDBox/PRIBox"]
+[node name="DuelInfoBox" type="HBoxContainer" parent="PDBox/PRIBox"]
 margin_top = 398.0
 margin_right = 601.0
 margin_bottom = 639.0
 
-[node name="PDInfoBox" type="VBoxContainer" parent="PDBox/PRIBox/InfoBox"]
+[node name="PDInfoBox" type="VBoxContainer" parent="PDBox/PRIBox/DuelInfoBox"]
 margin_right = 206.0
 margin_bottom = 241.0
 
-[node name="PInfoBox" type="HBoxContainer" parent="PDBox/PRIBox/InfoBox/PDInfoBox"]
+[node name="PInfoBox" type="HBoxContainer" parent="PDBox/PRIBox/DuelInfoBox/PDInfoBox"]
 margin_right = 206.0
 margin_bottom = 173.0
 
-[node name="PlayerInfo" parent="PDBox/PRIBox/InfoBox/PDInfoBox/PInfoBox" instance=ExtResource( 2 )]
+[node name="PlayerInfo" parent="PDBox/PRIBox/DuelInfoBox/PDInfoBox/PInfoBox" instance=ExtResource( 2 )]
 unique_name_in_owner = true
 margin_right = 101.0
 
-[node name="OpponentInfo" parent="PDBox/PRIBox/InfoBox/PDInfoBox/PInfoBox" instance=ExtResource( 2 )]
+[node name="OpponentInfo" parent="PDBox/PRIBox/DuelInfoBox/PDInfoBox/PInfoBox" instance=ExtResource( 2 )]
 unique_name_in_owner = true
 margin_left = 105.0
 margin_right = 206.0
 playerid = 2
 title = "Opponent"
 
-[node name="DuelInfo" parent="PDBox/PRIBox/InfoBox/PDInfoBox" instance=ExtResource( 7 )]
+[node name="DuelInfo" parent="PDBox/PRIBox/DuelInfoBox/PDInfoBox" instance=ExtResource( 7 )]
 unique_name_in_owner = true
 margin_top = 177.0
 margin_right = 206.0
 margin_bottom = 241.0
 
-[node name="ItemInfo" parent="PDBox/PRIBox/InfoBox" instance=ExtResource( 6 )]
+[node name="InfoBox" parent="PDBox/PRIBox/DuelInfoBox" instance=ExtResource( 6 )]
 unique_name_in_owner = true
 margin_left = 210.0
 margin_right = 601.0
