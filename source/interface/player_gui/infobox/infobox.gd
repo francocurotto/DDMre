@@ -19,6 +19,9 @@ func _ready():
 func set_player(player):
     iteminfo.set_player(player)
 
+func set_reply(reply_state):
+    replyinfo.set_reply(reply_state)
+
 # signals callback
 func on_state_update(state):
     if state == "REPLY":
@@ -37,7 +40,7 @@ func on_mouse_exited_dice():
         replyinfo.visible = true    
 
 func on_mouse_entered_summon(summon):
-    iteminfo.set_dungobj(summon)
+    iteminfo.set_summon(summon)
     replyinfo.visible = false
     iteminfo.visible = true
 

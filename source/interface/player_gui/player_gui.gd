@@ -80,6 +80,7 @@ func on_state_update_reply():
     rollgui.disable_roll()
     rollgui.disable_endturn()
     idungeon.disable_itilebuttons()
+    infobox.set_reply(engine.state)
 
 func on_next_turn(turn):
     duelinfo.on_next_turn(turn)

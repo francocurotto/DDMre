@@ -22,17 +22,22 @@ func set_dice(idx):
         add_attribute("HEALTH:", str(dice.card.health))
     add_sides(dice.sides)
 
-func set_dungobj(dungobj):
+func set_summon(summon):
     clear_grid()
-    if not dungobj.is_summon():
-        return
-    add_attribute("NAME:", dungobj.card.name)
-    add_attribute("TYPE:", dungobj.card.type)
-    add_attribute("LEVEL:", str(dungobj.card.level))
-    if dungobj.is_monster():
-        add_attribute("ATTACK:", str(dungobj.card.attack)+"/"+str(dungobj.attack))
-        add_attribute("DEFENSE:", str(dungobj.card.defense)+"/"+str(dungobj.defense))
-        add_attribute("HEALTH:", str(dungobj.card.health)+"/"+str(dungobj.health))
+    # case opponent item
+    if summon.is_item() and not summon in player.items:
+        add_attribute("NAME:", "???")
+        add_attribute("TYPE:", summon.card.type)
+        add_attribute("LEVEL:", str(summon.card.level))
+    # case player summon or opponent monster
+    else:
+        add_attribute("NAME:", summon.card.name)
+        add_attribute("TYPE:", summon.card.type)
+        add_attribute("LEVEL:", str(summon.card.level))
+        if summon.is_monster():
+            add_attribute("ATTACK:", str(summon.card.attack)+"/"+str(summon.attack))
+            add_attribute("DEFENSE:", str(summon.card.defense)+"/"+str(summon.defense))
+            add_attribute("HEALTH:", str(summon.card.health)+"/"+str(summon.health))
 
 func clear_grid():
     for child in get_children():
