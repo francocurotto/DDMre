@@ -22,7 +22,6 @@ func GUARD(cmd):
     emit_signal("duel_update", cmd["name"])
     return DungeonState.new(opponent, player, dungeon)
 
-# public functions
 func WAIT(cmd):
     """
     Excecute the WAIT command.
@@ -30,3 +29,13 @@ func WAIT(cmd):
     attacker.attack_monster(attacked, false)
     emit_signal("duel_update", cmd["name"])
     return DungeonState.new(opponent, player, dungeon)
+
+func get_monsters_poss():
+    """
+    Returns the positions of the attaker and the attacked monsters in an
+    array.
+    """
+    var poss = []
+    poss.append(dungeon.get_dungobj_pos(attacker))
+    poss.append(dungeon.get_dungobj_pos(attacked))
+    return poss

@@ -41,6 +41,16 @@ func place_dungobj(pos, dungobj):
     """
     array[pos[0]][pos[1]].content = dungobj
 
+func get_dungobj_pos(dungobj):
+    """
+    Finds the position of a dungobj in the dungeon.
+    """
+    for row in array:
+        for tile in row:
+            if tile.is_path():
+                if tile.content == dungobj:
+                    return tile.pos
+
 func get_moveposs(player, initpos):
     """
     Get all the posible positions a monster at position initpos could move

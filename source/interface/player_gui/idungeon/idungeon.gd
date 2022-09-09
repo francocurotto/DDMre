@@ -51,6 +51,11 @@ func update_dungeon():
             itile.set_tile(tile)
     unselect_itile()
 
+func mark_reply_monsters(reply_state):
+    var poss = reply_state.get_monsters_poss()
+    for pos in poss:
+        get_itile(pos).set_movetile()
+
 # signals callbacks
 func on_mouse_entered_summon(summon):
     emit_signal("mouse_entered_summon", summon)
