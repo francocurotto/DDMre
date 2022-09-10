@@ -29,12 +29,12 @@ align = 1
 margin_top = 28.0
 margin_right = 238.0
 margin_bottom = 49.0
-custom_constants/separation = 5
+custom_constants/separation = 8
 alignment = 1
 
 [node name="TLA" type="HBoxContainer" parent="ReplyBox/AttackerStats"]
-margin_left = 19.0
-margin_right = 68.0
+margin_left = 25.0
+margin_right = 74.0
 margin_bottom = 21.0
 custom_constants/separation = 0
 
@@ -62,8 +62,8 @@ expand = true
 stretch_mode = 5
 
 [node name="Attack" type="HBoxContainer" parent="ReplyBox/AttackerStats"]
-margin_left = 73.0
-margin_right = 111.0
+margin_left = 82.0
+margin_right = 120.0
 margin_bottom = 21.0
 custom_constants/separation = 0
 
@@ -83,8 +83,8 @@ expand = true
 stretch_mode = 5
 
 [node name="Defense" type="HBoxContainer" parent="ReplyBox/AttackerStats"]
-margin_left = 116.0
-margin_right = 154.0
+margin_left = 128.0
+margin_right = 166.0
 margin_bottom = 21.0
 custom_constants/separation = 0
 
@@ -104,20 +104,20 @@ expand = true
 stretch_mode = 5
 
 [node name="Health" type="HBoxContainer" parent="ReplyBox/AttackerStats"]
-margin_left = 159.0
-margin_right = 219.0
+margin_left = 174.0
+margin_right = 212.0
 margin_bottom = 21.0
 custom_constants/separation = 0
 
 [node name="HealthValue" type="Label" parent="ReplyBox/AttackerStats/Health"]
-margin_right = 40.0
+margin_right = 18.0
 margin_bottom = 21.0
 custom_fonts/font = ExtResource( 2 )
-text = "20/20"
+text = "20"
 
 [node name="HealthIcon" type="TextureRect" parent="ReplyBox/AttackerStats/Health"]
-margin_left = 40.0
-margin_right = 60.0
+margin_left = 18.0
+margin_right = 38.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 20, 20 )
 texture = ExtResource( 6 )
@@ -145,12 +145,12 @@ align = 1
 margin_top = 125.0
 margin_right = 238.0
 margin_bottom = 146.0
-custom_constants/separation = 5
+custom_constants/separation = 8
 alignment = 1
 
 [node name="TLA" type="HBoxContainer" parent="ReplyBox/AttackedStats"]
-margin_left = 19.0
-margin_right = 68.0
+margin_left = 25.0
+margin_right = 74.0
 margin_bottom = 21.0
 custom_constants/separation = 0
 
@@ -178,8 +178,8 @@ expand = true
 stretch_mode = 5
 
 [node name="Attack" type="HBoxContainer" parent="ReplyBox/AttackedStats"]
-margin_left = 73.0
-margin_right = 111.0
+margin_left = 82.0
+margin_right = 120.0
 margin_bottom = 21.0
 custom_constants/separation = 0
 
@@ -199,8 +199,8 @@ expand = true
 stretch_mode = 5
 
 [node name="Defense" type="HBoxContainer" parent="ReplyBox/AttackedStats"]
-margin_left = 116.0
-margin_right = 154.0
+margin_left = 128.0
+margin_right = 166.0
 margin_bottom = 21.0
 custom_constants/separation = 0
 
@@ -220,20 +220,20 @@ expand = true
 stretch_mode = 5
 
 [node name="Health" type="HBoxContainer" parent="ReplyBox/AttackedStats"]
-margin_left = 159.0
-margin_right = 219.0
+margin_left = 174.0
+margin_right = 212.0
 margin_bottom = 21.0
 custom_constants/separation = 0
 
 [node name="HealthValue" type="Label" parent="ReplyBox/AttackedStats/Health"]
-margin_right = 40.0
+margin_right = 18.0
 margin_bottom = 21.0
 custom_fonts/font = ExtResource( 2 )
-text = "20/20"
+text = "20"
 
 [node name="HealthIcon" type="TextureRect" parent="ReplyBox/AttackedStats/Health"]
-margin_left = 40.0
-margin_right = 60.0
+margin_left = 18.0
+margin_right = 38.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 20, 20 )
 texture = ExtResource( 6 )

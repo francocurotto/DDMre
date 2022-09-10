@@ -35,9 +35,9 @@ func set_summon(summon):
         add_attribute("TYPE:", summon.card.type)
         add_attribute("LEVEL:", str(summon.card.level))
         if summon.is_monster():
-            add_attribute("ATTACK:", str(summon.card.attack)+"/"+str(summon.attack))
-            add_attribute("DEFENSE:", str(summon.card.defense)+"/"+str(summon.defense))
-            add_attribute("HEALTH:", str(summon.card.health)+"/"+str(summon.health))
+            add_attribute("ATTACK:", str(summon.attack)+"/"+str(summon.card.attack))
+            add_attribute("DEFENSE:", str(summon.defense)+"/"+str(summon.card.defense))
+            add_attribute("HEALTH:", str(summon.health)+"/"+str(summon.card.health))
 
 func clear_grid():
     for child in get_children():

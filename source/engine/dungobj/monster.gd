@@ -23,10 +23,22 @@ func attack_monster(monster, guard):
     """
     Attack an opponent monster.
     """
-    cooldown = true
-    var attack_power = get_power(monster)
-    if not guard:
-        monster.receive_attack_damage(attack_power)
+    cooldown = true 
+    if guard:
+        attack_guarding_monster(monster)
+    else: # no guard
+        monster.receive_damage(get_power(monster))
+    
+func attack_guarding_monster(monster):
+    """
+    Attack a monster that is guarding.
+    """
+    var power = get_power(monster)
+    var damage = power - monster.defense
+    if damage > 0: # attacker deals damage
+        monster.receive_damage(damage)
+    elif damage < 0: # attacker receives retaliation damage
+        receive_damage(-damage)
         
 func attack_monster_lord(ml):
     """
@@ -35,7 +47,7 @@ func attack_monster_lord(ml):
     cooldown = true
     ml.receive_damage()
 
-func receive_attack_damage(damage):
+func receive_damage(damage):
     health -= damage
     if health <= 0:
         emit_signal("monster_death", self)

@@ -19,10 +19,10 @@
     "OOOOOOpOOOOOO",
     "OOOOOOpOOOOOO",
     "OOOOOOlOOOOOO"],
-  "SUMMONS1": [{"POS":"g3", "DICE":1},
+  "SUMMONS1": [{"POS":"g3", "DICE":7},
                {"POS":"f8", "DICE":3},
                {"POS":"h8", "DICE":4}],
-  "SUMMONS2": [{"POS":"g8", "DICE":2},
+  "SUMMONS2": [{"POS":"g8", "DICE":5},
                {"POS":"g11", "DICE":14}],
   "CRESTS1": {
     "MOVEMENT": 99,

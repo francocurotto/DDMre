@@ -50,7 +50,9 @@ func on_mouse_exited_summon():
         replyinfo.visible = true 
 
 func on_guard_input():
+    replyinfo.visible = false
     emit_signal("guard_input")
 
 func on_wait_input():
+    replyinfo.visible = false
     emit_signal("wait_input")   

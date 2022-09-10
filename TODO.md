@@ -5,5 +5,3 @@
 ### FIX
 
 ### IMPROVEMENTS
-- infobox
-    - add colors to stat increase or derease

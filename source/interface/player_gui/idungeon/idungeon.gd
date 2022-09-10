@@ -86,6 +86,8 @@ func on_reachable_path_pressed(itile):
             var pos1 = selected_itile.tile.pos
             var pos2 = itile.tile.pos
             emit_signal("move_input", pos1, pos2)
+        # force enter tile
+        itile._on_TileButton_mouse_entered()
 
 func on_monster_lord_pressed(itile):
     # case attacking monster lord
