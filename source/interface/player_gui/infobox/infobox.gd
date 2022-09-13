@@ -5,6 +5,7 @@ var on_reply = false
 
 # onready variables
 onready var iteminfo = $VBoxContainer/ItemInfo
+onready var attackinfo = $VBoxContainer/AttackInfo
 onready var replyinfo = $VBoxContainer/ReplyInfo
 
 # signals
@@ -22,6 +23,11 @@ func set_player(player):
 func set_reply(reply_state):
     replyinfo.set_reply(reply_state)
 
+func hide_all():
+    iteminfo.visible = false
+    attackinfo.visible = false
+    replyinfo.visible = false
+
 # signals callback
 func on_state_update(state):
     if state == "REPLY":
@@ -31,23 +37,33 @@ func on_state_update(state):
 
 func on_mouse_entered_dice(idx):
     iteminfo.set_dice(idx)
+    attackinfo.visible = false
     replyinfo.visible = false
     iteminfo.visible = true
 
 func on_mouse_exited_dice():
     iteminfo.visible = false 
+    attackinfo.visible = false
     if on_reply:
         replyinfo.visible = true    
 
 func on_mouse_entered_summon(summon):
     iteminfo.set_summon(summon)
+    attackinfo.visible = false
     replyinfo.visible = false
     iteminfo.visible = true
 
 func on_mouse_exited_summon():
     iteminfo.visible = false
+    attackinfo.visible = false
     if on_reply:
         replyinfo.visible = true 
+
+func on_mouse_entered_attacked(attaker, attacked):
+    attackinfo.set_attack(attaker, attacked)
+    iteminfo.visible = false
+    replyinfo.visible = false
+    attackinfo.visible = true
 
 func on_guard_input():
     replyinfo.visible = false

@@ -10,8 +10,8 @@ func _init(_card, _player).(_card, _player):
 func get_power(attacked):
     return attacked.get_attacker_power_warrior(self)
 
-func get_attacker_power_undead(attacker):
+func get_attacker_power_beast(attacker):
     return attacker.attack + 10
 
-func get_attacker_power_warrior(attacker):
+func get_attacker_power_dragon(attacker):
     return attacker.attack - 10

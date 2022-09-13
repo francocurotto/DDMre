@@ -14,9 +14,11 @@ const SELECTMOD = Color(1.0,1.0,0.5,1.0)
 
 # variables
 var tile
+var attack_tile = false
 
 # signals
 signal mouse_entered_summon(summon)
+signal mouse_entered_attacked(attacked)
 signal mouse_exited_summon
 signal monster_pressed(tile)
 signal reachable_path_pressed(tile)
@@ -49,7 +51,8 @@ func set_selectmod():
     $DungobjRect.modulate = SELECTMOD
 
 func unset_selectmod():
-    $DungobjRect.modulate = MODDICT[tile.player.id]
+    if not tile.content.is_none():
+        $DungobjRect.modulate = MODDICT[tile.content.player.id]
 
 func set_movetile():
     $MoveRect.visible = true
@@ -59,9 +62,11 @@ func unset_movetile():
 
 func set_attacktile():
     $AttackRect.visible = true
+    attack_tile = true
 
 func unset_attacktile():
     $AttackRect.visible = false
+    attack_tile = false
 
 func enable_button():
     $TileButton.disabled = false
@@ -103,7 +108,10 @@ func update_tile():
 # signals callback
 func _on_TileButton_mouse_entered():
     if tile and tile.is_path() and tile.content.is_summon():
-        emit_signal("mouse_entered_summon", tile.content)
+        if attack_tile: # if tile with target for attack
+            emit_signal("mouse_entered_attacked", tile.content)
+        else: # normal summon tile
+            emit_signal("mouse_entered_summon", tile.content)
 
 func _on_TileButton_mouse_exited():
     emit_signal("mouse_exited_summon")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=1]
 [ext_resource path="res://interface/player_gui/infobox/item_info/item_info.tscn" type="PackedScene" id=2]
 [ext_resource path="res://art/fonts/crestpool.tres" type="DynamicFont" id=3]
 [ext_resource path="res://interface/player_gui/infobox/infobox.gd" type="Script" id=4]
 [ext_resource path="res://interface/player_gui/infobox/reply_info/reply_info.tscn" type="PackedScene" id=5]
+[ext_resource path="res://interface/player_gui/infobox/attack_info/attack_info.tscn" type="PackedScene" id=6]
 
 [node name="InfoBox" type="PanelContainer"]
 margin_right = 82.0
@@ -34,8 +35,14 @@ margin_top = 28.0
 margin_right = 249.0
 margin_bottom = 156.0
 
+[node name="AttackInfo" parent="VBoxContainer" instance=ExtResource( 6 )]
+visible = false
+margin_top = 28.0
+margin_right = 249.0
+margin_bottom = 174.0
+
 [node name="ReplyInfo" parent="VBoxContainer" instance=ExtResource( 5 )]
 visible = false
-margin_top = 160.0
+margin_top = 28.0
 margin_right = 249.0
-margin_bottom = 337.0
+margin_bottom = 205.0

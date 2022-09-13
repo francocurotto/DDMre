@@ -10,6 +10,7 @@ onready var cols = $Cols
 
 # signals
 signal mouse_entered_summon(summon)
+signal mouse_entered_attacked(attacker, attacked)
 signal mouse_exited_summon(summon)
 signal move_input(pos1, pos2)
 signal attack_input(pos1, pos2)
@@ -18,6 +19,7 @@ func _ready():
     for row in cols.get_children():
         for t in row.get_children():
             t.connect("mouse_entered_summon", self, "on_mouse_entered_summon")
+            t.connect("mouse_entered_attacked", self, "on_mouse_entered_attacked")
             t.connect("mouse_exited_summon", self, "on_mouse_exited_summon")
             t.connect("monster_pressed", self, "on_monster_pressed")
             t.connect("reachable_path_pressed", self, "on_reachable_path_pressed")
@@ -59,6 +61,9 @@ func mark_reply_monsters(reply_state):
 # signals callbacks
 func on_mouse_entered_summon(summon):
     emit_signal("mouse_entered_summon", summon)
+
+func on_mouse_entered_attacked(attacked):
+    emit_signal("mouse_entered_attacked", selected_itile.tile.content, attacked)
 
 func on_mouse_exited_summon():
     emit_signal("mouse_exited_summon")

@@ -21,6 +21,7 @@ func _ready():
     dicepool.connect("mouse_entered_dice", infobox, "on_mouse_entered_dice")
     dicepool.connect("mouse_exited_dice", infobox, "on_mouse_exited_dice")
     idungeon.connect("mouse_entered_summon", infobox, "on_mouse_entered_summon")
+    idungeon.connect("mouse_entered_attacked", infobox, "on_mouse_entered_attacked")
     idungeon.connect("mouse_exited_summon", infobox, "on_mouse_exited_summon")
     rollgui.connect("roll_input", self, "on_roll_input")
     rollgui.connect("endturn_input", self, "on_endturn_input")
@@ -74,6 +75,7 @@ func on_state_update_dungeon():
     rollgui.disable_roll()
     rollgui.enable_endturn()
     idungeon.enable_itilebuttons()
+    infobox.hide_all()
 
 func on_state_update_reply():
     dicepool.disable_all()

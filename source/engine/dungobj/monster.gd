@@ -52,8 +52,8 @@ func receive_damage(damage):
     if health <= 0:
         emit_signal("monster_death", self)
 
-func get_power(attacked): # written just to avoid editor error
-    return attacked.attack
+func get_power(_attacked): # written just to avoid editor error
+    return attack
 
 func get_attacker_power_dragon(attacker):
     return attacker.attack
