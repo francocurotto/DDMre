@@ -15,6 +15,6 @@ func summon(player):
     player.items.append(item)
     return item
 
-# "is" functions
+# is functions
 func is_item():
     return true

@@ -14,8 +14,8 @@ var sides
 # signals
 signal rolled(side)
 
-func _init(diceid, dicedict):
-    id = diceid
+func _init(_id, dicedict):
+    id = _id
     level = dicedict["LEVEL"]
     card = create_card(dicedict)
     sides = create_sides(dicedict["CRESTS"])

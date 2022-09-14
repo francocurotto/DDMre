@@ -21,13 +21,13 @@ func _init(cardinfo).(cardinfo):
 # public functions
 func summon(player):
     """
-    Return a summon object from card.
+    Return a summon monster from card.
     """
     var monster = summondict[type].new(self, player)
     player.monsters.append(monster)
     monster.connect("monster_death", player, "on_monster_death")
     return monster
 
-# "is" functions
+# is functions
 func is_monster():
     return true

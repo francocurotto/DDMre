@@ -8,6 +8,7 @@
 - signals
 - functions:
     - `_init`
+    - setget functions
     - public functions
     - private functions
     - is functions
@@ -22,8 +23,7 @@
 - signals
 - functions:
     - `_ready`
-    - set functions
-    - get functions
+    - setget functions
     - public functions
     - signals callbacks
     - private functions

@@ -18,7 +18,7 @@ func _init():
             row.append(EmptyTile.new(i, j))
         array.append(row)
 
-# public functions
+# setget functions
 func set_layout(engine, layout):
     """
     Set the layout of the dungeon given a dictionary.
@@ -47,9 +47,8 @@ func get_dungobj_pos(dungobj):
     """
     for row in array:
         for tile in row:
-            if tile.is_path():
-                if tile.content == dungobj:
-                    return tile.pos
+            if tile.content == dungobj:
+                return tile.pos
 
 func get_moveposs(player, initpos):
     """

@@ -1,18 +1,20 @@
 extends "tile.gd"
 
-# preloads
-const Noneobj = preload("res://engine/dungobj/noneobj.gd")
-
 # constants
 const NAME = "PATH"
 
 # variables
 var player
-var content
 
 func _init(_y, _x, _player).(_y, _x):
     player = _player
-    content = Noneobj.new()
+
+# setget functions
+func set_content(dungobj):
+    content = dungobj
+
+func get_content():
+    return content
 
 # is functions
 func is_path():

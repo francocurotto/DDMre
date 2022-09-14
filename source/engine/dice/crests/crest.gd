@@ -1,5 +1,5 @@
 extends Reference
 
-# "is" functions
+# is functions
 func is_summon():
     return false

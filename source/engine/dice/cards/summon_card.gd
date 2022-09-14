@@ -12,7 +12,7 @@ func _init(cardinfo):
     level = cardinfo["LEVEL"]
     ability = cardinfo["ABILITY"] #TODO: change to proper ability
 
-# "is" functions
+# is functions
 func is_monster():
     return false
 

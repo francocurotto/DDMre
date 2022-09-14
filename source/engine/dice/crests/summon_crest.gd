@@ -3,6 +3,6 @@ extends "crest.gd"
 # constants
 const NAME = "SUMMON"
 
-# "is" functions
+# is functions
 func is_summon():
     return true
