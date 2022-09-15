@@ -69,7 +69,7 @@ func set_initstate(initpath):
     Set the initial state of the duel, which includes: dungeon layout,
     summons, crests, and hearts.
     """
-    var initdict = read_jsoninit(initpath)
+    var initdict = Globals.read_jsonfile(initpath)
     for initkey in initdict:
         match initkey:
             "DUNGEON" : dungeon.set_layout(self, initdict["DUNGEON"])
@@ -79,16 +79,6 @@ func set_initstate(initpath):
             "CRESTS2" : set_initcrests(player2, initdict["CRESTS2"])
             "HEARTS1" : player1.monsterlord.hearts = initdict["HEARTS1"]
             "HEARTS2" : player2.monsterlord.hearts = initdict["HEARTS2"]
-
-func read_jsoninit(initpath):
-    """
-    Reads the json that defines the initial state of game.
-    """
-    var file = File.new()
-    file.open(initpath, File.READ)
-    var initdict = parse_json(file.get_as_text())
-    file.close()
-    return initdict
 
 func set_initsummons(player, summonlist):
     """

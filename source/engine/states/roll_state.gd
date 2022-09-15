@@ -10,7 +10,6 @@ var DungeonState = load("engine/states/dungeon_state.gd")
 signal dice_rolled(sides)
 
 func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
-    cmdlist += ["ROLL"]
     # reset player monster cooldown
     for monster in player.monsters:
         monster.cooldown = false

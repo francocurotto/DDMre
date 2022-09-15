@@ -4,7 +4,6 @@ extends Reference
 var player
 var opponent
 var dungeon
-var cmdlist = []
 
 # signals
 #warning-ignore:unused_signal

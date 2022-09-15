@@ -14,11 +14,7 @@ func _init(_card, _player).(_card, _player):
     defense = card.defense
     health = card.health
 
-# is functions
-func is_monster():
-    return true
-
-# private functions
+# public functions
 func attack_monster(monster, guard):
     """
     Attack an opponent monster.
@@ -28,7 +24,15 @@ func attack_monster(monster, guard):
         attack_guarding_monster(monster)
     else: # no guard
         monster.receive_damage(get_power(monster))
-    
+        
+func attack_monster_lord(ml):
+    """
+    Attack the opponent monster lord.
+    """
+    cooldown = true
+    ml.receive_damage()
+
+# private functions
 func attack_guarding_monster(monster):
     """
     Attack a monster that is guarding.
@@ -39,15 +43,11 @@ func attack_guarding_monster(monster):
         monster.receive_damage(damage)
     elif damage < 0: # attacker receives retaliation damage
         receive_damage(-damage)
-        
-func attack_monster_lord(ml):
-    """
-    Attack the opponent monster lord.
-    """
-    cooldown = true
-    ml.receive_damage()
 
 func receive_damage(damage):
+    """
+    Receive damage from an attack or ability.
+    """
     health -= damage
     if health <= 0:
         emit_signal("monster_death", self)
@@ -69,3 +69,7 @@ func get_attacker_power_beast(attacker):
 
 func get_attacker_power_warrior(attacker):
     return attacker.attack
+
+# is functions
+func is_monster():
+    return true

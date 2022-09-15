@@ -8,7 +8,7 @@ var RollState = load("engine/states/roll_state.gd")
 var ReplyState = load("engine/states/reply_state.gd")
 
 func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
-    cmdlist += ["MOVE", "ENDTURN"]
+    pass
 
 # public functions
 func MOVE(cmd):
