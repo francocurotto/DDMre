@@ -37,6 +37,7 @@ func _init(initpath:=Globals.DUNGPATH, pool1:=Globals.POOL1PATH, pool2:=Globals.
     player2.connect("monster_death", dungeon, "on_monster_death")
     player1.connect("player_lost", self, "on_player_lost")
     player2.connect("player_lost", self, "on_player_lost")
+    state.connect("duel_update", self, "on_duel_update")
         
 # public functions
 func update(cmd):

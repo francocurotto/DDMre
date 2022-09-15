@@ -30,21 +30,21 @@ func _ready():
     infobox.connect("guard_input", self, "on_guard_input")
     infobox.connect("wait_input", self, "on_wait_input")
 
-# set functions
+# setget functions
 func set_duel(_engine, _player, _opponent):
     engine = _engine
     player = _player
     opponent = _opponent
     dicepool.set_dicepool(player.dicepool)
-    playerinfo.set_infobox(player, "Player")
-    opponentinfo.set_infobox(opponent, "Opponent")
+    playerinfo.set_playerinfo(player, "Player")
+    opponentinfo.set_playerinfo(opponent, "Opponent")
     idungeon.set_dungeon(engine.dungeon, player)
     infobox.set_player(player)
 
 func update_gui():
     idungeon.update_dungeon()
-    playerinfo.update_infobox()
-    opponentinfo.update_infobox()
+    playerinfo.update_info()
+    opponentinfo.update_info()
     infobox.hide_all()
 
 func set_player_roll(sides):
@@ -52,12 +52,6 @@ func set_player_roll(sides):
 
 func set_opponent_roll(sides):
     rollgui.update_roll_opponent(sides)
-    
-func update_player_icrestpool():
-    playerinfo.update_icrestpool()
-
-func update_opponent_icrestpool():
-    opponentinfo.update_icrestpool()
 
 # signals callback
 func on_state_update(state):
@@ -88,6 +82,7 @@ func on_state_update_reply():
 
 func on_next_turn(turn):
     duelinfo.on_next_turn(turn)
+    idungeon.unselect_itile()
 
 func on_roll_changed():
     rollgui.set_roll_button(dicepool.roll_ready())
@@ -97,7 +92,7 @@ func on_roll_input():
     engine.update({"name" : "ROLL", "dice" : indeces})
 
 func on_endturn_input():
-    idungeon.unselect_itile()
+    #idungeon.unselect_itile()
     engine.update({"name" : "ENDTURN"})
 
 func on_move_input(pos1, pos2):

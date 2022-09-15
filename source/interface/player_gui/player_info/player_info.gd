@@ -13,13 +13,13 @@ onready var hearts = $InfoBox/CHBox/Hearts
 onready var icrestpool = $InfoBox/CHBox/ICrestPool
 
 # set functions
-func set_infobox(_player, _title):
+func set_playerinfo(_player, _title):
     player = _player
     hearts.set_player(player)
     icrestpool.set_crestpool(player.crestpool)
     set_title(_title)
 
-func update_infobox():
+func update_info():
     update_icrestpool()
     update_hearts()
 

@@ -10,6 +10,7 @@
     - `_init`
     - setget functions
     - public functions
+    - signals callbacks
     - private functions
     - is functions
 
