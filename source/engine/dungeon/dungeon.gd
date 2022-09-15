@@ -69,19 +69,20 @@ func get_moveposs(player, initpos):
         var moveitem = movequeue.pop_front()
         var pos = moveitem.pos
         var count = moveitem.count
-        # if move crests are surpassed skip pos
-        if count+1 > movecrests:
+        # if count for next pos will surpass move crest, skip pos
+        var newcount = count + 1
+        if newcount > movecrests:
             continue
-        # check if tile is passable
-        var tile = get_tile(pos)
-        if pos==initpos or tile.is_passable():
+        # check if tile is passable or is initial position
+        if get_tile(pos).is_passable() or pos==initpos:
             # get next reachable positions
             var reachposs = get_reachable_neighbours_poss(pos)
             # check to add next positions to poslist
             for reachpos in reachposs:
+                # check if new position not visited
                 if not poslist.has(reachpos):
                     poslist.append(reachpos)
-                    movequeue.append({pos=reachpos, count=count+1})
+                    movequeue.append({pos=reachpos, count=newcount})
     # remove initial position
     poslist.pop_front()
     return poslist
@@ -94,11 +95,10 @@ func get_attackposs(player, pos):
     # check for available attack crests
     if player.crestpool.slots["ATTACK"] <= 0:
         return []
-        
     # check of monster in cooldown 
     if get_tile(pos).content.cooldown:
         return []
-    
+   # get target pos and check if are opponent targets 
     var targetposs = get_target_neighbours_poss(pos)
     var attackposs = []
     for targetpos in targetposs:
@@ -123,9 +123,8 @@ func get_movepath(pos1, pos2):
         if lastpos == pos2:
             return path
         visited.append(lastpos)
-        # check if tile is passable
-        var tile = get_tile(lastpos)
-        if lastpos==pos1 or tile.is_passable():
+        # check if tile is passable or is initial position
+        if get_tile(lastpos).is_passable() or lastpos==pos1:
             # expand path with neighbours and add to queue
             var reachposs = get_reachable_neighbours_poss(lastpos)
             for reachpos in reachposs:
@@ -139,10 +138,8 @@ func on_monster_death(monster):
     """
     When a monster dies, remove monster from dungeon.
     """
-    for row in array:
-        for tile in row:
-            if tile.is_path() and tile.content == monster:
-                tile.empty_tile()
+    var pos = get_dungobj_pos(monster)
+    get_tile(pos).empty_tile()
     
 # private functions
 func create_tile(engine, chr, i, j):
@@ -175,8 +172,7 @@ func get_target_neighbours_poss(pos):
     var neigposs = get_neighbours_poss(pos)
     var targetposs = []
     for neigpos in neigposs:
-        var tile = get_tile(neigpos)
-        if tile.is_path() and tile.content.is_target():
+        if get_tile(neigpos).content.is_target():
             targetposs.append(neigpos)
     return targetposs
 

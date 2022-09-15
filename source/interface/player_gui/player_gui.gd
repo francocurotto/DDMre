@@ -45,6 +45,7 @@ func update_gui():
     idungeon.update_dungeon()
     playerinfo.update_infobox()
     opponentinfo.update_infobox()
+    infobox.hide_all()
 
 func set_player_roll(sides):
     rollgui.update_roll_player(sides)
