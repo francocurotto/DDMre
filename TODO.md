@@ -15,7 +15,8 @@
     - make item info prettier: use icons
         - decide how to display original and current stats
     - switch selected monster even if another monster is already selected
-    - add move/attack/ability/cancel and guard/wait/cancel menus (retire old guard/wait menu), and add ability to toggle dungron/pool view during menu
+    - add move/attack/ability/cancel and guard/wait/cancel menus (retire old guard/wait menu)
+    - add ability to toggle dungeon/pool view during menu
 
 ### TEST
 - attack mechanics
