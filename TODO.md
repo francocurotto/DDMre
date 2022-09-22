@@ -2,13 +2,12 @@
 - DIMENSION state
 
 ### FIX
-- clean dice_idx to idice_idx to dice_idx
 
 ### IMPROVEMENTS
 - refactor: 
     - reduce the number of is_none and is_path in interface
     - remove boolean base states in interface
-    - at interface/dicepool/idice/iside
+    - at interface/duel_info
 - art:
     - make player specific summon sprites
     - add type colors for dice

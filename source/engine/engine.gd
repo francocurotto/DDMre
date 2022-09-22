@@ -87,7 +87,7 @@ func set_initsummons(player, summonlist):
     """
     for summondict in summonlist:
         var pos = Globals.str2pos(summondict["POS"])
-        var idx = Globals.int2diceidx(summondict["DICE"])
+        var idx = Globals.to_engineidx(summondict["DICE"])
         var summon = player.summon_card(idx)
         dungeon.place_dungobj(pos, summon)
            

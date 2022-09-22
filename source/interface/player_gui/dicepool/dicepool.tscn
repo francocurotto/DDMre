@@ -32,7 +32,6 @@ custom_constants/separation = 0
 
 [node name="DiceItem1" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
 margin_right = 591.0
-index = 0
 
 [node name="DiceItem2" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
 margin_top = 21.0
@@ -43,76 +42,63 @@ margin_bottom = 42.0
 margin_top = 42.0
 margin_right = 591.0
 margin_bottom = 63.0
-index = 2
 
 [node name="DiceItem4" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
 margin_top = 63.0
 margin_right = 591.0
 margin_bottom = 84.0
-index = 3
 
 [node name="DiceItem5" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
 margin_top = 84.0
 margin_right = 591.0
 margin_bottom = 105.0
-index = 4
 
 [node name="DiceItem6" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
 margin_top = 105.0
 margin_right = 591.0
 margin_bottom = 126.0
-index = 5
 
 [node name="DiceItem7" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
 margin_top = 126.0
 margin_right = 591.0
 margin_bottom = 147.0
-index = 6
 
 [node name="DiceItem8" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
 margin_top = 147.0
 margin_right = 591.0
 margin_bottom = 168.0
-index = 7
 
 [node name="DiceItem9" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
 margin_top = 168.0
 margin_right = 591.0
 margin_bottom = 189.0
-index = 8
 
 [node name="DiceItem10" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
 margin_top = 189.0
 margin_right = 591.0
 margin_bottom = 210.0
-index = 9
 
 [node name="DiceItem11" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
 margin_top = 210.0
 margin_right = 591.0
 margin_bottom = 231.0
-index = 10
 
 [node name="DiceItem12" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
 margin_top = 231.0
 margin_right = 591.0
 margin_bottom = 252.0
-index = 11
 
 [node name="DiceItem13" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
 margin_top = 252.0
 margin_right = 591.0
 margin_bottom = 273.0
-index = 12
 
 [node name="DiceItem14" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
 margin_top = 273.0
 margin_right = 591.0
 margin_bottom = 294.0
-index = 13
 
 [node name="DiceItem15" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
 margin_top = 294.0
 margin_right = 591.0
 margin_bottom = 315.0
-index = 14

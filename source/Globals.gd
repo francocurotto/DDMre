@@ -26,5 +26,8 @@ func read_jsonfile(filepath):
 func str2pos(string):
     return [int(string.substr(1))-1, ord(string[0])-97]
 
-func int2diceidx(integer):
-    return integer-1
+func to_engineidx(engineidx):
+    """
+    Convert from interface dice indexing to engine dice indexing.
+    """
+    return engineidx-1

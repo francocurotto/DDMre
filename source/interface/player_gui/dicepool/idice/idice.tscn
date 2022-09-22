@@ -15,7 +15,6 @@
 margin_right = 589.0
 margin_bottom = 21.0
 script = ExtResource( 2 )
-index = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 589.0

@@ -26,15 +26,13 @@ func set_diceitems():
     for i in range(dicepool.size()):
         var idice = poolcont.get_child(i)
         idice.set_dice(dicepool[i])
-        idice.set_index(i+1)
+        idice.set_index(i)
 
 func get_indeces():
     var indeces = []
-    for idice in poolcont.get_children():
-        if idice.selected:
-            # covert to engine idx
-            var idx = Globals.int2diceidx(idice.index)
-            indeces.append(idx)
+    for i in range(poolcont.get_child_count()):
+        if poolcont.get_child(i).selected:
+            indeces.append(i)
     return indeces
 
 # public functions

@@ -1,8 +1,4 @@
-tool
 extends MarginContainer
-
-#export variables
-export (int, 1, 15) var index = 1 setget set_index
 
 # variables
 var selected = false setget , get_selected
@@ -36,9 +32,8 @@ func set_dice(dice):
     set_card_stats(dice.card)
     set_sides(dice.sides)
 
-func set_index(_index):
-    index = _index
-    $HBoxContainer/Index.text = str(_index) + "."
+func set_index(idx):
+    index_value.text = str(idx+1) + "."
 
 func get_selected():
     return button.pressed and not button.disabled
