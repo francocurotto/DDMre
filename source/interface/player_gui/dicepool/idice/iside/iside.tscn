@@ -7,13 +7,14 @@
 script/source = "tool
 extends TextureRect
 
+# export variables
 export (String, \"SUMMON\", \"MOVEMENT\", \"ATTACK\", \"DEFENSE\", \"MAGIC\", \"TRAP\") var crest = \"MOVEMENT\" setget set_crest
 export (int, 1, 9) var mult = 1 setget set_mult
 
 func _ready():
     position_mult()
 
-# set functions
+# setget functions
 func set_side(side):
     set_crest(side.crest.NAME)
     set_mult(side.mult)
@@ -26,7 +27,6 @@ func set_crest(_crest):
 func set_mult(_mult):
     mult = _mult
     $Mult.text = str(_mult)
-    position_mult()
 
 # private functions
 func position_mult():

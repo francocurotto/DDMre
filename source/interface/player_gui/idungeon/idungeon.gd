@@ -51,6 +51,7 @@ func update_dungeon():
             var tile = row[j]
             var itile = irow.get_child(j)
             itile.set_tile(tile)
+    unselect_itile()
 
 func mark_reply_monsters(reply_state):
     var poss = reply_state.get_monsters_poss()

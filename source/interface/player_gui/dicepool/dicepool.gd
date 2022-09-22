@@ -17,7 +17,7 @@ func _ready():
         idice.connect("mouse_entered_diceitem", self, "on_mouse_entered_diceitem")
         idice.connect("mouse_exited_diceitem", self, "on_mouse_exited_diceitem")
 
-# set functions
+# setget functions
 func set_dicepool(_dicepool):
     dicepool = _dicepool
     set_diceitems()
@@ -26,7 +26,16 @@ func set_diceitems():
     for i in range(dicepool.size()):
         var idice = poolcont.get_child(i)
         idice.set_dice(dicepool[i])
-        idice.set_index(i)
+        idice.set_index(i+1)
+
+func get_indeces():
+    var indeces = []
+    for idice in poolcont.get_children():
+        if idice.selected:
+            # covert to engine idx
+            var idx = Globals.int2diceidx(idice.index)
+            indeces.append(idx)
+    return indeces
 
 # public functions
 func enable_all():
@@ -43,14 +52,6 @@ func release_all():
 
 func roll_ready():
     return get_nselected() >= 3
-
-func get_indeces():
-    var indeces = []
-    for i in poolcont.get_child_count():
-        var idice = poolcont.get_child(i)
-        if idice.selected:
-            indeces.append(i)
-    return indeces
 
 # signals callback
 func on_diceitem_pressed():

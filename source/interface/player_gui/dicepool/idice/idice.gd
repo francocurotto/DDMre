@@ -1,15 +1,19 @@
+tool
 extends MarginContainer
+
+#export variables
+export (int, 1, 15) var index = 1 setget set_index
 
 # variables
 var selected = false setget , get_selected
 var used = false
 
 # onready variables
-onready var index = $HBoxContainer/Index
+onready var index_value = $HBoxContainer/Index
 onready var cardname = $HBoxContainer/Name
 onready var type = $HBoxContainer/TLA/Type
 onready var level = $HBoxContainer/TLA/Level
-onready var ability = $HBoxContainer/TLA/Ability
+onready var ability_icon = $HBoxContainer/TLA/Ability
 onready var attack_value = $HBoxContainer/Attack/AttackValue
 onready var attack_icon = $HBoxContainer/Attack/AttackIcon
 onready var defense_value = $HBoxContainer/Defense/DefenseValue
@@ -23,43 +27,23 @@ onready var button = $Button
 signal mouse_entered_diceitem(diceitem)
 signal mouse_exited_diceitem
 
-# set functions
+# setget functions
 func set_dice(dice):
     cardname.text =  dice.card.name
     type.texture = load("res://art/icons/TYPE_" + dice.card.type + ".png")
     level.text = str(dice.level)
-    # no ability icon
-    if dice.card.ability.empty():
-        ability.texture = null
-    # ability icon
-    else:
-        ability.texture = load("res://art/icons/ABILITY.png")
-    # monster info
-    if dice.card.is_monster():
-        attack_value.text = str(dice.card.attack)
-        defense_value.text = str(dice.card.defense)
-        health_value.text = str(dice.card.health)
-        attack_icon.texture = load("res://art/icons/CREST_ATTACK.png")
-        defense_icon.texture = load("res://art/icons/CREST_DEFENSE.png")
-        health_icon.texture = load("res://art/icons/HEALTH.png")
-    # item info
-    else:
-        attack_value.text = ""
-        defense_value.text = ""
-        health_value.text = ""
-        attack_icon.texture = null
-        defense_icon.texture = null
-        health_icon.texture = null
-    for i in dice.sides.size():
-        isides.get_child(i).set_side(dice.sides[i])
+    set_dice_ability(dice.card.ability)
+    set_card_stats(dice.card)
+    set_sides(dice.sides)
 
-func set_index(i):
-    index.text = str(i+1) + "."
+func set_index(_index):
+    index = _index
+    $HBoxContainer/Index.text = str(_index) + "."
 
-# public functions
 func get_selected():
     return button.pressed and not button.disabled
 
+# public functions
 func enable():
     button.disabled = false
 
@@ -83,3 +67,40 @@ func _on_Button_mouse_entered():
 
 func _on_Button_mouse_exited():
     emit_signal("mouse_exited_diceitem")
+
+# private functions
+func set_dice_ability(ability):
+    # no ability icon
+    if ability.empty():
+        ability_icon.texture = null
+    # ability icon
+    else:
+        ability_icon.texture = load("res://art/icons/ABILITY.png")
+
+func set_card_stats(card):
+    # monster info
+    if card.is_monster():
+        set_monster_stats(card)
+    # item info
+    else:
+        set_item_stats()
+
+func set_monster_stats(card):
+    attack_value.text = str(card.attack)
+    defense_value.text = str(card.defense)
+    health_value.text = str(card.health)
+    attack_icon.texture = load("res://art/icons/CREST_ATTACK.png")
+    defense_icon.texture = load("res://art/icons/CREST_DEFENSE.png")
+    health_icon.texture = load("res://art/icons/HEALTH.png")
+
+func set_item_stats():
+    attack_value.text = ""
+    defense_value.text = ""
+    health_value.text = ""
+    attack_icon.texture = null
+    defense_icon.texture = null
+    health_icon.texture = null    
+
+func set_sides(sides):
+    for i in sides.size():
+        isides.get_child(i).set_side(sides[i])

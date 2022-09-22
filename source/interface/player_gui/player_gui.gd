@@ -92,7 +92,6 @@ func on_roll_input():
     engine.update({"name" : "ROLL", "dice" : indeces})
 
 func on_endturn_input():
-    #idungeon.unselect_itile()
     engine.update({"name" : "ENDTURN"})
 
 func on_move_input(pos1, pos2):

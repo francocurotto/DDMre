@@ -2,6 +2,7 @@
 - DIMENSION state
 
 ### FIX
+- clean dice_idx to idice_idx to dice_idx
 
 ### IMPROVEMENTS
 - refactor: 
