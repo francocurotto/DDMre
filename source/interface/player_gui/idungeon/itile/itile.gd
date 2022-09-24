@@ -14,38 +14,39 @@ const SELECTMOD = Color(1.0,1.0,0.5,1.0)
 
 # variables
 var tile
-var attack_tile = false
 
 # signals
 signal mouse_entered_summon(summon)
-signal mouse_entered_attacked(attacked)
+signal mouse_entered_attacked(attacked) #TODO: remove unused signal
 signal mouse_exited_summon
 signal monster_pressed(tile)
 signal reachable_path_pressed(tile)
 signal monster_lord_pressed(tile)
 
-# set functions
+# setget functions
 func set_tile(_tile):
     tile = _tile
     update_tile()
 
-func set_tile_bare(_tile_type, _player_tile=null):
+func update_tile():
+    set_tile_icon(tile.NAME, tile.playerid)
+    set_dungobj_icon(tile.content.NAME, tile.content.playerid)
+
+func set_tile_icon(_tile_type, _player_tile=null):
     var icon = "TILE_" + _tile_type
-    if _tile_type == "PATH":
+    if _tile_type == "PATH": # case path
         icon += "_P" + str(_player_tile)
     $TileRect.texture = load("res://art/icons/" + icon + ".png")
 
-func set_dungobj(_dungobj_type, _dungobj_player=null):
-    # case no content
-    if _dungobj_type == "NONE":
+func set_dungobj_icon(_dungobj_type, _dungobj_player=null):
+    if _dungobj_type == "NONE": # case no content
         $DungobjRect.texture = null
-        return
-    # case content
-    var icon = _dungobj_type
-    if icon in Globals.TYPES + ["ITEM"]:
-        icon = "TYPE_" + icon
-    $DungobjRect.texture = load("res://art/icons/" + icon + ".png")
-    $DungobjRect.modulate = MODDICT[_dungobj_player]
+    else: # case content
+        var icon = _dungobj_type
+        if _dungobj_type in Globals.TYPES + ["ITEM"]: # case summon
+            icon = "TYPE_" + _dungobj_type
+        $DungobjRect.texture = load("res://art/icons/" + icon + ".png")
+        $DungobjRect.modulate = MODDICT[_dungobj_player]
 
 func set_selectmod():
     $DungobjRect.modulate = SELECTMOD
@@ -62,11 +63,9 @@ func unset_movetile():
 
 func set_attacktile():
     $AttackRect.visible = true
-    attack_tile = true
 
 func unset_attacktile():
     $AttackRect.visible = false
-    attack_tile = false
 
 func enable_button():
     $TileButton.disabled = false
@@ -76,53 +75,35 @@ func disable_button():
 
 func set_tile_type(_tile_type):
     tile_type = _tile_type
-    set_tile_bare(tile_type, player_tile)
+    set_tile_icon(tile_type, player_tile)
 
 func set_player_tile(_player_tile):
     player_tile = _player_tile
-    set_tile_bare(tile_type, player_tile)
+    set_tile_icon(tile_type, player_tile)
 
 func set_dungobj_type(_dungobj_type):
     dungobj_type = _dungobj_type
-    set_dungobj(dungobj_type, player_dungobj)
+    set_dungobj_icon(dungobj_type, player_dungobj)
     
 func set_player_dungobj(_player_dungobj):
     player_dungobj = _player_dungobj
-    set_dungobj(dungobj_type, player_dungobj)
-
-# public functions
-func update_tile():
-    # case not path
-    if not tile.is_path():
-        set_tile_bare(tile.NAME)
-    # case path
-    else:
-        set_tile_bare(tile.NAME, tile.player.id)
-        # case no content (TODO: modify for vortex?)
-        if tile.content.is_none():
-            set_dungobj(tile.content.NAME)
-        # case content
-        else:
-            set_dungobj(tile.content.NAME, tile.content.player.id)
+    set_dungobj_icon(dungobj_type, player_dungobj)
 
 # signals callback
 func _on_TileButton_mouse_entered():
-    if tile and tile.is_path() and tile.content.is_summon():
-        if attack_tile: # if tile with target for attack
-            emit_signal("mouse_entered_attacked", tile.content)
-        else: # normal summon tile
-            emit_signal("mouse_entered_summon", tile.content)
+    if tile.content.is_summon():
+        emit_signal("mouse_entered_summon", tile.content)
 
 func _on_TileButton_mouse_exited():
     emit_signal("mouse_exited_summon")
 
 func _on_TileButton_pressed():
     # case monster pressed
-    if tile and tile.is_path() and tile.content.is_monster():
+    if tile.content.is_monster():
         emit_signal("monster_pressed", self)
     # case reachable path is pressed
-    elif tile and tile.is_path() and tile.is_reachable():
+    elif  tile.is_reachable():
         emit_signal("reachable_path_pressed", self)
     # case reachable path is pressed
-    elif tile and tile.is_path() and tile.content.is_monster_lord():
+    elif tile.content.is_monster_lord():
         emit_signal("monster_lord_pressed", self)

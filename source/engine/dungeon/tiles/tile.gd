@@ -6,6 +6,7 @@ const Noneobj = preload("res://engine/dungobj/noneobj.gd")
 # variables
 var pos
 var content setget set_content, get_content
+var playerid setget , get_playerid
 
 func _init(y, x):
     pos = Vector2(x, y)
@@ -13,16 +14,13 @@ func _init(y, x):
 
 # setget functions
 func set_content(_dungobj):
-    """
-    Set Noneobj for default tile.
-    """
     content = Noneobj.new()
 
 func get_content():
-    """
-    Returns Noneobj for default tile.
-    """
     return Noneobj.new()
+
+func get_playerid():
+    return null
 
 # is functions
 func is_path():

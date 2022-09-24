@@ -1,5 +1,12 @@
 extends Reference
 
+# variable
+var playerid setget , get_playerid
+
+# setget functions
+func get_playerid():
+    return null
+
 # is functions
 func is_none():
     return false

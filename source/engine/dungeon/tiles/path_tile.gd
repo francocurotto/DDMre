@@ -16,6 +16,12 @@ func set_content(dungobj):
 func get_content():
     return content
 
+func get_playerid():
+    return player.id
+
+func get_dungobjid():
+    return null
+
 # is functions
 func is_path():
     return true
