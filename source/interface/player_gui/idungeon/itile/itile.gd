@@ -17,11 +17,10 @@ var tile
 
 # signals
 signal mouse_entered_summon(summon)
-signal mouse_entered_attacked(attacked) #TODO: remove unused signal
-signal mouse_exited_summon
+signal mouse_exited_tile
 signal monster_pressed(tile)
 signal reachable_path_pressed(tile)
-signal monster_lord_pressed(tile)
+signal target_pressed(tile)
 
 # setget functions
 func set_tile(_tile):
@@ -57,20 +56,24 @@ func unset_selectmod():
 
 func set_movetile():
     $MoveRect.visible = true
+    $MoveButton.visible = true
 
 func unset_movetile():
     $MoveRect.visible = false
+    $MoveButton.visible = false
 
 func set_attacktile():
     $AttackRect.visible = true
+    $AttackButton.visible = true
 
 func unset_attacktile():
     $AttackRect.visible = false
+    $AttackButton.visible = false
 
-func enable_button():
+func enable_itilebutton():
     $TileButton.disabled = false
 
-func disable_button():
+func disable_itilebutton():
     $TileButton.disabled = true
 
 func set_tile_type(_tile_type):
@@ -95,15 +98,14 @@ func _on_TileButton_mouse_entered():
         emit_signal("mouse_entered_summon", tile.content)
 
 func _on_TileButton_mouse_exited():
-    emit_signal("mouse_exited_summon")
+    emit_signal("mouse_exited_tile")
 
 func _on_TileButton_pressed():
-    # case monster pressed
     if tile.content.is_monster():
         emit_signal("monster_pressed", self)
-    # case reachable path is pressed
-    elif  tile.is_reachable():
-        emit_signal("reachable_path_pressed", self)
-    # case reachable path is pressed
-    elif tile.content.is_monster_lord():
-        emit_signal("monster_lord_pressed", self)
+
+func _on_MoveButton_pressed():
+    emit_signal("reachable_path_pressed", self)
+
+func _on_AttackButton_pressed():
+    emit_signal("target_pressed", self)

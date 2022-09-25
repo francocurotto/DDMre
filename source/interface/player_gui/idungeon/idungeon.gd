@@ -10,8 +10,7 @@ onready var cols = $Cols
 
 # signals
 signal mouse_entered_summon(summon)
-signal mouse_entered_attacked(attacker, attacked)
-signal mouse_exited_summon(summon)
+signal mouse_exited_tile
 signal move_input(pos1, pos2)
 signal attack_input(pos1, pos2)
 
@@ -19,11 +18,10 @@ func _ready():
     for row in cols.get_children():
         for t in row.get_children():
             t.connect("mouse_entered_summon", self, "on_mouse_entered_summon")
-            t.connect("mouse_entered_attacked", self, "on_mouse_entered_attacked")
-            t.connect("mouse_exited_summon", self, "on_mouse_exited_summon")
+            t.connect("mouse_exited_tile", self, "on_mouse_exited_tile")
             t.connect("monster_pressed", self, "on_monster_pressed")
             t.connect("reachable_path_pressed", self, "on_reachable_path_pressed")
-            t.connect("monster_lord_pressed", self, "on_monster_lord_pressed")
+            t.connect("target_pressed", self, "on_target_pressed")
 
 # set functions
 func set_dungeon(_dungeon, _player):
@@ -34,12 +32,12 @@ func set_dungeon(_dungeon, _player):
 func enable_itilebuttons():
     for row in cols.get_children():
         for t in row.get_children():
-            t.enable_button()
+            t.enable_itilebutton()
 
 func disable_itilebuttons():
     for row in cols.get_children():
         for t in row.get_children():
-            t.disable_button()
+            t.disable_itilebutton()
 
 # public functions
 func update_dungeon():
@@ -62,41 +60,27 @@ func mark_reply_monsters(reply_state):
 func on_mouse_entered_summon(summon):
     emit_signal("mouse_entered_summon", summon)
 
-func on_mouse_entered_attacked(attacked):
-    emit_signal("mouse_entered_attacked", selected_itile.tile.content, attacked)
-
-func on_mouse_exited_summon():
-    emit_signal("mouse_exited_summon")
+func on_mouse_exited_tile():
+    emit_signal("mouse_exited_tile")
 
 func on_monster_pressed(itile):
-    var monster = itile.tile.content
-    # case player monster pressed
-    if monster in player.monsters:
+    if itile.tile.content in player.monsters:
         # case monster selected
         if not selected_itile:
             select_itile(itile)
         # case monster unselected
         elif itile == selected_itile:
             unselect_itile()
-    # case opponent monster
-    else:
-        if selected_itile:
-            var pos1 = selected_itile.tile.pos
-            var pos2 = itile.tile.pos
-            emit_signal("attack_input", pos1, pos2)
 
 func on_reachable_path_pressed(itile):
-    # case trying to move
-    if selected_itile:
-        var pos1 = selected_itile.tile.pos
-        var pos2 = itile.tile.pos
-        emit_signal("move_input", pos1, pos2)
+    var pos1 = selected_itile.tile.pos
+    var pos2 = itile.tile.pos
+    emit_signal("move_input", pos1, pos2)
     # force enter tile
     itile._on_TileButton_mouse_entered()
 
-func on_monster_lord_pressed(itile):
-    # case attacking monster lord
-    if selected_itile and itile.tile.content != player.monsterlord:
+func on_target_pressed(itile):
+    if not itile.tile.content in player.targets:
         var pos1 = selected_itile.tile.pos
         var pos2 = itile.tile.pos
         emit_signal("attack_input", pos1, pos2)

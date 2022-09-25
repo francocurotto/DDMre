@@ -53,17 +53,11 @@ func on_mouse_entered_summon(summon):
     replyinfo.visible = false
     iteminfo.visible = true
 
-func on_mouse_exited_summon():
+func on_mouse_exited_tile():
     iteminfo.visible = false
     attackinfo.visible = false
     if on_reply:
         replyinfo.visible = true 
-
-func on_mouse_entered_attacked(attaker, attacked):
-    attackinfo.set_attack(attaker, attacked)
-    iteminfo.visible = false
-    replyinfo.visible = false
-    attackinfo.visible = true
 
 func on_guard_input():
     replyinfo.visible = false

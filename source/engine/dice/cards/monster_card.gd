@@ -25,6 +25,7 @@ func summon(player):
     """
     var monster = summondict[type].new(self, player)
     player.monsters.append(monster)
+    player.targets.append(monster)
     monster.connect("monster_death", player, "on_monster_death")
     return monster
 

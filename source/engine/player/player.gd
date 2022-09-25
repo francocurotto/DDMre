@@ -15,6 +15,7 @@ var monsterlord = MonsterLord.new(self)
 var dimdice = []
 var monsters = []
 var items = []
+var targets = [monsterlord]
 var tiles = []
 
 # signals
