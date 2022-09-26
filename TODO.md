@@ -12,9 +12,10 @@
     - make player specific summon sprites
     - add type colors for dice
 - interface
-    - switch selected monster even if another monster is already selected
     - add move/attack/ability/cancel and guard/wait/cancel menus (retire old guard/wait menu)
         - add ability to toggle dungeon/pool view during menu
+    - do not use move buttons for attack indicator
+    - switch selected monster even if another monster is already selected
     - merge dice_info and summon_info to share common interfaces?
 
 ### TEST
