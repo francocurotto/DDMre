@@ -65,19 +65,15 @@ func _on_Button_mouse_exited():
 
 # private functions
 func set_dice_ability(ability):
-    # no ability icon
-    if ability.empty():
+    if ability.empty():  # no ability icon
         ability_icon.texture = null
-    # ability icon
-    else:
+    else: # ability icon
         ability_icon.texture = load("res://art/icons/ABILITY.png")
 
 func set_card_stats(card):
-    # monster info
-    if card.is_monster():
+    if card.is_monster(): # monster info
         set_monster_stats(card)
-    # item info
-    else:
+    else: # item info
         set_item_stats()
 
 func set_monster_stats(card):

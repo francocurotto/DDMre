@@ -26,8 +26,6 @@ func _ready():
     rollgui.connect("endturn_input", self, "on_endturn_input")
     idungeon.connect("move_input", self, "on_move_input")
     idungeon.connect("attack_input", self, "on_attack_input")
-    infobox.connect("guard_input", self, "on_guard_input")
-    infobox.connect("wait_input", self, "on_wait_input")
 
 # setget functions
 func set_duel(_engine, _player, _opponent):
@@ -55,7 +53,6 @@ func set_opponent_roll(sides):
 # signals callback
 func on_state_update(state):
     duelinfo.on_state_update(state)
-    infobox.on_state_update(state)
 
 func on_state_update_roll():
     dicepool.enable_all()
@@ -77,7 +74,6 @@ func on_state_update_reply():
     rollgui.disable_endturn()
     idungeon.disable_itilebuttons()
     idungeon.mark_reply_monsters(engine.state)
-    infobox.set_reply(engine.state)
 
 func on_next_turn(turn):
     duelinfo.on_next_turn(turn)

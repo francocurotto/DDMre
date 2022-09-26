@@ -12,11 +12,10 @@
     - make player specific summon sprites
     - add type colors for dice
 - interface
-    - make item info prettier: use icons
-        - decide how to display original and current stats
     - switch selected monster even if another monster is already selected
     - add move/attack/ability/cancel and guard/wait/cancel menus (retire old guard/wait menu)
-    - add ability to toggle dungeon/pool view during menu
+        - add ability to toggle dungeon/pool view during menu
+    - merge dice_info and summon_info to share common interfaces?
 
 ### TEST
 - attack mechanics
