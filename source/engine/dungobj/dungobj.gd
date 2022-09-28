@@ -5,7 +5,7 @@ var playerid setget , get_playerid
 
 # setget functions
 func get_playerid():
-    return null
+    return 0
 
 # is functions
 func is_none():

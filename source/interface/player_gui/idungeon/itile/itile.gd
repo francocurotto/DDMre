@@ -9,7 +9,9 @@ export (String, "NONE", "MONSTER_LORD", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAS
 export (int, 1, 2) var player_dungobj = 1 setget set_player_dungobj
 
 # constants
-const MODDICT = {1 : Color(0.5,1.0,1.0,1.0), 2 : Color(1.0,0.75,0.75,1.0)}
+const MODDICT = {1 : Color(0.5,1.0,1.0,1.0), 
+                 2 : Color(1.0,0.75,0.75,1.0),
+                 0 : Color(1.0,1.0,1.0,1.0)} # non-player modulation
 const SELECTMOD = Color(1.0,1.0,0.5,1.0)
 
 # variables
@@ -31,13 +33,13 @@ func update_tile():
     set_tile_icon(tile.NAME, tile.playerid)
     set_dungobj_icon(tile.content.NAME, tile.content.playerid)
 
-func set_tile_icon(_tile_type, _player_tile=null):
+func set_tile_icon(_tile_type, _player_tile):
     var icon = "TILE_" + _tile_type
     if _tile_type == "PATH": # case path
         icon += "_P" + str(_player_tile)
     $TileRect.texture = load("res://art/icons/" + icon + ".png")
 
-func set_dungobj_icon(_dungobj_type, _dungobj_player=null):
+func set_dungobj_icon(_dungobj_type, _dungobj_player):
     if _dungobj_type == "NONE": # case no content
         $DungobjRect.texture = null
     else: # case content
@@ -51,24 +53,23 @@ func set_selectmod():
     $DungobjRect.modulate = SELECTMOD
 
 func unset_selectmod():
-    if not tile.content.is_none():
-        $DungobjRect.modulate = MODDICT[tile.content.player.id]
+    $DungobjRect.modulate = MODDICT[tile.content.playerid]
 
 func set_movetile():
-    $MoveRect.visible = true
+    $HighlightRect.visible = true
     $MoveButton.visible = true
 
-func unset_movetile():
-    $MoveRect.visible = false
-    $MoveButton.visible = false
-
 func set_attacktile():
-    $AttackRect.visible = true
+    $HighlightRect.visible = true
     $AttackButton.visible = true
 
-func unset_attacktile():
-    $AttackRect.visible = false
+func set_highlight():
+    $HighlightRect.visible = true
+
+func unset_all_mods():
+    $MoveButton.visible = false
     $AttackButton.visible = false
+    $HighlightRect.visible = false
 
 func enable_itilebutton():
     $TileButton.disabled = false

@@ -20,7 +20,7 @@ func get_content():
     return Noneobj.new()
 
 func get_playerid():
-    return null
+    return 0
 
 # is functions
 func is_path():

@@ -7,6 +7,7 @@ var selected_itile = null
 
 # onready variables
 onready var cols = $Cols
+onready var dungeon_menu = $DungeonMenu
 
 # signals
 signal mouse_entered_summon(summon)
@@ -22,6 +23,7 @@ func _ready():
             t.connect("monster_pressed", self, "on_monster_pressed")
             t.connect("reachable_path_pressed", self, "on_reachable_path_pressed")
             t.connect("target_pressed", self, "on_target_pressed")
+    dungeon_menu.connect("dmenu_cancel_pressed", self, "on_dmenu_cancel_pressed")
 
 # set functions
 func set_dungeon(_dungeon, _player):
@@ -39,6 +41,10 @@ func disable_itilebuttons():
         for t in row.get_children():
             t.disable_itilebutton()
 
+func enable_dungeon_menu():
+    dungeon_menu.enable()
+    disable_itilebuttons()
+
 # public functions
 func update_dungeon():
     for i in range(cols.get_child_count()):
@@ -54,7 +60,7 @@ func update_dungeon():
 func mark_reply_monsters(reply_state):
     var poss = reply_state.get_monsters_poss()
     for pos in poss:
-        get_itile(pos).set_movetile()
+        get_itile(pos).set_highlight()
 
 # signals callbacks
 func on_mouse_entered_summon(summon):
@@ -65,12 +71,14 @@ func on_mouse_exited_tile():
 
 func on_monster_pressed(itile):
     if itile.tile.content in player.monsters:
-        # case monster selected
-        if not selected_itile:
-            select_itile(itile)
-        # case monster unselected
-        elif itile == selected_itile:
-            unselect_itile()
+        enable_dungeon_menu()
+        
+#        # case monster selected
+#        if not selected_itile:
+#            select_itile(itile)
+#        # case monster unselected
+#        elif itile == selected_itile:
+#            unselect_itile()
 
 func on_reachable_path_pressed(itile):
     var pos1 = selected_itile.tile.pos
@@ -85,33 +93,32 @@ func on_target_pressed(itile):
         var pos2 = itile.tile.pos
         emit_signal("attack_input", pos1, pos2)
 
-# private
-func select_itile(itile):
-    # modifications in selected itile
-    selected_itile = itile
-    selected_itile.set_selectmod()
-    # modifications in move itiles
-    var moveposs = dungeon.get_moveposs(player, itile.tile.pos)
-    for movepos in moveposs:
-        get_itile(movepos).set_movetile()
-    # modifications in attack itiles
-    var attackposs = dungeon.get_attackposs(player, itile.tile.pos)
-    for attackpos in attackposs:
-        get_itile(attackpos).set_attacktile()
+func on_dmenu_cancel_pressed():
+    dungeon_menu.disable()
+    enable_itilebuttons()
 
+# private
+#func select_itile(itile):
+#    # modifications in selected itile
+#    selected_itile = itile
+#    selected_itile.set_selectmod()
+#    # modifications in move itiles
+#    var moveposs = dungeon.get_moveposs(player, itile.tile.pos)
+#    for movepos in moveposs:
+#        get_itile(movepos).set_movetile()
+#    # modifications in attack itiles
+#    var attackposs = dungeon.get_attackposs(player, itile.tile.pos)
+#    for attackpos in attackposs:
+#        get_itile(attackpos).set_attacktile()
+#
 func unselect_itile():
     # modifications in selected itile
     if selected_itile:
         selected_itile.unset_selectmod()
         selected_itile = null
-    # modifications in move itiles    
     for row in cols.get_children():
         for itile in row.get_children():
-            itile.unset_movetile()
-    # modifications in attack itiles
-    for row in cols.get_children():
-        for itile in row.get_children():
-            itile.unset_attacktile() 
+            itile.unset_all_mods()
 
 func get_itile(pos):
     if player.id == 1:

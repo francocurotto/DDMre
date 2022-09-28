@@ -2,7 +2,6 @@
 - DIMENSION state
 
 ### FIX
-- do not use move buttons for attack indicator
 
 ### IMPROVEMENTS
 - refactor: 
@@ -12,6 +11,7 @@
 - interface
     - add move/attack/ability/cancel and guard/wait/cancel menus (retire old guard/wait menu)
         - add ability to toggle dungeon/pool view during menu
+        - disable enturn during dmenu and action selection
     - switch selected monster even if another monster is already selected
     - merge dice_info and summon_info to share common interfaces?
 - art:
