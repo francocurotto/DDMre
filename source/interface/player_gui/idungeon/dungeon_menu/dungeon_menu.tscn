@@ -46,4 +46,6 @@ margin_bottom = 132.0
 custom_fonts/font = ExtResource( 1 )
 text = "❌ Cancel"
 
+[connection signal="pressed" from="ButtonCont/MoveButton" to="." method="_on_MoveButton_pressed"]
+[connection signal="pressed" from="ButtonCont/AttackButton" to="." method="_on_AttackButton_pressed"]
 [connection signal="pressed" from="ButtonCont/CancelButton" to="." method="_on_CancelButton_pressed"]

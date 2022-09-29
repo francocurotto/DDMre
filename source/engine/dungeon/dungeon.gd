@@ -99,10 +99,10 @@ func get_attackposs(player, pos):
     if get_tile(pos).content.cooldown:
         return []
    # get target pos and check if are opponent targets 
-    var targetposs = get_target_neighbours_poss(pos)
+    var targetposs = get_neighbours_poss(pos)
     var attackposs = []
     for targetpos in targetposs:
-        if get_tile(targetpos).content.player.id != player.id:
+        if get_tile(targetpos).is_path():
             attackposs.append(targetpos)
     return attackposs
 

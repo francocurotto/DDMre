@@ -20,12 +20,14 @@ func _ready():
     dicepool.connect("roll_changed", self, "on_roll_changed")
     dicepool.connect("mouse_entered_dice", infobox, "on_mouse_entered_dice")
     dicepool.connect("mouse_exited_dice", infobox, "on_mouse_exited_dice")
-    idungeon.connect("mouse_entered_summon", infobox, "on_mouse_entered_summon")
-    idungeon.connect("mouse_exited_tile", infobox, "on_mouse_exited_tile")
     rollgui.connect("roll_input", self, "on_roll_input")
     rollgui.connect("endturn_input", self, "on_endturn_input")
+    idungeon.connect("mouse_entered_summon", infobox, "on_mouse_entered_summon")
+    idungeon.connect("mouse_exited_tile", infobox, "on_mouse_exited_tile")
     idungeon.connect("move_input", self, "on_move_input")
     idungeon.connect("attack_input", self, "on_attack_input")
+    idungeon.connect("dungeon_menu_enabled", self, "on_dungeon_menu_enabled")
+    idungeon.connect("dungeon_menu_canceled", self, "on_dungeon_menu_canceled")
 
 # setget functions
 func set_duel(_engine, _player, _opponent):
@@ -81,6 +83,12 @@ func on_next_turn(turn):
 
 func on_roll_changed():
     rollgui.set_roll_button(dicepool.roll_ready())
+
+func on_dungeon_menu_enabled():
+    rollgui.disable_endturn()
+
+func on_dungeon_menu_canceled():
+    rollgui.enable_endturn()
 
 func on_roll_input():
     var indeces = dicepool.get_indeces()

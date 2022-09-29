@@ -14,6 +14,8 @@ signal mouse_entered_summon(summon)
 signal mouse_exited_tile
 signal move_input(pos1, pos2)
 signal attack_input(pos1, pos2)
+signal dungeon_menu_enabled
+signal dungeon_menu_canceled
 
 func _ready():
     for row in cols.get_children():
@@ -23,12 +25,15 @@ func _ready():
             t.connect("monster_pressed", self, "on_monster_pressed")
             t.connect("reachable_path_pressed", self, "on_reachable_path_pressed")
             t.connect("target_pressed", self, "on_target_pressed")
+    dungeon_menu.connect("dmenu_move_pressed", self, "on_dmenu_move_pressed")
+    dungeon_menu.connect("dmenu_attack_pressed", self, "on_dmenu_attack_pressed")
     dungeon_menu.connect("dmenu_cancel_pressed", self, "on_dmenu_cancel_pressed")
 
 # set functions
 func set_dungeon(_dungeon, _player):
     dungeon = _dungeon
     player = _player
+    dungeon_menu.set_dungeon_menu(_player)
     update_dungeon()
 
 func enable_itilebuttons():
@@ -41,9 +46,10 @@ func disable_itilebuttons():
         for t in row.get_children():
             t.disable_itilebutton()
 
-func enable_dungeon_menu():
-    dungeon_menu.enable()
+func enable_dungeon_menu(itile):
+    dungeon_menu.enable(itile)
     disable_itilebuttons()
+    emit_signal("dungeon_menu_enabled")
 
 # public functions
 func update_dungeon():
@@ -56,6 +62,7 @@ func update_dungeon():
             var itile = irow.get_child(j)
             itile.set_tile(tile)
     unselect_itile()
+    enable_itilebuttons()
 
 func mark_reply_monsters(reply_state):
     var poss = reply_state.get_monsters_poss()
@@ -71,46 +78,40 @@ func on_mouse_exited_tile():
 
 func on_monster_pressed(itile):
     if itile.tile.content in player.monsters:
-        enable_dungeon_menu()
-        
-#        # case monster selected
-#        if not selected_itile:
-#            select_itile(itile)
-#        # case monster unselected
-#        elif itile == selected_itile:
-#            unselect_itile()
+        enable_dungeon_menu(itile)
 
 func on_reachable_path_pressed(itile):
-    var pos1 = selected_itile.tile.pos
+    var pos1 = dungeon_menu.selected_itile.tile.pos
     var pos2 = itile.tile.pos
     emit_signal("move_input", pos1, pos2)
     # force enter tile
     itile._on_TileButton_mouse_entered()
 
 func on_target_pressed(itile):
-    if not itile.tile.content in player.targets:
-        var pos1 = selected_itile.tile.pos
-        var pos2 = itile.tile.pos
-        emit_signal("attack_input", pos1, pos2)
+    if itile.tile.content.is_target():
+        if not itile.tile.content in player.targets:
+            var pos1 = dungeon_menu.selected_itile.tile.pos
+            var pos2 = itile.tile.pos
+            emit_signal("attack_input", pos1, pos2)
+
+func on_dmenu_move_pressed(itile):
+    dungeon_menu.disable()
+    var moveposs = dungeon.get_moveposs(player, itile.tile.pos)
+    for movepos in moveposs:
+        get_itile(movepos).set_movetile()
+
+func on_dmenu_attack_pressed(itile):
+    dungeon_menu.disable()
+    var attackposs = dungeon.get_attackposs(player, itile.tile.pos)
+    for attackpos in attackposs:
+        get_itile(attackpos).set_attacktile()
 
 func on_dmenu_cancel_pressed():
     dungeon_menu.disable()
     enable_itilebuttons()
+    emit_signal("dungeon_menu_canceled")
 
 # private
-#func select_itile(itile):
-#    # modifications in selected itile
-#    selected_itile = itile
-#    selected_itile.set_selectmod()
-#    # modifications in move itiles
-#    var moveposs = dungeon.get_moveposs(player, itile.tile.pos)
-#    for movepos in moveposs:
-#        get_itile(movepos).set_movetile()
-#    # modifications in attack itiles
-#    var attackposs = dungeon.get_attackposs(player, itile.tile.pos)
-#    for attackpos in attackposs:
-#        get_itile(attackpos).set_attacktile()
-#
 func unselect_itile():
     # modifications in selected itile
     if selected_itile:
