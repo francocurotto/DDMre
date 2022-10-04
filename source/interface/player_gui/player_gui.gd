@@ -26,8 +26,8 @@ func _ready():
     idungeon.connect("mouse_exited_tile", infobox, "on_mouse_exited_tile")
     idungeon.connect("move_input", self, "on_move_input")
     idungeon.connect("attack_input", self, "on_attack_input")
-    idungeon.connect("dungeon_menu_enabled", self, "on_dungeon_menu_enabled")
-    idungeon.connect("dungeon_menu_canceled", self, "on_dungeon_menu_canceled")
+    idungeon.connect("dungeon_menu_opened", self, "on_dungeon_menu_opened")
+    idungeon.connect("dungeon_menu_closed", self, "on_dungeon_menu_closed")
 
 # setget functions
 func set_duel(_engine, _player, _opponent):
@@ -79,15 +79,15 @@ func on_state_update_reply():
 
 func on_next_turn(turn):
     duelinfo.on_next_turn(turn)
-    idungeon.unselect_itile()
+    idungeon.unset_all_itile_mods()
 
 func on_roll_changed():
     rollgui.set_roll_button(dicepool.roll_ready())
 
-func on_dungeon_menu_enabled():
+func on_dungeon_menu_opened():
     rollgui.disable_endturn()
 
-func on_dungeon_menu_canceled():
+func on_dungeon_menu_closed():
     rollgui.enable_endturn()
 
 func on_roll_input():

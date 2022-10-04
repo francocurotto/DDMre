@@ -22,7 +22,7 @@ signal mouse_entered_summon(summon)
 signal mouse_exited_tile
 signal monster_pressed(tile)
 signal reachable_path_pressed(tile)
-signal target_pressed(tile)
+signal attack_button_pressed(tile)
 
 # setget functions
 func set_tile(_tile):
@@ -109,4 +109,4 @@ func _on_MoveButton_pressed():
     emit_signal("reachable_path_pressed", self)
 
 func _on_AttackButton_pressed():
-    emit_signal("target_pressed", self)
+    emit_signal("attack_button_pressed", self)
