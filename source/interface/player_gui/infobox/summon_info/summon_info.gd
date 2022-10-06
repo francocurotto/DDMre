@@ -1,7 +1,8 @@
+tool
 extends VBoxContainer
 
 # export variables
-export(PackedScene) var SideItem
+export (bool) var show_abilities = true setget set_show_abilities
 
 # constants
 const MODDICT = { 1.0 : Color(0.5,1.0, 1.0, 1.0), 
@@ -35,6 +36,10 @@ func set_summon(summon):
     level.text = str(summon.card.level)
     set_ability(summon.card.ability)
     set_summon_stats(summon)
+
+func set_show_abilities(_show_abilities):
+    show_abilities = _show_abilities
+    $Abilities.visible = _show_abilities
 
 # private functions
 func set_summon_name(summon):

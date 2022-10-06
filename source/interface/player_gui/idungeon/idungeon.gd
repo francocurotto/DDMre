@@ -125,4 +125,5 @@ func get_itile(pos):
 
 func create_dungeon_menu(itile):
     dungeon_menu = DungeonMenu.instance()
+    add_child(dungeon_menu)
     dungeon_menu.set_dungeon_menu(player, itile, self)
