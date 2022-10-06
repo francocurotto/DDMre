@@ -6,7 +6,6 @@ const DungeonMenu = preload("res://interface/player_gui/idungeon/dungeon_menu/du
 # variables
 var dungeon
 var player
-#var selected_itile
 var dungeon_menu
 
 # onready variables
@@ -126,7 +125,4 @@ func get_itile(pos):
 
 func create_dungeon_menu(itile):
     dungeon_menu = DungeonMenu.instance()
-    self.add_child(dungeon_menu)
-    dungeon_menu.set_dungeon_menu(player, itile)
-    dungeon_menu.connect_idungeon_signals(self)
-    on_dmenu_enabled()
+    dungeon_menu.set_dungeon_menu(player, itile, self)
