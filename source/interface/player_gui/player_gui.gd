@@ -26,6 +26,8 @@ func _ready():
     idungeon.connect("mouse_exited_tile", infobox, "on_mouse_exited_tile")
     idungeon.connect("move_input", self, "on_move_input")
     idungeon.connect("attack_input", self, "on_attack_input")
+    idungeon.connect("guard_input", self, "on_guard_input")
+    idungeon.connect("wait_input", self, "on_wait_input")
     idungeon.connect("dungeon_menu_opened", self, "on_dungeon_menu_opened")
     idungeon.connect("dungeon_menu_closed", self, "on_dungeon_menu_closed")
 
@@ -76,6 +78,7 @@ func on_state_update_reply():
     rollgui.disable_endturn()
     idungeon.disable_itilebuttons()
     idungeon.mark_reply_monsters(engine.state)
+    idungeon.create_reply_menu(engine.state)
 
 func on_next_turn(turn):
     duelinfo.on_next_turn(turn)
@@ -98,9 +101,11 @@ func on_endturn_input():
     engine.update({"name" : "ENDTURN"})
 
 func on_move_input(pos1, pos2):
+    rollgui.enable_endturn()
     engine.update({"name" : "MOVE", "origin" : pos1, "dest" : pos2})
 
 func on_attack_input(pos1, pos2):
+    rollgui.enable_endturn()
     engine.update({"name" : "ATTACK", "origin" : pos1, "dest" : pos2})
 
 func on_guard_input():

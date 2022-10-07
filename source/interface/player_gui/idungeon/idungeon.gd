@@ -2,11 +2,13 @@ extends AspectRatioContainer
 
 # constants
 const DungeonMenu = preload("res://interface/player_gui/idungeon/dungeon_menu/dungeon_menu.tscn")
+const ReplyMenu = preload("res://interface/player_gui/idungeon/reply_menu/reply_menu.tscn")
 
 # variables
 var dungeon
 var player
 var dungeon_menu
+var reply_menu
 
 # onready variables
 onready var cols = $Cols
@@ -16,6 +18,8 @@ signal mouse_entered_summon(summon)
 signal mouse_exited_tile
 signal move_input(pos1, pos2)
 signal attack_input(pos1, pos2)
+signal guard_input
+signal wait_input
 signal dungeon_menu_opened
 signal dungeon_menu_closed
 
@@ -67,6 +71,13 @@ func mark_reply_monsters(reply_state):
     for pos in poss:
         get_itile(pos).set_highlight()
 
+func create_reply_menu(reply_state):
+    reply_menu = ReplyMenu.instance()
+    add_child(reply_menu)
+    reply_menu.connect("rmenu_guard_pressed", self, "on_rmenu_guard_pressed")
+    reply_menu.connect("rmenu_wait_pressed", self, "on_rmenu_wait_pressed")
+    reply_menu.set_reply_menu(reply_state)
+
 # signals callbacks
 func on_mouse_entered_summon(summon):
     emit_signal("mouse_entered_summon", summon)
@@ -116,6 +127,14 @@ func on_dmenu_cancel_pressed():
     enable_itilebuttons()
     emit_signal("dungeon_menu_closed")
 
+func on_rmenu_guard_pressed():
+    reply_menu.queue_free()
+    emit_signal("guard_input")
+
+func on_rmenu_wait_pressed():
+    reply_menu.queue_free()
+    emit_signal("wait_input")
+
 # private
 func get_itile(pos):
     if player.id == 1:
@@ -126,4 +145,8 @@ func get_itile(pos):
 func create_dungeon_menu(itile):
     dungeon_menu = DungeonMenu.instance()
     add_child(dungeon_menu)
-    dungeon_menu.set_dungeon_menu(player, itile, self)
+    dungeon_menu.connect("dmenu_move_pressed", self, "on_dmenu_move_pressed")
+    dungeon_menu.connect("dmenu_attack_pressed", self, "on_dmenu_attack_pressed")
+    dungeon_menu.connect("dmenu_cancel_pressed", self, "on_dmenu_cancel_pressed")
+    dungeon_menu.connect("dmenu_enabled", self, "on_dmenu_enabled")
+    dungeon_menu.set_dungeon_menu(itile, player)   

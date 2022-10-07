@@ -1,7 +1,6 @@
 extends PanelContainer
 
 # variables
-var player
 var itile
 
 # signals
@@ -15,25 +14,16 @@ onready var move_button = $ButtonCont/MoveButton
 onready var attack_button = $ButtonCont/AttackButton
 
 # setget functions
-func set_dungeon_menu(_player, _itile, idungeon):
-    player = _player
+func set_dungeon_menu(_itile, player):
     itile = _itile
-    set_buttons()
-    connect_idungeon_signals(idungeon)
+    set_buttons(player)
     emit_signal("dmenu_enabled")
 
-
-func set_buttons():
+func set_buttons(player):
     if player.crestpool.slots["MOVEMENT"]:
         move_button.disabled = false
     if player.crestpool.slots["ATTACK"] and not itile.tile.content.cooldown:
         attack_button.disabled = false
-
-func connect_idungeon_signals(idungeon):
-    connect("dmenu_move_pressed", idungeon, "on_dmenu_move_pressed")
-    connect("dmenu_attack_pressed", idungeon, "on_dmenu_attack_pressed")
-    connect("dmenu_cancel_pressed", idungeon, "on_dmenu_cancel_pressed")
-    connect("dmenu_enabled", idungeon, "on_dmenu_enabled")
 
 func enable():
     visible = true
@@ -41,7 +31,7 @@ func enable():
 func disable():
     visible = false
 
-# signal callbacks
+# signals callbacks
 func _on_MoveButton_pressed():
     emit_signal("dmenu_move_pressed", itile)
 
