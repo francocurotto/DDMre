@@ -2,10 +2,9 @@
 - DIMENSION state
 
 ### FIX
-- UNDERSTAND HOW DISADVANTAGE ATTACK WORKS!
-    - it dereases attacker attack?
-    - it increases attacked defence?
-    - it decreases attacked damage?
+- display attack info when selecting attacked monster
+- display item info when selecting move tile
+
 
 ### IMPROVEMENTS
 - refactor: 
