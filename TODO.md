@@ -2,6 +2,7 @@
 - DIMENSION state
 
 ### FIX
+- refactor infobox
 - display attack info when selecting attacked monster
 - display item info when selecting move tile
 
