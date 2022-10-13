@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=1]
-[ext_resource path="res://interface/player_gui/infobox/dice_info/dice_info.tscn" type="PackedScene" id=2]
 [ext_resource path="res://art/fonts/crestpool.tres" type="DynamicFont" id=3]
 [ext_resource path="res://interface/player_gui/infobox/infobox.gd" type="Script" id=4]
 [ext_resource path="res://interface/player_gui/infobox/summon_info/summon_info.tscn" type="PackedScene" id=5]
@@ -18,20 +17,15 @@ script = ExtResource( 4 )
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 6.0
 margin_top = 6.0
-margin_right = 273.0
-margin_bottom = 122.0
+margin_right = 255.0
+margin_bottom = 34.0
 
 [node name="Title" type="Label" parent="VBoxContainer"]
-margin_right = 267.0
+margin_right = 249.0
 margin_bottom = 24.0
 custom_fonts/font = ExtResource( 3 )
 text = "Info Box"
 align = 1
-
-[node name="DiceInfo" parent="VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 28.0
-margin_right = 267.0
-margin_bottom = 116.0
 
 [node name="SummonInfo" parent="VBoxContainer" instance=ExtResource( 5 )]
 visible = false

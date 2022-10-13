@@ -1,74 +1,76 @@
 tool
 extends VBoxContainer
 
-# export variables
-export (bool) var show_abilities = true setget set_show_abilities
-
-# constants
-const MODDICT = { 1.0 : Color(0.5,1.0, 1.0, 1.0), 
-                 -1.0 : Color(1.0,0.75,0.75,1.0),
-                  0.0 : Color(1.0,1.0, 1.0, 1.0)}
-
 # variables
 var player
+var name_info
+var monster_summon_info
+var monster_card_info
+var sides_info
 
 # onready variables
-onready var cardname = $TLAName/Name
-onready var type = $TLAName/TLA/Type
-onready var level = $TLAName/TLA/Level
-onready var ability_icon = $TLAName/TLA/Ability
-onready var attack_value = $ADH/Attack/AttackValue
-onready var attack_icon = $ADH/Attack/AttackIcon
-onready var defense_value = $ADH/Defense/DefenseValue
-onready var defense_icon = $ADH/Defense/DefenseIcon
-onready var currhealth_value = $ADH/Health/CurrHealthValue
-onready var sep = $ADH/Health/Sep
-onready var health_value = $ADH/Health/HealthValue
-onready var health_icon = $ADH/Health/HealthIcon
+onready var NameInfo = load("res://interface/player_gui/infobox/name_info/name_info.tscn")
+onready var MonsterSummonInfo = load("res://interface/player_gui/infobox/monster_summon_info/monster_summon_info.tscn")
+onready var MonsterCardInfo = load("res://interface/player_gui/infobox/monster_card_info/monster_card_info.tscn")
+onready var SidesInfo = load("res://interface/player_gui/infobox/sides_info/sides_info.tscn")
+
+func _ready():
+    name_info = NameInfo.instance()
+    monster_summon_info = MonsterSummonInfo.instance()
+    monster_card_info = MonsterCardInfo.instance()
+    sides_info = SidesInfo.instance()
 
 # set functions 
 func set_player(_player):
     player = _player
 
-func set_summon(summon):
-    set_summon_name(summon)
-    type.texture = load("res://art/icons/TYPE_" + summon.card.type + ".png")
-    level.text = str(summon.card.level)
-    set_ability(summon.card.ability)
-    set_summon_stats(summon)
+func set_dice(idx):
+    clear_summon_info()
+    var dice = player.dicepool[idx]
+    if dice.card.is_monster():
+        set_monster_card(dice.card)
+    elif dice.card.is_item():
+        set_item_card(dice.card)
+    add_sides_info(dice.sides)
 
-func set_show_abilities(_show_abilities):
-    show_abilities = _show_abilities
-    $Abilities.visible = _show_abilities
+func set_summon(summon):
+    #clear_summon_info()
+    if summon.is_monster():
+        set_monster_summon(summon)
+    elif summon.is_item():
+        set_item_summon(summon)
+
+func set_monster_card(card):
+    add_name_info(card)
+    add_monster_card_info(card)
+
+func set_item_card(card):
+    add_name_info(card)
+
+func set_monster_summon(monster):
+    add_name_info(monster.card)
+    add_monster_summon_info(monster)
+
+func set_item_summon(item):
+    add_name_info(item.card, not player.items.has(item))
 
 # private functions
-func set_summon_name(summon):
-    if summon.is_item() and not summon in player.items: # case opponent item
-        cardname.text = "???"
-    else:
-        cardname.text = summon.card.name
+func clear_summon_info():
+    for child in get_children():
+        child.queue_free()
 
-func set_ability(ability):
-    if ability.empty():  # no ability icon
-        ability_icon.texture = null
-    else: # ability icon
-        ability_icon.texture = load("res://art/icons/ABILITY.png")
+func add_name_info(card, hide_name=false):
+    add_child(name_info)
+    name_info.set_name_info(card, hide_name)
 
-func set_summon_stats(summon):
-    if summon.is_monster(): # monster info
-        set_monster_stats(summon)
-        $ADH.visible = true
-    else: # item info
-        $ADH.visible = false
+func add_monster_card_info(card):
+    add_child(monster_card_info)
+    monster_card_info.set_monster_card_info(card)
 
-func set_monster_stats(summon):
-    attack_value.text = str(summon.attack)
-    attack_value.modulate = MODDICT[sign(summon.attack-summon.card.attack)]
-    defense_value.text = str(summon.defense)
-    defense_value.modulate = MODDICT[sign(summon.defense-summon.card.defense)]
-    currhealth_value.text = str(summon.health)
-    currhealth_value.modulate = MODDICT[sign(summon.health-summon.card.health)]
-    health_value.text = str(summon.card.health)
-    attack_icon.texture = load("res://art/icons/CREST_ATTACK.png")
-    defense_icon.texture = load("res://art/icons/CREST_DEFENSE.png")
-    health_icon.texture = load("res://art/icons/HEALTH.png")
+func add_monster_summon_info(monster):
+    add_child(monster_summon_info)
+    monster_summon_info.set_monster_summon_info(monster)
+
+func add_sides_info(sides):
+    add_child(sides_info)
+    sides_info.set_sides_info(sides)

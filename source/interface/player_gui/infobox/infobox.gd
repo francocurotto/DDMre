@@ -1,36 +1,39 @@
 extends PanelContainer
 
-# variables
-var on_reply = false
-
 # onready variables
-onready var diceinfo = $VBoxContainer/DiceInfo
-onready var summoninfo = $VBoxContainer/SummonInfo
+onready var SummonInfo = preload("res://interface/player_gui/infobox/summon_info/summon_info.tscn")
+
+# variables
+var summoninfo
+var player
 
 func _ready():
-    hide_all()
+    summoninfo = SummonInfo.instance()
 
 # set functions 
-func set_player(player):
-    diceinfo.set_player(player)
-    summoninfo.set_player(player)
+func set_player(_player):
+    player = _player
 
-func hide_all():
-    diceinfo.visible = false
-    summoninfo.visible = false
-
+# signals callbacks
 func on_mouse_entered_dice(idx):
-    diceinfo.set_dice(idx)
-    diceinfo.visible = true
-    summoninfo.visible = false
+    summoninfo = SummonInfo.instance()
+    add_child(summoninfo)
+    summoninfo.set_player(player)
+    summoninfo.set_dice(idx)
 
 func on_mouse_exited_dice():
-    diceinfo.visible = false 
+    clear_infobox()
    
 func on_mouse_entered_summon(summon):
+    summoninfo = SummonInfo.instance()
+    add_child(summoninfo)
+    summoninfo.set_player(player)
     summoninfo.set_summon(summon)
-    diceinfo.visible = false
-    summoninfo.visible = true
 
 func on_mouse_exited_tile():
-    summoninfo.visible = false
+    clear_infobox()
+
+# private functions
+func clear_infobox():
+    for child in get_children():
+        child.queue_free()
