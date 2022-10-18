@@ -7,12 +7,15 @@ onready var level = $TLA/Level
 onready var ability = $TLA/Ability
 
 # set functions
-func set_name_info(card, hide_name=false):
+func set_info(kwargs):
+    var card = kwargs["card"]
+    var hidename = kwargs["hidename"]
+    
     # set name
-    if hide_name: # case oponent item
+    if hidename: # case oponent item
         card_name.text = "???"
     else: # case player item 
-        card_name.text = card.name
+        card_name.text = kwargs["card"].name
     
     # set type 
     type.texture = load("res://art/icons/TYPE_" + card.type + ".png")

@@ -12,10 +12,8 @@ signal rmenu_wait_pressed
 
 # setget functions
 func set_reply_menu(reply_state):
-    attacker_info.set_player(reply_state.opponent)
-    attacker_info.set_summon(reply_state.attacker)
-    attacked_info.set_player(reply_state.player)
-    attacked_info.set_summon(reply_state.attacked)
+    attacker_info.set_info({"summon":reply_state.attacker, "target":reply_state.attacked})
+    attacked_info.set_info({"summon":reply_state.attacked})
     
 # signals callback
 func _on_GuardButton_pressed():

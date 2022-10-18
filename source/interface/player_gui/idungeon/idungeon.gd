@@ -94,8 +94,6 @@ func on_reachable_path_pressed(itile):
     var pos2 = itile.tile.pos
     emit_signal("move_input", pos1, pos2)
     dungeon_menu.queue_free()
-    # force enter tile
-    itile._on_TileButton_mouse_entered()
 
 func on_attack_button_pressed(itile):
     if itile.tile.content.is_target():

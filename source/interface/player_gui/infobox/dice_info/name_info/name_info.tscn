@@ -2,7 +2,7 @@
 
 [ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=1]
 [ext_resource path="res://art/icons/TYPE_DRAGON.png" type="Texture" id=2]
-[ext_resource path="res://interface/player_gui/infobox/name_info/name_info.gd" type="Script" id=3]
+[ext_resource path="res://interface/player_gui/infobox/dice_info/name_info/name_info.gd" type="Script" id=3]
 
 [node name="NameInfo" type="HBoxContainer"]
 margin_right = 218.0

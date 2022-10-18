@@ -73,6 +73,7 @@ margin_bottom = 241.0
 [node name="InfoBox" parent="PDBox/PRIBox/DuelInfoBox" instance=ExtResource( 6 )]
 unique_name_in_owner = true
 margin_left = 210.0
+margin_top = 0.0
 margin_right = 601.0
 margin_bottom = 241.0
 

@@ -2,9 +2,7 @@
 - DIMENSION state
 
 ### FIX
-- refactor infobox
-- display attack info when selecting attacked monster
-- display item info when selecting move tile
+- display attack info when hovering attacked monster
 
 
 ### IMPROVEMENTS
@@ -17,7 +15,6 @@
     - add type colors for dice
 
 ### IN CONSIDERATION
-    - merge dice_info and summon_info to share common interfaces?
 
 ### TEST
 - attack mechanics

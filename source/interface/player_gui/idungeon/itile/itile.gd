@@ -108,5 +108,11 @@ func _on_TileButton_pressed():
 func _on_MoveButton_pressed():
     emit_signal("reachable_path_pressed", self)
 
+func _on_MoveButton_mouse_entered():
+    _on_TileButton_mouse_entered()
+
+func _on_MoveButton_mouse_exited():
+    _on_TileButton_mouse_exited()
+
 func _on_AttackButton_pressed():
     emit_signal("attack_button_pressed", self)

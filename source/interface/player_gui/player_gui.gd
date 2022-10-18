@@ -46,7 +46,6 @@ func update_gui():
     idungeon.update_dungeon()
     playerinfo.update_info()
     opponentinfo.update_info()
-    infobox.hide_all()
 
 func set_player_roll(sides):
     rollgui.update_roll_player(sides)
@@ -70,7 +69,6 @@ func on_state_update_dungeon():
     rollgui.disable_roll()
     rollgui.enable_endturn()
     idungeon.enable_itilebuttons()
-    infobox.hide_all()
 
 func on_state_update_reply():
     dicepool.disable_all()

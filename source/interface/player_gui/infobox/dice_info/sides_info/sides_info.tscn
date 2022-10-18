@@ -5,7 +5,7 @@
 [ext_resource path="res://art/icons/CREST_SUMMON.png" type="Texture" id=3]
 [ext_resource path="res://art/icons/CREST_ATTACK.png" type="Texture" id=4]
 [ext_resource path="res://art/icons/CREST_MAGIC.png" type="Texture" id=5]
-[ext_resource path="res://interface/player_gui/infobox/sides_info/sides_info.gd" type="Script" id=6]
+[ext_resource path="res://interface/player_gui/infobox/dice_info/sides_info/sides_info.gd" type="Script" id=6]
 
 [node name="SidesInfo" type="HBoxContainer"]
 margin_right = 40.0

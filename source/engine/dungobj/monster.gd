@@ -38,7 +38,7 @@ func get_damage(monster, guard):
     """
     Get damage for an attack.
     """
-    # "guard*" accounts for attacking a guarding or not guarding monster
+    # "int(guard)*" accounts for attacking a guarding or not guarding monster
     return get_power(monster) - int(guard)*monster.defense
 
 func receive_damage(damage):
