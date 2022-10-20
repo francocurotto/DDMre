@@ -24,6 +24,7 @@ func _ready():
     rollgui.connect("endturn_input", self, "on_endturn_input")
     idungeon.connect("mouse_entered_summon", infobox, "on_mouse_entered_summon")
     idungeon.connect("mouse_exited_tile", infobox, "on_mouse_exited_tile")
+    idungeon.connect("mouse_entered_target", infobox, "on_mouse_entered_target")
     idungeon.connect("move_input", self, "on_move_input")
     idungeon.connect("attack_input", self, "on_attack_input")
     idungeon.connect("guard_input", self, "on_guard_input")

@@ -23,6 +23,7 @@ signal mouse_exited_tile
 signal monster_pressed(tile)
 signal reachable_path_pressed(tile)
 signal attack_button_pressed(tile)
+signal mouse_entered_attack_button(content)
 
 # setget functions
 func set_tile(_tile):
@@ -116,3 +117,9 @@ func _on_MoveButton_mouse_exited():
 
 func _on_AttackButton_pressed():
     emit_signal("attack_button_pressed", self)
+
+func _on_AttackButton_mouse_entered():
+    emit_signal("mouse_entered_attack_button", tile.content)
+
+func _on_AttackButton_mouse_exited():
+    _on_TileButton_mouse_exited()

@@ -58,4 +58,6 @@ margin_bottom = 28.0
 [connection signal="mouse_entered" from="MoveButton" to="." method="_on_MoveButton_mouse_entered"]
 [connection signal="mouse_exited" from="MoveButton" to="." method="_on_MoveButton_mouse_exited"]
 [connection signal="pressed" from="MoveButton" to="." method="_on_MoveButton_pressed"]
+[connection signal="mouse_entered" from="AttackButton" to="." method="_on_AttackButton_mouse_entered"]
+[connection signal="mouse_exited" from="AttackButton" to="." method="_on_AttackButton_mouse_exited"]
 [connection signal="pressed" from="AttackButton" to="." method="_on_AttackButton_pressed"]

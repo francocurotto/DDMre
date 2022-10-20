@@ -16,6 +16,7 @@ onready var cols = $Cols
 # signals
 signal mouse_entered_summon(summon)
 signal mouse_exited_tile
+signal mouse_entered_target(attacker, attacked)
 signal move_input(pos1, pos2)
 signal attack_input(pos1, pos2)
 signal guard_input
@@ -25,12 +26,13 @@ signal dungeon_menu_closed
 
 func _ready():
     for row in cols.get_children():
-        for t in row.get_children():
-            t.connect("mouse_entered_summon", self, "on_mouse_entered_summon")
-            t.connect("mouse_exited_tile", self, "on_mouse_exited_tile")
-            t.connect("monster_pressed", self, "on_monster_pressed")
-            t.connect("reachable_path_pressed", self, "on_reachable_path_pressed")
-            t.connect("attack_button_pressed", self, "on_attack_button_pressed")
+        for tile in row.get_children():
+            tile.connect("mouse_entered_summon", self, "on_mouse_entered_summon")
+            tile.connect("mouse_exited_tile", self, "on_mouse_exited_tile")
+            tile.connect("monster_pressed", self, "on_monster_pressed")
+            tile.connect("reachable_path_pressed", self, "on_reachable_path_pressed")
+            tile.connect("attack_button_pressed", self, "on_attack_button_pressed")
+            tile.connect("mouse_entered_attack_button", self, "on_mouse_entered_attack_button")
 
 # set functions
 func set_dungeon(_dungeon, _player):
@@ -97,11 +99,16 @@ func on_reachable_path_pressed(itile):
 
 func on_attack_button_pressed(itile):
     if itile.tile.content.is_target():
-        if not itile.tile.content in player.targets:
+        if itile.tile.content.player != player:
             var pos1 = dungeon_menu.itile.tile.pos
             var pos2 = itile.tile.pos
             emit_signal("attack_input", pos1, pos2)
             dungeon_menu.queue_free()
+
+func on_mouse_entered_attack_button(content):
+    if content.is_summon():
+        if content.player != player:
+            emit_signal("mouse_entered_target", dungeon_menu.itile.tile.content, content)
 
 func on_dmenu_enabled():
     unset_all_itile_mods()

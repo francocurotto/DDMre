@@ -3,6 +3,7 @@ extends PanelContainer
 # preload variables
 var DiceInfo = preload("res://interface/player_gui/infobox/dice_info/dice_info.tscn")
 var SummonInfo = preload("res://interface/player_gui/infobox/summon_info/summon_info.tscn")
+var AttackInfo = preload("res://interface/player_gui/infobox/attack_info/attack_info.tscn")
 
 # variables
 var player
@@ -20,6 +21,9 @@ func on_mouse_entered_dice(idx):
    
 func on_mouse_entered_summon(summon):
     InfoGlobals.add_info_node(info_container, SummonInfo, {"summon":summon, "player":player})
+
+func on_mouse_entered_target(attacker, attacked):
+    InfoGlobals.add_info_node(info_container, AttackInfo, {"attacker":attacker, "attacked":attacked})
 
 func on_mouse_exited_dice():
     clear_infobox()
