@@ -1,8 +1,7 @@
 extends PanelContainer
 
 # onready variables
-onready var attacker_info = $VBoxContainer/AttackerInfo
-onready var attacked_info = $VBoxContainer/AttackedInfo
+onready var attack_info = $VBoxContainer/AttackInfo
 onready var guard_button = $VBoxContainer/ButtonCont/GuardButton
 onready var wait_button = $VBoxContainer/ButtonCont/WaitButton
 
@@ -12,8 +11,7 @@ signal rmenu_wait_pressed
 
 # setget functions
 func set_reply_menu(reply_state):
-    attacker_info.set_info({"summon":reply_state.attacker, "target":reply_state.attacked})
-    attacked_info.set_info({"summon":reply_state.attacked})
+    attack_info.set_info({"attacker":reply_state.attacker, "attacked":reply_state.attacked})
     
 # signals callback
 func _on_GuardButton_pressed():

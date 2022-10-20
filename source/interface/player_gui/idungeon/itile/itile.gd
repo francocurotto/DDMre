@@ -104,10 +104,10 @@ func _on_TileButton_mouse_exited():
 
 func _on_TileButton_pressed():
     if tile.content.is_monster():
-        emit_signal("monster_pressed", self)
+        emit_signal("monster_pressed", tile)
 
 func _on_MoveButton_pressed():
-    emit_signal("reachable_path_pressed", self)
+    emit_signal("reachable_path_pressed", tile)
 
 func _on_MoveButton_mouse_entered():
     _on_TileButton_mouse_entered()
@@ -116,7 +116,7 @@ func _on_MoveButton_mouse_exited():
     _on_TileButton_mouse_exited()
 
 func _on_AttackButton_pressed():
-    emit_signal("attack_button_pressed", self)
+    emit_signal("attack_button_pressed", tile)
 
 func _on_AttackButton_mouse_entered():
     emit_signal("mouse_entered_attack_button", tile.content)
