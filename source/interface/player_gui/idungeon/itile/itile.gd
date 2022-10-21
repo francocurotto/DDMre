@@ -116,6 +116,7 @@ func _on_MoveButton_mouse_exited():
     _on_TileButton_mouse_exited()
 
 func _on_AttackButton_pressed():
+    _on_TileButton_mouse_exited()
     emit_signal("attack_button_pressed", tile)
 
 func _on_AttackButton_mouse_entered():

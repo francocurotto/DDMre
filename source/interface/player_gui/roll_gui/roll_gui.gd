@@ -11,7 +11,7 @@ onready var endturn_button = $EndTurnButton
 signal roll_input
 signal endturn_input
 
-# set functions
+# setget functions
 func set_roll_button(enable):
     roll_button.disabled = not enable
 
@@ -22,9 +22,6 @@ func update_roll_player(sides):
 func update_roll_opponent(sides):
     opponent_roll.set_roll(sides)
     opponent_roll.show_roll(true)
-
-func enable_roll():
-    roll_button.disabled = false
     
 func disable_roll():
     roll_button.disabled = true

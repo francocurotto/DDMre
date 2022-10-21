@@ -10,7 +10,7 @@ onready var defense_value = $DefenseSlot/DefenseValue
 onready var magic_value = $MagicSlot/MagicValue
 onready var trap_value = $TrapSlot/TrapValue
 
-# set functions
+# setget functions
 func set_crestpool(_crestpool):
     crestpool = _crestpool
     update_slots()

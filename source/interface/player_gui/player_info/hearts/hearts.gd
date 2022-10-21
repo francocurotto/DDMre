@@ -12,7 +12,7 @@ const HEARTDICT = {1 : "res://art/icons/HEART_BLUE.png",
 # variables
 var player
 
-# set functions
+# setget functions
 func set_player(_player):
     player = _player
     update_hearts()

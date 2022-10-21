@@ -12,7 +12,7 @@ var player
 onready var hearts = $InfoBox/CHBox/Hearts
 onready var icrestpool = $InfoBox/CHBox/ICrestPool
 
-# set functions
+# setget functions
 func set_playerinfo(_player, _title):
     player = _player
     hearts.set_player(player)

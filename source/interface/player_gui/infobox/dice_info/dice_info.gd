@@ -6,7 +6,7 @@ onready var NameInfo = load("res://interface/player_gui/infobox/dice_info/name_i
 onready var MonsterCardInfo = load("res://interface/player_gui/infobox/dice_info/monster_card_info/monster_card_info.tscn")
 onready var SidesInfo = load("res://interface/player_gui/infobox/dice_info/sides_info/sides_info.tscn")
 
-# set functions 
+# setget functions 
 func set_info(kwargs):
     var dice = kwargs["dice"]
     if dice.card.is_monster():

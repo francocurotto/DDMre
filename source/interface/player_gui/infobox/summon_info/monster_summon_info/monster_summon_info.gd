@@ -11,7 +11,7 @@ onready var defense_value = $Defense/DefenseValue
 onready var currhealth_value = $Health/CurrHealthValue
 onready var health_value = $Health/HealthValue
 
-# set functions
+# setget functions
 func set_info(kwargs):
     var monster = kwargs["monster"]
     var target = kwargs["target"]
@@ -24,6 +24,7 @@ func set_info(kwargs):
     currhealth_value.modulate = MODDICT[sign(monster.health-monster.card.health)]
     health_value.text = str(monster.card.health)
 
+# private functions
 func get_power(monster, target):
     if not target:
         return monster.attack
