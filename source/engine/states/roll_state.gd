@@ -5,6 +5,7 @@ const NAME = "ROLL"
 
 # variables
 var DungeonState = load("engine/states/dungeon_state.gd")
+var DimensionState = load("engine/states/dimension_state.gd")
 
 # signals
 signal dice_rolled(sides)
@@ -19,26 +20,35 @@ func ROLL(cmd):
     """
     Execute the ROLL command.
     """
-    var dicelist = get_dicelist(cmd["dice"])
-    roll_dice(dicelist)
+    var sides = roll_dice(cmd["dice"])
     emit_signal("duel_update", cmd["name"])
-    return DungeonState.new(player, opponent, dungeon)
+    var dim_candidates = get_dim_candidates(cmd["dice"], sides)
+    if dim_candidates:
+        return DimensionState.new(player, opponent, dungeon, dim_candidates)
+    else:
+        return DungeonState.new(player, opponent, dungeon)
 
 # private functions
-func get_dicelist(indeces):
+func roll_dice(indeces):
     """
-    Get a list of player dice from a list of indeces.
-    """
-    var dicelist = []
-    for i in indeces:
-        dicelist.append(player.dicepool[i])
-    return dicelist
-
-func roll_dice(dicelist):
-    """
-    Roll an array of dice.
+    Roll dice given dice indeces.
     """
     var sides = []
-    for dice in dicelist:
-        sides.append(dice.roll())
+    for i in indeces:
+        sides.append(player.dicepool[i].roll())
     emit_signal("dice_rolled", sides)
+    return sides
+
+func get_dim_candidates(indeces, sides):
+    """
+    Return list of dice indeces that are candidates for dimension given
+    rolled sides. If no dimension candidates, returns an empty array.
+    """
+    for level in range(1,5):
+        var dim_candidates = []
+        for i in range(sides.size()):
+            if sides[i].crest.is_summon() and sides[i].mult==level:
+                dim_candidates.append(indeces[i])
+        if dim_candidates.size()>=2: 
+            return dim_candidates
+    return []

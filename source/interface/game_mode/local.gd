@@ -45,9 +45,10 @@ func on_state_update(state_name):
     p1gui.on_state_update(state_name)
     p2gui.on_state_update(state_name)
     match state_name:
-        "ROLL" : on_state_update_roll()
-        "DUNGEON" : on_state_update_dungeon()
-        "REPLY" : on_state_update_reply()
+        "ROLL"      : on_state_update_roll()
+        "DIMENSION" : on_state_update_dimension()
+        "DUNGEON"   : on_state_update_dungeon()
+        "REPLY"     : on_state_update_reply()
 
 func on_duel_update(_cmdname):
     p1gui.update_gui()
@@ -68,6 +69,10 @@ func on_player_lost(_player):
 func on_state_update_roll():
     engine.state.connect("dice_rolled", self, "on_dice_rolled")
     self.player_gui.on_state_update_roll()
+
+func on_state_update_dimension():
+    set_player_gui()
+    self.player_gui.on_state_update_dimension()
 
 func on_state_update_dungeon():
     set_player_gui()

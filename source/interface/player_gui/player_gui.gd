@@ -65,6 +65,11 @@ func on_state_update_roll():
     rollgui.disable_endturn()
     idungeon.disable_itilebuttons()
 
+func on_state_update_dimension():
+    dicepool.disable_all()
+    rollgui.disable_endturn()
+    idungeon.disable_itilebuttons()
+
 func on_state_update_dungeon():
     dicepool.disable_all()
     rollgui.disable_roll()
