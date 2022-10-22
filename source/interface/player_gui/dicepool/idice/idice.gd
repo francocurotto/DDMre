@@ -1,7 +1,8 @@
 extends MarginContainer
 
 # variables
-var selected = false setget , get_selected
+var roll_selected setget , get_roll_selected
+var dim_selected setget , get_dim_selected
 var used = false
 
 # onready variables
@@ -17,7 +18,8 @@ onready var defense_icon = $HBoxContainer/Defense/DefenseIcon
 onready var health_value = $HBoxContainer/Health/HealthValue
 onready var health_icon = $HBoxContainer/Health/HealthIcon
 onready var isides = $HBoxContainer/ISides
-onready var button = $Button
+onready var roll_button = $RollButton
+onready var dim_button = $DimButton
 
 # signals
 signal mouse_entered_diceitem(diceitem)
@@ -32,36 +34,58 @@ func set_dice(dice):
     set_card_stats(dice.card)
     set_sides(dice.sides)
 
+func get_roll_selected():
+    return roll_button.pressed
+
+func get_dim_selected():
+    return dim_button.pressed
+
 func set_index(idx):
     index_value.text = str(idx+1) + "."
 
-func get_selected():
-    return button.pressed and not button.disabled
+func enable_roll():
+    roll_button.disabled = false
 
-# public functions
-func enable():
-    button.disabled = false
+func disable_roll():
+    roll_button.disabled = true
 
-func disable():
-    button.disabled = true
+func release_roll():
+    roll_button.pressed = false
 
-func release():
-    button.pressed = false
+func disable_roll_unselected():
+    if not self.roll_selected:
+        roll_button.disabled = true
 
-func disable_unselected():
-    if not self.selected:
-        button.disabled = true
-
-func enable_unused():
+func enable_roll_unused():
     if not used:
-        button.disabled = false
+        roll_button.disabled = false
+
+func enable_dim():
+    dim_button.disabled = false
+
+func disable_dim():
+    dim_button.disabled = true
+
+func switch_to_dim_button():
+    roll_button.visible = false
+    dim_button.visible = true
+
+func switch_to_roll_button():
+    roll_button.visible = true
+    dim_button.visible = false
 
 # signals callbacks
-func _on_Button_mouse_entered():
+func _on_RollButton_mouse_entered():
     emit_signal("mouse_entered_diceitem", self)
 
-func _on_Button_mouse_exited():
+func _on_RollButton_mouse_exited():
     emit_signal("mouse_exited_diceitem")
+
+func _on_DimButton_mouse_entered():
+    _on_RollButton_mouse_entered()
+
+func _on_DimButton_mouse_exited():
+    _on_RollButton_mouse_exited()
 
 # private functions
 func set_dice_ability(ability):

@@ -185,11 +185,20 @@ texture = ExtResource( 5 )
 crest = "TRAP"
 mult = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="RollButton" type="Button" parent="."]
 show_behind_parent = true
 margin_right = 589.0
 margin_bottom = 21.0
 toggle_mode = true
 
-[connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
-[connection signal="mouse_exited" from="Button" to="." method="_on_Button_mouse_exited"]
+[node name="DimButton" type="Button" parent="."]
+visible = false
+show_behind_parent = true
+margin_right = 589.0
+margin_bottom = 21.0
+toggle_mode = true
+
+[connection signal="mouse_entered" from="RollButton" to="." method="_on_RollButton_mouse_entered"]
+[connection signal="mouse_exited" from="RollButton" to="." method="_on_RollButton_mouse_exited"]
+[connection signal="mouse_entered" from="DimButton" to="." method="_on_DimButton_mouse_entered"]
+[connection signal="mouse_exited" from="DimButton" to="." method="_on_DimButton_mouse_exited"]

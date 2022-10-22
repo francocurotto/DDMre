@@ -110,24 +110,24 @@ func on_mouse_entered_attack_button(content):
         if content.player != player:
             emit_signal("mouse_entered_target", dungeon_menu.tile.content, content)
 
-func on_dmenu_enabled():
+func on_dungmenu_enabled():
     unset_all_itile_mods()
     disable_itilebuttons()
     emit_signal("dungeon_menu_opened")
 
-func on_dmenu_move_pressed(tile):
+func on_dungmenu_move_pressed(tile):
     dungeon_menu.disable()
     var moveposs = dungeon.get_moveposs(player, tile.pos)
     for movepos in moveposs:
         get_itile(movepos).set_movetile()
 
-func on_dmenu_attack_pressed(tile):
+func on_dungmenu_attack_pressed(tile):
     dungeon_menu.disable()
     var attackposs = dungeon.get_attackposs(player, tile.pos)
     for attackpos in attackposs:
         get_itile(attackpos).set_attacktile()
 
-func on_dmenu_cancel_pressed():
+func on_dungmenu_cancel_pressed():
     dungeon_menu.queue_free()
     enable_itilebuttons()
     emit_signal("dungeon_menu_closed")
@@ -150,8 +150,8 @@ func get_itile(pos):
 func create_dungeon_menu(tile):
     dungeon_menu = DungeonMenu.instance()
     add_child(dungeon_menu)
-    dungeon_menu.connect("dmenu_move_pressed", self, "on_dmenu_move_pressed")
-    dungeon_menu.connect("dmenu_attack_pressed", self, "on_dmenu_attack_pressed")
-    dungeon_menu.connect("dmenu_cancel_pressed", self, "on_dmenu_cancel_pressed")
-    dungeon_menu.connect("dmenu_enabled", self, "on_dmenu_enabled")
+    dungeon_menu.connect("dungmenu_move_pressed", self, "on_dungmenu_move_pressed")
+    dungeon_menu.connect("dungmenu_attack_pressed", self, "on_dungmenu_attack_pressed")
+    dungeon_menu.connect("dungmenu_cancel_pressed", self, "on_dungmenu_cancel_pressed")
+    dungeon_menu.connect("dungmenu_enabled", self, "on_dungmenu_enabled")
     dungeon_menu.set_dungeon_menu(tile, player)   

@@ -20,6 +20,7 @@ func _ready():
     dicepool.connect("roll_changed", self, "on_roll_changed")
     dicepool.connect("mouse_entered_dice", infobox, "on_mouse_entered_dice")
     dicepool.connect("mouse_exited_dice", infobox, "on_mouse_exited_dice")
+    dicepool.connect("skip_input", self, "on_skip_input")
     rollgui.connect("roll_input", self, "on_roll_input")
     rollgui.connect("endturn_input", self, "on_endturn_input")
     idungeon.connect("mouse_entered_summon", infobox, "on_mouse_entered_summon")
@@ -59,25 +60,29 @@ func on_state_update(state):
     duelinfo.on_state_update(state)
 
 func on_state_update_roll():
-    dicepool.enable_all()
-    dicepool.release_all()
+    dicepool.enable_roll_all()
+    dicepool.release_roll_all()
+    dicepool.switch_to_roll_button_all()
+    dicepool.enable_dim_all()
     rollgui.hide_player_roll()
     rollgui.disable_endturn()
     idungeon.disable_itilebuttons()
 
 func on_state_update_dimension():
-    dicepool.disable_all()
+    dicepool.disable_roll_all()
+    dicepool.enable_dim_candidates(engine.state.dim_candidates)
+    rollgui.disable_roll()
     rollgui.disable_endturn()
     idungeon.disable_itilebuttons()
 
 func on_state_update_dungeon():
-    dicepool.disable_all()
+    dicepool.disable_roll_all()
     rollgui.disable_roll()
     rollgui.enable_endturn()
     idungeon.enable_itilebuttons()
 
 func on_state_update_reply():
-    dicepool.disable_all()
+    dicepool.disable_roll_all()
     rollgui.disable_roll()
     rollgui.disable_endturn()
     idungeon.disable_itilebuttons()
@@ -101,6 +106,9 @@ func on_roll_input():
     var indeces = dicepool.get_indeces()
     engine.update({"name" : "ROLL", "dice" : indeces})
 
+func on_skip_input():
+    engine.update({"name" : "SKIP"})
+
 func on_endturn_input():
     engine.update({"name" : "ENDTURN"})
 
@@ -117,3 +125,8 @@ func on_guard_input():
 
 func on_wait_input():
     engine.update({"name" : "WAIT"})
+
+func _input(event):
+    if engine.state.NAME == "DIMENSION" and player == engine.state.player:
+        if event.is_action_released("ui_cancel"):
+            dicepool.create_skip_menu()

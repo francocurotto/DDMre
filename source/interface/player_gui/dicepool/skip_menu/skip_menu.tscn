@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://interface/player_gui/dicepool/skip_menu/skip_menu.gd" type="Script" id=1]
+[ext_resource path="res://art/fonts/text_output.tres" type="DynamicFont" id=2]
+
+[node name="SkipMenu" type="PanelContainer"]
+margin_right = 14.0
+margin_bottom = 14.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 150.0
+margin_bottom = 71.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 143.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 2 )
+text = "Skip Dimension?"
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 34.0
+margin_right = 143.0
+margin_bottom = 64.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="SkipButton" type="Button" parent="VBoxContainer/ButtonsContainer"]
+margin_right = 67.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 2 )
+text = "✔ Yes"
+
+[node name="CancelButton" type="Button" parent="VBoxContainer/ButtonsContainer"]
+margin_left = 87.0
+margin_right = 143.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 2 )
+text = "❌ No"
+
+[connection signal="pressed" from="VBoxContainer/ButtonsContainer/SkipButton" to="." method="_on_SkipButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsContainer/CancelButton" to="." method="_on_CancelButton_pressed"]
