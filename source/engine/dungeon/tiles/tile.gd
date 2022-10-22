@@ -23,6 +23,9 @@ func get_playerid():
     return 0
 
 # is functions
+func is_empty():
+    return false
+
 func is_path():
     return false
 

@@ -202,3 +202,4 @@ toggle_mode = true
 [connection signal="mouse_exited" from="RollButton" to="." method="_on_RollButton_mouse_exited"]
 [connection signal="mouse_entered" from="DimButton" to="." method="_on_DimButton_mouse_entered"]
 [connection signal="mouse_exited" from="DimButton" to="." method="_on_DimButton_mouse_exited"]
+[connection signal="toggled" from="DimButton" to="." method="_on_DimButton_toggled"]

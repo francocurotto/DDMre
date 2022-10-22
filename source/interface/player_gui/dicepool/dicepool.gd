@@ -15,11 +15,14 @@ signal roll_changed
 signal mouse_entered_dice(idx)
 signal mouse_exited_dice
 signal skip_input
+signal dimdice_selected(idx)
+signal dimdice_unselected
 
 func _ready():
     for idice in poolcont.get_children():
         idice.get_node("RollButton").connect("pressed", self, "on_roll_button_pressed")
-        idice.get_node("DimButton").connect("toggled", self, "on_dim_button_toggled")
+        idice.connect("dim_button_pressed", self, "on_dim_button_pressed")
+        idice.connect("dim_button_released", self, "on_dim_button_released")
         idice.connect("mouse_entered_diceitem", self, "on_mouse_entered_diceitem")
         idice.connect("mouse_exited_diceitem", self, "on_mouse_exited_diceitem")
 
@@ -34,7 +37,7 @@ func set_diceitems():
         idice.set_dice(dicepool[i])
         idice.set_index(i)
 
-func get_indeces():
+func get_roll_indeces():
     var indeces = []
     for i in range(poolcont.get_child_count()):
         if poolcont.get_child(i).roll_selected:
@@ -82,10 +85,16 @@ func on_roll_button_pressed():
     else:
         enable_roll_unused()
 
-func on_dim_button_toggled(pressed):
+func on_dim_button_pressed(idx):
+    for i in range(poolcont.get_child_count()):
+        if i != idx:
+            poolcont.get_child(i).disable_dim()
+    emit_signal("dimdice_selected", idx)
+
+func on_dim_button_released():
     for idice in poolcont.get_children():
-        if not idice.dim_selected:
-            idice.dim_button.disabled = pressed
+        idice.enable_dim()
+    emit_signal("dimdice_unselected")
 
 func on_mouse_entered_diceitem(idice):
     var idx = idice.get_index()

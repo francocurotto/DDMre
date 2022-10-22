@@ -26,13 +26,13 @@ signal dungeon_menu_closed
 
 func _ready():
     for row in cols.get_children():
-        for tile in row.get_children():
-            tile.connect("mouse_entered_summon", self, "on_mouse_entered_summon")
-            tile.connect("mouse_exited_tile", self, "on_mouse_exited_tile")
-            tile.connect("monster_pressed", self, "on_monster_pressed")
-            tile.connect("reachable_path_pressed", self, "on_reachable_path_pressed")
-            tile.connect("attack_button_pressed", self, "on_attack_button_pressed")
-            tile.connect("mouse_entered_attack_button", self, "on_mouse_entered_attack_button")
+        for itile in row.get_children():
+            itile.connect("mouse_entered_summon", self, "on_mouse_entered_summon")
+            itile.connect("mouse_exited_tile", self, "on_mouse_exited_tile")
+            itile.connect("monster_pressed", self, "on_monster_pressed")
+            itile.connect("reachable_path_pressed", self, "on_reachable_path_pressed")
+            itile.connect("attack_button_pressed", self, "on_attack_button_pressed")
+            itile.connect("mouse_entered_attack_button", self, "on_mouse_entered_attack_button")
 
 # set functions
 func set_dungeon(_dungeon, _player):
@@ -40,15 +40,21 @@ func set_dungeon(_dungeon, _player):
     player = _player
     update_dungeon()
 
-func enable_itilebuttons():
+func enable_tile_buttons():
     for row in cols.get_children():
-        for t in row.get_children():
-            t.enable_itilebutton()
+        for itile in row.get_children():
+            itile.enable_tile_button()
 
-func disable_itilebuttons():
+func disable_tile_buttons():
     for row in cols.get_children():
-        for t in row.get_children():
-            t.disable_itilebutton()
+        for itile in row.get_children():
+            itile.disable_tile_button()
+
+func set_dim_buttons():
+    for row in cols.get_children():
+        for itile in row.get_children():
+            if itile.tile.is_empty():
+                itile.set_dim_button()
 
 func unset_all_itile_mods():
     for row in cols.get_children():
@@ -66,7 +72,7 @@ func update_dungeon():
             var itile = irow.get_child(j)
             itile.set_tile(tile)
     unset_all_itile_mods()
-    enable_itilebuttons()
+    enable_tile_buttons()
 
 func mark_reply_monsters(reply_state):
     var poss = reply_state.get_monsters_poss()
@@ -86,6 +92,12 @@ func on_mouse_entered_summon(summon):
 
 func on_mouse_exited_tile():
     emit_signal("mouse_exited_tile")
+
+func on_dimdice_selected(idx):
+    set_dim_buttons()
+
+func on_dimdice_unselected():
+    unset_all_itile_mods()
 
 func on_monster_pressed(tile):
     if tile.content in player.monsters:
@@ -112,24 +124,24 @@ func on_mouse_entered_attack_button(content):
 
 func on_dungmenu_enabled():
     unset_all_itile_mods()
-    disable_itilebuttons()
+    disable_tile_buttons()
     emit_signal("dungeon_menu_opened")
 
 func on_dungmenu_move_pressed(tile):
     dungeon_menu.disable()
     var moveposs = dungeon.get_moveposs(player, tile.pos)
     for movepos in moveposs:
-        get_itile(movepos).set_movetile()
+        get_itile(movepos).set_move_tile()
 
 func on_dungmenu_attack_pressed(tile):
     dungeon_menu.disable()
     var attackposs = dungeon.get_attackposs(player, tile.pos)
     for attackpos in attackposs:
-        get_itile(attackpos).set_attacktile()
+        get_itile(attackpos).set_attack_tile()
 
 func on_dungmenu_cancel_pressed():
     dungeon_menu.queue_free()
-    enable_itilebuttons()
+    enable_tile_buttons()
     emit_signal("dungeon_menu_closed")
 
 func on_rmenu_guard_pressed():

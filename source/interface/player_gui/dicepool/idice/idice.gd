@@ -1,6 +1,7 @@
 extends MarginContainer
 
 # variables
+var idx
 var roll_selected setget , get_roll_selected
 var dim_selected setget , get_dim_selected
 var used = false
@@ -24,6 +25,8 @@ onready var dim_button = $DimButton
 # signals
 signal mouse_entered_diceitem(diceitem)
 signal mouse_exited_diceitem
+signal dim_button_pressed(idx)
+signal dim_button_released
 
 # setget functions
 func set_dice(dice):
@@ -34,14 +37,15 @@ func set_dice(dice):
     set_card_stats(dice.card)
     set_sides(dice.sides)
 
+func set_index(_idx):
+    idx = _idx
+    index_value.text = str(idx+1) + "."
+
 func get_roll_selected():
     return roll_button.pressed
 
 func get_dim_selected():
     return dim_button.pressed
-
-func set_index(idx):
-    index_value.text = str(idx+1) + "."
 
 func enable_roll():
     roll_button.disabled = false
@@ -86,6 +90,12 @@ func _on_DimButton_mouse_entered():
 
 func _on_DimButton_mouse_exited():
     _on_RollButton_mouse_exited()
+
+func _on_DimButton_toggled(pressed):
+    if pressed:
+        emit_signal("dim_button_pressed", idx)
+    else:
+        emit_signal("dim_button_released")
 
 # private functions
 func set_dice_ability(ability):

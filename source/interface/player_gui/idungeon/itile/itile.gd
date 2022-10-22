@@ -56,13 +56,16 @@ func set_selectmod():
 func unset_selectmod():
     $DungobjRect.modulate = MODDICT[tile.content.playerid]
 
-func set_movetile():
+func set_move_tile():
     $HighlightRect.visible = true
     $MoveButton.visible = true
 
-func set_attacktile():
+func set_attack_tile():
     $HighlightRect.visible = true
     $AttackButton.visible = true
+
+func set_dim_button():
+    $DimButton.visible = true
 
 func set_highlight():
     $HighlightRect.visible = true
@@ -70,12 +73,13 @@ func set_highlight():
 func unset_all_mods():
     $MoveButton.visible = false
     $AttackButton.visible = false
+    $DimButton.visible = false
     $HighlightRect.visible = false
 
-func enable_itilebutton():
+func enable_tile_button():
     $TileButton.disabled = false
 
-func disable_itilebutton():
+func disable_tile_button():
     $TileButton.disabled = true
 
 func set_tile_type(_tile_type):
@@ -95,6 +99,9 @@ func set_player_dungobj(_player_dungobj):
     set_dungobj_icon(dungobj_type, player_dungobj)
 
 # signals callback
+func _on_DimButton_pressed():
+    print("dim button pressed")
+
 func _on_TileButton_mouse_entered():
     if tile.content.is_summon():
         emit_signal("mouse_entered_summon", tile.content)

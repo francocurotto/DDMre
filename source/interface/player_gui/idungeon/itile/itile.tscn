@@ -52,6 +52,12 @@ self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 28.0
 margin_bottom = 28.0
 
+[node name="DimButton" type="Button" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 28.0
+margin_bottom = 28.0
+
 [connection signal="mouse_entered" from="TileButton" to="." method="_on_TileButton_mouse_entered"]
 [connection signal="mouse_exited" from="TileButton" to="." method="_on_TileButton_mouse_exited"]
 [connection signal="pressed" from="TileButton" to="." method="_on_TileButton_pressed"]
@@ -61,3 +67,4 @@ margin_bottom = 28.0
 [connection signal="mouse_entered" from="AttackButton" to="." method="_on_AttackButton_mouse_entered"]
 [connection signal="mouse_exited" from="AttackButton" to="." method="_on_AttackButton_mouse_exited"]
 [connection signal="pressed" from="AttackButton" to="." method="_on_AttackButton_pressed"]
+[connection signal="pressed" from="DimButton" to="." method="_on_DimButton_pressed"]

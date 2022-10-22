@@ -17,13 +17,13 @@ func set_player(_player):
 
 # signals callbacks
 func on_mouse_entered_dice(idx):
-    InfoGlobals.add_info_node(info_container, DiceInfo, {"dice":player.dicepool[idx]})
+    info_container.add_info_node(DiceInfo, {"dice":player.dicepool[idx]})
    
 func on_mouse_entered_summon(summon):
-    InfoGlobals.add_info_node(info_container, SummonInfo, {"summon":summon, "player":player})
+    info_container.add_info_node(SummonInfo, {"summon":summon, "player":player})
 
 func on_mouse_entered_target(attacker, attacked):
-    InfoGlobals.add_info_node(info_container, AttackInfo, {"attacker":attacker, "attacked":attacked})
+    info_container.add_info_node(AttackInfo, {"attacker":attacker, "attacked":attacked})
 
 func on_mouse_exited_dice():
     clear_infobox()

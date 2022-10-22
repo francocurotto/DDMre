@@ -1,5 +1,4 @@
-tool
-extends VBoxContainer
+extends "res://interface/player_gui/infobox/info_container.gd"
 
 # onready variables
 onready var NameInfo = load("res://interface/player_gui/infobox/dice_info/name_info/name_info.tscn")
@@ -13,11 +12,11 @@ func set_info(kwargs):
         set_monster_card(dice.card)
     elif dice.card.is_item():
         set_item_card(dice.card)
-    InfoGlobals.add_info_node(self, SidesInfo, {"sides":dice.sides})
+    add_info_node(SidesInfo, {"sides":dice.sides})
 
 func set_monster_card(card):
-    InfoGlobals.add_info_node(self, NameInfo, {"card":card, "hidename":false})
-    InfoGlobals.add_info_node(self, MonsterCardInfo, {"card":card})
+    add_info_node(NameInfo, {"card":card, "hidename":false})
+    add_info_node(MonsterCardInfo, {"card":card})
 
 func set_item_card(card):
-    InfoGlobals.add_info_node(self, NameInfo, {"card":card, "hidename":false})
+    add_info_node(NameInfo, {"card":card, "hidename":false})

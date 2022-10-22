@@ -21,6 +21,8 @@ func _ready():
     dicepool.connect("mouse_entered_dice", infobox, "on_mouse_entered_dice")
     dicepool.connect("mouse_exited_dice", infobox, "on_mouse_exited_dice")
     dicepool.connect("skip_input", self, "on_skip_input")
+    dicepool.connect("dimdice_selected", idungeon, "on_dimdice_selected")
+    dicepool.connect("dimdice_unselected", idungeon, "on_dimdice_unselected")
     rollgui.connect("roll_input", self, "on_roll_input")
     rollgui.connect("endturn_input", self, "on_endturn_input")
     idungeon.connect("mouse_entered_summon", infobox, "on_mouse_entered_summon")
@@ -66,14 +68,14 @@ func on_state_update_roll():
     dicepool.enable_dim_all()
     rollgui.hide_player_roll()
     rollgui.disable_endturn()
-    idungeon.disable_itilebuttons()
+    idungeon.disable_tile_buttons()
 
 func on_state_update_dimension():
     dicepool.disable_roll_all()
     dicepool.enable_dim_candidates(engine.state.dim_candidates)
     rollgui.disable_roll()
     rollgui.disable_endturn()
-    idungeon.disable_itilebuttons()
+    idungeon.disable_tile_buttons()
 
 func on_state_update_dungeon():
     dicepool.disable_roll_all()
@@ -103,7 +105,7 @@ func on_dungeon_menu_closed():
     rollgui.enable_endturn()
 
 func on_roll_input():
-    var indeces = dicepool.get_indeces()
+    var indeces = dicepool.get_roll_indeces()
     engine.update({"name" : "ROLL", "dice" : indeces})
 
 func on_skip_input():
