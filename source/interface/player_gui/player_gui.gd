@@ -4,6 +4,7 @@ extends PanelContainer
 var engine
 var player
 var opponent
+var dimdice
 
 # onready variables
 onready var dicepool = $"%Dicepool"
@@ -28,6 +29,7 @@ func _ready():
     idungeon.connect("mouse_entered_summon", infobox, "on_mouse_entered_summon")
     idungeon.connect("mouse_exited_tile", infobox, "on_mouse_exited_tile")
     idungeon.connect("mouse_entered_target", infobox, "on_mouse_entered_target")
+    idungeon.connect("dim_input", self, "on_dim_input")
     idungeon.connect("move_input", self, "on_move_input")
     idungeon.connect("attack_input", self, "on_attack_input")
     idungeon.connect("guard_input", self, "on_guard_input")
@@ -106,27 +108,30 @@ func on_dungeon_menu_closed():
 
 func on_roll_input():
     var indeces = dicepool.get_roll_indeces()
-    engine.update({"name" : "ROLL", "dice" : indeces})
+    engine.update({"name":"ROLL", "dice":indeces})
 
 func on_skip_input():
-    engine.update({"name" : "SKIP"})
+    engine.update({"name":"SKIP"})
 
 func on_endturn_input():
-    engine.update({"name" : "ENDTURN"})
+    engine.update({"name":"ENDTURN"})
+
+func on_dim_input(dimdice, net, pos, trans):
+    engine.update({"name":"DIM", "dice":dimdice, "net":net, "pos":pos, "trans":trans})
 
 func on_move_input(pos1, pos2):
     rollgui.enable_endturn()
-    engine.update({"name" : "MOVE", "origin" : pos1, "dest" : pos2})
+    engine.update({"name":"MOVE", "origin":pos1, "dest":pos2})
 
 func on_attack_input(pos1, pos2):
     rollgui.enable_endturn()
-    engine.update({"name" : "ATTACK", "origin" : pos1, "dest" : pos2})
+    engine.update({"name":"ATTACK", "origin":pos1, "dest":pos2})
 
 func on_guard_input():
-    engine.update({"name" : "GUARD"})
+    engine.update({"name":"GUARD"})
 
 func on_wait_input():
-    engine.update({"name" : "WAIT"})
+    engine.update({"name":"WAIT"})
 
 func _input(event):
     if engine.state.NAME == "DIMENSION" and player == engine.state.player:

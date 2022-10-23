@@ -20,6 +20,7 @@ var tile
 # signals
 signal mouse_entered_summon(summon)
 signal mouse_exited_tile
+signal dim_button_pressed(tile)
 signal monster_pressed(tile)
 signal reachable_path_pressed(tile)
 signal attack_button_pressed(tile)
@@ -100,7 +101,7 @@ func set_player_dungobj(_player_dungobj):
 
 # signals callback
 func _on_DimButton_pressed():
-    print("dim button pressed")
+    emit_signal("dim_button_pressed", tile)
 
 func _on_TileButton_mouse_entered():
     if tile.content.is_summon():

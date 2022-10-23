@@ -7,6 +7,7 @@ const ReplyMenu = preload("res://interface/player_gui/idungeon/reply_menu/reply_
 # variables
 var dungeon
 var player
+var dimdice
 var dungeon_menu
 var reply_menu
 
@@ -17,6 +18,7 @@ onready var cols = $Cols
 signal mouse_entered_summon(summon)
 signal mouse_exited_tile
 signal mouse_entered_target(attacker, attacked)
+signal dim_input(net, pos, trans)
 signal move_input(pos1, pos2)
 signal attack_input(pos1, pos2)
 signal guard_input
@@ -29,6 +31,7 @@ func _ready():
         for itile in row.get_children():
             itile.connect("mouse_entered_summon", self, "on_mouse_entered_summon")
             itile.connect("mouse_exited_tile", self, "on_mouse_exited_tile")
+            itile.connect("dim_button_pressed", self, "on_dim_button_pressed")
             itile.connect("monster_pressed", self, "on_monster_pressed")
             itile.connect("reachable_path_pressed", self, "on_reachable_path_pressed")
             itile.connect("attack_button_pressed", self, "on_attack_button_pressed")
@@ -94,10 +97,14 @@ func on_mouse_exited_tile():
     emit_signal("mouse_exited_tile")
 
 func on_dimdice_selected(idx):
+    dimdice = idx
     set_dim_buttons()
 
 func on_dimdice_unselected():
     unset_all_itile_mods()
+
+func on_dim_button_pressed(tile):
+    emit_signal("dim_input", dimdice, tile.pos, "X1", [])
 
 func on_monster_pressed(tile):
     if tile.content in player.monsters:
