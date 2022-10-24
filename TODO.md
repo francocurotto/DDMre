@@ -1,5 +1,6 @@
 ### TODO
 - DIMENSION state
+    - add dimension highlight help
     - add net transformations
 
 ### FIX
