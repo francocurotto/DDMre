@@ -4,7 +4,6 @@ extends MarginContainer
 var idx
 var roll_selected setget , get_roll_selected
 var dim_selected setget , get_dim_selected
-var dimensioned = false
 
 # onready variables
 onready var index_value = $HBoxContainer/Index
@@ -60,10 +59,6 @@ func disable_roll_unselected():
     if not self.roll_selected:
         roll_button.disabled = true
 
-func enable_roll_undimensioned():
-    if not dimensioned:
-        roll_button.disabled = false
-
 func enable_dim():
     dim_button.disabled = false
 
@@ -77,11 +72,6 @@ func switch_to_dim_button():
 func switch_to_roll_button():
     roll_button.visible = true
     dim_button.visible = false
-
-# public functions
-func mark_dimensioned():
-    dimensioned = true
-    disable_dim()
 
 # signals callbacks
 func _on_RollButton_mouse_entered():

@@ -41,7 +41,7 @@ func set_duel(_engine, _player, _opponent):
     engine = _engine
     player = _player
     opponent = _opponent
-    dicepool.set_dicepool(player.dicepool)
+    dicepool.set_dicepool(player.dicepool, player.dimdice)
     playerinfo.set_playerinfo(player, "Player")
     opponentinfo.set_playerinfo(opponent, "Opponent")
     idungeon.set_dungeon(engine.dungeon, player)
@@ -66,7 +66,7 @@ func on_state_update_roll():
     dicepool.enable_roll_all()
     dicepool.release_roll_all()
     dicepool.switch_to_roll_button_undimensioned()
-    dicepool.enable_dim_all()
+    dicepool.enable_dim_undimensioned()
     rollgui.hide_player_roll()
     rollgui.disable_endturn()
     idungeon.disable_tile_buttons()

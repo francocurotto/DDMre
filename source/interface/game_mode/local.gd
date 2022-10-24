@@ -81,7 +81,7 @@ func on_dice_rolled(sides):
     self.opponent_gui.set_opponent_roll(sides)
 
 func on_dice_dimensioned(diceidx):
-    self.player_gui.dicepool.mark_dimensioned(diceidx)
+    self.player_gui.dicepool.get_idice(diceidx).disable_dim()
 
 func on_player_lost(_player):
     get_tree().quit()

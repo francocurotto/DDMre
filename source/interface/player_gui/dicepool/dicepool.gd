@@ -5,6 +5,9 @@ const SkipMenu = preload("res://interface/player_gui/dicepool/skip_menu/skip_men
 
 # variables
 var dicepool
+var dimdice
+var idice_list setget , get_idice_list
+var idx_list setget , get_idx_list
 var skip_menu
 
 # onready variables
@@ -19,7 +22,7 @@ signal dimdice_selected(idx)
 signal dimdice_unselected
 
 func _ready():
-    for idice in poolcont.get_children():
+    for idice in self.idice_list:
         idice.get_node("RollButton").connect("pressed", self, "on_roll_button_pressed")
         idice.connect("dim_button_pressed", self, "on_dim_button_pressed")
         idice.connect("dim_button_released", self, "on_dim_button_released")
@@ -27,60 +30,67 @@ func _ready():
         idice.connect("mouse_exited_diceitem", self, "on_mouse_exited_diceitem")
 
 # setget functions
-func set_dicepool(_dicepool):
+func set_dicepool(_dicepool, _dimdice):
     dicepool = _dicepool
+    dimdice = _dimdice
     set_diceitems()
 
 func set_diceitems():
     for i in range(dicepool.size()):
-        var idice = poolcont.get_child(i)
+        var idice = get_idice(i)
         idice.set_dice(dicepool[i])
         idice.set_index(i)
 
+func get_idice_list():
+    return poolcont.get_children()
+
+func get_idx_list():
+    return range(poolcont.get_child_count())
+
+func get_idice(idx):
+    return poolcont.get_child(idx)
+
 func get_roll_indeces():
     var indeces = []
-    for i in range(poolcont.get_child_count()):
-        if poolcont.get_child(i).roll_selected:
+    for i in self.idx_list:
+        if get_idice(i).roll_selected:
             indeces.append(i)
     return indeces
 
 func enable_roll_all():
-    for idice in poolcont.get_children():
+    for idice in self.idice_list:
         idice.enable_roll()
 
 func disable_roll_all():
-    for idice in poolcont.get_children():
+    for idice in self.idice_list:
         idice.disable_roll()
 
 func release_roll_all():
-    for idice in poolcont.get_children():
+    for idice in self.idice_list:
         idice.release_roll()
 
-func enable_dim_all():
-    for idice in poolcont.get_children():
-        idice.enable_dim()
+func enable_dim_undimensioned():
+    for idice in self.idice_list:
+        if not is_dimensioned(idice.idx):
+            idice.enable_dim()
 
 func disable_dim_all():
-    for idice in poolcont.get_children():
+    for idice in self.idice_list:
         idice.disable_dim()
 
 func enable_dim_candidates(dim_candidates):
     for i in dim_candidates:
-        var idice = poolcont.get_child(i)
+        var idice = get_idice(i)
         idice.switch_to_dim_button()
 
 func switch_to_roll_button_undimensioned():
-    for idice in poolcont.get_children():
-        if not idice.dimensioned:
+    for idice in self.idice_list:
+        if not is_dimensioned(idice.idx):
             idice.switch_to_roll_button()
 
 # public functions
 func roll_ready():
     return get_nroll_selected() >= 3
-
-func mark_dimensioned(diceidx):
-    print(diceidx)
-    poolcont.get_child(diceidx).mark_dimensioned()
 
 # signals callback
 func on_roll_button_pressed():
@@ -88,17 +98,16 @@ func on_roll_button_pressed():
     if get_nroll_selected() >= 3:
         disable_roll_unselected()
     else:
-        enable_roll_undimensioned()
+        enable_roll_all()
 
 func on_dim_button_pressed(idx):
-    for i in range(poolcont.get_child_count()):
+    for i in self.idx_list:
         if i != idx:
-            poolcont.get_child(i).disable_dim()
+            get_idice(i).disable_dim()
     emit_signal("dimdice_selected", idx)
 
 func on_dim_button_released():
-    for idice in poolcont.get_children():
-        idice.enable_dim()
+    enable_dim_undimensioned()
     emit_signal("dimdice_unselected")
 
 func on_mouse_entered_diceitem(idice):
@@ -114,22 +123,21 @@ func on_skipmenu_skip_pressed():
 
 func on_skipmenu_cancel_pressed():
     skip_menu.queue_free()
-    enable_dim_all()
+    enable_dim_undimensioned()
 
 # private functions
 func get_nroll_selected():
     var n = 0
-    for idice in poolcont.get_children():
+    for idice in self.idice_list:
         n += int(idice.roll_selected)
     return n
 
 func disable_roll_unselected():
-    for idice in poolcont.get_children():
+    for idice in self.idice_list:
         idice.disable_roll_unselected()
 
-func enable_roll_undimensioned():
-    for idice in poolcont.get_children():
-        idice.enable_roll_undimensioned()
+func is_dimensioned(diceidx):
+    return diceidx in dimdice
 
 func create_skip_menu():
     disable_dim_all()
