@@ -69,13 +69,18 @@ func enable_dim_candidates(dim_candidates):
         var idice = poolcont.get_child(i)
         idice.switch_to_dim_button()
 
-func switch_to_roll_button_all():
+func switch_to_roll_button_undimensioned():
     for idice in poolcont.get_children():
-        idice.switch_to_roll_button()
+        if not idice.dimensioned:
+            idice.switch_to_roll_button()
 
 # public functions
 func roll_ready():
     return get_nroll_selected() >= 3
+
+func mark_dimensioned(diceidx):
+    print(diceidx)
+    poolcont.get_child(diceidx).mark_dimensioned()
 
 # signals callback
 func on_roll_button_pressed():
@@ -83,7 +88,7 @@ func on_roll_button_pressed():
     if get_nroll_selected() >= 3:
         disable_roll_unselected()
     else:
-        enable_roll_unused()
+        enable_roll_undimensioned()
 
 func on_dim_button_pressed(idx):
     for i in range(poolcont.get_child_count()):
@@ -106,11 +111,11 @@ func on_mouse_exited_diceitem():
 func on_skipmenu_skip_pressed():
     skip_menu.queue_free()
     emit_signal("skip_input")
-    
+
 func on_skipmenu_cancel_pressed():
     skip_menu.queue_free()
     enable_dim_all()
-    
+
 # private functions
 func get_nroll_selected():
     var n = 0
@@ -122,13 +127,13 @@ func disable_roll_unselected():
     for idice in poolcont.get_children():
         idice.disable_roll_unselected()
 
-func enable_roll_unused():
+func enable_roll_undimensioned():
     for idice in poolcont.get_children():
-        idice.enable_roll_unused()
+        idice.enable_roll_undimensioned()
 
 func create_skip_menu():
     disable_dim_all()
     skip_menu = SkipMenu.instance()
     add_child(skip_menu)
     skip_menu.connect("skipmenu_skip_pressed", self, "on_skipmenu_skip_pressed")
-    skip_menu.connect("skipmenu_cancel_pressed", self, "on_skipmenu_cancel_pressed")  
+    skip_menu.connect("skipmenu_cancel_pressed", self, "on_skipmenu_cancel_pressed")

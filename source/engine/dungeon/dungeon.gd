@@ -6,7 +6,7 @@ const BlockTile = preload("res://engine/dungeon/tiles/block_tile.gd")
 
 # constants
 const HEIGHT = 19
-const WIDTH = 13 
+const WIDTH = 13
 
 # variables
 var array = []
@@ -53,10 +53,10 @@ func get_moveposs(player, initpos):
     var poslist = [initpos]
     var movequeue = []
     var movecrests = player.crestpool.slots["MOVEMENT"]
-    
+
     # init queue, use dictionary to mix positions and move counter
     movequeue.append({pos=initpos,count=0})
-    
+
     # iterations
     while not movequeue.empty():
         # get move item information
@@ -89,10 +89,10 @@ func get_attackposs(player, pos):
     # check for available attack crests
     if player.crestpool.slots["ATTACK"] <= 0:
         return []
-    # check of monster in cooldown 
+    # check of monster in cooldown
     if get_tile(pos).content.cooldown:
         return []
-   # get target pos and check if are opponent targets 
+   # get target pos and check if are opponent targets
     var targetposs = get_neighbours_poss(pos)
     var attackposs = []
     for targetpos in targetposs:
@@ -107,7 +107,7 @@ func get_movepath(pos1, pos2):
     # init data
     var pathqueue = [[pos1]]
     var visited = []
-    
+
     # iterations
     while not pathqueue.empty():
         # get curent path
@@ -124,7 +124,7 @@ func get_movepath(pos1, pos2):
             for reachpos in reachposs:
                 if not visited.has(reachpos):
                     pathqueue.append(path+[reachpos])
-     # case not path found   
+     # case not path found
     return []
 
 # public functions
@@ -149,7 +149,6 @@ func dimension(player, net, diceidx):
         place_path_tile(player, pos)
     var summon = player.summon_card(diceidx)
     place_dungobj(net.centerpos, summon)
-    print("done")
 
 # signals callback
 func on_monster_death(monster):
@@ -158,7 +157,7 @@ func on_monster_death(monster):
     """
     var pos = get_dungobj_pos(monster)
     get_tile(pos).empty_tile()
-    
+
 # private functions
 func create_tile(engine, chr, i, j):
     """

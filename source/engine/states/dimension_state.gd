@@ -25,18 +25,16 @@ func DIM(cmd):
     var netname = cmd["net"]
     var pos = cmd["pos"]
     var trans_list = cmd["trans"]
-    
+
     # create and transorm net
     var net = Globals.create_net(netname)
     net.offset(pos)
     net.apply_trans_list(trans_list)
 
     # verify for valid dimension
-    print(net_inbound(net))
-    print(net_not_overlaps(net))
-    print(net_connects(net))
     if can_dimension(net): # do dimension
         dungeon.dimension(player, net, diceidx)
+        Events.emit_signal("dice_dimensioned", diceidx)
         emit_signal("duel_update", cmd["name"])
         return DungeonState.new(player, opponent, dungeon)
     else: # invalid dimansion, so nothing

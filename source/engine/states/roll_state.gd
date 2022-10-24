@@ -7,8 +7,6 @@ const NAME = "ROLL"
 var DungeonState = load("engine/states/dungeon_state.gd")
 var DimensionState = load("engine/states/dimension_state.gd")
 
-# signals
-signal dice_rolled(sides)
 
 func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     # reset player monster cooldown
@@ -36,7 +34,7 @@ func roll_dice(indeces):
     var sides = []
     for i in indeces:
         sides.append(player.dicepool[i].roll())
-    emit_signal("dice_rolled", sides)
+    Events.emit_signal("dice_rolled", sides)
     return sides
 
 func get_dim_candidates(indeces, sides):
@@ -49,6 +47,6 @@ func get_dim_candidates(indeces, sides):
         for i in range(sides.size()):
             if sides[i].crest.is_summon() and sides[i].mult==level:
                 dim_candidates.append(indeces[i])
-        if dim_candidates.size()>=2: 
+        if dim_candidates.size()>=2:
             return dim_candidates
     return []

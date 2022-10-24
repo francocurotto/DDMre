@@ -6,7 +6,6 @@ var opponent
 var dungeon
 
 # signals
-#warning-ignore:unused_signal
 signal duel_update(cmdname)
 
 func _init(_player, _opponent, _dungeon):

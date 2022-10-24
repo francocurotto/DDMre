@@ -21,6 +21,8 @@ func _ready():
     engine.connect("duel_update", self, "on_duel_update")
     engine.connect("next_turn", self, "on_next_turn")
     engine.connect("player_lost", self, "on_player_lost")
+    Events.connect("dice_rolled", self, "on_dice_rolled")
+    Events.connect("dice_dimensioned", self, "on_dice_dimensioned")
     # run first state update
     on_state_update(engine.state.NAME)
     on_next_turn(1)
@@ -28,7 +30,7 @@ func _ready():
 # setget functions
 func set_guis():
     p1gui.set_duel(engine, engine.player1, engine.player2)
-    p2gui.set_duel(engine, engine.player2, engine.player1) 
+    p2gui.set_duel(engine, engine.player2, engine.player1)
 
 func get_player_gui():
     return get_children()[engine.state.player.id-1]
@@ -50,24 +52,7 @@ func on_state_update(state_name):
         "DUNGEON"   : on_state_update_dungeon()
         "REPLY"     : on_state_update_reply()
 
-func on_duel_update(_cmdname):
-    p1gui.update_gui()
-    p2gui.update_gui()
-
-func on_next_turn(turn):
-    set_player_gui()
-    p1gui.on_next_turn(turn)
-    p2gui.on_next_turn(turn)
-
-func on_dice_rolled(sides):
-    self.player_gui.set_player_roll(sides)
-    self.opponent_gui.set_opponent_roll(sides)
-
-func on_player_lost(_player):
-    get_tree().quit()
-
 func on_state_update_roll():
-    engine.state.connect("dice_rolled", self, "on_dice_rolled")
     self.player_gui.on_state_update_roll()
 
 func on_state_update_dimension():
@@ -81,3 +66,22 @@ func on_state_update_dungeon():
 func on_state_update_reply():
     set_player_gui()
     self.player_gui.on_state_update_reply()
+
+func on_duel_update(_cmdname):
+    p1gui.update_gui()
+    p2gui.update_gui()
+
+func on_next_turn(turn):
+    set_player_gui()
+    p1gui.on_next_turn(turn)
+    p2gui.on_next_turn(turn)
+
+func on_dice_rolled(sides):
+    self.player_gui.set_player_roll(sides)
+    self.opponent_gui.set_opponent_roll(sides)
+
+func on_dice_dimensioned(diceidx):
+    self.player_gui.dicepool.mark_dimensioned(diceidx)
+
+func on_player_lost(_player):
+    get_tree().quit()
