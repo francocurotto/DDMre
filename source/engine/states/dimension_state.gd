@@ -34,7 +34,6 @@ func DIM(cmd):
     # verify for valid dimension
     if can_dimension(net): # do dimension
         dungeon.dimension(player, net, diceidx)
-        Events.emit_signal("dice_dimensioned", diceidx)
         emit_signal("duel_update", cmd["name"])
         return DungeonState.new(player, opponent, dungeon)
     else: # invalid dimansion, so nothing

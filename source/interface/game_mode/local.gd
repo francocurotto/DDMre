@@ -22,7 +22,7 @@ func _ready():
     engine.connect("next_turn", self, "on_next_turn")
     engine.connect("player_lost", self, "on_player_lost")
     Events.connect("dice_rolled", self, "on_dice_rolled")
-    Events.connect("dice_dimensioned", self, "on_dice_dimensioned")
+    Events.connect("card_summoned", self, "on_card_summoned")
     # run first state update
     on_state_update(engine.state.NAME)
     on_next_turn(1)
@@ -80,8 +80,8 @@ func on_dice_rolled(sides):
     self.player_gui.set_player_roll(sides)
     self.opponent_gui.set_opponent_roll(sides)
 
-func on_dice_dimensioned(diceidx):
-    self.player_gui.dicepool.get_idice(diceidx).disable_dim()
+func on_card_summoned(diceidx):
+    self.player_gui.dicepool.on_card_summoned(diceidx)
 
 func on_player_lost(_player):
     get_tree().quit()

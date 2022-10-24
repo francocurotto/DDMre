@@ -50,6 +50,7 @@ func summon_card(idx):
     Summon card in position idx from the dicepool.
     """
     dimdice.append(idx) # add dice to dimensioned dice
+    Events.emit_signal("card_summoned", idx)
     return dicepool[idx].card.summon(self)
 
 # signals callback

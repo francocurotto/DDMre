@@ -3,7 +3,6 @@
     - add net transformations
 
 ### FIX
-    - fix disable idice from dungeon configfile
     - fix player2 net upside down
 
 ### IMPROVEMENTS

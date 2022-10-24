@@ -34,6 +34,7 @@ func set_dicepool(_dicepool, _dimdice):
     dicepool = _dicepool
     dimdice = _dimdice
     set_diceitems()
+    disable_dim_all_dimensioned()
 
 func set_diceitems():
     for i in range(dicepool.size()):
@@ -71,7 +72,7 @@ func release_roll_all():
 
 func enable_dim_undimensioned():
     for idice in self.idice_list:
-        if not is_dimensioned(idice.idx):
+        if not is_dimensioned(idice):
             idice.enable_dim()
 
 func disable_dim_all():
@@ -85,8 +86,14 @@ func enable_dim_candidates(dim_candidates):
 
 func switch_to_roll_button_undimensioned():
     for idice in self.idice_list:
-        if not is_dimensioned(idice.idx):
+        if not is_dimensioned(idice):
             idice.switch_to_roll_button()
+
+func disable_dim_all_dimensioned():
+    for idice in self.idice_list:
+        if is_dimensioned(idice):
+            idice.switch_to_dim_button()
+            idice.disable_dim()
 
 # public functions
 func roll_ready():
@@ -125,6 +132,9 @@ func on_skipmenu_cancel_pressed():
     skip_menu.queue_free()
     enable_dim_undimensioned()
 
+func on_card_summoned(diceidx):
+    get_idice(diceidx).disable_dim()
+
 # private functions
 func get_nroll_selected():
     var n = 0
@@ -136,8 +146,8 @@ func disable_roll_unselected():
     for idice in self.idice_list:
         idice.disable_roll_unselected()
 
-func is_dimensioned(diceidx):
-    return diceidx in dimdice
+func is_dimensioned(dice):
+    return dice.idx in dimdice
 
 func create_skip_menu():
     disable_dim_all()
