@@ -104,7 +104,7 @@ func on_dimdice_unselected():
     unset_all_itile_mods()
 
 func on_dim_button_pressed(tile):
-    emit_signal("dim_input", dimdice, tile.pos, "X1", [])
+    emit_signal("dim_input", dimdice, "X1", tile.pos, [])
 
 func on_monster_pressed(tile):
     if tile.content in player.monsters:

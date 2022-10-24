@@ -25,7 +25,7 @@ func read_jsonfile(filepath):
 
 # conversion functions
 func str2pos(string):
-    return [int(string.substr(1))-1, ord(string[0])-97]
+    return Vector2(ord(string[0])-97, int(string.substr(1))-1)
 
 func to_engineidx(engineidx):
     """

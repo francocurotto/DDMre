@@ -32,14 +32,49 @@ func DIM(cmd):
     net.apply_trans_list(trans_list)
 
     # verify for valid dimension
-    if dungeon.can_dimension(player, net):
-        var dice = player.dicepool[diceidx]
-        dungeon.dimension(player, net, dice)
-    else:
+    print(net_inbound(net))
+    print(net_not_overlaps(net))
+    print(net_connects(net))
+    if can_dimension(net): # do dimension
+        dungeon.dimension(player, net, diceidx)
+        emit_signal("duel_update", cmd["name"])
+        return DungeonState.new(player, opponent, dungeon)
+    else: # invalid dimansion, so nothing
         return self
-    
-    return DungeonState.new(player, opponent, dungeon)
 
 # private functions
-func create_net(_netname):
-    return null
+func can_dimension(net):
+    """
+    Check if it is possible to dimension net. Return true if dimension
+    is possible.
+    """
+    return net_inbound(net) and net_not_overlaps(net) and net_connects(net)
+
+func net_inbound(net):
+    """
+    Return true if net is inbound of dungeon.
+    """
+    for pos in net.poslist:
+        if not dungeon.pos_within_dungeon(pos):
+            return false
+    return true
+
+func net_not_overlaps(net):
+    """
+    Return true if net does not overlaps current path in dungeon.
+    """
+    for pos in net.poslist:
+        if not dungeon.get_tile(pos).is_empty():
+            return false
+    return true
+
+func net_connects(net):
+    """
+    Return true if net connects player path.
+    """
+    for pos in net.poslist:
+        for neig in dungeon.get_neighbours_poss(pos):
+            var tile = dungeon.get_tile(neig)
+            if tile.is_path() and tile.player == player:
+                return true
+    return false

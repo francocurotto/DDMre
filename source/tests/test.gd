@@ -5,3 +5,4 @@ func _ready():
     print(net.poslist)
     net.offset(Vector2(100,-100))
     print(net.poslist)
+    print(net.centerpos)

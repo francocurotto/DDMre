@@ -35,12 +35,6 @@ func get_tile(pos):
     """
     return array[pos.y][pos.x]
 
-func place_dungobj(pos, dungobj):
-    """
-    Place a dungobj in the dungeon at specified position.
-    """
-    array[pos[0]][pos[1]].content = dungobj
-
 func get_dungobj_pos(dungobj):
     """
     Finds the position of a dungobj in the dungeon.
@@ -132,6 +126,30 @@ func get_movepath(pos1, pos2):
                     pathqueue.append(path+[reachpos])
      # case not path found   
     return []
+
+# public functions
+func place_path_tile(player, pos):
+    """
+    Place path tile for player at postion pos.
+    """
+    array[pos.y][pos.x] = player.create_tile(pos.y, pos.x)
+
+func place_dungobj(pos, dungobj):
+    """
+    Place a dungobj in the dungeon at position pos.
+    """
+    array[pos.y][pos.x].content = dungobj
+
+func dimension(player, net, diceidx):
+    """
+    Dimension net for player and summon card on center of net.
+    """
+    # add the net
+    for pos in net.poslist:
+        place_path_tile(player, pos)
+    var summon = player.summon_card(diceidx)
+    place_dungobj(net.centerpos, summon)
+    print("done")
 
 # signals callback
 func on_monster_death(monster):

@@ -4,7 +4,6 @@ extends PanelContainer
 var engine
 var player
 var opponent
-var dimdice
 
 # onready variables
 onready var dicepool = $"%Dicepool"
@@ -83,7 +82,7 @@ func on_state_update_dungeon():
     dicepool.disable_roll_all()
     rollgui.disable_roll()
     rollgui.enable_endturn()
-    idungeon.enable_itilebuttons()
+    idungeon.enable_tile_buttons()
 
 func on_state_update_reply():
     dicepool.disable_roll_all()
