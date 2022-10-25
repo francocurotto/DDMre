@@ -3,7 +3,7 @@ extends Node
 # variables
 var active
 var pos
-var rotidx = 0
+var rotidx
 var rotations = [[], ["TCW"], ["TCW", "TCW"], ["TAW"]]
 var nridx = 0
 var nets_reflects = [["X1", []],
@@ -30,18 +30,26 @@ var nets_reflects = [["X1", []],
 # signals
 signal net_updated(pos)
 
+func _init(playerid):
+    var rotdict = {1:0, 2:2}
+    rotidx = rotdict[playerid]
+
 # public functions
 func create_net(_pos):
     active = true
     pos = _pos
+    var netdata = get_netdata()
+    var net = Globals.create_net(netdata["netname"])
+    net.offset(pos)
+    net.apply_trans_list(netdata["trans_list"])
+    return net
+
+func get_netdata():
     var net_reflect = nets_reflects[nridx]
     var netname = net_reflect[0]
     var reflect = net_reflect[1]
     var rotation = rotations[rotidx]
-    var net = Globals.create_net(netname)
-    net.offset(pos)
-    net.apply_trans_list(reflect+rotation)
-    return net
+    return {"netname":netname, "trans_list":reflect+rotation}
 
 # signals callbacks
 func _input(event):

@@ -1,15 +1,13 @@
 ### TODO
 - DIMENSION state
-    - add dimension highlight help
-    - add net transformations
 
 ### FIX
-    - fix cannot dimension_cancel_menu appeared when turning net
+    - fix player2 net rotating and iterating nets differently
     - fix dimension highlights after dimension bug
-    - fix player2 net upside down
 
 ### IMPROVEMENTS
 - pass engine singals to Events signals?
+- add keyboard support for dimensions
 
 ### REFACTOR
 

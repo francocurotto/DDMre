@@ -110,7 +110,7 @@ func on_monster_pressed(tile):
 
 func on_dimdice_selected(idx):
     dimdice = idx
-    net_creator = NetCreator.new()
+    net_creator = NetCreator.new(player.id)
     net_creator.connect("net_updated", self, "on_net_updated")
     add_child(net_creator)
     set_dim_buttons()
@@ -133,7 +133,10 @@ func on_net_updated(pos):
     on_mouse_entered_dim(pos)
 
 func on_dim_button_pressed(tile):
-    emit_signal("dim_input", dimdice, "X1", tile.pos, [])
+    var netdata = net_creator.get_netdata()
+    var netname = netdata["netname"]
+    var trans_list = netdata["trans_list"]
+    emit_signal("dim_input", dimdice, netname, tile.pos, trans_list)
 
 func on_reachable_path_pressed(tile):
     var pos1 = dungeon_menu.tile.pos

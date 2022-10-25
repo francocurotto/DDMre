@@ -131,8 +131,3 @@ func on_guard_input():
 
 func on_wait_input():
     engine.update({"name":"WAIT"})
-
-func _input(event):
-    if engine.state.NAME == "DIMENSION" and player == engine.state.player:
-        if event.is_action_released("ui_cancel"):
-            dicepool.create_skip_menu()

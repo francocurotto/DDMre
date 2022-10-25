@@ -134,6 +134,11 @@ func on_skipmenu_cancel_pressed():
 
 func on_card_summoned(diceidx):
     get_idice(diceidx).disable_dim()
+    
+func _input(event):
+    if in_dimension_selection():
+        if event.is_action_released("ui_cancel"):
+            create_skip_menu()
 
 # private functions
 func get_nroll_selected():
@@ -148,6 +153,14 @@ func disable_roll_unselected():
 
 func is_dimensioned(dice):
     return dice.idx in dimdice
+
+func in_dimension_selection():
+    for idice in self.idice_list:
+        if idice.dim_button.visible and \
+            not idice.dim_button.pressed and \
+            not idice.dim_button.disabled:
+            return true
+    return false
 
 func create_skip_menu():
     disable_dim_all()
