@@ -4,6 +4,8 @@
     - add net transformations
 
 ### FIX
+    - fix cannot dimension_cancel_menu appeared when turning net
+    - fix dimension highlights after dimension bug
     - fix player2 net upside down
 
 ### IMPROVEMENTS

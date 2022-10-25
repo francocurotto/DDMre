@@ -3,6 +3,8 @@ extends Node
 # variables
 var active
 var pos
+var rotidx = 0
+var rotations = [[], ["TCW"], ["TCW", "TCW"], ["TAW"]]
 var nridx = 0
 var nets_reflects = [["X1", []],
                      ["T1", []],
@@ -35,9 +37,10 @@ func create_net(_pos):
     var net_reflect = nets_reflects[nridx]
     var netname = net_reflect[0]
     var reflect = net_reflect[1]
+    var rotation = rotations[rotidx]
     var net = Globals.create_net(netname)
     net.offset(pos)
-    net.apply_trans_list(reflect)
+    net.apply_trans_list(reflect+rotation)
     return net
 
 # signals callbacks
@@ -45,7 +48,12 @@ func _input(event):
     if active:
         if event is InputEventMouseButton and event.pressed:
             if event.button_index == BUTTON_WHEEL_UP:
-                nridx = (nridx+1)%len(nets_reflects)
+                nridx = (nridx+1) % len(nets_reflects)
             elif event.button_index == BUTTON_WHEEL_DOWN:
-                nridx =  (nridx-1)%len(nets_reflects)
+                nridx =  (nridx-1) % len(nets_reflects)
+            elif event.button_index == BUTTON_RIGHT:
+                rotidx = (rotidx+1) % len(rotations)
+            elif event.button_index == BUTTON_MIDDLE:
+                rotidx = (rotidx-1) % len(rotations)
             emit_signal("net_updated", pos)
+

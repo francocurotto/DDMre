@@ -37,15 +37,21 @@ func apply_trans(trans):
         "FLR" : apply_flip_left_right()
 
 func apply_turn_clock_wise():
-    pass
+    for i in self.idxlist:
+        var pos = poslist[i]
+        poslist[i].x = self.centerpos.x+(pos.y-self.centerpos.y) # mathemagics
+        poslist[i].y = self.centerpos.y-(pos.x-self.centerpos.x) # mathemagics
 
 func apply_turn_anticlock_wise():
-    pass
+    for i in self.idxlist:
+        var pos = poslist[i]
+        poslist[i].x = self.centerpos.x-(pos.y-self.centerpos.y) # mathemagics
+        poslist[i].y = self.centerpos.y+(pos.x-self.centerpos.x) # mathemagics
 
 func apply_flip_up_down():
-    pass
+    for i in self.idxlist:
+        poslist[i].y = 2*self.centerpos.y-poslist[i].y # mathemagics
 
 func apply_flip_left_right():
     for i in self.idxlist:
-        print(poslist[i].x)
-        poslist[i].x -= poslist[i].x - centerpos.x 
+        poslist[i].x = 2*self.centerpos.x-poslist[i].x
