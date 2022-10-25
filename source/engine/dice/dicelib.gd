@@ -32,7 +32,7 @@ func create_randpool():
 # private functions
 func create_dice(id):
     """
-    Create dice object from dictionary and return it. 
+    Create dice object from dictionary and return it.
     """
     return Dice.new(id, dict[str(id)])
 

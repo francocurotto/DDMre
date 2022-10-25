@@ -1,5 +1,4 @@
 ### TODO
-- remember previously rolled dice if no dimension
 
 ### FIX
 
@@ -14,4 +13,4 @@
 - add type colors for dice
 
 ### TEST
-- attack mechanics
+- test gameplay

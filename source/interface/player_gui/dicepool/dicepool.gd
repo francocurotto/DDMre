@@ -70,6 +70,10 @@ func release_roll_all():
     for idice in self.idice_list:
         idice.release_roll()
 
+func disable_roll_unselected():
+    for idice in self.idice_list:
+        idice.disable_roll_unselected()
+
 func enable_dim_undimensioned():
     for idice in self.idice_list:
         if not is_dimensioned(idice):
@@ -134,7 +138,8 @@ func on_skipmenu_cancel_pressed():
 
 func on_card_summoned(diceidx):
     get_idice(diceidx).disable_dim()
-    
+    release_roll_all()
+
 func _input(event):
     if in_dimension_selection():
         if event.is_action_released("ui_cancel"):
@@ -146,10 +151,6 @@ func get_nroll_selected():
     for idice in self.idice_list:
         n += int(idice.roll_selected)
     return n
-
-func disable_roll_unselected():
-    for idice in self.idice_list:
-        idice.disable_roll_unselected()
 
 func is_dimensioned(dice):
     return dice.idx in dimdice

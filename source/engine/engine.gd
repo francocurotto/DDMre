@@ -20,11 +20,13 @@ signal next_turn
 signal duel_update
 signal player_lost(player)
 
-func _init(initpath:=Globals.DUNGPATH, pool1:=Globals.POOL1PATH, pool2:=Globals.POOL2PATH):
+func _init(initpath:=Globals.DUNGPATH, _pool1:=Globals.POOL1PATH, _pool2:=Globals.POOL2PATH):
     # duel objects
     dicelib = Dicelib.new()
-    player1 = Player.new(1, dicelib.create_dicepool(pool1))
-    player2 = Player.new(2, dicelib.create_dicepool(pool2))
+    #player1 = Player.new(1, dicelib.create_dicepool(pool1))
+    player1 = Player.new(1, dicelib.create_randpool())
+    #player2 = Player.new(2, dicelib.create_dicepool(pool2))
+    player2 = Player.new(2, dicelib.create_randpool())
     dungeon = Dungeon.new()
     state = RollState.new(player1, player2, dungeon)
     set_initstate(initpath)
@@ -38,7 +40,7 @@ func _init(initpath:=Globals.DUNGPATH, pool1:=Globals.POOL1PATH, pool2:=Globals.
     player1.connect("player_lost", self, "on_player_lost")
     player2.connect("player_lost", self, "on_player_lost")
     state.connect("duel_update", self, "on_duel_update")
-        
+
 # public functions
 func update(cmd):
     """
@@ -90,7 +92,7 @@ func set_initsummons(player, summonlist):
         var idx = Globals.to_engineidx(summondict["DICE"])
         var summon = player.summon_card(idx)
         dungeon.place_dungobj(pos, summon)
-           
+
 func set_initcrests(player, crests):
     """
     Set the initial crests for player.
