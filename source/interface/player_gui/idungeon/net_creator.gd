@@ -3,8 +3,9 @@ extends Node
 # variables
 var active
 var pos
-var rotidx
-var rotations = [[], ["TCW"], ["TCW", "TCW"], ["TAW"]]
+var inittrans
+var rotidx = 0
+var rotations
 var nridx = 0
 var nets_reflects = [["X1", []],
                      ["T1", []],
@@ -31,8 +32,11 @@ var nets_reflects = [["X1", []],
 signal net_updated(pos)
 
 func _init(playerid):
-    var rotdict = {1:0, 2:2}
-    rotidx = rotdict[playerid]
+    var initdict = {1:[], 2:["FUD"]}
+    var rotdict = {1: [[], ["TCW"], ["TCW", "TCW"], ["TAW"]],
+                   2: [[], ["TAW"], ["TAW", "TAW"], ["TCW"]]}
+    inittrans = initdict[playerid]
+    rotations = rotdict[playerid]
 
 # public functions
 func create_net(_pos):
@@ -49,7 +53,7 @@ func get_netdata():
     var netname = net_reflect[0]
     var reflect = net_reflect[1]
     var rotation = rotations[rotidx]
-    return {"netname":netname, "trans_list":reflect+rotation}
+    return {"netname":netname, "trans_list":inittrans+reflect+rotation}
 
 # signals callbacks
 func _input(event):

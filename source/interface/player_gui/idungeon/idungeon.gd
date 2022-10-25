@@ -90,6 +90,10 @@ func mark_reply_monsters(reply_state):
     for pos in poss:
         get_itile(pos).set_highlight()
 
+func free_net_creator():
+    if is_instance_valid(net_creator):
+        net_creator.queue_free()
+
 func create_reply_menu(reply_state):
     reply_menu = ReplyMenu.instance()
     add_child(reply_menu)

@@ -1,9 +1,7 @@
 ### TODO
-- DIMENSION state
+- remember previously rolled dice if no dimension
 
 ### FIX
-    - fix player2 net rotating and iterating nets differently
-    - fix dimension highlights after dimension bug
 
 ### IMPROVEMENTS
 - pass engine singals to Events signals?

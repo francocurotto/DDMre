@@ -83,6 +83,7 @@ func on_state_update_dungeon():
     rollgui.disable_roll()
     rollgui.enable_endturn()
     idungeon.enable_tile_buttons()
+    idungeon.free_net_creator()
 
 func on_state_update_reply():
     dicepool.disable_roll_all()
