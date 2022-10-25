@@ -209,4 +209,4 @@ func pos_within_dungeon(pos):
     """
     Check if position is within dungeon limits.
     """
-    return 0 <= pos.y and pos.y <= HEIGHT and 0 <= pos.x and pos.x <= WIDTH
+    return 0 <= pos.y and pos.y <= HEIGHT-1 and 0 <= pos.x and pos.x <= WIDTH-1

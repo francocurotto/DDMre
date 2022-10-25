@@ -20,8 +20,10 @@ var tile
 # signals
 signal mouse_entered_summon(summon)
 signal mouse_exited_tile
-signal dim_button_pressed(tile)
 signal monster_pressed(tile)
+signal mouse_entered_dim(pos)
+signal mouse_exited_dim(pos)
+signal dim_button_pressed(tile)
 signal reachable_path_pressed(tile)
 signal attack_button_pressed(tile)
 signal mouse_entered_attack_button(content)
@@ -71,6 +73,9 @@ func set_dim_button():
 func set_highlight():
     $HighlightRect.visible = true
 
+func unset_highlight():
+    $HighlightRect.visible = false
+
 func unset_all_mods():
     $MoveButton.visible = false
     $AttackButton.visible = false
@@ -100,9 +105,6 @@ func set_player_dungobj(_player_dungobj):
     set_dungobj_icon(dungobj_type, player_dungobj)
 
 # signals callback
-func _on_DimButton_pressed():
-    emit_signal("dim_button_pressed", tile)
-
 func _on_TileButton_mouse_entered():
     if tile.content.is_summon():
         emit_signal("mouse_entered_summon", tile.content)
@@ -113,6 +115,15 @@ func _on_TileButton_mouse_exited():
 func _on_TileButton_pressed():
     if tile.content.is_monster():
         emit_signal("monster_pressed", tile)
+
+func _on_DimButton_mouse_entered():
+    emit_signal("mouse_entered_dim", tile.pos)
+
+func _on_DimButton_mouse_exited():
+    emit_signal("mouse_exited_dim")
+
+func _on_DimButton_pressed():
+    emit_signal("dim_button_pressed", tile)
 
 func _on_MoveButton_pressed():
     emit_signal("reachable_path_pressed", tile)

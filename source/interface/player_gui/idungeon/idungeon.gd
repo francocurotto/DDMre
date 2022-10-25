@@ -3,6 +3,7 @@ extends AspectRatioContainer
 # constants
 const DungeonMenu = preload("res://interface/player_gui/idungeon/dungeon_menu/dungeon_menu.tscn")
 const ReplyMenu = preload("res://interface/player_gui/idungeon/reply_menu/reply_menu.tscn")
+const NetCreator = preload("res://interface/player_gui/idungeon/net_creator.gd")
 
 # variables
 var dungeon
@@ -10,6 +11,7 @@ var player
 var dimdice
 var dungeon_menu
 var reply_menu
+var net_creator
 
 # onready variables
 onready var cols = $Cols
@@ -31,13 +33,15 @@ func _ready():
         for itile in row.get_children():
             itile.connect("mouse_entered_summon", self, "on_mouse_entered_summon")
             itile.connect("mouse_exited_tile", self, "on_mouse_exited_tile")
-            itile.connect("dim_button_pressed", self, "on_dim_button_pressed")
             itile.connect("monster_pressed", self, "on_monster_pressed")
+            itile.connect("mouse_entered_dim", self, "on_mouse_entered_dim")
+            itile.connect("mouse_exited_dim", self, "on_mouse_exited_dim")
+            itile.connect("dim_button_pressed", self, "on_dim_button_pressed")
             itile.connect("reachable_path_pressed", self, "on_reachable_path_pressed")
             itile.connect("attack_button_pressed", self, "on_attack_button_pressed")
             itile.connect("mouse_entered_attack_button", self, "on_mouse_entered_attack_button")
 
-# set functions
+# setget functions
 func set_dungeon(_dungeon, _player):
     dungeon = _dungeon
     player = _player
@@ -56,8 +60,12 @@ func disable_tile_buttons():
 func set_dim_buttons():
     for row in cols.get_children():
         for itile in row.get_children():
-            if itile.tile.is_empty():
-                itile.set_dim_button()
+            itile.set_dim_button()
+
+func unset_highlights():
+    for row in cols.get_children():
+        for itile in row.get_children():
+            itile.unset_highlight()
 
 func unset_all_itile_mods():
     for row in cols.get_children():
@@ -96,19 +104,36 @@ func on_mouse_entered_summon(summon):
 func on_mouse_exited_tile():
     emit_signal("mouse_exited_tile")
 
+func on_monster_pressed(tile):
+    if tile.content in player.monsters:
+        create_dungeon_menu(tile)
+
 func on_dimdice_selected(idx):
     dimdice = idx
+    net_creator = NetCreator.new()
+    net_creator.connect("net_updated", self, "on_net_updated")
+    add_child(net_creator)
     set_dim_buttons()
 
 func on_dimdice_unselected():
     unset_all_itile_mods()
 
+func on_mouse_entered_dim(_pos):
+    var net = net_creator.create_net(_pos)
+    for pos in net.poslist:
+        if dungeon.pos_within_dungeon(pos):
+            get_itile(pos).set_highlight()
+
+func on_mouse_exited_dim():
+    net_creator.active = false
+    unset_highlights()
+
+func on_net_updated(pos):
+    unset_highlights()
+    on_mouse_entered_dim(pos)
+
 func on_dim_button_pressed(tile):
     emit_signal("dim_input", dimdice, "X1", tile.pos, [])
-
-func on_monster_pressed(tile):
-    if tile.content in player.monsters:
-        create_dungeon_menu(tile)
 
 func on_reachable_path_pressed(tile):
     var pos1 = dungeon_menu.tile.pos

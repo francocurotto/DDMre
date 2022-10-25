@@ -67,4 +67,6 @@ margin_bottom = 28.0
 [connection signal="mouse_entered" from="AttackButton" to="." method="_on_AttackButton_mouse_entered"]
 [connection signal="mouse_exited" from="AttackButton" to="." method="_on_AttackButton_mouse_exited"]
 [connection signal="pressed" from="AttackButton" to="." method="_on_AttackButton_pressed"]
+[connection signal="mouse_entered" from="DimButton" to="." method="_on_DimButton_mouse_entered"]
+[connection signal="mouse_exited" from="DimButton" to="." method="_on_DimButton_mouse_exited"]
 [connection signal="pressed" from="DimButton" to="." method="_on_DimButton_pressed"]

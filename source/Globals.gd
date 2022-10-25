@@ -34,7 +34,27 @@ func to_engineidx(engineidx):
     return engineidx-1
 
 # net functions
+const NetT1 = preload("res://engine/dungeon/nets/net_t1.gd")
+const NetT2 = preload("res://engine/dungeon/nets/net_t2.gd")
+const NetZ1 = preload("res://engine/dungeon/nets/net_z1.gd")
+const NetZ2 = preload("res://engine/dungeon/nets/net_z2.gd")
 const NetX1 = preload("res://engine/dungeon/nets/net_x1.gd")
+const NetX2 = preload("res://engine/dungeon/nets/net_x2.gd")
+const NetM1 = preload("res://engine/dungeon/nets/net_m1.gd")
+const NetM2 = preload("res://engine/dungeon/nets/net_m2.gd")
+const NetS1 = preload("res://engine/dungeon/nets/net_s1.gd")
+const NetS2 = preload("res://engine/dungeon/nets/net_s2.gd")
+const NetL1 = preload("res://engine/dungeon/nets/net_l1.gd")
 func create_net(netname):
     match netname:
+        "T1" : return NetT1.new()
+        "T2" : return NetT2.new()
+        "Z1" : return NetZ1.new()
+        "Z2" : return NetZ2.new()
         "X1" : return NetX1.new()
+        "X2" : return NetX2.new()
+        "M1" : return NetM1.new()
+        "M2" : return NetM2.new()
+        "S1" : return NetS1.new()
+        "S2" : return NetS2.new()
+        "L1" : return NetL1.new()
