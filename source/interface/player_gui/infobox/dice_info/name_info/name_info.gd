@@ -12,13 +12,14 @@ func set_info(kwargs):
     var hidename = kwargs["hidename"]
     set_cardname(card.name, hidename)
     set_type(card.type)
+    set_level(card.level)
     set_ability(card.ability)
 
 # private functions
 func set_cardname(_cardname, hidename):
     if hidename: # case oponent item
         cardname.text = "???"
-    else: # case player item 
+    else: # case player item
         cardname.text = _cardname
 
 func set_type(_type):

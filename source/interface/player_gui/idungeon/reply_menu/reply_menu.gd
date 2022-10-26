@@ -12,7 +12,7 @@ signal rmenu_wait_pressed
 # setget functions
 func set_reply_menu(reply_state):
     attack_info.set_info({"attacker":reply_state.attacker, "attacked":reply_state.attacked})
-    
+
 # signals callback
 func _on_GuardButton_pressed():
     emit_signal("rmenu_guard_pressed")

@@ -205,4 +205,4 @@ func create_dungeon_menu(tile):
     dungeon_menu.connect("dungmenu_attack_pressed", self, "on_dungmenu_attack_pressed")
     dungeon_menu.connect("dungmenu_cancel_pressed", self, "on_dungmenu_cancel_pressed")
     dungeon_menu.connect("dungmenu_enabled", self, "on_dungmenu_enabled")
-    dungeon_menu.set_dungeon_menu(tile, player)   
+    dungeon_menu.set_dungeon_menu(tile, player)

@@ -1,6 +1,8 @@
 ### TODO
 
 ### FIX
+- cannot see dungeon summons stats while dimensioning
+- attack bug: guarding did not effect?
 
 ### IMPROVEMENTS
 - pass engine singals to Events signals?

@@ -90,7 +90,7 @@ func on_state_update_reply():
     dicepool.disable_roll_all()
     rollgui.disable_roll()
     rollgui.disable_endturn()
-    idungeon.disable_itilebuttons()
+    idungeon.disable_tile_buttons()
     idungeon.mark_reply_monsters(engine.state)
     idungeon.create_reply_menu(engine.state)
 
