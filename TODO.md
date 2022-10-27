@@ -1,4 +1,8 @@
 ### TODO
+- ABILITIES!
+- dice buttons:
+    - new dice button with hexagonal frame
+    - new dice button theme with better disabled color
 
 ### FIX
 - cannot see dungeon summons stats while dimensioning
