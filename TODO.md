@@ -5,7 +5,6 @@
     - new dice button theme with better disabled color
 
 ### FIX
-- cannot see dungeon summons stats while dimensioning
 
 ### IMPROVEMENTS
 - pass engine singals to Events signals?
