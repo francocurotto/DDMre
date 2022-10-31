@@ -20,7 +20,7 @@ func MOVE(cmd):
     var pos_dest = Vector2(cmd["dest"][0], cmd["dest"][1])
     var tile_origin = dungeon.get_tile(pos_origin)
     var tile_dest = dungeon.get_tile(pos_dest)
-    
+
     # get path for movement
     var path = dungeon.get_movepath(pos_origin, pos_dest)
     if path.empty(): # case not valid path found
@@ -62,7 +62,7 @@ func ATTACK(cmd):
         # perform unguarded attack
         perform_attack(monster, target, cmd["name"])
     return self
-    
+
 func ENDTURN(_cmd):
     """
     Execute the ENDTURN command.
@@ -80,7 +80,7 @@ func perform_movement(tile1, tile2, path, cmdname):
     # pay the cost of the movement
     player.crestpool.slots["MOVEMENT"] -= len(path)-1
     # emit duel update signal
-    emit_signal("duel_update", cmdname)
+    Events.emit_signal("duel_update", cmdname)
 
 func perform_attack(monster, target, cmdname):
     """
@@ -92,5 +92,5 @@ func perform_attack(monster, target, cmdname):
         monster.attack_monster_lord(target)
     # pay the cost of attack
     player.crestpool.slots["ATTACK"] -= 1
-    emit_signal("duel_update", cmdname)
-    
+    Events.emit_signal("duel_update", cmdname)
+

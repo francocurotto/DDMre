@@ -14,12 +14,6 @@ var dungeon
 var state
 var turn = 1
 
-# signals
-signal state_update(state_name)
-signal next_turn
-signal duel_update
-signal player_lost(player)
-
 func _init(initpath:=Globals.DUNGPATH, _pool1:=Globals.POOL1PATH, _pool2:=Globals.POOL2PATH):
     # duel objects
     dicelib = Dicelib.new()
@@ -39,7 +33,6 @@ func _init(initpath:=Globals.DUNGPATH, _pool1:=Globals.POOL1PATH, _pool2:=Global
     player2.connect("monster_death", dungeon, "on_monster_death")
     player1.connect("player_lost", self, "on_player_lost")
     player2.connect("player_lost", self, "on_player_lost")
-    state.connect("duel_update", self, "on_duel_update")
 
 # public functions
 func update(cmd):
@@ -53,18 +46,10 @@ func update(cmd):
     # perform the update
     state = newstate
     if state_update:
-        state.connect("duel_update", self, "on_duel_update")
-        emit_signal("state_update", state.NAME)
+        Events.emit_signal("state_update", state.NAME)
     if next_turn:
         turn += 1
-        emit_signal("next_turn", turn)
-
-# signals callbacks
-func on_duel_update(cmdname):
-    emit_signal("duel_update", cmdname)
-
-func on_player_lost(player):
-    emit_signal("player_lost", player)
+        Events.emit_signal("next_turn", turn)
 
 # private functions
 func set_initstate(initpath):

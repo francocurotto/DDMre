@@ -1,13 +1,12 @@
 ### TODO
-- ABILITIES!
 - dice buttons:
     - new dice button with hexagonal frame
     - new dice button theme with better disabled color
+- ABILITIES!
 
 ### FIX
 
 ### IMPROVEMENTS
-- pass engine singals to Events signals?
 - add keyboard support for dimensions
 
 ### REFACTOR

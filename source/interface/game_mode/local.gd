@@ -17,12 +17,13 @@ func _ready():
     engine = Engine.new()
     set_guis()
     # connections
-    engine.connect("state_update", self, "on_state_update")
-    engine.connect("duel_update", self, "on_duel_update")
-    engine.connect("next_turn", self, "on_next_turn")
-    engine.connect("player_lost", self, "on_player_lost")
+    Events.connect("duel_update", self, "on_duel_update")
     Events.connect("dice_rolled", self, "on_dice_rolled")
     Events.connect("card_summoned", self, "on_card_summoned")
+    Events.connect("state_update", self, "on_state_update")
+    Events.connect("next_turn", self, "on_next_turn")
+    Events.connect("player_lost", self, "on_player_lost")
+
     # run first state update
     on_state_update(engine.state.NAME)
     on_next_turn(1)

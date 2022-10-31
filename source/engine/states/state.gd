@@ -5,9 +5,6 @@ var player
 var opponent
 var dungeon
 
-# signals
-signal duel_update(cmdname)
-
 func _init(_player, _opponent, _dungeon):
     player = _player
     opponent = _opponent

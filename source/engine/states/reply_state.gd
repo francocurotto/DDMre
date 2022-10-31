@@ -18,7 +18,7 @@ func GUARD(cmd):
     Excecute the GUARD command.
     """
     attacker.attack_monster(attacked, true)
-    emit_signal("duel_update", cmd["name"])
+    Events.emit_signal("duel_update", cmd["name"])
     return DungeonState.new(opponent, player, dungeon)
 
 func WAIT(cmd):
@@ -26,7 +26,7 @@ func WAIT(cmd):
     Excecute the WAIT command.
     """
     attacker.attack_monster(attacked, false)
-    emit_signal("duel_update", cmd["name"])
+    Events.emit_signal("duel_update", cmd["name"])
     return DungeonState.new(opponent, player, dungeon)
 
 func get_monsters_poss():

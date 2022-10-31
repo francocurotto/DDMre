@@ -59,4 +59,4 @@ func on_monster_death(monster):
     emit_signal("monster_death", monster)
 
 func on_hearts_depleted():
-    emit_signal("player_lost", self)
+    Events.emit_signal("player_lost", self)
