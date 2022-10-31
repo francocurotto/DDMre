@@ -41,7 +41,7 @@ func position_mult_center():
     $Mult.margin_bottom = -multsize.y/2
 
 func position_mult_corner():
-    $Mult.anchor_left = 1 
+    $Mult.anchor_left = 1
     $Mult.anchor_right = 1
     $Mult.anchor_top = 1
     $Mult.anchor_bottom = 1
