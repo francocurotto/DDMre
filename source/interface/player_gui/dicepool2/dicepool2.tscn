@@ -2,29 +2,110 @@
 
 [ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=1]
 [ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=2]
-[ext_resource path="res://interface/player_gui/dicepool/dicepool.gd" type="Script" id=3]
+[ext_resource path="res://interface/player_gui/dicepool2/idice/idice.tscn" type="PackedScene" id=4]
 
 [node name="Dicepool" type="PanelContainer"]
 margin_right = 413.0
 margin_bottom = 280.0
 custom_styles/panel = ExtResource( 2 )
-script = ExtResource( 3 )
 
 [node name="TPCont" type="VBoxContainer" parent="."]
 margin_left = 6.0
 margin_top = 6.0
-margin_right = 407.0
-margin_bottom = 274.0
+margin_right = 722.0
+margin_bottom = 413.0
 custom_constants/separation = 0
 
 [node name="Title" type="Label" parent="TPCont"]
-margin_right = 401.0
+margin_right = 716.0
 margin_bottom = 21.0
 custom_fonts/font = ExtResource( 1 )
 text = "Dice Pool"
 
-[node name="PoolCont" type="VBoxContainer" parent="TPCont"]
+[node name="GridContainer" type="GridContainer" parent="TPCont"]
 margin_top = 21.0
-margin_right = 401.0
-margin_bottom = 21.0
-custom_constants/separation = 0
+margin_right = 716.0
+margin_bottom = 407.0
+columns = 5
+
+[node name="IDice" parent="TPCont/GridContainer" instance=ExtResource( 4 )]
+margin_right = 140.0
+margin_bottom = 126.0
+
+[node name="IDice2" parent="TPCont/GridContainer" instance=ExtResource( 4 )]
+margin_left = 144.0
+margin_right = 284.0
+margin_bottom = 126.0
+
+[node name="IDice3" parent="TPCont/GridContainer" instance=ExtResource( 4 )]
+margin_left = 288.0
+margin_right = 428.0
+margin_bottom = 126.0
+
+[node name="IDice4" parent="TPCont/GridContainer" instance=ExtResource( 4 )]
+margin_left = 432.0
+margin_right = 572.0
+margin_bottom = 126.0
+
+[node name="IDice5" parent="TPCont/GridContainer" instance=ExtResource( 4 )]
+margin_left = 576.0
+margin_right = 716.0
+margin_bottom = 126.0
+
+[node name="IDice6" parent="TPCont/GridContainer" instance=ExtResource( 4 )]
+margin_top = 130.0
+margin_right = 140.0
+margin_bottom = 256.0
+
+[node name="IDice7" parent="TPCont/GridContainer" instance=ExtResource( 4 )]
+margin_left = 144.0
+margin_top = 130.0
+margin_right = 284.0
+margin_bottom = 256.0
+
+[node name="IDice8" parent="TPCont/GridContainer" instance=ExtResource( 4 )]
+margin_left = 288.0
+margin_top = 130.0
+margin_right = 428.0
+margin_bottom = 256.0
+
+[node name="IDice9" parent="TPCont/GridContainer" instance=ExtResource( 4 )]
+margin_left = 432.0
+margin_top = 130.0
+margin_right = 572.0
+margin_bottom = 256.0
+
+[node name="IDice10" parent="TPCont/GridContainer" instance=ExtResource( 4 )]
+margin_left = 576.0
+margin_top = 130.0
+margin_right = 716.0
+margin_bottom = 256.0
+
+[node name="IDice11" parent="TPCont/GridContainer" instance=ExtResource( 4 )]
+margin_top = 260.0
+margin_right = 140.0
+margin_bottom = 386.0
+
+[node name="IDice12" parent="TPCont/GridContainer" instance=ExtResource( 4 )]
+margin_left = 144.0
+margin_top = 260.0
+margin_right = 284.0
+margin_bottom = 386.0
+
+[node name="IDice13" parent="TPCont/GridContainer" instance=ExtResource( 4 )]
+margin_left = 288.0
+margin_top = 260.0
+margin_right = 428.0
+margin_bottom = 386.0
+
+[node name="IDice14" parent="TPCont/GridContainer" instance=ExtResource( 4 )]
+margin_left = 432.0
+margin_top = 260.0
+margin_right = 572.0
+margin_bottom = 386.0
+
+[node name="IDice15" parent="TPCont/GridContainer" instance=ExtResource( 4 )]
+margin_left = 576.0
+margin_top = 260.0
+margin_right = 716.0
+margin_bottom = 386.0

@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://interface/player_gui/dicepool2/idice/dice_frame/dice_sides/iside/iside.tscn" type="PackedScene" id=1]
+[ext_resource path="res://art/icons/CREST_ATTACK.png" type="Texture" id=2]
+[ext_resource path="res://art/icons/CREST_TRAP.png" type="Texture" id=3]
+[ext_resource path="res://art/icons/CREST_SUMMON.png" type="Texture" id=4]
+[ext_resource path="res://art/icons/CREST_MAGIC.png" type="Texture" id=5]
+[ext_resource path="res://interface/player_gui/infobox/dice_info/sides_info/sides_info.gd" type="Script" id=6]
+
+[node name="DiceSides" type="HBoxContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+alignment = 1
+script = ExtResource( 6 )
+
+[node name="ISide1" parent="." instance=ExtResource( 1 )]
+texture = ExtResource( 4 )
+crest = "SUMMON"
+mult = 3
+
+[node name="ISide2" parent="." instance=ExtResource( 1 )]
+margin_left = 24.0
+margin_right = 44.0
+texture = ExtResource( 4 )
+crest = "SUMMON"
+mult = 3
+
+[node name="ISide3" parent="." instance=ExtResource( 1 )]
+margin_left = 48.0
+margin_right = 68.0
+
+[node name="ISide4" parent="." instance=ExtResource( 1 )]
+margin_left = 72.0
+margin_right = 92.0
+texture = ExtResource( 2 )
+crest = "ATTACK"
+mult = 2
+
+[node name="ISide5" parent="." instance=ExtResource( 1 )]
+margin_left = 96.0
+margin_right = 116.0
+texture = ExtResource( 5 )
+crest = "MAGIC"
+mult = 2
+
+[node name="ISide6" parent="." instance=ExtResource( 1 )]
+margin_left = 120.0
+margin_right = 140.0
+texture = ExtResource( 3 )
+crest = "TRAP"
+mult = 2

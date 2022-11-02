@@ -11,10 +11,7 @@ const TYPEDICT = {"DRAGON"      : Color(1.0, 0.2, 0.2, 1.0),
                   "WARRIOR"     : Color(0.2, 0.2, 1.0, 1.0),
                   "ITEM"        : Color(0.2, 0.2, 0.2, 1.0)}
 
-# onready varaibles
-#onready var dice_background = $DiceBackground
-#onready var card_icon = $CardContainer/CardIcon
-
+# setget functions
 func set_type(_type):
     type = _type
     print(TYPEDICT[type])
