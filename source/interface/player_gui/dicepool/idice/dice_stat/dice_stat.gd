@@ -2,12 +2,11 @@ tool
 extends HBoxContainer
 
 # export variables
-export (String, "SUMMON", "ATTACK", "DEFENSE", "HEALTH") var stat = "SUMMON" setget set_stat_icon
-export (int) var value = 3 setget set_stat_value
+export (String, "ATTACK", "DEFENSE", "HEALTH") var stat = "ATTACK" setget set_stat_icon
+export (int, 0, 50, 10) var value = 40 setget set_stat_value
 
 # constants
-const ICONDICT = {"SUMMON"  : "CREST_SUMMON",
-                  "ATTACK"  : "CREST_ATTACK",
+const ICONDICT = {"ATTACK"  : "CREST_ATTACK",
                   "DEFENSE" : "CREST_DEFENSE",
                   "HEALTH"  : "HEALTH"}
 
@@ -24,3 +23,7 @@ func set_stat_icon(_stat):
 func set_stat_value(_value):
     value = _value
     $Label.text = str(value)
+
+func disable():
+    $Label.text = ""
+    $Icon.texture = null
