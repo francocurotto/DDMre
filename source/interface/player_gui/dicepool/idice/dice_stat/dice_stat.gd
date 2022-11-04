@@ -27,3 +27,6 @@ func set_stat_value(_value):
 func disable():
     $Label.text = ""
     $Icon.texture = null
+
+func modulate_value(color):
+    $Label.modulate = color

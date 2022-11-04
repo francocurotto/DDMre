@@ -1,5 +1,4 @@
 ### TODO
-- use idice components in infobox
 - dice buttons:
     - new dice button theme with better disabled color
 - ABILITIES!

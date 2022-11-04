@@ -11,6 +11,7 @@
 margin_right = 66.0
 margin_bottom = 20.0
 custom_constants/separation = 2
+alignment = 1
 script = ExtResource( 6 )
 
 [node name="ISide1" parent="." instance=ExtResource( 5 )]

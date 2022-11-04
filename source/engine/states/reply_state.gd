@@ -17,6 +17,7 @@ func GUARD(cmd):
     """
     Excecute the GUARD command.
     """
+    player.crestpool.slots["DEFENSE"] -= 1
     attacker.attack_monster(attacked, true)
     Events.emit_signal("duel_update", cmd["name"])
     return DungeonState.new(opponent, player, dungeon)
