@@ -1,6 +1,27 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tests/test.gd" type="Script" id=1]
+[ext_resource path="res://art/icons/TILE_BLOCK.png" type="Texture" id=2]
+[ext_resource path="res://art/icons/TILE_MOVE.png" type="Texture" id=3]
+[ext_resource path="res://art/icons/TILE_EMPTY.png" type="Texture" id=4]
+[ext_resource path="res://art/icons/TILE_PATH_P1.png" type="Texture" id=5]
+[ext_resource path="res://art/icons/TILE_PATH_P2.png" type="Texture" id=6]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_right = 179.0
+margin_bottom = 36.0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_top = 39.0
+margin_right = 179.0
+margin_bottom = 81.0
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 2 )
+texture_focused = ExtResource( 3 )
+expand = true
