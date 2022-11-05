@@ -1,5 +1,13 @@
 extends MarginContainer
 
+# constants
+const ROLLDICT = {"DRAGON"      : Color(1.0, 0.0, 0.0, 1.0), 
+                  "SPELLCASTER" : Color(1.0, 1.0, 1.0, 1.0),
+                  "UNDEAD"      : Color(1.0, 1.0, 0.0, 1.0),
+                  "BEAST"       : Color(0.0, 1.0, 0.0, 1.0),
+                  "WARRIOR"     : Color(0.0, 0.0, 1.0, 1.0),
+                  "ITEM"        : Color(0.0, 0.0, 0.0, 1.0)}
+
 # variables
 var idx
 var roll_selected setget , get_roll_selected
@@ -28,6 +36,7 @@ func set_dice(dice):
     tla.set_tla(dice.card)
     set_card_stats(dice.card)
     isides.set_sides(dice.sides)
+    color_roll_button(dice.card)
 
 func set_index(_idx):
     idx = _idx
@@ -101,3 +110,6 @@ func set_item_stats():
     attack.disable()
     defense.disable()
     health.disable()
+
+func color_roll_button(card):
+    roll_button.modulate = ROLLDICT[card.type]
