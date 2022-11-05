@@ -58,9 +58,10 @@ func get_roll_indeces():
             indeces.append(i)
     return indeces
 
-func enable_roll_all():
+func enable_roll_undimensioned():
     for idice in self.idice_list:
-        idice.enable_roll()
+        if not is_dimensioned(idice):
+            idice.enable_roll()
 
 func disable_roll_all():
     for idice in self.idice_list:
@@ -109,7 +110,7 @@ func on_roll_button_pressed():
     if get_nroll_selected() >= 3:
         disable_roll_unselected()
     else:
-        enable_roll_all()
+        enable_roll_undimensioned()
 
 func on_dim_button_pressed(idx):
     for i in self.idx_list:

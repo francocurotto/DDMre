@@ -16,7 +16,7 @@ margin_right = 623.0
 margin_bottom = 228.0
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-self_modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 2, 2, 2, 1 )
 margin_right = 162.0
 margin_bottom = 20.0
 toggle_mode = true

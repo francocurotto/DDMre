@@ -1,12 +1,14 @@
 extends MarginContainer
 
 # constants
-const ROLLDICT = {"DRAGON"      : Color(1.0, 0.0, 0.0, 1.0), 
-                  "SPELLCASTER" : Color(1.0, 1.0, 1.0, 1.0),
-                  "UNDEAD"      : Color(1.0, 1.0, 0.0, 1.0),
-                  "BEAST"       : Color(0.0, 1.0, 0.0, 1.0),
-                  "WARRIOR"     : Color(0.0, 0.0, 1.0, 1.0),
-                  "ITEM"        : Color(0.0, 0.0, 0.0, 1.0)}
+const ROLLDICT = {"DRAGON"      : Color(1.5, 0.0, 0.0, 1.0), 
+                  "SPELLCASTER" : Color(1.5, 1.5, 1.5, 1.0),
+                  "UNDEAD"      : Color(1.5, 1.5, 0.0, 1.0),
+                  "BEAST"       : Color(0.0, 1.5, 0.0, 1.0),
+                  "WARRIOR"     : Color(0.0, 0.0, 1.5, 1.0),
+                  "ITEM"        : Color(0.5, 0.5, 0.5, 1.0)}
+const ENABLE_COLOR = Color(1.0, 1.0, 1.0, 1.0)
+const DISABLE_COLOR = Color(0.3, 0.3, 0.3, 1.0)
 
 # variables
 var idx
@@ -36,7 +38,7 @@ func set_dice(dice):
     tla.set_tla(dice.card)
     set_card_stats(dice.card)
     isides.set_sides(dice.sides)
-    color_roll_button(dice.card)
+    color_buttons(dice.card)
 
 func set_index(_idx):
     idx = _idx
@@ -50,30 +52,41 @@ func get_dim_selected():
 
 func enable_roll():
     roll_button.disabled = false
+    color_enable()
 
 func disable_roll():
     roll_button.disabled = true
+    color_disable()
 
 func release_roll():
     roll_button.pressed = false
 
 func disable_roll_unselected():
     if not self.roll_selected:
-        roll_button.disabled = true
+        disable_roll()
 
 func enable_dim():
     dim_button.disabled = false
+    #color_enable()
 
 func disable_dim():
     dim_button.disabled = true
+    #color_disable()
 
 func switch_to_dim_button():
     roll_button.visible = false
     dim_button.visible = true
+    color_enable()
 
 func switch_to_roll_button():
     roll_button.visible = true
     dim_button.visible = false
+
+func color_disable():
+    modulate = DISABLE_COLOR
+
+func color_enable():
+    modulate = ENABLE_COLOR
 
 # signals callbacks
 func _on_RollButton_mouse_entered():
@@ -111,5 +124,6 @@ func set_item_stats():
     defense.disable()
     health.disable()
 
-func color_roll_button(card):
+func color_buttons(card):
     roll_button.modulate = ROLLDICT[card.type]
+    dim_button.modulate = ROLLDICT[card.type]
