@@ -9,9 +9,18 @@ export (String, "NONE", "MONSTER_LORD", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAS
 export (int, 1, 2) var player_dungobj = 1 setget set_player_dungobj
 
 # constants
-const MODDICT = {1 : Color(0.5,1.0,1.0,1.0),
-                 2 : Color(1.0,0.75,0.75,1.0),
-                 0 : Color(1.0,1.0,1.0,1.0)} # non-player modulation
+const MODDICT = {"DRAGON"      : {1 : Color(0.0, 0.0, 2.4),
+                                  2 : Color(1.3, 0.0, 0.0)},
+                 "SPELLCASTER" : {1 : Color(0.0, 0.0, 2.3),
+                                  2 : Color(0.6, 0.0, 0.0)},
+                 "UNDEAD"      : {1 : Color(0.0, 0.0, 1.1),
+                                  2 : Color(0.6, 0.0, 0.0)},
+                 "BEAST"       : {1 : Color(0.0, 0.0, 1.2),
+                                  2 : Color(1.0, 0.0, 0.0)},
+                 "WARRIOR"     : {1 : Color(0.0, 0.0, 2.8),
+                                  2 : Color(1.4, 0.0, 0.0)},
+                 "ITEM"        : {1 : Color(0.0, 0.0, 1.1),
+                                  2 : Color(0.7, 0.0, 0.0)}}
 const SELECTMOD = Color(1.0,1.0,0.5,1.0)
 
 # variables
@@ -50,8 +59,12 @@ func set_dungobj_icon(_dungobj_type, _dungobj_player):
         var icon = _dungobj_type
         if _dungobj_type in Globals.TYPES + ["ITEM"]: # case summon
             icon = "TYPE_" + _dungobj_type
+            if _dungobj_player in [1,2]:
+                $DungobjRect.modulate = MODDICT[_dungobj_type][_dungobj_player]
+        if _dungobj_type == "MONSTER_LORD" or _dungobj_player == 0:
+                $DungobjRect.modulate = Color(1.0, 1.0, 1.0)
         $DungobjRect.texture = load("res://art/icons/" + icon + ".png")
-        $DungobjRect.modulate = MODDICT[_dungobj_player]
+        
 
 func set_selectmod():
     $DungobjRect.modulate = SELECTMOD

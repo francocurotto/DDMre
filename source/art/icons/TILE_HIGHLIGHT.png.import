@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TILE_ATTACK.png-578a6302e9f8bb4aa208ca41c7dd9607.stex"
+path="res://.import/TILE_HIGHLIGHT.png-a0e74bf42d1c157634cb5fddb4f3d0ff.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/TILE_ATTACK.png"
-dest_files=[ "res://.import/TILE_ATTACK.png-578a6302e9f8bb4aa208ca41c7dd9607.stex" ]
+source_file="res://art/icons/TILE_HIGHLIGHT.png"
+dest_files=[ "res://.import/TILE_HIGHLIGHT.png-a0e74bf42d1c157634cb5fddb4f3d0ff.stex" ]
 
 [params]
 
