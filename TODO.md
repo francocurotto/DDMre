@@ -1,6 +1,4 @@
 ### TODO
-- dice buttons:
-    - new dice button theme with better disabled color
 - ABILITIES!
 
 ### FIX
@@ -11,8 +9,5 @@
 ### REFACTOR
 
 ### ART
-- add type colors for dice
-- make player specific summon sprites
 
 ### TEST
-- test gameplay
