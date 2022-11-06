@@ -67,6 +67,7 @@ func on_state_update_roll():
     dicepool.on_roll_button_pressed() # for handling last roll memory
     dicepool.switch_to_roll_button_undimensioned()
     dicepool.enable_dim_undimensioned()
+    dicepool.color_disable_undimensioned()
     rollgui.hide_player_roll()
     rollgui.disable_endturn()
     idungeon.disable_tile_buttons()

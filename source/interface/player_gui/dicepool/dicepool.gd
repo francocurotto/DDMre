@@ -100,6 +100,11 @@ func disable_dim_all_dimensioned():
             idice.switch_to_dim_button()
             idice.disable_dim()
 
+func color_disable_undimensioned():
+    for idice in self.idice_list:
+        if is_dimensioned(idice):
+            idice.color_disable()
+
 # public functions
 func roll_ready():
     return get_nroll_selected() >= 3

@@ -1,12 +1,12 @@
 extends MarginContainer
 
 # constants
-const ROLLDICT = {"DRAGON"      : Color(1.5, 0.0, 0.0, 1.0), 
+const ROLLDICT = {"DRAGON"      : Color(1.2, 0.5, 0.5, 1.0), 
                   "SPELLCASTER" : Color(1.5, 1.5, 1.5, 1.0),
-                  "UNDEAD"      : Color(1.5, 1.5, 0.0, 1.0),
-                  "BEAST"       : Color(0.0, 1.5, 0.0, 1.0),
-                  "WARRIOR"     : Color(0.0, 0.0, 1.5, 1.0),
-                  "ITEM"        : Color(0.5, 0.5, 0.5, 1.0)}
+                  "UNDEAD"      : Color(1.2, 1.2, 0.0, 1.0),
+                  "BEAST"       : Color(0.5, 1.2, 0.5, 1.0),
+                  "WARRIOR"     : Color(0.5, 0.5, 1.2, 1.0),
+                  "ITEM"        : Color(0.7, 0.7, 0.7, 1.0)}
 const ENABLE_COLOR = Color(1.0, 1.0, 1.0, 1.0)
 const DISABLE_COLOR = Color(0.3, 0.3, 0.3, 1.0)
 
@@ -67,11 +67,9 @@ func disable_roll_unselected():
 
 func enable_dim():
     dim_button.disabled = false
-    #color_enable()
 
 func disable_dim():
     dim_button.disabled = true
-    #color_disable()
 
 func switch_to_dim_button():
     roll_button.visible = false

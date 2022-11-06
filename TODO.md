@@ -1,4 +1,6 @@
 ### TODO
+- README.md
+- reddit post
 - ABILITIES!
 
 ### FIX

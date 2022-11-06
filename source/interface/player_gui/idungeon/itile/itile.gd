@@ -9,18 +9,30 @@ export (String, "NONE", "MONSTER_LORD", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAS
 export (int, 1, 2) var player_dungobj = 1 setget set_player_dungobj
 
 # constants
-const MODDICT = {"DRAGON"      : {1 : Color(0.0, 0.0, 2.4),
-                                  2 : Color(1.3, 0.0, 0.0)},
-                 "SPELLCASTER" : {1 : Color(0.0, 0.0, 2.3),
-                                  2 : Color(0.6, 0.0, 0.0)},
-                 "UNDEAD"      : {1 : Color(0.0, 0.0, 1.1),
-                                  2 : Color(0.6, 0.0, 0.0)},
-                 "BEAST"       : {1 : Color(0.0, 0.0, 1.2),
-                                  2 : Color(1.0, 0.0, 0.0)},
-                 "WARRIOR"     : {1 : Color(0.0, 0.0, 2.8),
-                                  2 : Color(1.4, 0.0, 0.0)},
-                 "ITEM"        : {1 : Color(0.0, 0.0, 1.1),
-                                  2 : Color(0.7, 0.0, 0.0)}}
+#const MODDICT = {"DRAGON"      : {1 : Color(0.0, 0.0, 2.4),
+const MODDICT = {"DRAGON"      : {1 : Color(0.6, 0.6, 2.0),
+                                  #2 : Color(1.3, 0.0, 0.0)},
+                                  2 : Color(1.3, 0.1, 0.3)},
+                 #"SPELLCASTER" : {1 : Color(0.0, 0.0, 2.3),
+                 "SPELLCASTER" : {1 : Color(0.4, 0.5, 2.3),
+                                  #2 : Color(0.6, 0.0, 0.0)},
+                                  2 : Color(0.6, 0.4, 0.2)},
+                 #"UNDEAD"      : {1 : Color(0.0, 0.0, 1.1),
+                 "UNDEAD"      : {1 : Color(0.5, 0.5, 1.1),
+                                  #2 : Color(0.6, 0.0, 0.0)},
+                                  2 : Color(0.8, 0.2, 0.2)},
+                 #"BEAST"       : {1 : Color(0.0, 0.0, 1.2),
+                 "BEAST"       : {1 : Color(0.5, 0.5, 1.5),
+                                  #2 : Color(1.0, 0.0, 0.0)},
+                                  2 : Color(1.0, 0.3, 0.3)},
+                 #"WARRIOR"     : {1 : Color(0.0, 0.0, 2.8),
+                 "WARRIOR"     : {1 : Color(0.6, 0.6, 2.8),
+                                  #2 : Color(1.4, 0.0, 0.0)},
+                                  2 : Color(1.4, 0.3, 0.3)},
+                 #"ITEM"        : {1 : Color(0.0, 0.0, 1.1),
+                 "ITEM"        : {1 : Color(0.0, 0.0, 1.5),
+                                  #2 : Color(0.7, 0.0, 0.0)}}
+                                  2 : Color(0.8, 0.0, 0.0)}}
 const SELECTMOD = Color(1.0,1.0,0.5,1.0)
 
 # variables

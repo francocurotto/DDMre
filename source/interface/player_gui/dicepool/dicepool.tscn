@@ -14,91 +14,91 @@ script = ExtResource( 3 )
 [node name="TPCont" type="VBoxContainer" parent="."]
 margin_left = 6.0
 margin_top = 6.0
-margin_right = 597.0
-margin_bottom = 342.0
+margin_right = 600.0
+margin_bottom = 370.0
 custom_constants/separation = 0
 
 [node name="Title" type="Label" parent="TPCont"]
-margin_right = 591.0
+margin_right = 594.0
 margin_bottom = 21.0
 custom_fonts/font = ExtResource( 1 )
 text = "Dice Pool"
 
 [node name="PoolCont" type="VBoxContainer" parent="TPCont"]
 margin_top = 21.0
-margin_right = 591.0
-margin_bottom = 336.0
-custom_constants/separation = 0
+margin_right = 594.0
+margin_bottom = 364.0
+custom_constants/separation = 2
 
 [node name="DiceItem1" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
-margin_right = 591.0
+margin_right = 594.0
 
 [node name="DiceItem2" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
-margin_top = 21.0
-margin_right = 591.0
-margin_bottom = 42.0
+margin_top = 23.0
+margin_right = 594.0
+margin_bottom = 44.0
 
 [node name="DiceItem3" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
-margin_top = 42.0
-margin_right = 591.0
-margin_bottom = 63.0
+margin_top = 46.0
+margin_right = 594.0
+margin_bottom = 67.0
 
 [node name="DiceItem4" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
-margin_top = 63.0
-margin_right = 591.0
-margin_bottom = 84.0
+margin_top = 69.0
+margin_right = 594.0
+margin_bottom = 90.0
 
 [node name="DiceItem5" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
-margin_top = 84.0
-margin_right = 591.0
-margin_bottom = 105.0
+margin_top = 92.0
+margin_right = 594.0
+margin_bottom = 113.0
 
 [node name="DiceItem6" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
-margin_top = 105.0
-margin_right = 591.0
-margin_bottom = 126.0
+margin_top = 115.0
+margin_right = 594.0
+margin_bottom = 136.0
 
 [node name="DiceItem7" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
-margin_top = 126.0
-margin_right = 591.0
-margin_bottom = 147.0
+margin_top = 138.0
+margin_right = 594.0
+margin_bottom = 159.0
 
 [node name="DiceItem8" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
-margin_top = 147.0
-margin_right = 591.0
-margin_bottom = 168.0
+margin_top = 161.0
+margin_right = 594.0
+margin_bottom = 182.0
 
 [node name="DiceItem9" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
-margin_top = 168.0
-margin_right = 591.0
-margin_bottom = 189.0
+margin_top = 184.0
+margin_right = 594.0
+margin_bottom = 205.0
 
 [node name="DiceItem10" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
-margin_top = 189.0
-margin_right = 591.0
-margin_bottom = 210.0
+margin_top = 207.0
+margin_right = 594.0
+margin_bottom = 228.0
 
 [node name="DiceItem11" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
-margin_top = 210.0
-margin_right = 591.0
-margin_bottom = 231.0
+margin_top = 230.0
+margin_right = 594.0
+margin_bottom = 251.0
 
 [node name="DiceItem12" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
-margin_top = 231.0
-margin_right = 591.0
-margin_bottom = 252.0
+margin_top = 253.0
+margin_right = 594.0
+margin_bottom = 274.0
 
 [node name="DiceItem13" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
-margin_top = 252.0
-margin_right = 591.0
-margin_bottom = 273.0
+margin_top = 276.0
+margin_right = 594.0
+margin_bottom = 297.0
 
 [node name="DiceItem14" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
-margin_top = 273.0
-margin_right = 591.0
-margin_bottom = 294.0
+margin_top = 299.0
+margin_right = 594.0
+margin_bottom = 320.0
 
 [node name="DiceItem15" parent="TPCont/PoolCont" instance=ExtResource( 4 )]
-margin_top = 294.0
-margin_right = 591.0
-margin_bottom = 315.0
+margin_top = 322.0
+margin_right = 594.0
+margin_bottom = 343.0
