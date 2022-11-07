@@ -14,8 +14,8 @@
 - In the original block tiles not only block their positions but also their neighbour positions (up, down, left right). In this implementation, a block tile will only block its actual position.
 
 ## Why?
-I first got captivated by Dungeon Dice Monsters when I saw it in the anime. I thought that the mechanics and complexity of the game made it even more interesting than the original card game. When I learned about the GBA game, I knew I had to try it. Unfortunately, the game is really held back by the terrible AI programming of the opponents: stupid dimension positions, nonsensical monster movements, failed attempts to defend the monster lord, etc. I would argue the AI is so bad that is even harder to loose intentionally to your opponent than to beat them.
+I first got captivated by Dungeon Dice Monsters when I saw it in the anime. I thought that the mechanics and complexity of the game made it even more interesting than the original card game. When I learned about the GBA game, I knew I had to try it. Unfortunately, the game is really held back by the terrible AI programming of the opponents: stupid dimension positions, nonsensical monster movements, failed attempts to defend the monster lord, etc. I would argue the AI is so bad that is even harder to loose intentionally to your opponent than to beat them[^1].
 
 So this always made me wonder what would have been if this game had been implemented today, with better playability and modern features. But Konami hasn't touch this game since then, so I decided to take the matter in my own hand. I don't know how far I'll be able to get, but at least I can try.
 
-
+[^1]: I even remember I would self-impose rules to handicap myself and make the game more interesting, like only allowing me to summon monster levels 3 and 4. After I realized I would easily won even with those restrictions, I knew I was done with it. 
