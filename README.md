@@ -1,4 +1,4 @@
-# DDMre
+# DDMre (Dungeon Dice Monsters reimplementation)
 ![Gameplay example](https://github.com/francocurotto/DDMre/blob/master/example.png)
 
 ## What is this?
