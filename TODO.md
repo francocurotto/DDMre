@@ -1,5 +1,4 @@
 ### TODO
-- README.md
 - reddit post
 - ABILITIES!
 
