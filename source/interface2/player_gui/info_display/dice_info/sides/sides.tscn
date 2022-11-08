@@ -6,40 +6,48 @@
 [ext_resource path="res://art/icons/CREST_MAGIC.png" type="Texture" id=5]
 
 [node name="Sides" type="HBoxContainer"]
-margin_right = 36.0
-margin_bottom = 14.0
+margin_right = 147.0
+margin_bottom = 22.0
+custom_constants/separation = 3
 
 [node name="ISide1" parent="." instance=ExtResource( 1 )]
+margin_right = 22.0
+margin_bottom = 22.0
 texture = ExtResource( 4 )
 crest = "SUMMON"
 mult = 3
 
 [node name="ISide2" parent="." instance=ExtResource( 1 )]
-margin_left = 18.0
-margin_right = 32.0
+margin_left = 25.0
+margin_right = 47.0
+margin_bottom = 22.0
 texture = ExtResource( 4 )
 crest = "SUMMON"
 mult = 3
 
 [node name="ISide3" parent="." instance=ExtResource( 1 )]
-margin_left = 36.0
-margin_right = 50.0
+margin_left = 50.0
+margin_right = 72.0
+margin_bottom = 22.0
 
 [node name="ISide4" parent="." instance=ExtResource( 1 )]
-margin_left = 54.0
-margin_right = 68.0
+margin_left = 75.0
+margin_right = 97.0
+margin_bottom = 22.0
 mult = 2
 
 [node name="ISide5" parent="." instance=ExtResource( 1 )]
-margin_left = 72.0
-margin_right = 86.0
+margin_left = 100.0
+margin_right = 122.0
+margin_bottom = 22.0
 texture = ExtResource( 5 )
 crest = "MAGIC"
 mult = 2
 
 [node name="ISide6" parent="." instance=ExtResource( 1 )]
-margin_left = 90.0
-margin_right = 104.0
+margin_left = 125.0
+margin_right = 147.0
+margin_bottom = 22.0
 texture = ExtResource( 3 )
 crest = "TRAP"
 mult = 2
