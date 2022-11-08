@@ -9,31 +9,9 @@ export (String, "NONE", "MONSTER_LORD", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAS
 export (int, 1, 2) var player_dungobj = 1 setget set_player_dungobj
 
 # constants
-#const MODDICT = {"DRAGON"      : {1 : Color(0.0, 0.0, 2.4),
-const MODDICT = {"DRAGON"      : {1 : Color(0.6, 0.6, 2.0),
-                                  #2 : Color(1.3, 0.0, 0.0)},
-                                  2 : Color(1.3, 0.1, 0.3)},
-                 #"SPELLCASTER" : {1 : Color(0.0, 0.0, 2.3),
-                 "SPELLCASTER" : {1 : Color(0.4, 0.5, 2.3),
-                                  #2 : Color(0.6, 0.0, 0.0)},
-                                  2 : Color(0.6, 0.4, 0.2)},
-                 #"UNDEAD"      : {1 : Color(0.0, 0.0, 1.1),
-                 "UNDEAD"      : {1 : Color(0.5, 0.5, 1.1),
-                                  #2 : Color(0.6, 0.0, 0.0)},
-                                  2 : Color(0.8, 0.2, 0.2)},
-                 #"BEAST"       : {1 : Color(0.0, 0.0, 1.2),
-                 "BEAST"       : {1 : Color(0.5, 0.5, 1.5),
-                                  #2 : Color(1.0, 0.0, 0.0)},
-                                  2 : Color(1.0, 0.3, 0.3)},
-                 #"WARRIOR"     : {1 : Color(0.0, 0.0, 2.8),
-                 "WARRIOR"     : {1 : Color(0.6, 0.6, 2.8),
-                                  #2 : Color(1.4, 0.0, 0.0)},
-                                  2 : Color(1.4, 0.3, 0.3)},
-                 #"ITEM"        : {1 : Color(0.0, 0.0, 1.1),
-                 "ITEM"        : {1 : Color(0.0, 0.0, 1.5),
-                                  #2 : Color(0.7, 0.0, 0.0)}}
-                                  2 : Color(0.8, 0.0, 0.0)}}
-const SELECTMOD = Color(1.0,1.0,0.5,1.0)
+const shader_p1 = preload("res://shaders/dungobj_P1_shader.tres")
+const shader_p2 = preload("res://shaders/dungobj_P2_shader.tres")
+const SHADERDICT = {0:null, 1:shader_p1, 2:shader_p2}
 
 # variables
 var tile
@@ -71,18 +49,10 @@ func set_dungobj_icon(_dungobj_type, _dungobj_player):
         var icon = _dungobj_type
         if _dungobj_type in Globals.TYPES + ["ITEM"]: # case summon
             icon = "TYPE_" + _dungobj_type
-            if _dungobj_player in [1,2]:
-                $DungobjRect.modulate = MODDICT[_dungobj_type][_dungobj_player]
-        if _dungobj_type == "MONSTER_LORD" or _dungobj_player == 0:
-                $DungobjRect.modulate = Color(1.0, 1.0, 1.0)
+            $DungobjRect.material = SHADERDICT[_dungobj_player]
+        else: # monster lord
+            $DungobjRect.material = null
         $DungobjRect.texture = load("res://art/icons/" + icon + ".png")
-        
-
-func set_selectmod():
-    $DungobjRect.modulate = SELECTMOD
-
-func unset_selectmod():
-    $DungobjRect.modulate = MODDICT[tile.content.playerid]
 
 func set_move_tile():
     $HighlightRect.visible = true
