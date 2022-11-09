@@ -11,7 +11,7 @@ const ICONDICT = {"ATTACK"  : "CREST_ATTACK",
                   "HEALTH"  : "HEALTH"}
 
 # setget functions
-func set_dice_stat(_stat, _value):
+func set_stat(_stat, _value):
     set_stat_icon(_stat)
     set_stat_value(_value)
 
