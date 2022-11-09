@@ -26,6 +26,7 @@ func _ready():
 func set_dice(dice):
     diceline.set_dice(dice)
     color_roll_button(dice.card)
+    info_button.set_card(dice.card)
 
 # signals callbacks
 func on_info_button_pressed(card):

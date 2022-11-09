@@ -5,7 +5,7 @@
 [ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=3]
 
 [node name="MonsterStat" type="HBoxContainer"]
-margin_right = 76.0
+margin_right = 81.0
 margin_bottom = 41.0
 size_flags_vertical = 5
 custom_constants/separation = 0
@@ -14,16 +14,16 @@ script = ExtResource( 2 )
 [node name="Value" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 41.0
-rect_min_size = Vector2( 36, 36 )
+rect_min_size = Vector2( 40, 0 )
 custom_fonts/font = ExtResource( 3 )
 text = "40"
 align = 2
 
 [node name="Icon" type="TextureRect" parent="."]
 margin_left = 40.0
-margin_right = 76.0
+margin_right = 81.0
 margin_bottom = 41.0
-rect_min_size = Vector2( 36, 0 )
+rect_min_size = Vector2( 41, 0 )
 size_flags_horizontal = 3
 texture = ExtResource( 1 )
 expand = true
