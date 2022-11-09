@@ -4,82 +4,67 @@
 [ext_resource path="res://interface2/player_gui/dicepool_window/dicepool_column/dicepool_column.gd" type="Script" id=2]
 
 [node name="DicepoolColumn" type="VBoxContainer"]
-margin_right = 661.0
-margin_bottom = 718.0
+margin_right = 675.0
+margin_bottom = 793.0
 size_flags_horizontal = 3
-custom_constants/separation = 4
+size_flags_vertical = 3
+custom_constants/separation = 2
 script = ExtResource( 2 )
 
 [node name="DiceColumn1" parent="." instance=ExtResource( 1 )]
-margin_right = 675.0
-margin_bottom = 51.0
 
 [node name="DiceColumn2" parent="." instance=ExtResource( 1 )]
-margin_top = 55.0
-margin_right = 675.0
-margin_bottom = 106.0
+margin_top = 53.0
+margin_bottom = 104.0
 
 [node name="DiceColumn3" parent="." instance=ExtResource( 1 )]
-margin_top = 110.0
-margin_right = 675.0
-margin_bottom = 161.0
+margin_top = 106.0
+margin_bottom = 157.0
 
 [node name="DiceColumn4" parent="." instance=ExtResource( 1 )]
-margin_top = 165.0
-margin_right = 675.0
-margin_bottom = 216.0
+margin_top = 159.0
+margin_bottom = 210.0
 
 [node name="DiceColumn5" parent="." instance=ExtResource( 1 )]
-margin_top = 220.0
-margin_right = 675.0
-margin_bottom = 271.0
+margin_top = 212.0
+margin_bottom = 263.0
 
 [node name="DiceColumn6" parent="." instance=ExtResource( 1 )]
-margin_top = 275.0
-margin_right = 675.0
-margin_bottom = 326.0
+margin_top = 265.0
+margin_bottom = 316.0
 
 [node name="DiceColumn7" parent="." instance=ExtResource( 1 )]
-margin_top = 330.0
-margin_right = 675.0
-margin_bottom = 381.0
+margin_top = 318.0
+margin_bottom = 369.0
 
 [node name="DiceColumn8" parent="." instance=ExtResource( 1 )]
-margin_top = 385.0
-margin_right = 675.0
-margin_bottom = 436.0
+margin_top = 371.0
+margin_bottom = 422.0
 
 [node name="DiceColumn9" parent="." instance=ExtResource( 1 )]
-margin_top = 440.0
-margin_right = 675.0
-margin_bottom = 491.0
+margin_top = 424.0
+margin_bottom = 475.0
 
 [node name="DiceColumn10" parent="." instance=ExtResource( 1 )]
-margin_top = 495.0
-margin_right = 675.0
-margin_bottom = 546.0
+margin_top = 477.0
+margin_bottom = 528.0
 
 [node name="DiceColumn11" parent="." instance=ExtResource( 1 )]
-margin_top = 550.0
-margin_right = 675.0
-margin_bottom = 601.0
+margin_top = 530.0
+margin_bottom = 581.0
 
 [node name="DiceColumn12" parent="." instance=ExtResource( 1 )]
-margin_top = 605.0
-margin_right = 675.0
-margin_bottom = 656.0
+margin_top = 583.0
+margin_bottom = 634.0
 
 [node name="DiceColumn13" parent="." instance=ExtResource( 1 )]
-margin_top = 660.0
-margin_right = 675.0
-margin_bottom = 711.0
+margin_top = 636.0
+margin_bottom = 687.0
 
 [node name="DiceColumn14" parent="." instance=ExtResource( 1 )]
-margin_top = 715.0
-margin_right = 675.0
-margin_bottom = 766.0
+margin_top = 689.0
+margin_bottom = 740.0
 
 [node name="DiceColumn15" parent="." instance=ExtResource( 1 )]
-margin_top = 770.0
-margin_right = 675.0
-margin_bottom = 821.0
+margin_top = 742.0
+margin_bottom = 793.0

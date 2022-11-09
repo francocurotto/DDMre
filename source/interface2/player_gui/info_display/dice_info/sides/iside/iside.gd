@@ -1,5 +1,5 @@
 tool
-extends TextureRect
+extends MarginContainer
 
 # export variables
 export (String, "SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP") var crest = "MOVEMENT" setget set_crest
@@ -15,14 +15,14 @@ func set_side(side):
 
 func set_crest(_crest):
     crest = _crest
-    texture = load("res://art/icons/CREST_" + crest  + ".png")
-    if has_node("Mult"):
+    $Icon.texture = load("res://art/icons/CREST_" + crest  + ".png")
+    if has_node("Icon"):
         position_mult()
 
 func set_mult(_mult):
     mult = _mult
-    if has_node("Mult"):
-        $Mult.text = str(mult)
+    if has_node("Icon"):
+        $Icon/Mult.text = str(mult)
 
 # private functions
 func position_mult():
@@ -32,21 +32,21 @@ func position_mult():
         position_mult_corner()
 
 func position_mult_center():
-    $Mult.anchor_left = 0.5
-    $Mult.anchor_right = 0.5
-    $Mult.anchor_top = 0.5
-    $Mult.anchor_bottom = 0.5
-    var multsize = $Mult.get_size()
-    $Mult.margin_left = -multsize.x/2
-    $Mult.margin_right = -multsize.x/2
-    $Mult.margin_top =  -multsize.y/2
-    $Mult.margin_bottom = -multsize.y/2
+    $Icon/Mult.anchor_left = 0.5
+    $Icon/Mult.anchor_right = 0.5
+    $Icon/Mult.anchor_top = 0.5
+    $Icon/Mult.anchor_bottom = 0.5
+    var multsize = $Icon/Mult.get_size()
+    $Icon/Mult.margin_left = -multsize.x/2
+    $Icon/Mult.margin_right = -multsize.x/2
+    $Icon/Mult.margin_top =  -multsize.y/2
+    $Icon/Mult.margin_bottom = -multsize.y/2
 
 func position_mult_corner():
-    $Mult.anchor_left = 1 
-    $Mult.anchor_right = 1
-    $Mult.anchor_top = 1
-    $Mult.anchor_bottom = 1
-    var multsize = $Mult.get_size()
-    $Mult.margin_left = -multsize.x
-    $Mult.margin_top =  -multsize.y
+    $Icon/Mult.anchor_left = 1
+    $Icon/Mult.anchor_right = 1
+    $Icon/Mult.anchor_top = 1
+    $Icon/Mult.anchor_bottom = 1
+    var multsize = $Icon/Mult.get_size()
+    $Icon/Mult.margin_left = -multsize.x
+    $Icon/Mult.margin_top =  -multsize.y

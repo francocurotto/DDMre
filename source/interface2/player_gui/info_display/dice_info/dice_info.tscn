@@ -6,37 +6,32 @@
 [ext_resource path="res://interface2/player_gui/info_display/dice_info/dice_info.gd" type="Script" id=4]
 
 [node name="DiceInfo" type="HBoxContainer"]
-margin_right = 597.0
-margin_bottom = 36.0
+margin_right = 611.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 custom_constants/separation = 15
 alignment = 1
 script = ExtResource( 4 )
 
 [node name="TLA" parent="." instance=ExtResource( 1 )]
-margin_right = 90.0
-margin_bottom = 36.0
 
 [node name="Attack" parent="." instance=ExtResource( 2 )]
-margin_left = 105.0
-margin_right = 177.0
-margin_bottom = 36.0
+margin_left = 107.0
+margin_right = 183.0
 
 [node name="Defense" parent="." instance=ExtResource( 2 )]
-margin_left = 192.0
-margin_right = 264.0
-margin_bottom = 36.0
+margin_left = 198.0
+margin_right = 274.0
 value = 20
 stat = "DEFENSE"
 
 [node name="Health" parent="." instance=ExtResource( 2 )]
-margin_left = 279.0
-margin_right = 351.0
-margin_bottom = 36.0
+margin_left = 289.0
+margin_right = 365.0
 value = 20
 stat = "HEALTH"
 
 [node name="Sides" parent="." instance=ExtResource( 3 )]
-margin_left = 366.0
-margin_right = 597.0
-margin_bottom = 36.0
+margin_left = 380.0
+margin_right = 611.0
+margin_bottom = 41.0

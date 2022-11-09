@@ -8,21 +8,22 @@
 
 [node name="DicepoolWindow" type="VBoxContainer"]
 margin_right = 720.0
-margin_bottom = 1022.0
+margin_bottom = 994.0
 size_flags_vertical = 3
 script = ExtResource( 4 )
 
 [node name="DicepoolPanel" type="PanelContainer" parent="."]
 margin_right = 720.0
-margin_bottom = 878.0
-size_flags_vertical = 0
+margin_bottom = 850.0
+size_flags_vertical = 3
 custom_styles/panel = ExtResource( 3 )
 
 [node name="DicepoolVBox" type="VBoxContainer" parent="DicepoolPanel"]
 margin_left = 6.0
 margin_top = 6.0
 margin_right = 714.0
-margin_bottom = 872.0
+margin_bottom = 844.0
+size_flags_vertical = 3
 
 [node name="Title" type="Label" parent="DicepoolPanel/DicepoolVBox"]
 margin_right = 708.0
@@ -33,13 +34,13 @@ text = "Dicepool"
 [node name="DicepoolColumn" parent="DicepoolPanel/DicepoolVBox" instance=ExtResource( 1 )]
 margin_top = 45.0
 margin_right = 708.0
-margin_bottom = 866.0
+margin_bottom = 838.0
 
 [node name="RollPanel" type="PanelContainer" parent="."]
-margin_top = 882.0
+margin_top = 854.0
 margin_right = 720.0
-margin_bottom = 1022.0
-size_flags_vertical = 3
+margin_bottom = 994.0
+rect_min_size = Vector2( 0, 140 )
 custom_styles/panel = ExtResource( 3 )
 
 [node name="RollVBox" type="VBoxContainer" parent="RollPanel"]
@@ -47,7 +48,6 @@ margin_left = 6.0
 margin_top = 6.0
 margin_right = 714.0
 margin_bottom = 134.0
-size_flags_vertical = 3
 
 [node name="Title" type="Label" parent="RollPanel/RollVBox"]
 margin_right = 708.0

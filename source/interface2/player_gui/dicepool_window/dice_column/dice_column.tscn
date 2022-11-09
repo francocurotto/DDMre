@@ -5,20 +5,21 @@
 [ext_resource path="res://interface2/player_gui/dicepool_window/dice_column/dice_column.gd" type="Script" id=3]
 
 [node name="DiceColumn" type="HBoxContainer"]
-margin_right = 661.0
-margin_bottom = 46.0
+margin_right = 675.0
+margin_bottom = 51.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/separation = 8
 script = ExtResource( 3 )
 
 [node name="DiceContainer" type="MarginContainer" parent="."]
-margin_right = 607.0
-margin_bottom = 46.0
+margin_right = 621.0
+margin_bottom = 51.0
 size_flags_horizontal = 3
 
 [node name="Margins" type="MarginContainer" parent="DiceContainer"]
-margin_right = 607.0
-margin_bottom = 46.0
+margin_right = 621.0
+margin_bottom = 51.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
@@ -27,19 +28,19 @@ custom_constants/margin_bottom = 5
 [node name="DiceInfo" parent="DiceContainer/Margins" instance=ExtResource( 1 )]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 602.0
-margin_bottom = 41.0
+margin_right = 616.0
+margin_bottom = 46.0
 
 [node name="RollButton" type="Button" parent="DiceContainer"]
 modulate = Color( 1.2, 0.5, 0.5, 1 )
 show_behind_parent = true
-margin_right = 607.0
-margin_bottom = 46.0
+margin_right = 621.0
+margin_bottom = 51.0
 
 [node name="InfoButton" type="Button" parent="."]
-margin_left = 615.0
-margin_right = 661.0
-margin_bottom = 46.0
+margin_left = 629.0
+margin_right = 675.0
+margin_bottom = 51.0
 rect_min_size = Vector2( 46, 0 )
 icon = ExtResource( 2 )
 icon_align = 1

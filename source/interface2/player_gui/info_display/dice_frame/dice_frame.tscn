@@ -5,7 +5,6 @@
 [node name="DiceFrame" type="TextureRect"]
 margin_right = 72.0
 margin_bottom = 83.0
-rect_min_size = Vector2( 36, 42 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 1 )

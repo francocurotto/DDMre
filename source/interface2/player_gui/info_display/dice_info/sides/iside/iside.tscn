@@ -4,16 +4,21 @@
 [ext_resource path="res://art/icons/CREST_MOVEMENT.png" type="Texture" id=2]
 [ext_resource path="res://art/fonts/side_mult.tres" type="DynamicFont" id=3]
 
-[node name="ISide" type="TextureRect"]
-margin_right = 14.0
-margin_bottom = 14.0
-rect_min_size = Vector2( 36, 36 )
-texture = ExtResource( 2 )
-expand = true
-stretch_mode = 5
+[node name="ISide" type="MarginContainer"]
+margin_right = 36.0
+margin_bottom = 36.0
 script = ExtResource( 1 )
 
-[node name="Mult" type="Label" parent="."]
+[node name="Icon" type="TextureRect" parent="."]
+margin_right = 36.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 36, 36 )
+size_flags_vertical = 4
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Mult" type="Label" parent="Icon"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
