@@ -3,7 +3,7 @@
 [ext_resource path="res://art/fonts/crestpool.tres" type="DynamicFont" id=1]
 [ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=2]
 
-[node name="Panel" type="PanelContainer"]
+[node name="DuelInfo" type="PanelContainer"]
 margin_right = 302.0
 margin_bottom = 44.0
 custom_styles/panel = ExtResource( 2 )
@@ -32,4 +32,4 @@ margin_left = 209.0
 margin_right = 290.0
 margin_bottom = 32.0
 custom_fonts/font = ExtResource( 1 )
-text = "Turn:00"
+text = "Turn:01"
