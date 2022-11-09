@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://interface2/player_gui/info_display/dice_info/sides/iside/iside.gd" type="Script" id=1]
+[ext_resource path="res://interface2/player_gui/info_display/dice_line/sides/iside/iside.gd" type="Script" id=1]
 [ext_resource path="res://art/icons/CREST_MOVEMENT.png" type="Texture" id=2]
 [ext_resource path="res://art/fonts/side_mult.tres" type="DynamicFont" id=3]
 

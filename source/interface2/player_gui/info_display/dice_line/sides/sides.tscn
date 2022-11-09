@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://interface2/player_gui/info_display/dice_info/sides/iside/iside.tscn" type="PackedScene" id=1]
-[ext_resource path="res://interface2/player_gui/info_display/dice_info/sides/sides.gd" type="Script" id=2]
+[ext_resource path="res://interface2/player_gui/info_display/dice_line/sides/iside/iside.tscn" type="PackedScene" id=1]
+[ext_resource path="res://interface2/player_gui/info_display/dice_line/sides/sides.gd" type="Script" id=2]
 [ext_resource path="res://art/icons/CREST_TRAP.png" type="Texture" id=3]
 [ext_resource path="res://art/icons/CREST_SUMMON.png" type="Texture" id=4]
 [ext_resource path="res://art/icons/CREST_MAGIC.png" type="Texture" id=5]

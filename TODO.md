@@ -1,4 +1,5 @@
 ### TODO
+- Mobile version
 - reddit post
 - ABILITIES!
 
