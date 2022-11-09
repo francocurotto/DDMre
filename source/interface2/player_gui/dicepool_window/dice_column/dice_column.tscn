@@ -31,6 +31,7 @@ margin_right = 602.0
 margin_bottom = 41.0
 
 [node name="RollButton" type="Button" parent="DiceContainer"]
+modulate = Color( 1.2, 0.5, 0.5, 1 )
 show_behind_parent = true
 margin_right = 607.0
 margin_bottom = 46.0

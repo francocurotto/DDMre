@@ -5,25 +5,23 @@
 
 [node name="MenuBar" type="HBoxContainer"]
 margin_right = 612.0
-margin_bottom = 48.0
+margin_bottom = 44.0
 custom_constants/separation = 5
 
 [node name="Panel" parent="." instance=ExtResource( 1 )]
-margin_right = 398.0
-margin_bottom = 48.0
 
 [node name="MenuButton" type="Button" parent="."]
-margin_left = 403.0
-margin_right = 487.0
-margin_bottom = 48.0
+margin_left = 307.0
+margin_right = 457.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 text = "Menu"
 
 [node name="WindowButton" type="Button" parent="."]
-margin_left = 492.0
+margin_left = 462.0
 margin_right = 612.0
-margin_bottom = 48.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 text = "Switch"

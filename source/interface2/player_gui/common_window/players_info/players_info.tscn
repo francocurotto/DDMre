@@ -7,6 +7,7 @@
 [node name="PlayersInfo" type="VBoxContainer"]
 margin_right = 40.0
 margin_bottom = 40.0
+custom_constants/separation = 0
 
 [node name="Player" type="PanelContainer" parent="."]
 margin_right = 630.0
@@ -31,9 +32,9 @@ margin_right = 618.0
 margin_bottom = 76.0
 
 [node name="Opponent" type="PanelContainer" parent="."]
-margin_top = 92.0
+margin_top = 88.0
 margin_right = 630.0
-margin_bottom = 180.0
+margin_bottom = 176.0
 custom_styles/panel = ExtResource( 3 )
 
 [node name="OpponentVBox" type="VBoxContainer" parent="Opponent"]
