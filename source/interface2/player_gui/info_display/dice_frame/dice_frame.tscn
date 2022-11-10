@@ -10,3 +10,7 @@ size_flags_vertical = 3
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
+
+[node name="Icon" type="TextureRect" parent="."]
+margin_right = 34.0
+margin_bottom = 43.0

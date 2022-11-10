@@ -1,14 +1,19 @@
 extends HBoxContainer
 
 # constants
-const ROLLDICT = {"DRAGON"      : Color(1.2, 0.5, 0.5, 1.0), 
-                  "SPELLCASTER" : Color(1.5, 1.5, 1.5, 1.0),
-                  "UNDEAD"      : Color(1.2, 1.2, 0.0, 1.0),
-                  "BEAST"       : Color(0.5, 1.2, 0.5, 1.0),
-                  "WARRIOR"     : Color(0.5, 0.5, 1.2, 1.0),
-                  "ITEM"        : Color(0.7, 0.7, 0.7, 1.0)}
-const ENABLE_COLOR = Color(1.0, 1.0, 1.0, 1.0)
-const DISABLE_COLOR = Color(0.3, 0.3, 0.3, 1.0)
+const ROLLDICT = {"DRAGON"      : Color(1.2, 0.5, 0.5), 
+                  "SPELLCASTER" : Color(1.5, 1.5, 1.5),
+                  "UNDEAD"      : Color(1.2, 1.2, 0.0),
+                  "BEAST"       : Color(0.5, 1.2, 0.5),
+                  "WARRIOR"     : Color(0.5, 0.5, 1.2),
+                  "ITEM"        : Color(0.7, 0.7, 0.7)}
+const ENABLED_COLOR = Color(1.0, 1.0, 1.0)
+const DISABLED_COLOR = Color(0.3, 0.3, 0.3)
+
+# variables
+var dice
+var selected setget , is_selected
+var dimensioned setget , is_dimensioned
 
 # onready variables
 onready var diceline = $DiceContainer/Margins/DiceLine
@@ -16,6 +21,8 @@ onready var roll_button = $DiceContainer/RollButton
 onready var info_button = $InfoButton
 
 # signals
+signal roll_button_pressed(dice)
+signal roll_button_released(dice)
 signal info_button_pressed(card)
 
 func _ready():
@@ -23,12 +30,33 @@ func _ready():
     info_button.connect("info_button_pressed", self, "on_info_button_pressed")
 
 # setget functions
-func set_dice(dice):
+func set_dice(_dice):
+    dice = _dice
     diceline.set_dice(dice)
     color_roll_button(dice.card)
     info_button.set_card(dice.card)
 
+func enable():
+    roll_button.disabled = false
+    modulate = ENABLED_COLOR
+
+func disable():
+    roll_button.disabled = true
+    modulate = DISABLED_COLOR
+
+func is_selected():
+    return roll_button.pressed
+
+func is_dimensioned():
+    return dice.dimensioned
+
 # signals callbacks
+func _on_RollButton_toggled(button_pressed):
+    if button_pressed:
+        emit_signal("roll_button_pressed", dice)
+    else:
+        emit_signal("roll_button_released", dice)
+
 func on_info_button_pressed(card):
     emit_signal("info_button_pressed", card)
 

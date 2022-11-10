@@ -12,7 +12,6 @@ var name
 var dicepool
 var crestpool = CrestPool.new()
 var monsterlord = MonsterLord.new(self)
-var dimdice = []
 var monsters = []
 var items = []
 var targets = [monsterlord]
@@ -49,7 +48,8 @@ func summon_card(idx):
     """
     Summon card in position idx from the dicepool.
     """
-    dimdice.append(idx) # add dice to dimensioned dice
+    var dice = dicepool[idx]
+    dice.dimensioned = true
     Events.emit_signal("card_summoned", idx)
     return dicepool[idx].card.summon(self)
 

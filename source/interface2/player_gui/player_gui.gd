@@ -21,7 +21,7 @@ func set_duel(_engine, _player, _opponent):
     engine = _engine
     player = _player
     opponent = _opponent
-    dicepool_window.set_dicepool(player.dicepool, player.dimdice)
+    dicepool_window.set_dicepool(player.dicepool)
 
 # signals callbacks
 func on_info_button_pressed(card):

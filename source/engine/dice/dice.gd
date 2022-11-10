@@ -10,6 +10,7 @@ var id
 var level
 var card
 var sides
+var dimensioned = false
 
 # signals
 signal rolled(side)
