@@ -22,7 +22,7 @@ func on_roll_triplet_increased(idx, dice):
     roll_gui.add_to_roll_triplet(idx, dice)
 
 func on_roll_triplet_decreased(idx):
-    roll_gui.remove_from_triplet(idx)
+    roll_gui.remove_from_roll_triplet(idx)
 
 func on_info_button_pressed(card):
     emit_signal("info_button_pressed", card)

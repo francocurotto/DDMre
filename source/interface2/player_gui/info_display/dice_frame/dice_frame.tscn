@@ -1,16 +1,38 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://art/icons/DICE.png" type="Texture" id=1]
+[ext_resource path="res://interface2/player_gui/info_display/dice_frame/dice_frame.gd" type="Script" id=3]
 
-[node name="DiceFrame" type="TextureRect"]
-margin_right = 72.0
-margin_bottom = 83.0
+[node name="DiceFrame" type="MarginContainer"]
+margin_right = 68.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 3 )
+
+[node name="DiceIcon" type="TextureRect" parent="."]
+margin_right = 68.0
+margin_bottom = 49.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
 
-[node name="Icon" type="TextureRect" parent="."]
-margin_right = 34.0
-margin_bottom = 43.0
+[node name="SummonMargin" type="MarginContainer" parent="."]
+margin_right = 68.0
+margin_bottom = 49.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="SummonIcon" type="TextureRect" parent="SummonMargin"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 58.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 6
