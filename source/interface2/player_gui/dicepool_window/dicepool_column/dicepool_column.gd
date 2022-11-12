@@ -4,15 +4,13 @@ extends VBoxContainer
 var dicepool
 
 # signals
-signal roll_triplet_increased(idx, dice)
-signal roll_triplet_decreased(idx)
+signal roll_triplet_changed(dicepool_column)
 signal info_button_pressed(card)
 
 func _ready():
     # singal connections
     for dicecol in get_children():
-        dicecol.connect("roll_button_pressed", self, "on_roll_button_pressed")
-        dicecol.connect("roll_button_released", self, "on_roll_button_released")
+        dicecol.connect("roll_button_toggled", self, "on_roll_button_toggled")
         dicecol.connect("info_button_pressed", self, "on_info_button_pressed")
 
 # setget functions
@@ -32,14 +30,12 @@ func enable_undimensioned():
             dicecol.enable()
 
 # signals callbacks
-func on_roll_button_pressed(dice):
-    emit_signal("roll_triplet_increased", get_dice_idx(dice), dice)
+func on_roll_button_toggled():
+    emit_signal("roll_triplet_changed", self)
     if roll_ready():
         disable_unselected()
-
-func on_roll_button_released(dice):
-    emit_signal("roll_triplet_decreased", get_dice_idx(dice))
-    enable_undimensioned()
+    else:
+        enable_undimensioned()
 
 func on_info_button_pressed(card):
     emit_signal("info_button_pressed", card)
@@ -48,11 +44,6 @@ func on_info_button_pressed(card):
 func set_diceitems():
     for i in range(get_child_count()):
         get_child(i).set_dice(dicepool[i])
-
-func get_dice_idx(dice):
-    for i in range(get_child_count()):
-        if get_child(i).dice == dice:
-            return i
 
 func roll_ready():
     var n = 0

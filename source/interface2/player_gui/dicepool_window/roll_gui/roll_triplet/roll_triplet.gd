@@ -1,25 +1,13 @@
 extends HBoxContainer
 
 # public functions
-func add_dice(idx, dice):
-    for diceframe in get_children():
-        if diceframe.is_empty():
-            diceframe.set_dice(idx, dice)
-            return
-        elif diceframe.idx > idx:
-            var old_dice = diceframe.dice
-            diceframe.set_dice(idx, dice)
-            dice = old_dice
-
-func remove_dice(idx):
-    for diceframe in get_children():
-        if diceframe.idx == idx:
-            diceframe.remove_dice()
-            flush_dice_left()
-            return
-
-# private functions
-func flush_dice_left():
-    for diceframe in get_children():
-        if diceframe.empty():
-            move_child(diceframe, 2)
+func update_dice(idicepool):
+    var idx = 0
+    # set dice frames
+    for idice in idicepool.get_children():
+        if idice.selected:
+            get_child(idx).set_dice(idice.dice)
+            idx += 1
+    # clear remaining dice frames
+    for i in range(idx, get_child_count()):
+        get_child(i).remove_dice()

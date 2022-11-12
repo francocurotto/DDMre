@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 # constants
-const ROLLDICT = {"DRAGON"      : Color(1.2, 0.5, 0.5), 
+const ROLLDICT = {"DRAGON"      : Color(1.2, 0.5, 0.5),
                   "SPELLCASTER" : Color(1.5, 1.5, 1.5),
                   "UNDEAD"      : Color(1.2, 1.2, 0.0),
                   "BEAST"       : Color(0.5, 1.2, 0.5),
@@ -21,8 +21,7 @@ onready var roll_button = $DiceContainer/RollButton
 onready var info_button = $InfoButton
 
 # signals
-signal roll_button_pressed(dice)
-signal roll_button_released(dice)
+signal roll_button_toggled
 signal info_button_pressed(card)
 
 func _ready():
@@ -51,11 +50,8 @@ func is_dimensioned():
     return dice.dimensioned
 
 # signals callbacks
-func _on_RollButton_toggled(button_pressed):
-    if button_pressed:
-        emit_signal("roll_button_pressed", dice)
-    else:
-        emit_signal("roll_button_released", dice)
+func _on_RollButton_toggled(_button_pressed):
+    emit_signal("roll_button_toggled")
 
 func on_info_button_pressed(card):
     emit_signal("info_button_pressed", card)
