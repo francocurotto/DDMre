@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://interface2/player_gui/dungeon_window/idungeon/idungeon.tscn" type="PackedScene" id=1]
+
+[node name="DungeonWindow" type="VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+size_flags_vertical = 3
+
+[node name="IDungeon" parent="." instance=ExtResource( 1 )]

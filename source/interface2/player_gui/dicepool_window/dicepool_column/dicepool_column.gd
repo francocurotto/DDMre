@@ -17,17 +17,32 @@ func _ready():
 func set_dicepool(_dicepool):
     dicepool = _dicepool
     set_diceitems()
-    #disable_dim_dimensioned()
+
+func disable_roll():
+    for dicecol in get_children():
+        dicecol.disable_roll()
 
 func disable_unselected():
     for dicecol in get_children():
         if not dicecol.selected:
-            dicecol.disable()
+            dicecol.disable_roll()
 
 func enable_undimensioned():
     for dicecol in get_children():
         if not dicecol.dimensioned:
-            dicecol.enable()
+            dicecol.enable_roll()
+
+func switch_to_dim(dim_candidates):
+    for i in dim_candidates:
+        get_child(i).switch_to_dim()
+
+# public functions
+func get_roll_indeces():
+    var indeces = []
+    for i in range(get_child_count()):
+        if get_child(i).selected:
+            indeces.append(i)
+    return indeces
 
 # signals callbacks
 func on_roll_button_toggled():

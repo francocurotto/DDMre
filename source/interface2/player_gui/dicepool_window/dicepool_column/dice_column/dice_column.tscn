@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://interface2/player_gui/info_display/dice_line/dice_line.tscn" type="PackedScene" id=1]
-[ext_resource path="res://interface2/player_gui/dicepool_window/dice_column/info_button/info_button.tscn" type="PackedScene" id=2]
-[ext_resource path="res://interface2/player_gui/dicepool_window/dice_column/dice_column.gd" type="Script" id=3]
+[ext_resource path="res://interface2/player_gui/dicepool_window/dicepool_column/dice_column/info_button/info_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface2/player_gui/dicepool_window/dicepool_column/dice_column/dice_column.gd" type="Script" id=3]
 
 [node name="DiceColumn" type="HBoxContainer"]
 margin_right = 675.0
@@ -32,6 +32,14 @@ margin_right = 641.0
 margin_bottom = 46.0
 
 [node name="RollButton" type="Button" parent="DiceContainer"]
+modulate = Color( 1.2, 0.5, 0.5, 1 )
+show_behind_parent = true
+margin_right = 646.0
+margin_bottom = 51.0
+toggle_mode = true
+
+[node name="DimButton" type="Button" parent="DiceContainer"]
+visible = false
 modulate = Color( 1.2, 0.5, 0.5, 1 )
 show_behind_parent = true
 margin_right = 646.0

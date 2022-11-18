@@ -1,11 +1,11 @@
 extends MarginContainer
 # constants
-const COLORDICT = {"DRAGON"      : Color(1.2, 0.5, 0.5),
-                   "SPELLCASTER" : Color(1.5, 1.5, 1.5),
-                   "UNDEAD"      : Color(1.2, 1.2, 0.0),
-                   "BEAST"       : Color(0.5, 1.2, 0.5),
-                   "WARRIOR"     : Color(0.5, 0.5, 1.2),
-                   "ITEM"        : Color(0.7, 0.7, 0.7)}
+const COLORDICT = {"DRAGON"      : Color(1.0, 0.0, 0.0),
+                   "SPELLCASTER" : Color(0.7, 0.7, 0.7),
+                   "UNDEAD"      : Color(1.0, 1.0, 0.0),
+                   "BEAST"       : Color(0.0, 1.0, 0.0),
+                   "WARRIOR"     : Color(0.0, 0.0, 1.0),
+                   "ITEM"        : Color(0.3, 0.3, 0.3)}
 
 # onready varibles
 onready var dice_icon = $DiceIcon

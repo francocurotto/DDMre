@@ -1,19 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://interface2/player_gui/dicepool_window/dicepool_window.tscn" type="PackedScene" id=1]
 [ext_resource path="res://interface2/player_gui/player_gui.gd" type="Script" id=2]
 [ext_resource path="res://interface2/player_gui/common_window/common_window.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface2/player_gui/dungeon_window/dungeon_window.tscn" type="PackedScene" id=4]
 
 [node name="PlayerGUI" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -169.0
+margin_bottom = -86.0
 custom_constants/separation = 10
 script = ExtResource( 2 )
 
 [node name="DicepoolWindow" parent="." instance=ExtResource( 1 )]
+visible = false
+margin_bottom = 1144.0
+
+[node name="DungeonWindow" parent="." instance=ExtResource( 4 )]
+margin_right = 720.0
+margin_bottom = 1072.0
 
 [node name="CommonWindow" parent="." instance=ExtResource( 3 )]
-margin_top = 1000.0
+margin_top = 1082.0
 margin_right = 720.0
-margin_bottom = 1272.0
+margin_bottom = 1354.0

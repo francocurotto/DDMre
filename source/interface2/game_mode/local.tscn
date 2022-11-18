@@ -13,3 +13,10 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 720.0
 margin_bottom = 1440.0
+
+[node name="P2GUI" parent="." instance=ExtResource( 1 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 720.0
+margin_bottom = 1440.0

@@ -1,5 +1,5 @@
 tool
-extends MarginContainer
+extends AspectRatioContainer
 
 # export variables
 export (String, "SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP") var crest = "MOVEMENT" setget set_crest

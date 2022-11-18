@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://art/fonts/crestpool.tres" type="DynamicFont" id=1]
 [ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=2]
+[ext_resource path="res://interface2/player_gui/common_window/menu_bar/duel_info/duel_info.gd" type="Script" id=3]
 
 [node name="DuelInfo" type="PanelContainer"]
 margin_right = 302.0
 margin_bottom = 44.0
 custom_styles/panel = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="HBox" type="HBoxContainer" parent="."]
 margin_left = 6.0

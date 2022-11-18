@@ -18,6 +18,7 @@ var dimensioned setget , is_dimensioned
 # onready variables
 onready var diceline = $DiceContainer/Margins/DiceLine
 onready var roll_button = $DiceContainer/RollButton
+onready var dim_button = $DiceContainer/DimButton
 onready var info_button = $InfoButton
 
 # signals
@@ -32,16 +33,21 @@ func _ready():
 func set_dice(_dice):
     dice = _dice
     diceline.set_dice(dice)
-    color_roll_button(dice.card)
+    color_buttons(dice.card)
     info_button.set_card(dice.card)
 
-func enable():
+func enable_roll():
     roll_button.disabled = false
     modulate = ENABLED_COLOR
 
-func disable():
+func disable_roll():
     roll_button.disabled = true
     modulate = DISABLED_COLOR
+
+func switch_to_dim():
+    roll_button.visible = false
+    dim_button.visible = true
+    modulate = ENABLED_COLOR
 
 func is_selected():
     return roll_button.pressed
@@ -57,5 +63,6 @@ func on_info_button_pressed(card):
     emit_signal("info_button_pressed", card)
 
 # private functions
-func color_roll_button(card):
+func color_buttons(card):
     roll_button.modulate = ROLLDICT[card.type]
+    dim_button.modulate = ROLLDICT[card.type]
