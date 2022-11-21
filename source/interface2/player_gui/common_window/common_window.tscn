@@ -14,6 +14,7 @@ script = ExtResource( 3 )
 margin_right = 711.0
 
 [node name="MenuBar" parent="." instance=ExtResource( 2 )]
-margin_top = 36.0
+visible = false
+margin_top = 72.0
 margin_right = 711.0
-margin_bottom = 90.0
+margin_bottom = 126.0

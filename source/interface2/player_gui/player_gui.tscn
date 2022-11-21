@@ -12,17 +12,15 @@ custom_constants/separation = 2
 script = ExtResource( 2 )
 
 [node name="DicepoolWindow" parent="." instance=ExtResource( 4 )]
-margin_bottom = 1188.0
+visible = false
 
 [node name="DungeonWindow" parent="." instance=ExtResource( 1 )]
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 992.0
 margin_right = 720.0
-margin_bottom = 2156.0
+margin_bottom = 1182.0
 
 [node name="CommonWindow" parent="." instance=ExtResource( 3 )]
-margin_top = 1190.0
+margin_top = 1184.0
 margin_right = 720.0
 margin_bottom = 1280.0
