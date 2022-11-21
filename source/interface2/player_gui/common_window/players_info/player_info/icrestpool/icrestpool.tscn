@@ -3,37 +3,28 @@
 [ext_resource path="res://interface2/player_gui/common_window/players_info/player_info/icrestpool/crestslot/crestslot.tscn" type="PackedScene" id=1]
 
 [node name="ICrestpool" type="HBoxContainer"]
-margin_right = 460.0
-margin_bottom = 40.0
-size_flags_horizontal = 3
-custom_constants/separation = 20
-alignment = 2
+margin_right = 253.0
+margin_bottom = 24.0
+custom_constants/separation = 4
 
 [node name="Movement" parent="." instance=ExtResource( 1 )]
-margin_left = 10.0
-margin_right = 84.0
-margin_bottom = 40.0
 
 [node name="Attack" parent="." instance=ExtResource( 1 )]
-margin_left = 104.0
-margin_right = 178.0
-margin_bottom = 40.0
+margin_left = 53.0
+margin_right = 102.0
 slot = "ATTACK"
 
 [node name="Defense" parent="." instance=ExtResource( 1 )]
-margin_left = 198.0
-margin_right = 272.0
-margin_bottom = 40.0
+margin_left = 106.0
+margin_right = 155.0
 slot = "DEFENSE"
 
 [node name="Magic" parent="." instance=ExtResource( 1 )]
-margin_left = 292.0
-margin_right = 366.0
-margin_bottom = 40.0
+margin_left = 159.0
+margin_right = 208.0
 slot = "MAGIC"
 
 [node name="Trap" parent="." instance=ExtResource( 1 )]
-margin_left = 386.0
-margin_right = 460.0
-margin_bottom = 40.0
+margin_left = 212.0
+margin_right = 261.0
 slot = "TRAP"

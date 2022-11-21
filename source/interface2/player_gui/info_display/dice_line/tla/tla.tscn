@@ -2,12 +2,13 @@
 
 [ext_resource path="res://interface2/player_gui/info_display/dice_line/tla/tla.gd" type="Script" id=1]
 [ext_resource path="res://art/icons/TYPE_DRAGON.png" type="Texture" id=2]
-[ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=3]
-[ext_resource path="res://art/icons/ABILITY.png" type="Texture" id=4]
+[ext_resource path="res://art/icons/ABILITY.png" type="Texture" id=3]
+[ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=4]
 
 [node name="TLA" type="HBoxContainer"]
 margin_right = 102.0
 margin_bottom = 41.0
+size_flags_horizontal = 3
 custom_constants/separation = 0
 alignment = 1
 script = ExtResource( 1 )
@@ -25,7 +26,7 @@ stretch_mode = 6
 margin_left = 41.0
 margin_right = 61.0
 margin_bottom = 41.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "3"
 
 [node name="Ability" type="TextureRect" parent="."]
@@ -33,6 +34,6 @@ margin_left = 61.0
 margin_right = 102.0
 margin_bottom = 41.0
 rect_min_size = Vector2( 41, 0 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6

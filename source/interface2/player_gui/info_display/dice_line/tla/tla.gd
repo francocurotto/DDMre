@@ -11,7 +11,7 @@ func set_tla(card):
     set_type(card.type)
     set_level(card.level)
     set_ability(not card.ability.empty())
-    
+
 func set_type(_type):
     type = _type
     if has_node("Type"):
@@ -28,4 +28,4 @@ func set_ability(_ability):
         if ability:
             $Ability.texture = load("res://art/icons/ABILITY.png")
         else: # ability icon
-            $Ability.texture = null 
+            $Ability.texture = null

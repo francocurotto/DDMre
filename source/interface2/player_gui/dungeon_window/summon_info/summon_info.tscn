@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://interface2/player_gui/dicepool_window/dicepool_column/dice_column/info_button/info_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://interface2/player_gui/info_display/summon_line/summon_line.tscn" type="PackedScene" id=2]
+
+[node name="SummonInfo" type="HBoxContainer"]
+margin_right = 443.0
+margin_bottom = 41.0
+
+[node name="SummonLine" parent="." instance=ExtResource( 2 )]
+margin_right = 393.0
+
+[node name="InfoButton" parent="." instance=ExtResource( 1 )]
+margin_left = 397.0
+margin_right = 443.0
+margin_bottom = 41.0

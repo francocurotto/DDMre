@@ -1,56 +1,53 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://interface2/player_gui/common_window/players_info/player_info/player_info.tscn" type="PackedScene" id=1]
-[ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=2]
-[ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=3]
 
-[node name="PlayersInfo" type="VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 6.0
+content_margin_right = 6.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+bg_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.705882, 0.705882, 0.705882, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="PlayersInfo" type="HBoxContainer"]
+margin_right = 706.0
+margin_bottom = 36.0
 custom_constants/separation = 0
 
-[node name="Player" type="PanelContainer" parent="."]
-margin_right = 630.0
-margin_bottom = 88.0
-custom_styles/panel = ExtResource( 3 )
+[node name="PlayerPanel" type="PanelContainer" parent="."]
+margin_right = 353.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 1 )
 
-[node name="PlayerVBox" type="VBoxContainer" parent="Player"]
+[node name="PlayerInfo" parent="PlayerPanel" instance=ExtResource( 1 )]
 margin_left = 6.0
 margin_top = 6.0
-margin_right = 624.0
-margin_bottom = 82.0
+margin_right = 347.0
+margin_bottom = 30.0
+alignment = 1
 
-[node name="PlayerTitle" type="Label" parent="Player/PlayerVBox"]
-margin_right = 618.0
+[node name="OpponentPanel" type="PanelContainer" parent="."]
+margin_left = 353.0
+margin_right = 706.0
 margin_bottom = 36.0
-custom_fonts/font = ExtResource( 2 )
-text = "Player"
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 1 )
 
-[node name="PlayerInfo" parent="Player/PlayerVBox" instance=ExtResource( 1 )]
-margin_top = 40.0
-margin_right = 618.0
-margin_bottom = 76.0
-
-[node name="Opponent" type="PanelContainer" parent="."]
-margin_top = 88.0
-margin_right = 630.0
-margin_bottom = 176.0
-custom_styles/panel = ExtResource( 3 )
-
-[node name="OpponentVBox" type="VBoxContainer" parent="Opponent"]
+[node name="OpponentInfo" parent="OpponentPanel" instance=ExtResource( 1 )]
 margin_left = 6.0
 margin_top = 6.0
-margin_right = 624.0
-margin_bottom = 82.0
-
-[node name="OpponentTitle" type="Label" parent="Opponent/OpponentVBox"]
-margin_right = 618.0
-margin_bottom = 36.0
-custom_fonts/font = ExtResource( 2 )
-text = "Opponent"
-
-[node name="OpponentInfo" parent="Opponent/OpponentVBox" instance=ExtResource( 1 )]
-margin_top = 40.0
-margin_right = 618.0
-margin_bottom = 76.0
+margin_right = 347.0
+margin_bottom = 30.0
+size_flags_horizontal = 11
+alignment = 1
 playerid = 2

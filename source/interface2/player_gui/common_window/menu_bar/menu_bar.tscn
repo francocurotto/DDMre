@@ -6,26 +6,27 @@
 [ext_resource path="res://interface2/player_gui/common_window/menu_bar/menu_bar.gd" type="Script" id=4]
 
 [node name="MenuBar" type="HBoxContainer"]
-margin_right = 612.0
-margin_bottom = 44.0
+margin_right = 514.0
+margin_bottom = 54.0
+size_flags_vertical = 3
 custom_constants/separation = 5
 script = ExtResource( 4 )
 
 [node name="DuelInfo" parent="." instance=ExtResource( 1 )]
-margin_bottom = 76.0
+margin_bottom = 54.0
 
 [node name="MenuButton" type="Button" parent="."]
 margin_left = 307.0
-margin_right = 437.0
-margin_bottom = 76.0
+margin_right = 395.0
+margin_bottom = 54.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 text = "Menu"
 
 [node name="WindowButton" type="Button" parent="."]
-margin_left = 442.0
-margin_right = 612.0
-margin_bottom = 76.0
+margin_left = 400.0
+margin_right = 514.0
+margin_bottom = 54.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
 text = "🎲 ↔ ⬜"

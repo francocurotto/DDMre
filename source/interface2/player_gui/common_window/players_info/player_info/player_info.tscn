@@ -5,15 +5,13 @@
 [ext_resource path="res://interface2/player_gui/common_window/players_info/player_info/player_info.gd" type="Script" id=3]
 
 [node name="PlayerInfo" type="HBoxContainer"]
-margin_right = 628.0
-margin_bottom = 36.0
-custom_constants/separation = 40
+margin_right = 341.0
+margin_bottom = 24.0
+custom_constants/separation = 4
 script = ExtResource( 3 )
 
 [node name="Hearts" parent="." instance=ExtResource( 1 )]
-margin_right = 128.0
 
 [node name="ICrestpool" parent="." instance=ExtResource( 2 )]
-margin_left = 168.0
-margin_right = 628.0
-margin_bottom = 36.0
+margin_left = 80.0
+margin_right = 341.0

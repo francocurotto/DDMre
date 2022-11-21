@@ -1,21 +1,21 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://art/fonts/QuiviraRegular.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=2]
-[ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=3]
-[ext_resource path="res://interface2/player_gui/info_display/dice_line/tla/tla.tscn" type="PackedScene" id=4]
-[ext_resource path="res://interface2/player_gui/info_display/dice_line/monster_stat/monster_stat.tscn" type="PackedScene" id=5]
+[ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=1]
+[ext_resource path="res://interface2/player_gui/info_display/dice_line/monster_stat/monster_stat.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface2/player_gui/info_display/dice_line/tla/tla.tscn" type="PackedScene" id=3]
+[ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=4]
+[ext_resource path="res://art/fonts/QuiviraRegular.otf" type="DynamicFontData" id=5]
 [ext_resource path="res://interface2/player_gui/info_display/card_info/card_info.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
-font_data = ExtResource( 1 )
+font_data = ExtResource( 5 )
 
 [node name="CardInfo" type="PanelContainer"]
 margin_right = 532.0
 margin_bottom = 224.0
 size_flags_vertical = 3
-custom_styles/panel = ExtResource( 3 )
+custom_styles/panel = ExtResource( 1 )
 script = ExtResource( 6 )
 
 [node name="VBox" type="VBoxContainer" parent="."]
@@ -33,7 +33,7 @@ margin_bottom = 41.0
 margin_right = 479.0
 margin_bottom = 41.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 4 )
 text = "Card Info"
 
 [node name="QuitButton" type="Button" parent="VBox/TitleHBox"]
@@ -54,11 +54,11 @@ alignment = 1
 [node name="Name" type="Label" parent="VBox/InfoVBox"]
 margin_right = 520.0
 margin_bottom = 41.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 4 )
 text = "Twin-headed Thunder Dragon"
 align = 1
 
-[node name="TLA" parent="VBox/InfoVBox" instance=ExtResource( 4 )]
+[node name="TLA" parent="VBox/InfoVBox" instance=ExtResource( 3 )]
 margin_top = 45.0
 margin_right = 520.0
 margin_bottom = 86.0
@@ -69,17 +69,17 @@ margin_right = 520.0
 margin_bottom = 131.0
 alignment = 1
 
-[node name="Attack" parent="VBox/InfoVBox/StatsHBox" instance=ExtResource( 5 )]
+[node name="Attack" parent="VBox/InfoVBox/StatsHBox" instance=ExtResource( 2 )]
 margin_left = 134.0
 margin_right = 215.0
 
-[node name="Defense" parent="VBox/InfoVBox/StatsHBox" instance=ExtResource( 5 )]
+[node name="Defense" parent="VBox/InfoVBox/StatsHBox" instance=ExtResource( 2 )]
 margin_left = 219.0
 margin_right = 300.0
 value = 20
 stat = "DEFENSE"
 
-[node name="Health" parent="VBox/InfoVBox/StatsHBox" instance=ExtResource( 5 )]
+[node name="Health" parent="VBox/InfoVBox/StatsHBox" instance=ExtResource( 2 )]
 margin_left = 304.0
 margin_right = 385.0
 value = 20
