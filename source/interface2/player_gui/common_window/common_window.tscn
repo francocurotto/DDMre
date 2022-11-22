@@ -4,17 +4,15 @@
 [ext_resource path="res://interface2/player_gui/common_window/menu_bar/menu_bar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface2/player_gui/common_window/common_window.gd" type="Script" id=3]
 
-[node name="CommonWindow" type="VBoxContainer"]
-margin_right = 711.0
-margin_bottom = 90.0
+[node name="CommonWindow" type="HBoxContainer"]
+margin_right = 608.0
+margin_bottom = 100.0
 custom_constants/separation = 0
 script = ExtResource( 3 )
 
-[node name="PlayersInfo" parent="." instance=ExtResource( 1 )]
-margin_right = 711.0
-
 [node name="MenuBar" parent="." instance=ExtResource( 2 )]
-visible = false
-margin_top = 72.0
-margin_right = 711.0
-margin_bottom = 126.0
+margin_bottom = 100.0
+
+[node name="PlayersInfo" parent="." instance=ExtResource( 1 )]
+margin_left = 88.0
+margin_right = 608.0

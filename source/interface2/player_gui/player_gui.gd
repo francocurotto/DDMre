@@ -11,6 +11,7 @@ var cardinfo
 
 # onready variables
 onready var dicepool_window = $DicepoolWindow
+onready var dungeon_window = $DungeonWindow
 onready var common_window = $CommonWindow
 
 func _ready():
@@ -24,6 +25,8 @@ func set_duel(_engine, _player, _opponent):
     player = _player
     opponent = _opponent
     dicepool_window.set_dicepool(player.dicepool)
+    dungeon_window.set_dungeon(engine.dungeon)
+    common_window.set_players_info(player, opponent)
 
 func set_roll(sides):
     dicepool_window.set_roll(sides)

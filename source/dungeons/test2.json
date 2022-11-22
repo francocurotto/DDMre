@@ -1,0 +1,38 @@
+{
+  "DUNGEON": [
+    "OOOOOOLOOOOOO",
+    "OOOOOOPOOOOOO",
+    "OOOOOOPOOOOOO",
+    "OOOOOOPOOOOOO",
+    "OOOOOOPOOOOOO",
+    "OOOOOOPOOOOOO",
+    "OOOOOOPOOOOOO",
+    "OOOOOOOOOOOOO",
+    "OOOOOOOOOOOOO",
+    "OOOOOOOOOOOOO",
+    "OOOOOOOOOOOOO",
+    "OOOOOOOOOOOOO",
+    "OOOOOOpOOOOOO",
+    "OOOOOOpOOOOOO",
+    "OOOOOOpOOOOOO",
+    "OOOOOOpOOOOOO",
+    "OOOOOOpOOOOOO",
+    "OOOOOOpOOOOOO",
+    "OOOOOOlOOOOOO"],
+  "SUMMONS1": [],
+  "SUMMONS2": [],
+  "CRESTS1": {
+    "MOVEMENT": 1,
+    "ATTACK"  : 2,
+    "DEFENSE" : 3,
+    "MAGIC"   : 4,
+    "TRAP"    : 5},
+  "CRESTS2": {
+    "MOVEMENT": 6,
+    "ATTACK"  : 7,
+    "DEFENSE" : 8,
+    "MAGIC"   : 9,
+    "TRAP"    : 10},
+  "HEARTS1": 2,
+  "HEARTS2": 1
+}

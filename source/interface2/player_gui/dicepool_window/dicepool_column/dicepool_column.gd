@@ -18,6 +18,10 @@ func set_dicepool(_dicepool):
     dicepool = _dicepool
     set_diceitems()
 
+func set_diceitems():
+    for i in range(get_child_count()):
+        get_child(i).set_dice(dicepool[i])
+
 func disable_roll():
     for dicecol in get_children():
         dicecol.disable_roll()
@@ -56,10 +60,6 @@ func on_info_button_pressed(card):
     emit_signal("info_button_pressed", card)
 
 # private functions
-func set_diceitems():
-    for i in range(get_child_count()):
-        get_child(i).set_dice(dicepool[i])
-
 func roll_ready():
     var n = 0
     for dicecol in get_children():
