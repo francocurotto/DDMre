@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://interface2/player_gui/dungeon_window/idungeon/itile/itile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://interface2/player_gui/dungeon_window/idungeon/idungeon.gd" type="Script" id=2]
 
 [node name="IDungeon" type="AspectRatioContainer"]
 anchor_right = 1.0
@@ -10,6 +11,7 @@ rect_min_size = Vector2( 720, 1053 )
 size_flags_vertical = 3
 ratio = 0.684
 alignment_vertical = 0
+script = ExtResource( 2 )
 
 [node name="Rows" type="VBoxContainer" parent="."]
 margin_right = 720.0

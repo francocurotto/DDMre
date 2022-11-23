@@ -17,7 +17,6 @@ func _ready():
     engine = Engine.new()
     set_guis()
     # connections
-    Events.connect("duel_update", self, "on_duel_update")
     Events.connect("dice_rolled", self, "on_dice_rolled")
     Events.connect("card_summoned", self, "on_card_summoned")
     Events.connect("state_update", self, "on_state_update")
@@ -40,15 +39,10 @@ func set_player_gui():
     self.opponent_gui.visible = false
 
 # signals callbacks
-func on_duel_update(_cmdname):
-    pass
-
 func on_dice_rolled(sides):
     self.player_gui.set_roll(sides)
 
 func on_state_update(state_name):
-    p1gui.on_state_update(state_name)
-    p2gui.on_state_update(state_name)
     set_player_gui()
     match state_name:
         "ROLL"      : on_state_update_roll()

@@ -19,8 +19,9 @@ func ROLL(cmd):
     Execute the ROLL command.
     """
     var sides = roll_dice(cmd["dice"])
+    Events.emit_signal("dice_rolled", sides)
+    Events.emit_signal("duel_update")
     var dim_candidates = get_dim_candidates(cmd["dice"], sides)
-    Events.emit_signal("duel_update", cmd["name"])
     if dim_candidates:
         return DimensionState.new(player, opponent, dungeon, dim_candidates)
     else:
@@ -34,7 +35,6 @@ func roll_dice(indeces):
     var sides = []
     for i in indeces:
         sides.append(player.dicepool[i].roll())
-    Events.emit_signal("dice_rolled", sides)
     return sides
 
 func get_dim_candidates(indeces, sides):

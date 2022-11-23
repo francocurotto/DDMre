@@ -28,7 +28,7 @@ func is_path():
 
 func is_occupied():
     return not content.is_none()
-    
+
 func is_reachable():
     return not content.is_target()
 

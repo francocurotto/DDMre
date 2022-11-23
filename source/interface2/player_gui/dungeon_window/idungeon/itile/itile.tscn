@@ -13,10 +13,10 @@ script = ExtResource( 2 )
 [node name="TileFrame" parent="." instance=ExtResource( 1 )]
 
 [node name="TileButton" type="Button" parent="."]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 28.0
 margin_bottom = 28.0
+toggle_mode = true
 
 [node name="MoveButton" type="Button" parent="."]
 visible = false
@@ -35,3 +35,5 @@ visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 28.0
 margin_bottom = 28.0
+
+[connection signal="toggled" from="TileButton" to="." method="_on_TileButton_toggled"]

@@ -5,7 +5,7 @@ onready var dice_triplet = $DiceTriplet
 onready var roll_button = $RollButton
 
 # signals
-signal roll_input
+signal roll_button_pressed
 
 # setget functions
 func set_roll(sides):
@@ -22,4 +22,4 @@ func disable_roll():
 
 # signals callbacks
 func _on_RollButton_pressed():
-    emit_signal("roll_input")
+    emit_signal("roll_button_pressed")

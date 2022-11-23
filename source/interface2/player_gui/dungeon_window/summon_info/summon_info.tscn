@@ -4,13 +4,15 @@
 [ext_resource path="res://interface2/player_gui/info_display/summon_line/summon_line.tscn" type="PackedScene" id=2]
 
 [node name="SummonInfo" type="HBoxContainer"]
-margin_right = 443.0
+margin_right = 46.0
 margin_bottom = 41.0
+rect_min_size = Vector2( 0, 41 )
+alignment = 2
 
 [node name="SummonLine" parent="." instance=ExtResource( 2 )]
+visible = false
 margin_right = 393.0
 
 [node name="InfoButton" parent="." instance=ExtResource( 1 )]
-margin_left = 397.0
-margin_right = 443.0
 margin_bottom = 41.0
+disabled = true

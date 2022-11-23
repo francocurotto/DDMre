@@ -10,6 +10,9 @@ onready var defense = $Defense
 onready var magic = $Magic
 onready var trap = $Trap
 
+func _ready():
+    Events.connect("duel_update", self, "on_duel_update")
+
 # setget functions
 func set_crestpool(_crestpool):
     crestpool = _crestpool
@@ -22,3 +25,7 @@ func update_crestpool():
     defense .set_slot_value(crestpool.slots["DEFENSE" ])
     magic   .set_slot_value(crestpool.slots["MAGIC"   ])
     trap    .set_slot_value(crestpool.slots["TRAP"    ])
+
+# signals callback
+func on_duel_update():
+    update_crestpool()

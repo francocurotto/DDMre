@@ -11,25 +11,30 @@ var cardinfo
 
 # onready variables
 onready var dicepool_window = $DicepoolWindow
+onready var dicepool_column = $DicepoolWindow/DicepoolPanel/DicepoolVBox/DicepoolColumn
+onready var dice_triplet = $DicepoolWindow/RollPanel/RollVBox/RollGUI/DiceTriplet
 onready var dungeon_window = $DungeonWindow
-onready var common_window = $CommonWindow
+onready var idungeon = $DungeonWindow/IDungeon
+onready var menu_bar = $CommonWindow/MenuBar
+onready var players_info = $CommonWindow/PlayersInfo
 
 func _ready():
     # signal connections
-    dicepool_window.connect("info_button_pressed", self, "on_info_button_pressed")
-    dicepool_window.connect("roll_input", self, "on_roll_input")
+    dicepool_column.connect("info_button_pressed", self, "on_info_button_pressed")
+    dicepool_window.connect("roll_button_pressed", self, "on_roll_button_pressed")
+    menu_bar.connect("window_button_pressed", self, "on_window_button_pressed")
 
 # setget functions
 func set_duel(_engine, _player, _opponent):
     engine = _engine
     player = _player
     opponent = _opponent
-    dicepool_window.set_dicepool(player.dicepool)
-    dungeon_window.set_dungeon(engine.dungeon)
-    common_window.set_players_info(player, opponent)
+    dicepool_column.set_dicepool(player.dicepool)
+    idungeon.set_dungeon(engine.dungeon, player)
+    players_info.set_players_info(player, opponent)
 
 func set_roll(sides):
-    dicepool_window.set_roll(sides)
+    dice_triplet.set_roll(sides)
 
 # signals callbacks
 func on_info_button_pressed(card):
@@ -40,11 +45,12 @@ func on_cardinfo_quit():
     cardinfo.queue_free()
     dicepool_window.visible = true
 
-func on_roll_input(indeces):
-    engine.update({"name":"ROLL", "dice":indeces})
+func on_window_button_pressed():
+    dicepool_window.visible = not dicepool_window.visible
+    dungeon_window.visible = not dungeon_window.visible
 
-func on_state_update(state_name):
-    common_window.update_state(state_name)
+func on_roll_button_pressed(indeces):
+    engine.update({"name":"ROLL", "dice":indeces})
 
 func on_state_update_dungeon():
     dicepool_window.on_state_update_dungeon()

@@ -4,7 +4,21 @@ extends MarginContainer
 # export variables
 export (String, "NONE", "ML1", "ML2") var ml = "NONE" setget set_ml
 
+# variables
+var tile
+
+# onready variables
+onready var tile_frame = $TileFrame
+onready var tile_button = $TileButton
+
+# signals
+signal tile_button_toggled
+
 # setget functions
+func set_tile(_tile):
+    tile = _tile
+    update_tile()
+
 func set_ml(_ml):
     ml = _ml
     if ml == "NONE":
@@ -16,3 +30,14 @@ func set_ml(_ml):
     elif ml == "ML2":
         $TileFrame.set_tile_icon("PATH", 2)
         $TileFrame.set_dungobj_icon("MONSTER_LORD", 2)
+
+# public functions
+func update_tile():
+    tile_frame.set_tile_icon(tile.NAME, tile.playerid)
+    tile_frame.set_dungobj_icon(tile.content.NAME, tile.content.playerid)
+    tile_button.disabled = not tile.is_path()
+
+# signals callbacks
+func _on_TileButton_toggled(button_pressed):
+    tile_frame.set_highlight(button_pressed)
+    emit_signal("tile_button_toggled", self)
