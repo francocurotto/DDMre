@@ -37,6 +37,10 @@ func update_tile():
     tile_frame.set_dungobj_icon(tile.content.NAME, tile.content.playerid)
     tile_button.disabled = not tile.is_path()
 
+func release_button():
+    tile_button.set_pressed_no_signal(false)
+    tile_frame.set_highlight(false)
+
 # signals callbacks
 func _on_TileButton_toggled(button_pressed):
     tile_frame.set_highlight(button_pressed)

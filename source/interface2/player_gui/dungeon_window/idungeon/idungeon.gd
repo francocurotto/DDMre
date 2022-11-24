@@ -23,7 +23,7 @@ func on_tile_button_toggled(itile):
     for row in rows.get_children():
         for _itile in row.get_children():
             if _itile != itile:
-                _itile._on_TileButton_toggled(false)
+                _itile.release_button()
 
 # private functions
 func get_irow(player, idx):
