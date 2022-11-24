@@ -9,6 +9,9 @@ export (String, "ATTACK", "DEFENSE", "HEALTH") var stat = "ATTACK" setget set_st
 const ICONDICT = {"ATTACK"  : "CREST_ATTACK",
                   "DEFENSE" : "CREST_DEFENSE",
                   "HEALTH"  : "HEALTH"}
+const COLORDICT = { 0.0 : Color(1.0, 1.0, 1.0),
+                    1.0 : Color(0.0, 0.0, 1.0),
+                   -1.0 : Color(1.0, 0.0, 0.0)}
 
 # setget functions
 func set_stat(_stat, _value):
@@ -19,6 +22,11 @@ func set_stat_value(_value):
     value = _value
     if has_node("Value"):
         $Value.text = str(value)
+    visible = true
+
+func set_stat_value_color(_value, ref):
+    set_stat_value(_value)
+    $Value.modulate = COLORDICT[sign(_value-ref)]
 
 func set_stat_icon(_stat):
     stat = _stat
@@ -28,6 +36,3 @@ func set_stat_icon(_stat):
 
 func hide():
     modulate = Color(1.0, 1.0, 1.0, 0.0)
-
-func modulate_value(color):
-    $Label.modulate = color

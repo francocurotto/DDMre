@@ -12,7 +12,7 @@ onready var tile_frame = $TileFrame
 onready var tile_button = $TileButton
 
 # signals
-signal tile_button_toggled
+signal tile_button_toggled(itile, pressed)
 
 # setget functions
 func set_tile(_tile):
@@ -44,4 +44,4 @@ func release_button():
 # signals callbacks
 func _on_TileButton_toggled(button_pressed):
     tile_frame.set_highlight(button_pressed)
-    emit_signal("tile_button_toggled", self)
+    emit_signal("tile_button_toggled", self, button_pressed)

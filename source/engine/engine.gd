@@ -17,10 +17,12 @@ var turn = 1
 func _init(initpath:=Globals.DUNGPATH, _pool1:=Globals.POOL1PATH, _pool2:=Globals.POOL2PATH):
     # duel objects
     dicelib = Dicelib.new()
-    player1 = Player.new(1, dicelib.create_randpool())
-    player2 = Player.new(2, dicelib.create_randpool())
-    #player1 = Player.new(1, dicelib.create_dicepool(_pool1))
-    #player2 = Player.new(2, dicelib.create_dicepool(_pool2))
+    if Globals.RANDOMPOOL:
+        player1 = Player.new(1, dicelib.create_randpool())
+        player2 = Player.new(2, dicelib.create_randpool())
+    else:
+        player1 = Player.new(1, dicelib.create_dicepool(_pool1))
+        player2 = Player.new(2, dicelib.create_dicepool(_pool2))
     dungeon = Dungeon.new()
     state = RollState.new(player1, player2, dungeon)
     set_initstate(initpath)
