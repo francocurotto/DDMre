@@ -4,13 +4,13 @@ extends VBoxContainer
 var dicepool
 
 # signals
-signal roll_triplet_changed(dicepool_column)
+signal dice_triplet_changed(dicepool_column)
 signal info_button_pressed(card)
 
 func _ready():
     # singal connections
     for dicecol in get_children():
-        dicecol.connect("roll_button_toggled", self, "on_roll_button_toggled")
+        dicecol.connect("dice_roll_button_toggled", self, "on_dice_roll_button_toggled")
         dicecol.connect("info_button_pressed", self, "on_info_button_pressed")
 
 # setget functions
@@ -49,8 +49,8 @@ func get_roll_indeces():
     return indeces
 
 # signals callbacks
-func on_roll_button_toggled():
-    emit_signal("roll_triplet_changed", self)
+func on_dice_roll_button_toggled():
+    emit_signal("dice_triplet_changed", self)
     if roll_ready():
         disable_roll_unselected()
     else:

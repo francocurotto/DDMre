@@ -8,7 +8,7 @@ onready var roll_button = $RollButton
 signal roll_button_pressed
 
 # public functions
-func update_roll_triplet(idicepool):
+func update_dice_triplet(idicepool):
     dice_triplet.update_dice(idicepool)
     if idicepool.roll_ready():
         roll_button.disabled = false

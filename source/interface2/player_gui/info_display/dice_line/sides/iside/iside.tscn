@@ -26,7 +26,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -14.0
 margin_top = -29.0
-margin_right = -7.0
-margin_bottom = -14.5
 custom_fonts/font = ExtResource( 2 )
 text = "1"

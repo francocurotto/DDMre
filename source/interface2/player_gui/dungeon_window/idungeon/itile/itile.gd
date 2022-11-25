@@ -9,7 +9,10 @@ var tile
 
 # onready variables
 onready var tile_frame = $TileFrame
-onready var tile_button = $TileButton
+onready var tile_select_button = $TileSelectButton
+onready var tile_move_button = $TileMoveButton
+onready var tile_attack_button = $TileAttackButton
+onready var tile_dim_button = $TileDimButton
 
 # signals
 signal tile_button_toggled(itile, pressed)
@@ -35,13 +38,38 @@ func set_ml(_ml):
 func update_tile():
     tile_frame.set_tile_icon(tile.NAME, tile.playerid)
     tile_frame.set_dungobj_icon(tile.content.NAME, tile.content.playerid)
-    tile_button.disabled = not tile.is_path()
+    enable_select_button()
 
-func release_button():
-    tile_button.set_pressed_no_signal(false)
-    tile_frame.set_highlight(false)
+func enable_select_button():
+    tile_select_button.visible = tile.is_path()
+    tile_select_button.set_pressed_no_signal(false)
+
+func release_select_button():
+    tile_select_button.set_pressed_no_signal(false)
+    tile_frame.highlight = false
+
+func disable_all_buttons():
+    tile_select_button.visible = false
+    tile_move_button.visible = false
+    tile_attack_button.visible = false
+    tile_dim_button.visible = false
+    tile_frame.highlight = false
+
+func enable_move_button():
+    tile_move_button.visible = true
+    tile_frame.highlight = true
+
+func enable_attack_button():
+    tile_attack_button.visible = true
+    tile_frame.highlight = true
 
 # signals callbacks
-func _on_TileButton_toggled(button_pressed):
+func _on_TileSelectButton_toggled(button_pressed):
     tile_frame.set_highlight(button_pressed)
     emit_signal("tile_button_toggled", self, button_pressed)
+
+func _on_TileMoveButton_pressed():
+    print("tile move button")
+
+func _on_TileAttackButton_pressed():
+    print("tile attack button")

@@ -3,46 +3,64 @@
 [ext_resource path="res://art/fonts/text_output.tres" type="DynamicFont" id=1]
 [ext_resource path="res://interface2/player_gui/dungeon_window/dungeon_buttons/dungeon_buttons.gd" type="Script" id=2]
 
-[node name="DungeonButtons" type="HBoxContainer"]
-margin_right = 705.0
+[node name="DungeonButtons" type="VBoxContainer"]
+margin_right = 490.0
 margin_bottom = 50.0
-rect_min_size = Vector2( 0, 50 )
 size_flags_vertical = 3
 script = ExtResource( 2 )
 
-[node name="MoveButton" type="Button" parent="."]
-margin_right = 173.0
+[node name="ActionButtons" type="HBoxContainer" parent="."]
+margin_right = 605.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_vertical = 3
+
+[node name="MoveButton" type="Button" parent="ActionButtons"]
+margin_right = 113.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
-text = "⬆Move"
+text = "⬆MOVE"
 
-[node name="AttackButton" type="Button" parent="."]
-margin_left = 177.0
-margin_right = 350.0
+[node name="AttackButton" type="Button" parent="ActionButtons"]
+margin_left = 117.0
+margin_right = 267.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
-text = "⚔Attack"
+text = "⚔ATTACK"
 
-[node name="AbilityButton" type="Button" parent="."]
-margin_left = 354.0
-margin_right = 527.0
+[node name="AbilityButton" type="Button" parent="ActionButtons"]
+margin_left = 271.0
+margin_right = 423.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
-text = "✨Ability"
+text = "✨ABILITY"
 
-[node name="EndTurnButton" type="Button" parent="."]
-margin_left = 531.0
-margin_right = 705.0
+[node name="EndTurnButton" type="Button" parent="ActionButtons"]
+margin_left = 427.0
+margin_right = 605.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
-text = "⌛End Turn"
+text = "⌛END TURN"
 
-[connection signal="pressed" from="EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
+[node name="CancelButton" type="Button" parent="."]
+visible = false
+margin_top = 54.0
+margin_right = 605.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "❌CANCEL"
+
+[connection signal="pressed" from="ActionButtons/MoveButton" to="." method="_on_MoveButton_pressed"]
+[connection signal="pressed" from="ActionButtons/AttackButton" to="." method="_on_AttackButton_pressed"]
+[connection signal="pressed" from="ActionButtons/EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
+[connection signal="pressed" from="CancelButton" to="." method="_on_CancelButton_pressed"]

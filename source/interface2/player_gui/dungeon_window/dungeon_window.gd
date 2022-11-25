@@ -8,6 +8,9 @@ onready var dungeon_buttons = $DungeonButtons
 func _ready():
     idungeon.connect("tile_button_toggled", summon_info, "on_tile_button_toggled")
     idungeon.connect("tile_button_toggled", dungeon_buttons, "on_tile_button_toggled")
+    dungeon_buttons.connect("move_button_pressed", idungeon, "on_move_button_pressed")
+    dungeon_buttons.connect("attack_button_pressed", idungeon, "on_attack_button_pressed")
+    dungeon_buttons.connect("cancel_button_pressed", idungeon, "on_cancel_button_pressed")
 
 # signals callbacks
 func on_state_update_roll():
