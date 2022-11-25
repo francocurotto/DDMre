@@ -13,12 +13,12 @@ custom_constants/separation = 8
 script = ExtResource( 3 )
 
 [node name="DiceContainer" type="MarginContainer" parent="."]
-margin_right = 646.0
+margin_right = 651.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 
 [node name="Margins" type="MarginContainer" parent="DiceContainer"]
-margin_right = 646.0
+margin_right = 651.0
 margin_bottom = 51.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
@@ -28,13 +28,13 @@ custom_constants/margin_bottom = 5
 [node name="DiceLine" parent="DiceContainer/Margins" instance=ExtResource( 2 )]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 641.0
+margin_right = 646.0
 margin_bottom = 46.0
 
 [node name="RollButton" type="Button" parent="DiceContainer"]
 modulate = Color( 1.2, 0.5, 0.5, 1 )
 show_behind_parent = true
-margin_right = 646.0
+margin_right = 651.0
 margin_bottom = 51.0
 toggle_mode = true
 
@@ -42,13 +42,13 @@ toggle_mode = true
 visible = false
 modulate = Color( 1.2, 0.5, 0.5, 1 )
 show_behind_parent = true
-margin_right = 646.0
+margin_right = 651.0
 margin_bottom = 51.0
 toggle_mode = true
 
 [node name="InfoButton" parent="." instance=ExtResource( 1 )]
-margin_left = 654.0
-margin_right = 700.0
+margin_left = 659.0
+margin_right = 705.0
 margin_bottom = 51.0
 
 [connection signal="toggled" from="DiceContainer/RollButton" to="." method="_on_RollButton_toggled"]

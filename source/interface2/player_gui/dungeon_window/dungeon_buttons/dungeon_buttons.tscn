@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://art/fonts/text_output.tres" type="DynamicFont" id=1]
+[ext_resource path="res://interface2/player_gui/dungeon_window/dungeon_buttons/dungeon_buttons.gd" type="Script" id=2]
 
 [node name="DungeonButtons" type="HBoxContainer"]
 margin_right = 705.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_vertical = 3
+script = ExtResource( 2 )
 
 [node name="MoveButton" type="Button" parent="."]
 margin_right = 173.0
@@ -42,3 +44,5 @@ size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
 text = "⌛End Turn"
+
+[connection signal="pressed" from="EndTurnButton" to="." method="_on_EndTurnButton_pressed"]

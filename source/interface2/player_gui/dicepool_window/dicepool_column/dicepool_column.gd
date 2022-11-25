@@ -26,12 +26,12 @@ func disable_roll():
     for dicecol in get_children():
         dicecol.disable_roll()
 
-func disable_unselected():
+func disable_roll_unselected():
     for dicecol in get_children():
         if not dicecol.selected:
             dicecol.disable_roll()
 
-func enable_undimensioned():
+func enable_roll_undimensioned():
     for dicecol in get_children():
         if not dicecol.dimensioned:
             dicecol.enable_roll()
@@ -52,9 +52,9 @@ func get_roll_indeces():
 func on_roll_button_toggled():
     emit_signal("roll_triplet_changed", self)
     if roll_ready():
-        disable_unselected()
+        disable_roll_unselected()
     else:
-        enable_undimensioned()
+        enable_roll_undimensioned()
 
 func on_info_button_pressed(card):
     emit_signal("info_button_pressed", card)

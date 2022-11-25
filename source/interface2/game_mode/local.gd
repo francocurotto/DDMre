@@ -20,7 +20,6 @@ func _ready():
     Events.connect("dice_rolled", self, "on_dice_rolled")
     Events.connect("card_summoned", self, "on_card_summoned")
     Events.connect("state_update", self, "on_state_update")
-    Events.connect("next_turn", self, "on_next_turn")
     Events.connect("player_lost", self, "on_player_lost")
 
 # setget functions

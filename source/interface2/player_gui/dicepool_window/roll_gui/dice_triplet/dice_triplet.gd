@@ -2,6 +2,7 @@ extends HBoxContainer
 
 # preload vatiables
 var ISide = preload("res://interface2/player_gui/info_display/dice_line/sides/iside/iside.tscn")
+var DiceFrame = preload("res://interface2/player_gui/info_display/dice_frame/dice_frame.tscn")
 
 # setget functions
 func set_roll(sides):
@@ -21,10 +22,16 @@ func update_dice(idicepool):
     for i in range(idx, get_child_count()):
         get_child(i).remove_dice()
 
+func reset():
+    free_children()
+    for _i in range(3):
+        add_child(DiceFrame.instance())
+
 # private functions
 func free_children():
     for child in get_children():
-        child.queue_free()
+        remove_child(child) # maybe redundant
+        child.free()
 
 func add_iside(side):
     var iside = ISide.instance()

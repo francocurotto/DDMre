@@ -18,14 +18,16 @@ onready var dungeon_window = $MainWindow/DungeonWindow
 onready var idungeon = $MainWindow/DungeonWindow/IDungeon
 onready var summon_info = $MainWindow/DungeonWindow/SummonCont/SummonInfo
 onready var dungeon_info_button = $MainWindow/DungeonWindow/SummonCont/SummonInfo/InfoButton
+onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtons
 onready var menu_bar = $CommonWindow/MenuBar
 onready var players_info = $CommonWindow/PlayersInfo
 
 func _ready():
     # signal connections
     dicepool_column.connect("info_button_pressed", self, "on_info_button_pressed")
-    dungeon_info_button.connect("info_button_pressed", self, "on_info_button_pressed")
     dicepool_window.connect("roll_button_pressed", self, "on_roll_button_pressed")
+    dungeon_info_button.connect("info_button_pressed", self, "on_info_button_pressed")
+    dungeon_buttons.connect("endturn_button_pressed", self, "on_endturn_button_pressed")
     menu_bar.connect("window_button_pressed", self, "on_window_button_pressed")
 
 # setget functions
@@ -36,12 +38,25 @@ func set_duel(_engine, _player, _opponent):
     dicepool_column.set_dicepool(player.dicepool)
     idungeon.set_dungeon(engine.dungeon, player)
     summon_info.set_player(player)
+    dungeon_buttons.set_player(player)
     players_info.set_players_info(player, opponent)
 
 func set_roll(sides):
     dice_triplet.set_roll(sides)
 
 # signals callbacks
+func on_state_update_roll():
+    switch_to_dicepool_window()
+    dicepool_window.on_state_update_roll()
+    dungeon_window.on_state_update_roll()
+
+func on_state_update_dungeon():
+    dicepool_window.on_state_update_dungeon()
+    dungeon_window.on_state_update_dungeon()
+
+func on_state_update_dimension():
+    dicepool_window.on_state_update_dimension(engine.state.dim_candidates)
+
 func on_info_button_pressed(card):
     create_cardinfo(card)
     main_window.visible = false
@@ -57,11 +72,8 @@ func on_window_button_pressed():
 func on_roll_button_pressed(indeces):
     engine.update({"name":"ROLL", "dice":indeces})
 
-func on_state_update_dungeon():
-    dicepool_window.on_state_update_dungeon()
-
-func on_state_update_dimension():
-    dicepool_window.on_state_update_dimension(engine.state.dim_candidates)
+func on_endturn_button_pressed():
+    engine.update({"name":"ENDTURN"})
 
 # private functions
 func create_cardinfo(card):
@@ -71,3 +83,6 @@ func create_cardinfo(card):
     cardinfo.set_card(card)
     return cardinfo
 
+func switch_to_dicepool_window():
+    dicepool_window.visible = true
+    dungeon_window.visible = false

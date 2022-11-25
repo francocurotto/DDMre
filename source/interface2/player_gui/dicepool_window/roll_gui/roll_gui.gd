@@ -7,10 +7,6 @@ onready var roll_button = $RollButton
 # signals
 signal roll_button_pressed
 
-# setget functions
-func set_roll(sides):
-    dice_triplet.set_roll(sides)
-
 # public functions
 func update_roll_triplet(idicepool):
     dice_triplet.update_dice(idicepool)
