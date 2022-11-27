@@ -15,7 +15,7 @@ signal tile_button_toggled(itile, pressed)
 func _ready():
     itiles = get_tree().get_nodes_in_group("itiles")
     for itile in itiles:
-        itile.connect("tile_button_toggled", self, "on_tile_button_toggled")
+        itile.connect("select_button_toggled", self, "on_select_button_toggled")
 
 # setget functions
 func set_dungeon(_dungeon, _player):
@@ -38,8 +38,14 @@ func disable_all_buttons():
     for itile in itiles:
         itile.disable_all_buttons()
 
+func reset():
+    disable_all_buttons()
+    enable_select_buttons()
+    if selected_itile:
+        selected_itile._on_TileSelectButton_toggled(false) # deselect itile
+
 # signals callbacks
-func on_tile_button_toggled(itile, pressed):
+func on_select_button_toggled(itile, pressed):
     assign_selected_itile(itile, pressed)
     release_unselected_itiles()
     emit_signal("tile_button_toggled", itile.tile.content, pressed)
@@ -55,11 +61,6 @@ func on_attack_button_pressed():
     var attackposs = dungeon.get_attackposs(player, selected_itile.tile.pos)
     for attackpos in attackposs:
         get_itile(attackpos).enable_attack_button()
-
-func on_cancel_button_pressed():
-    disable_all_buttons()
-    enable_select_buttons()
-    selected_itile._on_TileSelectButton_toggled(false) # deselect itile
 
 # private functions
 func get_irow(idx):

@@ -5,8 +5,8 @@ extends Node
 const LIBPATH = "res://LIBRARY.json"
 #const DUNGPATH = "res://dungeons/default.json"
 const DUNGPATH = "res://dungeons/test2.json"
-#const RANDOMPOOL = true
-const RANDOMPOOL = false
+const RANDOMPOOL = true
+#const RANDOMPOOL = false
 const POOL1PATH = "res://dicepools/test1.json"
 const POOL2PATH = "res://dicepools/test1.json"
 

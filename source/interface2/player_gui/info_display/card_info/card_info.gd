@@ -14,6 +14,7 @@ signal cardinfo_quit
 func set_card(card):
     set_name(card.name)
     tla.set_tla(card)
+    set_card_stats(card)
     if card.is_monster(): # monster info
         set_monster_stats(card)
 
@@ -25,7 +26,18 @@ func _on_QuitButton_pressed():
 func set_name(name):
     cardname.text = name
 
+func set_card_stats(card):
+    if card.is_monster(): # monster info
+        set_monster_stats(card)
+    else: # item info
+        set_item_stats()
+
 func set_monster_stats(card):
     attack.set_stat("ATTACK", card.attack)
     defense.set_stat("DEFENSE", card.defense)
     health.set_stat("HEALTH", card.health)
+
+func set_item_stats():
+    attack.hide()
+    defense.hide()
+    health.hide()

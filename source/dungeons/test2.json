@@ -20,7 +20,7 @@
     "OOOOOOpOOOOOO",
     "OOOOOOlOOOOOO"],
   "SUMMONS1": [{"POS":"g3", "DICE":1}],
-  "SUMMONS2": [],
+  "SUMMONS2": [{"POS":"g17", "DICE":1}],
   "CRESTS1": {
     "MOVEMENT": 1,
     "ATTACK"  : 2,

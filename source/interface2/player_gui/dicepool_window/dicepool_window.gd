@@ -17,7 +17,7 @@ func _ready():
 func on_state_update_roll():
     dice_triplet.reset()
     dicepool_column.enable_roll_undimensioned()
-    dicepool_column.on_dice_roll_button_toggled()
+    dicepool_column.on_dice_roll_button_toggled() # save last dice roll
 
 func on_state_update_dungeon():
     dicepool_column.disable_roll()

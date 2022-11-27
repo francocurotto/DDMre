@@ -15,7 +15,7 @@ onready var tile_attack_button = $TileAttackButton
 onready var tile_dim_button = $TileDimButton
 
 # signals
-signal tile_button_toggled(itile, pressed)
+signal select_button_toggled(itile, pressed)
 
 # setget functions
 func set_tile(_tile):
@@ -66,7 +66,7 @@ func enable_attack_button():
 # signals callbacks
 func _on_TileSelectButton_toggled(button_pressed):
     tile_frame.set_highlight(button_pressed)
-    emit_signal("tile_button_toggled", self, button_pressed)
+    emit_signal("select_button_toggled", self, button_pressed)
 
 func _on_TileMoveButton_pressed():
     print("tile move button")
