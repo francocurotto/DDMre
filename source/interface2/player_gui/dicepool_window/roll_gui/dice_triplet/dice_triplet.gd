@@ -15,7 +15,7 @@ func update_dice(idicepool):
     var idx = 0
     # set dice frames
     for idice in idicepool.get_children():
-        if idice.selected:
+        if idice.roll_selected:
             get_child(idx).set_dice(idice.dice)
             idx += 1
     # clear remaining dice frames

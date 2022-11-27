@@ -1,5 +1,5 @@
 ### TODO
-- disable dimensioned dice in dunginit
+- dimension state
 ---
 - reddit post
 - ABILITIES!

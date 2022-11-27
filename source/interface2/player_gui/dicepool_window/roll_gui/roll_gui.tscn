@@ -6,7 +6,7 @@
 
 [node name="RollGUI" type="HBoxContainer"]
 margin_right = 381.0
-margin_bottom = 49.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
@@ -14,16 +14,26 @@ script = ExtResource( 3 )
 
 [node name="DiceTriplet" parent="." instance=ExtResource( 1 )]
 margin_right = 247.0
-margin_bottom = 49.0
+margin_bottom = 67.0
 size_flags_stretch_ratio = 2.0
 
 [node name="RollButton" type="Button" parent="."]
 margin_left = 257.0
 margin_right = 381.0
-margin_bottom = 49.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 disabled = true
 text = "ROLL!"
 
+[node name="SkipButton" type="Button" parent="."]
+visible = false
+margin_left = 257.0
+margin_right = 381.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "SKIP"
+
 [connection signal="pressed" from="RollButton" to="." method="_on_RollButton_pressed"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_SkipButton_pressed"]

@@ -11,12 +11,15 @@ signal roll_button_pressed(indeces)
 func _ready():
     # signal connections
     dicepool_column.connect("dice_triplet_changed", self, "on_dice_triplet_changed")
+    dicepool_column.connect("dice_dim_button_pressed", roll_gui, "on_dice_dim_button_pressed")
+    dicepool_column.connect("dice_dim_button_released", roll_gui, "on_dice_dim_button_released")
     roll_gui.connect("roll_button_pressed", self, "on_roll_button_pressed")
 
 # signals callbacks
 func on_state_update_roll():
-    dice_triplet.reset()
+    dice_triplet.reset() # must be before "on_dice_roll_button_toggled" line
     dicepool_column.enable_roll_undimensioned()
+    dicepool_column.disable_dim_dimensioned()
     dicepool_column.on_dice_roll_button_toggled() # save last dice roll
 
 func on_state_update_dungeon():
@@ -25,8 +28,9 @@ func on_state_update_dungeon():
 
 func on_state_update_dimension(dim_candidates):
     dicepool_column.disable_roll()
-    dicepool_column.switch_to_dim(dim_candidates)
+    dicepool_column.enable_dim_candidates(dim_candidates)
     roll_gui.disable_roll()
+    roll_gui.switch_to_skip_button()
 
 func on_dice_triplet_changed(idicepool):
     roll_gui.update_dice_triplet(idicepool)

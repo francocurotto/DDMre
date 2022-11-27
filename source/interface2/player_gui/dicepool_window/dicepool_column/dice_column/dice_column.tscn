@@ -52,3 +52,4 @@ margin_right = 705.0
 margin_bottom = 51.0
 
 [connection signal="toggled" from="DiceContainer/DiceRollButton" to="." method="_on_DiceRollButton_toggled"]
+[connection signal="toggled" from="DiceContainer/DiceDimButton" to="." method="_on_DiceDimButton_toggled"]

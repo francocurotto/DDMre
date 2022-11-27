@@ -21,6 +21,8 @@ func _ready():
     Events.connect("card_summoned", self, "on_card_summoned")
     Events.connect("state_update", self, "on_state_update")
     Events.connect("player_lost", self, "on_player_lost")
+    # run first state update
+    on_state_update(engine.state.NAME)
 
 # setget functions
 func set_guis():
