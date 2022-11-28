@@ -13,6 +13,7 @@ var cardinfo
 onready var main_window = $MainWindow
 onready var dicepool_window = $MainWindow/DicepoolWindow
 onready var dicepool_column = $MainWindow/DicepoolWindow/DicepoolPanel/DicepoolVBox/DicepoolColumn
+onready var roll_gui = $MainWindow/DicepoolWindow/RollPanel/RollVBox/RollGUI
 onready var dice_triplet = $MainWindow/DicepoolWindow/RollPanel/RollVBox/RollGUI/DiceTriplet
 onready var dungeon_window = $MainWindow/DungeonWindow
 onready var idungeon = $MainWindow/DungeonWindow/IDungeon
@@ -26,6 +27,9 @@ func _ready():
     # signal connections
     dicepool_column.connect("info_button_pressed", self, "on_info_button_pressed")
     dicepool_window.connect("roll_button_pressed", self, "on_roll_button_pressed")
+    dicepool_window.connect("dice_dim_button_pressed", dungeon_window, "on_dice_dim_button_pressed")
+    dicepool_window.connect("dice_dim_button_released", dungeon_window, "on_dice_dim_button_released")
+    roll_gui.connect("skip_button_pressed", self, "on_skip_button_pressed")
     dungeon_info_button.connect("info_button_pressed", self, "on_info_button_pressed")
     dungeon_buttons.connect("endturn_button_pressed", self, "on_endturn_button_pressed")
     menu_bar.connect("window_button_pressed", self, "on_window_button_pressed")
@@ -71,6 +75,9 @@ func on_window_button_pressed():
 
 func on_roll_button_pressed(indeces):
     engine.update({"name":"ROLL", "dice":indeces})
+
+func on_skip_button_pressed():
+    engine.update({"name":"SKIP"})
 
 func on_endturn_button_pressed():
     engine.update({"name":"ENDTURN"})

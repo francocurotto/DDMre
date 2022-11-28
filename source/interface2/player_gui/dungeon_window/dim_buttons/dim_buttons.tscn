@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/fonts/text_output.tres" type="DynamicFont" id=1]
+[ext_resource path="res://art/fonts/dim_icon_buttons.tres" type="DynamicFont" id=2]
+
+[node name="DimButtons" type="HBoxContainer"]
+margin_right = 286.0
+margin_bottom = 39.0
+size_flags_vertical = 3
+
+[node name="NetButton" type="Button" parent="."]
+margin_right = 39.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "◼"
+
+[node name="FLRButton" type="Button" parent="."]
+margin_left = 43.0
+margin_right = 82.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+disabled = true
+text = "↔"
+
+[node name="FUDButton" type="Button" parent="."]
+margin_left = 86.0
+margin_right = 125.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+disabled = true
+text = "↕"
+
+[node name="TCWButton" type="Button" parent="."]
+margin_left = 129.0
+margin_right = 168.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+disabled = true
+text = "🔃"
+
+[node name="TAWButton" type="Button" parent="."]
+margin_left = 172.0
+margin_right = 211.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+disabled = true
+text = "🔄"
+
+[node name="DimButton" type="Button" parent="."]
+margin_left = 215.0
+margin_right = 286.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "DIM!"

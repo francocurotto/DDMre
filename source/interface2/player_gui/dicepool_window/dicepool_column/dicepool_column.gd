@@ -66,7 +66,7 @@ func on_dice_roll_button_toggled():
         enable_roll_undimensioned()
 
 func on_dice_dim_button_pressed(pressed_dicecol):
-    emit_signal("dice_dim_button_pressed")
+    emit_signal("dice_dim_button_pressed", pressed_dicecol)
     for dicecol in get_children():
         if dicecol.dim_visible and dicecol != pressed_dicecol:
             dicecol.disable_dim()

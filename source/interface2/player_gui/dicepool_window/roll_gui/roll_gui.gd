@@ -29,6 +29,7 @@ func _on_RollButton_pressed():
     emit_signal("roll_button_pressed")
 
 func _on_SkipButton_pressed():
+    switch_to_roll_button()
     emit_signal("skip_button_pressed")
 
 # private functions
