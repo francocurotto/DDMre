@@ -8,26 +8,26 @@
 [node name="PlayerGUI" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -7.0
-custom_constants/separation = 2
+custom_constants/separation = 0
 script = ExtResource( 2 )
 
 [node name="MainWindow" type="MarginContainer" parent="."]
-margin_right = 713.0
-margin_bottom = 1178.0
+margin_right = 720.0
+margin_bottom = 1180.0
 size_flags_vertical = 3
 
 [node name="DicepoolWindow" parent="MainWindow" instance=ExtResource( 4 )]
-margin_bottom = 1178.0
+margin_right = 720.0
+margin_bottom = 1180.0
 
 [node name="DungeonWindow" parent="MainWindow" instance=ExtResource( 1 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 720.0
-margin_bottom = 1178.0
+margin_bottom = 1180.0
 
 [node name="CommonWindow" parent="." instance=ExtResource( 3 )]
 margin_top = 1180.0
-margin_right = 713.0
+margin_right = 720.0
 margin_bottom = 1280.0
