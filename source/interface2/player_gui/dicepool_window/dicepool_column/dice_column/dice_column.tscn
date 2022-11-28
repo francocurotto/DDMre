@@ -5,11 +5,11 @@
 [ext_resource path="res://interface2/player_gui/dicepool_window/dicepool_column/dice_column/dice_column.gd" type="Script" id=3]
 
 [node name="DiceColumn" type="HBoxContainer"]
-margin_right = 675.0
+margin_right = 701.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 8
+custom_constants/separation = 4
 script = ExtResource( 3 )
 
 [node name="DiceContainer" type="MarginContainer" parent="."]
@@ -47,8 +47,8 @@ margin_bottom = 51.0
 toggle_mode = true
 
 [node name="InfoButton" parent="." instance=ExtResource( 1 )]
-margin_left = 659.0
-margin_right = 705.0
+margin_left = 655.0
+margin_right = 701.0
 margin_bottom = 51.0
 
 [connection signal="toggled" from="DiceContainer/DiceRollButton" to="." method="_on_DiceRollButton_toggled"]
