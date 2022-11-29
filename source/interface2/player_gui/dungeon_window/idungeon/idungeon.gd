@@ -1,23 +1,28 @@
 extends AspectRatioContainer
 
+# constants
+const NetCreator = preload("res://interface2/player_gui/dungeon_window/idungeon/net_creator.gd")
+
 # variables
 var dungeon
 var player
 var selected_itile
-var itiles
+var itiles = []
+var net_creator
 
 # onready variables
 onready var rows = $Rows
 
 # signals
 signal tile_select_button_toggled(itile, pressed)
-signal tile_dim_button_pressed(itile)
+signal tile_dim_button_pressed
 
 func _ready():
-    itiles = get_tree().get_nodes_in_group("itiles")
-    for itile in itiles:
-        itile.connect("tile_select_button_toggled", self, "on_tile_select_button_toggled")
-        itile.connect("tile_dim_button_pressed", self, "on_tile_dim_button_pressed")
+    for row in rows.get_children():
+        for itile in row.get_children():
+            itiles.append(itile)
+            itile.connect("tile_select_button_toggled", self, "on_tile_select_button_toggled")
+            itile.connect("tile_dim_button_pressed", self, "on_tile_dim_button_pressed")
 
 # setget functions
 func set_dungeon(_dungeon, _player):
@@ -54,6 +59,8 @@ func on_tile_select_button_toggled(itile, pressed):
 
 func on_tile_dim_button_pressed(itile):
     on_tile_select_button_toggled(itile, true)
+    var net = net_creator.create_net(itile.tile.pos)
+    highlight_net(net)
     emit_signal("tile_dim_button_pressed")
 
 func on_move_button_pressed():
@@ -70,6 +77,7 @@ func on_attack_button_pressed():
 
 func on_dice_dim_button_pressed(dicecol):
     disable_all_buttons()
+    net_creator = NetCreator.new(player.id)
     for itile in itiles:
         itile.enable_dim_button()
 
@@ -96,3 +104,8 @@ func release_unselected_itiles():
     for itile in itiles:
         if itile != selected_itile:
             itile.release_select_button()
+
+func highlight_net(net):
+    for pos in net.poslist:
+        if dungeon.pos_within_dungeon(pos):
+            get_itile(pos).tile_frame.highlight = true

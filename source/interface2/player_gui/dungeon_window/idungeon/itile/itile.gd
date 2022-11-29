@@ -79,6 +79,5 @@ func _on_TileAttackButton_pressed():
     print("tile attack button")
 
 func _on_TileDimButton_pressed():
-    #emit_signal("select_button_toggled", self, true)
     emit_signal("tile_dim_button_pressed", self)
 
