@@ -11,4 +11,19 @@ margin_bottom = 134.0
 toggle_mode = true
 action_mode = 0
 
+[node name="Popup" type="Popup" parent="."]
+visible = true
+margin_left = 282.0
+margin_top = 83.0
+margin_right = 322.0
+margin_bottom = 123.0
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+visible = true
+margin_left = 439.0
+margin_top = 87.0
+margin_right = 595.0
+margin_bottom = 145.0
+rect_min_size = Vector2( 150, 52.5 )
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

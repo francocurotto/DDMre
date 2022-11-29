@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://art/fonts/text_output.tres" type="DynamicFont" id=1]
+[ext_resource path="res://interface2/player_gui/dungeon_window/dim_buttons/dim_buttons.gd" type="Script" id=2]
 
 [node name="DimButtons" type="HBoxContainer"]
 margin_right = 286.0
 margin_bottom = 39.0
 size_flags_vertical = 3
+script = ExtResource( 2 )
 
 [node name="NetButton" type="Button" parent="."]
 margin_right = 39.0

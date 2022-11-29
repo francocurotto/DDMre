@@ -39,8 +39,8 @@ func switch_to_action_buttons():
     cancel_button.visible = false
 
 # signals callbacks
-func on_tile_button_toggled(dungobj, pressed):
-    var actionable = dungobj.player == player and dungobj.is_monster() and activated and pressed
+func on_tile_select_button_toggled(dungobj, pressed):
+    var actionable = dungobj.is_monster() and dungobj.player == player and activated and pressed
     move_button.disabled = !(actionable and player.crestpool.slots["MOVEMENT"]>0)
     attack_button.disabled = !(actionable and player.crestpool.slots["ATTACK"]>0)
 

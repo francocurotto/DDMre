@@ -10,12 +10,14 @@ var itiles
 onready var rows = $Rows
 
 # signals
-signal tile_button_toggled(itile, pressed)
+signal tile_select_button_toggled(itile, pressed)
+signal tile_dim_button_pressed(itile)
 
 func _ready():
     itiles = get_tree().get_nodes_in_group("itiles")
     for itile in itiles:
-        itile.connect("select_button_toggled", self, "on_select_button_toggled")
+        itile.connect("tile_select_button_toggled", self, "on_tile_select_button_toggled")
+        itile.connect("tile_dim_button_pressed", self, "on_tile_dim_button_pressed")
 
 # setget functions
 func set_dungeon(_dungeon, _player):
@@ -45,10 +47,14 @@ func reset():
         selected_itile._on_TileSelectButton_toggled(false) # deselect itile
 
 # signals callbacks
-func on_select_button_toggled(itile, pressed):
+func on_tile_select_button_toggled(itile, pressed):
     assign_selected_itile(itile, pressed)
     release_unselected_itiles()
-    emit_signal("tile_button_toggled", itile.tile.content, pressed)
+    emit_signal("tile_select_button_toggled", itile.tile.content, pressed)
+
+func on_tile_dim_button_pressed(itile):
+    on_tile_select_button_toggled(itile, true)
+    emit_signal("tile_dim_button_pressed")
 
 func on_move_button_pressed():
     disable_all_buttons()
@@ -61,6 +67,11 @@ func on_attack_button_pressed():
     var attackposs = dungeon.get_attackposs(player, selected_itile.tile.pos)
     for attackpos in attackposs:
         get_itile(attackpos).enable_attack_button()
+
+func on_dice_dim_button_pressed(dicecol):
+    disable_all_buttons()
+    for itile in itiles:
+        itile.enable_dim_button()
 
 # private functions
 func get_irow(idx):

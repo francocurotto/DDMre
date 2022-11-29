@@ -37,7 +37,9 @@ visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 28.0
 margin_bottom = 28.0
+toggle_mode = true
 
 [connection signal="toggled" from="TileSelectButton" to="." method="_on_TileSelectButton_toggled"]
 [connection signal="pressed" from="TileMoveButton" to="." method="_on_TileMoveButton_pressed"]
 [connection signal="pressed" from="TileAttackButton" to="." method="_on_TileAttackButton_pressed"]
+[connection signal="pressed" from="TileDimButton" to="." method="_on_TileDimButton_pressed"]

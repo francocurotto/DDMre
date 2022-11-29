@@ -7,12 +7,12 @@ onready var dungeon_buttons = $DungeonButtons
 onready var dim_buttons = $DimButtons
 
 func _ready():
-    idungeon.connect("tile_button_toggled", summon_info, "on_tile_button_toggled")
-    idungeon.connect("tile_button_toggled", dungeon_buttons, "on_tile_button_toggled")
+    idungeon.connect("tile_select_button_toggled", summon_info, "on_tile_select_button_toggled")
+    idungeon.connect("tile_select_button_toggled", dungeon_buttons, "on_tile_select_button_toggled")
+    idungeon.connect("tile_dim_button_pressed", dim_buttons, "on_tile_dim_button_pressed")
     dungeon_buttons.connect("move_button_pressed", idungeon, "on_move_button_pressed")
     dungeon_buttons.connect("attack_button_pressed", idungeon, "on_attack_button_pressed")
     dungeon_buttons.connect("cancel_button_pressed", self, "on_state_update_dungeon")
-
 
 # signals callbacks
 func on_state_update_roll():
@@ -24,6 +24,7 @@ func on_state_update_dungeon():
 
 func on_dice_dim_button_pressed(dicecol):
     switch_to_dim_buttons()
+    idungeon.on_dice_dim_button_pressed(dicecol)
 
 func on_dice_dim_button_released():
     switch_to_dungeon_buttons()

@@ -12,7 +12,7 @@ func set_player(_player):
     player = _player
 
 # signals callbacks
-func on_tile_button_toggled(dungobj, pressed):
+func on_tile_select_button_toggled(dungobj, pressed):
     if pressed and dungobj.is_summon():
         summon_line.set_summon(dungobj, player)
         info_button.set_card(dungobj.card)
