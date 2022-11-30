@@ -13,6 +13,10 @@ func _ready():
     dungeon_buttons.connect("move_button_pressed", idungeon, "on_move_button_pressed")
     dungeon_buttons.connect("attack_button_pressed", idungeon, "on_attack_button_pressed")
     dungeon_buttons.connect("cancel_button_pressed", self, "on_state_update_dungeon")
+    dim_buttons.connect("FLR_button_pressed", idungeon, "on_FLR_button_pressed")
+    dim_buttons.connect("FUD_button_pressed", idungeon, "on_FUD_button_pressed")
+    dim_buttons.connect("TCW_button_pressed", idungeon, "on_TCW_button_pressed")
+    dim_buttons.connect("TAW_button_pressed", idungeon, "on_TAW_button_pressed")
 
 # signals callbacks
 func on_state_update_roll():

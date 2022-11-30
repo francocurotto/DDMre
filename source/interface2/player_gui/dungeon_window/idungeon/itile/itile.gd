@@ -35,6 +35,12 @@ func set_ml(_ml):
         $TileFrame.set_tile_icon("PATH", 2)
         $TileFrame.set_dungobj_icon("MONSTER_LORD", 2)
 
+func set_highlight():
+    tile_frame.highlight = true
+
+func unset_highlight():
+    tile_frame.highlight = false
+
 # public functions
 func update_tile():
     tile_frame.set_tile_icon(tile.NAME, tile.playerid)
@@ -47,15 +53,15 @@ func enable_select_button():
 
 func release_select_button():
     tile_select_button.set_pressed_no_signal(false)
-    tile_frame.highlight = false
+    unset_highlight()
 
 func enable_move_button():
     tile_move_button.visible = true
-    tile_frame.highlight = true
+    set_highlight()
 
 func enable_attack_button():
     tile_attack_button.visible = true
-    tile_frame.highlight = true
+    set_highlight()
 
 func enable_dim_button():
     tile_dim_button.visible = true
@@ -65,11 +71,11 @@ func disable_all_buttons():
     tile_move_button.visible = false
     tile_attack_button.visible = false
     tile_dim_button.visible = false
-    tile_frame.highlight = false
+    unset_highlight()
 
 # signals callbacks
 func _on_TileSelectButton_toggled(button_pressed):
-    tile_frame.set_highlight(button_pressed)
+    tile_frame.highlight = button_pressed
     emit_signal("tile_select_button_toggled", self, button_pressed)
 
 func _on_TileMoveButton_pressed():

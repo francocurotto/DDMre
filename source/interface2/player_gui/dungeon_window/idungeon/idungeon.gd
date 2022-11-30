@@ -51,6 +51,10 @@ func reset():
     if selected_itile:
         selected_itile._on_TileSelectButton_toggled(false) # deselect itile
 
+func unset_highlights():
+    for itile in itiles:
+        itile.unset_highlight()
+
 # signals callbacks
 func on_tile_select_button_toggled(itile, pressed):
     assign_selected_itile(itile, pressed)
@@ -59,9 +63,29 @@ func on_tile_select_button_toggled(itile, pressed):
 
 func on_tile_dim_button_pressed(itile):
     on_tile_select_button_toggled(itile, true)
-    var net = net_creator.create_net(itile.tile.pos)
+    var net = net_creator.update_net_pos(itile.tile.pos)
     highlight_net(net)
     emit_signal("tile_dim_button_pressed")
+
+func on_FLR_button_pressed():
+    var net = net_creator.update_net_flr()
+    unset_highlights()
+    highlight_net(net)
+
+func on_FUD_button_pressed():
+    var net = net_creator.update_net_fud()
+    unset_highlights()
+    highlight_net(net)
+
+func on_TCW_button_pressed():
+    var net = net_creator.update_net_tcw()
+    unset_highlights()
+    highlight_net(net)
+
+func on_TAW_button_pressed():
+    var net = net_creator.update_net_taw()
+    unset_highlights()
+    highlight_net(net)
 
 func on_move_button_pressed():
     disable_all_buttons()
