@@ -18,39 +18,46 @@ var refxidx = 0
 var refyidx = 0
 var rotidx = 0
 
+# signals
+signal net_updated(net)
+
 func _init(_playerid):
     playerid = _playerid
     inittrans = INITDICT[playerid]
 
 # public functions
+func update_netidx(_netidx):
+    netidx = _netidx
+    create_net()
+
 func update_net_pos(_pos):
     pos = _pos
-    return create_net()
+    create_net()
 
 func update_net_flr():
     refxidx = (refxidx+1) % len(REFLECTSX)
-    return create_net()
+    create_net()
 
 func update_net_fud():
     refyidx = (refyidx+1) % len(REFLECTSY)
-    return create_net()
+    create_net()
 
 func update_net_tcw():
     var adder = -(playerid*2-3)
     rotidx = (rotidx+adder) % len(ROTATIONS)
-    return create_net()
+    create_net()
 
 func update_net_taw():
     var adder = playerid*2-3
     rotidx = (rotidx+adder) % len(ROTATIONS)
-    return create_net()
+    create_net()
 
 func create_net():
     var netdata = get_netdata()
     var net = Globals.create_net(netdata["netname"])
     net.offset(pos)
     net.apply_trans_list(netdata["trans_list"])
-    return net
+    emit_signal("net_updated", net)
 
 func get_netdata():
     var netname = NETS[netidx]

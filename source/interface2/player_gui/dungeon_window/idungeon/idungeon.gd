@@ -12,10 +12,12 @@ var net_creator
 
 # onready variables
 onready var rows = $Rows
+onready var net_select_buttons = $NetSelectButtons
 
 # signals
 signal tile_select_button_toggled(itile, pressed)
 signal tile_dim_button_pressed
+signal net_updated
 
 func _ready():
     for row in rows.get_children():
@@ -23,6 +25,7 @@ func _ready():
             itiles.append(itile)
             itile.connect("tile_select_button_toggled", self, "on_tile_select_button_toggled")
             itile.connect("tile_dim_button_pressed", self, "on_tile_dim_button_pressed")
+    net_select_buttons.connect("net_select_button_pressed", self, "on_net_select_button_pressed")
 
 # setget functions
 func set_dungeon(_dungeon, _player):
@@ -63,29 +66,26 @@ func on_tile_select_button_toggled(itile, pressed):
 
 func on_tile_dim_button_pressed(itile):
     on_tile_select_button_toggled(itile, true)
-    var net = net_creator.update_net_pos(itile.tile.pos)
-    highlight_net(net)
+    net_creator.update_net_pos(itile.tile.pos)
     emit_signal("tile_dim_button_pressed")
 
+func on_net_button_pressed():
+    net_select_buttons.visible = true
+
+func on_net_select_button_pressed(netidx):
+    net_creator.update_netidx(netidx)
+
 func on_FLR_button_pressed():
-    var net = net_creator.update_net_flr()
-    unset_highlights()
-    highlight_net(net)
+    net_creator.update_net_flr()
 
 func on_FUD_button_pressed():
-    var net = net_creator.update_net_fud()
-    unset_highlights()
-    highlight_net(net)
+    net_creator.update_net_fud()
 
 func on_TCW_button_pressed():
-    var net = net_creator.update_net_tcw()
-    unset_highlights()
-    highlight_net(net)
+    net_creator.update_net_tcw()
 
 func on_TAW_button_pressed():
-    var net = net_creator.update_net_taw()
-    unset_highlights()
-    highlight_net(net)
+    net_creator.update_net_taw()
 
 func on_move_button_pressed():
     disable_all_buttons()
@@ -102,8 +102,14 @@ func on_attack_button_pressed():
 func on_dice_dim_button_pressed(dicecol):
     disable_all_buttons()
     net_creator = NetCreator.new(player.id)
+    net_creator.connect("net_updated", self, "on_net_updated")
     for itile in itiles:
         itile.enable_dim_button()
+
+func on_net_updated(net):
+    unset_highlights()
+    highlight_net(net)
+    emit_signal("net_updated")
 
 # private functions
 func get_irow(idx):
