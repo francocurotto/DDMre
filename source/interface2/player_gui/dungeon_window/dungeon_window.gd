@@ -19,6 +19,7 @@ func _ready():
     dim_buttons.connect("FUD_button_pressed", idungeon, "on_FUD_button_pressed")
     dim_buttons.connect("TCW_button_pressed", idungeon, "on_TCW_button_pressed")
     dim_buttons.connect("TAW_button_pressed", idungeon, "on_TAW_button_pressed")
+    dim_buttons.connect("dim_button_pressed", idungeon, "on_dim_button_pressed")
 
 # signals callbacks
 func on_state_update_roll():
@@ -28,9 +29,9 @@ func on_state_update_dungeon():
     idungeon.reset()
     dungeon_buttons.activate()
 
-func on_dice_dim_button_pressed(dicecol):
+func on_dice_dim_button_pressed():
     switch_to_dim_buttons()
-    idungeon.on_dice_dim_button_pressed(dicecol)
+    idungeon.on_dice_dim_button_pressed()
 
 func on_dice_dim_button_released():
     switch_to_dungeon_buttons()

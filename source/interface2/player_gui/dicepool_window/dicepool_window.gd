@@ -41,9 +41,9 @@ func on_roll_button_pressed():
     var indeces = dicepool_column.get_roll_indeces()
     emit_signal("roll_button_pressed", indeces)
 
-func on_dice_dim_button_pressed(dicecol):
+func on_dice_dim_button_pressed():
     roll_gui.on_dice_dim_button_pressed()
-    emit_signal("dice_dim_button_pressed", dicecol)
+    emit_signal("dice_dim_button_pressed")
 
 func on_dice_dim_button_released():
     roll_gui.on_dice_dim_button_released()

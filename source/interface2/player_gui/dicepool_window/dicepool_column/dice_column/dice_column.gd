@@ -12,10 +12,11 @@ const DISABLED_COLOR = Color(0.3, 0.3, 0.3)
 
 # variables
 var dice
-var roll_selected setget , is_roll_selected
-var dimensioned setget , is_dimensioned
 var roll_visible setget , is_roll_visible
+var roll_selected setget , is_roll_selected
 var dim_visible setget , is_dim_visible
+var dim_selected setget , is_dim_selected
+var dimensioned setget , is_dimensioned
 
 # onready variables
 onready var diceline = $DiceContainer/Margins/DiceLine
@@ -40,17 +41,20 @@ func set_dice(_dice):
     color_buttons(dice.card)
     info_button.set_card(dice.card)
 
-func is_roll_selected():
-    return dice_roll_button.pressed
-
-func is_dimensioned():
-    return dice.dimensioned
-
 func is_roll_visible():
     return dice_roll_button.visible
 
+func is_roll_selected():
+    return dice_roll_button.pressed
+
 func is_dim_visible():
     return dice_dim_button.visible
+
+func is_dim_selected():
+    return dice_dim_button.pressed
+
+func is_dimensioned():
+    return dice.dimensioned
 
 # public functions
 func enable_roll():

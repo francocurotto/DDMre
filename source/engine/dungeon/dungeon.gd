@@ -150,6 +150,13 @@ func dimension(player, net, diceidx):
     var summon = player.summon_card(diceidx)
     place_dungobj(net.centerpos, summon)
 
+func can_dimension(net, player):
+    """
+    Check if it is possible to dimension net. Return true if dimension
+    is possible.
+    """
+    return net_inbound(net) and net_not_overlaps(net) and net_connects(net, player)
+
 # signals callback
 func on_monster_death(monster):
     """
@@ -210,3 +217,33 @@ func pos_within_dungeon(pos):
     Check if position is within dungeon limits.
     """
     return 0 <= pos.y and pos.y <= HEIGHT-1 and 0 <= pos.x and pos.x <= WIDTH-1
+
+# private functions
+func net_inbound(net):
+    """
+    Return true if net is inbound of dungeon.
+    """
+    for pos in net.poslist:
+        if not pos_within_dungeon(pos):
+            return false
+    return true
+
+func net_not_overlaps(net):
+    """
+    Return true if net does not overlaps current path in dungeon.
+    """
+    for pos in net.poslist:
+        if not get_tile(pos).is_empty():
+            return false
+    return true
+
+func net_connects(net, player):
+    """
+    Return true if net connects player path.
+    """
+    for pos in net.poslist:
+        for neig in get_neighbours_poss(pos):
+            var tile = get_tile(neig)
+            if tile.is_path() and tile.player == player:
+                return true
+    return false

@@ -30,6 +30,7 @@ func _ready():
     dicepool_window.connect("dice_dim_button_pressed", dungeon_window, "on_dice_dim_button_pressed")
     dicepool_window.connect("dice_dim_button_released", dungeon_window, "on_dice_dim_button_released")
     roll_gui.connect("skip_button_pressed", self, "on_skip_button_pressed")
+    idungeon.connect("dim_button_pressed", self, "on_dim_button_pressed")
     dungeon_info_button.connect("info_button_pressed", self, "on_info_button_pressed")
     dungeon_buttons.connect("endturn_button_pressed", self, "on_endturn_button_pressed")
     menu_bar.connect("window_button_pressed", self, "on_window_button_pressed")
@@ -78,6 +79,10 @@ func on_roll_button_pressed(indeces):
 
 func on_skip_button_pressed():
     engine.update({"name":"SKIP"})
+
+func on_dim_button_pressed(net, pos, trans):
+    var dimdice = dicepool_column.get_selected_dim_idx()
+    engine.update({"name":"DIM", "dice":dimdice, "net":net, "pos":pos, "trans":trans})
 
 func on_endturn_button_pressed():
     engine.update({"name":"ENDTURN"})

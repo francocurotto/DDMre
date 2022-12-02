@@ -57,6 +57,11 @@ func get_roll_indeces():
             indeces.append(i)
     return indeces
 
+func get_selected_dim_idx():
+    for i in range(get_child_count()):
+        if get_child(i).dim_selected:
+            return i
+
 # signals callbacks
 func on_dice_roll_button_toggled():
     emit_signal("dice_triplet_changed", self)
@@ -66,7 +71,7 @@ func on_dice_roll_button_toggled():
         enable_roll_undimensioned()
 
 func on_dice_dim_button_pressed(pressed_dicecol):
-    emit_signal("dice_dim_button_pressed", pressed_dicecol)
+    emit_signal("dice_dim_button_pressed")
     for dicecol in get_children():
         if dicecol.dim_visible and dicecol != pressed_dicecol:
             dicecol.disable_dim()

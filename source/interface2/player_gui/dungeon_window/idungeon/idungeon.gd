@@ -17,7 +17,8 @@ onready var net_select_buttons = $NetSelectButtons
 # signals
 signal tile_select_button_toggled(itile, pressed)
 signal tile_dim_button_pressed
-signal net_updated
+signal net_updated(can_dimension)
+signal dim_button_pressed(net, pos, trans)
 
 func _ready():
     for row in rows.get_children():
@@ -87,6 +88,13 @@ func on_TCW_button_pressed():
 func on_TAW_button_pressed():
     net_creator.update_net_taw()
 
+func on_dim_button_pressed():
+    var netdata = net_creator.get_netdata()
+    var net = netdata["netname"]
+    var pos = netdata["pos"]
+    var trans = netdata["trans_list"]
+    emit_signal("dim_button_pressed", net, pos, trans)
+
 func on_move_button_pressed():
     disable_all_buttons()
     var moveposs = dungeon.get_moveposs(player, selected_itile.tile.pos)
@@ -99,7 +107,7 @@ func on_attack_button_pressed():
     for attackpos in attackposs:
         get_itile(attackpos).enable_attack_button()
 
-func on_dice_dim_button_pressed(dicecol):
+func on_dice_dim_button_pressed():
     disable_all_buttons()
     net_creator = NetCreator.new(player.id)
     net_creator.connect("net_updated", self, "on_net_updated")
@@ -109,7 +117,7 @@ func on_dice_dim_button_pressed(dicecol):
 func on_net_updated(net):
     unset_highlights()
     highlight_net(net)
-    emit_signal("net_updated")
+    emit_signal("net_updated", dungeon.can_dimension(net, player))
 
 # private functions
 func get_irow(idx):

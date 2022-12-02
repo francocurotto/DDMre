@@ -67,3 +67,4 @@ text = "DIM!"
 [connection signal="pressed" from="FUDButton" to="." method="_on_FUDButton_pressed"]
 [connection signal="pressed" from="TCWButton" to="." method="_on_TCWButton_pressed"]
 [connection signal="pressed" from="TAWButton" to="." method="_on_TAWButton_pressed"]
+[connection signal="pressed" from="DimButton" to="." method="_on_DimButton_pressed"]

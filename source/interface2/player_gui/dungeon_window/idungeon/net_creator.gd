@@ -55,11 +55,11 @@ func update_net_taw():
 func create_net():
     var netdata = get_netdata()
     var net = Globals.create_net(netdata["netname"])
-    net.offset(pos)
+    net.offset(netdata["pos"])
     net.apply_trans_list(netdata["trans_list"])
     emit_signal("net_updated", net)
 
 func get_netdata():
     var netname = NETS[netidx]
     var trans_list = inittrans + ROTATIONS[rotidx] + REFLECTSX[refxidx] + REFLECTSY[refyidx]
-    return {"netname":netname, "trans_list":trans_list}
+    return {"netname":netname, "pos":pos, "trans_list":trans_list}

@@ -16,6 +16,7 @@ signal FLR_button_pressed
 signal FUD_button_pressed
 signal TCW_button_pressed
 signal TAW_button_pressed
+signal dim_button_pressed
 
 # public functions
 func disable_buttons():
@@ -31,8 +32,9 @@ func on_tile_dim_button_pressed():
     for trans_button in trans_buttons:
         trans_button.disabled = false
 
-func on_net_updated():
+func on_net_updated(can_dimension):
     enable_trans_buttons()
+    dim_button.disabled = not can_dimension
 
 func _on_NetButton_pressed():
     disable_buttons()
@@ -49,3 +51,6 @@ func _on_TCWButton_pressed():
 
 func _on_TAWButton_pressed():
     emit_signal("TAW_button_pressed")
+
+func _on_DimButton_pressed():
+    emit_signal("dim_button_pressed")
