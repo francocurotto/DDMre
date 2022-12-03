@@ -22,7 +22,7 @@
   "SUMMONS1": [{"POS":"g3", "DICE":1}],
   "SUMMONS2": [{"POS":"g17", "DICE":1}],
   "CRESTS1": {
-    "MOVEMENT": 1,
+    "MOVEMENT": 9,
     "ATTACK"  : 2,
     "DEFENSE" : 3,
     "MAGIC"   : 4,

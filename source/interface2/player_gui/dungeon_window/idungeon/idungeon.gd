@@ -12,6 +12,7 @@ var net_creator
 
 # onready variables
 onready var rows = $Rows
+onready var move_menu = $MoveMenu
 onready var net_select_buttons = $NetSelectButtons
 
 # signals
@@ -27,6 +28,7 @@ func _ready():
         for itile in row.get_children():
             itiles.append(itile)
             itile.connect("tile_select_button_toggled", self, "on_tile_select_button_toggled")
+            itile.connect("tile_move_button_pressed", self, "on_tile_move_button_pressed")
             itile.connect("tile_dim_button_pressed", self, "on_tile_dim_button_pressed")
 
 # setget functions
@@ -69,10 +71,38 @@ func on_tile_select_button_toggled(itile, pressed):
     release_unselected_itiles()
     emit_signal("tile_select_button_toggled", itile.tile.content, pressed)
 
+func on_tile_move_button_pressed(itile):
+    var path = dungeon.get_movepath(selected_itile.tile.pos, itile.tile.pos)
+    move_menu.activate(path, player)
+
 func on_tile_dim_button_pressed(itile):
     on_tile_select_button_toggled(itile, true)
     net_creator.update_net_pos(itile.tile.pos)
     emit_signal("tile_dim_button_pressed")
+
+func on_move_button_pressed():
+    disable_all_buttons()
+    var moveposs = dungeon.get_moveposs(player, selected_itile.tile.pos)
+    for movepos in moveposs:
+        get_itile(movepos).enable_move_button()
+
+func on_attack_button_pressed():
+    disable_all_buttons()
+    var attackposs = dungeon.get_attackposs(player, selected_itile.tile.pos)
+    for attackpos in attackposs:
+        get_itile(attackpos).enable_attack_button()
+
+func on_dice_dim_button_pressed():
+    disable_all_buttons()
+    net_creator = NetCreator.new(player.id)
+    net_creator.connect("net_updated", self, "on_net_updated")
+    for itile in itiles:
+        itile.enable_dim_button()
+
+func on_net_updated(net):
+    unset_highlights()
+    highlight_net(net)
+    emit_signal("net_updated", dungeon.can_dimension(net, player))
 
 func on_net_button_pressed():
     net_select_buttons.visible = true
@@ -98,30 +128,6 @@ func on_dim_button_pressed():
     var pos = netdata["pos"]
     var trans = netdata["trans_list"]
     emit_signal("dim_button_pressed", net, pos, trans)
-
-func on_move_button_pressed():
-    disable_all_buttons()
-    var moveposs = dungeon.get_moveposs(player, selected_itile.tile.pos)
-    for movepos in moveposs:
-        get_itile(movepos).enable_move_button()
-
-func on_attack_button_pressed():
-    disable_all_buttons()
-    var attackposs = dungeon.get_attackposs(player, selected_itile.tile.pos)
-    for attackpos in attackposs:
-        get_itile(attackpos).enable_attack_button()
-
-func on_dice_dim_button_pressed():
-    disable_all_buttons()
-    net_creator = NetCreator.new(player.id)
-    net_creator.connect("net_updated", self, "on_net_updated")
-    for itile in itiles:
-        itile.enable_dim_button()
-
-func on_net_updated(net):
-    unset_highlights()
-    highlight_net(net)
-    emit_signal("net_updated", dungeon.can_dimension(net, player))
 
 # private functions
 func get_irow(idx):

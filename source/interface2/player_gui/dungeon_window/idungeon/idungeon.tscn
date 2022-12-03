@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://interface2/player_gui/dungeon_window/idungeon/itile/itile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://interface2/player_gui/dungeon_window/idungeon/idungeon.gd" type="Script" id=2]
 [ext_resource path="res://interface2/player_gui/dungeon_window/idungeon/net_select_buttons/net_select_buttons.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface2/player_gui/dungeon_window/idungeon/move_menu/move_menu.tscn" type="PackedScene" id=4]
 
 [node name="IDungeon" type="AspectRatioContainer"]
 anchor_right = 1.0
@@ -1376,3 +1377,10 @@ margin_left = 135.0
 margin_top = 376.0
 margin_right = 585.0
 margin_bottom = 676.0
+
+[node name="MoveMenu" parent="." instance=ExtResource( 4 )]
+visible = false
+margin_left = 50.0
+margin_top = 466.0
+margin_right = 670.0
+margin_bottom = 586.0
