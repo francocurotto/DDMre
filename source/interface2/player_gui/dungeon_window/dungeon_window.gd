@@ -35,6 +35,7 @@ func on_dice_dim_button_pressed():
     idungeon.on_dice_dim_button_pressed()
 
 func on_dice_dim_button_released():
+    idungeon.reset()
     switch_to_dungeon_buttons()
 
 # private functions

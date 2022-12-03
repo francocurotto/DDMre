@@ -67,6 +67,9 @@ func disable_roll():
     dice_roll_button.disabled = true
     modulate = DISABLED_COLOR
 
+func release_roll():
+    dice_roll_button.set_pressed_no_signal(false)
+
 func enable_dim():
     switch_to_dim()
     dice_dim_button.disabled = false

@@ -31,6 +31,10 @@ func disable_roll():
     for dicecol in get_children():
         dicecol.disable_roll()
 
+func release_roll():
+    for dicecol in get_children():
+        dicecol.release_roll()
+
 func disable_roll_unselected():
     for dicecol in get_children():
         if not dicecol.roll_selected:

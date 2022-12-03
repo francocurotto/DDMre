@@ -5,7 +5,7 @@ extends MarginContainer
 export (String, "NONE", "ML1", "ML2") var ml = "NONE" setget set_ml
 
 # variables
-var pos
+var tile
 
 # onready variables
 onready var tile_frame = $TileFrame
@@ -19,8 +19,8 @@ signal tile_select_button_toggled(itile, pressed)
 signal tile_dim_button_pressed(itile)
 
 # setget functions
-func set_tile(tile):
-    pos = tile.pos
+func set_tile(_tile):
+    tile = _tile
     tile_frame.set_tile_icon(tile.NAME, tile.playerid)
     tile_frame.set_dungobj_icon(tile.content.NAME, tile.content.playerid)
 
@@ -44,7 +44,7 @@ func unset_highlight():
 
 # public functions
 func enable_select_button():
-    tile_select_button.visible = true
+    tile_select_button.visible = tile.is_path()
     tile_select_button.set_pressed_no_signal(false)
 
 func release_select_button():

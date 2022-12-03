@@ -82,6 +82,7 @@ func on_skip_button_pressed():
 
 func on_dim_button_pressed(net, pos, trans):
     var dimdice = dicepool_column.get_selected_dim_idx()
+    dicepool_column.release_roll()
     engine.update({"name":"DIM", "dice":dimdice, "net":net, "pos":pos, "trans":trans})
 
 func on_endturn_button_pressed():
