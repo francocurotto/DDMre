@@ -50,7 +50,6 @@ func summon_card(idx):
     """
     var dice = dicepool[idx]
     dice.dimensioned = true
-    Events.emit_signal("card_summoned", idx)
     return dicepool[idx].card.summon(self)
 
 # signals callback
