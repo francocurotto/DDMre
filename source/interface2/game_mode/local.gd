@@ -39,9 +39,6 @@ func set_player_gui():
     self.opponent_gui.visible = false
 
 # signals callbacks
-func on_dice_rolled(sides):
-    self.player_gui.set_roll(sides)
-
 func on_state_update(state_name):
     set_player_gui()
     match state_name:
@@ -61,3 +58,6 @@ func on_state_update_dungeon():
 
 func on_state_update_reply():
     self.player_gui.on_state_update_reply()
+
+func on_dice_rolled(sides):
+    self.player_gui.set_roll(sides)

@@ -8,7 +8,7 @@ onready var defense = $VBox/InfoVBox/StatsHBox/Defense
 onready var health = $VBox/InfoVBox/StatsHBox/Health
 
 # signals
-signal cardinfo_quit
+signal card_info_quit
 
 # setget functions
 func set_card(card):
@@ -20,7 +20,7 @@ func set_card(card):
 
 # signals callbacks
 func _on_QuitButton_pressed():
-    emit_signal("cardinfo_quit")
+    emit_signal("card_info_quit")
 
 # private fuctions
 func set_name(name):

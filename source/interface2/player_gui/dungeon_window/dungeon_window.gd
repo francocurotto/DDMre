@@ -33,14 +33,15 @@ func reset_to_dungeon():
 
 # signals callbacks
 func on_state_update_roll():
+    idungeon.reset()
     dungeon_buttons.deactivate()
 
 func on_state_update_dungeon():
     reset_to_dungeon()
 
 func on_dice_dim_button_pressed():
-    switch_to_dim_buttons()
     idungeon.on_dice_dim_button_pressed()
+    switch_to_dim_buttons()
 
 func on_dice_dim_button_released():
     reset_to_dungeon()

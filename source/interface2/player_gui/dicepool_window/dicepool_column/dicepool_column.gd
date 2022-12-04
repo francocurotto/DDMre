@@ -2,6 +2,7 @@ extends VBoxContainer
 
 # variables
 var dicepool
+var dicecols
 
 # signals
 signal dice_triplet_changed(dicepool_column)
@@ -11,6 +12,7 @@ signal info_button_pressed(card)
 
 func _ready():
     # singal connections
+    dicecols = get_children()
     for dicecol in get_children():
         dicecol.connect("dice_roll_button_toggled", self, "on_dice_roll_button_toggled")
         dicecol.connect("dice_dim_button_pressed", self, "on_dice_dim_button_pressed")
@@ -26,34 +28,6 @@ func set_diceitems():
     for i in range(get_child_count()):
         get_child(i).set_dice(dicepool[i])
 
-# public functions
-func disable_roll():
-    for dicecol in get_children():
-        dicecol.disable_roll()
-
-func release_roll():
-    for dicecol in get_children():
-        dicecol.release_roll()
-
-func disable_roll_unselected():
-    for dicecol in get_children():
-        if not dicecol.roll_selected:
-            dicecol.disable_roll()
-
-func enable_roll_undimensioned():
-    for dicecol in get_children():
-        if not dicecol.dimensioned:
-            dicecol.enable_roll()
-
-func enable_dim_candidates(dim_candidates):
-    for i in dim_candidates:
-        get_child(i).enable_dim()
-
-func disable_dim_dimensioned():
-    for dicecol in get_children():
-        if dicecol.dimensioned:
-            dicecol.disable_dim()
-
 func get_roll_indeces():
     var indeces = []
     for i in range(get_child_count()):
@@ -66,25 +40,53 @@ func get_selected_dim_idx():
         if get_child(i).dim_selected:
             return i
 
+# public functions
+func disable_roll():
+    for dicecol in dicecols:
+        dicecol.disable_roll()
+
+func release_roll():
+    for dicecol in dicecols:
+        dicecol.release_roll()
+
+func disable_roll_unselected():
+    for dicecol in dicecols:
+        if not dicecol.roll_selected:
+            dicecol.disable_roll()
+
+func enable_roll_undimensioned():
+    for dicecol in dicecols:
+        if not dicecol.dimensioned:
+            dicecol.enable_roll()
+
+func enable_dim_candidates(dim_candidates):
+    for i in dim_candidates:
+        get_child(i).enable_dim()
+
+func disable_dim_dimensioned():
+    for dicecol in dicecols:
+        if dicecol.dimensioned:
+            dicecol.disable_dim()
+
 # signals callbacks
 func on_dice_roll_button_toggled():
-    emit_signal("dice_triplet_changed", self)
     if roll_ready():
         disable_roll_unselected()
     else:
         enable_roll_undimensioned()
+    emit_signal("dice_triplet_changed", self)
 
 func on_dice_dim_button_pressed(pressed_dicecol):
-    emit_signal("dice_dim_button_pressed")
     for dicecol in get_children():
         if dicecol.dim_visible and dicecol != pressed_dicecol:
             dicecol.disable_dim()
+    emit_signal("dice_dim_button_pressed")
 
 func on_dice_dim_button_released():
-    emit_signal("dice_dim_button_released")
     for dicecol in get_children():
         if dicecol.dim_visible:
             dicecol.enable_dim()
+    emit_signal("dice_dim_button_released")
 
 func on_info_button_pressed(card):
     emit_signal("info_button_pressed", card)
