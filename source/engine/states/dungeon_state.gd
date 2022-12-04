@@ -30,7 +30,7 @@ func MOVE(cmd):
         print("Not enough MOVEMENT crests.")
     # perform movement
     else: # case valid movement
-        perform_movement(tile_origin, tile_dest, path, cmd["name"])
+        perform_movement(tile_origin, tile_dest, path)
     return self
 
 func ATTACK(cmd):
@@ -70,7 +70,7 @@ func ENDTURN(_cmd):
     return RollState.new(opponent, player, dungeon)
 
 # private functions
-func perform_movement(tile1, tile2, path, cmdname):
+func perform_movement(tile1, tile2, path):
     """
     Move content from tile1 to tile2 and pay movement crest.
     """
@@ -80,7 +80,7 @@ func perform_movement(tile1, tile2, path, cmdname):
     # pay the cost of the movement
     player.crestpool.slots["MOVEMENT"] -= len(path)-1
     # emit duel update signal
-    Events.emit_signal("duel_update", cmdname)
+    Events.emit_signal("duel_update")
 
 func perform_attack(monster, target, cmdname):
     """

@@ -17,6 +17,7 @@ onready var roll_gui = $MainWindow/DicepoolWindow/RollPanel/RollVBox/RollGUI
 onready var dice_triplet = $MainWindow/DicepoolWindow/RollPanel/RollVBox/RollGUI/DiceTriplet
 onready var dungeon_window = $MainWindow/DungeonWindow
 onready var idungeon = $MainWindow/DungeonWindow/IDungeon
+onready var move_menu = $MainWindow/DungeonWindow/IDungeon/MoveMenu
 onready var summon_info = $MainWindow/DungeonWindow/SummonCont/SummonInfo
 onready var dungeon_info_button = $MainWindow/DungeonWindow/SummonCont/SummonInfo/InfoButton
 onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtons
@@ -31,6 +32,7 @@ func _ready():
     dicepool_window.connect("dice_dim_button_released", dungeon_window, "on_dice_dim_button_released")
     roll_gui.connect("skip_button_pressed", self, "on_skip_button_pressed")
     idungeon.connect("dim_button_pressed", self, "on_dim_button_pressed")
+    move_menu.connect("menu_move_button_pressed", self, "on_menu_move_button_pressed")
     dungeon_info_button.connect("info_button_pressed", self, "on_info_button_pressed")
     dungeon_buttons.connect("endturn_button_pressed", self, "on_endturn_button_pressed")
     menu_bar.connect("window_button_pressed", self, "on_window_button_pressed")
@@ -84,6 +86,10 @@ func on_dim_button_pressed(net, pos, trans):
     var dimdice = dicepool_column.get_selected_dim_idx()
     dicepool_column.release_roll()
     engine.update({"name":"DIM", "dice":dimdice, "net":net, "pos":pos, "trans":trans})
+
+func on_menu_move_button_pressed(pos1, pos2):
+    dungeon_window.reset_to_dungeon()
+    engine.update({"name":"MOVE", "origin":pos1, "dest":pos2})
 
 func on_endturn_button_pressed():
     engine.update({"name":"ENDTURN"})

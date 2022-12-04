@@ -20,6 +20,7 @@ signal tile_select_button_toggled(itile, pressed)
 signal tile_dim_button_pressed
 signal net_updated(can_dimension)
 signal dim_button_pressed(net, pos, trans)
+signal menu_opened
 
 func _ready():
     Events.connect("duel_update", self, "update_dungeon")
@@ -72,8 +73,11 @@ func on_tile_select_button_toggled(itile, pressed):
     emit_signal("tile_select_button_toggled", itile.tile.content, pressed)
 
 func on_tile_move_button_pressed(itile):
-    var path = dungeon.get_movepath(selected_itile.tile.pos, itile.tile.pos)
-    move_menu.activate(path, player)
+    var pos1 = selected_itile.tile.pos
+    var pos2 = itile.tile.pos
+    var path = dungeon.get_movepath(pos1, pos2)
+    move_menu.activate(pos1, pos2, path, player)
+    emit_signal("menu_opened")
 
 func on_tile_dim_button_pressed(itile):
     on_tile_select_button_toggled(itile, true)

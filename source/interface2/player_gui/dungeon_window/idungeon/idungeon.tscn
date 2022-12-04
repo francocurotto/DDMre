@@ -1381,6 +1381,6 @@ margin_bottom = 676.0
 [node name="MoveMenu" parent="." instance=ExtResource( 4 )]
 visible = false
 margin_left = 50.0
-margin_top = 466.0
+margin_top = 451.0
 margin_right = 670.0
-margin_bottom = 586.0
+margin_bottom = 601.0

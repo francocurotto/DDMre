@@ -44,6 +44,9 @@ func on_tile_select_button_toggled(dungobj, pressed):
     move_button.disabled = !(actionable and player.crestpool.slots["MOVEMENT"]>0)
     attack_button.disabled = !(actionable and player.crestpool.slots["ATTACK"]>0)
 
+func on_menu_opened():
+    cancel_button.disabled = true
+
 func _on_MoveButton_pressed():
     switch_to_cancel_button()
     emit_signal("move_button_pressed")
