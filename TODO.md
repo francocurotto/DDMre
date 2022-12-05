@@ -1,4 +1,6 @@
 ### TODO
+- add net figures
+- add summon to highlight dim net (what to do if in summon position?)
 - add attack functionality
 - add reply functionality
 ---
@@ -9,7 +11,6 @@
 
 ### IMPROVEMENTS
 - make dungeon menus transparentable
-- add summon to highlight dim net (what to do if in summon position?)
 - make dungeon buttons and dim buttons hflow container
 - make dice buttons show names if tall enough
 - change name of dicecol?
@@ -18,6 +19,5 @@
 - clean fonts
 
 ### ART
-- add net figures
 
 ### TEST
