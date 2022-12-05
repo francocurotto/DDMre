@@ -19,7 +19,6 @@ onready var net_select_buttons = $NetSelectButtons
 signal tile_select_button_toggled(itile, pressed)
 signal tile_dim_button_pressed
 signal net_updated(can_dimension)
-signal dim_button_pressed(net, pos, trans)
 signal menu_opened
 
 func _ready():
@@ -125,13 +124,6 @@ func on_TCW_button_pressed():
 
 func on_TAW_button_pressed():
     net_creator.update_net_taw()
-
-func on_dim_button_pressed():
-    var netdata = net_creator.get_netdata()
-    var net = netdata["netname"]
-    var pos = netdata["pos"]
-    var trans = netdata["trans_list"]
-    emit_signal("dim_button_pressed", net, pos, trans)
 
 # private functions
 func get_irow(idx):

@@ -17,26 +17,50 @@ onready var move_menu = $MainWindow/DungeonWindow/IDungeon/MoveMenu
 onready var summon_info = $MainWindow/DungeonWindow/SummonCont/SummonInfo
 onready var dungeon_info_button = $MainWindow/DungeonWindow/SummonCont/SummonInfo/InfoButton
 onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtons
+onready var dim_buttons = $MainWindow/DungeonWindow/DimButtons
 onready var card_info = $CardInfo
 onready var menu_bar = $CommonWindow/MenuBar
 onready var players_info = $CommonWindow/PlayersInfo
 
 func _ready():
     # signal connections
+    # dicepool column
     dicepool_column.connect("dice_triplet_changed", roll_gui, "update_dice_triplet")
     dicepool_column.connect("dice_dim_button_pressed", roll_gui, "on_dice_dim_button_pressed")
     dicepool_column.connect("dice_dim_button_pressed", dungeon_window, "on_dice_dim_button_pressed")
     dicepool_column.connect("dice_dim_button_released", roll_gui, "on_dice_dim_button_released")
     dicepool_column.connect("dice_dim_button_released", dungeon_window, "reset_to_dungeon")
     dicepool_column.connect("info_button_pressed", self, "on_info_button_pressed")
+    # roll gui
     roll_gui.connect("roll_button_pressed", self, "on_roll_button_pressed")
     roll_gui.connect("skip_button_pressed", self, "on_skip_button_pressed")
-    ###
-    idungeon.connect("dim_button_pressed", self, "on_dim_button_pressed")
-    move_menu.connect("menu_move_button_pressed", self, "on_menu_move_button_pressed")
+    # idungeon
+    idungeon.connect("tile_select_button_toggled", summon_info, "on_tile_select_button_toggled")
+    idungeon.connect("tile_select_button_toggled", dungeon_buttons, "on_tile_select_button_toggled")
+    idungeon.connect("tile_dim_button_pressed", dim_buttons, "on_tile_dim_button_pressed")
+    idungeon.connect("net_updated", dim_buttons, "on_net_updated")
+    idungeon.connect("menu_opened", dungeon_buttons, "on_menu_opened")
+    # dungeon info button
     dungeon_info_button.connect("info_button_pressed", self, "on_info_button_pressed")
+    # dungeon buttons
+    dungeon_buttons.connect("move_button_pressed", idungeon, "on_move_button_pressed")
+    dungeon_buttons.connect("attack_button_pressed", idungeon, "on_attack_button_pressed")
+    dungeon_buttons.connect("cancel_button_pressed", dungeon_window, "reset_to_dungeon")
     dungeon_buttons.connect("endturn_button_pressed", self, "on_endturn_button_pressed")
+    # dim buttons
+    dim_buttons.connect("net_button_pressed", idungeon, "on_net_button_pressed")
+    dim_buttons.connect("FLR_button_pressed", idungeon, "on_FLR_button_pressed")
+    dim_buttons.connect("FUD_button_pressed", idungeon, "on_FUD_button_pressed")
+    dim_buttons.connect("TCW_button_pressed", idungeon, "on_TCW_button_pressed")
+    dim_buttons.connect("TAW_button_pressed", idungeon, "on_TAW_button_pressed")
+    dim_buttons.connect("dim_button_pressed", dicepool_column, "release_roll")
+    dim_buttons.connect("dim_button_pressed", self, "on_dim_button_pressed")
+    # move menu
+    move_menu.connect("menu_move_button_pressed", self, "on_menu_move_button_pressed")
+    move_menu.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
+    # card info
     card_info.connect("card_info_quit", self, "on_card_info_quit")
+    # menu bar
     menu_bar.connect("window_button_pressed", self, "on_window_button_pressed")
 
 # setget functions
@@ -61,9 +85,12 @@ func on_roll_button_pressed():
 func on_skip_button_pressed():
     engine.update({"name":"SKIP"})
 
-func on_dim_button_pressed(net, pos, trans):
+func on_dim_button_pressed():
     var dimdice = dicepool_column.get_selected_dim_idx()
-    dicepool_column.release_roll()
+    var netdata = idungeon.net_creator.get_netdata()
+    var net = netdata["netname"]
+    var pos = netdata["pos"]
+    var trans = netdata["trans_list"]
     engine.update({"name":"DIM", "dice":dimdice, "net":net, "pos":pos, "trans":trans})
 
 func on_menu_move_button_pressed(pos1, pos2):
