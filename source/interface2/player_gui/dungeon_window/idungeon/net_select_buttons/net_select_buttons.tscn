@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://interface2/player_gui/dungeon_window/idungeon/net_select_buttons/net_select_buttons.gd" type="Script" id=1]
 [ext_resource path="res://art/styleboxes/stylebox_thin.tres" type="StyleBox" id=2]
+[ext_resource path="res://art/icons/NET_M1.png" type="Texture" id=3]
+[ext_resource path="res://art/icons/NET_X1.png" type="Texture" id=4]
+[ext_resource path="res://art/icons/NET_L1.png" type="Texture" id=5]
+[ext_resource path="res://art/icons/NET_Z1.png" type="Texture" id=6]
+[ext_resource path="res://art/icons/NET_T1.png" type="Texture" id=7]
+[ext_resource path="res://art/icons/NET_T2.png" type="Texture" id=8]
+[ext_resource path="res://art/icons/NET_Z2.png" type="Texture" id=9]
+[ext_resource path="res://art/icons/NET_S1.png" type="Texture" id=10]
+[ext_resource path="res://art/icons/NET_X2.png" type="Texture" id=11]
+[ext_resource path="res://art/icons/NET_M2.png" type="Texture" id=12]
+[ext_resource path="res://art/icons/NET_S2.png" type="Texture" id=13]
 
 [node name="NetSelectButtons" type="PanelContainer"]
 margin_right = 450.0
@@ -25,7 +36,9 @@ margin_bottom = 94.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
-text = "X1"
+icon = ExtResource( 4 )
+icon_align = 1
+expand_icon = true
 
 [node name="T1Button" type="Button" parent="Grid"]
 margin_left = 111.0
@@ -34,7 +47,9 @@ margin_bottom = 94.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
-text = "T1"
+icon = ExtResource( 7 )
+icon_align = 1
+expand_icon = true
 
 [node name="Z1Button" type="Button" parent="Grid"]
 margin_left = 222.0
@@ -43,7 +58,9 @@ margin_bottom = 94.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
-text = "Z1"
+icon = ExtResource( 6 )
+icon_align = 1
+expand_icon = true
 
 [node name="X2Button" type="Button" parent="Grid"]
 margin_left = 332.0
@@ -52,7 +69,9 @@ margin_bottom = 94.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
-text = "X2"
+icon = ExtResource( 11 )
+icon_align = 1
+expand_icon = true
 
 [node name="T2Button" type="Button" parent="Grid"]
 margin_top = 98.0
@@ -61,7 +80,9 @@ margin_bottom = 191.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
-text = "T2"
+icon = ExtResource( 8 )
+icon_align = 1
+expand_icon = true
 
 [node name="Z2Button" type="Button" parent="Grid"]
 margin_left = 111.0
@@ -71,7 +92,9 @@ margin_bottom = 191.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
-text = "Z2"
+icon = ExtResource( 9 )
+icon_align = 1
+expand_icon = true
 
 [node name="M1Button" type="Button" parent="Grid"]
 margin_left = 222.0
@@ -81,7 +104,9 @@ margin_bottom = 191.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
-text = "M1"
+icon = ExtResource( 3 )
+icon_align = 1
+expand_icon = true
 
 [node name="M2Button" type="Button" parent="Grid"]
 margin_left = 332.0
@@ -91,7 +116,9 @@ margin_bottom = 191.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
-text = "M2"
+icon = ExtResource( 12 )
+icon_align = 1
+expand_icon = true
 
 [node name="S1Button" type="Button" parent="Grid"]
 margin_top = 195.0
@@ -100,7 +127,9 @@ margin_bottom = 288.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
-text = "S1"
+icon = ExtResource( 10 )
+icon_align = 1
+expand_icon = true
 
 [node name="S2Button" type="Button" parent="Grid"]
 margin_left = 111.0
@@ -110,7 +139,9 @@ margin_bottom = 288.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
-text = "S2"
+icon = ExtResource( 13 )
+icon_align = 1
+expand_icon = true
 
 [node name="L1Button" type="Button" parent="Grid"]
 margin_left = 222.0
@@ -120,4 +151,7 @@ margin_bottom = 288.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
-text = "L1"
+pressed = true
+icon = ExtResource( 5 )
+icon_align = 1
+expand_icon = true
