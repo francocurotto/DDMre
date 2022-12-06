@@ -37,9 +37,10 @@ func _ready():
     # idungeon
     idungeon.connect("tile_select_button_toggled", summon_info, "on_tile_select_button_toggled")
     idungeon.connect("tile_select_button_toggled", dungeon_buttons, "on_tile_select_button_toggled")
-    idungeon.connect("tile_dim_button_pressed", dim_buttons, "on_tile_dim_button_pressed")
     idungeon.connect("net_updated", dim_buttons, "on_net_updated")
     idungeon.connect("menu_opened", dungeon_buttons, "on_menu_opened")
+    # net creator
+    idungeon.net_creator.connect("net_updated", idungeon, "on_net_updated")
     # dungeon info button
     dungeon_info_button.connect("info_button_pressed", self, "on_info_button_pressed")
     # dungeon buttons

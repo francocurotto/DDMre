@@ -11,8 +11,6 @@ const ROTATIONS = [[], ["TCW"], ["TCW", "TCW"], ["TAW"]]
 var playerid
 var pos
 var inittrans
-var x_reflect = false
-var y_reflect = false
 var netidx = 10
 var refxidx = 0
 var refyidx = 0
@@ -21,11 +19,18 @@ var rotidx = 0
 # signals
 signal net_updated(net)
 
-func _init(_playerid):
+# setget functions
+func set_playerid(_playerid):
     playerid = _playerid
     inittrans = INITDICT[playerid]
 
 # public functions
+func reset():
+    netidx = 10
+    refxidx = 0
+    refyidx = 0
+    rotidx = 0
+
 func update_netidx(_netidx):
     netidx = _netidx
     create_net()

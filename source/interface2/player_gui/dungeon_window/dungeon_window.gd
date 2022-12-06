@@ -12,6 +12,7 @@ func reset_to_dungeon():
     idungeon.reset()
     dungeon_buttons.activate()
     dungeon_buttons.switch_to_action_buttons()
+    dim_buttons.disable_buttons()
     switch_to_dungeon_buttons()
 
 # signals callbacks

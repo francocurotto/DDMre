@@ -8,7 +8,7 @@ onready var tcw_button = $TCWButton
 onready var taw_button = $TAWButton
 onready var dim_button = $DimButton
 onready var trans_buttons = [net_button, flr_button, fud_button, tcw_button, taw_button]
-onready var buttons = trans_buttons.duplicate() + [net_button]
+onready var buttons = trans_buttons.duplicate() + [dim_button]
 
 # signals
 signal net_button_pressed
@@ -28,10 +28,6 @@ func enable_trans_buttons():
         button.disabled = false
 
 # signals callbacks
-func on_tile_dim_button_pressed():
-    for trans_button in trans_buttons:
-        trans_button.disabled = false
-
 func on_net_updated(can_dimension):
     enable_trans_buttons()
     dim_button.disabled = not can_dimension

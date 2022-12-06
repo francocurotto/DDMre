@@ -8,7 +8,7 @@ var dungeon
 var player
 var selected_itile
 var itiles = []
-var net_creator
+var net_creator = NetCreator.new()
 
 # onready variables
 onready var rows = $Rows
@@ -17,7 +17,6 @@ onready var net_select_buttons = $NetSelectButtons
 
 # signals
 signal tile_select_button_toggled(itile, pressed)
-signal tile_dim_button_pressed
 signal net_updated(can_dimension)
 signal menu_opened
 
@@ -35,6 +34,7 @@ func _ready():
 func set_dungeon(_dungeon, _player):
     dungeon = _dungeon
     player = _player
+    net_creator.set_playerid(player.id)
     update_dungeon()
 
 # public functions
@@ -81,7 +81,6 @@ func on_tile_move_button_pressed(itile):
 func on_tile_dim_button_pressed(itile):
     on_tile_select_button_toggled(itile, true)
     net_creator.update_net_pos(itile.tile.pos)
-    emit_signal("tile_dim_button_pressed")
 
 func on_move_button_pressed():
     disable_all_buttons()
@@ -97,8 +96,7 @@ func on_attack_button_pressed():
 
 func on_dice_dim_button_pressed():
     disable_all_buttons()
-    net_creator = NetCreator.new(player.id)
-    net_creator.connect("net_updated", self, "on_net_updated")
+    net_creator.reset()
     for itile in itiles:
         itile.enable_dim_button()
 
