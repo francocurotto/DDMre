@@ -9,7 +9,7 @@ export (String, "NONE", "MONSTER_LORD", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAS
 export (int, 1, 2) var player_dungobj = 1 setget set_player_dungobj
 export (bool) var highlight = false setget set_highlight
 export (String, "NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM") \
-    var highlight_summon_type = "NONE" setget set_highlight_summon_type
+    var summon_highlight_type = "NONE" setget set_summon_highlight_type
 
 # constants
 const shader_p1 = preload("res://shaders/dungobj_P1_shader.tres")
@@ -58,9 +58,9 @@ func set_highlight(_highlight):
     highlight = _highlight
     $HighlightRect.visible = highlight
 
-func set_highlight_summon_type(_highlight_summon_type):
-    highlight_summon_type = _highlight_summon_type
-    if highlight_summon_type == "NONE": # case no content
-        $HighlightSummonRect.texture = null
+func set_summon_highlight_type(_summon_highlight_type):
+    summon_highlight_type = _summon_highlight_type
+    if summon_highlight_type == "NONE": # case no content
+        $SummonHighlightRect.texture = null
     else: # case content
-        $HighlightSummonRect.texture = load("res://art/icons/TYPE_" + highlight_summon_type + ".png")
+        $SummonHighlightRect.texture = load("res://art/icons/TYPE_" + summon_highlight_type + ".png")

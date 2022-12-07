@@ -6,9 +6,10 @@ const NetCreator = preload("res://interface2/player_gui/dungeon_window/idungeon/
 # variables
 var dungeon
 var player
-var selected_itile
 var itiles = []
 var net_creator = NetCreator.new()
+var selected_itile
+var dim_dice
 
 # onready variables
 onready var rows = $Rows
@@ -22,7 +23,6 @@ signal menu_opened
 
 func _ready():
     Events.connect("duel_update", self, "update_dungeon")
-    net_select_buttons.connect("net_select_button_pressed", self, "on_net_select_button_pressed")
     for row in rows.get_children():
         for itile in row.get_children():
             itiles.append(itile)
@@ -65,6 +65,10 @@ func unset_highlights():
     for itile in itiles:
         itile.unset_highlight()
 
+func unset_summon_highlights():
+    for itile in itiles:
+        itile.unset_summon_highlight()
+
 # signals callbacks
 func on_tile_select_button_toggled(itile, pressed):
     assign_selected_itile(itile, pressed)
@@ -80,6 +84,8 @@ func on_tile_move_button_pressed(itile):
 
 func on_tile_dim_button_pressed(itile):
     on_tile_select_button_toggled(itile, true)
+    unset_summon_highlights()
+    itile.tile_frame.summon_highlight_type = dim_dice.card.type
     net_creator.update_net_pos(itile.tile.pos)
 
 func on_move_button_pressed():
@@ -94,8 +100,9 @@ func on_attack_button_pressed():
     for attackpos in attackposs:
         get_itile(attackpos).enable_attack_button()
 
-func on_dice_dim_button_pressed():
+func on_dice_dim_button_pressed(dice):
     disable_all_buttons()
+    dim_dice = dice
     net_creator.reset()
     for itile in itiles:
         itile.enable_dim_button()

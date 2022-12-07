@@ -23,8 +23,8 @@ func on_state_update_roll():
 func on_state_update_dungeon():
     reset_to_dungeon()
 
-func on_dice_dim_button_pressed():
-    idungeon.on_dice_dim_button_pressed()
+func on_dice_dim_button_pressed(dice):
+    idungeon.on_dice_dim_button_pressed(dice)
     switch_to_dim_buttons()
 
 func on_dice_dim_button_released():

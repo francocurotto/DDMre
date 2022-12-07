@@ -19,7 +19,7 @@ func disable_roll():
     roll_button.disabled = true
 
 # signals callbacks
-func on_dice_dim_button_pressed():
+func on_dice_dim_button_pressed(_dice):
     skip_button.disabled = true
 
 func on_dice_dim_button_released():

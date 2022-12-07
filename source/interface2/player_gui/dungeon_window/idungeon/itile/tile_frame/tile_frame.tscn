@@ -33,7 +33,7 @@ margin_bottom = 28.0
 expand = true
 stretch_mode = 5
 
-[node name="HighlightSummonRect" type="TextureRect" parent="."]
+[node name="SummonHighlightRect" type="TextureRect" parent="."]
 self_modulate = Color( 1, 1, 0, 1 )
 margin_right = 28.0
 margin_bottom = 28.0

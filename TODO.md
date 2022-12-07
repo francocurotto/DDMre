@@ -1,4 +1,5 @@
 ### TODO
+- fix bug net select not working
 - add summon to highlight dim net (what to do if in summon position?)
 - add attack functionality
 - add reply functionality

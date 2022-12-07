@@ -43,6 +43,9 @@ func set_highlight():
 func unset_highlight():
     tile_frame.highlight = false
 
+func unset_summon_highlight():
+    tile_frame.summon_highlight_type = "NONE"
+
 # public functions
 func enable_select_button():
     tile_select_button.visible = tile.is_path()

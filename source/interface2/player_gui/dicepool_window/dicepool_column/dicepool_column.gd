@@ -6,7 +6,7 @@ var dicecols
 
 # signals
 signal dice_triplet_changed(dicepool_column)
-signal dice_dim_button_pressed
+signal dice_dim_button_pressed(dice)
 signal dice_dim_button_released
 signal info_button_pressed(card)
 
@@ -80,7 +80,7 @@ func on_dice_dim_button_pressed(pressed_dicecol):
     for dicecol in get_children():
         if dicecol.dim_visible and dicecol != pressed_dicecol:
             dicecol.disable_dim()
-    emit_signal("dice_dim_button_pressed")
+    emit_signal("dice_dim_button_pressed", pressed_dicecol.dice)
 
 func on_dice_dim_button_released():
     for dicecol in get_children():
