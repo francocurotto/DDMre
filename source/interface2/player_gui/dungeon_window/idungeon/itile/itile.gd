@@ -71,7 +71,10 @@ func disable_all_buttons():
     tile_move_button.visible = false
     tile_attack_button.visible = false
     tile_dim_button.visible = false
+
+func disable_all_highlights():
     unset_highlight()
+    unset_summon_highlight()
 
 # signals callbacks
 func _on_TileSelectButton_toggled(button_pressed):

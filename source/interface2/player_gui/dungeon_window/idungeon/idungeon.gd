@@ -49,6 +49,7 @@ func update_dungeon():
 
 func reset():
     disable_all_buttons()
+    disable_all_highlights()
     enable_select_buttons()
     if selected_itile:
         selected_itile._on_TileSelectButton_toggled(false) # deselect itile
@@ -60,6 +61,10 @@ func enable_select_buttons():
 func disable_all_buttons():
     for itile in itiles:
         itile.disable_all_buttons()
+
+func disable_all_highlights():
+    for itile in itiles:
+        itile.disable_all_highlights()
 
 func unset_highlights():
     for itile in itiles:
@@ -114,9 +119,6 @@ func on_net_updated(net):
 
 func on_net_button_pressed():
     net_select_buttons.visible = true
-
-func on_net_select_button_pressed(netidx):
-    net_creator.update_netidx(netidx)
 
 func on_FLR_button_pressed():
     net_creator.update_net_flr()

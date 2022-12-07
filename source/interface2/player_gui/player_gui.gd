@@ -13,6 +13,7 @@ onready var roll_gui = $MainWindow/DicepoolWindow/RollPanel/RollVBox/RollGUI
 onready var dice_triplet = $MainWindow/DicepoolWindow/RollPanel/RollVBox/RollGUI/DiceTriplet
 onready var dungeon_window = $MainWindow/DungeonWindow
 onready var idungeon = $MainWindow/DungeonWindow/IDungeon
+onready var net_select_buttons = $MainWindow/DungeonWindow/IDungeon/NetSelectButtons
 onready var move_menu = $MainWindow/DungeonWindow/IDungeon/MoveMenu
 onready var summon_info = $MainWindow/DungeonWindow/SummonCont/SummonInfo
 onready var dungeon_info_button = $MainWindow/DungeonWindow/SummonCont/SummonInfo/InfoButton
@@ -41,6 +42,8 @@ func _ready():
     idungeon.connect("menu_opened", dungeon_buttons, "on_menu_opened")
     # net creator
     idungeon.net_creator.connect("net_updated", idungeon, "on_net_updated")
+    # net select buttons
+    net_select_buttons.connect("net_select_button_pressed", idungeon.net_creator, "update_netidx")
     # dungeon info button
     dungeon_info_button.connect("info_button_pressed", self, "on_info_button_pressed")
     # dungeon buttons
