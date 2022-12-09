@@ -1,11 +1,13 @@
-extends HBoxContainer
+tool
+extends VBoxContainer
 
 # onready variables
-onready var tla = $TLA
-onready var summon_name = $Name
-onready var attack = $MonsterStats/Attack
-onready var defense = $MonsterStats/Defense
-onready var health = $MonsterStats/Health
+onready var upper_name = $UpperName
+onready var tla = $SummonLine/TLA
+onready var summon_name = $SummonLine/Name
+onready var attack = $SummonLine/MonsterStats/Attack
+onready var defense = $SummonLine/MonsterStats/Defense
+onready var health = $SummonLine/MonsterStats/Health
 
 # setget functions
 func set_summon(summon, player):
@@ -17,12 +19,24 @@ func set_summon(summon, player):
 func clear():
     visible = false
 
+# signals callbacks
+func _on_SummonInfo_resized():
+    var size_limit = $UpperName.get_size().y + $SummonLine/Name.get_size().y + get_constant("separation") + 1
+    if get_size().y > size_limit:
+        $UpperName.visible = true
+        $SummonLine/Name. visible = false
+    else:
+        $UpperName.visible = false
+        $SummonLine/Name. visible = true
+
 # private functions
 func set_summon_name(summon, player):
     if summon.is_item() and player != summon.player:
         summon_name.text = "???"
+        upper_name.text = "???"
     else:
         summon_name.text = summon.card.name
+        upper_name.text = summon.card.name
 
 func set_summon_stats(summon):
     if summon.card.is_monster(): # monster info
@@ -39,4 +53,3 @@ func set_item_stats():
     attack.visible = false
     defense.visible = false
     health.visible = false
-
