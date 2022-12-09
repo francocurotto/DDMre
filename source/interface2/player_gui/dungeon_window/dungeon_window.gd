@@ -10,8 +10,8 @@ onready var move_menu = $IDungeon/MoveMenu
 # public functions
 func reset_to_dungeon():
     idungeon.reset()
-    dungeon_buttons.activate()
     dungeon_buttons.switch_to_action_buttons()
+    dungeon_buttons.endturn_button.disabled = false
     dungeon_buttons.cancel_button.disabled = false
     dim_buttons.disable_buttons()
     switch_to_dungeon_buttons()
@@ -19,12 +19,13 @@ func reset_to_dungeon():
 # signals callbacks
 func on_state_update_roll():
     idungeon.reset()
-    dungeon_buttons.deactivate()
+    dungeon_buttons.disable_action_buttons()
 
 func on_state_update_dungeon():
     reset_to_dungeon()
 
 func on_state_update_reply(attacker, attacked):
+    dungeon_buttons.disable_action_buttons()
     idungeon.open_reply_menu(attacker, attacked)
 
 func on_dice_dim_button_pressed(dice):

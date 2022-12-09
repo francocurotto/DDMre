@@ -84,7 +84,7 @@ func set_duel(_engine, _player, _opponent):
     dicepool_column.set_dicepool(player.dicepool)
     idungeon.set_dungeon(engine.dungeon, player)
     summon_info.set_player(player)
-    dungeon_buttons.set_player(player)
+    dungeon_buttons.set_dungeon_buttons(player, engine)
     players_info.set_players_info(player, opponent)
 
 func set_roll(sides):
@@ -136,6 +136,7 @@ func on_state_update_dimension():
     dicepool_window.on_state_update_dimension(engine.state.dim_candidates)
 
 func on_state_update_reply():
+    dicepool_window.on_state_update_reply()
     dungeon_window.on_state_update_reply(engine.state.attacker, engine.state.attacked)
 
 func on_info_button_pressed(card):

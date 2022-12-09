@@ -1,15 +1,13 @@
 ### TODO
-- add reply functionality
-    - disable dicepool while in reply
-    - move while in reply bug?
+- highlight move and attack summons
+- make dungeon menus transparentable
 ---
 - reddit post
 - ABILITIES!
 
-### FIX
+### FIXES
 
 ### IMPROVEMENTS
-- make dungeon menus transparentable
 - make dungeon buttons and dim buttons hflow container
 - make dice buttons show names if tall enough
 - change name of dicecol?
