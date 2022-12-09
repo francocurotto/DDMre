@@ -61,3 +61,6 @@ func on_state_update_reply():
 
 func on_dice_rolled(sides):
     self.player_gui.set_roll(sides)
+
+func on_player_lost(_player):
+    get_tree().quit()

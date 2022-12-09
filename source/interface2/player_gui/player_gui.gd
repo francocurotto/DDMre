@@ -16,6 +16,7 @@ onready var idungeon = $MainWindow/DungeonWindow/IDungeon
 onready var net_select_buttons = $MainWindow/DungeonWindow/IDungeon/NetSelectButtons
 onready var move_menu = $MainWindow/DungeonWindow/IDungeon/MoveMenu
 onready var attack_menu = $MainWindow/DungeonWindow/IDungeon/AttackMenu
+onready var reply_menu = $MainWindow/DungeonWindow/IDungeon/ReplyMenu
 onready var summon_info = $MainWindow/DungeonWindow/SummonCont/SummonInfo
 onready var dungeon_info_button = $MainWindow/DungeonWindow/SummonCont/SummonInfo/InfoButton
 onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtons
@@ -41,6 +42,7 @@ func _ready():
     idungeon.connect("tile_select_button_toggled", dungeon_buttons, "on_tile_select_button_toggled")
     idungeon.connect("net_updated", dim_buttons, "on_net_updated")
     idungeon.connect("menu_opened", dungeon_buttons, "on_menu_opened")
+    idungeon.connect("monster_lord_attacked", self, "on_attack_input")
     # net creator
     idungeon.net_creator.connect("net_updated", idungeon, "on_net_updated")
     # net select buttons
@@ -64,8 +66,11 @@ func _ready():
     move_menu.connect("menu_move_button_pressed", self, "on_menu_move_button_pressed")
     move_menu.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
     # attack menu
-    attack_menu.connect("menu_attack_button_pressed", self, "on_menu_attack_button_pressed")
+    attack_menu.connect("menu_attack_button_pressed", self, "on_attack_input")
     attack_menu.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
+    # reply menu
+    reply_menu.connect("menu_guard_button_pressed", self, "on_menu_guard_button_pressed")
+    reply_menu.connect("menu_wait_button_pressed", self, "on_menu_wait_button_pressed")
     # card info
     card_info.connect("card_info_quit", self, "on_card_info_quit")
     # menu bar
@@ -105,9 +110,15 @@ func on_menu_move_button_pressed(pos1, pos2):
     dungeon_window.reset_to_dungeon()
     engine.update({"name":"MOVE", "origin":pos1, "dest":pos2})
 
-func on_menu_attack_button_pressed(pos1, pos2):
+func on_attack_input(pos1, pos2):
     dungeon_window.reset_to_dungeon()
     engine.update({"name":"ATTACK", "origin":pos1, "dest":pos2})
+
+func on_menu_guard_button_pressed():
+    engine.update({"name":"GUARD"})
+
+func on_menu_wait_button_pressed():
+    engine.update({"name":"WAIT"})
 
 func on_endturn_button_pressed():
     engine.update({"name":"ENDTURN"})
@@ -123,6 +134,9 @@ func on_state_update_dungeon():
 
 func on_state_update_dimension():
     dicepool_window.on_state_update_dimension(engine.state.dim_candidates)
+
+func on_state_update_reply():
+    dungeon_window.on_state_update_reply(engine.state.attacker, engine.state.attacked)
 
 func on_info_button_pressed(card):
     card_info.set_card(card)

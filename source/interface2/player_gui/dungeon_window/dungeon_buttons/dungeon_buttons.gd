@@ -42,7 +42,7 @@ func switch_to_action_buttons():
 func on_tile_select_button_toggled(dungobj, pressed):
     var actionable = dungobj.is_monster() and dungobj.player == player and activated and pressed
     move_button.disabled = !(actionable and player.crestpool.slots["MOVEMENT"]>0)
-    attack_button.disabled = !(actionable and player.crestpool.slots["ATTACK"]>0)
+    attack_button.disabled = !(actionable and player.crestpool.slots["ATTACK"]>0 and not dungobj.cooldown)
 
 func on_menu_opened():
     cancel_button.disabled = true
@@ -56,6 +56,7 @@ func _on_AttackButton_pressed():
     emit_signal("attack_button_pressed")
 
 func _on_EndTurnButton_pressed():
+    deactivate()
     emit_signal("endturn_button_pressed")
 
 func _on_CancelButton_pressed():

@@ -6,8 +6,6 @@ var pos2
 
 # onready variables
 onready var attack_info = $VBox/AttackInfo
-onready var menu_attack_button = $VBox/Margins/Buttons/MenuAttackButton
-onready var menu_cancel_button = $VBox/Margins/Buttons/MenuCancelButton
 
 # singals
 signal menu_attack_button_pressed

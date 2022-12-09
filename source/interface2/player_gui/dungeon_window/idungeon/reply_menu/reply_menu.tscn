@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://interface2/player_gui/info_display/attack_info/attack_info.tscn" type="PackedScene" id=1]
+[ext_resource path="res://art/styleboxes/stylebox_thin.tres" type="StyleBox" id=2]
+[ext_resource path="res://art/fonts/menu_buttons.tres" type="DynamicFont" id=3]
+[ext_resource path="res://interface2/player_gui/dungeon_window/idungeon/reply_menu/reply_menu.gd" type="Script" id=4]
+
+[node name="ReplyMenu" type="PanelContainer"]
+margin_right = 600.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 600, 360 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/panel = ExtResource( 2 )
+script = ExtResource( 4 )
+
+[node name="VBox" type="VBoxContainer" parent="."]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 594.0
+margin_bottom = 354.0
+
+[node name="AttackInfo" parent="VBox" instance=ExtResource( 1 )]
+margin_right = 588.0
+margin_bottom = 348.0
+
+[node name="Margins" type="MarginContainer" parent="VBox/AttackInfo"]
+margin_top = 284.0
+margin_right = 588.0
+margin_bottom = 348.0
+custom_constants/margin_bottom = 10
+
+[node name="Buttons" type="HBoxContainer" parent="VBox/AttackInfo/Margins"]
+margin_right = 588.0
+margin_bottom = 54.0
+custom_constants/separation = 100
+alignment = 1
+
+[node name="MenuGuardButton" type="Button" parent="VBox/AttackInfo/Margins/Buttons"]
+margin_left = 74.0
+margin_right = 261.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 3 )
+text = "⛨GUARD"
+
+[node name="MenuWaitButton" type="Button" parent="VBox/AttackInfo/Margins/Buttons"]
+margin_left = 361.0
+margin_right = 514.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 3 )
+text = "⏳WAIT"
+
+[connection signal="pressed" from="VBox/AttackInfo/Margins/Buttons/MenuGuardButton" to="." method="_on_MenuGuardButton_pressed"]
+[connection signal="pressed" from="VBox/AttackInfo/Margins/Buttons/MenuWaitButton" to="." method="_on_MenuWaitButton_pressed"]

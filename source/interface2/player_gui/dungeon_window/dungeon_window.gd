@@ -24,6 +24,9 @@ func on_state_update_roll():
 func on_state_update_dungeon():
     reset_to_dungeon()
 
+func on_state_update_reply(attacker, attacked):
+    idungeon.open_reply_menu(attacker, attacked)
+
 func on_dice_dim_button_pressed(dice):
     idungeon.on_dice_dim_button_pressed(dice)
     switch_to_dim_buttons()

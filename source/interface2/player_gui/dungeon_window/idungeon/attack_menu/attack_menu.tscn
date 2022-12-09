@@ -23,7 +23,6 @@ margin_bottom = 354.0
 [node name="AttackInfo" parent="VBox" instance=ExtResource( 3 )]
 margin_right = 588.0
 margin_bottom = 280.0
-size_flags_vertical = 3
 
 [node name="Margins" type="MarginContainer" parent="VBox"]
 margin_top = 284.0

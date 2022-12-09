@@ -10,6 +10,10 @@ signal roll_button_pressed
 signal skip_button_pressed
 
 # public functions
+func reset():
+    dice_triplet.reset()
+    switch_to_roll_button()
+
 func update_dice_triplet(idicepool):
     dice_triplet.update_dice(idicepool)
     if idicepool.roll_ready():

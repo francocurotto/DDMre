@@ -19,20 +19,20 @@
     "OOOOOOpOOOOOO",
     "OOOOOOpOOOOOO",
     "OOOOOOlOOOOOO"],
-  "SUMMONS1": [{"POS":"g3", "DICE":1}],
-  "SUMMONS2": [{"POS":"g17", "DICE":1}],
+  "SUMMONS1": [{"POS":"g10", "DICE":1}],
+  "SUMMONS2": [{"POS":"g11", "DICE":1}],
   "CRESTS1": {
     "MOVEMENT": 19,
     "ATTACK"  : 2,
-    "DEFENSE" : 0,
+    "DEFENSE" : 10,
     "MAGIC"   : 4,
     "TRAP"    : 5},
   "CRESTS2": {
     "MOVEMENT": 16,
     "ATTACK"  : 7,
-    "DEFENSE" : 0,
+    "DEFENSE" : 10,
     "MAGIC"   : 9,
     "TRAP"    : 10},
-  "HEARTS1": 2,
-  "HEARTS2": 1
+  "HEARTS1": 3,
+  "HEARTS2": 3
 }

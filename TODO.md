@@ -1,5 +1,7 @@
 ### TODO
 - add reply functionality
+    - disable dicepool while in reply
+    - move while in reply bug?
 ---
 - reddit post
 - ABILITIES!

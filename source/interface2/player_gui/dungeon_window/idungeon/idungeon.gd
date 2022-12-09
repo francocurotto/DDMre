@@ -15,12 +15,14 @@ var dim_dice
 onready var rows = $Rows
 onready var move_menu = $MoveMenu
 onready var attack_menu = $AttackMenu
+onready var reply_menu = $ReplyMenu
 onready var net_select_buttons = $NetSelectButtons
 
 # signals
 signal tile_select_button_toggled(itile, pressed)
 signal net_updated(can_dimension)
 signal menu_opened
+signal monster_lord_attacked
 
 func _ready():
     Events.connect("duel_update", self, "update_dungeon")
@@ -76,6 +78,9 @@ func unset_summon_highlights():
     for itile in itiles:
         itile.unset_summon_highlight()
 
+func open_reply_menu(attacker, attacked):
+    reply_menu.activate(attacker, attacked)
+
 # signals callbacks
 func on_tile_select_button_toggled(itile, pressed):
     assign_selected_itile(itile, pressed)
@@ -97,6 +102,8 @@ func on_tile_attack_button_pressed(itile):
     if attacked.is_monster() and attacked.player != player:
         attack_menu.activate(pos1, pos2, attacker, attacked)
         emit_signal("menu_opened")
+    elif attacked.is_monster_lord() and attacked.player != player:
+        emit_signal("monster_lord_attacked", pos1, pos2)
 
 func on_tile_dim_button_pressed(itile):
     on_tile_select_button_toggled(itile, true)

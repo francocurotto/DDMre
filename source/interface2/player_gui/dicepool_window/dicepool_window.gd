@@ -3,11 +3,11 @@ extends VBoxContainer
 # onready variables
 onready var dicepool_column = $DicepoolPanel/DicepoolVBox/DicepoolColumn
 onready var roll_gui = $RollPanel/RollVBox/RollGUI
-onready var dice_triplet = $RollPanel/RollVBox/RollGUI/DiceTriplet
+#onready var dice_triplet = $RollPanel/RollVBox/RollGUI/DiceTriplet
 
 # signals callbacks
 func on_state_update_roll():
-    dice_triplet.reset() # must be before "on_dice_roll_button_toggled" line
+    roll_gui.reset() # must be before "on_dice_roll_button_toggled" line
     dicepool_column.enable_roll_undimensioned()
     dicepool_column.disable_dim_dimensioned()
     dicepool_column.on_dice_roll_button_toggled() # save last dice roll
