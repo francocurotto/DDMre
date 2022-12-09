@@ -19,6 +19,10 @@ func set_summon(summon, player):
 func clear():
     visible = false
 
+func set_attacker_power(attacker, attacked):
+    var power = attacker.get_power(attacked)
+    attack.set_stat_value_color(power, attacker.card.attack)
+
 # signals callbacks
 func _on_SummonInfo_resized():
     var size_limit = $UpperName.get_size().y + $SummonLine/Name.get_size().y + get_constant("separation") + 1

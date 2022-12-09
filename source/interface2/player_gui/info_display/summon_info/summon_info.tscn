@@ -10,11 +10,12 @@ visible = false
 margin_right = 544.0
 margin_bottom = 41.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 3 )
 
 [node name="UpperName" type="Label" parent="."]
 visible = false
-margin_right = 632.0
+margin_right = 544.0
 margin_bottom = 41.0
 custom_fonts/font = ExtResource( 4 )
 text = "Twin-headed Thunder Dragon"

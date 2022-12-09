@@ -15,6 +15,7 @@ onready var dungeon_window = $MainWindow/DungeonWindow
 onready var idungeon = $MainWindow/DungeonWindow/IDungeon
 onready var net_select_buttons = $MainWindow/DungeonWindow/IDungeon/NetSelectButtons
 onready var move_menu = $MainWindow/DungeonWindow/IDungeon/MoveMenu
+onready var attack_menu = $MainWindow/DungeonWindow/IDungeon/AttackMenu
 onready var summon_info = $MainWindow/DungeonWindow/SummonCont/SummonInfo
 onready var dungeon_info_button = $MainWindow/DungeonWindow/SummonCont/SummonInfo/InfoButton
 onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtons
@@ -62,6 +63,9 @@ func _ready():
     # move menu
     move_menu.connect("menu_move_button_pressed", self, "on_menu_move_button_pressed")
     move_menu.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
+    # attack menu
+    attack_menu.connect("menu_attack_button_pressed", self, "on_menu_attack_button_pressed")
+    attack_menu.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
     # card info
     card_info.connect("card_info_quit", self, "on_card_info_quit")
     # menu bar
@@ -100,6 +104,10 @@ func on_dim_button_pressed():
 func on_menu_move_button_pressed(pos1, pos2):
     dungeon_window.reset_to_dungeon()
     engine.update({"name":"MOVE", "origin":pos1, "dest":pos2})
+
+func on_menu_attack_button_pressed(pos1, pos2):
+    dungeon_window.reset_to_dungeon()
+    engine.update({"name":"ATTACK", "origin":pos1, "dest":pos2})
 
 func on_endturn_button_pressed():
     engine.update({"name":"ENDTURN"})

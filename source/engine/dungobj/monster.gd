@@ -25,7 +25,7 @@ func attack_monster(monster, guard):
         monster.receive_damage(damage)
     elif damage < 0: # attacker receives retailation damage
         receive_damage(-damage)
-        
+
 func attack_monster_lord(ml):
     """
     Attack the opponent monster lord.

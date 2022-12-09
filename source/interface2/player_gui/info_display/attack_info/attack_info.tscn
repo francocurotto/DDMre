@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://interface2/player_gui/info_display/summon_info/summon_info.tscn" type="PackedScene" id=1]
+[ext_resource path="res://art/icons/ATTACK_ARROW.png" type="Texture" id=2]
+[ext_resource path="res://interface2/player_gui/info_display/attack_info/attack_info.gd" type="Script" id=3]
+
+[node name="AttackInfo" type="VBoxContainer"]
+margin_right = 565.0
+margin_bottom = 260.0
+script = ExtResource( 3 )
+
+[node name="AttackerInfo" parent="." instance=ExtResource( 1 )]
+visible = true
+margin_right = 565.0
+margin_bottom = 90.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_top = 94.0
+margin_right = 565.0
+margin_bottom = 166.0
+texture = ExtResource( 2 )
+stretch_mode = 6
+
+[node name="AttackedInfo" parent="." instance=ExtResource( 1 )]
+visible = true
+margin_top = 170.0
+margin_right = 565.0
+margin_bottom = 260.0

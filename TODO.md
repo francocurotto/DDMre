@@ -1,5 +1,4 @@
 ### TODO
-- add attack functionality
 - add reply functionality
 ---
 - reddit post
@@ -12,7 +11,7 @@
 - make dungeon buttons and dim buttons hflow container
 - make dice buttons show names if tall enough
 - change name of dicecol?
-- remove move/attack buttons and add tile button activates move/attack?
+- remove move/attack buttons and add tile buttons activate move/attack?
 
 ### REFACTOR
 - clean fonts

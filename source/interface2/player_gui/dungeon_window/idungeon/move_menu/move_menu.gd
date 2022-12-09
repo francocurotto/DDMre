@@ -12,6 +12,7 @@ onready var message = $VBox/Message
 signal menu_move_button_pressed
 signal menu_canceled
 
+# public functions
 func activate(_pos1, _pos2, path, player):
     pos1 = _pos1
     pos2 = _pos2

@@ -14,6 +14,7 @@ var dim_dice
 # onready variables
 onready var rows = $Rows
 onready var move_menu = $MoveMenu
+onready var attack_menu = $AttackMenu
 onready var net_select_buttons = $NetSelectButtons
 
 # signals
@@ -28,6 +29,7 @@ func _ready():
             itiles.append(itile)
             itile.connect("tile_select_button_toggled", self, "on_tile_select_button_toggled")
             itile.connect("tile_move_button_pressed", self, "on_tile_move_button_pressed")
+            itile.connect("tile_attack_button_pressed", self, "on_tile_attack_button_pressed")
             itile.connect("tile_dim_button_pressed", self, "on_tile_dim_button_pressed")
 
 # setget functions
@@ -48,8 +50,8 @@ func update_dungeon():
             itile.set_tile(tile)
 
 func reset():
-    disable_all_buttons()
-    disable_all_highlights()
+    disable_itile_buttons()
+    disable_itile_highlights()
     enable_select_buttons()
     if selected_itile:
         selected_itile._on_TileSelectButton_toggled(false) # deselect itile
@@ -58,11 +60,11 @@ func enable_select_buttons():
     for itile in itiles:
         itile.enable_select_button()
 
-func disable_all_buttons():
+func disable_itile_buttons():
     for itile in itiles:
         itile.disable_all_buttons()
 
-func disable_all_highlights():
+func disable_itile_highlights():
     for itile in itiles:
         itile.disable_all_highlights()
 
@@ -87,6 +89,15 @@ func on_tile_move_button_pressed(itile):
     move_menu.activate(pos1, pos2, path, player)
     emit_signal("menu_opened")
 
+func on_tile_attack_button_pressed(itile):
+    var pos1 = selected_itile.tile.pos
+    var pos2 = itile.tile.pos
+    var attacker = selected_itile.tile.content
+    var attacked = itile.tile.content
+    if attacked.is_monster() and attacked.player != player:
+        attack_menu.activate(pos1, pos2, attacker, attacked)
+        emit_signal("menu_opened")
+
 func on_tile_dim_button_pressed(itile):
     on_tile_select_button_toggled(itile, true)
     unset_summon_highlights()
@@ -94,19 +105,19 @@ func on_tile_dim_button_pressed(itile):
     net_creator.update_net_pos(itile.tile.pos)
 
 func on_move_button_pressed():
-    disable_all_buttons()
+    disable_itile_buttons()
     var moveposs = dungeon.get_moveposs(player, selected_itile.tile.pos)
     for movepos in moveposs:
         get_itile(movepos).enable_move_button()
 
 func on_attack_button_pressed():
-    disable_all_buttons()
+    disable_itile_buttons()
     var attackposs = dungeon.get_attackposs(player, selected_itile.tile.pos)
     for attackpos in attackposs:
         get_itile(attackpos).enable_attack_button()
 
 func on_dice_dim_button_pressed(dice):
-    disable_all_buttons()
+    disable_itile_buttons()
     dim_dice = dice
     net_creator.reset()
     for itile in itiles:

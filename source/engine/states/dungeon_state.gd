@@ -60,7 +60,7 @@ func ATTACK(cmd):
         if opponent.crestpool.slots["DEFENSE"] >= 1 and target.is_monster():
             return ReplyState.new(opponent, player, dungeon, monster, target)
         # perform unguarded attack
-        perform_attack(monster, target, cmd["name"])
+        perform_attack(monster, target)
     return self
 
 func ENDTURN(_cmd):
@@ -82,7 +82,7 @@ func perform_movement(tile1, tile2, path):
     # emit duel update signal
     Events.emit_signal("duel_update")
 
-func perform_attack(monster, target, cmdname):
+func perform_attack(monster, target):
     """
     Perform attack from tile1 to tile2 and pay attack crest.
     """
@@ -92,5 +92,5 @@ func perform_attack(monster, target, cmdname):
         monster.attack_monster_lord(target)
     # pay the cost of attack
     player.crestpool.slots["ATTACK"] -= 1
-    Events.emit_signal("duel_update", cmdname)
+    Events.emit_signal("duel_update")
 
