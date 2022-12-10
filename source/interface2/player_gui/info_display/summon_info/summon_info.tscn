@@ -6,7 +6,6 @@
 [ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=4]
 
 [node name="SummonInfo" type="VBoxContainer"]
-visible = false
 margin_right = 544.0
 margin_bottom = 41.0
 size_flags_horizontal = 3

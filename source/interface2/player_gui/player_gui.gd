@@ -22,7 +22,7 @@ onready var dungeon_info_button = $MainWindow/DungeonWindow/SummonCont/SummonInf
 onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtons
 onready var dim_buttons = $MainWindow/DungeonWindow/DimButtons
 onready var card_info = $CardInfo
-onready var menu_bar = $CommonWindow/MenuBar
+onready var common_window = $CommonWindow
 onready var players_info = $CommonWindow/PlayersInfo
 
 func _ready():
@@ -73,8 +73,8 @@ func _ready():
     reply_menu.connect("menu_wait_button_pressed", self, "on_menu_wait_button_pressed")
     # card info
     card_info.connect("card_info_quit", self, "on_card_info_quit")
-    # menu bar
-    menu_bar.connect("window_button_pressed", self, "on_window_button_pressed")
+    # common window
+    common_window.connect("window_button_pressed", self, "on_window_button_pressed")
 
 # setget functions
 func set_duel(_engine, _player, _opponent):

@@ -4,9 +4,8 @@
 [ext_resource path="res://interface2/player_gui/dungeon_window/dungeon_buttons/dungeon_buttons.gd" type="Script" id=2]
 
 [node name="DungeonButtons" type="VBoxContainer"]
-margin_right = 490.0
+margin_right = 605.0
 margin_bottom = 50.0
-size_flags_vertical = 3
 script = ExtResource( 2 )
 
 [node name="ActionButtons" type="HBoxContainer" parent="."]
