@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=1]
-[ext_resource path="res://interface2/player_gui/info_display/dice_line/monster_stat/monster_stat.tscn" type="PackedScene" id=2]
-[ext_resource path="res://interface2/player_gui/info_display/dice_line/tla/tla.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface2/player_gui/info_display/dice_info/monster_stat/monster_stat.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface2/player_gui/info_display/dice_info/tla/tla.tscn" type="PackedScene" id=3]
 [ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=4]
 [ext_resource path="res://art/fonts/QuiviraRegular.otf" type="DynamicFontData" id=5]
 [ext_resource path="res://interface2/player_gui/info_display/card_info/card_info.gd" type="Script" id=6]
