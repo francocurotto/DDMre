@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 # preload vatiables
-var ISide = preload("res://interface2/player_gui/info_display/dice_line/sides/iside/iside.tscn")
+var ISide = preload("res://interface2/player_gui/info_display/dice_info/sides/iside/iside.tscn")
 var DiceFrame = preload("res://interface2/player_gui/info_display/dice_frame/dice_frame.tscn")
 
 # setget functions

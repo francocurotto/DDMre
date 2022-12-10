@@ -19,7 +19,7 @@ var dim_selected setget , is_dim_selected
 var dimensioned setget , is_dimensioned
 
 # onready variables
-onready var diceline = $DiceContainer/Margins/DiceLine
+onready var diceinfo = $DiceContainer/Margins/DiceInfo
 onready var dice_roll_button = $DiceContainer/DiceRollButton
 onready var dice_dim_button = $DiceContainer/DiceDimButton
 onready var info_button = $InfoButton
@@ -37,7 +37,7 @@ func _ready():
 # setget functions
 func set_dice(_dice):
     dice = _dice
-    diceline.set_dice(dice)
+    diceinfo.set_dice(dice)
     color_buttons(dice.card)
     info_button.set_card(dice.card)
 
