@@ -6,13 +6,12 @@
 
 [node name="DimButtons" type="HBoxContainer"]
 margin_right = 286.0
-margin_bottom = 39.0
-size_flags_vertical = 3
+margin_bottom = 60.0
 script = ExtResource( 2 )
 
 [node name="NetButton" type="Button" parent="."]
 margin_right = 39.0
-margin_bottom = 41.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
@@ -22,7 +21,7 @@ icon_align = 1
 [node name="FLRButton" type="Button" parent="."]
 margin_left = 43.0
 margin_right = 82.0
-margin_bottom = 41.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
@@ -31,7 +30,7 @@ text = "↔"
 [node name="FUDButton" type="Button" parent="."]
 margin_left = 86.0
 margin_right = 125.0
-margin_bottom = 41.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
@@ -40,7 +39,7 @@ text = "↕"
 [node name="TCWButton" type="Button" parent="."]
 margin_left = 129.0
 margin_right = 168.0
-margin_bottom = 41.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
@@ -49,7 +48,7 @@ text = "🔃"
 [node name="TAWButton" type="Button" parent="."]
 margin_left = 172.0
 margin_right = 211.0
-margin_bottom = 41.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
@@ -58,7 +57,7 @@ text = "🔄"
 [node name="DimButton" type="Button" parent="."]
 margin_left = 215.0
 margin_right = 286.0
-margin_bottom = 41.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
