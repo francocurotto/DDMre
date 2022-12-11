@@ -51,7 +51,7 @@ func is_dim_visible():
     return dice_dim_button.visible
 
 func is_dim_selected():
-    return dice_dim_button.pressed
+    return dice_dim_button.pressed and not dice_dim_button.disabled
 
 func is_dimensioned():
     return dice.dimensioned
