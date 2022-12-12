@@ -1,21 +1,22 @@
 ### TODO
-- highlight move and attack summons
+- clean fonts
 - make dungeon menus transparentable
+- highlight move and attack summons
 ---
+- update example image
 - reddit post
 - ABILITIES!
 
 ### FIXES
 
 ### IMPROVEMENTS
-- make dungeon buttons and dim buttons hflow container
-- make dice buttons show names if tall enough
 - change name of dicecol?
-- remove move/attack buttons and add tile buttons activate move/attack?
+- make summon actions and dim transformations menus popable in dungeon?
+
 
 ### REFACTOR
-- clean fonts
 
 ### ART
+- make everything 16-bitish
 
 ### TEST
