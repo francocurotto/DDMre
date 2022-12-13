@@ -13,6 +13,7 @@ alignment = 2
 script = ExtResource( 3 )
 
 [node name="SummonInfo" parent="." instance=ExtResource( 2 )]
+visible = false
 margin_right = 571.0
 
 [node name="InfoButton" parent="." instance=ExtResource( 1 )]

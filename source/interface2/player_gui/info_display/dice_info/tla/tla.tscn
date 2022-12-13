@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://interface2/player_gui/info_display/dice_line/tla/tla.gd" type="Script" id=1]
+[ext_resource path="res://interface2/player_gui/info_display/dice_info/tla/tla.gd" type="Script" id=1]
 [ext_resource path="res://art/icons/TYPE_DRAGON.png" type="Texture" id=2]
 [ext_resource path="res://art/icons/ABILITY.png" type="Texture" id=3]
 [ext_resource path="res://art/fonts/dice_item.tres" type="DynamicFont" id=4]
