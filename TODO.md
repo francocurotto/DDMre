@@ -1,5 +1,8 @@
 ### TODO
+- clean styleboxes
 - clean fonts
+- rename dicdpool_column and dice_column (and dicecol in script)
+- make idice single font and roll_gui vertical expandable
 - make dungeon menus transparentable
 - highlight move and attack summons
 ---
@@ -10,7 +13,6 @@
 ### FIXES
 
 ### IMPROVEMENTS
-- change name of dicecol?
 - make summon actions and dim transformations menus popable in dungeon?
 
 
