@@ -1,8 +1,4 @@
-tool
 extends VBoxContainer
-
-# preload variables
-var font = preload("res://art/fonts/dice_info_name.tres")
 
 # onready variables
 onready var cardname = $Name
@@ -18,15 +14,6 @@ func set_dice(dice):
     tla.set_tla(dice.card)
     set_card_stats(dice.card)
     sides.set_sides(dice.sides)
-
-# signals callbacks
-func _on_VBoxContainer_resized():
-    var fontsize = get_size().y - $DiceLine/TLA/Level.get_size().y - 7
-    if fontsize >= 12:
-        font.size = min(24, fontsize)
-        $Name.visible = true
-    else:
-        $Name.visible = false
 
 # private functions
 func set_card_stats(card):

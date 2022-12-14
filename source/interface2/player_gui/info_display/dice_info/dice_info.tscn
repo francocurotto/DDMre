@@ -1,55 +1,65 @@
 [gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://art/fonts2/dice_name.tres" type="DynamicFont" id=1]
 [ext_resource path="res://interface2/player_gui/info_display/dice_info/monster_stat/monster_stat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface2/player_gui/info_display/dice_info/tla/tla.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface2/player_gui/info_display/dice_info/sides/sides.tscn" type="PackedScene" id=4]
-[ext_resource path="res://art/fonts/dice_info_name.tres" type="DynamicFont" id=5]
 [ext_resource path="res://interface2/player_gui/info_display/dice_info/dice_info.gd" type="Script" id=6]
 
-[node name="DiceInfo" type="VBoxContainer"]
-margin_right = 641.0
-margin_bottom = 70.0
+[node name="DiceInfo" type="HBoxContainer"]
+margin_right = 669.0
+margin_bottom = 60.0
 custom_constants/separation = 0
 alignment = 1
 script = ExtResource( 6 )
 
-[node name="Name" type="Label" parent="."]
-margin_top = 1.0
-margin_right = 641.0
-margin_bottom = 28.0
-custom_fonts/font = ExtResource( 5 )
+[node name="VBox" type="VBoxContainer" parent="."]
+margin_right = 334.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+alignment = 1
+
+[node name="Name" type="Label" parent="VBox"]
+margin_right = 334.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 1 )
 text = "Twin-headed Thunder Dragon"
 valign = 2
 
-[node name="DiceLine" type="HBoxContainer" parent="."]
-margin_top = 28.0
-margin_right = 641.0
-margin_bottom = 69.0
+[node name="HBox" type="HBoxContainer" parent="VBox"]
+margin_top = 24.0
+margin_right = 334.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
-custom_constants/separation = 15
-alignment = 1
+custom_constants/separation = 10
 
-[node name="TLA" parent="DiceLine" instance=ExtResource( 3 )]
+[node name="TLA" parent="VBox/HBox" instance=ExtResource( 3 )]
+margin_right = 76.0
+margin_bottom = 36.0
 
-[node name="Attack" parent="DiceLine" instance=ExtResource( 2 )]
-margin_left = 117.0
-margin_right = 198.0
+[node name="Attack" parent="VBox/HBox" instance=ExtResource( 2 )]
+margin_left = 86.0
+margin_right = 151.0
+margin_bottom = 36.0
 
-[node name="Defense" parent="DiceLine" instance=ExtResource( 2 )]
-margin_left = 213.0
-margin_right = 294.0
+[node name="Defense" parent="VBox/HBox" instance=ExtResource( 2 )]
+margin_left = 161.0
+margin_right = 226.0
+margin_bottom = 36.0
 value = 20
 stat = "DEFENSE"
 
-[node name="Health" parent="DiceLine" instance=ExtResource( 2 )]
-margin_left = 309.0
-margin_right = 390.0
+[node name="Health" parent="VBox/HBox" instance=ExtResource( 2 )]
+margin_left = 236.0
+margin_right = 301.0
+margin_bottom = 36.0
 value = 20
 stat = "HEALTH"
 
-[node name="Sides" parent="DiceLine" instance=ExtResource( 4 )]
-margin_left = 405.0
-margin_right = 641.0
-margin_bottom = 41.0
+[node name="Sides" parent="." instance=ExtResource( 4 )]
+margin_left = 334.0
+margin_right = 669.0
+margin_bottom = 60.0
 
 [connection signal="resized" from="." to="." method="_on_VBoxContainer_resized"]

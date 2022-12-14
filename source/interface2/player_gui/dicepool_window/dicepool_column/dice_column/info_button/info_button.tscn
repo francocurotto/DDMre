@@ -4,9 +4,9 @@
 [ext_resource path="res://interface2/player_gui/dicepool_window/dicepool_column/dice_column/info_button/info_button.gd" type="Script" id=2]
 
 [node name="InfoButton" type="Button"]
-margin_right = 46.0
-margin_bottom = 46.0
-rect_min_size = Vector2( 46, 0 )
+margin_right = 60.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
 icon = ExtResource( 1 )
 icon_align = 1
 expand_icon = true

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://interface2/player_gui/dungeon_window/idungeon/idungeon.tscn" type="PackedScene" id=1]
-[ext_resource path="res://art/styleboxes/stylebox.tres" type="StyleBox" id=2]
+[ext_resource path="res://art/styleboxes/panel.tres" type="StyleBox" id=2]
 [ext_resource path="res://interface2/player_gui/dungeon_window/dungeon_buttons/dungeon_buttons.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface2/player_gui/dungeon_window/summon_panel/summon_panel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://interface2/player_gui/dungeon_window/dungeon_window.gd" type="Script" id=5]
@@ -20,14 +20,14 @@ anchor_bottom = 0.0
 margin_right = 720.0
 margin_bottom = 1053.0
 
-[node name="SummonCont" type="PanelContainer" parent="."]
+[node name="SummonPanel" type="PanelContainer" parent="."]
 margin_top = 1057.0
 margin_right = 720.0
 margin_bottom = 1110.0
 size_flags_vertical = 3
 custom_styles/panel = ExtResource( 2 )
 
-[node name="SummonInfo" parent="SummonCont" instance=ExtResource( 4 )]
+[node name="SummonInfo" parent="SummonPanel" instance=ExtResource( 4 )]
 margin_left = 6.0
 margin_top = 6.0
 margin_right = 714.0
@@ -36,7 +36,7 @@ margin_bottom = 47.0
 [node name="DungeonButtons" parent="." instance=ExtResource( 3 )]
 margin_top = 1114.0
 margin_right = 720.0
-margin_bottom = 1164.0
+margin_bottom = 1174.0
 
 [node name="DimButtons" parent="." instance=ExtResource( 6 )]
 visible = false

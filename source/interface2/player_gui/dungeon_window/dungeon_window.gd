@@ -2,7 +2,7 @@ extends VBoxContainer
 
 # onready variables
 onready var idungeon = $IDungeon
-onready var summon_info = $SummonCont/SummonInfo
+onready var summon_info = $SummonPanel/SummonInfo
 onready var dungeon_buttons = $DungeonButtons
 onready var dim_buttons = $DimButtons
 onready var move_menu = $IDungeon/MoveMenu

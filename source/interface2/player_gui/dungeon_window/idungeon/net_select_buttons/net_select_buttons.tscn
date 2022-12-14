@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://interface2/player_gui/dungeon_window/idungeon/net_select_buttons/net_select_buttons.gd" type="Script" id=1]
-[ext_resource path="res://art/styleboxes/stylebox_thin.tres" type="StyleBox" id=2]
+[ext_resource path="res://art/styleboxes/panel.tres" type="StyleBox" id=2]
 [ext_resource path="res://art/icons/NET_M1.png" type="Texture" id=3]
 [ext_resource path="res://art/icons/NET_X1.png" type="Texture" id=4]
 [ext_resource path="res://art/icons/NET_L1.png" type="Texture" id=5]
