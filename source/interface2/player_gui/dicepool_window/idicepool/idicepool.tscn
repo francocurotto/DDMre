@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://interface2/player_gui/dicepool_window/idicepool/dice_button/dice_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://interface2/player_gui/dicepool_window/idicepool/idicepool.gd" type="Script" id=2]
+
+[node name="DicepoolColumn" type="VBoxContainer"]
+margin_right = 701.0
+margin_bottom = 1040.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 2
+script = ExtResource( 2 )
+
+[node name="DiceButton1" parent="." instance=ExtResource( 1 )]
+margin_right = 701.0
+margin_bottom = 67.0
+
+[node name="DiceButton2" parent="." instance=ExtResource( 1 )]
+margin_top = 69.0
+margin_right = 701.0
+margin_bottom = 136.0
+
+[node name="DiceButton3" parent="." instance=ExtResource( 1 )]
+margin_top = 138.0
+margin_right = 701.0
+margin_bottom = 206.0
+
+[node name="DiceButton4" parent="." instance=ExtResource( 1 )]
+margin_top = 208.0
+margin_right = 701.0
+margin_bottom = 275.0
+
+[node name="DiceButton5" parent="." instance=ExtResource( 1 )]
+margin_top = 277.0
+margin_right = 701.0
+margin_bottom = 345.0
+
+[node name="DiceButton6" parent="." instance=ExtResource( 1 )]
+margin_top = 347.0
+margin_right = 701.0
+margin_bottom = 414.0
+
+[node name="DiceButton7" parent="." instance=ExtResource( 1 )]
+margin_top = 416.0
+margin_right = 701.0
+margin_bottom = 484.0
+
+[node name="DiceButton8" parent="." instance=ExtResource( 1 )]
+margin_top = 486.0
+margin_right = 701.0
+margin_bottom = 553.0
+
+[node name="DiceButton9" parent="." instance=ExtResource( 1 )]
+margin_top = 555.0
+margin_right = 701.0
+margin_bottom = 623.0
+
+[node name="DiceButton10" parent="." instance=ExtResource( 1 )]
+margin_top = 625.0
+margin_right = 701.0
+margin_bottom = 692.0
+
+[node name="DiceButton11" parent="." instance=ExtResource( 1 )]
+margin_top = 694.0
+margin_right = 701.0
+margin_bottom = 762.0
+
+[node name="DiceButton12" parent="." instance=ExtResource( 1 )]
+margin_top = 764.0
+margin_right = 701.0
+margin_bottom = 831.0
+
+[node name="DiceButton13" parent="." instance=ExtResource( 1 )]
+margin_top = 833.0
+margin_right = 701.0
+margin_bottom = 901.0
+
+[node name="DiceButton14" parent="." instance=ExtResource( 1 )]
+margin_top = 903.0
+margin_right = 701.0
+margin_bottom = 970.0
+
+[node name="DiceButton15" parent="." instance=ExtResource( 1 )]
+margin_top = 972.0
+margin_right = 701.0
+margin_bottom = 1040.0

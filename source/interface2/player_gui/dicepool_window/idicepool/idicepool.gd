@@ -2,7 +2,7 @@ extends VBoxContainer
 
 # variables
 var dicepool
-var dicecols
+var dice_buttons
 
 # signals
 signal dice_triplet_changed(dicepool_column)
@@ -12,12 +12,12 @@ signal info_button_pressed(card)
 
 func _ready():
     # singal connections
-    dicecols = get_children()
-    for dicecol in get_children():
-        dicecol.connect("dice_roll_button_toggled", self, "on_dice_roll_button_toggled")
-        dicecol.connect("dice_dim_button_pressed", self, "on_dice_dim_button_pressed")
-        dicecol.connect("dice_dim_button_released", self, "on_dice_dim_button_released")
-        dicecol.connect("info_button_pressed", self, "on_info_button_pressed")
+    dice_buttons = get_children()
+    for dice_button in dice_buttons:
+        dice_button.connect("dice_roll_button_toggled", self, "on_dice_roll_button_toggled")
+        dice_button.connect("dice_dim_button_pressed", self, "on_dice_dim_button_pressed")
+        dice_button.connect("dice_dim_button_released", self, "on_dice_dim_button_released")
+        dice_button.connect("info_button_pressed", self, "on_info_button_pressed")
 
 # setget functions
 func set_dicepool(_dicepool):
@@ -42,31 +42,31 @@ func get_selected_dim_idx():
 
 # public functions
 func disable_roll():
-    for dicecol in dicecols:
-        dicecol.disable_roll()
+    for dice_button in dice_buttons:
+        dice_button.disable_roll()
 
 func release_roll():
-    for dicecol in dicecols:
-        dicecol.release_roll()
+    for dice_button in dice_buttons:
+        dice_button.release_roll()
 
 func disable_roll_unselected():
-    for dicecol in dicecols:
-        if not dicecol.roll_selected:
-            dicecol.disable_roll()
+    for dice_button in dice_buttons:
+        if not dice_button.roll_selected:
+            dice_button.disable_roll()
 
 func enable_roll_undimensioned():
-    for dicecol in dicecols:
-        if not dicecol.dimensioned:
-            dicecol.enable_roll()
+    for dice_button in dice_buttons:
+        if not dice_button.dimensioned:
+            dice_button.enable_roll()
 
 func enable_dim_candidates(dim_candidates):
     for i in dim_candidates:
         get_child(i).enable_dim()
 
 func disable_dim_dimensioned():
-    for dicecol in dicecols:
-        if dicecol.dimensioned:
-            dicecol.disable_dim()
+    for dice_button in dice_buttons:
+        if dice_button.dimensioned:
+            dice_button.disable_dim()
 
 # signals callbacks
 func on_dice_roll_button_toggled():
@@ -76,16 +76,16 @@ func on_dice_roll_button_toggled():
         enable_roll_undimensioned()
     emit_signal("dice_triplet_changed", self)
 
-func on_dice_dim_button_pressed(pressed_dicecol):
-    for dicecol in get_children():
-        if dicecol.dim_visible and dicecol != pressed_dicecol:
-            dicecol.disable_dim()
-    emit_signal("dice_dim_button_pressed", pressed_dicecol.dice)
+func on_dice_dim_button_pressed(pressed_dice_button):
+    for dice_button in get_children():
+        if dice_button.dim_visible and dice_button != pressed_dice_button:
+            dice_button.disable_dim()
+    emit_signal("dice_dim_button_pressed", pressed_dice_button.dice)
 
 func on_dice_dim_button_released():
-    for dicecol in get_children():
-        if dicecol.dim_visible:
-            dicecol.enable_dim()
+    for dice_button in get_children():
+        if dice_button.dim_visible:
+            dice_button.enable_dim()
     emit_signal("dice_dim_button_released")
 
 func on_info_button_pressed(card):
@@ -94,6 +94,6 @@ func on_info_button_pressed(card):
 # private functions
 func roll_ready():
     var n = 0
-    for dicecol in get_children():
-        n += int(dicecol.roll_selected)
+    for dice_button in get_children():
+        n += int(dice_button.roll_selected)
     return n >= 3

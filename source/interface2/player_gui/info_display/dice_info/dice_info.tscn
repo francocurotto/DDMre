@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://art/fonts2/dice_name.tres" type="DynamicFont" id=1]
+[ext_resource path="res://art/fonts/dice_name.tres" type="DynamicFont" id=1]
 [ext_resource path="res://interface2/player_gui/info_display/dice_info/monster_stat/monster_stat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface2/player_gui/info_display/dice_info/tla/tla.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface2/player_gui/info_display/dice_info/sides/sides.tscn" type="PackedScene" id=4]
@@ -41,19 +41,16 @@ margin_bottom = 36.0
 [node name="Attack" parent="VBox/HBox" instance=ExtResource( 2 )]
 margin_left = 86.0
 margin_right = 151.0
-margin_bottom = 36.0
 
 [node name="Defense" parent="VBox/HBox" instance=ExtResource( 2 )]
 margin_left = 161.0
 margin_right = 226.0
-margin_bottom = 36.0
 value = 20
 stat = "DEFENSE"
 
 [node name="Health" parent="VBox/HBox" instance=ExtResource( 2 )]
 margin_left = 236.0
 margin_right = 301.0
-margin_bottom = 36.0
 value = 20
 stat = "HEALTH"
 
@@ -61,5 +58,3 @@ stat = "HEALTH"
 margin_left = 334.0
 margin_right = 669.0
 margin_bottom = 60.0
-
-[connection signal="resized" from="." to="." method="_on_VBoxContainer_resized"]

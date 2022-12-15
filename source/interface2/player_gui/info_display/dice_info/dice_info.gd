@@ -1,12 +1,12 @@
-extends VBoxContainer
+extends HBoxContainer
 
 # onready variables
-onready var cardname = $Name
-onready var tla = $DiceLine/TLA
-onready var attack = $DiceLine/Attack
-onready var defense = $DiceLine/Defense
-onready var health = $DiceLine/Health
-onready var sides = $DiceLine/Sides
+onready var cardname = $VBox/Name
+onready var tla = $VBox/HBox/TLA
+onready var attack = $VBox/HBox/Attack
+onready var defense = $VBox/HBox/Defense
+onready var health = $VBox/HBox/Health
+onready var sides = $Sides
 
 # setget functions
 func set_dice(dice):

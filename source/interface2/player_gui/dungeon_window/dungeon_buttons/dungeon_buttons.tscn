@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://art/fonts/text_output.tres" type="DynamicFont" id=1]
 [ext_resource path="res://interface2/player_gui/dungeon_window/dungeon_buttons/dungeon_buttons.gd" type="Script" id=2]
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=3]
 
 [node name="DungeonButtons" type="VBoxContainer"]
 margin_right = 605.0
@@ -18,7 +18,7 @@ size_flags_vertical = 3
 margin_right = 113.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
 disabled = true
 text = "⬆MOVE"
 
@@ -27,7 +27,7 @@ margin_left = 117.0
 margin_right = 267.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
 disabled = true
 text = "⚔ATTACK"
 
@@ -36,7 +36,7 @@ margin_left = 271.0
 margin_right = 423.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
 disabled = true
 text = "✨ABILITY"
 
@@ -45,7 +45,7 @@ margin_left = 427.0
 margin_right = 605.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
 disabled = true
 text = "⌛END TURN"
 
@@ -56,7 +56,7 @@ margin_right = 605.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "❌CANCEL"
 
 [connection signal="pressed" from="ActionButtons/MoveButton" to="." method="_on_MoveButton_pressed"]

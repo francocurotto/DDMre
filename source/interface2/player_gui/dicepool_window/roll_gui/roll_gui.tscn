@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://interface2/player_gui/dicepool_window/roll_gui/dice_triplet/dice_triplet.tscn" type="PackedScene" id=1]
-[ext_resource path="res://art/fonts/menu_button.tres" type="DynamicFont" id=2]
+[ext_resource path="res://art/fonts/big_button.tres" type="DynamicFont" id=2]
 [ext_resource path="res://interface2/player_gui/dicepool_window/roll_gui/roll_gui.gd" type="Script" id=3]
 
 [node name="RollGUI" type="HBoxContainer"]
@@ -13,12 +13,12 @@ custom_constants/separation = 10
 script = ExtResource( 3 )
 
 [node name="DiceTriplet" parent="." instance=ExtResource( 1 )]
-margin_right = 247.0
+margin_right = 224.0
 margin_bottom = 67.0
 size_flags_stretch_ratio = 2.0
 
 [node name="RollButton" type="Button" parent="."]
-margin_left = 257.0
+margin_left = 234.0
 margin_right = 381.0
 margin_bottom = 67.0
 size_flags_horizontal = 3
@@ -28,7 +28,7 @@ text = "ROLL!"
 
 [node name="SkipButton" type="Button" parent="."]
 visible = false
-margin_left = 257.0
+margin_left = 292.0
 margin_right = 381.0
 margin_bottom = 67.0
 size_flags_horizontal = 3

@@ -1,8 +1,5 @@
 ### TODO
-- clean styleboxes
-- clean fonts
-- rename dicdpool_column and dice_column (and dicecol in script)
-- make idice single font and roll_gui vertical expandable
+- make roll_gui vertical expandable
 - make dungeon menus transparentable
 - highlight move and attack summons
 ---
