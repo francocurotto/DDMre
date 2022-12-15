@@ -36,19 +36,28 @@ margin_bottom = 39.0
 custom_constants/separation = 100
 alignment = 1
 
+[node name="TransparentButton" type="Button" parent="VBox/AttackInfo/Margins/Buttons"]
+margin_left = 54.0
+margin_right = 91.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = true
+text = "👁"
+
 [node name="MenuGuardButton" type="Button" parent="VBox/AttackInfo/Margins/Buttons"]
-margin_left = 123.0
-margin_right = 256.0
+margin_left = 191.0
+margin_right = 324.0
 margin_bottom = 39.0
 custom_fonts/font = ExtResource( 3 )
 text = "⛨GUARD"
 
 [node name="MenuWaitButton" type="Button" parent="VBox/AttackInfo/Margins/Buttons"]
-margin_left = 356.0
-margin_right = 465.0
+margin_left = 424.0
+margin_right = 533.0
 margin_bottom = 39.0
 custom_fonts/font = ExtResource( 3 )
 text = "⏳WAIT"
 
+[connection signal="toggled" from="VBox/AttackInfo/Margins/Buttons/TransparentButton" to="." method="_on_TransparentButton_toggled"]
 [connection signal="pressed" from="VBox/AttackInfo/Margins/Buttons/MenuGuardButton" to="." method="_on_MenuGuardButton_pressed"]
 [connection signal="pressed" from="VBox/AttackInfo/Margins/Buttons/MenuWaitButton" to="." method="_on_MenuWaitButton_pressed"]

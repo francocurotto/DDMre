@@ -6,6 +6,7 @@ var pos2
 
 # onready variables
 onready var attack_info = $VBox/AttackInfo
+onready var transparent_button = $VBox/Margins/Buttons/TransparentButton
 
 # singals
 signal menu_attack_button_pressed
@@ -17,6 +18,7 @@ func activate(_pos1, _pos2, attacker, attacked):
     pos2 = _pos2
     attack_info.set_summons(attacker, attacker.player, attacked, attacked.player)
     visible = true
+    transparent_button.pressed = false
 
 func _on_MenuAttackButton_pressed():
     visible = false
@@ -25,3 +27,6 @@ func _on_MenuAttackButton_pressed():
 func _on_MenuCancelButton_pressed():
     visible = false
     emit_signal("menu_canceled")
+
+func _on_TransparentButton_toggled(button_pressed):
+    modulate = Color(1.0, 1.0, 1.0, max(int(!button_pressed), 0.3))

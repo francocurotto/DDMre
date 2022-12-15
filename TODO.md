@@ -1,13 +1,14 @@
 ### TODO
+- visualy move summon when clicking move tile and highlight path
+- highlight attack summons
 - make roll_gui vertical expandable
-- make dungeon menus transparentable
-- highlight move and attack summons
 ---
 - update example image
 - reddit post
 - ABILITIES!
 
 ### FIXES
+- fix dim buttons active while net select
 
 ### IMPROVEMENTS
 - make summon actions and dim transformations menus popable in dungeon?

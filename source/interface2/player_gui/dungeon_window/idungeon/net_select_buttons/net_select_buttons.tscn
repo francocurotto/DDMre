@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://interface2/player_gui/dungeon_window/idungeon/net_select_buttons/net_select_buttons.gd" type="Script" id=1]
 [ext_resource path="res://art/styleboxes/panel.tres" type="StyleBox" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://art/icons/NET_X2.png" type="Texture" id=11]
 [ext_resource path="res://art/icons/NET_M2.png" type="Texture" id=12]
 [ext_resource path="res://art/icons/NET_S2.png" type="Texture" id=13]
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=14]
 
 [node name="NetSelectButtons" type="PanelContainer"]
 margin_right = 450.0
@@ -28,6 +29,7 @@ margin_left = 6.0
 margin_top = 6.0
 margin_right = 444.0
 margin_bottom = 294.0
+rect_pivot_offset = Vector2( -837, -71 )
 columns = 4
 
 [node name="X1Button" type="Button" parent="Grid"]
@@ -155,3 +157,14 @@ pressed = true
 icon = ExtResource( 5 )
 icon_align = 1
 expand_icon = true
+
+[node name="TransparentButton" type="Button" parent="Grid"]
+margin_left = 332.0
+margin_top = 195.0
+margin_right = 438.0
+margin_bottom = 288.0
+custom_fonts/font = ExtResource( 14 )
+toggle_mode = true
+text = "👁"
+
+[connection signal="toggled" from="Grid/TransparentButton" to="." method="_on_TransparentButton_toggled"]

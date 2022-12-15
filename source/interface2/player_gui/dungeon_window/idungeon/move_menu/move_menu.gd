@@ -7,10 +7,13 @@ var format = "[center]Spend %d [img=25]art/icons/CREST_MOVEMENT.png[/img] crests
 
 # onready variables
 onready var message = $VBox/Message
+onready var transparent_button = $VBox/Margins/Buttons/TransparentButton
 
 # singals
 signal menu_move_button_pressed
 signal menu_canceled
+
+
 
 # public functions
 func activate(_pos1, _pos2, path, player):
@@ -20,6 +23,7 @@ func activate(_pos1, _pos2, path, player):
     var left = player.crestpool.slots["MOVEMENT"] - spend
     message.bbcode_text = format % [spend, left]
     visible = true
+    transparent_button.pressed = false
 
 # signals callbacks
 func _on_MenuMoveButton_pressed():
@@ -29,3 +33,6 @@ func _on_MenuMoveButton_pressed():
 func _on_MenuCancelButton_pressed():
     visible = false
     emit_signal("menu_canceled")
+
+func _on_TransparentButton_toggled(button_pressed):
+    modulate = Color(1.0, 1.0, 1.0, max(int(!button_pressed), 0.3))

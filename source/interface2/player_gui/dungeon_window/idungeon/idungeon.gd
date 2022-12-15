@@ -136,7 +136,7 @@ func on_net_updated(net):
     emit_signal("net_updated", dungeon.can_dimension(net, player))
 
 func on_net_button_pressed():
-    net_select_buttons.visible = true
+    net_select_buttons.activate()
 
 func on_FLR_button_pressed():
     net_creator.update_net_flr()

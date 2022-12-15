@@ -36,19 +36,28 @@ margin_bottom = 39.0
 custom_constants/separation = 100
 alignment = 1
 
+[node name="TransparentButton" type="Button" parent="VBox/Margins/Buttons"]
+margin_left = 29.0
+margin_right = 66.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+text = "👁"
+
 [node name="MenuAttackButton" type="Button" parent="VBox/Margins/Buttons"]
-margin_left = 98.0
-margin_right = 248.0
+margin_left = 166.0
+margin_right = 316.0
 margin_bottom = 39.0
 custom_fonts/font = ExtResource( 1 )
 text = "⚔ATTACK"
 
 [node name="MenuCancelButton" type="Button" parent="VBox/Margins/Buttons"]
-margin_left = 348.0
-margin_right = 490.0
+margin_left = 416.0
+margin_right = 558.0
 margin_bottom = 39.0
 custom_fonts/font = ExtResource( 1 )
 text = "❌CANCEL"
 
+[connection signal="toggled" from="VBox/Margins/Buttons/TransparentButton" to="." method="_on_TransparentButton_toggled"]
 [connection signal="pressed" from="VBox/Margins/Buttons/MenuAttackButton" to="." method="_on_MenuAttackButton_pressed"]
 [connection signal="pressed" from="VBox/Margins/Buttons/MenuCancelButton" to="." method="_on_MenuCancelButton_pressed"]
