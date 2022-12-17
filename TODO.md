@@ -1,14 +1,14 @@
 ### TODO
-- visualy move summon when clicking move tile and highlight path
-- highlight attack summons
+- skip not activated initially bug
 - make roll_gui vertical expandable
+- remove interface 😱
 ---
 - update example image
 - reddit post
 - ABILITIES!
 
 ### FIXES
-- fix dim buttons active while net select
+- fix dim buttons active while net select?
 
 ### IMPROVEMENTS
 - make summon actions and dim transformations menus popable in dungeon?

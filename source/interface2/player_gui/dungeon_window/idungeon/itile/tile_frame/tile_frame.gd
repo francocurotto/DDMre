@@ -3,10 +3,10 @@ extends MarginContainer
 
 # export variables
 export (String, "EMPTY", "BLOCK", "PATH") var tile_type = "EMPTY" setget set_tile_type
-export (int, 1, 2) var player_tile = 1 setget set_player_tile
+export (int, 1, 2) var tile_player = 1 setget set_tile_player
 export (String, "NONE", "MONSTER_LORD", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR",
     "ITEM") var dungobj_type = "NONE" setget set_dungobj_type
-export (int, 1, 2) var player_dungobj = 1 setget set_player_dungobj
+export (int, 1, 2) var dungobj_player = 1 setget set_dungobj_player
 export (bool) var highlight = false setget set_highlight
 export (String, "NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM") \
     var summon_highlight_type = "NONE" setget set_summon_highlight_type
@@ -20,39 +20,39 @@ const SHADERDICT = {0:null, 1:shader_p1, 2:shader_p2}
 var tile
 
 # setget functions
-func set_tile_icon(_tile_type, _player_tile):
-    var icon = "TILE_" + _tile_type
+func set_tile_icon(_tile_type, _tile_player):
+    tile_type = _tile_type
+    tile_player = _tile_player
+    var icon = "TILE_" + tile_type
     if _tile_type == "PATH": # case path
-        icon += "_P" + str(_player_tile)
+        icon += "_P" + str(tile_player)
     $TileRect.texture = load("res://art/icons/" + icon + ".png")
 
 func set_dungobj_icon(_dungobj_type, _dungobj_player):
+    dungobj_type = _dungobj_type
+    dungobj_player = _dungobj_player
     if _dungobj_type == "NONE": # case no content
         $DungobjRect.texture = null
     else: # case content
-        var icon = _dungobj_type
+        var icon = dungobj_type
         if _dungobj_type in Globals.TYPES + ["ITEM"]: # case summon
-            icon = "TYPE_" + _dungobj_type
-            $DungobjRect.material = SHADERDICT[_dungobj_player]
+            icon = "TYPE_" + dungobj_type
+            $DungobjRect.material = SHADERDICT[dungobj_player]
         else: # monster lord
             $DungobjRect.material = null
         $DungobjRect.texture = load("res://art/icons/" + icon + ".png")
 
 func set_tile_type(_tile_type):
-    tile_type = _tile_type
-    set_tile_icon(tile_type, player_tile)
+    set_tile_icon(_tile_type, tile_player)
 
-func set_player_tile(_player_tile):
-    player_tile = _player_tile
-    set_tile_icon(tile_type, player_tile)
+func set_tile_player(_tile_player):
+    set_tile_icon(tile_type, _tile_player)
 
 func set_dungobj_type(_dungobj_type):
-    dungobj_type = _dungobj_type
-    set_dungobj_icon(dungobj_type, player_dungobj)
+    set_dungobj_icon(_dungobj_type, dungobj_player)
 
-func set_player_dungobj(_player_dungobj):
-    player_dungobj = _player_dungobj
-    set_dungobj_icon(dungobj_type, player_dungobj)
+func set_dungobj_player(_dungobj_player):
+    set_dungobj_icon(dungobj_type, _dungobj_player)
 
 func set_highlight(_highlight):
     highlight = _highlight

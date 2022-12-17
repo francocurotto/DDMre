@@ -27,6 +27,7 @@ func on_state_update_dungeon():
 func on_state_update_reply(attacker, attacked):
     dungeon_buttons.disable_action_buttons()
     idungeon.open_reply_menu(attacker, attacked)
+    idungeon.highlight_attack_reply(attacker, attacked)
 
 func on_dice_dim_button_pressed(dice):
     idungeon.on_dice_dim_button_pressed(dice)

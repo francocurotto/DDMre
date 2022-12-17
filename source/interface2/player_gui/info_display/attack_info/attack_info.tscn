@@ -6,22 +6,22 @@
 
 [node name="AttackInfo" type="VBoxContainer"]
 margin_right = 565.0
-margin_bottom = 277.0
+margin_bottom = 238.0
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
 [node name="AttackerInfo" parent="." instance=ExtResource( 1 )]
 margin_right = 565.0
-margin_bottom = 98.0
+margin_bottom = 79.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_top = 102.0
+margin_top = 83.0
 margin_right = 565.0
-margin_bottom = 174.0
+margin_bottom = 155.0
 texture = ExtResource( 2 )
 stretch_mode = 6
 
 [node name="AttackedInfo" parent="." instance=ExtResource( 1 )]
-margin_top = 178.0
+margin_top = 159.0
 margin_right = 565.0
-margin_bottom = 277.0
+margin_bottom = 238.0

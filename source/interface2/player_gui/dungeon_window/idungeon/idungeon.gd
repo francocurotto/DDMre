@@ -57,6 +57,7 @@ func reset():
     enable_select_buttons()
     if selected_itile:
         selected_itile._on_TileSelectButton_toggled(false) # deselect itile
+    update_dungeon()
 
 func enable_select_buttons():
     for itile in itiles:
@@ -81,6 +82,11 @@ func unset_summon_highlights():
 func open_reply_menu(attacker, attacked):
     reply_menu.activate(attacker, attacked)
 
+func highlight_attack_reply(attacker, attacked):
+    var pos1 = dungeon.get_dungobj_pos(attacker)
+    var pos2 = dungeon.get_dungobj_pos(attacked)
+    highlight_attack(pos1, pos2)
+
 # signals callbacks
 func on_tile_select_button_toggled(itile, pressed):
     assign_selected_itile(itile, pressed)
@@ -88,9 +94,11 @@ func on_tile_select_button_toggled(itile, pressed):
     emit_signal("tile_select_button_toggled", itile.tile.content, pressed)
 
 func on_tile_move_button_pressed(itile):
+    disable_itile_buttons()
     var pos1 = selected_itile.tile.pos
     var pos2 = itile.tile.pos
     var path = dungeon.get_movepath(pos1, pos2)
+    highlight_movement(pos1, pos2, path)
     move_menu.activate(pos1, pos2, path, player)
     emit_signal("menu_opened")
 
@@ -99,6 +107,7 @@ func on_tile_attack_button_pressed(itile):
     var pos2 = itile.tile.pos
     var attacker = selected_itile.tile.content
     var attacked = itile.tile.content
+    highlight_attack(pos1, pos2)
     if attacked.is_monster() and attacked.player != player:
         attack_menu.activate(pos1, pos2, attacker, attacked)
         emit_signal("menu_opened")
@@ -178,3 +187,15 @@ func highlight_net(net):
     for pos in net.poslist:
         if dungeon.pos_within_dungeon(pos):
             get_itile(pos).tile_frame.highlight = true
+
+func highlight_movement(pos1, pos2, path):
+    disable_itile_highlights()
+    for pos in path:
+        get_itile(pos).set_highlight()
+    get_itile(pos2).tile_frame.set_dungobj_icon(get_itile(pos1).tile_frame.dungobj_type, player.id)
+    get_itile(pos1).tile_frame.set_dungobj_icon("NONE", 0)
+
+func highlight_attack(pos1, pos2):
+    disable_itile_highlights()
+    get_itile(pos1).set_highlight()
+    get_itile(pos2).set_highlight()
