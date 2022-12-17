@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://interface2/player_gui/dungeon_window/dicepool_window/idicepool/dice_button/dice_button.tscn" type="PackedScene" id=1]
-[ext_resource path="res://interface2/player_gui/dungeon_window/dicepool_window/idicepool/idicepool.gd" type="Script" id=2]
+[ext_resource path="res://interface2/player_gui/dicepool_window/idicepool/dice_button/dice_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://interface2/player_gui/dicepool_window/idicepool/idicepool.gd" type="Script" id=2]
 
 [node name="DicepoolColumn" type="VBoxContainer"]
 margin_right = 701.0

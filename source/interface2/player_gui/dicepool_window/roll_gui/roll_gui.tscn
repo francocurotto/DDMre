@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://art/fonts/big_button.tres" type="DynamicFont" id=1]
-[ext_resource path="res://interface2/player_gui/dungeon_window/dicepool_window/roll_gui/dice_triplet/dice_triplet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://interface2/player_gui/dungeon_window/dicepool_window/roll_gui/roll_gui.gd" type="Script" id=3]
+[ext_resource path="res://interface2/player_gui/dicepool_window/roll_gui/dice_triplet/dice_triplet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface2/player_gui/dicepool_window/roll_gui/roll_gui.gd" type="Script" id=3]
 
 [node name="RollGUI" type="HBoxContainer"]
 margin_right = 381.0

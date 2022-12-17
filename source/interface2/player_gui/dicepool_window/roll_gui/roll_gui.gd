@@ -13,6 +13,7 @@ signal skip_button_pressed
 func reset():
     dice_triplet.reset()
     switch_to_roll_button()
+    skip_button.disabled = false
 
 func update_dice_triplet(idicepool):
     dice_triplet.update_dice(idicepool)

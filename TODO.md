@@ -1,5 +1,4 @@
 ### TODO
-- skip not activated initially bug
 - make roll_gui vertical expandable
 - remove interface 😱
 ---

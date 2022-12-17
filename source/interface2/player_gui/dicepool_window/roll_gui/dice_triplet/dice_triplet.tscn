@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://interface2/player_gui/dungeon_window/dicepool_window/roll_gui/dice_triplet/dice_triplet.gd" type="Script" id=1]
+[ext_resource path="res://interface2/player_gui/dicepool_window/roll_gui/dice_triplet/dice_triplet.gd" type="Script" id=1]
 [ext_resource path="res://interface2/player_gui/info_display/dice_frame/dice_frame.tscn" type="PackedScene" id=2]
 
 [node name="DiceTriplet" type="HBoxContainer"]
