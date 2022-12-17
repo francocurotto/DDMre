@@ -5,7 +5,7 @@ const Engine = preload("res://engine/engine.gd")
 
 # variables
 var engine
-var player_gui = 1 setget , get_player_gui
+var player_gui setget , get_player_gui
 var opponent_gui setget , get_opponent_gui
 
 # onready variables
@@ -17,16 +17,11 @@ func _ready():
     engine = Engine.new()
     set_guis()
     # connections
-    Events.connect("duel_update", self, "on_duel_update")
     Events.connect("dice_rolled", self, "on_dice_rolled")
-    Events.connect("card_summoned", self, "on_card_summoned")
     Events.connect("state_update", self, "on_state_update")
-    Events.connect("next_turn", self, "on_next_turn")
     Events.connect("player_lost", self, "on_player_lost")
-
     # run first state update
     on_state_update(engine.state.NAME)
-    on_next_turn(1)
 
 # setget functions
 func set_guis():
@@ -45,8 +40,7 @@ func set_player_gui():
 
 # signals callbacks
 func on_state_update(state_name):
-    p1gui.on_state_update(state_name)
-    p2gui.on_state_update(state_name)
+    set_player_gui()
     match state_name:
         "ROLL"      : on_state_update_roll()
         "DIMENSION" : on_state_update_dimension()
@@ -57,32 +51,16 @@ func on_state_update_roll():
     self.player_gui.on_state_update_roll()
 
 func on_state_update_dimension():
-    set_player_gui()
     self.player_gui.on_state_update_dimension()
 
 func on_state_update_dungeon():
-    set_player_gui()
     self.player_gui.on_state_update_dungeon()
 
 func on_state_update_reply():
-    set_player_gui()
     self.player_gui.on_state_update_reply()
 
-func on_duel_update(_cmdname):
-    p1gui.update_gui()
-    p2gui.update_gui()
-
-func on_next_turn(turn):
-    set_player_gui()
-    p1gui.on_next_turn(turn)
-    p2gui.on_next_turn(turn)
-
 func on_dice_rolled(sides):
-    self.player_gui.set_player_roll(sides)
-    self.opponent_gui.set_opponent_roll(sides)
-
-func on_card_summoned(diceidx):
-    self.player_gui.dicepool.on_card_summoned(diceidx)
+    self.player_gui.set_roll(sides)
 
 func on_player_lost(_player):
     get_tree().quit()

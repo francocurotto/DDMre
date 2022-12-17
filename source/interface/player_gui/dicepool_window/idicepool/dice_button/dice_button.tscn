@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://interface/player_gui/dicepool_window/idicepool/dice_button/info_button/info_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://interface/player_gui/dicepool_window/idicepool/dice_button/dice_button.gd" type="Script" id=2]
+[ext_resource path="res://interface/player_gui/info_display/dice_info/dice_info.tscn" type="PackedScene" id=3]
+
+[node name="DiceButton" type="HBoxContainer"]
+margin_right = 648.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 4
+script = ExtResource( 2 )
+
+[node name="DiceContainer" type="MarginContainer" parent="."]
+margin_right = 594.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+
+[node name="Margins" type="MarginContainer" parent="DiceContainer"]
+margin_right = 594.0
+margin_bottom = 60.0
+
+[node name="DiceInfo" parent="DiceContainer/Margins" instance=ExtResource( 3 )]
+margin_right = 594.0
+
+[node name="DiceRollButton" type="Button" parent="DiceContainer"]
+modulate = Color( 1.2, 0.5, 0.5, 1 )
+show_behind_parent = true
+margin_right = 594.0
+margin_bottom = 60.0
+toggle_mode = true
+
+[node name="DiceDimButton" type="Button" parent="DiceContainer"]
+visible = false
+modulate = Color( 1.2, 0.5, 0.5, 1 )
+show_behind_parent = true
+margin_right = 594.0
+margin_bottom = 60.0
+toggle_mode = true
+
+[node name="InfoButton" parent="." instance=ExtResource( 1 )]
+margin_left = 598.0
+margin_right = 648.0
+margin_bottom = 60.0
+
+[connection signal="toggled" from="DiceContainer/DiceRollButton" to="." method="_on_DiceRollButton_toggled"]
+[connection signal="toggled" from="DiceContainer/DiceDimButton" to="." method="_on_DiceDimButton_toggled"]

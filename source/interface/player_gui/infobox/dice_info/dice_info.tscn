@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://interface/player_gui/infobox/dice_info/dice_info.gd" type="Script" id=1]
-
-[node name="DiceInfo" type="VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 1 )

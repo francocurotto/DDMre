@@ -1,0 +1,170 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://art/styleboxes/panel.tres" type="StyleBox" id=1]
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=2]
+[ext_resource path="res://art/icons/NET_L1.png" type="Texture" id=3]
+[ext_resource path="res://interface/player_gui/dungeon_window/idungeon/net_select_buttons/net_select_buttons.gd" type="Script" id=4]
+[ext_resource path="res://art/icons/NET_M1.png" type="Texture" id=5]
+[ext_resource path="res://art/icons/NET_Z2.png" type="Texture" id=6]
+[ext_resource path="res://art/icons/NET_S1.png" type="Texture" id=7]
+[ext_resource path="res://art/icons/NET_S2.png" type="Texture" id=8]
+[ext_resource path="res://art/icons/NET_T1.png" type="Texture" id=9]
+[ext_resource path="res://art/icons/NET_M2.png" type="Texture" id=10]
+[ext_resource path="res://art/icons/NET_X2.png" type="Texture" id=11]
+[ext_resource path="res://art/icons/NET_T2.png" type="Texture" id=12]
+[ext_resource path="res://art/icons/NET_Z1.png" type="Texture" id=13]
+[ext_resource path="res://art/icons/NET_X1.png" type="Texture" id=14]
+
+[node name="NetSelectButtons" type="PanelContainer"]
+margin_right = 450.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 450, 300 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/panel = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="Grid" type="GridContainer" parent="."]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 444.0
+margin_bottom = 294.0
+rect_pivot_offset = Vector2( -837, -71 )
+columns = 4
+
+[node name="X1Button" type="Button" parent="Grid"]
+margin_right = 107.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 14 )
+icon_align = 1
+expand_icon = true
+
+[node name="T1Button" type="Button" parent="Grid"]
+margin_left = 111.0
+margin_right = 218.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 9 )
+icon_align = 1
+expand_icon = true
+
+[node name="Z1Button" type="Button" parent="Grid"]
+margin_left = 222.0
+margin_right = 328.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 13 )
+icon_align = 1
+expand_icon = true
+
+[node name="X2Button" type="Button" parent="Grid"]
+margin_left = 332.0
+margin_right = 438.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 11 )
+icon_align = 1
+expand_icon = true
+
+[node name="T2Button" type="Button" parent="Grid"]
+margin_top = 98.0
+margin_right = 107.0
+margin_bottom = 191.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 12 )
+icon_align = 1
+expand_icon = true
+
+[node name="Z2Button" type="Button" parent="Grid"]
+margin_left = 111.0
+margin_top = 98.0
+margin_right = 218.0
+margin_bottom = 191.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 6 )
+icon_align = 1
+expand_icon = true
+
+[node name="M1Button" type="Button" parent="Grid"]
+margin_left = 222.0
+margin_top = 98.0
+margin_right = 328.0
+margin_bottom = 191.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 5 )
+icon_align = 1
+expand_icon = true
+
+[node name="M2Button" type="Button" parent="Grid"]
+margin_left = 332.0
+margin_top = 98.0
+margin_right = 438.0
+margin_bottom = 191.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 10 )
+icon_align = 1
+expand_icon = true
+
+[node name="S1Button" type="Button" parent="Grid"]
+margin_top = 195.0
+margin_right = 107.0
+margin_bottom = 288.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 7 )
+icon_align = 1
+expand_icon = true
+
+[node name="S2Button" type="Button" parent="Grid"]
+margin_left = 111.0
+margin_top = 195.0
+margin_right = 218.0
+margin_bottom = 288.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 8 )
+icon_align = 1
+expand_icon = true
+
+[node name="L1Button" type="Button" parent="Grid"]
+margin_left = 222.0
+margin_top = 195.0
+margin_right = 328.0
+margin_bottom = 288.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+pressed = true
+icon = ExtResource( 3 )
+icon_align = 1
+expand_icon = true
+
+[node name="TransparentButton" type="Button" parent="Grid"]
+margin_left = 332.0
+margin_top = 195.0
+margin_right = 438.0
+margin_bottom = 288.0
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+text = "👁"
+
+[connection signal="toggled" from="Grid/TransparentButton" to="." method="_on_TransparentButton_toggled"]
