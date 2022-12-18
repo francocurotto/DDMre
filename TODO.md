@@ -1,6 +1,5 @@
 ### TODO
 - make roll_gui vertical expandable
-- remove interface 😱
 ---
 - update example image
 - reddit post

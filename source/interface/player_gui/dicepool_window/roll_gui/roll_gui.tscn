@@ -5,22 +5,22 @@
 [ext_resource path="res://interface/player_gui/dicepool_window/roll_gui/dice_triplet/dice_triplet.tscn" type="PackedScene" id=3]
 
 [node name="RollGUI" type="HBoxContainer"]
-margin_right = 381.0
-margin_bottom = 67.0
+margin_right = 714.0
+margin_bottom = 97.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 script = ExtResource( 2 )
 
 [node name="DiceTriplet" parent="." instance=ExtResource( 3 )]
-margin_right = 224.0
-margin_bottom = 67.0
+margin_right = 469.0
+margin_bottom = 97.0
 size_flags_stretch_ratio = 2.0
 
 [node name="RollButton" type="Button" parent="."]
-margin_left = 234.0
-margin_right = 381.0
-margin_bottom = 67.0
+margin_left = 479.0
+margin_right = 714.0
+margin_bottom = 97.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
