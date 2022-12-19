@@ -1,6 +1,4 @@
 ### TODO
-- make roll_gui vertical expandable
----
 - update example image
 - reddit post
 - ABILITIES!

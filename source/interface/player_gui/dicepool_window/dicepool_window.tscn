@@ -49,6 +49,7 @@ margin_left = 6.0
 margin_top = 6.0
 margin_right = 714.0
 margin_bottom = 134.0
+size_flags_vertical = 3
 
 [node name="Title" type="Label" parent="RollPanel/RollVBox"]
 margin_right = 708.0
