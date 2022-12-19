@@ -5,8 +5,8 @@
 [ext_resource path="res://interface/player_gui/common_window/players_info/player_info/hearts/hearts.tscn" type="PackedScene" id=3]
 
 [node name="PlayerInfo" type="HBoxContainer"]
-margin_right = 341.0
-margin_bottom = 24.0
+margin_right = 508.0
+margin_bottom = 36.0
 custom_constants/separation = 15
 script = ExtResource( 1 )
 
@@ -14,5 +14,5 @@ script = ExtResource( 1 )
 
 [node name="ICrestpool" parent="." instance=ExtResource( 2 )]
 margin_left = 127.0
-margin_right = 508.0
+margin_right = 504.0
 margin_bottom = 36.0

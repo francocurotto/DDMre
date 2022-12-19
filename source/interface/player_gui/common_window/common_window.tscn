@@ -5,13 +5,13 @@
 [ext_resource path="res://interface/player_gui/common_window/common_window.gd" type="Script" id=3]
 
 [node name="CommonWindow" type="HBoxContainer"]
-margin_right = 705.0
+margin_right = 713.0
 margin_bottom = 96.0
 custom_constants/separation = 0
 script = ExtResource( 3 )
 
 [node name="MenuButton" type="Button" parent="."]
-margin_right = 77.0
+margin_right = 89.0
 margin_bottom = 96.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -19,13 +19,13 @@ custom_fonts/font = ExtResource( 1 )
 text = "Menu"
 
 [node name="PlayersInfo" parent="." instance=ExtResource( 2 )]
-margin_left = 77.0
-margin_right = 597.0
+margin_left = 89.0
+margin_right = 605.0
 margin_bottom = 96.0
 
 [node name="WindowButton" type="Button" parent="."]
-margin_left = 597.0
-margin_right = 705.0
+margin_left = 605.0
+margin_right = 713.0
 margin_bottom = 96.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
