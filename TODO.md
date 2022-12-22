@@ -1,5 +1,4 @@
 ### TODO
-- fix own monster selectable during attack select
 - update example image
 - reddit post
 - ABILITIES!
@@ -9,7 +8,6 @@
 
 ### IMPROVEMENTS
 - make summon actions and dim transformations menus popable in dungeon?
-
 
 ### REFACTOR
 
