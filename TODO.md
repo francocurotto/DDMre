@@ -1,6 +1,5 @@
 ### TODO
 - fix own monster selectable during attack select
-- make crestpool more visially distingishable
 - update example image
 - reddit post
 - ABILITIES!
