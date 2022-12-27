@@ -1,6 +1,6 @@
 # DDMre (Dungeon Dice Monsters reimplementation)
 <p float="center">
-<img src="https://github.com/francocurotto/DDMre/blob/master/example1.jpg" width="300" />
+<img src="https://github.com/francocurotto/DDMre/blob/master/example1.jpg" width="300" />          
 <img src="https://github.com/francocurotto/DDMre/blob/master/example2.jpg" width="300" />
 </p>
 
