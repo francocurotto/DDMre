@@ -1,5 +1,4 @@
 ### TODO
-- update example image
 - reddit post
 - ABILITIES!
 
