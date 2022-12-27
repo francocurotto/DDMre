@@ -1,15 +1,15 @@
 # DDMre (Dungeon Dice Monsters reimplementation)
-![Gameplay example](https://github.com/francocurotto/DDMre/blob/master/example.png)
+![Gameplay Example Dicepool](https://github.com/francocurotto/DDMre/blob/master/example1.jpg)
+![Gameplay example Dungeon](https://github.com/francocurotto/DDMre/blob/master/example2.jpg)
 
 ## What is this?
-**DDMre** is a reimplementation of the GBA game [Yu-Gi-Oh! Dungeon Dice Monsters](https://en.wikipedia.org/wiki/Yu-Gi-Oh!_Dungeon_Dice_Monsters) in the [Godot game engine](https://godotengine.org/). The idea is to reimplement the core game mechanics from the game, taking only a few liberties, while adding some modern features like a decent AI, and possibly online multiplayer. *It is in a very early stage* of  development and even some core game mechanics are not implemented yet (ABILITIES).
+**DDMre** is a reimplementation of the GBA game [Yu-Gi-Oh! Dungeon Dice Monsters](https://en.wikipedia.org/wiki/Yu-Gi-Oh!_Dungeon_Dice_Monsters) in the [Godot game engine](https://godotengine.org/) for mobile devices. The idea is to reimplement the core game mechanics from the game, taking only a few liberties, while adding some modern features like a decent AI, and possibly online multiplayer. *It is in a very early stage* of development and even some core game mechanics are not implemented yet (ABILITIES).
 
 ## What is left to do? (A LOT)
 - Implement abilities of monsters and items
 - Improve UI and graphics
 - Add opponents, and decent AI
 - _Maybe_ online multiplayer
-- _Maybe_ mobile version
 
 ## Differences with the original (GBA) game and this
 - In the original, block tiles not only block their positions but also their neighbour positions (up, down, left right). In this implementation, a block tile will only block its actual position.
