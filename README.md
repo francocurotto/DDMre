@@ -1,11 +1,11 @@
-# DDMre (Dungeon Dice Monsters reimplementation)
+# DDMre (Dungeon Dice Monsters re-implementation)
 <p align="center">
 <img src="https://github.com/francocurotto/DDMre/blob/master/example1.jpg" width="300" />&nbsp; &nbsp; &nbsp; &nbsp;
 <img src="https://github.com/francocurotto/DDMre/blob/master/example2.jpg" width="300" />
 </p>
 
 # What is this?
-**DDMre** is a reimplementation of the GBA game [Yu-Gi-Oh! Dungeon Dice Monsters](https://en.wikipedia.org/wiki/Yu-Gi-Oh!_Dungeon_Dice_Monsters) in the [Godot game engine](https://godotengine.org/) for mobile devices. The idea is to reimplement the core game mechanics from the game, taking only a few liberties, while adding some modern features like a decent AI, and possibly online multiplayer. *It is in a very early stage* of development and even some core game mechanics are not implemented yet (ABILITIES).
+**DDMre** is a re-implementation of the GBA game [Yu-Gi-Oh! Dungeon Dice Monsters](https://en.wikipedia.org/wiki/Yu-Gi-Oh!_Dungeon_Dice_Monsters) in the [Godot game engine](https://godotengine.org/) for mobile devices. The idea is to re-implement the core game mechanics from the game, taking only a few liberties, while adding some modern features like a decent AI, and possibly online multiplayer. *It is in a very early stage* of development and even some core game mechanics are not implemented yet (ABILITIES).
 
 # What is left to do? (A LOT)
 - Implement abilities of monsters and items
