@@ -1,5 +1,4 @@
 ### TODO
-- reddit post
 - ABILITIES!
 
 ### FIXES
