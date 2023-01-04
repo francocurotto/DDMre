@@ -19,7 +19,7 @@ const Tunneling = preload("res://engine/abilities/tunneling.gd")
 const Fly = preload("res://engine/abilities/fly.gd")
 const Archer = preload("res://engine/abilities/archer.gd")
 const Neutral = preload("res://engine/abilities/neutral.gd")
-const NoAbility = preload("res://engine/abilities/no_ability.gd")
+const BaseAbility = preload("res://engine/abilities/base_ability.gd")
 func create_ability(ability_info):
     """
     Creates ability object from ability info dict.
@@ -29,4 +29,4 @@ func create_ability(ability_info):
         "FLY"       : return Fly.new(ability_info)
         "ARCHER"    : return Archer.new(ability_info)
         "NEUTRAL"   : return Neutral.new(ability_info)
-        _           : return NoAbility.new()
+        _           : return BaseAbility.new(ability_info)
