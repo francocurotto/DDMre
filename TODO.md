@@ -1,5 +1,6 @@
 ### TODO
 - ABILITIES!
+    - add custom icons for common abilities?
 
 ### FIXES
 - fix dim buttons active while net select?

@@ -5,8 +5,8 @@ extends Node
 const LIBPATH = "res://LIBRARY.json"
 const DUNGPATH = "res://dungeons/default.json"
 #const DUNGPATH = "res://dungeons/test2.json"
-const RANDOMPOOL = true
-#const RANDOMPOOL = false
+#const RANDOMPOOL = true
+const RANDOMPOOL = false
 const POOL1PATH = "res://dicepools/test1.json"
 const POOL2PATH = "res://dicepools/test1.json"
 
@@ -28,6 +28,9 @@ func read_jsonfile(filepath):
 
 # conversion functions
 func str2pos(string):
+    """
+    Convert string type positioning to vector type.
+    """
     return Vector2(ord(string[0])-97, int(string.substr(1))-1)
 
 func to_engineidx(engineidx):

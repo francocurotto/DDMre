@@ -1,16 +1,19 @@
 extends Reference
 
+# preloads
+const AbilitySlots = preload("res://engine/abilities/ability_slots.gd")
+
 # variables
 var name
 var type
 var level
-var ability
+var abilities
 
 func _init(cardinfo):
     name = cardinfo["NAME"]
     type = cardinfo["TYPE"]
     level = cardinfo["LEVEL"]
-    ability = cardinfo["ABILITY"] #TODO: change to proper ability
+    abilities = AbilitySlots.new(cardinfo["ABILITY"])
 
 # is functions
 func is_monster():

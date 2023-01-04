@@ -10,7 +10,7 @@ export (bool) var ability = false setget set_ability
 func set_tla(card):
     set_type(card.type)
     set_level(card.level)
-    set_ability(not card.ability.empty())
+    set_ability(not card.abilities.empty())
 
 func set_type(_type):
     type = _type
