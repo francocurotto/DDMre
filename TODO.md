@@ -1,6 +1,6 @@
 ### TODO
 - ABILITIES!
-    - add custom icons for common abilities?
+    - make access to abilities easier than abilities.slots[X]
 
 ### FIXES
 - fix dim buttons active while net select?

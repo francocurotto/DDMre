@@ -32,25 +32,25 @@ margin_top = 24.0
 margin_right = 334.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
-custom_constants/separation = 10
+custom_constants/separation = 5
 
 [node name="TLA" parent="VBox/HBox" instance=ExtResource( 1 )]
-margin_right = 76.0
+margin_right = 105.0
 margin_bottom = 36.0
 
 [node name="Attack" parent="VBox/HBox" instance=ExtResource( 2 )]
-margin_left = 86.0
-margin_right = 151.0
+margin_left = 110.0
+margin_right = 175.0
 
 [node name="Defense" parent="VBox/HBox" instance=ExtResource( 2 )]
-margin_left = 161.0
-margin_right = 226.0
+margin_left = 180.0
+margin_right = 245.0
 value = 20
 stat = "DEFENSE"
 
 [node name="Health" parent="VBox/HBox" instance=ExtResource( 2 )]
-margin_left = 236.0
-margin_right = 301.0
+margin_left = 250.0
+margin_right = 315.0
 value = 20
 stat = "HEALTH"
 

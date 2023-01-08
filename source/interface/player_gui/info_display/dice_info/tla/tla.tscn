@@ -11,7 +11,6 @@ margin_bottom = 29.0
 custom_constants/separation = 0
 alignment = 1
 script = ExtResource( 2 )
-ability = true
 
 [node name="Type" type="TextureRect" parent="."]
 margin_right = 29.0
@@ -28,9 +27,18 @@ margin_bottom = 36.0
 custom_fonts/font = ExtResource( 1 )
 text = "3"
 
-[node name="Ability" type="TextureRect" parent="."]
+[node name="Ability1" type="TextureRect" parent="."]
 margin_left = 47.0
 margin_right = 76.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 29, 0 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="Ability2" type="TextureRect" parent="."]
+margin_left = 76.0
+margin_right = 105.0
 margin_bottom = 36.0
 rect_min_size = Vector2( 29, 0 )
 texture = ExtResource( 4 )
