@@ -24,16 +24,16 @@ func set_level(_level):
         $Level.text = str(level)
 
 func set_abilities(abilities):
-    var n_abilities = len(abilities.slots)
-    if n_abilities == 0:
-        set_ability1("NONE")
-        set_ability2("NONE")
-    elif n_abilities == 1:
-        set_ability1(abilities.slots[0].name)
-        set_ability2("NONE")
-    elif n_abilities == 2:
-        set_ability1(abilities.slots[0].name)
-        set_ability2(abilities.slots[1].name)
+    # set abilities icons
+    for i in range(abilities.length):
+        match i:
+            0 : set_ability1(abilities.slot1.name)
+            1 : set_ability2(abilities.slot2.name)
+    # set no abilities
+    for i in range(abilities.length, 2):
+        match i:
+            0 : set_ability1("NONE")
+            1 : set_ability2("NONE")
 
 func set_ability1(_ability):
     ability1 = _ability

@@ -2,17 +2,23 @@ extends Reference
 
 # variables
 var slots = []
+var length setget , get_length
+var slot1 setget , get_slot1
+var slot2 setget , get_slot2
 
 func _init(ability_list):
     for ability_info in ability_list:
         slots.append(create_ability(ability_info))
 
-# is functions
-func empty():
-    """
-    Return true if ability list is empty.
-    """
-    return slots.empty()
+# setget functions
+func get_length():
+    return len(slots)
+
+func get_slot1():
+    return slots[0]
+
+func get_slot2():
+    return slots[1]
 
 # private functions
 const Tunneling = preload("res://engine/abilities/tunneling.gd")
