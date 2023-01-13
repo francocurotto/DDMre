@@ -25,12 +25,12 @@ func set_level(_level):
 
 func set_abilities(abilities):
     # set abilities icons
-    for i in range(abilities.length):
+    for i in range(len(abilities)):
         match i:
-            0 : set_ability1(abilities.slot1.name)
-            1 : set_ability2(abilities.slot2.name)
+            0 : set_ability1(abilities[0].name)
+            1 : set_ability2(abilities[1].name)
     # set no abilities
-    for i in range(abilities.length, 2):
+    for i in range(len(abilities), 2):
         match i:
             0 : set_ability1("NONE")
             1 : set_ability2("NONE")
