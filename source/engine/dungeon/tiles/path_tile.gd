@@ -32,8 +32,9 @@ func is_occupied():
 func is_reachable():
     return not content.is_target()
 
-func is_passable():
-    return content.is_none()
+func is_passable(monster):
+    return monster.pass_behavior.is_passable(content)
+    #return content.is_none()
 
 # public functions
 func empty_tile():

@@ -35,19 +35,20 @@ func set_abilities(abilities):
             0 : set_ability1("NONE")
             1 : set_ability2("NONE")
 
-func set_ability1(_ability):
-    ability1 = _ability
+func set_ability1(ability):
+    ability1 = ability
     set_ability($Ability1, ability1)
 
-func set_ability2(_ability):
-    ability2 = _ability
+func set_ability2(ability):
+    ability2 = ability
     set_ability($Ability2, ability2)
 
-func set_ability(rect, _ability):
-    match _ability:
+func set_ability(rect, ability):
+    match ability:
         "TUNNELING" : rect.texture = load("res://art/icons/ABILITY_TUNNELING.png")
         "FLY"       : rect.texture = load("res://art/icons/ABILITY_FLY.png")
         "ARCHER"    : rect.texture = load("res://art/icons/ABILITY_ARCHER.png")
         "NEUTRAL"   : rect.texture = load("res://art/icons/ABILITY_NEUTRAL.png")
-        "OTHER"     : rect.texture = load("res://art/icons/ABILITY.png")
         "NONE"      : rect.texture = null
+        _           : rect.texture = load("res://art/icons/ABILITY.png")
+        

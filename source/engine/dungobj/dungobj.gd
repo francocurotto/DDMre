@@ -25,3 +25,6 @@ func is_monster_lord():
 
 func is_target():
     return is_monster() or is_monster_lord()
+
+func is_flying():
+    return false

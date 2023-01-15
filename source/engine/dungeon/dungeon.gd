@@ -49,6 +49,9 @@ func get_moveposs(player, initpos):
     Get all the posible positions a monster at position initpos could move
     with all the available movement crests from player.
     """
+    # init variables
+    var monster = get_tile(initpos).content
+    
     # needed varaibles
     var poslist = [initpos]
     var movequeue = []
@@ -68,7 +71,7 @@ func get_moveposs(player, initpos):
         if newcount > movecrests:
             continue
         # check if tile is passable or is initial position
-        if get_tile(pos).is_passable() or pos==initpos:
+        if get_tile(pos).is_passable(monster) or pos==initpos:
             # get next reachable positions
             var reachposs = get_reachable_neighbours_poss(pos)
             # check to add next positions to poslist
@@ -107,6 +110,7 @@ func get_movepath(pos1, pos2):
     # init data
     var pathqueue = [[pos1]]
     var visited = []
+    var monster = get_tile(pos1).content
 
     # iterations
     while not pathqueue.empty():
@@ -118,7 +122,7 @@ func get_movepath(pos1, pos2):
             return path
         visited.append(lastpos)
         # check if tile is passable or is initial position
-        if get_tile(lastpos).is_passable() or lastpos==pos1:
+        if get_tile(lastpos).is_passable(monster) or lastpos==pos1:
             # expand path with neighbours and add to queue
             var reachposs = get_reachable_neighbours_poss(lastpos)
             for reachpos in reachposs:

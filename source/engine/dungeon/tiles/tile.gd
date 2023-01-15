@@ -38,5 +38,5 @@ func is_occupied():
 func is_reachable():
     return false
 
-func is_passable():
+func is_passable(_monster):
     return false

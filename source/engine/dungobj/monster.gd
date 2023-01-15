@@ -1,10 +1,14 @@
 extends "summon.gd"
 
+# preloads
+const PassBehaviorBase = preload("res://engine/dungobj/behaviors/pass_behavior_base.gd")
+
 # variables
 var attack
 var defense
 var health
 var cooldown = false
+var pass_behavior = PassBehaviorBase.new()
 
 # signals
 signal monster_death(monster)
@@ -13,6 +17,10 @@ func _init(_card, _player).(_card, _player):
     attack = card.attack
     defense = card.defense
     health = card.health
+
+# is functions
+func is_flying():
+    return pass_behavior.is_flying()
 
 # public functions
 func attack_monster(monster, guard):
