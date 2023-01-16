@@ -1,5 +1,5 @@
 ### TODO
-- ABILITIES!
+- fix monster clickable during move selection
 
 ### FIXES
 - fix dim buttons active while net select?

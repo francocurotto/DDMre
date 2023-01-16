@@ -44,10 +44,11 @@ func get_dungobj_pos(dungobj):
             if tile.content == dungobj:
                 return tile.pos
 
-func get_moveposs(player, initpos):
+func get_passposs(player, initpos):
     """
-    Get all the posible positions a monster at position initpos could move
-    with all the available movement crests from player.
+    Get all the posible positions a monster at position initpos could pass
+    through with all the available movement crests from player 
+    (includes non-reachable positions like over flying monsters).
     """
     # init variables
     var monster = get_tile(initpos).content
@@ -72,14 +73,14 @@ func get_moveposs(player, initpos):
             continue
         # check if tile is passable or is initial position
         if get_tile(pos).is_passable(monster) or pos==initpos:
-            # get next reachable positions
-            var reachposs = get_reachable_neighbours_poss(pos)
+            # get next passable positions
+            var passposs = get_passable_neighbours_poss(pos, monster)
             # check to add next positions to poslist
-            for reachpos in reachposs:
+            for passpos in passposs:
                 # check if new position not visited
-                if not poslist.has(reachpos):
-                    poslist.append(reachpos)
-                    movequeue.append({pos=reachpos, count=newcount})
+                if not poslist.has(passpos):
+                    poslist.append(passpos)
+                    movequeue.append({pos=passpos, count=newcount})
     # remove initial position
     poslist.pop_front()
     return poslist
@@ -124,10 +125,10 @@ func get_movepath(pos1, pos2):
         # check if tile is passable or is initial position
         if get_tile(lastpos).is_passable(monster) or lastpos==pos1:
             # expand path with neighbours and add to queue
-            var reachposs = get_reachable_neighbours_poss(lastpos)
-            for reachpos in reachposs:
-                if not visited.has(reachpos):
-                    pathqueue.append(path+[reachpos])
+            var passposs = get_passable_neighbours_poss(lastpos, monster)
+            for passpos in passposs:
+                if not visited.has(passpos):
+                    pathqueue.append(path+[passpos])
      # case not path found
     return []
 
@@ -181,6 +182,17 @@ func create_tile(engine, chr, i, j):
         "p": return engine.player1.create_tile(i, j)
         "P": return engine.player2.create_tile(i, j)
         "X": return BlockTile.new(i, j)
+
+func get_passable_neighbours_poss(pos, monster):
+    """
+    Get neighbours positions to pos that are passable tiles for monster.
+    """
+    var neigposs = get_neighbours_poss(pos)
+    var passposs = []
+    for neigpos in neigposs:
+        if get_tile(neigpos).is_passable(monster):
+            passposs.append(neigpos)
+    return passposs
 
 func get_reachable_neighbours_poss(pos):
     """

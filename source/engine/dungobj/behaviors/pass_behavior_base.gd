@@ -1,9 +1,5 @@
 extends Reference
 
-# is functions
-func is_flying():
-    return false
-
 # public functions
 func is_passable(dungobj):
     """

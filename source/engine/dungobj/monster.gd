@@ -18,10 +18,6 @@ func _init(_card, _player).(_card, _player):
     defense = card.defense
     health = card.health
 
-# is functions
-func is_flying():
-    return pass_behavior.is_flying()
-
 # public functions
 func attack_monster(monster, guard):
     """
@@ -78,3 +74,6 @@ func get_attacker_power_warrior(attacker):
 # is functions
 func is_monster():
     return true
+
+func is_flying():
+    return has_ability("FLY")

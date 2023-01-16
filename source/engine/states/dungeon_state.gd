@@ -24,6 +24,9 @@ func MOVE(cmd):
     # get path for movement
     var path = dungeon.get_movepath(pos_origin, pos_dest)
     if path.empty(): # case not valid path found
+        print("No path to destination.")
+    # case destination is not reachable (e.g. there is a monster)
+    elif not tile_dest.is_reachable():
         print("Destination cannot be reached.")
     # case missing movement crests
     elif len(path)-1 > player.crestpool.slots["MOVEMENT"]:

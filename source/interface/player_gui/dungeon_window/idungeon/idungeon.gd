@@ -122,9 +122,9 @@ func on_tile_dim_button_pressed(itile):
 
 func on_move_button_pressed():
     disable_itile_buttons()
-    var moveposs = dungeon.get_moveposs(player, selected_itile.tile.pos)
-    for movepos in moveposs:
-        get_itile(movepos).enable_move_button()
+    var passposs = dungeon.get_passposs(player, selected_itile.tile.pos)
+    for passpos in passposs:
+        get_itile(passpos).enable_move_button()
 
 func on_attack_button_pressed():
     disable_itile_buttons()
