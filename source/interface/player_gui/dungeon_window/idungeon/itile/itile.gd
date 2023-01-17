@@ -58,7 +58,6 @@ func release_select_button():
 
 func enable_move_button():
     tile_move_button.visible = true
-    set_highlight()
 
 func enable_attack_button():
     tile_attack_button.visible = true

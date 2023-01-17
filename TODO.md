@@ -1,5 +1,5 @@
 ### TODO
-- fix monster clickable during move selection
+- add: fly monster can pass through other non-flying monster
 
 ### FIXES
 - fix dim buttons active while net select?
