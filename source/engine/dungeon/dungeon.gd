@@ -44,11 +44,12 @@ func get_dungobj_pos(dungobj):
             if tile.content == dungobj:
                 return tile.pos
 
-func get_passposs(player, initpos):
+func get_moveposs(player, initpos):
     """
-    Get all the posible positions a monster at position initpos could pass
-    through with all the available movement crests from player 
-    (includes non-reachable positions like over flying monsters).
+    Get all the posible positions a monster at position initpos could reach or
+    pass through with all the available movement crests from player 
+    (includes non-passable positions like items and non-reachable positions 
+    like over flying monsters).
     """
     # init variables
     var monster = get_tile(initpos).content
@@ -74,35 +75,16 @@ func get_passposs(player, initpos):
         # check if tile is passable or is initial position
         if get_tile(pos).is_passable(monster) or pos==initpos:
             # get next passable positions
-            var passposs = get_passable_neighbours_poss(pos, monster)
+            var moveposs = get_move_neighbours_poss(pos, monster)
             # check to add next positions to poslist
-            for passpos in passposs:
+            for movepos in moveposs:
                 # check if new position not visited
-                if not poslist.has(passpos):
-                    poslist.append(passpos)
-                    movequeue.append({pos=passpos, count=newcount})
+                if not poslist.has(movepos):
+                    poslist.append(movepos)
+                    movequeue.append({pos=movepos, count=newcount})
     # remove initial position
     poslist.pop_front()
     return poslist
-
-func get_attackposs(player, pos):
-    """
-    Get all the posible positions a monster at position pos could attack
-    given the available attack crests.
-    """
-    # check for available attack crests
-    if player.crestpool.slots["ATTACK"] <= 0:
-        return []
-    # check of monster in cooldown
-    if get_tile(pos).content.cooldown:
-        return []
-   # get target pos and check if are opponent targets
-    var targetposs = get_neighbours_poss(pos)
-    var attackposs = []
-    for targetpos in targetposs:
-        if get_tile(targetpos).is_path():
-            attackposs.append(targetpos)
-    return attackposs
 
 func get_movepath(pos1, pos2):
     """
@@ -125,12 +107,31 @@ func get_movepath(pos1, pos2):
         # check if tile is passable or is initial position
         if get_tile(lastpos).is_passable(monster) or lastpos==pos1:
             # expand path with neighbours and add to queue
-            var passposs = get_passable_neighbours_poss(lastpos, monster)
+            var passposs = get_move_neighbours_poss(lastpos, monster)
             for passpos in passposs:
                 if not visited.has(passpos):
                     pathqueue.append(path+[passpos])
      # case not path found
     return []
+
+func get_attackposs(player, pos):
+    """
+    Get all the posible positions a monster at position pos could attack
+    given the available attack crests.
+    """
+    # check for available attack crests
+    if player.crestpool.slots["ATTACK"] <= 0:
+        return []
+    # check of monster in cooldown
+    if get_tile(pos).content.cooldown:
+        return []
+   # get target pos and check if are opponent targets
+    var targetposs = get_neighbours_poss(pos)
+    var attackposs = []
+    for targetpos in targetposs:
+        if get_tile(targetpos).is_path():
+            attackposs.append(targetpos)
+    return attackposs
 
 # public functions
 func place_path_tile(player, pos):
@@ -183,27 +184,17 @@ func create_tile(engine, chr, i, j):
         "P": return engine.player2.create_tile(i, j)
         "X": return BlockTile.new(i, j)
 
-func get_passable_neighbours_poss(pos, monster):
+func get_move_neighbours_poss(pos, monster):
     """
     Get neighbours positions to pos that are passable tiles for monster.
     """
     var neigposs = get_neighbours_poss(pos)
     var passposs = []
     for neigpos in neigposs:
-        if get_tile(neigpos).is_passable(monster):
+        var tile = get_tile(neigpos)
+        if tile.is_reachable() or tile.is_passable(monster):
             passposs.append(neigpos)
     return passposs
-
-func get_reachable_neighbours_poss(pos):
-    """
-    Get neighbours positions to pos that are reachable tiles.
-    """
-    var neigposs = get_neighbours_poss(pos)
-    var reachposs = []
-    for neigpos in neigposs:
-        if get_tile(neigpos).is_reachable():
-            reachposs.append(neigpos)
-    return reachposs
 
 func get_target_neighbours_poss(pos):
     """
