@@ -5,6 +5,8 @@ var card
 
 func _init(_card, _player).(_player):
     card = _card
+    for ability in card.abilities:
+        ability.on_summon(self)
 
 # public function
 func has_ability(name):

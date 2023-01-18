@@ -30,7 +30,7 @@
     "MAGIC"   : 0,
     "TRAP"    : 0},
   "CRESTS2": {
-    "MOVEMENT": 0,
+    "MOVEMENT": 10,
     "ATTACK"  : 0,
     "DEFENSE" : 0,
     "MAGIC"   : 0,

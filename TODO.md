@@ -1,5 +1,6 @@
 ### TODO
 - add: fly monster can pass through other non-flying monster
+    - fix flying passing through ML and items
 
 ### FIXES
 - fix dim buttons active while net select?
