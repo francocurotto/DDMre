@@ -10,7 +10,7 @@
 - Dimension Item: Is activated immediately after item dimension
 
 # Common Abilities Definition
-## TUNNELING 
+## TUNNEL
 Allows monster to move through other monsters, from player or opponent. NOTE: it does not allows moving through items or monster lords.
 
 ## FLY

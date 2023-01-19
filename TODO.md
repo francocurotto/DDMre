@@ -16,7 +16,7 @@
 ### TEST
 
 ### ABILITIES
-✅TUNNELING
+✅TUNNEL
 ⏳FLY
 ❌ARCHER
 ❌NEUTRAL

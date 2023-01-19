@@ -1,6 +1,6 @@
 # Common Abilities
 
-## TUNNELING
+## TUNNEL
 
 ## FLY
 
@@ -20,11 +20,11 @@ Restores AMOUNT HEALTH to all player monsters. This ability cannot be skipped.
 Destroy the opponent monster with the least ATTACK (after abilities effect computation).
 
 ## DIMKILLTUNNEL (COST, CREST)
-Destroy one monster with the (active) ability TUNNELING.
+Destroy one monster with the (active) ability TUNNEL.
 Cost: COST x CREST
 
 ## DIMKILLTUNNELALL (COST, CREST)
-Destroy all monsters with the (active) ability TUNNELING.
+Destroy all monsters with the (active) ability TUNNEL.
 Cost: COST x CREST
 
 ## DIMADDCREST (CREST, AMOUNT)
@@ -44,7 +44,7 @@ For each dead monster of type TYPE, add the (original) attack and defense of the
 Negates all FLY abilities.
 
 ## STOPTUNNEL
-Negates all TUNNELING abilities.
+Negates all TUNNEL abilities.
 
 ## TURNSLOWTYPE (TYPE)
 TYPE monsters can only move once every two turns, starting forbiding movement in each player next turn and reenabling it in the turn after the next. NOTE: Two or more of instances of this ability can be stacked to cancel movement completely.

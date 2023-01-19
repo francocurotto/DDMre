@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ABILITY_TUNNELING.png-4330e775f6ee8f1345f7e0737a0ef3d0.stex"
+path="res://.import/ABILITY_TUNNEL.png-8496dfc3bd97cd16ecee09b0f8b97d72.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/ABILITY_TUNNELING.png"
-dest_files=[ "res://.import/ABILITY_TUNNELING.png-4330e775f6ee8f1345f7e0737a0ef3d0.stex" ]
+source_file="res://art/icons/ABILITY_TUNNEL.png"
+dest_files=[ "res://.import/ABILITY_TUNNEL.png-8496dfc3bd97cd16ecee09b0f8b97d72.stex" ]
 
 [params]
 

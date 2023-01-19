@@ -4,8 +4,8 @@ extends HBoxContainer
 # export variables
 export (String, "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM") var type = "DRAGON" setget set_type
 export (int, 1, 4) var level = 3 setget set_level
-export (String, "TUNNELING", "FLY", "ARCHER", "NEUTRAL", "OTHER", "NONE") var ability1 = "OTHER" setget set_ability1
-export (String, "TUNNELING", "FLY", "ARCHER", "NEUTRAL", "OTHER", "NONE") var ability2 = "OTHER" setget set_ability2
+export (String, "TUNNEL", "FLY", "ARCHER", "NEUTRAL", "OTHER", "NONE") var ability1 = "OTHER" setget set_ability1
+export (String, "TUNNEL", "FLY", "ARCHER", "NEUTRAL", "OTHER", "NONE") var ability2 = "OTHER" setget set_ability2
 
 # setget functions
 func set_tla(card):
@@ -45,10 +45,10 @@ func set_ability2(ability):
 
 func set_ability(rect, ability):
     match ability:
-        "TUNNELING" : rect.texture = load("res://art/icons/ABILITY_TUNNELING.png")
-        "FLY"       : rect.texture = load("res://art/icons/ABILITY_FLY.png")
-        "ARCHER"    : rect.texture = load("res://art/icons/ABILITY_ARCHER.png")
-        "NEUTRAL"   : rect.texture = load("res://art/icons/ABILITY_NEUTRAL.png")
-        "NONE"      : rect.texture = null
-        _           : rect.texture = load("res://art/icons/ABILITY.png")
+        "TUNNEL"  : rect.texture = load("res://art/icons/ABILITY_TUNNEL.png")
+        "FLY"     : rect.texture = load("res://art/icons/ABILITY_FLY.png")
+        "ARCHER"  : rect.texture = load("res://art/icons/ABILITY_ARCHER.png")
+        "NEUTRAL" : rect.texture = load("res://art/icons/ABILITY_NEUTRAL.png")
+        "NONE"    : rect.texture = null
+        _         : rect.texture = load("res://art/icons/ABILITY.png")
         
