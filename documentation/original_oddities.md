@@ -8,7 +8,7 @@ Here I document the mistakes and oddities that I found while analysing the origi
 - For Magician Dragon first ability, it adds attacking monster defense to its own defense permanently, but it cannot be used in the current attack to guard, so you must survive the (unguarded) attack for the ability to be useful.
 - When Gluminizer ability is combined with a monster with RAISESPEED ability, the combination goes as follows: 1. the cost of movement is computed with the RAISESPEED ability by dividing the cost (in float), 2. the Gluminizer ability is computed by multiplying the float cost, 3. the cost is rounded to the highest int (ceil). Example:
     - GLUMINIZER+RAISESPEED(3) costs per tile: 1,2,2,3,4,4,5,6,6...
-It make more sense to compute the cost by only using ints to get:
+It makes more sense to compute the cost by only using ints to get:
     - GLUMINIZER+RAISESPEED(3) costs per tile: 2,2,2,4,4,4,6,6,6...
 - Resurrection Scroll returns a dice from the graveyard to the dice pool. Since the number of dimension is counted using the number of used dice in dice pool, the Resurrection Scroll effect essentially gives the player an extra dimension in the dungeon.
 
