@@ -1,4 +1,4 @@
-extends Node
+extends Reference
 
 # public functions
 func is_passable(dungobj):

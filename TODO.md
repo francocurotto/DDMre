@@ -1,6 +1,6 @@
 ### TODO
-- implement archer
-- implement fly target behavior
+- implement neutral
+- implement fly speed behavior
 
 ### FIXES
 - fix dim buttons active while net select?
@@ -18,7 +18,7 @@
 ### ABILITIES
 - ✅TUNNEL
 - ⏳FLY
-- ❌ARCHER
+- ✅ARCHER
 - ❌NEUTRAL
 - ❌DIMCURE
 - ❌DIMCUREALL

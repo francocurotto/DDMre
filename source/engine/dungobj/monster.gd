@@ -2,6 +2,7 @@ extends "summon.gd"
 
 # preloads
 const PassBehaviorBase = preload("res://engine/dungobj/behaviors/pass_behavior_base.gd")
+const TargetBehaviorBase = preload("res://engine/dungobj/behaviors/target_behavior_base.gd")
 
 # variables
 var attack
@@ -9,6 +10,7 @@ var defense
 var health
 var cooldown = false
 var pass_behavior = PassBehaviorBase.new()
+var target_behavior = TargetBehaviorBase.new(player)
 
 # signals
 signal monster_death(monster)
@@ -19,6 +21,12 @@ func _init(_card, _player).(_card, _player):
     health = card.health
 
 # public functions
+func can_target(dungobj):
+    """
+    Return true if monster can target dungobj for an attack.
+    """
+    return target_behavior.can_target(dungobj)
+
 func attack_monster(monster, guard):
     """
     Attack an opponent monster.
