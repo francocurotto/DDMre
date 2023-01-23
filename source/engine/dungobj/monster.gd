@@ -9,6 +9,8 @@ var attack
 var defense
 var health
 var cooldown = false
+
+# behaviors (automatic abilities)
 var pass_behavior = PassBehaviorBase.new()
 var target_behavior = TargetBehaviorBase.new(player)
 

@@ -5,13 +5,14 @@ extends Node
 const LIBPATH = "res://LIBRARY.json"
 #const DUNGPATH = "res://dungeons/default.json"
 #const DUNGPATH = "res://dungeons/test_pass.json"
-const DUNGPATH = "res://dungeons/test_target.json"
+#const DUNGPATH = "res://dungeons/test_target.json"
+const DUNGPATH = "res://dungeons/test_power.json"
 #const RANDOMPOOL = true
 const RANDOMPOOL = false
 #const POOL1PATH = "res://dicepools/test_pass.json"
-#const POOL2PATH = "res://dicepools/test_pass.json"
-const POOL1PATH = "res://dicepools/test_target.json"
-const POOL2PATH = "res://dicepools/test_target.json"
+#const POOL1PATH = "res://dicepools/test_target.json"
+const POOL1PATH = "res://dicepools/test_power.json"
+const POOL2PATH = "res://dicepools/test_power.json"
 
 # arrays, dictionaries
 const CRESTS = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
