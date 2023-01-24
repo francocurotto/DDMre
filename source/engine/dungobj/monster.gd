@@ -2,13 +2,19 @@ extends "summon.gd"
 
 # preloads
 const PassBehaviorBase = preload("res://engine/dungobj/behaviors/pass_behavior_base.gd")
+const TargetBehaviorBase = preload("res://engine/dungobj/behaviors/target_behavior_base.gd")
+const AdvantageBehaviorBase = preload("res://engine/dungobj/behaviors/advantage_behavior_base.gd")
 
 # variables
 var attack
 var defense
 var health
 var cooldown = false
+
+# behaviors (automatic abilities)
 var pass_behavior = PassBehaviorBase.new()
+var target_behavior = TargetBehaviorBase.new(player)
+var advantage_behavior = AdvantageBehaviorBase.new()
 
 # signals
 signal monster_death(monster)
@@ -19,6 +25,12 @@ func _init(_card, _player).(_card, _player):
     health = card.health
 
 # public functions
+func can_target(dungobj):
+    """
+    Return true if monster can target dungobj for an attack.
+    """
+    return target_behavior.can_target(dungobj)
+
 func attack_monster(monster, guard):
     """
     Attack an opponent monster.
@@ -53,23 +65,51 @@ func receive_damage(damage):
     if health <= 0:
         emit_signal("monster_death", self)
 
-func get_power(_attacked): # written just to avoid editor error
-    return attack
+func get_power(attacked):
+    return advantage_behavior.get_power(attack, has_adv(attacked), has_disadv(attacked))
 
-func get_attacker_power_dragon(attacker):
-    return attacker.attack
+func has_adv(_attacked):
+    """
+    Return true if monster has advantage over attacked monster.
+    """
+    return false
 
-func get_attacker_power_spellcaster(attacker):
-    return attacker.attack
+func has_disadv(attacked):
+    """
+    Return true if monster has disadvantage over attacked monster. Computed by
+    checking if attacked monster has advantage over attatcker monster.
+    """
+    return attacked.has_adv(self)
 
-func get_attacker_power_undead(attacker):
-    return attacker.attack
+func has_disadv_over_dragon():
+    """
+    Return true if monster has disadvantage over dragon.
+    """
+    return false
 
-func get_attacker_power_beast(attacker):
-    return attacker.attack
+func has_disadv_over_spellcaster():
+    """
+    Return true if monster has disadvantage over spellcaster.
+    """
+    return false
 
-func get_attacker_power_warrior(attacker):
-    return attacker.attack
+func has_disadv_over_undead():
+    """
+    Return true if monster has disadvantage over undead.
+    """
+    return false
+
+func has_disadv_over_beast():
+    """
+    Return true if monster has advantage over beast.
+    """
+    return false
+
+func has_disadv_over_warrior():
+    """
+    Return true if monster has advantage over warrior.
+    """
+    return false
 
 # is functions
 func is_monster():

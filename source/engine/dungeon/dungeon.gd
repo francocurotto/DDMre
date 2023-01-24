@@ -126,11 +126,11 @@ func get_attackposs(player, pos):
     if get_tile(pos).content.cooldown:
         return []
    # get target pos and check if are opponent targets
-    var targetposs = get_neighbours_poss(pos)
+    var neigposs = get_neighbours_poss(pos)
     var attackposs = []
-    for targetpos in targetposs:
-        if get_tile(targetpos).is_path():
-            attackposs.append(targetpos)
+    for neigpos in neigposs:
+        if get_tile(neigpos).is_path():
+            attackposs.append(neigpos)
     return attackposs
 
 # public functions
@@ -195,17 +195,6 @@ func get_move_neighbours_poss(pos, monster):
         if tile.is_reachable() or tile.is_passable(monster):
             passposs.append(neigpos)
     return passposs
-
-func get_target_neighbours_poss(pos):
-    """
-    Get neighbours positions to pos that have a target in that tile.
-    """
-    var neigposs = get_neighbours_poss(pos)
-    var targetposs = []
-    for neigpos in neigposs:
-        if get_tile(neigpos).content.is_target():
-            targetposs.append(neigpos)
-    return targetposs
 
 func get_neighbours_poss(pos):
     """

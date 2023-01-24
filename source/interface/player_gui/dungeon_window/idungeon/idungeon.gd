@@ -107,7 +107,7 @@ func on_tile_attack_button_pressed(itile):
     var pos2 = itile.tile.pos
     var attacker = selected_itile.tile.content
     var attacked = itile.tile.content
-    if attacked.is_monster() and attacked.player != player:
+    if attacker.can_target(attacked) and attacked.is_monster():
         highlight_attack(pos1, pos2)
         attack_menu.activate(pos1, pos2, attacker, attacked)
         emit_signal("menu_opened")

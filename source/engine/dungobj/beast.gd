@@ -7,11 +7,14 @@ func _init(_card, _player).(_card, _player):
     pass
 
 # public functions
-func get_power(attacked):
-    return attacked.get_attacker_power_beast(self)
+func has_adv(attacked):
+    """
+    Return true if monster has advantage over attacked monster.
+    """
+    return attacked.has_disadv_over_beast()
 
-func get_attacker_power_undead(attacker):
-    return attacker.attack + 10
-
-func get_attacker_power_warrior(attacker):
-    return attacker.attack - 10
+func has_disadv_over_undead():
+    """
+    Return true if monster has advantage over undead.
+    """
+    return true
