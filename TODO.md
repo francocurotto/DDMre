@@ -15,11 +15,11 @@
 
 ### TEST
 
-### ABILITIES
+### ABILITIES [3/46]
 - ✅TUNNEL
 - ⏳FLY
 - ✅ARCHER
-- ❌NEUTRAL
+- ✅NEUTRAL
 - ❌DIMCURE
 - ❌DIMCUREALL
 - ❌DIMKILLWEAKEST
