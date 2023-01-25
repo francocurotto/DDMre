@@ -4,17 +4,20 @@ extends "summon.gd"
 const PassBehaviorBase = preload("res://engine/dungobj/behaviors/pass_behavior_base.gd")
 const TargetBehaviorBase = preload("res://engine/dungobj/behaviors/target_behavior_base.gd")
 const AdvantageBehaviorBase = preload("res://engine/dungobj/behaviors/advantage_behavior_base.gd")
+const SpeedBehaviorBase = preload("res://engine/dungobj/behaviors/speed_behavior_base.gd")
 
 # variables
 var attack
 var defense
 var health
 var cooldown = false
+var speed setget , get_speed
 
 # behaviors (automatic abilities)
 var pass_behavior = PassBehaviorBase.new()
 var target_behavior = TargetBehaviorBase.new(player)
 var advantage_behavior = AdvantageBehaviorBase.new()
+var speed_behavior = SpeedBehaviorBase.new()
 
 # signals
 signal monster_death(monster)
@@ -23,6 +26,10 @@ func _init(_card, _player).(_card, _player):
     attack = card.attack
     defense = card.defense
     health = card.health
+
+# setget functions
+func get_speed():
+    return speed_behavior.speed
 
 # public functions
 func can_target(dungobj):

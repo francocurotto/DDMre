@@ -58,6 +58,8 @@ func get_moveposs(player, initpos):
     var poslist = [initpos]
     var movequeue = []
     var movecrests = player.crestpool.slots["MOVEMENT"]
+    var maxtiles = int(movecrests * monster.speed)
+    print(monster.speed)
 
     # init queue, use dictionary to mix positions and move counter
     movequeue.append({pos=initpos,count=0})
@@ -70,7 +72,7 @@ func get_moveposs(player, initpos):
         var count = moveitem.count
         # if count for next pos will surpass move crest, skip pos
         var newcount = count + 1
-        if newcount > movecrests:
+        if newcount > maxtiles:
             continue
         # check if tile is passable or is initial position
         if get_tile(pos).is_passable(monster) or pos==initpos:
