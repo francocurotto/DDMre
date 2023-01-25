@@ -1,6 +1,7 @@
 ### TODO
-- implement neutral
 - implement fly speed behavior
+    ↪ how to implement speed parameter?
+    ↪ how does fly behavior acts when fly ability is stopped?
 
 ### FIXES
 - fix dim buttons active while net select?

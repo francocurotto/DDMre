@@ -47,7 +47,7 @@ Negates all FLY abilities.
 Negates all TUNNEL abilities.
 
 ## TURNSLOWTYPE (TYPE)
-TYPE monsters can only move once every two turns, starting forbiding movement in each player next turn and reenabling it in the turn after the next. NOTE: Two or more of instances of this ability can be stacked to cancel movement completely.
+TYPE monsters can only move once every two turns, starting forbidding movement in each player next turn and re-enabling it in the turn after the next. NOTE: Two or more of instances of this ability can be stacked to cancel movement completely.
 
 ## BUFFTYPE (TYPE, ATTR, AMOUNT)
 Raise ATTR of all TYPE monsters by AMOUNT.
@@ -116,7 +116,7 @@ Gain control of one opponent monster till the end of the turn.
 Cost: COST x CREST
 
 ## ROLLLEVELKILL (COST, CREST)
-Choose a level (1 to 4). The ability cost is increased by the level selected x CREST crest. Choose a direction (left, right, up, down). Move the monster in the chosen direction. If it hits a flying-monster, continue movement without affecting the hit monster. If it hits a non-flying-monster/item whose level is lower or equal to the selected level, destroy that monster/item and continue movement. If it hits a non-flying-monster/item whose level is higher that the selected level, or a monster lord, or an empty tile, stop movement and locate the monster in the last visited empty tile.
+Choose a level (1 to 4). The ability cost is increased by the level selected x CREST crest. Choose a direction (left, right, up, down). Move the monster in the chosen direction. If it hits a flying-monster, continue movement without affecting the hit monster. If it hits a non-flying-monster/item whose level is lower or equal to the selected level, destroy that monster/item and continue movement (items abilities are not activated). If it hits a non-flying-monster/item whose level is higher that the selected level, or a monster lord, or an empty tile, stop movement and locate the monster in the last visited unoccupied path tile.
 Cost: COST+[1..4] x CREST
 
 ## RANGELEVELKILL (RANGE, COST, CREST)
@@ -128,7 +128,7 @@ Destroy all other monsters and items at a range of RANGE.
 Cost: COST x CREST
 
 ## DISTANCEATTACK (MAX, COST, CREST)
-The moster cannot attack and use this ability in the same turn (in any order). Attack an opponent target (without paying attack crests) at a distance of max. MAX.
+The monster cannot attack and use this ability in the same turn (in any order). Attack an opponent target (without paying attack crests) at a distance of max. MAX.
 Cost: COST x CREST
  
 # Manual Item Abilities
