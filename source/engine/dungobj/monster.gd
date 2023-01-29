@@ -65,6 +65,12 @@ func attack_monster_lord(ml):
     cooldown = true
     ml.receive_damage()
 
+func buff_attr(attr, amount):
+    """
+    Buff mosnter attribute attr by amount.
+    """
+    set(attr, get(attr) + amount)
+
 # private functions
 func get_damage(monster, guard):
     """

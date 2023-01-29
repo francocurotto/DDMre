@@ -1,10 +1,10 @@
 ### TODO
-- in item buff: add special function on monster to buff?
-- RAISEATTACK?
 - ITEMCURE
 - ITEMCRESTKILL
 - BLACKHOLE
 - TIMEMACHINE
+- RAISEATTACK
+- REDUCEDAMAGE
 
 ### FIXES
 - fix dim buttons active while net select?
