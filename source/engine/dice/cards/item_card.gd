@@ -15,6 +15,10 @@ func summon(player):
     player.items.append(item)
     return item
 
+func activate(monster, dungeon):
+    for ability in abilities:
+        ability.activate(monster, dungeon)
+
 # is functions
 func is_item():
     return true

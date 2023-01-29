@@ -26,14 +26,18 @@ const Tunnel = preload("res://engine/abilities/tunnel.gd")
 const Fly = preload("res://engine/abilities/fly.gd")
 const Archer = preload("res://engine/abilities/archer.gd")
 const Neutral = preload("res://engine/abilities/neutral.gd")
+const ItemBuff = preload("res://engine/abilities/item_buff.gd")
+const ItemDamage = preload("res://engine/abilities/item_damage.gd")
 const BaseAbility = preload("res://engine/abilities/base_ability.gd")
 func create_ability(ability_info):
     """
     Creates ability object from ability info dict.
     """
     match ability_info["NAME"]:
-        "TUNNEL"  : return Tunnel.new(ability_info)
-        "FLY"     : return Fly.new(ability_info)
-        "ARCHER"  : return Archer.new(ability_info)
-        "NEUTRAL" : return Neutral.new(ability_info)
-        _         : return BaseAbility.new(ability_info)
+        "TUNNEL"     : return Tunnel.new(ability_info)
+        "FLY"        : return Fly.new(ability_info)
+        "ARCHER"     : return Archer.new(ability_info)
+        "NEUTRAL"    : return Neutral.new(ability_info)
+        "ITEMDAMAGE" : return ItemDamage.new(ability_info)
+        "ITEMBUFF"   : return ItemBuff.new(ability_info)
+        _            : return BaseAbility.new(ability_info)

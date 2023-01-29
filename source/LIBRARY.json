@@ -1268,7 +1268,7 @@
     "TYPE": "ITEM",
     "LEVEL": 3,
     "ABILITY": [{"NAME": "ITEMDAMAGE",
-                 "AMOUNT": 2}],
+                 "AMOUNT": 20}],
     "CRESTS": "SSM2M3D2G2"
   },
   "117": {

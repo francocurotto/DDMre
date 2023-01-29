@@ -1,6 +1,10 @@
 ### TODO
-- implement fly speed behavior
-    - add proper movement cost computation
+- in item buff: add special function on monster to buff?
+- RAISEATTACK?
+- ITEMCURE
+- ITEMCRESTKILL
+- BLACKHOLE
+- TIMEMACHINE
 
 ### FIXES
 - fix dim buttons active while net select?
@@ -15,9 +19,9 @@
 
 ### TEST
 
-### ABILITIES [3/46]
+### ABILITIES [6/46]
 - ✅TUNNEL
-- ⏳FLY
+- ✅FLY
 - ✅ARCHER
 - ✅NEUTRAL
 - ❌DIMCURE
@@ -54,9 +58,9 @@
 - ❌RANGEKILLALL
 - ❌DISTANCEATTACK
 - ❌ITEMCURE
-- ❌ITEMDAMAGE
+- ✅ITEMDAMAGE
 - ❌TIMEMACHINE
-- ❌ITEMBUFF
+- ✅ITEMBUFF
 - ❌ITEMCRESTKILL
 - ❌MONSTERREBORN
 - ❌BLACKHOLE

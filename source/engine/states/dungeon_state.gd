@@ -20,6 +20,7 @@ func MOVE(cmd):
     var pos_dest = Vector2(cmd["dest"][0], cmd["dest"][1])
     var tile_origin = dungeon.get_tile(pos_origin)
     var tile_dest = dungeon.get_tile(pos_dest)
+    var monster = tile_origin.content
 
     # get path for movement
     var path = dungeon.get_movepath(pos_origin, pos_dest)
@@ -29,7 +30,8 @@ func MOVE(cmd):
     elif not tile_dest.is_reachable():
         print("Destination cannot be reached.")
     # case missing movement crests
-    elif len(path)-1 > player.crestpool.slots["MOVEMENT"]:
+    #elif len(path)-1 > player.crestpool.slots["MOVEMENT"]:
+    elif monster.get_move_cost(path) > player.crestpool.slots["MOVEMENT"]:
         print("Not enough MOVEMENT crests.")
     # perform movement
     else: # case valid movement
@@ -77,11 +79,18 @@ func perform_movement(tile1, tile2, path):
     """
     Move content from tile1 to tile2 and pay movement crest.
     """
+    # get monster
+    var monster = tile1.content
+    # check if item is activated
+    var dest_content = tile2.content
     # make the movement
     tile2.content = tile1.content
     tile1.empty_tile()
     # pay the cost of the movement
-    player.crestpool.slots["MOVEMENT"] -= len(path)-1
+    player.crestpool.slots["MOVEMENT"] -= monster.get_move_cost(path)
+    # activate item if necessary
+    if dest_content.is_item():
+        dest_content.activate(monster, dungeon)
     # emit duel update signal
     Events.emit_signal("duel_update")
 

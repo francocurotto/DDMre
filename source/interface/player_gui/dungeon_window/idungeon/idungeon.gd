@@ -97,9 +97,11 @@ func on_tile_move_button_pressed(itile):
     disable_itile_buttons()
     var pos1 = selected_itile.tile.pos
     var pos2 = itile.tile.pos
+    var monster = selected_itile.tile.content
     var path = dungeon.get_movepath(pos1, pos2)
+    var move_cost = monster.get_move_cost(path)
     highlight_movement(pos1, pos2, path)
-    move_menu.activate(pos1, pos2, path, player)
+    move_menu.activate(pos1, pos2, move_cost, player)
     emit_signal("menu_opened")
 
 func on_tile_attack_button_pressed(itile):

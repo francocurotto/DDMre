@@ -29,7 +29,16 @@ func _init(_card, _player).(_card, _player):
 
 # setget functions
 func get_speed():
+    """
+    Get mosnter speed.
+    """
     return speed_behavior.speed
+
+func get_move_cost(path):
+    """
+    Get the movement cost of monster for a given path.
+    """
+    return int((len(path)-1) / self.speed)
 
 # public functions
 func can_target(dungobj):

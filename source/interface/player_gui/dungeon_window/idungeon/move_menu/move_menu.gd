@@ -16,12 +16,11 @@ signal menu_canceled
 
 
 # public functions
-func activate(_pos1, _pos2, path, player):
+func activate(_pos1, _pos2, move_cost, player):
     pos1 = _pos1
     pos2 = _pos2
-    var spend = len(path)-1
-    var left = player.crestpool.slots["MOVEMENT"] - spend
-    message.bbcode_text = format % [spend, left]
+    var left = player.crestpool.slots["MOVEMENT"] - move_cost
+    message.bbcode_text = format % [move_cost, left]
     visible = true
     transparent_button.pressed = false
 

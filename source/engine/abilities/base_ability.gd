@@ -9,3 +9,6 @@ func _init(ability_info):
 # public functions
 func on_summon(_summon):
     pass
+
+func activate(_monster, _dungeon):
+    pass
