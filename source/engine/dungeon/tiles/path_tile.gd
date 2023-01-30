@@ -34,7 +34,6 @@ func is_reachable():
 
 func is_passable(monster):
     return monster.pass_behavior.is_passable(content)
-    #return content.is_none()
 
 # public functions
 func empty_tile():

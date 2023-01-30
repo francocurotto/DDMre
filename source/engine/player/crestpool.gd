@@ -28,3 +28,10 @@ func add_crests(side):
         emit_signal("hit_crest_limit", side.crest.NAME)
     # update crest pool
     slots[side.crest.NAME] = min(update, LIMIT)
+
+func remove_crests(crest, amount):
+    """
+    Remove amount number of crests of type crest from dicepool, e.g. due to
+    an ability.
+    """
+    slots[crest] = max(slots[crest]-amount, 0)

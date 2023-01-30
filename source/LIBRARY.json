@@ -1260,7 +1260,7 @@
     "TYPE": "ITEM",
     "LEVEL": 2,
     "ABILITY": [{"NAME": "ITEMCURE",
-                 "AMOUNT": 2}],
+                 "AMOUNT": 20}],
     "CRESTS": "SSSM5AT"
   },
   "116": {

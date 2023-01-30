@@ -27,13 +27,14 @@
                {"POS":"h7", "DICE":6},
                {"POS":"i7", "DICE":7},
                {"POS":"j7", "DICE":8}],
-  "SUMMONS2": [{"POS":"g11",  "DICE":1}],
+  "SUMMONS2": [{"POS":"g11",  "DICE":1},
+               {"POS":"e8", "DICE":3}],
   "CRESTS1": {
     "MOVEMENT": 20,
     "ATTACK"  : 0,
     "DEFENSE" : 0,
-    "MAGIC"   : 0,
-    "TRAP"    : 0},
+    "MAGIC"   : 3,
+    "TRAP"    : 2},
   "CRESTS2": {
     "MOVEMENT": 20,
     "ATTACK"  : 0,

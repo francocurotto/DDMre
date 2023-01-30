@@ -71,6 +71,12 @@ func buff_attr(attr, amount):
     """
     set(attr, get(attr) + amount)
 
+func restore_heath(amount):
+    """
+    Restore monster health by amount.
+    """
+    health = min(health + amount, card.health)
+
 # private functions
 func get_damage(monster, guard):
     """
