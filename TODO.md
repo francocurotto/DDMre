@@ -4,6 +4,7 @@
 - REDUCEDAMAGE
 - GLUMINIZER
 - WARPVORTEX
+- BUFFTYPE
 
 ### FIXES
 - fix dim buttons active while net select?
