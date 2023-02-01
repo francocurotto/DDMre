@@ -14,10 +14,10 @@ var cooldown = false
 var speed setget , get_speed
 
 # behaviors (automatic abilities)
-var pass_behavior = PassBehaviorBase.new()
-var target_behavior = TargetBehaviorBase.new(player)
-var advantage_behavior = AdvantageBehaviorBase.new()
-var speed_behavior = SpeedBehaviorBase.new()
+var pass_behavior
+var target_behavior
+var advantage_behavior
+var speed_behavior
 
 # signals
 signal monster_death(monster)
@@ -26,6 +26,13 @@ func _init(_card, _player).(_card, _player):
     attack = card.attack
     defense = card.defense
     health = card.health
+    # initialize behaviors
+    pass_behavior = PassBehaviorBase.new()
+    target_behavior = TargetBehaviorBase.new(player)
+    advantage_behavior = AdvantageBehaviorBase.new()
+    speed_behavior = SpeedBehaviorBase.new()
+    # activate summon abilities
+    activate_summon_abilities()
 
 # setget functions
 func get_speed():
@@ -41,11 +48,19 @@ func get_move_cost(path):
     return int((len(path)-1) / self.speed)
 
 # public functions
-func can_target(dungobj):
+func can_target_monster(dungobj):
     """
-    Return true if monster can target dungobj for an attack.
+    Return true if dungobj is monster type and monster can target dungobj 
+    for an attack.
     """
-    return target_behavior.can_target(dungobj)
+    return target_behavior.can_target_monster(dungobj)
+
+func can_target_ml(dungobj):
+    """
+    Return true if dungobj is monster lord type and monster can target dungobj 
+    for an attack.
+    """
+    return target_behavior.can_target_ml(dungobj)
 
 func attack_monster(monster, guard):
     """
@@ -71,7 +86,7 @@ func buff_attr(attr, amount):
     """
     set(attr, get(attr) + amount)
 
-func restore_heath(amount):
+func restore_health(amount):
     """
     Restore monster health by amount.
     """

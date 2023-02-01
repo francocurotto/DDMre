@@ -6,10 +6,12 @@ var last_pos # used for TimeMachine ability
 
 func _init(_card, _player).(_player):
     card = _card
+
+# public function
+func activate_summon_abilities():
     for ability in card.abilities:
         ability.on_summon(self)
 
-# public function
 func has_ability(name):
     for ability in card.abilities:
         if ability.name == name:

@@ -32,7 +32,7 @@ func _ready():
     dicepool_column.connect("dice_dim_button_pressed", roll_gui, "on_dice_dim_button_pressed")
     dicepool_column.connect("dice_dim_button_pressed", dungeon_window, "on_dice_dim_button_pressed")
     dicepool_column.connect("dice_dim_button_released", roll_gui, "on_dice_dim_button_released")
-    dicepool_column.connect("dice_dim_button_released", dungeon_window, "reset_to_dungeon")
+    dicepool_column.connect("dice_dim_button_released", dungeon_window, "on_dice_dim_button_released")
     dicepool_column.connect("info_button_pressed", self, "on_info_button_pressed")
     # roll gui
     roll_gui.connect("roll_button_pressed", self, "on_roll_button_pressed")
@@ -136,6 +136,7 @@ func on_state_update_dimension():
     dicepool_window.on_state_update_dimension(engine.state.dim_candidates)
 
 func on_state_update_reply():
+    switch_to_dungeon_window()
     dicepool_window.on_state_update_reply()
     dungeon_window.on_state_update_reply(engine.state.attacker, engine.state.attacked)
 
@@ -156,3 +157,7 @@ func on_window_button_pressed():
 func switch_to_dicepool_window():
     dicepool_window.visible = true
     dungeon_window.visible = false
+
+func switch_to_dungeon_window():
+    dicepool_window.visible = false
+    dungeon_window.visible = true

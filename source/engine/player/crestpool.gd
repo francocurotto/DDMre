@@ -15,19 +15,26 @@ var slots = {
 signal hit_crest_limit(crestname)
 
 # public functions
-func add_crests(side):
+func add_rolled_side(side):
     """
     Add rolled side to crest pool.
     """
+    add_crests(side.crest.NAME, side.mult)
+    
+func add_crests(crest, amount):
+    """
+    Add amount number of crests of type crest from dicepool, e.g. due to
+     dice roll or an ability.
+    """
     # if rolled a summon, skip
-    if side.crest.NAME == "SUMMON":
+    if crest == "SUMMON":
         return
-    var update = slots[side.crest.NAME] + side.mult
+    var update = slots[crest] + amount
     # check for limit surppased
     if update > LIMIT:
-        emit_signal("hit_crest_limit", side.crest.NAME)
+        emit_signal("hit_crest_limit", crest)
     # update crest pool
-    slots[side.crest.NAME] = min(update, LIMIT)
+    slots[crest] = min(update, LIMIT)
 
 func remove_crests(crest, amount):
     """

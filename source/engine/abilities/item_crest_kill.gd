@@ -1,5 +1,6 @@
 extends "base_ability.gd"
 
+# variables
 var crest
 var amount
 

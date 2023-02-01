@@ -1,10 +1,12 @@
 extends "base_ability.gd"
 
+# variables
 var amount
 
 func _init(ability_dict).(ability_dict):
     amount = ability_dict["AMOUNT"]
 
 # public functions
-func activate(monster, _dungeon):
-    monster.restore_health(amount)
+func on_summon(monster):
+    for player_monster in monster.player.monsters:
+        player_monster.restore_health(amount)
