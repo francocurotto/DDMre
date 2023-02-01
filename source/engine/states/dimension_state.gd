@@ -36,5 +36,5 @@ func DIM(cmd):
         dungeon.dimension(player, net, diceidx)
         Events.emit_signal("duel_update")
         return DungeonState.new(player, opponent, dungeon)
-    else: # invalid dimansion, so nothing
+    else: # invalid dimension, so nothing
         return self

@@ -84,13 +84,13 @@ func perform_movement(tile1, tile2, path):
     # check if item is activated
     var dest_content = tile2.content
     # make the movement
-    tile2.content = tile1.content
-    tile1.empty_tile()
+    tile2.move_content_from(tile1)
     # pay the cost of the movement
     player.crestpool.slots["MOVEMENT"] -= monster.get_move_cost(path)
     # activate item if necessary
     if dest_content.is_item():
         dest_content.activate(monster, dungeon)
+    monster.last_pos = dungeon.get_dungobj_pos(monster) # used for TimeMachine ability
     # emit duel update signal
     Events.emit_signal("duel_update")
 

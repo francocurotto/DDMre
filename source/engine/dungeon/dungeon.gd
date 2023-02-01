@@ -141,12 +141,6 @@ func place_path_tile(player, pos):
     """
     array[pos.y][pos.x] = player.create_tile(pos.y, pos.x)
 
-func place_dungobj(pos, dungobj):
-    """
-    Place a dungobj in the dungeon at position pos.
-    """
-    array[pos.y][pos.x].content = dungobj
-
 func dimension(player, net, diceidx):
     """
     Dimension net for player and summon card on center of net.
@@ -155,7 +149,7 @@ func dimension(player, net, diceidx):
     for pos in net.poslist:
         place_path_tile(player, pos)
     var summon = player.summon_card(diceidx)
-    place_dungobj(net.centerpos, summon)
+    array[net.centerpos.y][net.centerpos.x].set_content(summon)
 
 func can_dimension(net, player):
     """

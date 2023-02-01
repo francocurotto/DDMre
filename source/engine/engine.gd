@@ -78,7 +78,8 @@ func set_initsummons(player, summonlist):
         var pos = Globals.str2pos(summondict["POS"])
         var idx = Globals.to_engineidx(summondict["DICE"])
         var summon = player.summon_card(idx)
-        dungeon.place_dungobj(pos, summon)
+        dungeon.array[pos.y][pos.x].set_content(summon)
+        summon.last_pos = pos # used for TimeMachine ability
 
 func set_initcrests(player, crests):
     """

@@ -30,7 +30,7 @@ func _init(_card, _player).(_card, _player):
 # setget functions
 func get_speed():
     """
-    Get mosnter speed.
+    Get monster speed.
     """
     return speed_behavior.speed
 

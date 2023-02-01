@@ -22,6 +22,15 @@ func get_playerid():
 func get_dungobjid():
     return null
 
+# public functions
+func move_content_from(original_tile):
+    """
+    Move content from original tile to this tile. Original tile gets 
+    emptied (NoneObj).
+    """
+    content = original_tile.content
+    original_tile.empty_tile()
+
 # is functions
 func is_path():
     return true
