@@ -11,6 +11,9 @@ var defense
 var health
 var cooldown = false
 var speed = 1
+var turn_move_limit = INF
+var turn_move_count = 0
+var max_move setget , get_max_move
 
 # behaviors (automatic abilities)
 var pass_behavior
@@ -30,6 +33,13 @@ func _init(_card, _player).(_card, _player):
     advantage_behavior = AdvantageBehaviorBase.new()
     # activate summon abilities
     activate_summon_abilities()
+
+# setget functions
+func get_max_move():
+    """
+    Get max movement allowed by abilities.
+    """
+    return turn_move_limit - turn_move_count
 
 # public functions
 func get_move_cost(path):

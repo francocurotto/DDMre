@@ -58,7 +58,7 @@ func get_moveposs(player, initpos):
     var poslist = [initpos]
     var movequeue = []
     var movecrests = player.crestpool.slots["MOVEMENT"]
-    var maxtiles = int(movecrests * monster.speed)
+    var maxtiles = min(int(movecrests * monster.speed), monster.max_move)
 
     # init queue, use dictionary to mix positions and move counter
     movequeue.append({pos=initpos,count=0})

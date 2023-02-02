@@ -12,6 +12,10 @@ func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     # reset player monster cooldown
     for monster in player.monsters:
         monster.cooldown = false
+    # reset monster max move count (for MoveLimit ability)
+    for monster in player.monsters:
+        monster.move_count = 0
+    
 
 # public functions
 func ROLL(cmd):

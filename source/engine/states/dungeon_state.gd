@@ -29,8 +29,10 @@ func MOVE(cmd):
     # case destination is not reachable (e.g. there is a monster)
     elif not tile_dest.is_reachable():
         print("Destination cannot be reached.")
+    # case exceeded max movement per turn (due to ability)
+    elif monster.max_move < len(path)-1:
+        print("Movement exceed monster max movement per turn")
     # case missing movement crests
-    #elif len(path)-1 > player.crestpool.slots["MOVEMENT"]:
     elif monster.get_move_cost(path) > player.crestpool.slots["MOVEMENT"]:
         print("Not enough MOVEMENT crests.")
     # perform movement
@@ -91,6 +93,7 @@ func perform_movement(tile1, tile2, path):
     if dest_content.is_item():
         dest_content.activate(monster, dungeon)
     monster.last_pos = dungeon.get_dungobj_pos(monster) # used for TimeMachine ability
+    monster.turn_move_count += len(path)-1 # used for MoveLimit ability
     # emit duel update signal
     Events.emit_signal("duel_update")
 
