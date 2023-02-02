@@ -1,7 +1,7 @@
 # DDMre (Dungeon Dice Monsters re-implementation)
 <p align="center">
-<img src="https://github.com/francocurotto/DDMre/blob/master/example1.jpg" width="300" />&nbsp; &nbsp; &nbsp; &nbsp;
-<img src="https://github.com/francocurotto/DDMre/blob/master/example2.jpg" width="300" />
+<img src="https://github.com/francocurotto/DDMre/blob/master/images/example1.jpg" width="300" />&nbsp; &nbsp; &nbsp; &nbsp;
+<img src="https://github.com/francocurotto/DDMre/blob/master/images/example2.jpg" width="300" />
 </p>
 
 # What is this?
