@@ -31,14 +31,13 @@ func _init(_card, _player).(_card, _player):
     # activate summon abilities
     activate_summon_abilities()
 
-# setget functions
+# public functions
 func get_move_cost(path):
     """
     Get the movement cost of monster for a given path.
     """
-    return int((len(path)-1) / self.speed)
-
-# public functions
+    return ceil((len(path)-1) / self.speed)
+    
 func can_target_monster(dungobj):
     """
     Return true if dungobj is monster type and monster can target dungobj 
