@@ -23,7 +23,7 @@
                {"POS":"i10", "DICE":2}],
   "SUMMONS2": [],
   "CRESTS1": {
-    "MOVEMENT": 10,
+    "MOVEMENT": 20,
     "ATTACK"  : 3,
     "DEFENSE" : 0,
     "MAGIC"   : 0,

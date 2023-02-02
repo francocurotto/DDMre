@@ -4,20 +4,18 @@ extends "summon.gd"
 const PassBehaviorBase = preload("res://engine/dungobj/behaviors/pass_behavior_base.gd")
 const TargetBehaviorBase = preload("res://engine/dungobj/behaviors/target_behavior_base.gd")
 const AdvantageBehaviorBase = preload("res://engine/dungobj/behaviors/advantage_behavior_base.gd")
-const SpeedBehaviorBase = preload("res://engine/dungobj/behaviors/speed_behavior_base.gd")
 
 # variables
 var attack
 var defense
 var health
 var cooldown = false
-var speed setget , get_speed
+var speed = 1
 
 # behaviors (automatic abilities)
 var pass_behavior
 var target_behavior
 var advantage_behavior
-var speed_behavior
 
 # signals
 signal monster_death(monster)
@@ -30,17 +28,10 @@ func _init(_card, _player).(_card, _player):
     pass_behavior = PassBehaviorBase.new()
     target_behavior = TargetBehaviorBase.new(player)
     advantage_behavior = AdvantageBehaviorBase.new()
-    speed_behavior = SpeedBehaviorBase.new()
     # activate summon abilities
     activate_summon_abilities()
 
 # setget functions
-func get_speed():
-    """
-    Get monster speed.
-    """
-    return speed_behavior.speed
-
 func get_move_cost(path):
     """
     Get the movement cost of monster for a given path.
