@@ -1,0 +1,21 @@
+digraph "engine" {
+    ordering="out"
+    Engine -> State
+    State  -> {Player, Opponent, Dungeon}
+    {rank = same; Player, Opponent, Dungeon}
+    Player -> {CrestPool, Dices}
+    Player -> {ML, Summons} [dir=both, color=blue]
+    {rank = same; Dices, CrestPool, ML, Summons}
+    Dices -> {Card, Sides}
+    Card -> Abilities
+    Card -> Summons [color=gray, style=dashed, label="instance"]
+    Abilities -> Summons [color=gray, style=dashed, label="instance\nbehavior"]
+    Summons -> Card
+    {node [shape=note] Same [label="same as player"]} 
+    Opponent -> Same 
+    Dungeon -> Tiles
+    Tiles -> ML
+    Tiles -> Summons
+    Tiles -> Player [color=gray]
+    Tiles -> Opponent[color=gray, label="one\nof\ntwo"]
+}
