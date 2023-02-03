@@ -1,5 +1,4 @@
 ### TODO
-- check of all get_dungobj_pos and mackhole for loop are necessary
 - DIMBUFFDEADTYPE
 - EXODIA
 - GLUMINIZER

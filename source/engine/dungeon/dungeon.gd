@@ -159,7 +159,7 @@ func can_dimension(net, player):
     return net_inbound(net) and net_not_overlaps(net) and net_connects(net, player)
 
 # signals callback
-func on_monster_death(monster):
+func on_monster_dead(monster):
     """
     When a monster dies, remove monster from dungeon.
     """

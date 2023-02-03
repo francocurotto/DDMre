@@ -20,9 +20,6 @@ var pass_behavior
 var target_behavior
 var advantage_behavior
 
-# signals
-signal monster_death(monster)
-
 func _init(_card, _player).(_card, _player):
     attack = card.attack
     defense = card.defense
@@ -106,7 +103,13 @@ func receive_damage(damage):
     """
     health -= damage
     if health <= 0:
-        emit_signal("monster_death", self)
+        die()
+
+func die():
+    """
+    Remove monster from play due to being kill by attack or ability.
+    """
+    player.on_monster_dead(self)
 
 func get_power(attacked):
     return advantage_behavior.get_power(attack, has_adv(attacked), has_disadv(attacked))

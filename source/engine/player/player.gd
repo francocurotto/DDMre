@@ -13,19 +13,19 @@ var dicepool
 var crestpool = CrestPool.new()
 var monsterlord = MonsterLord.new(self)
 var monsters = []
-var items = []
+var items = [] # unused?
+var graveyard = []
 var targets = [monsterlord]
 var tiles = []
 
 # signals
-signal monster_death(monster)
+signal monster_dead(monster)
 signal player_lost(player)
 
 func _init(_id, _dicepool):
     id = _id
     name = namedict[id]
     dicepool = _dicepool
-    monsterlord.connect("hearts_depleted", self, "on_hearts_depleted")
 
 # public functions
 func create_tile(i, j):
@@ -52,10 +52,10 @@ func summon_card(idx):
     dice.dimensioned = true
     return dicepool[idx].card.summon(self)
 
-# signals callback
-func on_monster_death(monster):
+func on_monster_dead(monster):
     monsters.erase(monster)
-    emit_signal("monster_death", monster)
+    graveyard.append(monster)
+    emit_signal("monster_dead", monster)
 
 func on_hearts_depleted():
     Events.emit_signal("player_lost", self)
