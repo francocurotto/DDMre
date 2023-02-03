@@ -20,7 +20,6 @@ var tiles = []
 
 # signals
 signal monster_dead(monster)
-signal player_lost(player)
 
 func _init(_id, _dicepool):
     id = _id

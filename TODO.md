@@ -22,45 +22,45 @@
 - ✅FLY
 - ✅ARCHER
 - ✅NEUTRAL
-- ❌DIMCURE
+- ❌DIMCURE (needs state/interface)
 - ✅DIMCUREALL
-- ❌DIMKILLWEAKEST
-- ❌DIMKILLTUNNEL
-- ❌DIMKILLTUNNELALL
+- ❌DIMKILLWEAKEST (needs opponent/state/interface)
+- ❌DIMKILLTUNNEL (needs opponent/state/interface)
+- ❌DIMKILLTUNNELALL (needs opponent/state/interface)
 - ✅DIMADDCREST
-- ❌DIMTRADECREST
-- ❌EXODIA
-- ❌DIMBUFFDEADTYPE
-- ❌STOPFLY
-- ❌STOPTUNNEL
-- ❌TURNSLOWTYPE
-- ❌BUFFTYPE
-- ❌PROTECTTYPE
+- ❌DIMTRADECREST (needs state/interface)
+- ❌EXODIA (needs opponent)
+- ❌DIMBUFFDEADTYPE (needs opponent)
+- ❌STOPFLY (needs global continuous)
+- ❌STOPTUNNEL (needs global continuous)
+- ❌TURNSLOWTYPE (needs global continuous)
+- ❌BUFFTYPE (needs global continuous)
+- ❌PROTECTTYPE (needs global contiuous)
 - ✅FROZEN
 - ✅MOVELIMIT
 - ✅RAISESPEED
-- ❌RAISEATTACK
-- ❌REDUCEDAMAGE
-- ❌REDUCEDAMAGEINF
-- ❌SHIFTDAMAGE
-- ❌PROTECTSELF
-- ❌ADDFOEDEFENSE
-- ❌KILLBLOCK
-- ❌DUNGRAISEATTACK
-- ❌BUFFSELF
-- ❌TRADEHEALTH
-- ❌STEALMONSTER
-- ❌MINDCONTROL
-- ❌ROLLLEVELKILL
-- ❌RANGELEVELKILL
-- ❌RANGEKILLALL
-- ❌DISTANCEATTACK
+- ❌RAISEATTACK (needs interface)
+- ❌REDUCEDAMAGE (needs interface)
+- ❌REDUCEDAMAGEINF (needs interface)
+- ❌SHIFTDAMAGE (needs interface)
+- ❌PROTECTSELF (needs interface)
+- ❌ADDFOEDEFENSE (needs interface)
+- ❌KILLBLOCK (needs interface)
+- ❌DUNGRAISEATTACK (needs interface)
+- ❌BUFFSELF (needs interface)
+- ❌TRADEHEALTH (needs interface)
+- ❌STEALMONSTER (needs interface)
+- ❌MINDCONTROL (needs interface)
+- ❌ROLLLEVELKILL (needs interface)
+- ❌RANGELEVELKILL (needs interface)
+- ❌RANGEKILLALL (needs interface)
+- ❌DISTANCEATTACK (needs interface)
 - ✅ITEMCURE
 - ✅ITEMDAMAGE
 - ✅TIMEMACHINE
 - ✅ITEMBUFF
 - ✅ITEMCRESTKILL
-- ❌MONSTERREBORN
+- ❌MONSTERREBORN (needs state/interface)
 - ✅BLACKHOLE
-- ❌GLUMINIZER
-- ❌WARPVORTEX
+- ❌GLUMINIZER (needs global continuous)
+- ❌WARPVORTEX (needs warp implementation/interface)

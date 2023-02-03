@@ -33,8 +33,6 @@ func _init(initpath:=Globals.DUNGPATH, _pool1:=Globals.POOL1PATH, _pool2:=Global
         dice.connect("rolled", player2.crestpool, "add_rolled_side")
     player1.connect("monster_dead", dungeon, "on_monster_dead")
     player2.connect("monster_dead", dungeon, "on_monster_dead")
-    player1.connect("player_lost", self, "on_player_lost")
-    player2.connect("player_lost", self, "on_player_lost")
 
 # public functions
 func update(cmd):

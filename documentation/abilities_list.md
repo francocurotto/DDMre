@@ -37,7 +37,7 @@ Pay COST crest(s) of one type. Add for one crest of any type in player crest poo
 Win the game if player controls "R Leg of Forbidden", "L Leg of Forbidden", "L Arm of Forbidden" and "R Arm of Forbidden". This ability cannot be skipped.
 
 ## DIMBUFFDEADTYPE (TYPE)
-For each dead monster of type TYPE, add the (original) attack and defense of the dead monster to monster. This ability cannot be skipped.
+For each dead monster of type TYPE (of both players), add the (original) attack and defense of the dead monster to monster. This ability cannot be skipped.
 
 # Continuous Abilities
 ## STOPFLY
