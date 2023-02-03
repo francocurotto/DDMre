@@ -1,7 +1,9 @@
 ### TODO
-- DIMBUFFDEADTYPE
-- EXODIA
 - GLUMINIZER
+- BUFFTYPE
+- STOPFLY
+- STOPTUNNEL
+- PROTECTTYPE
 - WARPVORTEX
 
 ### FIXES
@@ -17,7 +19,7 @@
 
 ### TEST
 
-### ABILITIES [15/46]
+### ABILITIES [17/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -29,8 +31,8 @@
 - ❌DIMKILLTUNNELALL (needs opponent/state/interface)
 - ✅DIMADDCREST
 - ❌DIMTRADECREST (needs state/interface)
-- ❌EXODIA (needs opponent)
-- ❌DIMBUFFDEADTYPE (needs opponent)
+- ✅EXODIA
+- ✅DIMBUFFDEADTYPE
 - ❌STOPFLY (needs global continuous)
 - ❌STOPTUNNEL (needs global continuous)
 - ❌TURNSLOWTYPE (needs global continuous)
