@@ -1,5 +1,4 @@
 ### TODO
-- add gluminizer tiles
 - BUFFTYPE
 - STOPFLY
 - STOPTUNNEL
