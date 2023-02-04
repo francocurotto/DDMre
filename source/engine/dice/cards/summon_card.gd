@@ -39,6 +39,7 @@ const TimeMachine = preload("res://engine/abilities/time_machine.gd")
 const ItemBuff = preload("res://engine/abilities/item_buff.gd")
 const ItemCrestKill = preload("res://engine/abilities/item_crest_kill.gd")
 const BlackHole = preload("res://engine/abilities/black_hole.gd")
+const Gluminizer = preload("res://engine/abilities/gluminizer.gd")
 const BaseAbility = preload("res://engine/abilities/base_ability.gd")
 func create_ability(ability_info):
     """
@@ -62,4 +63,5 @@ func create_ability(ability_info):
         "ITEMBUFF"        : return ItemBuff.new(ability_info)
         "ITEMCRESTKILL"   : return ItemCrestKill.new(ability_info)
         "BLACKHOLE"       : return BlackHole.new(ability_info)
+        "GLUMINIZER"      : return Gluminizer.new(ability_info)
         _                 : return BaseAbility.new(ability_info)

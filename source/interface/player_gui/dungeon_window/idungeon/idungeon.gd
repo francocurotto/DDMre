@@ -99,7 +99,7 @@ func on_tile_move_button_pressed(itile):
     var pos2 = itile.tile.pos
     var monster = selected_itile.tile.content
     var path = dungeon.get_movepath(pos1, pos2)
-    var move_cost = monster.get_move_cost(path)
+    var move_cost = dungeon.get_move_cost(path, monster)
     highlight_movement(pos1, pos2, path)
     move_menu.activate(pos1, pos2, move_cost, player)
     emit_signal("menu_opened")

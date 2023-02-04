@@ -19,7 +19,7 @@ var targets = [monsterlord]
 var tiles = []
 
 # signals
-signal monster_dead(monster)
+signal summon_dead(summon)
 
 func _init(_id, _dicepool):
     id = _id
@@ -52,9 +52,19 @@ func summon_card(idx):
     return dicepool[idx].card.summon(self)
 
 func on_monster_dead(monster):
+    """
+    Remove monster from list, add to graveyard, and alert dungeon for removal.
+    """
     monsters.erase(monster)
     graveyard.append(monster)
-    emit_signal("monster_dead", monster)
+    emit_signal("summon_dead", monster)
+
+func on_item_dead(item):
+    """
+    Remove item from list, and alert dungeon for removal.
+    """
+    items.erase(item)
+    emit_signal("summon_dead", item)
 
 func on_hearts_depleted():
     Events.emit_signal("player_lost", self)

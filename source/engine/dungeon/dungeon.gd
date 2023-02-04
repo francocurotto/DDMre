@@ -10,6 +10,7 @@ const WIDTH = 13
 
 # variables
 var array = []
+var move_cost = 1
 
 func _init():
     for i in range(HEIGHT):
@@ -57,8 +58,8 @@ func get_moveposs(player, initpos):
     # needed varaibles
     var poslist = [initpos]
     var movequeue = []
-    var movecrests = player.crestpool.slots["MOVEMENT"]
-    var maxtiles = min(int(movecrests * monster.speed), monster.max_move)
+    var move_crests = player.crestpool.slots["MOVEMENT"]
+    var max_tiles = get_max_tiles(move_crests, monster)
 
     # init queue, use dictionary to mix positions and move counter
     movequeue.append({pos=initpos,count=0})
@@ -71,7 +72,7 @@ func get_moveposs(player, initpos):
         var count = moveitem.count
         # if count for next pos will surpass move crest, skip pos
         var newcount = count + 1
-        if newcount > maxtiles:
+        if newcount > max_tiles:
             continue
         # check if tile is passable or is initial position
         if get_tile(pos).is_passable(monster) or pos==initpos:
@@ -134,6 +135,14 @@ func get_attackposs(player, pos):
             attackposs.append(neigpos)
     return attackposs
 
+func get_move_cost(path, monster):
+    """
+    Get movement const of monster moving through path. It takes into account:
+    - monster speed possibly modified by abilities
+    - dungeon move cost possibly modified by item abilities
+    """
+    return int(monster.get_move_cost(path) * move_cost)
+
 # public functions
 func place_path_tile(player, pos):
     """
@@ -150,6 +159,7 @@ func dimension(player, net, diceidx):
         place_path_tile(player, pos)
     var summon = player.summon_card(diceidx)
     array[net.centerpos.y][net.centerpos.x].set_content(summon)
+    summon.activate_on_summon_abilities()
 
 func can_dimension(net, player):
     """
@@ -159,11 +169,12 @@ func can_dimension(net, player):
     return net_inbound(net) and net_not_overlaps(net) and net_connects(net, player)
 
 # signals callback
-func on_monster_dead(monster):
+func on_summon_dead(summon):
     """
-    When a monster dies, remove monster from dungeon.
+    When a summon dies (monster is killed of item deactivate itself), 
+    remove summon from dungeon.
     """
-    var pos = get_dungobj_pos(monster)
+    var pos = get_dungobj_pos(summon)
     get_tile(pos).empty_tile()
 
 # private functions
@@ -238,3 +249,14 @@ func net_connects(net, player):
             if tile.is_path() and tile.player == player:
                 return true
     return false
+
+func get_max_tiles(move_crests, monster):
+    """
+    Computes the maximum number of tiles a monster can move. 
+    It takes into account:
+    - number of move crests
+    - monster speed possibly modified by abilities
+    - monster maximum movement crests possibly modified by abilities
+    - dungeon move cost possibly modified by item abilities
+    """
+    return min(int(monster.get_max_tiles(move_crests) / move_cost), monster.max_move)

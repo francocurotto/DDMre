@@ -88,7 +88,7 @@ func perform_movement(tile1, tile2, path):
     # make the movement
     tile2.move_content_from(tile1)
     # pay the cost of the movement
-    player.crestpool.slots["MOVEMENT"] -= monster.get_move_cost(path)
+    player.crestpool.slots["MOVEMENT"] -= dungeon.get_move_cost(path, monster)
     # activate item if necessary
     if dest_content.is_item():
         dest_content.activate(monster, dungeon)

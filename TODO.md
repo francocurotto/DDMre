@@ -1,5 +1,5 @@
 ### TODO
-- GLUMINIZER
+- add gluminizer tiles
 - BUFFTYPE
 - STOPFLY
 - STOPTUNNEL
@@ -19,7 +19,7 @@
 
 ### TEST
 
-### ABILITIES [17/46]
+### ABILITIES [18/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -64,5 +64,5 @@
 - ✅ITEMCRESTKILL
 - ❌MONSTERREBORN (needs state/interface)
 - ✅BLACKHOLE
-- ❌GLUMINIZER (needs global continuous)
+- ✅GLUMINIZER
 - ❌WARPVORTEX (needs warp implementation/interface)

@@ -31,8 +31,8 @@ func _init(initpath:=Globals.DUNGPATH, _pool1:=Globals.POOL1PATH, _pool2:=Global
         dice.connect("rolled", player1.crestpool, "add_rolled_side")
     for dice in player2.dicepool:
         dice.connect("rolled", player2.crestpool, "add_rolled_side")
-    player1.connect("monster_dead", dungeon, "on_monster_dead")
-    player2.connect("monster_dead", dungeon, "on_monster_dead")
+    player1.connect("summon_dead", dungeon, "on_summon_dead")
+    player2.connect("summon_dead", dungeon, "on_summon_dead")
 
 # public functions
 func update(cmd):
@@ -78,6 +78,7 @@ func set_initsummons(player, summonlist):
         var summon = player.summon_card(idx)
         dungeon.array[pos.y][pos.x].set_content(summon)
         summon.last_pos = pos # used for TimeMachine ability
+        summon.activate_on_summon_abilities()
 
 func set_initcrests(player, crests):
     """
