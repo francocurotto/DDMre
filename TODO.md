@@ -1,4 +1,5 @@
 ### TODO
+- document gluminizer difference
 - BUFFTYPE
 - STOPFLY
 - STOPTUNNEL
@@ -23,13 +24,13 @@
 - ✅FLY
 - ✅ARCHER
 - ✅NEUTRAL
-- ❌DIMCURE (needs state/interface)
+- ❌DIMCURE (1)
 - ✅DIMCUREALL
-- ❌DIMKILLWEAKEST (needs opponent/state/interface)
-- ❌DIMKILLTUNNEL (needs opponent/state/interface)
-- ❌DIMKILLTUNNELALL (needs opponent/state/interface)
+- ❌DIMKILLWEAKEST (1)
+- ❌DIMKILLTUNNEL (1)
+- ❌DIMKILLTUNNELALL (1)
 - ✅DIMADDCREST
-- ❌DIMTRADECREST (needs state/interface)
+- ❌DIMTRADECREST (3)
 - ✅EXODIA
 - ✅DIMBUFFDEADTYPE
 - ❌STOPFLY (needs global continuous)
@@ -40,28 +41,28 @@
 - ✅FROZEN
 - ✅MOVELIMIT
 - ✅RAISESPEED
-- ❌RAISEATTACK (needs interface)
-- ❌REDUCEDAMAGE (needs interface)
-- ❌REDUCEDAMAGEINF (needs interface)
-- ❌SHIFTDAMAGE (needs interface)
-- ❌PROTECTSELF (needs interface)
-- ❌ADDFOEDEFENSE (needs interface)
-- ❌KILLBLOCK (needs interface)
-- ❌DUNGRAISEATTACK (needs interface)
-- ❌BUFFSELF (needs interface)
-- ❌TRADEHEALTH (needs interface)
-- ❌STEALMONSTER (needs interface)
-- ❌MINDCONTROL (needs interface)
-- ❌ROLLLEVELKILL (needs interface)
-- ❌RANGELEVELKILL (needs interface)
-- ❌RANGEKILLALL (needs interface)
-- ❌DISTANCEATTACK (needs interface)
+- ❌RAISEATTACK (2)
+- ❌REDUCEDAMAGE (2)
+- ❌REDUCEDAMAGEINF (3)
+- ❌SHIFTDAMAGE (3)
+- ❌PROTECTSELF (2)
+- ❌ADDFOEDEFENSE (1)
+- ❌KILLBLOCK (1)
+- ❌DUNGRAISEATTACK (1)
+- ❌BUFFSELF (1)
+- ❌TRADEHEALTH (3)
+- ❌STEALMONSTER (1)
+- ❌MINDCONTROL (1)
+- ❌ROLLLEVELKILL (1)
+- ❌RANGELEVELKILL (1)
+- ❌RANGEKILLALL (1)
+- ❌DISTANCEATTACK (1)
 - ✅ITEMCURE
 - ✅ITEMDAMAGE
 - ✅TIMEMACHINE
 - ✅ITEMBUFF
 - ✅ITEMCRESTKILL
-- ❌MONSTERREBORN (needs state/interface)
+- ❌MONSTERREBORN (4)
 - ✅BLACKHOLE
 - ✅GLUMINIZER
-- ❌WARPVORTEX (needs warp implementation/interface)
+- ❌WARPVORTEX (1)
