@@ -1,5 +1,4 @@
 ### TODO
-- add monsters and items arrays to dungeon?
 - BUFFTYPE
 - STOPFLY
 - STOPTUNNEL
@@ -10,6 +9,7 @@
 - fix dim buttons active while net select?
 
 ### IMPROVEMENTS
+- add monsters and items arrays to dungeon?
 - make summon actions and dim transformations menus popable in dungeon?
 
 ### REFACTOR

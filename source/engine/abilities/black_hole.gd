@@ -8,7 +8,5 @@ func activate(_monster, dungeon):
     for row in dungeon.array:
         for tile in row:
             var dungobj = tile.content
-            if dungobj.is_monster(): # TODO: change for vortex?
+            if dungobj.summon(): # TODO: change for vortex?
                 dungobj.die()
-            elif dungobj.is_item():
-                tile.empty_tile()
