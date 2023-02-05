@@ -24,4 +24,4 @@ I first got captivated by Dungeon Dice Monsters when I saw it in the anime. I th
 
 So this always made me wonder what would it be if this game had been implemented today, with better playability and modern features. But Konami hasn't touch this game since then, so I decided to take the matter into my own hand. I don't know how far I'll be able to get, but at least I can try.
 
-[^1]: I even remember I would self-impose rules to handicap myself and make the game more interesting, like only allowing me to summon monster levels 3 and 4. Unfortunately this only made the game longer not harder. 
+[^1]: I even remember I would self-impose rules to handicap myself and make the game more interesting, like only allowing me to summon monster levels 3 and 4. Unfortunately this only made the game longer, not harder. 
