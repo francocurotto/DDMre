@@ -7,5 +7,5 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func on_summon(monster):
+func on_summon(monster, _dungeon):
     monster.advantage_behavior = AdvantageBehaviorNeutral.new()

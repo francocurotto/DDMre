@@ -78,7 +78,7 @@ func set_initsummons(player, summonlist):
         var summon = player.summon_card(idx)
         dungeon.array[pos.y][pos.x].set_content(summon)
         summon.last_pos = pos # used for TimeMachine ability
-        summon.activate_on_summon_abilities()
+        summon.activate_on_summon_abilities(dungeon)
 
 func set_initcrests(player, crests):
     """

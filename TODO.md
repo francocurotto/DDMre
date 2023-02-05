@@ -1,5 +1,5 @@
 ### TODO
-- document gluminizer difference
+- add monsters and items arrays to dungeon?
 - BUFFTYPE
 - STOPFLY
 - STOPTUNNEL

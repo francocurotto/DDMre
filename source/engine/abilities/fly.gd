@@ -8,7 +8,7 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func on_summon(monster):
+func on_summon(monster, _dungeon):
     monster.pass_behavior = PassBehaviorFly.new()
     monster.target_behavior = TargetBehaviorFly.new(monster.player)
     monster.speed = 0.5

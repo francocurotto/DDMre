@@ -159,7 +159,7 @@ func dimension(player, net, diceidx):
         place_path_tile(player, pos)
     var summon = player.summon_card(diceidx)
     array[net.centerpos.y][net.centerpos.x].set_content(summon)
-    summon.activate_on_summon_abilities()
+    summon.activate_on_summon_abilities(self)
 
 func can_dimension(net, player):
     """

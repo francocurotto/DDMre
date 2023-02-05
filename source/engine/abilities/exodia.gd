@@ -4,7 +4,7 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func on_summon(monster):
+func on_summon(monster, _dungeon):
     var r_leg = false
     var l_leg = false
     var r_arm = false

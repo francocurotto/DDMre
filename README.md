@@ -15,6 +15,9 @@
 
 # Differences with the original (GBA) game and this
 - In the original, block tiles not only block their positions but also their neighbour positions (up, down, left right). In this implementation, a block tile will only block its actual position.
+- In the original, movement cost is computed by dividing monster speed as float then multiplying dungeon move cost as float and then rounding to the highest int. For simplicity, in this implementation the cost is converted to int both after dividing the speed and multiplying the move cost. This difference is only relevant when combining a moster with higher speed and the gluminizer ability. For example for a monster with speed 3 and the gluminizer ability (move cost 2) the total movement cost is:
+    - original costs per tile: 1,2,2,3,4,4,5,6,6...
+    - new costs per tile: 2,2,2,4,4,4,6,6,6...
 
 # Why?
 I first got captivated by Dungeon Dice Monsters when I saw it in the anime. I thought that the mechanics and complexity of the game made it even more interesting than the original card game. When I learned about the GBA game, I knew I had to try it. Unfortunately, the game is really held back by the terrible AI programming of the opponents: stupid dimension positions, nonsensical monster movements, failed attempts to defend the monster lord, etc. I would argue the AI is so bad that is even harder to lose intentionally to your opponent than to beat them[^1].

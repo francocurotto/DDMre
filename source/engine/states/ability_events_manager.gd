@@ -12,7 +12,6 @@ func _init(_player, _opponent, _dungeon):
     # signals connections
     AbilityEvents.connect("dim_buff_dead_type_activated", self, "on_dim_buff_type_activated")
     AbilityEvents.connect("exodia_activated", self, "on_exodia_activated")
-    AbilityEvents.connect("gluminizer_activated", self, "on_gluminizer_activated")
 
 # private functions
 func on_dim_buff_type_activated(monster, type):
@@ -28,6 +27,3 @@ func on_dim_buff_type_activated(monster, type):
 
 func on_exodia_activated():
     Events.emit_signal("player_lost", opponent)
-
-func on_gluminizer_activated():
-    dungeon.move_cost = 2

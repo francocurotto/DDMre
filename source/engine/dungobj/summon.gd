@@ -8,9 +8,9 @@ func _init(_card, _player).(_player):
     card = _card
 
 # public function
-func activate_on_summon_abilities():
+func activate_on_summon_abilities(dungeon):
     for ability in card.abilities:
-        ability.on_summon(self)
+        ability.on_summon(self, dungeon)
 
 func has_ability(name):
     for ability in card.abilities:
