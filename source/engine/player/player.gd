@@ -15,7 +15,7 @@ var monsterlord = MonsterLord.new(self)
 var monsters = []
 var items = [] # unused?
 var graveyard = []
-var targets = [monsterlord]
+var targets = [monsterlord] # unused?
 var tiles = []
 
 # signals
@@ -49,7 +49,9 @@ func summon_card(idx):
     """
     var dice = dicepool[idx]
     dice.dimensioned = true
-    return dicepool[idx].card.summon(self)
+    var summon = dicepool[idx].card.summon(self)
+    Events.emit_signal("card_summoned", summon)
+    return summon
 
 func on_monster_dead(monster):
     """

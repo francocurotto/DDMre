@@ -10,8 +10,10 @@ const WIDTH = 13
 
 # variables
 var array = []
-var tiles setget , get_tiles
 var move_cost = 1
+var tiles setget , get_tiles
+var monsters setget , get_monsters
+var summons setget , get_summons
 
 func _init():
     for i in range(HEIGHT):
@@ -45,6 +47,26 @@ func get_tiles():
     for row in array:
         tile_array += row
     return tile_array
+
+func get_monsters():
+    """
+    Get all monsters in dungeon.
+    """
+    var monster_array = []
+    for tile in self.tiles:
+        if tile.content.is_monster():
+            monster_array.append(tile.content)
+    return monster_array
+
+func get_summons():
+    """
+    Get all summons in dungeon.
+    """
+    var summon_array = []
+    for tile in self.tiles:
+        if tile.content.is_summon():
+            summon_array.append(tile.content)
+    return summon_array
 
 func get_dungobj_pos(dungobj):
     """
@@ -185,6 +207,7 @@ func on_summon_dead(summon):
     """
     var pos = get_dungobj_pos(summon)
     get_tile(pos).empty_tile()
+    summon.negate_abilities(self)
 
 # private functions
 func create_tile(engine, chr, i, j):

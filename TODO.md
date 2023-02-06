@@ -1,5 +1,4 @@
 ### TODO
-- BUFFTYPE
 - STOPFLY
 - STOPTUNNEL
 - PROTECTTYPE
@@ -19,7 +18,7 @@
 
 ### TEST
 
-### ABILITIES [18/46]
+### ABILITIES [19/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -36,7 +35,7 @@
 - ❌STOPFLY (needs global continuous)
 - ❌STOPTUNNEL (needs global continuous)
 - ❌TURNSLOWTYPE (needs global continuous)
-- ❌BUFFTYPE (needs global continuous)
+- ✅BUFFTYPE
 - ❌PROTECTTYPE (needs global contiuous)
 - ✅FROZEN
 - ✅MOVELIMIT

@@ -18,6 +18,10 @@ func has_ability(name):
             return true
     return false
 
+func negate_abilities(dungeon):
+    for ability in card.abilities:
+        ability.negate(self, dungeon)
+
 # is functions
 func is_summon():
     return true

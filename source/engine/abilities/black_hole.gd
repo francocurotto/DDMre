@@ -5,7 +5,5 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func activate(_monster, dungeon):
-    for tile in dungeon.tiles:
-        var dungobj = tile.content
-        if dungobj.is_summon():
-            dungobj.die()
+    for summon in dungeon.summons:
+            summon.die()

@@ -86,10 +86,16 @@ func attack_monster_lord(ml):
 
 func buff_attr(attr, amount):
     """
-    Buff mosnter attribute attr by amount.
+    Buff monster attribute attr by amount.
     """
     set(attr, get(attr) + amount)
 
+func debuff_attr(attr, amount):
+    """
+    Debuff monster attribute attr by amount.
+    """
+    set(attr, max(get(attr) - amount, 0))
+    
 func restore_health(amount):
     """
     Restore monster health by amount.
