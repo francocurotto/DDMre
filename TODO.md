@@ -1,6 +1,7 @@
 ### TODO
 - add monsters, items, and summons to dungeon
 - BUFFTYPE
+- TURNSLOWTYPE
 - STOPFLY
 - STOPTUNNEL
 - PROTECTTYPE
