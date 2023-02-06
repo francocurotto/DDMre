@@ -1,4 +1,5 @@
 ### TODO
+- add monsters, items, and summons to dungeon
 - BUFFTYPE
 - STOPFLY
 - STOPTUNNEL
