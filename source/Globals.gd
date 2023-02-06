@@ -3,12 +3,12 @@ extends Node
 
 # filepath
 const LIBPATH = "res://LIBRARY.json"
-#const DUNGPATH = "res://dungeons/default.json"
+const DUNGPATH = "res://dungeons/default.json"
 #const DUNGPATH = "res://dungeons/test_pass.json"
 #const DUNGPATH = "res://dungeons/test_target.json"
 #const DUNGPATH = "res://dungeons/test_power.json"
 #const DUNGPATH = "res://dungeons/test_move.json"
-const DUNGPATH = "res://dungeons/test_items.json"
+#const DUNGPATH = "res://dungeons/test_items.json"
 #const DUNGPATH = "res://dungeons/test_dim_abilities.json"
 #const DUNGPATH = "res://dungeons/test_dim_buff_dead_type.json"
 #const DUNGPATH = "res://dungeons/test_exodia.json"
@@ -18,10 +18,11 @@ const RANDOMPOOL = false
 #const POOL1PATH = "res://dicepools/test_target.json";const POOL2PATH = "res://dicepools/test_target.json"
 #const POOL1PATH = "res://dicepools/test_power.json";const POOL2PATH = "res://dicepools/test_power.json"
 #const POOL1PATH = "res://dicepools/test_move.json";const POOL2PATH = "res://dicepools/test_move.json"
-const POOL1PATH = "res://dicepools/test_items.json";const POOL2PATH = "res://dicepools/test_items.json"
+#const POOL1PATH = "res://dicepools/test_items.json";const POOL2PATH = "res://dicepools/test_items.json"
 #const POOL1PATH = "res://dicepools/test_dim_abilities.json";const POOL2PATH = "res://dicepools/test_dim_abilities.json"
 #const POOL1PATH = "res://dicepools/test_dim_buff_dead_type.json";const POOL2PATH = "res://dicepools/test_dim_buff_dead_type.json"
 #const POOL1PATH = "res://dicepools/test_exodia.json";const POOL2PATH = "res://dicepools/test_exodia.json"
+const POOL1PATH = "res://dicepools/test_bufftype.json";const POOL2PATH = "res://dicepools/test_bufftype.json"
 
 # arrays, dictionaries
 const CRESTS = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]

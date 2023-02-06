@@ -5,8 +5,7 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func activate(_monster, dungeon):
-    for row in dungeon.array:
-        for tile in row:
-            var dungobj = tile.content
-            if dungobj.is_summon(): # TODO: change for vortex?
-                dungobj.die()
+    for tile in dungeon.tiles:
+        var dungobj = tile.content
+        if dungobj.is_summon():
+            dungobj.die()

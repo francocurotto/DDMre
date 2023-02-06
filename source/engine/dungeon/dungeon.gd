@@ -10,6 +10,7 @@ const WIDTH = 13
 
 # variables
 var array = []
+var tiles setget , get_tiles
 var move_cost = 1
 
 func _init():
@@ -36,14 +37,22 @@ func get_tile(pos):
     """
     return array[pos.y][pos.x]
 
+func get_tiles():
+    """
+    Get an 1D array of tiles.
+    """
+    var tile_array = []
+    for row in array:
+        tile_array += row
+    return tile_array
+
 func get_dungobj_pos(dungobj):
     """
     Finds the position of a dungobj in the dungeon.
     """
-    for row in array:
-        for tile in row:
-            if tile.content == dungobj:
-                return tile.pos
+    for tile in self.tiles:
+        if tile.content == dungobj:
+            return tile.pos
 
 func get_moveposs(player, initpos):
     """
