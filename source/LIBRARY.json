@@ -862,7 +862,7 @@
     "HEALTH": 10,
     "ABILITY": [{"NAME": "BUFFTYPE",
                  "TYPE": "SPELLCASTER",
-                 "ATTR": "DEFENSE",
+                 "ATTR": "ATTACK",
                  "AMOUNT": 10}],
     "CRESTS": "SSSSGG"
   },
