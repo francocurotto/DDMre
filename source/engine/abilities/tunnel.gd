@@ -9,3 +9,6 @@ func _init(ability_dict).(ability_dict):
 # public functions
 func on_summon(monster, _dungeon):
     monster.pass_behavior = PassBehaviorTunnel.new()
+
+func negate(_monster, _dungeon):
+    pass
