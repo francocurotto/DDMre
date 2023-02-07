@@ -20,7 +20,7 @@ Allows monster to move through other non-flying monsters, from player or opponen
 Allows monster to attack monsters with FLY ability.
 
 ## NEUTRAL
-Negates the effect of type advantages and disadvantages during attacks.
+Negates the effect of type advantages and disadvantages during attacks, when attacking and being attacked.
 
 # Wrap Vortex
 Monsters can move through or be in the same location of a warp vortex. One monster can move to any vortex freely on command, as long as there is no other monster in that location.

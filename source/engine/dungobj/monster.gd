@@ -122,13 +122,14 @@ func die():
     """
     Remove monster from play due to being kill by attack or ability.
     """
+    negate_abilities()
     player.on_monster_dead(self)
 
 func get_power(attacked):
     """
     Get the power when monster attacks attacked.
     """
-    return advantage_behavior.get_power(attack, has_adv(attacked), has_disadv(attacked))
+    return advantage_behavior.get_power(attack, attacked, has_adv(attacked), has_disadv(attacked))
 
 func has_adv(_attacked):
     """
@@ -178,4 +179,7 @@ func is_monster():
     return true
 
 func is_flying():
-    return has_ability("FLY")
+    for ability in card.abilities:
+        if ability.name == "FLY" and not ability.is_negated():
+            return true
+    return false

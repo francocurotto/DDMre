@@ -23,6 +23,7 @@ func _init(initpath:=Globals.DUNGPATH, _pool1:=Globals.POOL1PATH, _pool2:=Global
     else:
         player1 = Player.new(1, dicelib.create_dicepool(_pool1))
         player2 = Player.new(2, dicelib.create_dicepool(_pool2))
+    add_opponent_reference()
     dungeon = Dungeon.new()
     state = RollState.new(player1, player2, dungeon)
     set_initstate(initpath)
@@ -52,6 +53,13 @@ func update(cmd):
         Events.emit_signal("next_turn", turn)
 
 # private functions
+func add_opponent_reference():
+    """
+    Add opponent reference to players.
+    """
+    player1.opponent = player2
+    player2.opponent = player1
+    
 func set_initstate(initpath):
     """
     Set the initial state of the duel, which includes: dungeon layout,

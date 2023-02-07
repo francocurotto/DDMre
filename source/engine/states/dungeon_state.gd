@@ -91,7 +91,7 @@ func perform_movement(tile1, tile2, path):
     player.crestpool.slots["MOVEMENT"] -= dungeon.get_move_cost(path, monster)
     # activate item if necessary
     if dest_content.is_item():
-        dest_content.activate(monster, dungeon)
+        dest_content.activate(monster)
     monster.last_pos = dungeon.get_dungobj_pos(monster) # used for TimeMachine ability
     monster.turn_move_count += len(path)-1 # used for MoveLimit ability
     # emit duel update signal

@@ -9,6 +9,7 @@ const namedict = {1: "BLUE", 2: "RED"}
 # variables
 var id
 var name
+var opponent
 var dicepool
 var crestpool = CrestPool.new()
 var monsterlord = MonsterLord.new(self)

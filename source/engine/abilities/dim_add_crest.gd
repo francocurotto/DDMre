@@ -9,5 +9,5 @@ func _init(ability_dict).(ability_dict):
     amount = ability_dict["AMOUNT"]
 
 # public functions
-func on_summon(monster, _dungeon):
-    monster.player.crestpool.add_crests(crest, amount)
+func summon_activate():
+    summon.player.crestpool.add_crests(crest, amount)

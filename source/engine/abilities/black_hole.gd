@@ -4,6 +4,6 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func activate(_monster, dungeon):
-    for summon in dungeon.summons:
-            summon.die()
+func item_activate(_monster):
+    for dungeon_summon in dungeon.summons:
+            dungeon_summon.die()

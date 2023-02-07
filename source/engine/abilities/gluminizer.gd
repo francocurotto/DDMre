@@ -4,9 +4,7 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func on_summon(item, dungeon):
+func summon_activate():
     dungeon.move_cost = 2
-    item.die()
+    summon.die()
 
-func activate(_monster, _dungeon):
-    pass

@@ -9,5 +9,5 @@ func _init(ability_dict).(ability_dict):
     amount = ability_dict["AMOUNT"]
 
 # public functions
-func activate(monster, _dungeon):
+func item_activate(monster):
     monster.player.crestpool.remove_crests(crest, amount)

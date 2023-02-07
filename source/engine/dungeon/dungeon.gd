@@ -207,7 +207,6 @@ func on_summon_dead(summon):
     """
     var pos = get_dungobj_pos(summon)
     get_tile(pos).empty_tile()
-    summon.negate_abilities(self)
 
 # private functions
 func create_tile(engine, chr, i, j):

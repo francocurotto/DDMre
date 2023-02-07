@@ -7,5 +7,13 @@ func _init(ability_dict).(ability_dict):
     type = ability_dict["TYPE"]
 
 # public functions
-func on_summon(monster, _dungeon):
-    AbilityEvents.emit_signal("dim_buff_dead_type_activated", monster, type)
+func summon_activate():
+    var attack_buff = 0
+    var defense_buff = 0
+    var total_graveyard = summon.player.graveyard + summon.player.opponent.graveyard
+    for dead_monster in total_graveyard:
+        if dead_monster.NAME == type:
+            attack_buff += dead_monster.card.attack
+            defense_buff += dead_monster.card.defense
+    summon.attack += attack_buff
+    summon.defense += defense_buff

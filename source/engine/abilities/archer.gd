@@ -7,5 +7,5 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func on_summon(monster, _dungeon):
-    monster.target_behavior = TargetBehaviorFly.new(monster.player)
+func summon_activate():
+    summon.target_behavior = TargetBehaviorFly.new(summon.player)

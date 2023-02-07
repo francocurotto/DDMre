@@ -15,9 +15,9 @@ func summon(player):
     player.items.append(item)
     return item
 
-func activate(monster, dungeon):
+func activate(monster):
     for ability in abilities:
-        ability.activate(monster, dungeon)
+        ability.item_activate(monster)
 
 # is functions
 func is_item():
