@@ -40,7 +40,7 @@ func item_activate(_monster):
 func on_new_summon(_summon):
     pass
 
-func on_new_turn(_player, _turn):
+func on_next_turn(_player, _turn):
     pass
 
 func deactivate():
