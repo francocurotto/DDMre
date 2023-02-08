@@ -17,7 +17,7 @@
 
 ### TEST
 
-### ABILITIES [21/46]
+### ABILITIES [22/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -35,7 +35,7 @@
 - ✅STOPTUNNEL
 - ❌TURNSLOWTYPE (needs global continuous)
 - ✅BUFFTYPE
-- ❌PROTECTTYPE (needs global contiuous)
+- ✅PROTECTTYPE
 - ✅FROZEN
 - ✅MOVELIMIT
 - ✅RAISESPEED

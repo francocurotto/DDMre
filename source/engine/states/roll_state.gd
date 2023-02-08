@@ -12,9 +12,9 @@ func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     # reset player monster cooldown
     for monster in player.monsters:
         monster.cooldown = false
-    # reset monster max move count (for MoveLimit ability)
+    # reset monster turn move count
     for monster in player.monsters:
-        monster.turn_move_count = 0
+        monster.max_move_behavior.reset_turn_move_count()
     
 
 # public functions

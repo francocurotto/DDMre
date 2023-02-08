@@ -92,8 +92,8 @@ func perform_movement(tile1, tile2, path):
     # activate item if necessary
     if dest_content.is_item():
         dest_content.activate(monster)
+    monster.max_move_behavior.update_turn_move_count(len(path)-1)
     monster.last_pos = dungeon.get_dungobj_pos(monster) # used for TimeMachine ability
-    monster.turn_move_count += len(path)-1 # used for MoveLimit ability
     # emit duel update signal
     Events.emit_signal("duel_update")
 

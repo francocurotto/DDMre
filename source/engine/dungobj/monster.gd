@@ -4,6 +4,8 @@ extends "summon.gd"
 const PassBehaviorBase = preload("res://engine/dungobj/behaviors/pass_behavior_base.gd")
 const TargetBehaviorBase = preload("res://engine/dungobj/behaviors/target_behavior_base.gd")
 const AdvantageBehaviorBase = preload("res://engine/dungobj/behaviors/advantage_behavior_base.gd")
+const DamageBehaviorBase = preload("res://engine/dungobj/behaviors/damage_behavior_base.gd")
+const MaxMoveBehaviorBase = preload("res://engine/dungobj/behaviors/max_move_behavior_base.gd")
 
 # variables
 var attack
@@ -11,14 +13,14 @@ var defense
 var health
 var cooldown = false
 var speed = 1
-var turn_move_limit = INF
-var turn_move_count = 0
 var max_move setget , get_max_move
 
 # behaviors (automatic abilities)
 var pass_behavior
 var target_behavior
 var advantage_behavior
+var damage_behavior
+var max_move_behavior
 
 func _init(_card, _player).(_card, _player):
     attack = card.attack
@@ -28,13 +30,15 @@ func _init(_card, _player).(_card, _player):
     pass_behavior = PassBehaviorBase.new()
     target_behavior = TargetBehaviorBase.new(player)
     advantage_behavior = AdvantageBehaviorBase.new()
+    damage_behavior = DamageBehaviorBase.new()
+    max_move_behavior = MaxMoveBehaviorBase.new()
 
 # setget functions
 func get_max_move():
     """
     Get max movement allowed by abilities.
     """
-    return turn_move_limit - turn_move_count
+    return max_move_behavior.get_max_move()
 
 # public functions
 func get_move_cost(path):
@@ -114,7 +118,7 @@ func receive_damage(damage):
     """
     Receive damage from an attack or ability.
     """
-    health -= damage
+    health -= damage_behavior.get_inflicted_damage(damage)
     if health <= 0:
         die()
 

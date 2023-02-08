@@ -50,7 +50,7 @@ func update(cmd):
         Events.emit_signal("state_update", state.NAME)
     if next_turn:
         turn += 1
-        Events.emit_signal("next_turn", turn)
+        Events.emit_signal("next_turn", state.player, turn)
 
 # private functions
 func add_opponent_reference():

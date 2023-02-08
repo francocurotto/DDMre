@@ -8,4 +8,4 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func summon_activate():
-    summon.turn_move_limit = limit
+    summon.max_move_behavior.add_limit(limit)
