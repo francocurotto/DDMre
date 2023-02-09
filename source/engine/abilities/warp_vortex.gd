@@ -5,8 +5,6 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func summon_activate():
-    var pos = dungeon.get_dungobj_pos(summon)
-    var tile = dungeon.get_tile(pos)
+    summon.tile.vortex = true
     summon.die()
-    tile.vortex = true
 

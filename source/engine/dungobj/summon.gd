@@ -2,7 +2,6 @@ extends "playerobj.gd"
 
 # variables
 var card
-var last_pos # used for TimeMachine ability
 
 func _init(_card, _player).(_player):
     card = _card

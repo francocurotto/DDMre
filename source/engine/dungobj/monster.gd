@@ -14,6 +14,7 @@ var health
 var cooldown = false
 var speed = 1
 var max_move setget , get_max_move
+var previous_tile = null
 
 # behaviors (automatic abilities)
 var pass_behavior

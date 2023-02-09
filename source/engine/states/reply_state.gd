@@ -29,14 +29,3 @@ func WAIT(_cmd):
     attacker.attack_monster(attacked, false)
     Events.emit_signal("duel_update")
     return DungeonState.new(opponent, player, dungeon)
-
-#TOOD: remove?
-#func get_monsters_poss():
-#    """
-#    Returns the positions of the attaker and the attacked monsters in an
-#    array.
-#    """
-#    var poss = []
-#    poss.append(dungeon.get_dungobj_pos(attacker))
-#    poss.append(dungeon.get_dungobj_pos(attacked))
-#    return poss

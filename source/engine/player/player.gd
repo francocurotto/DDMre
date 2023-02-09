@@ -41,7 +41,7 @@ func create_ml_tile(i, j):
     Create a path tile with the player's monster lord as content.
     """
     var tile = create_tile(i, j)
-    tile.content = monsterlord
+    tile.set_content(monsterlord)
     return tile
 
 func summon_card(idx):

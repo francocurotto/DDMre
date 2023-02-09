@@ -83,9 +83,7 @@ func open_reply_menu(attacker, attacked):
     reply_menu.activate(attacker, attacked)
 
 func highlight_attack_reply(attacker, attacked):
-    var pos1 = dungeon.get_dungobj_pos(attacker)
-    var pos2 = dungeon.get_dungobj_pos(attacked)
-    highlight_attack(pos1, pos2)
+    highlight_attack(attacker.tile.pos, attacked.tile.pos)
 
 # signals callbacks
 func on_tile_select_button_toggled(itile, pressed):

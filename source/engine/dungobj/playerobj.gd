@@ -2,6 +2,7 @@ extends "dungobj.gd"
 
 # variables
 var player
+var tile
 
 func _init(_player):
     player = _player

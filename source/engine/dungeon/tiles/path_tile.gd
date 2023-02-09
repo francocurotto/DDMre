@@ -12,6 +12,7 @@ func _init(_y, _x, _player).(_y, _x):
 # setget functions
 func set_content(dungobj):
     content = dungobj
+    content.tile = self
 
 func get_content():
     return content
@@ -30,6 +31,9 @@ func move_content_from(original_tile):
     """
     content = original_tile.content
     original_tile.empty_tile()
+    # update dungobj tile references
+    content.tile = self
+    content.previous_tile = original_tile
 
 # is functions
 func is_path():

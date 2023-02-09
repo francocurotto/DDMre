@@ -16,8 +16,7 @@ digraph "engine" {
     {node [shape=note] Same [label="same as player"]} 
     Opponent -> Same 
     Dungeon -> Tiles
-    Tiles -> ML
-    Tiles -> Summons
+    Tiles -> {ML, Summons} [dir=both, color=blue]
     Tiles -> Player [color=gray]
     Tiles -> Opponent[color=gray, label="one\nof\ntwo"]
 }

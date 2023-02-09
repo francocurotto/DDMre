@@ -68,14 +68,6 @@ func get_summons():
             summon_array.append(tile.content)
     return summon_array
 
-func get_dungobj_pos(dungobj):
-    """
-    Finds the position of a dungobj in the dungeon.
-    """
-    for tile in self.tiles:
-        if tile.content == dungobj:
-            return tile.pos
-
 func get_moveposs(player, initpos):
     """
     Get all the posible positions a monster at position initpos could reach or
@@ -205,8 +197,7 @@ func on_summon_dead(summon):
     When a summon dies (monster is killed of item deactivate itself), 
     remove summon from dungeon.
     """
-    var pos = get_dungobj_pos(summon)
-    get_tile(pos).empty_tile()
+    summon.tile.empty_tile()
 
 # private functions
 func create_tile(engine, chr, i, j):
