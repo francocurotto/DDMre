@@ -5,7 +5,9 @@
 - fix dim buttons active while net select?
 
 ### IMPROVEMENTS
-- make dungeon menu buttons bugger
+- make selection highlight different from other highlights
+- make salection change when selecting attacked monster
+- make dungeon menu buttons bigger
 - make summon actions and dim transformations menus popable in dungeon?
 - make engine check all possible incorrect commands
 
