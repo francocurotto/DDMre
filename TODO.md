@@ -5,6 +5,7 @@
 - fix dim buttons active while net select?
 
 ### IMPROVEMENTS
+- make dungeon menu buttons bugger
 - make summon actions and dim transformations menus popable in dungeon?
 - make engine check all possible incorrect commands
 
