@@ -23,19 +23,19 @@ signal tile_attack_button_pressed(itile)
 # setget functions
 func set_tile(_tile):
     tile = _tile
-    tile_frame.set_tile_icon(tile.NAME, tile.playerid)
+    tile_frame.set_tile_icon(tile.NAME, tile.playerid, tile.vortex)
     tile_frame.set_dungobj_icon(tile.content.NAME, tile.content.playerid)
 
 func set_ml(_ml):
     ml = _ml
     if ml == "NONE":
-        $TileFrame.set_tile_icon("EMPTY", 0)
+        $TileFrame.set_tile_icon("EMPTY", 0, false)
         $TileFrame.set_dungobj_icon("NONE", 0)
     elif ml == "ML1":
-        $TileFrame.set_tile_icon("PATH", 1)
+        $TileFrame.set_tile_icon("PATH", 1, false)
         $TileFrame.set_dungobj_icon("MONSTER_LORD", 1)
     elif ml == "ML2":
-        $TileFrame.set_tile_icon("PATH", 2)
+        $TileFrame.set_tile_icon("PATH", 2, false)
         $TileFrame.set_dungobj_icon("MONSTER_LORD", 2)
 
 func set_highlight():

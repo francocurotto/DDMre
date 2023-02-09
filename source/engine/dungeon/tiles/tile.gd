@@ -5,6 +5,7 @@ const Noneobj = preload("res://engine/dungobj/noneobj.gd")
 
 # variables
 var pos
+var vortex = false
 var content setget set_content, get_content
 var playerid setget , get_playerid
 

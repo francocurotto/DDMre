@@ -158,4 +158,4 @@ Destroy all monsters and items.
 Doubles the movement cost of monsters. Only one Gluminizer ability can be activated per duel.
 
 ## WARPVORTEX
-Summons a warp vortex in dimension in location.
+Summons a warp vortex in the dimensioned location.

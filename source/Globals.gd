@@ -15,8 +15,8 @@ const DUNGPATH = "res://dungeons/default.json"
 #const DUNGPATH = "res://dungeons/test_stops.json"
 #const DUNGPATH = "res://dungeons/test_protect_type.json"
 #const DUNGPATH = "res://dungeons/test_turn_slow_type.json"
-const RANDOMPOOL = true
-#const RANDOMPOOL = false
+#const RANDOMPOOL = true
+const RANDOMPOOL = false
 #const POOL1PATH = "res://dicepools/test_pass.json";const POOL2PATH = "res://dicepools/test_pass.json"
 #const POOL1PATH = "res://dicepools/test_target.json";const POOL2PATH = "res://dicepools/test_target.json"
 #const POOL1PATH = "res://dicepools/test_power.json";const POOL2PATH = "res://dicepools/test_power.json"
@@ -28,7 +28,8 @@ const RANDOMPOOL = true
 #const POOL1PATH = "res://dicepools/test_bufftype.json";const POOL2PATH = "res://dicepools/test_bufftype.json"
 #const POOL1PATH = "res://dicepools/test_stops.json";const POOL2PATH = "res://dicepools/test_stops.json"
 #const POOL1PATH = "res://dicepools/test_protect_type.json";const POOL2PATH = "res://dicepools/test_protect_type.json"
-const POOL1PATH = "res://dicepools/test_turn_slow_type.json";const POOL2PATH = "res://dicepools/test_turn_slow_type.json"
+#const POOL1PATH = "res://dicepools/test_turn_slow_type.json";const POOL2PATH = "res://dicepools/test_turn_slow_type.json"
+const POOL1PATH = "res://dicepools/test_vortex.json";const POOL2PATH = "res://dicepools/test_vortex.json"
 
 # arrays, dictionaries
 const CRESTS = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
