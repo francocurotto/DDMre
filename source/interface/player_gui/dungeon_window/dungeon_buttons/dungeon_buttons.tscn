@@ -4,18 +4,18 @@
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons/dungeon_buttons.gd" type="Script" id=2]
 
 [node name="DungeonButtons" type="VBoxContainer"]
-margin_right = 605.0
-margin_bottom = 39.0
+margin_right = 713.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 script = ExtResource( 2 )
 
 [node name="ActionButtons" type="HBoxContainer" parent="."]
-margin_right = 605.0
+margin_right = 713.0
 margin_bottom = 60.0
 size_flags_vertical = 3
 
 [node name="MoveButton" type="Button" parent="ActionButtons"]
-margin_right = 113.0
+margin_right = 175.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
@@ -23,8 +23,8 @@ disabled = true
 text = "⬆MOVE"
 
 [node name="AttackButton" type="Button" parent="ActionButtons"]
-margin_left = 117.0
-margin_right = 267.0
+margin_left = 179.0
+margin_right = 354.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
@@ -32,17 +32,27 @@ disabled = true
 text = "⚔ATTACK"
 
 [node name="AbilityButton" type="Button" parent="ActionButtons"]
-margin_left = 271.0
-margin_right = 423.0
+margin_left = 358.0
+margin_right = 533.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
 text = "✨ABILITY"
 
-[node name="EndTurnButton" type="Button" parent="ActionButtons"]
+[node name="JumpButton" type="Button" parent="ActionButtons"]
+visible = false
 margin_left = 427.0
-margin_right = 605.0
+margin_right = 531.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "🌀JUMP"
+
+[node name="EndTurnButton" type="Button" parent="ActionButtons"]
+margin_left = 537.0
+margin_right = 713.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
@@ -61,5 +71,6 @@ text = "❌CANCEL"
 
 [connection signal="pressed" from="ActionButtons/MoveButton" to="." method="_on_MoveButton_pressed"]
 [connection signal="pressed" from="ActionButtons/AttackButton" to="." method="_on_AttackButton_pressed"]
+[connection signal="pressed" from="ActionButtons/JumpButton" to="." method="_on_JumpButton_pressed"]
 [connection signal="pressed" from="ActionButtons/EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
 [connection signal="pressed" from="CancelButton" to="." method="_on_CancelButton_pressed"]

@@ -43,6 +43,7 @@ func _ready():
     idungeon.connect("net_updated", dim_buttons, "on_net_updated")
     idungeon.connect("menu_opened", dungeon_buttons, "on_menu_opened")
     idungeon.connect("monster_lord_attacked", self, "on_attack_input")
+    idungeon.connect("monster_jumped", self, "on_jump_input")
     # net creator
     idungeon.net_creator.connect("net_updated", idungeon, "on_net_updated")
     # net select buttons
@@ -52,8 +53,9 @@ func _ready():
     # dungeon buttons
     dungeon_buttons.connect("move_button_pressed", idungeon, "on_move_button_pressed")
     dungeon_buttons.connect("attack_button_pressed", idungeon, "on_attack_button_pressed")
-    dungeon_buttons.connect("cancel_button_pressed", dungeon_window, "reset_to_dungeon")
+    dungeon_buttons.connect("jump_button_pressed", idungeon, "on_jump_button_pressed")
     dungeon_buttons.connect("endturn_button_pressed", self, "on_endturn_button_pressed")
+    dungeon_buttons.connect("cancel_button_pressed", dungeon_window, "reset_to_dungeon")
     # dim buttons
     dim_buttons.connect("net_button_pressed", idungeon, "on_net_button_pressed")
     dim_buttons.connect("FLR_button_pressed", idungeon, "on_FLR_button_pressed")
@@ -113,6 +115,10 @@ func on_menu_move_button_pressed(pos1, pos2):
 func on_attack_input(pos1, pos2):
     dungeon_window.reset_to_dungeon()
     engine.update({"name":"ATTACK", "origin":pos1, "dest":pos2})
+
+func on_jump_input(pos1, pos2):
+    dungeon_window.reset_to_dungeon()
+    engine.update({"name":"JUMP", "origin":pos1, "dest":pos2})
 
 func on_menu_guard_button_pressed():
     engine.update({"name":"GUARD"})

@@ -22,7 +22,8 @@ onready var net_select_buttons = $NetSelectButtons
 signal tile_select_button_toggled(itile, pressed)
 signal net_updated(can_dimension)
 signal menu_opened
-signal monster_lord_attacked
+signal monster_lord_attacked(pos1, pos2)
+signal monster_jumped(pos1, pos2)
 
 func _ready():
     Events.connect("duel_update", self, "update_dungeon")
@@ -32,6 +33,7 @@ func _ready():
             itile.connect("tile_select_button_toggled", self, "on_tile_select_button_toggled")
             itile.connect("tile_move_button_pressed", self, "on_tile_move_button_pressed")
             itile.connect("tile_attack_button_pressed", self, "on_tile_attack_button_pressed")
+            itile.connect("tile_jump_button_pressed", self, "on_tile_jump_button_pressed")
             itile.connect("tile_dim_button_pressed", self, "on_tile_dim_button_pressed")
 
 # setget functions
@@ -96,7 +98,7 @@ func on_tile_move_button_pressed(itile):
     var pos1 = selected_itile.tile.pos
     var pos2 = itile.tile.pos
     var monster = selected_itile.tile.content
-    var path = dungeon.get_movepath(pos1, pos2)
+    var path = dungeon.get_move_path(pos1, pos2)
     var move_cost = dungeon.get_move_cost(path, monster)
     highlight_movement(pos1, pos2, path)
     move_menu.activate(pos1, pos2, move_cost, player)
@@ -114,6 +116,12 @@ func on_tile_attack_button_pressed(itile):
     elif attacker.can_target_ml(attacked):
         emit_signal("monster_lord_attacked", pos1, pos2)
 
+func on_tile_jump_button_pressed(itile):
+    var pos1 = selected_itile.tile.pos
+    var pos2 = itile.tile.pos
+    if not itile.tile.is_occupied():
+        emit_signal("monster_jumped", pos1, pos2)
+
 func on_tile_dim_button_pressed(itile):
     on_tile_select_button_toggled(itile, true)
     unset_summon_highlights()
@@ -122,18 +130,24 @@ func on_tile_dim_button_pressed(itile):
 
 func on_move_button_pressed():
     disable_itile_buttons()
-    var moveposs = dungeon.get_moveposs(player, selected_itile.tile.pos)
-    for movepos in moveposs:
-        var itile = get_itile(movepos)
+    var move_poss = dungeon.get_move_poss(player, selected_itile.tile.pos)
+    for move_pos in move_poss:
+        var itile = get_itile(move_pos)
         itile.set_highlight()
         if itile.tile.is_reachable():
             itile.enable_move_button()
 
 func on_attack_button_pressed():
     disable_itile_buttons()
-    var attackposs = dungeon.get_attackposs(player, selected_itile.tile.pos)
-    for attackpos in attackposs:
-        get_itile(attackpos).enable_attack_button()
+    var attack_poss = dungeon.get_attack_poss(player, selected_itile.tile.pos)
+    for attack_pos in attack_poss:
+        get_itile(attack_pos).enable_attack_button()
+
+func on_jump_button_pressed():
+    disable_itile_buttons()
+    var vortex_poss = dungeon.get_vortex_poss()
+    for vortex_pos in vortex_poss:
+        get_itile(vortex_pos).enable_jump_button()
 
 func on_dice_dim_button_pressed(dice):
     disable_itile_buttons()

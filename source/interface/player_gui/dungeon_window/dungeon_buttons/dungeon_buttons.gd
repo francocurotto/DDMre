@@ -7,6 +7,7 @@ var engine
 # signals
 signal move_button_pressed
 signal attack_button_pressed
+signal jump_button_pressed
 signal endturn_button_pressed
 signal cancel_button_pressed
 
@@ -14,6 +15,7 @@ signal cancel_button_pressed
 onready var action_buttons = $ActionButtons
 onready var move_button = $ActionButtons/MoveButton
 onready var attack_button = $ActionButtons/AttackButton
+onready var jump_button = $ActionButtons/JumpButton
 onready var endturn_button = $ActionButtons/EndTurnButton
 onready var cancel_button = $CancelButton
 
@@ -40,6 +42,8 @@ func on_tile_select_button_toggled(dungobj, pressed):
     var actionable = dungobj.is_monster() and dungobj.player == player and engine.state.NAME == "DUNGEON" and pressed
     move_button.disabled = !(actionable and player.crestpool.slots["MOVEMENT"]>0 and dungobj.max_move>0)
     attack_button.disabled = !(actionable and player.crestpool.slots["ATTACK"]>0 and not dungobj.cooldown)
+    jump_button.disabled = !(actionable and dungobj.tile.vortex)
+    jump_button.visible = !jump_button.disabled
 
 func on_menu_opened():
     cancel_button.disabled = true
@@ -52,6 +56,10 @@ func _on_AttackButton_pressed():
     switch_to_cancel_button()
     emit_signal("attack_button_pressed")
 
+func _on_JumpButton_pressed():
+    switch_to_cancel_button()
+    emit_signal("jump_button_pressed")
+
 func _on_EndTurnButton_pressed():
     disable_action_buttons()
     emit_signal("endturn_button_pressed")
@@ -60,4 +68,6 @@ func _on_CancelButton_pressed():
     switch_to_action_buttons()
     move_button.disabled = true
     attack_button.disabled = true
+    jump_button.disabled = true
+    jump_button.visible = false
     emit_signal("cancel_button_pressed")

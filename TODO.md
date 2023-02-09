@@ -1,12 +1,12 @@
 ### TODO
-- WARPVORTEX
+- RAISEATTACK
 
 ### FIXES
 - fix dim buttons active while net select?
 
 ### IMPROVEMENTS
-- add monsters and items arrays to dungeon?
 - make summon actions and dim transformations menus popable in dungeon?
+- make engine check all possible incorrect commands
 
 ### REFACTOR
 
@@ -15,7 +15,7 @@
 
 ### TEST
 
-### ABILITIES [23/46]
+### ABILITIES [24/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -61,4 +61,4 @@
 - ❌MONSTERREBORN
 - ✅BLACKHOLE
 - ✅GLUMINIZER
-- ❌WARPVORTEX
+- ✅WARPVORTEX

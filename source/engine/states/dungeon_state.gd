@@ -23,7 +23,7 @@ func MOVE(cmd):
     var monster = tile_origin.content
 
     # get path for movement
-    var path = dungeon.get_movepath(pos_origin, pos_dest)
+    var path = dungeon.get_move_path(pos_origin, pos_dest)
     if path.empty(): # case not valid path found
         print("No path to destination.")
     # case destination is not reachable (e.g. there is a monster)
@@ -59,7 +59,7 @@ func ATTACK(cmd):
     elif monster.cooldown:
         print("Monster in cooldown.")
     # check valid attack
-    elif not pos_dest in dungeon.get_attackposs(player, pos_origin):
+    elif not pos_dest in dungeon.get_attack_poss(player, pos_origin):
         print("Target out of reach.")
     # the attack is valid
     else:
@@ -68,6 +68,30 @@ func ATTACK(cmd):
             return ReplyState.new(opponent, player, dungeon, monster, target)
         # perform unguarded attack
         perform_attack(monster, target)
+    return self
+
+func JUMP(cmd):
+    """
+    Excecute JUMP command.
+    """
+    var pos_origin = Vector2(cmd["origin"][0], cmd["origin"][1])
+    var pos_dest = Vector2(cmd["dest"][0], cmd["dest"][1])
+    var tile_origin = dungeon.get_tile(pos_origin)
+    var tile_dest = dungeon.get_tile(pos_dest)
+    
+    # check origin correct
+    if not tile_origin.vortex:
+        print("Origin tile is not a vortex")
+    elif not tile_origin.content.is_monster() or not tile_origin.content.player == player:
+        print("Not appropiate monster at origin")
+    # check dest correct
+    elif not tile_dest.vortex:
+        print("Dest tile is not a vortex")
+    elif tile_dest.is_occupied():
+        print("Dest tile is not a occupied")
+    else: # case valid jump
+        tile_dest.move_content_from(tile_origin)
+        Events.emit_signal("duel_update")
     return self
 
 func ENDTURN(_cmd):

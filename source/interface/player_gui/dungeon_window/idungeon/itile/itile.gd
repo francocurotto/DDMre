@@ -12,13 +12,15 @@ onready var tile_frame = $TileFrame
 onready var tile_select_button = $TileSelectButton
 onready var tile_move_button = $TileMoveButton
 onready var tile_attack_button = $TileAttackButton
+onready var tile_jump_button = $TileJumpButton
 onready var tile_dim_button = $TileDimButton
 
 # signals
 signal tile_select_button_toggled(itile, pressed)
-signal tile_dim_button_pressed(itile)
 signal tile_move_button_pressed(itile)
 signal tile_attack_button_pressed(itile)
+signal tile_jump_button_pressed(itile)
+signal tile_dim_button_pressed(itile)
 
 # setget functions
 func set_tile(_tile):
@@ -63,6 +65,10 @@ func enable_attack_button():
     tile_attack_button.visible = true
     set_highlight()
 
+func enable_jump_button():
+    tile_jump_button.visible = true
+    set_highlight()
+
 func enable_dim_button():
     tile_dim_button.visible = true
 
@@ -70,6 +76,7 @@ func disable_all_buttons():
     tile_select_button.visible = false
     tile_move_button.visible = false
     tile_attack_button.visible = false
+    tile_jump_button.visible = false
     tile_dim_button.visible = false
 
 func disable_all_highlights():
@@ -81,11 +88,14 @@ func _on_TileSelectButton_toggled(button_pressed):
     tile_frame.highlight = button_pressed
     emit_signal("tile_select_button_toggled", self, button_pressed)
 
-func _on_TileDimButton_pressed():
-    emit_signal("tile_dim_button_pressed", self)
-
 func _on_TileMoveButton_pressed():
     emit_signal("tile_move_button_pressed", self)
 
 func _on_TileAttackButton_pressed():
     emit_signal("tile_attack_button_pressed", self)
+
+func _on_TileJumpButton_pressed():
+    emit_signal("tile_jump_button_pressed", self)
+
+func _on_TileDimButton_pressed():
+    emit_signal("tile_dim_button_pressed", self)
