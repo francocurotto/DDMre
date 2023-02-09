@@ -9,12 +9,13 @@
 - make summon actions and dim transformations menus popable in dungeon?
 - make engine check all possible incorrect commands
 
-### REFACTOR
+### ADDITIONS
+- implement better ability for Dark-eyes Illusionist
+- add vortex initialization
+- add neutral path tile for vortex at start
 
 ### ART
 - make everything 16-bitish
-
-### TEST
 
 ### ABILITIES [24/46]
 - ✅TUNNEL
