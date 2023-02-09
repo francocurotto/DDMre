@@ -36,10 +36,10 @@ func set_dungobj_icon(_dungobj_type, _dungobj_player):
     else: # case content
         var icon = dungobj_type
         if _dungobj_type in Globals.TYPES + ["ITEM"]: # case summon
-            icon = "TYPE_" + dungobj_type
-            $DungobjRect.material = SHADERDICT[dungobj_player]
-        else: # monster lord
-            $DungobjRect.material = null
+            icon = "TYPE_" + dungobj_type + "_P" + str(dungobj_player)
+            #$DungobjRect.material = SHADERDICT[dungobj_player]
+        #else: # monster lord
+        #    $DungobjRect.material = null
         $DungobjRect.texture = load("res://art/icons/" + icon + ".png")
 
 func set_tile_type(_tile_type):

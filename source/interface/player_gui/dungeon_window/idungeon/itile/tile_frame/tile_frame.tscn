@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://interface/player_gui/dungeon_window/idungeon/itile/tile_frame/tile_frame.gd" type="Script" id=1]
 [ext_resource path="res://art/icons/TILE_EMPTY.png" type="Texture" id=2]
 [ext_resource path="res://art/icons/TILE_HIGHLIGHT.png" type="Texture" id=3]
-[ext_resource path="res://shaders/dungobj_P1_shader.tres" type="Material" id=4]
 
 [node name="TileFrame" type="MarginContainer"]
 margin_right = 28.0
@@ -27,7 +26,6 @@ expand = true
 stretch_mode = 5
 
 [node name="DungobjRect" type="TextureRect" parent="."]
-material = ExtResource( 4 )
 margin_right = 28.0
 margin_bottom = 28.0
 expand = true
