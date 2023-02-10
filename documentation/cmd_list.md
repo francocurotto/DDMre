@@ -13,6 +13,7 @@ Dimension dice in dungeon, in the shape of net, at position pos, and applying tr
 - net: `NX` (net string, see appendix)
 - pos: `(0..18, 0..12)` (tuple of ints)
 - trans: `[T1,T2,...]` (list of transformations, see appendix)
+- ability: `dim ability dict` (optional, see abilities section)
 
 ## SKIP [DIM state]
 Skip dimension.
@@ -29,6 +30,17 @@ Attack opponent monster or monster lord at position dest, with monster at positi
 - command: `ATTACK`
 - origin: `(0..18, 0..12)` (tuple of ints)
 - dest: `(0..18, 0..12)` (tuple of ints)
+- ability: `attack ability dict` (optional, see abilities section)
+
+## JUMP [DUNGEON state]
+Move monster through a vortex from position origin to position dest.
+- command: `JUMP`
+- origin: `(0..18, 0..12)` (tuple of ints)
+- dest: `(0..18, 0..12)` (tuple of ints)
+
+## ENDTURN [DUNGEON state]
+Finish turn.
+- command: `ENDTURN`
 
 ## GUARD [REPLY state]
 Defend attack from opponent monster.
@@ -38,9 +50,10 @@ Defend attack from opponent monster.
 Do not reply to an attack from opponent monster.
 - command: `WAIT`
 
-## ENDTURN [DUNGEON state]
-Finish turn.
-- command: `ENDTURN`
+## ABILITY [DUNGEON/REPLY]
+Cast monster standing or reply ability.
+- command: `ABILITY`
+- (rest of ability parameters, see abilities section)
 
 # Appendix
 ## List of Nets
