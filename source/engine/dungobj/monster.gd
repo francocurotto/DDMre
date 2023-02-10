@@ -184,7 +184,4 @@ func is_monster():
     return true
 
 func is_flying():
-    for ability in card.abilities:
-        if ability.name == "FLY" and not ability.is_negated():
-            return true
-    return false
+    return has_active_ability("FLY")

@@ -2,7 +2,7 @@ extends PanelContainer
 
 # onready variables
 onready var attack_info = $VBox/AttackInfo
-onready var transparent_button = $VBox/AttackInfo/Margins/Buttons/TransparentButton
+onready var transparent_button = $VBox/TransparentButton
 
 # singals
 signal menu_guard_button_pressed

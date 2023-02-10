@@ -5,6 +5,7 @@
 - fix dim buttons active while net select?
 
 ### IMPROVEMENTS
+- more distinction between crestpool slots
 - make selection highlight different from other highlights
 - make selection change when selecting attacked monster
 - make dungeon menu buttons bigger
@@ -14,6 +15,7 @@
 
 ### ADDITIONS
 - implement better ability for Dark-eyes Illusionist
+- implement attack twice ability for Knight of Twin Swords
 - add vortex initialization
 - add neutral path tile for vortex at start
 
