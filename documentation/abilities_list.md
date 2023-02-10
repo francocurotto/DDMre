@@ -14,7 +14,7 @@ Restore AMOUNT HEALTH to NUMBER (different) player monster(s).
 Cost: COST x CREST
 
 ## DIMCUREALL (AMOUNT) 
-Restores AMOUNT HEALTH to all player monsters. This ability cannot be skipped.
+Restore AMOUNT HEALTH to all player monsters. This ability cannot be skipped.
 
 ## DIMKILLWEAKEST
 Destroy the opponent monster with the least ATTACK (after abilities effect computation).
@@ -41,10 +41,10 @@ For each dead monster of type TYPE (of both players), add the (original) attack 
 
 # Continuous Abilities
 ## STOPFLY
-Negates all FLY abilities.
+Negate all FLY abilities.
 
 ## STOPTUNNEL
-Negates all TUNNEL abilities.
+Negate all TUNNEL abilities.
 
 ## TURNSLOWTYPE (TYPE)
 TYPE monsters can only move once every two turns, starting forbidding movement in each player next turn and re-enabling it in the turn after the next. NOTE: Two or more of instances of this ability can be stacked to cancel movement completely.
@@ -104,7 +104,7 @@ Increase ATTR by AMOUNT.
 Cost: COST x CREST
 
 ## TRADEHEALTH (AMOUNT, COST, CREST)
-Deals AMOUNT damage to monster and opponent monster.
+Deal AMOUNT damage to monster and opponent monster.
 Cost: COST x CREST
 
 ## STEALMONSTER (COST, CREST)
@@ -136,7 +136,7 @@ Cost: COST x CREST
 Restore monster AMOUNT HEALTH.
 
 ## ITEMDAMAGE (AMOUNT)
-Deals AMOUNT damage to monster.
+Deal AMOUNT damage to monster.
 
 ## TIMEMACHINE
 Return monster to its previous location (location before its last movement).
@@ -155,7 +155,7 @@ Destroy all monsters and items.
 
 # Dimension Item Ability
 ## GLUMINIZER
-Doubles the movement cost of monsters. Only one Gluminizer ability can be activated per duel.
+Double the movement cost of monsters. Only one Gluminizer ability can be activated per duel.
 
 ## WARPVORTEX
-Summons a warp vortex in the dimensioned location.
+Summon a warp vortex in the dimensioned location.
