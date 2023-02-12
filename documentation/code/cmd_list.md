@@ -7,7 +7,7 @@ Roll dice set.
 - dice: `[0..14, 0..14, 0..14]` (list of non-repeating ints)
 
 ## DIM [DIM state]
-Dimension dice in dungeon, in the shape of net, at position pos, and applying transformations trans.
+Dimension dice in dungeon, in the shape of net, at position pos, applying transformations trans, and possibly casting a dimension ability.
 - command: `DIM`
 - dice: `0..2` (int)
 - net: `NX` (net string, see appendix)
@@ -54,6 +54,13 @@ Do not reply to an attack from opponent monster.
 Cast monster standing or reply ability.
 - command: `ABILITY`
 - (rest of ability parameters, see abilities section)
+
+# Abilities
+List of abilities parameters needed when casting a dimension, attack, reply, or standing ability.
+
+## RAISEATTACK [attack ability]
+- name: `RAISEATTACK`
+- raise: `1..3` (int)
 
 # Appendix
 ## List of Nets

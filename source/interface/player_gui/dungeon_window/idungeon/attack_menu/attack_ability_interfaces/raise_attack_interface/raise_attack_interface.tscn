@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://interface/player_gui/dungeon_window/idungeon/attack_menu/attack_interfaces/raise_attack_interface/raise_attack_interface.gd" type="Script" id=1]
+[ext_resource path="res://interface/player_gui/dungeon_window/idungeon/attack_menu/attack_ability_interfaces/raise_attack_interface/raise_attack_interface.gd" type="Script" id=1]
 
 [node name="RaiseAttackInterface" type="VBoxContainer"]
 margin_right = 234.0

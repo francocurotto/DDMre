@@ -31,6 +31,9 @@ func remove_negate():
         Events.connect("next_turn", self, "on_next_turn")
         summon_activate()
 
+func activate(_ability_dict):
+    pass
+
 func summon_activate():
     pass
 

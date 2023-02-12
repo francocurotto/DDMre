@@ -47,6 +47,7 @@ func ATTACK(cmd):
     # get data
     var pos_origin = Vector2(cmd["origin"][0], cmd["origin"][1])
     var pos_dest = Vector2(cmd["dest"][0], cmd["dest"][1])
+    var ability_dict = cmd.get("ability")
     var tile_origin = dungeon.get_tile(pos_origin)
     var tile_dest = dungeon.get_tile(pos_dest)
     var monster = tile_origin.content
@@ -63,11 +64,21 @@ func ATTACK(cmd):
         print("Target out of reach.")
     # the attack is valid
     else:
-        # if opponent can defend, go to reply state
-        if opponent.crestpool.slots["DEFENSE"] >= 1 and target.is_monster():
-            return ReplyState.new(opponent, player, dungeon, monster, target)
-        # perform unguarded attack
-        perform_attack(monster, target)
+        # pay the cost of attack
+        player.crestpool.slots["ATTACK"] -= 1
+        if target.is_monster():
+            # activate attack ability if exists
+            if ability_dict:
+                monster.activate_ability(ability_dict)
+            # if opponent can defend, go to reply state
+            if opponent.crestpool.slots["DEFENSE"] >= 1 and target.is_monster():
+                return ReplyState.new(opponent, player, dungeon, monster, target)
+            # if monster cannot defend, perform attack without guard
+            else:
+                monster.attack_monster(target, false)
+        elif target.is_monster_lord():
+            monster.attack_monster_lord(target)
+        Events.emit_signal("duel_update")
     return self
 
 func JUMP(cmd):
@@ -119,16 +130,3 @@ func perform_movement(tile1, tile2, path):
     monster.max_move_behavior.update_turn_move_count(len(path)-1)
     # emit duel update signal
     Events.emit_signal("duel_update")
-
-func perform_attack(monster, target):
-    """
-    Perform attack from tile1 to tile2 and pay attack crest.
-    """
-    if target.is_monster():
-        monster.attack_monster(target, false)
-    elif target.is_monster_lord():
-        monster.attack_monster_lord(target)
-    # pay the cost of attack
-    player.crestpool.slots["ATTACK"] -= 1
-    Events.emit_signal("duel_update")
-

@@ -68,7 +68,7 @@ func _ready():
     move_menu.connect("menu_move_button_pressed", self, "on_menu_move_button_pressed")
     move_menu.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
     # attack menu
-    attack_menu.connect("menu_attack_button_pressed", self, "on_attack_input")
+    attack_menu.connect("attack_cmd", self, "on_attack_cmd")
     attack_menu.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
     # reply menu
     reply_menu.connect("menu_guard_button_pressed", self, "on_menu_guard_button_pressed")
@@ -112,9 +112,9 @@ func on_menu_move_button_pressed(pos1, pos2):
     dungeon_window.reset_to_dungeon()
     engine.update({"name":"MOVE", "origin":pos1, "dest":pos2})
 
-func on_attack_input(pos1, pos2):
+func on_attack_cmd(cmd):
     dungeon_window.reset_to_dungeon()
-    engine.update({"name":"ATTACK", "origin":pos1, "dest":pos2})
+    engine.update(cmd)
 
 func on_jump_input(pos1, pos2):
     dungeon_window.reset_to_dungeon()

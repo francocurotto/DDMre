@@ -1,9 +1,0 @@
-- normal attack
-    - not-guarding: damage = attack
-    - guarding:     damage = attack-defense (retaliation if negative)
-- advantage attack:
-    - not-guarding: damage = attack+10
-    - guarding:     damage = attack-defense+10 (retaliation if negative)
-- disadvantage attack:
-    - not-guading: damage = attack-10 (retaliation if negative)
-    - guarding:    damage = attack-defense-10 (retaliation if negative)

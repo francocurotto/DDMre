@@ -1,5 +1,5 @@
 digraph "engine" {
-    ordering="out"
+    ordering=out
     Engine -> State
     State  -> {Player, Opponent, Dungeon}
     {rank = same; Player, Opponent, Dungeon}

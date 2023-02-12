@@ -3,7 +3,7 @@ extends "summon.gd"
 # preloads
 const PassBehaviorBase = preload("res://engine/dungobj/behaviors/pass_behavior_base.gd")
 const TargetBehaviorBase = preload("res://engine/dungobj/behaviors/target_behavior_base.gd")
-const AdvantageBehaviorBase = preload("res://engine/dungobj/behaviors/advantage_behavior_base.gd")
+const PowerBehaviorBase = preload("res://engine/dungobj/behaviors/power_behavior_base.gd")
 const DamageBehaviorBase = preload("res://engine/dungobj/behaviors/damage_behavior_base.gd")
 const MaxMoveBehaviorBase = preload("res://engine/dungobj/behaviors/max_move_behavior_base.gd")
 
@@ -19,7 +19,7 @@ var previous_tile = null
 # behaviors (automatic abilities)
 var pass_behavior
 var target_behavior
-var advantage_behavior
+var power_behavior
 var damage_behavior
 var max_move_behavior
 
@@ -30,7 +30,7 @@ func _init(_card, _player).(_card, _player):
     # initialize behaviors
     pass_behavior = PassBehaviorBase.new()
     target_behavior = TargetBehaviorBase.new(player)
-    advantage_behavior = AdvantageBehaviorBase.new()
+    power_behavior = PowerBehaviorBase.new()
     damage_behavior = DamageBehaviorBase.new()
     max_move_behavior = MaxMoveBehaviorBase.new()
 
@@ -81,6 +81,7 @@ func attack_monster(monster, guard):
         monster.receive_damage(damage)
     elif damage < 0: # attacker receives retailation damage
         receive_damage(-damage)
+    power_behavior.reset_ability_buff()
 
 func attack_monster_lord(ml):
     """
@@ -88,6 +89,14 @@ func attack_monster_lord(ml):
     """
     cooldown = true
     ml.receive_damage()
+
+func activate_ability(ability_dict):
+    """
+    Activate ability given prameters in ability dict.
+    """
+    for ability in card.abilities:
+        if ability.name == ability_dict["name"]:
+            ability.activate(ability_dict)
 
 func buff_attr(attr, amount):
     """
@@ -134,7 +143,7 @@ func get_power(attacked):
     """
     Get the power when monster attacks attacked.
     """
-    return advantage_behavior.get_power(attack, attacked, has_adv(attacked), has_disadv(attacked))
+    return power_behavior.get_power(attack, attacked, has_adv(attacked), has_disadv(attacked))
 
 func has_adv(_attacked):
     """
