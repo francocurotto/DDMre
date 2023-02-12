@@ -22,7 +22,7 @@ onready var net_select_buttons = $NetSelectButtons
 signal tile_select_button_toggled(itile, pressed)
 signal net_updated(can_dimension)
 signal menu_opened
-signal monster_lord_attacked(pos1, pos2)
+signal attack_cmd(cmd)
 signal monster_jumped(pos1, pos2)
 
 func _ready():
@@ -114,7 +114,7 @@ func on_tile_attack_button_pressed(itile):
         attack_menu.activate(pos1, pos2, attacker, attacked)
         emit_signal("menu_opened")
     elif attacker.can_target_ml(attacked):
-        emit_signal("monster_lord_attacked", pos1, pos2)
+        emit_signal("attack_cmd", {"name":"ATTACK", "origin":pos1, "dest":pos2})
 
 func on_tile_jump_button_pressed(itile):
     var pos1 = selected_itile.tile.pos

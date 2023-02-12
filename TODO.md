@@ -1,5 +1,6 @@
 ### TODO
 - RAISEATTACK
+    - add crest cost
 
 ### FIXES
 - fix dim buttons active while net select?
