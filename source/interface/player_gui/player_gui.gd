@@ -42,7 +42,7 @@ func _ready():
     idungeon.connect("tile_select_button_toggled", dungeon_buttons, "on_tile_select_button_toggled")
     idungeon.connect("net_updated", dim_buttons, "on_net_updated")
     idungeon.connect("menu_opened", dungeon_buttons, "on_menu_opened")
-    idungeon.connect("monster_lord_attacked", self, "on_attack_input")
+    idungeon.connect("attack_cmd", self, "on_attack_cmd")
     idungeon.connect("monster_jumped", self, "on_jump_input")
     # net creator
     idungeon.net_creator.connect("net_updated", idungeon, "on_net_updated")
