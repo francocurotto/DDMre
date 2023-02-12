@@ -11,4 +11,6 @@ func activate(ability_dict):
     """
     Add temporal buff to power behavior.
     """
-    summon.power_behavior.ability_buff += 10*ability_dict["raise"]
+    var raise = ability_dict["raise"]
+    summon.player.crestpool.remove_crests("ATTACK", raise)
+    summon.power_behavior.ability_buff += 10*raise

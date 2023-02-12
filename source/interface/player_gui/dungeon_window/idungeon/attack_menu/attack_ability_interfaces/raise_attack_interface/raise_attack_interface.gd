@@ -15,6 +15,8 @@ func set_raise_attack_interface(monster):
         button.connect("raise_attack_button_pressed", self, "on_raise_attack_button_pressed")
         button.set_raise_attack_button(monster.attack, raise)
         add_child(button)
+        if monster.player.crestpool.slots["ATTACK"] < raise+1:
+            button.disabled = true
 
 # signals callbacks
 func on_raise_attack_button_pressed(raise):
