@@ -15,6 +15,7 @@ func on_summon(_summon, _dungeon):
     dungeon = _dungeon
     Events.connect("card_summoned", self, "on_new_summon")
     Events.connect("next_turn", self, "on_next_turn")
+    summon.connect("monster_attack_finished", self, "on_monster_attack_finished")
     summon_activate()
 
 func negate():
@@ -22,6 +23,7 @@ func negate():
     if negate_count == 1:
         Events.disconnect("card_summoned", self, "on_new_summon")
         Events.disconnect("next_turn", self, "on_next_turn")
+        summon.disconnect("monster_attack_finished", self, "on_monster_attack_finished")
         deactivate()
 
 func remove_negate():
@@ -29,6 +31,7 @@ func remove_negate():
     if negate_count == 0:
         Events.connect("card_summoned", self, "on_new_summon")
         Events.connect("next_turn", self, "on_next_turn")
+        summon.connect("monster_attack_finished", self, "on_monster_attack_finished")
         summon_activate()
 
 func activate(_ability_dict):
@@ -44,6 +47,9 @@ func on_new_summon(_summon):
     pass
 
 func on_next_turn(_player, _turn):
+    pass
+
+func on_monster_attack_finished():
     pass
 
 func deactivate():

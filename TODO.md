@@ -1,7 +1,5 @@
 ### TODO
-- diagram of state transitions
-- RAISEATTACK
-    - add crest cost
+- reduce damage
 
 ### FIXES
 - fix dim buttons active while net select?
@@ -10,7 +8,6 @@
 - more distinction between crestpool slots
 - make selection highlight different from other highlights
 - make selection change when selecting attacked monster
-- make dungeon menu buttons bigger
 - standarize cmd syntax and context checks
 - make summon actions and dim transformations menus popable in dungeon?
 - make engine check all possible incorrect commands

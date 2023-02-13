@@ -14,3 +14,6 @@ func activate(ability_dict):
     var raise = ability_dict["raise"]
     summon.player.crestpool.remove_crests("ATTACK", raise)
     summon.power_behavior.ability_buff += 10*raise
+
+func on_monster_attack_finished():
+    summon.power_behavior.ability_buff = 0

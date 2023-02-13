@@ -19,6 +19,3 @@ func apply_adv_disadv(power, has_adv, has_disadv):
     Apply type advantges and disadvantages.
     """
     return power + int(has_adv)*10 - int(has_disadv)*10
-
-func reset_ability_buff():
-    ability_buff = 0
