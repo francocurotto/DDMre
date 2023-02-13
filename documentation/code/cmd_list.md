@@ -45,13 +45,15 @@ Finish turn.
 ## GUARD [REPLY state]
 Defend attack from opponent monster.
 - command: `GUARD`
+- ability: `reply ability dict` (optional, see abilities section)
 
 ## WAIT [REPLY state]
 Do not reply to an attack from opponent monster.
 - command: `WAIT`
+- ability: `reply ability dict` (optional, see abilities section)
 
-## ABILITY [DUNGEON/REPLY state]
-Cast monster standing or summon ability.
+## ABILITY [DUNGEON state]
+Cast monster standing ability.
 - command: `ABILITY`
 - (rest of ability parameters, see abilities section)
 

@@ -1,4 +1,5 @@
 ### TODO
+- diagram of state transitions
 - RAISEATTACK
     - add crest cost
 
