@@ -1,5 +1,6 @@
 ### TODO
-- reduce damage
+- implement better ability granularity
+- REDUCEDAMAGE
 
 ### FIXES
 - fix dim buttons active while net select?
