@@ -51,7 +51,7 @@ Do not reply to an attack from opponent monster.
 - command: `WAIT`
 
 ## ABILITY [DUNGEON/REPLY state]
-Cast monster standing or reply ability.
+Cast monster standing or summon ability.
 - command: `ABILITY`
 - (rest of ability parameters, see abilities section)
 

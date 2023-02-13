@@ -1,0 +1,39 @@
+digraph states {
+    // node labels
+    rankdir=LR
+    Roll1     [label="Roll"]
+    Dimension1[label="Dimension"]
+    Dungeon1  [label="Dungeon"]
+    Reply1    [label="Reply"]
+    Roll2     [label="Roll"]
+    Dimension2[label="Dimension"]
+    Dungeon2  [label="Dungeon"]
+    Reply2    [label="Reply"]
+    edge[fontsize=8]
+    // player 1
+	subgraph cluster_1 {
+		label="Player 1"
+        color=blue
+        fontcolor=blue
+		Roll1 -> Dimension1 [label="ROLL",weight=10]
+		Roll1 -> Dungeon1 [label="ROLL"]
+        Dimension1 -> Dungeon1 [label="DIM/SKIP",weight=10]
+        Dungeon1 -> Reply1 [weight=10, style=invis]
+	}
+    // player 2
+	subgraph cluster_2 {
+		label="Player 2"
+        color=red
+        fontcolor=red
+		Roll2 -> Dimension2 [label="ROLL",weight=10]
+		Roll2 -> Dungeon2 [label="ROLL"]
+        Dimension2 -> Dungeon2 [label="DIM/SKIP",weight=10]
+        Dungeon2 -> Reply2 [weight=10, style=invis]
+	}
+	Dungeon1 -> Reply2 [label="ATTACK"]
+	Dungeon2 -> Reply1 [label="ATTACK"]
+	Reply1 -> Dungeon2 [label="REPLY/WAIT"]
+	Reply2 -> Dungeon1 [label="REPLY/WAIT"]
+    Dungeon1 -> Roll2 [label="ENDTURN"]
+    Dungeon2 -> Roll1 [label="ENDTURN"]
+}
