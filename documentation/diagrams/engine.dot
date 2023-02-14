@@ -1,4 +1,4 @@
-digraph "engine" {
+digraph engine {
     ordering=out
     Engine -> State
     State  -> {Player, Opponent, Dungeon}

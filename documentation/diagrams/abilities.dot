@@ -1,0 +1,26 @@
+digraph abilities {
+    // nodes
+    node[shape=record]
+    Ability[label="{Ability|+ name\l+ dungeon\l|- initialize(dungeon)}"]
+    MonsterAbility[label="{Monster Ability|+ monster\l+ negate_count\l|- initialize(monster,dungeon)\l- negate()\l- remove_negate()\l- is_disabled()\l}"]
+    DimensionAbility[label="{Dimension Ability|- initialize(monster,dungeon)\l- negate()\l- remove_negate()\l* on_dimension()\l* disable()\l}"]
+    ContinuousAbility[label="{Continuous Ability|- initialize(monster,dungeon)\l* on_dimension()\l* on_new_summon(summon)\l* on_dead()\l* on_next_turn()\l* disable()\l}"]
+    CombatAbility[label="{Combat Ability|- initialize(monster,dungeon)\l- on_attack_ends()\l}"]
+    AttackAbility[label="{Attack Ability|* activate()\l* on_attack_ends()\l}"]
+    ReplyAbility[label="{Reply Ability|* activate()\l* on_attack_ends()\l}"]
+    StandingAbility[label="{Standing Ability|* activate()\l}"]
+    ItemAbility[label="{Item Ability|+ item\l|- initialize(item,dungeon)}"]
+    ItemDimensionAbility[label="{Item Dimension Ability|* on_dimension()\l}"]
+    ItemManualAbility[label="{Item Manual Ability|* activate(monster)\l}"]
+    // edges
+    Ability -> MonsterAbility
+    Ability -> ItemAbility
+    MonsterAbility -> DimensionAbility
+    MonsterAbility -> CombatAbility
+    CombatAbility -> AttackAbility
+    CombatAbility -> ReplyAbility
+    MonsterAbility -> StandingAbility
+    ItemAbility -> ItemDimensionAbility
+    ItemAbility -> ItemManualAbility
+    DimensionAbility -> ContinuousAbility
+}

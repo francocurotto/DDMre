@@ -1,5 +1,5 @@
 ### TODO
-- implement better ability granularity
+- implement new ability taxonomy
 - REDUCEDAMAGE
 
 ### FIXES
