@@ -85,7 +85,7 @@ func set_initsummons(player, summonlist):
         var idx = Globals.to_engineidx(summondict["DICE"])
         var summon = player.summon_card(idx)
         dungeon.array[pos.y][pos.x].set_content(summon)
-        summon.activate_on_summon_abilities(dungeon)
+        summon.initialize_abilities(dungeon)
 
 func set_initcrests(player, crests):
     """
