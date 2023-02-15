@@ -22,8 +22,8 @@ func is_item():
     return false
 
 # private functions
-const Tunnel = preload("res://engine/abilities/tunnel.gd")
-const Fly = preload("res://engine/abilities/fly.gd")
+const Tunnel = preload("res://engine/abilities2/dimension_abilities/tunnel.gd")
+const Fly = preload("res://engine/abilities2/dimension_abilities/fly.gd")
 const Archer = preload("res://engine/abilities/archer.gd")
 const Neutral = preload("res://engine/abilities/neutral.gd")
 const DimCureAll = preload("res://engine/abilities/dim_cure_all.gd")

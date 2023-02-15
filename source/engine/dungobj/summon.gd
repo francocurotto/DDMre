@@ -16,9 +16,9 @@ func get_ability(name):
             return ability
 
 # public function
-func activate_on_summon_abilities(dungeon):
+func initialize_abilities(dungeon):
     for ability in card.abilities:
-        ability.on_summon(self, dungeon)
+        ability.initialize(self, dungeon)
 
 func negate_abilities():
     for ability in card.abilities:
