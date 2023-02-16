@@ -4,7 +4,6 @@
 ### FIXES
 - more contrast between warrior icons
 - fix clothes disparity in spellcaster icon
-- fix dim buttons active while net select?
 
 ### IMPROVEMENTS
 - bigger buttons on move menu
@@ -14,6 +13,7 @@
 - standarize cmd syntax and context checks
 - make summon actions and dim transformations menus popable in dungeon?
 - make engine check all possible incorrect commands
+- fix dim buttons active while net select?
 
 ### ADDITIONS
 - implement better ability for Dark-eyes Illusionist
