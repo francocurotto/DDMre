@@ -10,3 +10,9 @@ func _init(ability_info):
 # public functions
 func initialize(_summon, _dungeon):
     dungeon = _dungeon
+
+func enable():
+    pass
+
+func disable():
+    pass

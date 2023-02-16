@@ -51,7 +51,7 @@ func summon_card(idx):
     var dice = dicepool[idx]
     dice.dimensioned = true
     var summon = dicepool[idx].card.summon(self)
-    Events.emit_signal("card_summoned", summon)
+    Events.emit_signal("new_summon", summon)
     return summon
 
 func on_monster_dead(monster):

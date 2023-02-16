@@ -6,6 +6,7 @@
 - fix dim buttons active while net select?
 
 ### IMPROVEMENTS
+- bigger buttons on move menu
 - more distinction between crestpool slots
 - make selection highlight different from other highlights
 - make selection change when selecting attacked monster

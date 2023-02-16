@@ -17,7 +17,7 @@ func summon(player):
 
 func activate(monster):
     for ability in abilities:
-        ability.item_activate(monster)
+        ability.activate(monster)
 
 # is functions
 func is_item():

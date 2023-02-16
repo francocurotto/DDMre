@@ -11,6 +11,7 @@ func _init(ability_dict).(ability_dict):
 func initialize(_monster, _dungeon):
     .initialize(_monster, _dungeon)
     monster = _monster
+    enable()
 
 func negate():
     """
@@ -28,14 +29,8 @@ func remove_negate():
     """
     negate_count -= 1
     if negate_count == 0:
-        on_dimension()
-
-func on_dimension():
-    pass
-
-func disable():
-    pass
+        enable()
 
 # is functions
-func is_disabled():
+func is_negated():
     return negate_count > 0

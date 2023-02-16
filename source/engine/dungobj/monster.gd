@@ -24,7 +24,7 @@ var damage_behavior
 var max_move_behavior
 
 # signals
-signal monster_attack_finished
+signal attack_ends
 
 func _init(_card, _player).(_card, _player):
     attack = card.attack
@@ -84,7 +84,7 @@ func attack_monster(monster, guard):
         monster.receive_damage(damage)
     elif damage < 0: # attacker receives retailation damage
         receive_damage(-damage)
-    emit_signal("monster_attack_finished")
+    emit_signal("attack_ends")
 
 func attack_monster_lord(ml):
     """

@@ -22,7 +22,7 @@ func initialize_abilities(dungeon):
 
 func negate_abilities():
     for ability in card.abilities:
-        ability.negate()
+        ability.disable()
 
 # is functions
 func is_summon():
