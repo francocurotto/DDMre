@@ -12,3 +12,9 @@ func enable():
 func disable():
     Events.disconnect("new_summon", self, "on_new_summon")
     Events.disconnect("next_turn", self, "on_next_turn")
+
+func on_new_summon(_summon):
+    pass
+
+func on_next_turn(_player, _turn):
+    pass

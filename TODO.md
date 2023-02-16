@@ -1,5 +1,4 @@
 ### TODO
-- implement new ability taxonomy
 - REDUCEDAMAGE
 
 ### FIXES
