@@ -2,8 +2,10 @@
 - REDUCEDAMAGE
 
 ### FIXES
+- more contrast in dragon colors
 - more contrast between warrior icons
 - fix clothes disparity in spellcaster icon
+- add ability description in card info
 
 ### IMPROVEMENTS
 - bigger buttons on move menu
