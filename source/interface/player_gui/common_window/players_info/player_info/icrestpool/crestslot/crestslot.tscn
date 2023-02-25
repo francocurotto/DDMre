@@ -5,9 +5,9 @@
 [ext_resource path="res://art/icons/CREST_MOVEMENT.png" type="Texture" id=3]
 
 [node name="CrestSlot" type="HBoxContainer"]
-margin_right = 73.0
+margin_right = 70.0
 margin_bottom = 36.0
-custom_constants/separation = 1
+custom_constants/separation = -2
 alignment = 1
 script = ExtResource( 2 )
 
@@ -18,8 +18,8 @@ custom_fonts/font = ExtResource( 1 )
 text = "00"
 
 [node name="Icon" type="TextureRect" parent="."]
-margin_left = 37.0
-margin_right = 73.0
+margin_left = 34.0
+margin_right = 70.0
 margin_bottom = 36.0
 rect_min_size = Vector2( 36, 36 )
 texture = ExtResource( 3 )

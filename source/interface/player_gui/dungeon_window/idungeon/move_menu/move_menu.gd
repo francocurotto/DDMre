@@ -7,7 +7,7 @@ var format = "[center]Spend %d [img=25]art/icons/CREST_MOVEMENT.png[/img] crests
 
 # onready variables
 onready var message = $VBox/Message
-onready var transparent_button = $VBox/Margins/Buttons/TransparentButton
+onready var transparent_button = $VBox/TransparentButton
 
 # singals
 signal menu_move_button_pressed

@@ -20,12 +20,12 @@ text = "Menu"
 
 [node name="PlayersInfo" parent="." instance=ExtResource( 2 )]
 margin_left = 77.0
-margin_right = 583.0
+margin_right = 609.0
 margin_bottom = 96.0
 
 [node name="WindowButton" type="Button" parent="."]
-margin_left = 583.0
-margin_right = 691.0
+margin_left = 609.0
+margin_right = 717.0
 margin_bottom = 96.0
 size_flags_horizontal = 3
 size_flags_vertical = 3

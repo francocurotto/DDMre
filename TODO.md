@@ -8,10 +8,8 @@
 - add ability description in card info
 
 ### IMPROVEMENTS
-- bigger buttons on move menu
-- more distinction between crestpool slots
-- make selection highlight different from other highlights
 - make selection change when selecting attacked monster
+- make selection highlight different from other highlights
 - standarize cmd syntax and context checks
 - make engine check all possible incorrect commands
 - make summon actions and dim transformations menus popable in dungeon?
