@@ -13,8 +13,8 @@
 - make selection highlight different from other highlights
 - make selection change when selecting attacked monster
 - standarize cmd syntax and context checks
-- make summon actions and dim transformations menus popable in dungeon?
 - make engine check all possible incorrect commands
+- make summon actions and dim transformations menus popable in dungeon?
 - fix dim buttons active while net select?
 
 ### ADDITIONS
