@@ -5,11 +5,8 @@
 - add ability description in card info
 
 ### IMPROVEMENTS
-- make selection change when selecting attacked monster
 - make selection highlight different from other highlights
 - standarize cmd syntax and context checks
-- make engine check all possible incorrect commands
-- make summon actions and dim transformations menus popable in dungeon?
 - fix dim buttons active while net select?
 
 ### ADDITIONS
@@ -17,6 +14,7 @@
 - implement attack twice ability for Knight of Twin Swords
 - add vortex initialization
 - add neutral path tile for vortex at start
+- make summon actions and dim transformations menus popable in dungeon?
 
 ### ART
 - make everything 16-bitish
