@@ -41,13 +41,13 @@ func _on_MenuAttackButton_pressed():
     deactivate()
     emit_signal("attack_cmd", {"name":"ATTACK", "origin":pos1, "dest":pos2})
 
+func on_attack_ability_activated(ability_dict):
+    deactivate()
+    emit_signal("attack_cmd", {"name":"ATTACK", "origin":pos1, "dest":pos2, "ability":ability_dict})
+
 func _on_MenuCancelButton_pressed():
     deactivate()
     emit_signal("menu_canceled")
 
 func _on_TransparentButton_toggled(button_pressed):
     modulate = Color(1.0, 1.0, 1.0, max(int(!button_pressed), 0.3))
-
-func on_attack_ability_activated(ability_dict):
-    deactivate()
-    emit_signal("attack_cmd", {"name":"ATTACK", "origin":pos1, "dest":pos2, "ability":ability_dict})

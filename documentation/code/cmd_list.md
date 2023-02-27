@@ -64,6 +64,9 @@ List of abilities parameters needed when casting a dimension, attack, reply, or 
 - name: `RAISEATTACK`
 - raise: `1..3` (int)
 
+## REDUCEDAMAGE [reply ability]
+- name: `REDUCEDAMAGE`
+
 # Appendix
 ## List of Nets
 ```

@@ -71,8 +71,7 @@ func _ready():
     attack_menu.connect("attack_cmd", self, "on_attack_cmd")
     attack_menu.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
     # reply menu
-    reply_menu.connect("menu_guard_button_pressed", self, "on_menu_guard_button_pressed")
-    reply_menu.connect("menu_wait_button_pressed", self, "on_menu_wait_button_pressed")
+    reply_menu.connect("reply_cmd", self, "on_reply_cmd")
     # card info
     card_info.connect("card_info_quit", self, "on_card_info_quit")
     # common window
@@ -116,15 +115,12 @@ func on_attack_cmd(cmd):
     dungeon_window.reset_to_dungeon()
     engine.update(cmd)
 
+func on_reply_cmd(cmd):
+    engine.update(cmd)
+
 func on_jump_input(pos1, pos2):
     dungeon_window.reset_to_dungeon()
     engine.update({"name":"JUMP", "origin":pos1, "dest":pos2})
-
-func on_menu_guard_button_pressed():
-    engine.update({"name":"GUARD"})
-
-func on_menu_wait_button_pressed():
-    engine.update({"name":"WAIT"})
 
 func on_endturn_button_pressed():
     engine.update({"name":"ENDTURN"})
