@@ -1,21 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://tests/test.gd" type="Script" id=1]
-[ext_resource path="res://art/icons/TILE_PATH_P2.png" type="Texture" id=2]
-[ext_resource path="res://art/icons/TYPE_ITEM_P2.png" type="Texture" id=3]
-[ext_resource path="res://interface/player_gui/common_window/players_info/player_info/hearts/hearts.tscn" type="PackedScene" id=4]
 
 [node name="node" type="Node"]
 script = ExtResource( 1 )
-
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 2 )
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 3 )
-
-[node name="Hearts" parent="." instance=ExtResource( 4 )]
