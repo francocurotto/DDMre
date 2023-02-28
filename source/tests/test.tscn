@@ -4,3 +4,7 @@
 
 [node name="node" type="Node"]
 script = ExtResource( 1 )
+
+[node name="SpinBox" type="SpinBox" parent="."]
+margin_right = 295.0
+margin_bottom = 86.0
