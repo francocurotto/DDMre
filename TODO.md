@@ -1,8 +1,5 @@
 ### TODO
-- REDUCEDAMAGE
-    - test a bit more
-- PROTECTSELF
-- ADDFOEDEFENSE
+- REDUCEDAMAGEINF
 
 ### FIXES
 - add ability description in card info
@@ -22,7 +19,7 @@
 ### ART
 - make everything 16-bitish
 
-### ABILITIES [26/46]
+### ABILITIES [28/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -48,8 +45,8 @@
 - ✅REDUCEDAMAGE
 - ❌REDUCEDAMAGEINF
 - ❌SHIFTDAMAGE
-- ❌PROTECTSELF
-- ❌ADDFOEDEFENSE
+- ✅PROTECTSELF
+- ✅ADDFOEDEFENSE
 - ❌KILLBLOCK
 - ❌DUNGRAISEATTACK
 - ❌BUFFSELF

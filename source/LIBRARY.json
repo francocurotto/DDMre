@@ -1200,7 +1200,9 @@
                  "COST": 3,
                  "CREST": "TRAP"},
                 {"NAME": "RANGEKILLALL",
-                 "RANGE": 3}],
+                 "RANGE": 3,
+                 "COST": 3,
+                 "CREST": "MAGIC"}],
     "CRESTS": "SSM4ADD3"
   },
   "111": {

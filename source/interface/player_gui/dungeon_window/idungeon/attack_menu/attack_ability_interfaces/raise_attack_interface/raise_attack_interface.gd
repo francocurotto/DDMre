@@ -13,7 +13,7 @@ func set_raise_attack_interface(monster):
     for raise in range(1, max_raise+1):
         var button = RaiseAttackButton.instance()
         button.connect("raise_attack_button_pressed", self, "on_raise_attack_button_pressed")
-        button.set_raise_attack_button(monster.attack, raise)
+        button.set_raise_attack_button(raise)
         add_child(button)
         if monster.player.crestpool.slots["ATTACK"] < raise+1:
             button.disabled = true

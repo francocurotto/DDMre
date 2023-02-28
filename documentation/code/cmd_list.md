@@ -67,6 +67,9 @@ List of abilities parameters needed when casting a dimension, attack, reply, or 
 ## REDUCEDAMAGE [reply ability]
 - name: `REDUCEDAMAGE`
 
+## PROTECTSELF [reply ability]
+- name: `PROTECTSELF`
+
 # Appendix
 ## List of Nets
 ```

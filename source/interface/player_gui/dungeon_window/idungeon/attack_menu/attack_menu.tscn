@@ -59,7 +59,7 @@ margin_right = 528.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 2 )
-text = "⚔ATTACK"
+text = "⚔ATTACK (1⚔)"
 
 [node name="MenuCancelButton" type="Button" parent="VBox/Margins/Buttons"]
 margin_top = 90.0

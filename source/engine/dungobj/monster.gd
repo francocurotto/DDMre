@@ -15,7 +15,6 @@ var cooldown = false
 var speed = 1
 var max_move setget , get_max_move
 var previous_tile = null
-
 # behaviors (automatic abilities)
 var pass_behavior
 var target_behavior
@@ -85,6 +84,7 @@ func attack_monster(monster, guard):
     elif damage < 0: # attacker receives retailation damage
         receive_damage(-damage)
     emit_signal("attack_ends")
+    monster.emit_signal("attack_ends")
 
 func attack_monster_lord(ml):
     """
@@ -95,11 +95,19 @@ func attack_monster_lord(ml):
 
 func activate_ability(ability_dict):
     """
-    Activate ability given prameters in ability dict.
+    Activate ability given parameters in ability dict.
     """
     for ability in card.abilities:
         if ability.name == ability_dict["name"]:
             ability.activate(ability_dict)
+
+func activate_reply_ability(attacker, ability_dict):
+    """
+    Activate reply ability given attacker monster and parameters in ability dict.
+    """
+    for ability in card.abilities:
+        if ability.name == ability_dict["name"]:
+            ability.activate(attacker, ability_dict)
 
 func buff_attr(attr, amount):
     """

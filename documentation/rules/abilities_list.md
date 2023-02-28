@@ -87,7 +87,7 @@ Reduce damage dealt during attack to 0.
 Cost: COST x CREST
 
 ## ADDFOEDEFENSE (COST, CREST)
-Add attacking monster DEFENSE to monster DEFENSE.
+Permanently and before attack calculations, add attacking monster DEFENSE to monster DEFENSE.
 Cost: COST x CREST
 
 # Standing Abilities

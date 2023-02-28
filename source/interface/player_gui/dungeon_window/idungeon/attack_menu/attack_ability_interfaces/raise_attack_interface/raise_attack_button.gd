@@ -7,9 +7,9 @@ var raise
 signal raise_attack_button_pressed(raise)
 
 # setget functions
-func set_raise_attack_button(attack, _raise):
+func set_raise_attack_button(_raise):
     raise = _raise
-    text = "⚔ATTACK %d (%d⚔)" % [attack + 10*raise, raise+1] 
+    text = "⚔ATTACK +%d (%d⚔)" % [10*raise, raise+1] 
 
 # signals callbacks
 func _on_RaiseAttackButton_pressed():

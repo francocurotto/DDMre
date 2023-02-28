@@ -12,7 +12,7 @@ func set_reply_interface(monster):
     var ability = monster.get_ability("REDUCEDAMAGE")
     cost = ability.cost
     crest = ability.crest
-    text = "REDUCE DAMAGE -%d (+%d%s)" % [ability.amount, cost, Globals.CRESTICONS[crest]] 
+    text = "✨REDUCE DAMAGE -%d (%d%s)" % [ability.amount, cost, Globals.CRESTICONS[crest]] 
     disabled = cost > monster.player.crestpool.slots[crest]
 
 func get_ability_dict():

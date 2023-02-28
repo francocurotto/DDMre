@@ -16,7 +16,8 @@ const LIBPATH = "res://LIBRARY.json"
 #const DUNGPATH = "res://dungeons/test_protect_type.json"
 #const DUNGPATH = "res://dungeons/test_turn_slow_type.json"
 #const DUNGPATH = "res://dungeons/test_raise_attack.json"
-const DUNGPATH = "res://dungeons/test_reduce_damage.json"
+#const DUNGPATH = "res://dungeons/test_reduce_damage.json"
+const DUNGPATH = "res://dungeons/test_reply_abilities.json"
 #const RANDOMPOOL = true
 const RANDOMPOOL = false
 #const POOL1PATH = "res://dicepools/test_pass.json";const POOL2PATH = "res://dicepools/test_pass.json"
@@ -32,7 +33,8 @@ const RANDOMPOOL = false
 #const POOL1PATH = "res://dicepools/test_protect_type.json";const POOL2PATH = "res://dicepools/test_protect_type.json"
 #const POOL1PATH = "res://dicepools/test_turn_slow_type.json";const POOL2PATH = "res://dicepools/test_turn_slow_type.json"
 #const POOL1PATH = "res://dicepools/test_vortex.json";const POOL2PATH = "res://dicepools/test_vortex.json"
-const POOL1PATH = "res://dicepools/test_reduce_damage.json";const POOL2PATH = "res://dicepools/test_reduce_damage.json"
+#const POOL1PATH = "res://dicepools/test_reduce_damage.json";const POOL2PATH = "res://dicepools/test_reduce_damage.json"
+const POOL1PATH = "res://dicepools/test_reply_abilities.json";const POOL2PATH = "res://dicepools/test_reply_abilities.json"
 
 # arrays, dictionaries
 const CRESTS = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]

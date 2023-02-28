@@ -2,7 +2,11 @@ extends PanelContainer
 
 # preloads
 const ReduceDamageInterface = preload("res://interface/player_gui/dungeon_window/idungeon/reply_menu/reply_ability_interfaces/reduce_damage_interface/reduce_damage_interface.tscn")
-const ability_interfaces_dict = {"REDUCEDAMAGE" : ReduceDamageInterface}
+const ProtectSelfInterface = preload("res://interface/player_gui/dungeon_window/idungeon/reply_menu/reply_ability_interfaces/protect_self_interface/protect_self_interface.tscn")
+const AddFoeDefenseInterface = preload("res://interface/player_gui/dungeon_window/idungeon/reply_menu/reply_ability_interfaces/add_foe_defense_interface/add_foe_defense_interface.tscn")
+const ability_interfaces_dict = {"REDUCEDAMAGE"  : ReduceDamageInterface,
+                                 "PROTECTSELF"   : ProtectSelfInterface,
+                                 "ADDFOEDEFENSE" : AddFoeDefenseInterface}
 
 # variables
 var attacked
