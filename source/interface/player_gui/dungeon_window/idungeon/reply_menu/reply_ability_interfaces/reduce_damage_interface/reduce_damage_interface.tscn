@@ -10,5 +10,7 @@ margin_bottom = 20.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 1 )
 toggle_mode = true
-text = "REDUCE DAMAGE -10 (+1⛨)"
+text = "REDUCE DAMAGE -10 (+2⛨)"
 script = ExtResource( 2 )
+
+[connection signal="toggled" from="." to="." method="_on_Button_toggled"]

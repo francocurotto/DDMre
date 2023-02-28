@@ -38,6 +38,7 @@ const POOL1PATH = "res://dicepools/test_reduce_damage.json";const POOL2PATH = "r
 const CRESTS = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
 const CRESTCHARS = ["S", "M", "A", "D", "G", "T"]
 const TYPES = ["DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR"]
+const CRESTICONS = {"SUMMON":"★", "MOVEMENT":"⬆", "ATTACK":"⚔", "DEFENSE":"⛨", "MAGIC":"✡", "TRAP":"⚡"}
 
 # IO functions
 func read_jsonfile(filepath):

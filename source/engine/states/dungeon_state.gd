@@ -70,12 +70,7 @@ func ATTACK(cmd):
             # activate attack ability if exists
             if ability_dict:
                 monster.activate_ability(ability_dict)
-            # if opponent can defend, go to reply state
-            if opponent.crestpool.slots["DEFENSE"] >= 1 and target.is_monster():
-                return ReplyState.new(opponent, player, dungeon, monster, target)
-            # if monster cannot defend, perform attack without guard
-            else:
-                monster.attack_monster(target, false)
+            return ReplyState.new(opponent, player, dungeon, monster, target)
         elif target.is_monster_lord():
             monster.attack_monster_lord(target)
         Events.emit_signal("duel_update")
