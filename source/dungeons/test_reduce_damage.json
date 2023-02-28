@@ -27,14 +27,14 @@
                {"POS":"i11", "DICE":3}],
   "CRESTS1": {
     "MOVEMENT": 40,
-    "ATTACK"  : 5,
+    "ATTACK"  : 10,
     "DEFENSE" : 1,
     "MAGIC"   : 0,
     "TRAP"    : 0},
   "CRESTS2": {
     "MOVEMENT": 40,
     "ATTACK"  : 10,
-    "DEFENSE" : 2,
+    "DEFENSE" : 10,
     "MAGIC"   : 0,
     "TRAP"    : 0},
   "HEARTS1": 3,
