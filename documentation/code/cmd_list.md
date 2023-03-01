@@ -70,6 +70,9 @@ List of abilities parameters needed when casting a dimension, attack, reply, or 
 ## PROTECTSELF [reply ability]
 - name: `PROTECTSELF`
 
+## ADDFOEDEFENSE [reply ability]
+- name: `ADDFOEDEFENSE`
+
 # Appendix
 ## List of Nets
 ```
