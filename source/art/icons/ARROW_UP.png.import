@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ATTACK_ARROW.png-697cd602de9b355739509f852ca3c42c.stex"
+path="res://.import/ARROW_UP.png-21ce52556b7518d95e6d8821f97a11a7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/ATTACK_ARROW.png"
-dest_files=[ "res://.import/ATTACK_ARROW.png-697cd602de9b355739509f852ca3c42c.stex" ]
+source_file="res://art/icons/ARROW_UP.png"
+dest_files=[ "res://.import/ARROW_UP.png-21ce52556b7518d95e6d8821f97a11a7.stex" ]
 
 [params]
 

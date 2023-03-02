@@ -1,5 +1,5 @@
 ### TODO
-- REDUCEDAMAGEINF
+- SHIFTDAMAGE
 
 ### FIXES
 - add ability description in card info
@@ -19,7 +19,7 @@
 ### ART
 - make everything 16-bitish
 
-### ABILITIES [28/46]
+### ABILITIES [29/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -43,7 +43,7 @@
 - ✅RAISESPEED
 - ✅RAISEATTACK
 - ✅REDUCEDAMAGE
-- ❌REDUCEDAMAGEINF
+- ✅REDUCEDAMAGEINF
 - ❌SHIFTDAMAGE
 - ✅PROTECTSELF
 - ✅ADDFOEDEFENSE

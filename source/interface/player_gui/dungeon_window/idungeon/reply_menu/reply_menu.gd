@@ -2,11 +2,13 @@ extends PanelContainer
 
 # preloads
 const ReduceDamageInterface = preload("res://interface/player_gui/dungeon_window/idungeon/reply_menu/reply_ability_interfaces/reduce_damage_interface/reduce_damage_interface.tscn")
+const ReduceDamageInfInterface = preload("res://interface/player_gui/dungeon_window/idungeon/reply_menu/reply_ability_interfaces/reduce_damage_inf_interface/reduce_damage_inf_interface.tscn")
 const ProtectSelfInterface = preload("res://interface/player_gui/dungeon_window/idungeon/reply_menu/reply_ability_interfaces/protect_self_interface/protect_self_interface.tscn")
 const AddFoeDefenseInterface = preload("res://interface/player_gui/dungeon_window/idungeon/reply_menu/reply_ability_interfaces/add_foe_defense_interface/add_foe_defense_interface.tscn")
-const ability_interfaces_dict = {"REDUCEDAMAGE"  : ReduceDamageInterface,
-                                 "PROTECTSELF"   : ProtectSelfInterface,
-                                 "ADDFOEDEFENSE" : AddFoeDefenseInterface}
+const ability_interfaces_dict = {"REDUCEDAMAGE"    : ReduceDamageInterface,
+                                 "REDUCEDAMAGEINF" : ReduceDamageInfInterface,
+                                 "PROTECTSELF"     : ProtectSelfInterface,
+                                 "ADDFOEDEFENSE"   : AddFoeDefenseInterface}
 
 # variables
 var attacked
@@ -29,10 +31,10 @@ func activate(_attacker, _attacked):
     for ability in attacked.card.abilities:
         if ability.name in ability_interfaces_dict and not ability.is_negated():
             ability_interface = ability_interfaces_dict[ability.name].instance()
-            ability_interface.connect("ability_cost_changed", self, "on_ability_cost_changed")
-            ability_interface.set_reply_interface(attacked)
             buttons.add_child(ability_interface)
             buttons.move_child(ability_interface, 0)
+            ability_interface.connect("ability_cost_changed", self, "on_ability_cost_changed")
+            ability_interface.set_reply_interface(attacked)
     visible = true
     transparent_button.pressed = false
 
