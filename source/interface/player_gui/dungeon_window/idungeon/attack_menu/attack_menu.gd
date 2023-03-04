@@ -33,7 +33,7 @@ func activate(_pos1, _pos2, attacker, attacked):
 
 func deactivate():
     visible = false
-    if ability_interface:
+    if is_instance_valid(ability_interface):
         ability_interface.queue_free() 
 
 # signals callbacks

@@ -4,16 +4,13 @@ extends Button
 var cost
 var crest
 
-# signals
-signal ability_cost_changed(cost, crest)
-
 # setget functions
-func set_reply_interface(monster):
-    var ability = monster.get_ability("ADDFOEDEFENSE")
+func set_reply_interface(interface):
+    var ability = interface.attacked.get_ability("ADDFOEDEFENSE")
     cost = ability.cost
     crest = ability.crest
     text = "✨ADD FOE DEFENSE (%d%s)" % [cost, Globals.CRESTICONS[crest]] 
-    disabled = cost > monster.player.crestpool.slots[crest]
+    disabled = cost > interface.attacked.player.crestpool.slots[crest]
 
 func get_ability_dict():
     if pressed:

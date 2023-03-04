@@ -3,10 +3,12 @@ extends PanelContainer
 # preloads
 const ReduceDamageInterface = preload("res://interface/player_gui/dungeon_window/idungeon/reply_menu/reply_ability_interfaces/reduce_damage_interface/reduce_damage_interface.tscn")
 const ReduceDamageInfInterface = preload("res://interface/player_gui/dungeon_window/idungeon/reply_menu/reply_ability_interfaces/reduce_damage_inf_interface/reduce_damage_inf_interface.tscn")
+const ShiftDamageInterface = preload("res://interface/player_gui/dungeon_window/idungeon/reply_menu/reply_ability_interfaces/shift_damage_interface/shift_damage_interface.tscn")
 const ProtectSelfInterface = preload("res://interface/player_gui/dungeon_window/idungeon/reply_menu/reply_ability_interfaces/protect_self_interface/protect_self_interface.tscn")
 const AddFoeDefenseInterface = preload("res://interface/player_gui/dungeon_window/idungeon/reply_menu/reply_ability_interfaces/add_foe_defense_interface/add_foe_defense_interface.tscn")
 const ability_interfaces_dict = {"REDUCEDAMAGE"    : ReduceDamageInterface,
                                  "REDUCEDAMAGEINF" : ReduceDamageInfInterface,
+                                 "SHIFTDAMAGE"     : ShiftDamageInterface,
                                  "PROTECTSELF"     : ProtectSelfInterface,
                                  "ADDFOEDEFENSE"   : AddFoeDefenseInterface}
 
@@ -33,8 +35,7 @@ func activate(_attacker, _attacked):
             ability_interface = ability_interfaces_dict[ability.name].instance()
             buttons.add_child(ability_interface)
             buttons.move_child(ability_interface, 0)
-            ability_interface.connect("ability_cost_changed", self, "on_ability_cost_changed")
-            ability_interface.set_reply_interface(attacked)
+            ability_interface.set_reply_interface(self)
     visible = true
     transparent_button.pressed = false
 
