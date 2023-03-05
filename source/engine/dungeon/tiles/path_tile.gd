@@ -20,9 +20,6 @@ func get_content():
 func get_playerid():
     return player.id
 
-func get_dungobjid():
-    return null
-
 # public functions
 func move_content_from(original_tile):
     """
