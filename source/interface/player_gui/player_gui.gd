@@ -72,6 +72,7 @@ func _ready():
     attack_menu.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
     # reply menu
     reply_menu.connect("reply_cmd", self, "on_reply_cmd")
+    reply_menu.connect("activate_tile_ability_buttons", dungeon_window, "on_activate_tile_ability_buttons")
     # card info
     card_info.connect("card_info_quit", self, "on_card_info_quit")
     # common window

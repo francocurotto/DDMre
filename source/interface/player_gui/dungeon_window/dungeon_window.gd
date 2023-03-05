@@ -37,6 +37,9 @@ func on_dice_dim_button_released():
     idungeon.reset()
     switch_to_dungeon_buttons()
 
+func on_activate_tile_ability_buttons(menu, dungobjs):
+    pass
+
 # private functions
 func switch_to_dim_buttons():
     dim_buttons.visible = true

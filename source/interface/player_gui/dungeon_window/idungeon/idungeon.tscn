@@ -1382,10 +1382,10 @@ margin_bottom = 676.0
 
 [node name="MoveMenu" parent="." instance=ExtResource( 4 )]
 visible = false
-margin_left = 354.0
-margin_top = 520.0
-margin_right = 366.0
-margin_bottom = 532.0
+margin_left = 60.0
+margin_top = 361.0
+margin_right = 660.0
+margin_bottom = 691.0
 rect_scale = Vector2( 1, 1 )
 
 [node name="AttackMenu" parent="." instance=ExtResource( 2 )]

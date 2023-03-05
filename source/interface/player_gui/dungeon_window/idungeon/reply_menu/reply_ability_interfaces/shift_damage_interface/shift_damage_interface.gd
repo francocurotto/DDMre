@@ -3,21 +3,24 @@ extends VBoxContainer
 # variables
 var cost
 var crest
+var monster
 
 # onready variables
 onready var button = $Button
 onready var summon_info = $SummonInfo
 
 # signals
-signal ability_cost_changed(cost, crest)
+signal activate_tile_ability_buttons(dungobjs)
 
 # setget functions
 func set_reply_interface(interface):
-    var ability = interface.attacked.get_ability("SHIFTDAMAGE")
+    monster = interface.attacked
+    connect("activate_tile_ability_buttons", interface, "on_activate_tile_ability_buttons")
+    var ability = monster.get_ability("SHIFTDAMAGE")
     cost = ability.cost
     crest = ability.crest
     button.text = "✨SHIFT DAMAGE (%d%s)" % [cost, Globals.CRESTICONS[crest]] 
-    button.disabled = cost > interface.attacked.player.crestpool.slots[crest]
+    button.disabled = cost > monster.player.crestpool.slots[crest]
 
 func get_ability_dict():
     if button.pressed:
@@ -27,4 +30,6 @@ func get_ability_dict():
 
 # signals callbacks
 func _on_Button_toggled(button_pressed):
-    summon_info.visible = button_pressed
+    if button_pressed:
+        var other_monsters = monster.get_player_other_monsters()
+        emit_signal("activate_tile_ability_buttons", other_monsters)

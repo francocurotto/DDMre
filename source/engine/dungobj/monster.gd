@@ -127,6 +127,14 @@ func restore_health(amount):
     """
     health = min(health + amount, card.health)
 
+func get_player_other_monsters():
+    """
+    Return an array of player monster without this monster.
+    """
+    var other_monsters = player.monsters
+    other_monsters.erase(self)
+    return other_monsters
+
 # private functions
 func get_damage(monster, guard):
     """
