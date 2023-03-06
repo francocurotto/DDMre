@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://interface/player_gui/dungeon_window/idungeon/itile/itile.gd" type="Script" id=1]
 [ext_resource path="res://interface/player_gui/dungeon_window/idungeon/itile/tile_frame/tile_frame.tscn" type="PackedScene" id=2]
+[ext_resource path="res://art/icons/TILE_HIGHLIGHT.png" type="Texture" id=3]
 
 [node name="ITile" type="MarginContainer"]
 margin_right = 28.0
@@ -15,7 +16,6 @@ tile_player = 0
 dungobj_player = 0
 
 [node name="TileSelectButton" type="Button" parent="."]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 28.0
 margin_bottom = 28.0
@@ -47,8 +47,16 @@ margin_right = 28.0
 margin_bottom = 28.0
 toggle_mode = true
 
+[node name="TileReplyAbilityButton" type="TextureButton" parent="."]
+visible = false
+margin_right = 28.0
+margin_bottom = 28.0
+texture_normal = ExtResource( 3 )
+expand = true
+
 [connection signal="toggled" from="TileSelectButton" to="." method="_on_TileSelectButton_toggled"]
 [connection signal="pressed" from="TileMoveButton" to="." method="_on_TileMoveButton_pressed"]
 [connection signal="pressed" from="TileAttackButton" to="." method="_on_TileAttackButton_pressed"]
 [connection signal="pressed" from="TileJumpButton" to="." method="_on_TileJumpButton_pressed"]
 [connection signal="pressed" from="TileDimButton" to="." method="_on_TileDimButton_pressed"]
+[connection signal="pressed" from="TileReplyAbilityButton" to="." method="_on_TileReplyAbilityButton_pressed"]

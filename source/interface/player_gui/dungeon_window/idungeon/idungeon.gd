@@ -176,6 +176,11 @@ func on_TCW_button_pressed():
 func on_TAW_button_pressed():
     net_creator.update_net_taw()
 
+func on_shiftdamage_button_pressed(monsters):
+    for itile in itiles:
+        if itile.tile.content in monsters:
+            itile.enable_reply_ability_button()
+
 # private functions
 func get_irow(idx):
     if player.id == 1: # v-flip dungeon for player1

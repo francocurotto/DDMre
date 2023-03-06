@@ -14,6 +14,7 @@ onready var tile_move_button = $TileMoveButton
 onready var tile_attack_button = $TileAttackButton
 onready var tile_jump_button = $TileJumpButton
 onready var tile_dim_button = $TileDimButton
+onready var tile_reply_ability_button = $TileReplyAbilityButton
 
 # signals
 signal tile_select_button_toggled(itile, pressed)
@@ -72,6 +73,9 @@ func enable_jump_button():
 func enable_dim_button():
     tile_dim_button.visible = true
 
+func enable_reply_ability_button():
+    tile_reply_ability_button.visible = true
+
 func disable_all_buttons():
     tile_select_button.visible = false
     tile_move_button.visible = false
@@ -99,3 +103,6 @@ func _on_TileJumpButton_pressed():
 
 func _on_TileDimButton_pressed():
     emit_signal("tile_dim_button_pressed", self)
+
+func _on_TileReplyAbilityButton_pressed():
+    print("tile reply ability button pressed")

@@ -56,6 +56,7 @@ func _ready():
     dungeon_buttons.connect("jump_button_pressed", idungeon, "on_jump_button_pressed")
     dungeon_buttons.connect("endturn_button_pressed", self, "on_endturn_button_pressed")
     dungeon_buttons.connect("cancel_button_pressed", dungeon_window, "reset_to_dungeon")
+    dungeon_buttons.connect("cancel_reply_ability_button_pressed", reply_menu, "on_cancel_reply_ability_button_pressed")
     # dim buttons
     dim_buttons.connect("net_button_pressed", idungeon, "on_net_button_pressed")
     dim_buttons.connect("FLR_button_pressed", idungeon, "on_FLR_button_pressed")
@@ -72,7 +73,7 @@ func _ready():
     attack_menu.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
     # reply menu
     reply_menu.connect("reply_cmd", self, "on_reply_cmd")
-    reply_menu.connect("activate_tile_ability_buttons", dungeon_window, "on_activate_tile_ability_buttons")
+    reply_menu.connect("shiftdamage_button_pressed", self, "on_shiftdamage_button_pressed")
     # card info
     card_info.connect("card_info_quit", self, "on_card_info_quit")
     # common window
@@ -155,6 +156,10 @@ func on_card_info_quit():
 func on_window_button_pressed():
     dicepool_window.visible = not dicepool_window.visible
     dungeon_window.visible = not dungeon_window.visible
+
+func on_shiftdamage_button_pressed():
+    var monsters = engine.state.attacked.get_player_other_monsters()
+    dungeon_window.on_shiftdamage_button_pressed(monsters)
 
 # private functions
 func switch_to_dicepool_window():

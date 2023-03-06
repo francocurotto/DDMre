@@ -24,7 +24,7 @@ onready var menu_guard_button = $VBox/Margins/Buttons/MenuGuardButton
 
 # singals
 signal reply_cmd
-signal activate_tile_ability_buttons(menu, dungobjs)
+signal shiftdamage_button_pressed
 
 # public functions
 func activate(_attacker, _attacked):
@@ -61,9 +61,13 @@ func _on_TransparentButton_toggled(button_pressed):
 func on_ability_cost_changed(cost, crest):
     menu_guard_button.disabled = crest=="DEFENSE" and cost+1 > attacked.player.crestpool.slots["DEFENSE"]
 
-func on_activate_tile_ability_buttons(dungobjs):
+func on_shiftdamage_button_pressed():
     visible = false
-    emit_signal("activate_tile_ability_buttons", self, dungobjs)
+    emit_signal("shiftdamage_button_pressed")
+
+func on_cancel_reply_ability_button_pressed():
+    visible = true
+    ability_interface.on_cancel_reply_ability_button_pressed()
 
 # private functions
 func get_ability_dict():

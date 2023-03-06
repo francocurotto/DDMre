@@ -61,9 +61,19 @@ text = "⌛END TURN"
 
 [node name="CancelButton" type="Button" parent="."]
 visible = false
-margin_top = 54.0
-margin_right = 605.0
-margin_bottom = 104.0
+margin_top = 43.0
+margin_right = 713.0
+margin_bottom = 93.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "❌CANCEL"
+
+[node name="CancelReplyAbilityButton" type="Button" parent="."]
+visible = false
+margin_top = 43.0
+margin_right = 713.0
+margin_bottom = 93.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
@@ -74,3 +84,4 @@ text = "❌CANCEL"
 [connection signal="pressed" from="ActionButtons/JumpButton" to="." method="_on_JumpButton_pressed"]
 [connection signal="pressed" from="ActionButtons/EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
 [connection signal="pressed" from="CancelButton" to="." method="_on_CancelButton_pressed"]
+[connection signal="pressed" from="CancelReplyAbilityButton" to="." method="_on_CancelReplyAbilityButton_pressed"]

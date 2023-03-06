@@ -10,6 +10,7 @@ signal attack_button_pressed
 signal jump_button_pressed
 signal endturn_button_pressed
 signal cancel_button_pressed
+signal cancel_reply_ability_button_pressed
 
 # onready variables
 onready var action_buttons = $ActionButtons
@@ -18,6 +19,7 @@ onready var attack_button = $ActionButtons/AttackButton
 onready var jump_button = $ActionButtons/JumpButton
 onready var endturn_button = $ActionButtons/EndTurnButton
 onready var cancel_button = $CancelButton
+onready var cancel_reply_ability_button = $CancelReplyAbilityButton
 
 # setget functions
 func set_dungeon_buttons(_player, _engine):
@@ -29,13 +31,21 @@ func disable_action_buttons():
     for button in action_buttons.get_children():
         button.disabled = true
 
-func switch_to_cancel_button():
-    action_buttons.visible = false
-    cancel_button.visible = true
+func hide_all_buttons():
+    for buttons in get_children():
+        buttons.visible = false
 
 func switch_to_action_buttons():
+    hide_all_buttons()
     action_buttons.visible = true
-    cancel_button.visible = false
+    
+func switch_to_cancel_button():
+    hide_all_buttons()
+    cancel_button.visible = true
+
+func switch_to_cancel_reply_ability_button():
+    hide_all_buttons()
+    cancel_reply_ability_button.visible = true
 
 # signals callbacks
 func on_tile_select_button_toggled(dungobj, pressed):
@@ -71,3 +81,7 @@ func _on_CancelButton_pressed():
     jump_button.disabled = true
     jump_button.visible = false
     emit_signal("cancel_button_pressed")
+
+func _on_CancelReplyAbilityButton_pressed():
+    switch_to_action_buttons()
+    emit_signal("cancel_reply_ability_button_pressed")
