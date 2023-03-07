@@ -2,19 +2,26 @@ tool
 extends MarginContainer
 
 # export variables
-export (String, "NONE", "ML1", "ML2") var ml = "NONE" setget set_ml
+export (String, "EMPTY", "BLOCK", "PATH") var tile_type = "EMPTY" setget set_tile_type
+export (int, 1, 2) var tile_player = 1 setget set_tile_player
+export (String, "NONE", "MONSTER_LORD", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR",
+    "ITEM") var dungobj_type = "NONE" setget set_dungobj_type
+export (int, 1, 2) var dungobj_player = 1 setget set_dungobj_player
+export (bool) var vortex = false setget set_vortex
+export (bool) var highlight = false setget set_highlight
+export (String, "NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM") \
+    var summon_highlight_type = "NONE" setget set_summon_highlight_type
 
 # variables
 var tile
 
 # onready variables
-onready var tile_frame = $TileFrame
-onready var tile_select_button = $TileSelectButton
-onready var tile_move_button = $TileMoveButton
-onready var tile_attack_button = $TileAttackButton
-onready var tile_jump_button = $TileJumpButton
-onready var tile_dim_button = $TileDimButton
-onready var tile_reply_ability_button = $TileReplyAbilityButton
+onready var tile_select_button = $Buttons/TileSelectButton
+onready var tile_move_button = $Buttons/TileMoveButton
+onready var tile_attack_button = $Buttons/TileAttackButton
+onready var tile_jump_button = $Buttons/TileJumpButton
+onready var tile_dim_button = $Buttons/TileDimButton
+onready var tile_reply_ability_button = $Buttons/TileReplyAbilityButton
 
 # signals
 signal tile_select_button_toggled(itile, pressed)
@@ -26,29 +33,58 @@ signal tile_dim_button_pressed(itile)
 # setget functions
 func set_tile(_tile):
     tile = _tile
-    tile_frame.set_tile_icon(tile.NAME, tile.playerid, tile.vortex)
-    tile_frame.set_dungobj_icon(tile.content.NAME, tile.content.playerid)
+    set_tile_icon(tile.NAME, tile.playerid, tile.vortex)
+    set_dungobj_icon(tile.content.NAME, tile.content.playerid)
 
-func set_ml(_ml):
-    ml = _ml
-    if ml == "NONE":
-        $TileFrame.set_tile_icon("EMPTY", 0, false)
-        $TileFrame.set_dungobj_icon("NONE", 0)
-    elif ml == "ML1":
-        $TileFrame.set_tile_icon("PATH", 1, false)
-        $TileFrame.set_dungobj_icon("MONSTER_LORD", 1)
-    elif ml == "ML2":
-        $TileFrame.set_tile_icon("PATH", 2, false)
-        $TileFrame.set_dungobj_icon("MONSTER_LORD", 2)
+func set_tile_icon(_tile_type, _tile_player, _vortex):
+    tile_type = _tile_type
+    tile_player = _tile_player
+    var icon = "TILE_" + tile_type
+    if _tile_type == "PATH": # case path
+        icon += "_P" + str(tile_player)
+    $TileRects/TileRect.texture = load("res://art/icons/" + icon + ".png")
+    set_vortex(_vortex)
 
-func set_highlight():
-    tile_frame.highlight = true
+func set_dungobj_icon(_dungobj_type, _dungobj_player):
+    dungobj_type = _dungobj_type
+    dungobj_player = _dungobj_player
+    if _dungobj_type == "NONE": # case no content
+        $DungobjRects/DungobjRect.texture = null
+    else: # case content
+        var icon = dungobj_type
+        if _dungobj_type in Globals.TYPES + ["ITEM"]: # case summon
+            icon = "TYPE_" + dungobj_type + "_P" + str(dungobj_player)
+        $DungobjRects/DungobjRect.texture = load("res://art/icons/" + icon + ".png")
 
-func unset_highlight():
-    tile_frame.highlight = false
+func set_tile_type(_tile_type):
+    set_tile_icon(_tile_type, tile_player, vortex)
+
+func set_tile_player(_tile_player):
+    set_tile_icon(tile_type, _tile_player, vortex)
+
+func set_dungobj_type(_dungobj_type):
+    set_dungobj_icon(_dungobj_type, dungobj_player)
+
+func set_dungobj_player(_dungobj_player):
+    set_dungobj_icon(dungobj_type, _dungobj_player)
+
+func set_highlight(_highlight):
+    highlight = _highlight
+    $TileRects/HighlightRect.visible = highlight
+
+func set_summon_highlight_type(_summon_highlight_type):
+    summon_highlight_type = _summon_highlight_type
+    if summon_highlight_type == "NONE": # case no content
+        $DungobjRects/SummonHighlightRect.texture = null
+    else: # case content
+        $DungobjRects/SummonHighlightRect.texture = load("res://art/icons/TYPE_" + summon_highlight_type + ".png")
+
+func set_vortex(_vortex):
+    vortex = _vortex
+    $DungobjRects/VortexRect.visible = vortex
 
 func unset_summon_highlight():
-    tile_frame.summon_highlight_type = "NONE"
+    summon_highlight_type = "NONE"
 
 # public functions
 func enable_select_button():
@@ -57,18 +93,15 @@ func enable_select_button():
 
 func release_select_button():
     tile_select_button.set_pressed_no_signal(false)
-    unset_highlight()
 
 func enable_move_button():
     tile_move_button.visible = true
 
 func enable_attack_button():
     tile_attack_button.visible = true
-    set_highlight()
 
 func enable_jump_button():
     tile_jump_button.visible = true
-    set_highlight()
 
 func enable_dim_button():
     tile_dim_button.visible = true
@@ -84,12 +117,12 @@ func disable_all_buttons():
     tile_dim_button.visible = false
 
 func disable_all_highlights():
-    unset_highlight()
+    set_highlight(false)
     unset_summon_highlight()
 
 # signals callbacks
 func _on_TileSelectButton_toggled(button_pressed):
-    tile_frame.highlight = button_pressed
+    set_highlight(button_pressed)
     emit_signal("tile_select_button_toggled", self, button_pressed)
 
 func _on_TileMoveButton_pressed():
