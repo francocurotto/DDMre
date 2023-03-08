@@ -75,7 +75,7 @@ func disable_itile_highlights():
 
 func unset_highlights():
     for itile in itiles:
-        itile.unset_highlight()
+        itile.highlight = false
 
 func unset_summon_highlights():
     for itile in itiles:
@@ -125,7 +125,7 @@ func on_tile_jump_button_pressed(itile):
 func on_tile_dim_button_pressed(itile):
     on_tile_select_button_toggled(itile, true)
     unset_summon_highlights()
-    itile.tile_frame.summon_highlight_type = dim_dice.card.type
+    itile.summon_highlight_type = dim_dice.card.type
     net_creator.update_net_pos(itile.tile.pos)
 
 func on_move_button_pressed():
@@ -133,7 +133,6 @@ func on_move_button_pressed():
     var move_poss = dungeon.get_move_poss(player, selected_itile.tile.pos)
     for move_pos in move_poss:
         var itile = get_itile(move_pos)
-        itile.set_highlight()
         if itile.tile.is_reachable():
             itile.enable_move_button()
 
@@ -208,16 +207,17 @@ func release_unselected_itiles():
 func highlight_net(net):
     for pos in net.poslist:
         if dungeon.pos_within_dungeon(pos):
-            get_itile(pos).tile_frame.highlight = true
+            get_itile(pos).highlight = true
 
 func highlight_movement(pos1, pos2, path):
     disable_itile_highlights()
     for pos in path:
-        get_itile(pos).set_highlight()
-    get_itile(pos2).tile_frame.set_dungobj_icon(get_itile(pos1).tile_frame.dungobj_type, player.id)
-    get_itile(pos1).tile_frame.set_dungobj_icon("NONE", 0)
+        get_itile(pos).highlight = true
+    get_itile(pos2).set_dungobj_icon(get_itile(pos1).dungobj_type, player.id)
+    get_itile(pos1).set_dungobj_icon("NONE", 0)
 
 func highlight_attack(pos1, pos2):
     disable_itile_highlights()
-    get_itile(pos1).set_highlight()
-    get_itile(pos2).set_highlight()
+    disable_itile_buttons()
+    get_itile(pos1).highlight = true
+    get_itile(pos2).highlight = true

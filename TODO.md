@@ -1,11 +1,11 @@
 ### TODO
+- itile: swap dungobj and summon_highlight position
 - SHIFTDAMAGE
 
 ### FIXES
 - add ability description in card info
 
 ### IMPROVEMENTS
-- make selection highlight different from other highlights
 - standarize cmd syntax and context checks
 - fix dim buttons active while net select?
 

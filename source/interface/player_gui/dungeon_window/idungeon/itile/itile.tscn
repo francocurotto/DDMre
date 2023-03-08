@@ -40,6 +40,7 @@ margin_bottom = 28.0
 margin_right = 28.0
 margin_bottom = 28.0
 toggle_mode = true
+action_mode = 0
 expand = true
 stretch_mode = 4
 
@@ -47,6 +48,7 @@ stretch_mode = 4
 visible = false
 margin_right = 28.0
 margin_bottom = 28.0
+texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 4
 
@@ -54,6 +56,7 @@ stretch_mode = 4
 visible = false
 margin_right = 28.0
 margin_bottom = 28.0
+texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 4
 
@@ -61,6 +64,7 @@ stretch_mode = 4
 visible = false
 margin_right = 28.0
 margin_bottom = 28.0
+texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 4
 

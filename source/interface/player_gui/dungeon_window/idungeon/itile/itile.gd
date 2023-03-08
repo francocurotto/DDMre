@@ -84,7 +84,7 @@ func set_vortex(_vortex):
     $DungobjRects/VortexRect.visible = vortex
 
 func unset_summon_highlight():
-    summon_highlight_type = "NONE"
+    set_summon_highlight_type("NONE")
 
 # public functions
 func enable_select_button():
@@ -92,6 +92,7 @@ func enable_select_button():
     tile_select_button.set_pressed_no_signal(false)
 
 func release_select_button():
+    set_highlight(false)
     tile_select_button.set_pressed_no_signal(false)
 
 func enable_move_button():
