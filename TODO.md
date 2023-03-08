@@ -1,4 +1,5 @@
 ### TODO
+- instance ability interfaces directly on menus trees?
 - SHIFTDAMAGE
 
 ### FIXES
