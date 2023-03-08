@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons/dungeon_buttons.gd" type="Script" id=2]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons/reply_ability_buttons.tscn" type="PackedScene" id=3]
 
 [node name="DungeonButtons" type="VBoxContainer"]
 margin_right = 713.0
@@ -12,6 +13,7 @@ script = ExtResource( 2 )
 [node name="ActionButtons" type="HBoxContainer" parent="."]
 margin_right = 713.0
 margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 3
 
 [node name="MoveButton" type="Button" parent="ActionButtons"]
@@ -61,27 +63,19 @@ text = "⌛END TURN"
 
 [node name="CancelButton" type="Button" parent="."]
 visible = false
-margin_top = 43.0
+margin_top = 64.0
 margin_right = 713.0
-margin_bottom = 93.0
-rect_min_size = Vector2( 0, 50 )
+margin_bottom = 124.0
+rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 text = "❌CANCEL"
 
-[node name="CancelReplyAbilityButton" type="Button" parent="."]
+[node name="ReplyAbilityButtons" parent="." instance=ExtResource( 3 )]
 visible = false
-margin_top = 43.0
-margin_right = 713.0
-margin_bottom = 93.0
-rect_min_size = Vector2( 0, 50 )
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 1 )
-text = "❌CANCEL"
 
 [connection signal="pressed" from="ActionButtons/MoveButton" to="." method="_on_MoveButton_pressed"]
 [connection signal="pressed" from="ActionButtons/AttackButton" to="." method="_on_AttackButton_pressed"]
 [connection signal="pressed" from="ActionButtons/JumpButton" to="." method="_on_JumpButton_pressed"]
 [connection signal="pressed" from="ActionButtons/EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
 [connection signal="pressed" from="CancelButton" to="." method="_on_CancelButton_pressed"]
-[connection signal="pressed" from="CancelReplyAbilityButton" to="." method="_on_CancelReplyAbilityButton_pressed"]

@@ -19,7 +19,7 @@ onready var reply_menu = $ReplyMenu
 onready var net_select_buttons = $NetSelectButtons
 
 # signals
-signal tile_select_button_toggled(itile, pressed)
+signal tile_select_button_toggled(content, pressed)
 signal net_updated(can_dimension)
 signal menu_opened
 signal attack_cmd(cmd)
@@ -175,10 +175,10 @@ func on_TCW_button_pressed():
 func on_TAW_button_pressed():
     net_creator.update_net_taw()
 
-func on_shiftdamage_button_pressed(monsters):
-    for itile in itiles:
-        if itile.tile.content in monsters:
-            itile.enable_reply_ability_button()
+func on_cancel_reply_ability_button_pressed():
+    unset_highlights()
+    disable_itile_buttons()
+    reply_menu.on_cancel_reply_ability_button_pressed()
 
 # private functions
 func get_irow(idx):
@@ -219,5 +219,5 @@ func highlight_movement(pos1, pos2, path):
 func highlight_attack(pos1, pos2):
     disable_itile_highlights()
     disable_itile_buttons()
-    get_itile(pos1).highlight = true
-    get_itile(pos2).highlight = true
+    get_itile(pos1).attack_highlight = true
+    get_itile(pos2).attack_highlight = true

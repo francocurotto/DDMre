@@ -20,6 +20,7 @@ onready var reply_menu = $MainWindow/DungeonWindow/IDungeon/ReplyMenu
 onready var summon_info = $MainWindow/DungeonWindow/SummonPanel/SummonInfo
 onready var dungeon_info_button = $MainWindow/DungeonWindow/SummonPanel/SummonInfo/InfoButton
 onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtons
+onready var reply_ability_buttons = $MainWindow/DungeonWindow/DungeonButtons/ReplyAbilityButtons
 onready var dim_buttons = $MainWindow/DungeonWindow/DimButtons
 onready var card_info = $CardInfo
 onready var common_window = $CommonWindow
@@ -56,7 +57,9 @@ func _ready():
     dungeon_buttons.connect("jump_button_pressed", idungeon, "on_jump_button_pressed")
     dungeon_buttons.connect("endturn_button_pressed", self, "on_endturn_button_pressed")
     dungeon_buttons.connect("cancel_button_pressed", dungeon_window, "reset_to_dungeon")
-    dungeon_buttons.connect("cancel_reply_ability_button_pressed", reply_menu, "on_cancel_reply_ability_button_pressed")
+    # reply ability buttons
+    reply_ability_buttons.connect("cancel_reply_ability_button_pressed", self, "on_cancel_reply_ability_button_pressed")
+    reply_ability_buttons.connect("select_reply_ability_button_pressed", self, "on_select_reply_ability_button_pressed")
     # dim buttons
     dim_buttons.connect("net_button_pressed", idungeon, "on_net_button_pressed")
     dim_buttons.connect("FLR_button_pressed", idungeon, "on_FLR_button_pressed")
@@ -159,7 +162,19 @@ func on_window_button_pressed():
 
 func on_shiftdamage_button_pressed():
     var monsters = engine.state.attacked.get_player_other_monsters()
-    dungeon_window.on_shiftdamage_button_pressed(monsters)
+    idungeon.enable_select_buttons()
+    dungeon_buttons.switch_to_cancel_reply_ability_button(monsters)
+    idungeon.connect("tile_select_button_toggled", dungeon_buttons.reply_ability_buttons, "on_tile_select_button_toggled")
+
+func on_cancel_reply_ability_button_pressed():
+    dungeon_buttons.switch_to_action_buttons()
+    idungeon.disconnect("tile_select_button_toggled", dungeon_buttons.reply_ability_buttons, "on_tile_select_button_toggled")
+    idungeon.on_cancel_reply_ability_button_pressed()
+
+func on_select_reply_ability_button_pressed():
+    dungeon_buttons.switch_to_action_buttons()
+    idungeon.disconnect("tile_select_button_toggled", dungeon_buttons.reply_ability_buttons, "on_tile_select_button_toggled")
+    reply_menu.on_select_reply_ability_button_pressed(idungeon.selected_itile.tile)
 
 # private functions
 func switch_to_dicepool_window():

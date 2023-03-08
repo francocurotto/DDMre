@@ -37,10 +37,6 @@ func on_dice_dim_button_released():
     idungeon.reset()
     switch_to_dungeon_buttons()
 
-func on_shiftdamage_button_pressed(monsters):
-    idungeon.on_shiftdamage_button_pressed(monsters)
-    dungeon_buttons.switch_to_cancel_reply_ability_button()
-
 # private functions
 func switch_to_dim_buttons():
     dim_buttons.visible = true

@@ -14,6 +14,7 @@ func activate(_attacker, activate_dict):
     Add temporal limit to damage behavior.
     """
     monster.player.crestpool.remove_crests(crest, cost)
+    #print(activate_dict["pos"])
     #monster.damage_behavior.change_target(activate_dict["pos"])
 
 func on_attack_ends():

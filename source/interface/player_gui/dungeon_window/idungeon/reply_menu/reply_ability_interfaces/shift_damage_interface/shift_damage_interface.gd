@@ -3,6 +3,7 @@ extends VBoxContainer
 # variables
 var cost
 var crest
+var pos
 
 # onready variables
 onready var button = $Button
@@ -22,7 +23,7 @@ func set_reply_interface(interface):
 
 func get_ability_dict():
     if button.pressed:
-        return {"name":"SHIFTDAMAGE"}
+        return {"name":"SHIFTDAMAGE", "pos":pos}
     else:
         return null
 
@@ -30,7 +31,15 @@ func get_ability_dict():
 func _on_Button_toggled(button_pressed):
     if button_pressed:
         emit_signal("shiftdamage_button_pressed")
+    else:
+        summon_info.visible = false
 
 func on_cancel_reply_ability_button_pressed():
     button.pressed = false
     summon_info.visible = false
+
+func on_select_reply_ability_button_pressed(tile):
+    pos = tile.pos
+    button.pressed = true
+    summon_info.set_summon(tile.content, tile.content.player)
+    summon_info.visible = true

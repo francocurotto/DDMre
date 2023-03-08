@@ -9,6 +9,7 @@ export (String, "NONE", "MONSTER_LORD", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAS
 export (int, 1, 2) var dungobj_player = 1 setget set_dungobj_player
 export (bool) var vortex = false setget set_vortex
 export (bool) var highlight = false setget set_highlight
+export (bool) var attack_highlight = false setget set_attack_highlight
 export (String, "NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM") \
     var summon_highlight_type = "NONE" setget set_summon_highlight_type
 
@@ -21,7 +22,6 @@ onready var tile_move_button = $Buttons/TileMoveButton
 onready var tile_attack_button = $Buttons/TileAttackButton
 onready var tile_jump_button = $Buttons/TileJumpButton
 onready var tile_dim_button = $Buttons/TileDimButton
-onready var tile_reply_ability_button = $Buttons/TileReplyAbilityButton
 
 # signals
 signal tile_select_button_toggled(itile, pressed)
@@ -72,6 +72,10 @@ func set_highlight(_highlight):
     highlight = _highlight
     $TileRects/HighlightRect.visible = highlight
 
+func set_attack_highlight(_attack_highlight):
+    attack_highlight = _attack_highlight
+    $TileRects/AttackHighlightRect.visible = attack_highlight
+
 func set_summon_highlight_type(_summon_highlight_type):
     summon_highlight_type = _summon_highlight_type
     if summon_highlight_type == "NONE": # case no content
@@ -107,9 +111,6 @@ func enable_jump_button():
 func enable_dim_button():
     tile_dim_button.visible = true
 
-func enable_reply_ability_button():
-    tile_reply_ability_button.visible = true
-
 func disable_all_buttons():
     tile_select_button.visible = false
     tile_move_button.visible = false
@@ -119,6 +120,7 @@ func disable_all_buttons():
 
 func disable_all_highlights():
     set_highlight(false)
+    set_attack_highlight(false)
     unset_summon_highlight()
 
 # signals callbacks
@@ -137,6 +139,3 @@ func _on_TileJumpButton_pressed():
 
 func _on_TileDimButton_pressed():
     emit_signal("tile_dim_button_pressed", self)
-
-func _on_TileReplyAbilityButton_pressed():
-    print("tile reply ability button pressed")

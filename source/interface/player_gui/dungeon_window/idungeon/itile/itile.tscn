@@ -32,6 +32,14 @@ texture = ExtResource( 3 )
 expand = true
 stretch_mode = 5
 
+[node name="AttackHighlightRect" type="TextureRect" parent="TileRects"]
+visible = false
+margin_right = 28.0
+margin_bottom = 28.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
 [node name="Buttons" type="MarginContainer" parent="."]
 margin_right = 28.0
 margin_bottom = 28.0
@@ -76,13 +84,6 @@ toggle_mode = true
 expand = true
 stretch_mode = 4
 
-[node name="TileReplyAbilityButton" type="TextureButton" parent="Buttons"]
-visible = false
-margin_right = 28.0
-margin_bottom = 28.0
-texture_normal = ExtResource( 5 )
-expand = true
-
 [node name="DungobjRects" type="MarginContainer" parent="."]
 margin_right = 28.0
 margin_bottom = 28.0
@@ -97,14 +98,14 @@ texture = ExtResource( 4 )
 expand = true
 stretch_mode = 5
 
-[node name="DungobjRect" type="TextureRect" parent="DungobjRects"]
+[node name="SummonHighlightRect" type="TextureRect" parent="DungobjRects"]
 margin_right = 28.0
 margin_bottom = 28.0
 mouse_filter = 2
 expand = true
 stretch_mode = 5
 
-[node name="SummonHighlightRect" type="TextureRect" parent="DungobjRects"]
+[node name="DungobjRect" type="TextureRect" parent="DungobjRects"]
 margin_right = 28.0
 margin_bottom = 28.0
 mouse_filter = 2
@@ -116,4 +117,3 @@ stretch_mode = 5
 [connection signal="pressed" from="Buttons/TileAttackButton" to="." method="_on_TileAttackButton_pressed"]
 [connection signal="pressed" from="Buttons/TileJumpButton" to="." method="_on_TileJumpButton_pressed"]
 [connection signal="pressed" from="Buttons/TileDimButton" to="." method="_on_TileDimButton_pressed"]
-[connection signal="pressed" from="Buttons/TileReplyAbilityButton" to="." method="_on_TileReplyAbilityButton_pressed"]

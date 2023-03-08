@@ -1,5 +1,4 @@
 ### TODO
-- itile: swap dungobj and summon_highlight position
 - SHIFTDAMAGE
 
 ### FIXES

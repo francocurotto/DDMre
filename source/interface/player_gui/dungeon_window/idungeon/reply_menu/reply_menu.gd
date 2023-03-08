@@ -69,6 +69,10 @@ func on_cancel_reply_ability_button_pressed():
     visible = true
     ability_interface.on_cancel_reply_ability_button_pressed()
 
+func on_select_reply_ability_button_pressed(tile):
+    visible = true
+    ability_interface.on_select_reply_ability_button_pressed(tile)
+
 # private functions
 func get_ability_dict():
     """
