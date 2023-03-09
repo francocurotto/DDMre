@@ -1,6 +1,7 @@
 ### TODO
-- instance ability interfaces directly on menus trees?
 - SHIFTDAMAGE
+- move reply_ability.gd (and similars) into reply_ability folder?
+- instance ability interfaces directly on menus trees?
 
 ### FIXES
 - add ability description in card info
