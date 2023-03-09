@@ -33,7 +33,7 @@ func _init(_card, _player).(_card, _player):
     pass_behavior = PassBehaviorBase.new()
     target_behavior = TargetBehaviorBase.new(player)
     power_behavior = PowerBehaviorBase.new()
-    damage_behavior = DamageBehaviorBase.new()
+    damage_behavior = DamageBehaviorBase.new(self)
     max_move_behavior = MaxMoveBehaviorBase.new()
 
 # setget functions
@@ -80,7 +80,7 @@ func attack_monster(monster, guard):
     cooldown = true
     var damage = get_damage(monster, guard)
     if damage > 0: # attacker deals damage
-        monster.receive_damage(damage)
+        monster.damage_behavior.receiver.receive_damage(damage)
     elif damage < 0: # attacker receives retailation damage
         receive_damage(-damage)
     emit_signal("attack_ends")
@@ -101,13 +101,13 @@ func activate_ability(ability_dict):
         if ability.name == ability_dict["name"]:
             ability.activate(ability_dict)
 
-func activate_reply_ability(attacker, ability_dict):
+func activate_reply_ability(attacker, dungeon, ability_dict):
     """
     Activate reply ability given attacker monster and parameters in ability dict.
     """
     for ability in card.abilities:
         if ability.name == ability_dict["name"]:
-            ability.activate(attacker, ability_dict)
+            ability.activate(attacker, dungeon, ability_dict)
 
 func buff_attr(attr, amount):
     """

@@ -1,4 +1,4 @@
-extends "res://engine/abilities/dimension_ability.gd"
+extends "dimension_ability.gd"
 
 # preloads
 const PassBehaviorBase = preload("res://engine/dungobj/behaviors/pass_behavior_base.gd")

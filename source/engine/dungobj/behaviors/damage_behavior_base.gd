@@ -3,6 +3,10 @@ extends Reference
 # variables
 var damage_limits = [INF]
 var ability_reduce = 0
+var receiver
+
+func _init(monster):
+    receiver = monster
 
 # public functions
 func get_inflicted_damage(damage):
@@ -25,5 +29,4 @@ func remove_limit(limit):
     Remove a limit from the damage limits array.
     """
     damage_limits.erase(limit)
-    
 

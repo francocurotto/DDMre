@@ -1,4 +1,4 @@
-extends "res://engine/abilities/reply_ability.gd"
+extends "reply_ability.gd"
 
 # variables
 var cost
@@ -9,14 +9,13 @@ func _init(ability_dict).(ability_dict):
     crest = ability_dict["CREST"]
 
 # public functions
-func activate(_attacker, activate_dict):
+func activate(_attacker, dungeon, activate_dict):
     """
     Add temporal limit to damage behavior.
     """
     monster.player.crestpool.remove_crests(crest, cost)
-    #print(activate_dict["pos"])
-    #monster.damage_behavior.change_target(activate_dict["pos"])
+    var receiver = dungeon.get_tile(activate_dict["pos"]).content
+    monster.damage_behavior.receiver = receiver
 
 func on_attack_ends():
-    pass
-    #monster.damage_behavior.reset_target()
+    monster.damage_behavior.receiver = monster

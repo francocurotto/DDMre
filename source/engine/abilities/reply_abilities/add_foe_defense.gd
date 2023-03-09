@@ -1,4 +1,4 @@
-extends "res://engine/abilities/reply_ability.gd"
+extends "reply_ability.gd"
 
 # variables
 var cost
@@ -9,7 +9,7 @@ func _init(ability_dict).(ability_dict):
     crest = ability_dict["CREST"]
 
 # public functions
-func activate(attacker, _activate_dict):
+func activate(attacker, _dungeon, _activate_dict):
     """
     Permanently add foe defense to monster defense.
     """

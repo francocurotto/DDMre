@@ -164,17 +164,17 @@ func on_shiftdamage_button_pressed():
     var monsters = engine.state.attacked.get_player_other_monsters()
     idungeon.enable_select_buttons()
     dungeon_buttons.switch_to_cancel_reply_ability_button(monsters)
-    idungeon.connect("tile_select_button_toggled", dungeon_buttons.reply_ability_buttons, "on_tile_select_button_toggled")
+    idungeon.connect("tile_select_button_toggled", reply_ability_buttons, "on_tile_select_button_toggled")
 
 func on_cancel_reply_ability_button_pressed():
     dungeon_buttons.switch_to_action_buttons()
-    idungeon.disconnect("tile_select_button_toggled", dungeon_buttons.reply_ability_buttons, "on_tile_select_button_toggled")
+    idungeon.disconnect("tile_select_button_toggled", reply_ability_buttons, "on_tile_select_button_toggled")
     idungeon.on_cancel_reply_ability_button_pressed()
 
 func on_select_reply_ability_button_pressed():
     dungeon_buttons.switch_to_action_buttons()
-    idungeon.disconnect("tile_select_button_toggled", dungeon_buttons.reply_ability_buttons, "on_tile_select_button_toggled")
-    reply_menu.on_select_reply_ability_button_pressed(idungeon.selected_itile.tile)
+    idungeon.disconnect("tile_select_button_toggled", reply_ability_buttons, "on_tile_select_button_toggled")
+    idungeon.on_select_reply_ability_button_pressed()
 
 # private functions
 func switch_to_dicepool_window():

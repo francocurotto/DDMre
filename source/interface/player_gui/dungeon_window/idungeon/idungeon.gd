@@ -180,6 +180,11 @@ func on_cancel_reply_ability_button_pressed():
     disable_itile_buttons()
     reply_menu.on_cancel_reply_ability_button_pressed()
 
+func on_select_reply_ability_button_pressed():
+    unset_highlights()
+    disable_itile_buttons()    
+    reply_menu.on_select_reply_ability_button_pressed(selected_itile.tile)
+
 # private functions
 func get_irow(idx):
     if player.id == 1: # v-flip dungeon for player1

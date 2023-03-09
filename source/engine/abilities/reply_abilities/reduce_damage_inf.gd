@@ -1,4 +1,4 @@
-extends "res://engine/abilities/reply_ability.gd"
+extends "reply_ability.gd"
 
 # variables
 var crest = "DEFENSE"
@@ -7,7 +7,7 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func activate(_attacker, activate_dict):
+func activate(_attacker, _dungeon, activate_dict):
     """
     Add temporal reduce to damage behavior.
     """

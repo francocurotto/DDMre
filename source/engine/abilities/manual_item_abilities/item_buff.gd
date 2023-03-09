@@ -1,4 +1,4 @@
-extends "res://engine/abilities/manual_item_ability.gd"
+extends "manual_item_ability.gd"
 
 var attr
 var amount

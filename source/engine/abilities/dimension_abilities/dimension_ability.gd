@@ -1,4 +1,4 @@
-extends "monster_ability.gd"
+extends "res://engine/abilities/monster_ability.gd"
 
 func _init(ability_dict).(ability_dict):
     pass

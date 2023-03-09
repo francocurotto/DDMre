@@ -1,7 +1,8 @@
 ### TODO
-- SHIFTDAMAGE
-- move reply_ability.gd (and similars) into reply_ability folder?
+- more testing to shiftdamage
 - instance ability interfaces directly on menus trees?
+- BUFFSELF
+- DUNGRAISEATTACK
 
 ### FIXES
 - add ability description in card info
@@ -20,7 +21,7 @@
 ### ART
 - make everything 16-bitish
 
-### ABILITIES [29/46]
+### ABILITIES [30/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -45,7 +46,7 @@
 - ✅RAISEATTACK
 - ✅REDUCEDAMAGE
 - ✅REDUCEDAMAGEINF
-- ❌SHIFTDAMAGE
+- ✅SHIFTDAMAGE
 - ✅PROTECTSELF
 - ✅ADDFOEDEFENSE
 - ❌KILLBLOCK
