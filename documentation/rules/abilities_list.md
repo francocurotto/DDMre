@@ -95,12 +95,12 @@ Cost: COST x CREST
 Remove a block tile.
 Cost: COST x CREST
 
-## DUNGRAISEATTACK (COST, CREST, AMOUNT)
-Raise attack during next battle by AMOUNT.
+## BUFFDAMAGE (ATTR, COST, CREST)
+Raise ATTR by total damage dealt to monster (monster max. health minus current health).
 Cost: COST x CREST
 
 ## BUFFSELF (ATTR, COST, CREST, AMOUNT)
-Increase ATTR by AMOUNT.
+Raise ATTR by AMOUNT.
 Cost: COST x CREST
 
 ## TRADEHEALTH (AMOUNT, COST, CREST)

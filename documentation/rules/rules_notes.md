@@ -9,6 +9,8 @@ Some rules clarifications that I didn't know where else to put.
 
 # Attack Notes
 - Monsters can attack only once per turn.
+- Monster attack can only be raised by abilities up to 250
+
 ## Attack Damages
 - Normal attack
     - not-guarding: damage = attack
