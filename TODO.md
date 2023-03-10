@@ -2,7 +2,7 @@
 - more testing to shiftdamage
 - instance ability interfaces directly on menus trees?
 - BUFFSELF
-- DUNGRAISEATTACK
+- BUFFDAMAGE
 
 ### FIXES
 - add ability description in card info
