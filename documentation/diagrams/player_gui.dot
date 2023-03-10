@@ -1,0 +1,23 @@
+digraph player_gui {
+    rankdir=LR
+    "Player GUI" -> {"Main Window", "Lower Window"}
+    "Main Window" -> {"Dicepool Window", "Dungeon Window", "Card Info"}
+    "Dicepool Window" -> {"Dicepool GUI", "Roll GUI"}
+    "Dicepool GUI" -> "15x Dice GUI"
+    "15x Dice GUI" -> "Dice Info"
+    "Roll GUI" -> "Roll Info"
+    "Roll Info" -> "Dice Roll Info"
+    "Dungeon Window" -> {"Dungeon GUI", "Summon GUI", "Dungeon Buttons Window"}
+    "Dungeon GUI" -> {"247x Tiles GUIs", "Net Menu", "Move Menu", "Attack Menu", "Reply Menu", "Ability GUI"}
+    "Attack Menu" -> "Xx Attack Ability GUI"
+    "Reply Menu" -> "Xx Reply Ability GUI"
+    "Ability GUI" -> "Xx Ability Menus"
+    "Summon GUI" -> "Summon Info"
+    "Dungeon Buttons Window" -> {"Dungeon Buttons GUI", "Dim Buttons GUI", "Ability Buttons GUI"}
+    "Ability Buttons GUI" -> "Xx Ability Buttons GUI"
+    "Lower Window" -> {"Player Info", "Opponent Info"}
+    "Player Info" -> {"Hearts Info1"[label="Hearts Info"]} 
+    "Player Info" -> {"Crestpool Info1"[label="Crestpool Info"]}
+    "Opponent Info" -> {"Hearts Info2"[label="Hearts Info"]} 
+    "Opponent Info" -> {"Crestpool Info2"[label="Crestpool Info"]}
+}

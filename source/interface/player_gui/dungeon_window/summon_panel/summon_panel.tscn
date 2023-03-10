@@ -14,9 +14,11 @@ script = ExtResource( 2 )
 
 [node name="SummonInfo" parent="." instance=ExtResource( 1 )]
 visible = false
-margin_right = 571.0
+margin_right = 567.0
+margin_bottom = 41.0
 
 [node name="InfoButton" parent="." instance=ExtResource( 3 )]
-margin_left = 561.0
+margin_left = 571.0
 margin_right = 621.0
+margin_bottom = 41.0
 disabled = true

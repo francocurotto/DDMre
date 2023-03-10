@@ -73,6 +73,8 @@ text = "❌CANCEL"
 
 [node name="ReplyAbilityButtons" parent="." instance=ExtResource( 3 )]
 visible = false
+margin_top = 128.0
+margin_bottom = 188.0
 
 [connection signal="pressed" from="ActionButtons/MoveButton" to="." method="_on_MoveButton_pressed"]
 [connection signal="pressed" from="ActionButtons/AttackButton" to="." method="_on_AttackButton_pressed"]

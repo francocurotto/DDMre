@@ -1,6 +1,6 @@
 ### TODO
-- more testing to shiftdamage
 - instance ability interfaces directly on menus trees?
+    - player_gui diagram: add colors to non global signal nodes
 - BUFFSELF
 - BUFFDAMAGE
 
@@ -8,6 +8,7 @@
 - add ability description in card info
 
 ### IMPROVEMENTS
+- dungeon buttons are being clipped?
 - standarize cmd syntax and context checks
 - fix dim buttons active while net select?
 
