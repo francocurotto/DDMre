@@ -3,21 +3,22 @@ digraph player_gui {
     "Player GUI" -> {"Main Window", "Lower Window"}
     "Main Window" -> {"Dicepool Window", "Dungeon Window", "Card Info"}
     "Dicepool Window" -> {"Dicepool GUI", "Roll GUI"}
-    "Dicepool GUI" -> "15x Dice GUI"
-    "15x Dice GUI" -> "Dice Info"
-    "Roll GUI" -> "Roll Info"
-    "Roll Info" -> "Dice Roll Info"
+    "Dicepool GUI" -> {"15x Dice GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "15x Dice GUI" -> {"Dice Info"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Roll GUI" -> {"Roll Info"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Roll Info" -> {"Dice Roll Info"[color=darkred, fontcolor=darkred]} [color=darkred]
     "Dungeon Window" -> {"Dungeon GUI", "Summon GUI", "Dungeon Buttons Window"}
-    "Dungeon GUI" -> {"247x Tiles GUIs", "Net Menu", "Move Menu", "Attack Menu", "Reply Menu", "Ability GUI"}
-    "Attack Menu" -> "Xx Attack Ability GUI"
-    "Reply Menu" -> "Xx Reply Ability GUI"
-    "Ability GUI" -> "Xx Ability Menus"
-    "Summon GUI" -> "Summon Info"
+    "Dungeon GUI" -> {"247x Tiles GUI" [color=darkred, fontcolor=darkred]} [color=darkred]
+    "Dungeon GUI" -> {"Net Menu", "Move Menu", "Attack Menu", "Reply Menu", "Ability GUI"}
+    "Attack Menu" -> {"Xx Attack Ability GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Reply Menu" -> {"Xx Reply Ability GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Ability GUI" -> {"Xx Ability Menus"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Summon GUI" -> {"Summon Info"[color=darkred, fontcolor=darkred]} [color=darkred]
     "Dungeon Buttons Window" -> {"Dungeon Buttons GUI", "Dim Buttons GUI", "Ability Buttons GUI"}
-    "Ability Buttons GUI" -> "Xx Ability Buttons GUI"
-    "Lower Window" -> {"Player Info", "Opponent Info"}
-    "Player Info" -> {"Hearts Info1"[label="Hearts Info"]} 
-    "Player Info" -> {"Crestpool Info1"[label="Crestpool Info"]}
-    "Opponent Info" -> {"Hearts Info2"[label="Hearts Info"]} 
-    "Opponent Info" -> {"Crestpool Info2"[label="Crestpool Info"]}
+    "Ability Buttons GUI" -> {"Xx Ability Buttons GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Lower Window" -> {"Player Info", "Opponent Info"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Player Info" -> {"Hearts Info1"[label="Hearts Info", color=darkred, fontcolor=darkred]} [color=darkred] 
+    "Player Info" -> {"Crestpool Info1"[label="Crestpool Info", color=darkred, fontcolor=darkred]} [color=darkred]
+    "Opponent Info" -> {"Hearts Info2"[label="Hearts Info", color=darkred, fontcolor=darkred]} [color=darkred] 
+    "Opponent Info" -> {"Crestpool Info2"[label="Crestpool Info", color=darkred, fontcolor=darkred]} [color=darkred]
 }
