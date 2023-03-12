@@ -16,9 +16,7 @@ digraph player_gui {
     "Summon GUI" -> {"Summon Info"[color=darkred, fontcolor=darkred]} [color=darkred]
     "Dungeon Buttons Window" -> {"Dungeon Buttons GUI", "Dim Buttons GUI", "Ability Buttons GUI"}
     "Ability Buttons GUI" -> {"Xx Ability Buttons GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
-    "Lower Window" -> {"Player Info", "Opponent Info"[color=darkred, fontcolor=darkred]} [color=darkred]
-    "Player Info" -> {"Hearts Info1"[label="Hearts Info", color=darkred, fontcolor=darkred]} [color=darkred] 
-    "Player Info" -> {"Crestpool Info1"[label="Crestpool Info", color=darkred, fontcolor=darkred]} [color=darkred]
-    "Opponent Info" -> {"Hearts Info2"[label="Hearts Info", color=darkred, fontcolor=darkred]} [color=darkred] 
-    "Opponent Info" -> {"Crestpool Info2"[label="Crestpool Info", color=darkred, fontcolor=darkred]} [color=darkred]
+    "Lower Window" -> {"2x Player Info"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "2x Player Info" -> {"Hearts Info"[color=darkred, fontcolor=darkred]} [color=darkred] 
+    "2x Player Info" -> {"Crestpool Info"[color=darkred, fontcolor=darkred]} [color=darkred]
 }
