@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://art/fonts/summon_stat.tres" type="DynamicFont" id=1]
-[ext_resource path="res://interface/player_gui/info_display/dice_info/monster_stat/monster_stat.gd" type="Script" id=2]
+[ext_resource path="res://interface/player_gui/info_display/dice_info/stat_info/stat_info.gd" type="Script" id=2]
 [ext_resource path="res://art/icons/CREST_ATTACK.png" type="Texture" id=3]
 
 [node name="MonsterStat" type="HBoxContainer"]

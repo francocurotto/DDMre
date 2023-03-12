@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://interface/player_gui/info_display/dice_frame/dice_frame.gd" type="Script" id=1]
+[ext_resource path="res://interface/player_gui/info_display/dice_roll_info/dice_roll_info.gd" type="Script" id=1]
 [ext_resource path="res://art/icons/DICE.png" type="Texture" id=2]
 
-[node name="DiceFrame" type="MarginContainer"]
+[node name="DiceRollInfo" type="MarginContainer"]
 margin_right = 46.0
 margin_bottom = 49.0
 size_flags_horizontal = 3

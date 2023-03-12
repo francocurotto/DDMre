@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://art/fonts/summon_stat.tres" type="DynamicFont" id=1]
-[ext_resource path="res://interface/player_gui/info_display/dice_info/tla/tla.gd" type="Script" id=2]
+[ext_resource path="res://interface/player_gui/info_display/dice_info/tla_info/tla_info.gd" type="Script" id=2]
 [ext_resource path="res://art/icons/TYPE_DRAGON.png" type="Texture" id=3]
 [ext_resource path="res://art/icons/ABILITY.png" type="Texture" id=4]
 
-[node name="TLA" type="HBoxContainer"]
+[node name="TLAInfo" type="HBoxContainer"]
 margin_right = 14.0
 margin_bottom = 29.0
 custom_constants/separation = 0

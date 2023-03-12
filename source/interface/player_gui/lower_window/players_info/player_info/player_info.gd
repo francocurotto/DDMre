@@ -17,4 +17,3 @@ func set_playerid(_playerid):
     playerid = _playerid
     if has_node("Hearts"):
         $Hearts.set_playerid(_playerid)
-

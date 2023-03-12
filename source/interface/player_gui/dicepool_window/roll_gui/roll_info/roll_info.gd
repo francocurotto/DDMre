@@ -1,8 +1,8 @@
 extends HBoxContainer
 
 # preload vatiables
-var SideInfo = preload("res://interface/player_gui/info_display/dice_info/sides/iside/iside.tscn")
-var DiceRollInfo = preload("res://interface/player_gui/info_display/dice_frame/dice_frame.tscn")
+var SideInfo = preload("res://interface/player_gui/info_display/dice_info/sides_info/side_info/side_info.tscn")
+var DiceRollInfo = preload("res://interface/player_gui/info_display/dice_roll_info/dice_roll_info.tscn")
 
 # setget functions
 func set_roll(sides):
