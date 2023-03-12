@@ -8,9 +8,8 @@ var opponent
 # onready variables
 onready var main_window = $MainWindow
 onready var dicepool_window = $MainWindow/DicepoolWindow
-onready var dicepool_column = $MainWindow/DicepoolWindow/DicepoolPanel/DicepoolVBox/DicepoolColumn
-onready var roll_gui = $MainWindow/DicepoolWindow/RollPanel/RollVBox/RollGUI
-onready var dice_triplet = $MainWindow/DicepoolWindow/RollPanel/RollVBox/RollGUI/DiceTriplet
+onready var dicepool_gui = $MainWindow/DicepoolWindow/DicepoolGUI
+onready var roll_gui = $MainWindow/DicepoolWindow/RollGUI
 onready var dungeon_window = $MainWindow/DungeonWindow
 onready var idungeon = $MainWindow/DungeonWindow/IDungeon
 onready var net_select_buttons = $MainWindow/DungeonWindow/IDungeon/NetSelectButtons
@@ -23,21 +22,21 @@ onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtons
 onready var reply_ability_buttons = $MainWindow/DungeonWindow/DungeonButtons/ReplyAbilityButtons
 onready var dim_buttons = $MainWindow/DungeonWindow/DimButtons
 onready var card_info = $CardInfo
-onready var common_window = $CommonWindow
-onready var players_info = $CommonWindow/PlayersInfo
+onready var common_window = $LowerWindow
+onready var players_info = $LowerWindow/PlayersInfo
 
 func _ready():
     # signal connections
-    # dicepool column
-    dicepool_column.connect("dice_triplet_changed", roll_gui, "update_dice_triplet")
-    dicepool_column.connect("dice_dim_button_pressed", roll_gui, "on_dice_dim_button_pressed")
-    dicepool_column.connect("dice_dim_button_pressed", dungeon_window, "on_dice_dim_button_pressed")
-    dicepool_column.connect("dice_dim_button_released", roll_gui, "on_dice_dim_button_released")
-    dicepool_column.connect("dice_dim_button_released", dungeon_window, "on_dice_dim_button_released")
-    dicepool_column.connect("info_button_pressed", self, "on_info_button_pressed")
+    # dicepool gui
+    dicepool_gui.connect("dicepool_gui_changed", roll_gui, "on_dicepool_gui_changed")
+    dicepool_gui.connect("dice_gui_dim_button_pressed", roll_gui, "on_dice_gui_dim_button_pressed")
+    dicepool_gui.connect("dice_gui_dim_button_pressed", dungeon_window, "on_dice_gui_dim_button_pressed")
+    dicepool_gui.connect("dice_gui_dim_button_released", roll_gui, "on_dice_gui_dim_button_released")
+    dicepool_gui.connect("dice_gui_dim_button_released", dungeon_window, "on_dice_gui_dim_button_released")
+    dicepool_gui.connect("dice_gui_info_button_pressed", self, "on_info_button_pressed")
     # roll gui
-    roll_gui.connect("roll_button_pressed", self, "on_roll_button_pressed")
-    roll_gui.connect("skip_button_pressed", self, "on_skip_button_pressed")
+    roll_gui.connect("roll_gui_roll_button_pressed", self, "on_roll_gui_roll_button_pressed")
+    roll_gui.connect("roll_gui_skip_button_pressed", self, "on_roll_gui_skip_button_pressed")
     # idungeon
     idungeon.connect("tile_select_button_toggled", summon_info, "on_tile_select_button_toggled")
     idungeon.connect("tile_select_button_toggled", dungeon_buttons, "on_tile_select_button_toggled")
@@ -66,7 +65,7 @@ func _ready():
     dim_buttons.connect("FUD_button_pressed", idungeon, "on_FUD_button_pressed")
     dim_buttons.connect("TCW_button_pressed", idungeon, "on_TCW_button_pressed")
     dim_buttons.connect("TAW_button_pressed", idungeon, "on_TAW_button_pressed")
-    dim_buttons.connect("dim_button_pressed", dicepool_column, "release_roll")
+    dim_buttons.connect("dim_button_pressed", dicepool_gui, "release_roll")
     dim_buttons.connect("dim_button_pressed", self, "on_dim_button_pressed")
     # move menu
     move_menu.connect("menu_move_button_pressed", self, "on_menu_move_button_pressed")
@@ -87,25 +86,25 @@ func set_duel(_engine, _player, _opponent):
     engine = _engine
     player = _player
     opponent = _opponent
-    dicepool_column.set_dicepool(player.dicepool)
+    dicepool_gui.set_dicepool(player.dicepool)
     idungeon.set_dungeon(engine.dungeon, player)
     summon_info.set_player(player)
     dungeon_buttons.set_dungeon_buttons(player, engine)
     players_info.set_players_info(player, opponent)
 
 func set_roll(sides):
-    dice_triplet.set_roll(sides)
+    roll_gui.set_roll(sides)
 
 # signals callbacks
-func on_roll_button_pressed():
-    var indeces = dicepool_column.get_roll_indeces()
+func on_roll_gui_roll_button_pressed():
+    var indeces = dicepool_gui.get_roll_indeces()
     engine.update({"name":"ROLL", "dice":indeces})
 
-func on_skip_button_pressed():
+func on_roll_gui_skip_button_pressed():
     engine.update({"name":"SKIP"})
 
 func on_dim_button_pressed():
-    var dimdice = dicepool_column.get_selected_dim_idx()
+    var dimdice = dicepool_gui.get_selected_dim_index()
     var netdata = idungeon.net_creator.get_netdata()
     var net = netdata["netname"]
     var pos = netdata["pos"]

@@ -29,11 +29,11 @@ func on_state_update_reply(attacker, attacked):
     idungeon.open_reply_menu(attacker, attacked)
     idungeon.highlight_attack_reply(attacker, attacked)
 
-func on_dice_dim_button_pressed(dice):
+func on_dice_gui_dim_button_pressed(dice):
     idungeon.on_dice_dim_button_pressed(dice)
     switch_to_dim_buttons()
 
-func on_dice_dim_button_released():
+func on_dice_gui_dim_button_released():
     idungeon.reset()
     switch_to_dungeon_buttons()
 

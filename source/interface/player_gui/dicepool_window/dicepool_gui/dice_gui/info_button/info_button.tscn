@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://interface/player_gui/dicepool_window/idicepool/dice_button/info_button/info_button.gd" type="Script" id=1]
+[ext_resource path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_gui/info_button/info_button.gd" type="Script" id=1]
 [ext_resource path="res://art/icons/INFO.png" type="Texture" id=2]
 
 [node name="InfoButton" type="Button"]

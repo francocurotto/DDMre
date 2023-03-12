@@ -1,32 +1,54 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://art/fonts/big_button.tres" type="DynamicFont" id=1]
 [ext_resource path="res://interface/player_gui/dicepool_window/roll_gui/roll_gui.gd" type="Script" id=2]
-[ext_resource path="res://interface/player_gui/dicepool_window/roll_gui/dice_triplet/dice_triplet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/player_gui/dicepool_window/roll_gui/roll_info/roll_info.tscn" type="PackedScene" id=3]
+[ext_resource path="res://art/styleboxes/panel.tres" type="StyleBox" id=4]
+[ext_resource path="res://art/fonts/panel_title.tres" type="DynamicFont" id=5]
 
-[node name="RollGUI" type="HBoxContainer"]
-margin_right = 714.0
-margin_bottom = 97.0
+[node name="RollGUI" type="PanelContainer"]
+margin_right = 612.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 0, 140 )
+custom_styles/panel = ExtResource( 4 )
+script = ExtResource( 2 )
+
+[node name="RollGUIVBox" type="VBoxContainer" parent="."]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 606.0
+margin_bottom = 134.0
+rect_pivot_offset = Vector2( -547, -79 )
+
+[node name="Title" type="Label" parent="RollGUIVBox"]
+margin_right = 600.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 5 )
+text = "Roll"
+
+[node name="RollGUIHBox" type="HBoxContainer" parent="RollGUIVBox"]
+margin_top = 40.0
+margin_right = 600.0
+margin_bottom = 128.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
-script = ExtResource( 2 )
 
-[node name="DiceTriplet" parent="." instance=ExtResource( 3 )]
-margin_right = 469.0
-margin_bottom = 97.0
+[node name="RollInfo" parent="RollGUIVBox/RollGUIHBox" instance=ExtResource( 3 )]
+margin_right = 393.0
+margin_bottom = 88.0
 size_flags_stretch_ratio = 2.0
 
-[node name="RollButton" type="Button" parent="."]
-margin_left = 479.0
-margin_right = 714.0
-margin_bottom = 97.0
+[node name="RollButton" type="Button" parent="RollGUIVBox/RollGUIHBox"]
+margin_left = 403.0
+margin_right = 600.0
+margin_bottom = 88.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
 text = "ROLL!"
 
-[node name="SkipButton" type="Button" parent="."]
+[node name="SkipButton" type="Button" parent="RollGUIVBox/RollGUIHBox"]
 visible = false
 margin_left = 292.0
 margin_right = 381.0
@@ -35,5 +57,5 @@ size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 text = "SKIP"
 
-[connection signal="pressed" from="RollButton" to="." method="_on_RollButton_pressed"]
-[connection signal="pressed" from="SkipButton" to="." method="_on_SkipButton_pressed"]
+[connection signal="pressed" from="RollGUIVBox/RollGUIHBox/RollButton" to="." method="_on_RollButton_pressed"]
+[connection signal="pressed" from="RollGUIVBox/RollGUIHBox/SkipButton" to="." method="_on_SkipButton_pressed"]
