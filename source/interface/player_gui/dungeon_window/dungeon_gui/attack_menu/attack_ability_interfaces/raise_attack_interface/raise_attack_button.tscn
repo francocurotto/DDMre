@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/attack_menu/attack_ability_interfaces/raise_attack_interface/raise_attack_button.gd" type="Script" id=1]
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=2]
+
+[node name="RaiseAttackButton" type="Button"]
+margin_right = 12.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 2 )
+text = "⚔ATTACK 30 (2⚔)"
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="." to="." method="_on_RaiseAttackButton_pressed"]

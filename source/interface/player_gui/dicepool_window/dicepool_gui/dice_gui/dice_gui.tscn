@@ -7,6 +7,7 @@
 [node name="DiceGUI" type="HBoxContainer"]
 margin_right = 698.0
 margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 4

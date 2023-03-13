@@ -1,0 +1,119 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/tile_gui/tile_gui.gd" type="Script" id=1]
+[ext_resource path="res://art/icons/TILE_EMPTY.png" type="Texture" id=2]
+[ext_resource path="res://art/icons/TILE_HIGHLIGHT.png" type="Texture" id=3]
+[ext_resource path="res://art/icons/VORTEX.png" type="Texture" id=4]
+[ext_resource path="res://art/icons/TILE_BUTTON.png" type="Texture" id=5]
+
+[node name="TileGUI" type="MarginContainer"]
+margin_right = 28.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+
+[node name="TileRects" type="MarginContainer" parent="."]
+margin_right = 28.0
+margin_bottom = 28.0
+
+[node name="TileRect" type="TextureRect" parent="TileRects"]
+margin_right = 28.0
+margin_bottom = 28.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="HighlightRect" type="TextureRect" parent="TileRects"]
+visible = false
+margin_right = 28.0
+margin_bottom = 28.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="AttackHighlightRect" type="TextureRect" parent="TileRects"]
+visible = false
+margin_right = 28.0
+margin_bottom = 28.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="TileButtons" type="MarginContainer" parent="."]
+margin_right = 28.0
+margin_bottom = 28.0
+
+[node name="TileSelectButton" type="TextureButton" parent="TileButtons"]
+margin_right = 28.0
+margin_bottom = 28.0
+toggle_mode = true
+action_mode = 0
+expand = true
+stretch_mode = 4
+
+[node name="TileMoveButton" type="TextureButton" parent="TileButtons"]
+visible = false
+margin_right = 28.0
+margin_bottom = 28.0
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 4
+
+[node name="TileAttackButton" type="TextureButton" parent="TileButtons"]
+visible = false
+margin_right = 28.0
+margin_bottom = 28.0
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 4
+
+[node name="TileJumpButton" type="TextureButton" parent="TileButtons"]
+visible = false
+margin_right = 28.0
+margin_bottom = 28.0
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 4
+
+[node name="TileDimButton" type="TextureButton" parent="TileButtons"]
+visible = false
+margin_right = 28.0
+margin_bottom = 28.0
+toggle_mode = true
+expand = true
+stretch_mode = 4
+
+[node name="DungobjRects" type="MarginContainer" parent="."]
+margin_right = 28.0
+margin_bottom = 28.0
+mouse_filter = 2
+
+[node name="VortexRect" type="TextureRect" parent="DungobjRects"]
+visible = false
+margin_right = 28.0
+margin_bottom = 28.0
+mouse_filter = 2
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="SummonHighlightRect" type="TextureRect" parent="DungobjRects"]
+margin_right = 28.0
+margin_bottom = 28.0
+mouse_filter = 2
+expand = true
+stretch_mode = 5
+
+[node name="DungobjRect" type="TextureRect" parent="DungobjRects"]
+margin_right = 28.0
+margin_bottom = 28.0
+mouse_filter = 2
+expand = true
+stretch_mode = 5
+
+[connection signal="toggled" from="TileButtons/TileSelectButton" to="." method="_on_TileSelectButton_toggled"]
+[connection signal="pressed" from="TileButtons/TileMoveButton" to="." method="_on_TileMoveButton_pressed"]
+[connection signal="pressed" from="TileButtons/TileAttackButton" to="." method="_on_TileAttackButton_pressed"]
+[connection signal="pressed" from="TileButtons/TileJumpButton" to="." method="_on_TileJumpButton_pressed"]
+[connection signal="pressed" from="TileButtons/TileDimButton" to="." method="_on_TileDimButton_pressed"]

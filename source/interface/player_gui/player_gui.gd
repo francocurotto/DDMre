@@ -11,13 +11,12 @@ onready var dicepool_window = $MainWindow/DicepoolWindow
 onready var dicepool_gui = $MainWindow/DicepoolWindow/DicepoolGUI
 onready var roll_gui = $MainWindow/DicepoolWindow/RollGUI
 onready var dungeon_window = $MainWindow/DungeonWindow
-onready var idungeon = $MainWindow/DungeonWindow/IDungeon
-onready var net_select_buttons = $MainWindow/DungeonWindow/IDungeon/NetSelectButtons
-onready var move_menu = $MainWindow/DungeonWindow/IDungeon/MoveMenu
-onready var attack_menu = $MainWindow/DungeonWindow/IDungeon/AttackMenu
-onready var reply_menu = $MainWindow/DungeonWindow/IDungeon/ReplyMenu
-onready var summon_info = $MainWindow/DungeonWindow/SummonPanel/SummonInfo
-onready var dungeon_info_button = $MainWindow/DungeonWindow/SummonPanel/SummonInfo/InfoButton
+onready var dungeon_gui = $MainWindow/DungeonWindow/DungeonGUI
+onready var net_select_buttons = $MainWindow/DungeonWindow/DungeonGUI/NetSelectButtons
+onready var move_menu = $MainWindow/DungeonWindow/DungeonGUI/MoveMenu
+onready var attack_menu = $MainWindow/DungeonWindow/DungeonGUI/AttackMenu
+onready var reply_menu = $MainWindow/DungeonWindow/DungeonGUI/ReplyMenu
+onready var summon_gui = $MainWindow/DungeonWindow/SummonGUI
 onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtons
 onready var reply_ability_buttons = $MainWindow/DungeonWindow/DungeonButtons/ReplyAbilityButtons
 onready var dim_buttons = $MainWindow/DungeonWindow/DimButtons
@@ -36,34 +35,34 @@ func _ready():
     # roll gui
     roll_gui.connect("roll_gui_roll_button_pressed", self, "on_roll_gui_roll_button_pressed")
     roll_gui.connect("roll_gui_skip_button_pressed", self, "on_roll_gui_skip_button_pressed")
-    # idungeon
-    idungeon.connect("tile_select_button_toggled", summon_info, "on_tile_select_button_toggled")
-    idungeon.connect("tile_select_button_toggled", dungeon_buttons, "on_tile_select_button_toggled")
-    idungeon.connect("net_updated", dim_buttons, "on_net_updated")
-    idungeon.connect("menu_opened", dungeon_buttons, "on_menu_opened")
-    idungeon.connect("attack_cmd", self, "on_attack_cmd")
-    idungeon.connect("monster_jumped", self, "on_jump_input")
+    # dungeon gui
+    dungeon_gui.connect("tile_select_button_toggled", summon_gui, "on_tile_select_button_toggled")
+    dungeon_gui.connect("tile_select_button_toggled", dungeon_buttons, "on_tile_select_button_toggled")
+    dungeon_gui.connect("net_updated", dim_buttons, "on_net_updated")
+    dungeon_gui.connect("menu_opened", dungeon_buttons, "on_menu_opened")
+    dungeon_gui.connect("attack_cmd", self, "on_attack_cmd")
+    dungeon_gui.connect("monster_jumped", self, "on_jump_input")
     # net creator
-    idungeon.net_creator.connect("net_updated", idungeon, "on_net_updated")
+    dungeon_gui.net_creator.connect("net_updated", dungeon_gui, "on_net_updated")
     # net select buttons
-    net_select_buttons.connect("net_select_button_pressed", idungeon.net_creator, "update_netidx")
+    net_select_buttons.connect("net_select_button_pressed", dungeon_gui.net_creator, "update_netidx")
     # dungeon info button
-    dungeon_info_button.connect("info_button_pressed", self, "on_info_button_pressed")
+    summon_gui.connect("summon_gui_info_button_pressed", self, "on_info_button_pressed")
     # dungeon buttons
-    dungeon_buttons.connect("move_button_pressed", idungeon, "on_move_button_pressed")
-    dungeon_buttons.connect("attack_button_pressed", idungeon, "on_attack_button_pressed")
-    dungeon_buttons.connect("jump_button_pressed", idungeon, "on_jump_button_pressed")
+    dungeon_buttons.connect("move_button_pressed", dungeon_gui, "on_move_button_pressed")
+    dungeon_buttons.connect("attack_button_pressed", dungeon_gui, "on_attack_button_pressed")
+    dungeon_buttons.connect("jump_button_pressed", dungeon_gui, "on_jump_button_pressed")
     dungeon_buttons.connect("endturn_button_pressed", self, "on_endturn_button_pressed")
     dungeon_buttons.connect("cancel_button_pressed", dungeon_window, "reset_to_dungeon")
     # reply ability buttons
     reply_ability_buttons.connect("cancel_reply_ability_button_pressed", self, "on_cancel_reply_ability_button_pressed")
     reply_ability_buttons.connect("select_reply_ability_button_pressed", self, "on_select_reply_ability_button_pressed")
     # dim buttons
-    dim_buttons.connect("net_button_pressed", idungeon, "on_net_button_pressed")
-    dim_buttons.connect("FLR_button_pressed", idungeon, "on_FLR_button_pressed")
-    dim_buttons.connect("FUD_button_pressed", idungeon, "on_FUD_button_pressed")
-    dim_buttons.connect("TCW_button_pressed", idungeon, "on_TCW_button_pressed")
-    dim_buttons.connect("TAW_button_pressed", idungeon, "on_TAW_button_pressed")
+    dim_buttons.connect("net_button_pressed", dungeon_gui, "on_net_button_pressed")
+    dim_buttons.connect("FLR_button_pressed", dungeon_gui, "on_FLR_button_pressed")
+    dim_buttons.connect("FUD_button_pressed", dungeon_gui, "on_FUD_button_pressed")
+    dim_buttons.connect("TCW_button_pressed", dungeon_gui, "on_TCW_button_pressed")
+    dim_buttons.connect("TAW_button_pressed", dungeon_gui, "on_TAW_button_pressed")
     dim_buttons.connect("dim_button_pressed", dicepool_gui, "release_roll")
     dim_buttons.connect("dim_button_pressed", self, "on_dim_button_pressed")
     # move menu
@@ -86,8 +85,8 @@ func set_duel(_engine, _player, _opponent):
     player = _player
     opponent = _opponent
     dicepool_gui.set_dicepool(player.dicepool)
-    idungeon.set_dungeon(engine.dungeon, player)
-    summon_info.set_player(player)
+    dungeon_gui.set_dungeon(engine.dungeon, player)
+    summon_gui.set_player(player)
     dungeon_buttons.set_dungeon_buttons(player, engine)
     lower_window.set_players_info(player, opponent)
 
@@ -104,7 +103,7 @@ func on_roll_gui_skip_button_pressed():
 
 func on_dim_button_pressed():
     var dimdice = dicepool_gui.get_selected_dim_index()
-    var netdata = idungeon.net_creator.get_netdata()
+    var netdata = dungeon_gui.net_creator.get_netdata()
     var net = netdata["netname"]
     var pos = netdata["pos"]
     var trans = netdata["trans_list"]
@@ -162,19 +161,19 @@ func on_switch_button_pressed():
 
 func on_shiftdamage_button_pressed():
     var monsters = engine.state.attacked.get_player_other_monsters()
-    idungeon.enable_select_buttons()
+    dungeon_gui.enable_select_buttons()
     dungeon_buttons.switch_to_cancel_reply_ability_button(monsters)
-    idungeon.connect("tile_select_button_toggled", reply_ability_buttons, "on_tile_select_button_toggled")
+    dungeon_gui.connect("tile_select_button_toggled", reply_ability_buttons, "on_tile_select_button_toggled")
 
 func on_cancel_reply_ability_button_pressed():
     dungeon_buttons.switch_to_action_buttons()
-    idungeon.disconnect("tile_select_button_toggled", reply_ability_buttons, "on_tile_select_button_toggled")
-    idungeon.on_cancel_reply_ability_button_pressed()
+    dungeon_gui.disconnect("tile_select_button_toggled", reply_ability_buttons, "on_tile_select_button_toggled")
+    dungeon_gui.on_cancel_reply_ability_button_pressed()
 
 func on_select_reply_ability_button_pressed():
     dungeon_buttons.switch_to_action_buttons()
-    idungeon.disconnect("tile_select_button_toggled", reply_ability_buttons, "on_tile_select_button_toggled")
-    idungeon.on_select_reply_ability_button_pressed()
+    dungeon_gui.disconnect("tile_select_button_toggled", reply_ability_buttons, "on_tile_select_button_toggled")
+    dungeon_gui.on_select_reply_ability_button_pressed()
 
 # private functions
 func switch_to_dicepool_window():
