@@ -10,8 +10,10 @@ digraph player_gui {
     "Dungeon Window" -> {"Dungeon GUI", "Summon GUI", "Dungeon Buttons Window"}
     "Dungeon GUI" -> {"247x Tiles GUI" [color=darkred, fontcolor=darkred]} [color=darkred]
     "Dungeon GUI" -> {"Net Menu", "Move Menu", "Attack Menu", "Reply Menu", "Ability GUI"}
-    "Attack Menu" -> {"Xx Attack Ability GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
-    "Reply Menu" -> {"Xx Reply Ability GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Attack Menu" -> "Attack Ability GUI"
+    "Attack Ability GUI" -> {"Xx Attack Ability GUIs"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Reply Menu" -> "Reply Ability GUI"
+    "Reply Ability GUI" -> {"Xx Reply Ability GUIs"[color=darkred, fontcolor=darkred]} [color=darkred]
     "Ability GUI" -> {"Xx Ability Menus"[color=darkred, fontcolor=darkred]} [color=darkred]
     "Summon GUI" -> {"Summon Info"[color=darkred, fontcolor=darkred]} [color=darkred]
     "Dungeon Buttons Window" -> {"Dungeon Buttons GUI", "Dim Buttons GUI", "Ability Buttons GUI"}

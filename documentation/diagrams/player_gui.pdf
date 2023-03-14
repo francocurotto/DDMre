@@ -178,11 +178,11 @@ def
 %%EndSetup
 setupLatin1
 %%Page: 1 1
-%%PageBoundingBox: 36 36 1413 674
+%%PageBoundingBox: 36 36 1678 674
 %%PageOrientation: Portrait
 0 0 1 beginpage
 gsave
-36 36 1377 638 boxprim clip newpath
+36 36 1642 638 boxprim clip newpath
 1 1 set_scale 0 rotate 40 40 translate
 % Player GUI
 gsave
@@ -925,62 +925,62 @@ newpath 899.2339 35.8592 moveto
 896.8428 29.2803 lineto
 closepath stroke
 grestore
-% Xx Attack Ability GUI
+% Attack Ability GUI
 gsave
 1 setlinewidth
-0 1 0.5451 nodecolor
-1253.0548 342 109.6807 18 ellipse_path stroke
-0 1 0.5451 nodecolor
+0 0 0 nodecolor
+1253.0548 342 94.7833 18 ellipse_path stroke
+0 0 0 nodecolor
 14 /Times-Roman set_font
-1176.5548 338.3 moveto 153 (Xx Attack Ability GUI) alignedtext
+1188.0548 338.3 moveto 130 (Attack Ability GUI) alignedtext
 grestore
-% Attack Menu->Xx Attack Ability GUI
+% Attack Menu->Attack Ability GUI
 gsave
 1 setlinewidth
-0 1 0.5451 edgecolor
+0 0 0 edgecolor
 newpath 1057.4941 342 moveto
-1080.5746 342 1107.0179 342 1132.817 342 curveto
+1085.0235 342 1117.3371 342 1147.6353 342 curveto
 stroke
-0 1 0.5451 edgecolor
-newpath 1133.0476 345.5001 moveto
-1143.0476 342 lineto
-1133.0475 338.5001 lineto
+0 0 0 edgecolor
+newpath 1147.8232 345.5001 moveto
+1157.8232 342 lineto
+1147.8232 338.5001 lineto
 closepath fill
 1 setlinewidth
 solid
-0 1 0.5451 edgecolor
-newpath 1133.0476 345.5001 moveto
-1143.0476 342 lineto
-1133.0475 338.5001 lineto
+0 0 0 edgecolor
+newpath 1147.8232 345.5001 moveto
+1157.8232 342 lineto
+1147.8232 338.5001 lineto
 closepath stroke
 grestore
-% Xx Reply Ability GUI
+% Reply Ability GUI
 gsave
 1 setlinewidth
-0 1 0.5451 nodecolor
-1253.0548 288 106.6812 18 ellipse_path stroke
-0 1 0.5451 nodecolor
+0 0 0 nodecolor
+1253.0548 288 91.784 18 ellipse_path stroke
+0 0 0 nodecolor
 14 /Times-Roman set_font
-1179.0548 284.3 moveto 148 (Xx Reply Ability GUI) alignedtext
+1190.5548 284.3 moveto 125 (Reply Ability GUI) alignedtext
 grestore
-% Reply Menu->Xx Reply Ability GUI
+% Reply Menu->Reply Ability GUI
 gsave
 1 setlinewidth
-0 1 0.5451 edgecolor
+0 0 0 edgecolor
 newpath 1054.0811 288 moveto
-1078.9165 288 1108.0015 288 1136.114 288 curveto
+1083.3569 288 1118.5378 288 1151.07 288 curveto
 stroke
-0 1 0.5451 edgecolor
-newpath 1136.4176 291.5001 moveto
-1146.4176 288 lineto
-1136.4176 284.5001 lineto
+0 0 0 edgecolor
+newpath 1151.0717 291.5001 moveto
+1161.0716 288 lineto
+1151.0716 284.5001 lineto
 closepath fill
 1 setlinewidth
 solid
-0 1 0.5451 edgecolor
-newpath 1136.4176 291.5001 moveto
-1146.4176 288 lineto
-1136.4176 284.5001 lineto
+0 0 0 edgecolor
+newpath 1151.0717 291.5001 moveto
+1161.0716 288 lineto
+1151.0716 284.5001 lineto
 closepath stroke
 grestore
 % Xx Ability Menus
@@ -1010,6 +1010,64 @@ solid
 newpath 1153.2845 237.5001 moveto
 1163.2845 234 lineto
 1153.2844 230.5001 lineto
+closepath stroke
+grestore
+% Xx Attack Ability GUIs
+gsave
+1 setlinewidth
+0 1 0.5451 nodecolor
+1519.7843 342 114.2798 18 ellipse_path stroke
+0 1 0.5451 nodecolor
+14 /Times-Roman set_font
+1439.7843 338.3 moveto 160 (Xx Attack Ability GUIs) alignedtext
+grestore
+% Attack Ability GUI->Xx Attack Ability GUIs
+gsave
+1 setlinewidth
+0 1 0.5451 edgecolor
+newpath 1348.1339 342 moveto
+1363.2508 342 1379.0967 342 1394.7853 342 curveto
+stroke
+0 1 0.5451 edgecolor
+newpath 1395.0629 345.5001 moveto
+1405.0629 342 lineto
+1395.0629 338.5001 lineto
+closepath fill
+1 setlinewidth
+solid
+0 1 0.5451 edgecolor
+newpath 1395.0629 345.5001 moveto
+1405.0629 342 lineto
+1395.0629 338.5001 lineto
+closepath stroke
+grestore
+% Xx Reply Ability GUIs
+gsave
+1 setlinewidth
+0 1 0.5451 nodecolor
+1519.7843 288 111.2805 18 ellipse_path stroke
+0 1 0.5451 nodecolor
+14 /Times-Roman set_font
+1442.2843 284.3 moveto 155 (Xx Reply Ability GUIs) alignedtext
+grestore
+% Reply Ability GUI->Xx Reply Ability GUIs
+gsave
+1 setlinewidth
+0 1 0.5451 edgecolor
+newpath 1344.7893 288 moveto
+1362.0108 288 1380.279 288 1398.2537 288 curveto
+stroke
+0 1 0.5451 edgecolor
+newpath 1398.4957 291.5001 moveto
+1408.4957 288 lineto
+1398.4957 284.5001 lineto
+closepath fill
+1 setlinewidth
+solid
+0 1 0.5451 edgecolor
+newpath 1398.4957 291.5001 moveto
+1408.4957 288 lineto
+1398.4957 284.5001 lineto
 closepath stroke
 grestore
 % Xx Ability Buttons GUI
@@ -1107,7 +1165,7 @@ grestore
 %%EndPage: 1
 %%Trailer
 %%Pages: 1
-%%BoundingBox: 36 36 1413 674
+%%BoundingBox: 36 36 1678 674
 end
 restore
 %%EOF

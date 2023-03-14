@@ -6,15 +6,15 @@ var monsters
 # onready variables
 onready var select_reply_ability_button = $SelectReplyAbilityButton
 
+# signals
+signal cancel_reply_ability_button_pressed
+signal select_reply_ability_button_pressed
+
 # public functions
 func initialize(_monsters):
     monsters = _monsters
     select_reply_ability_button.disabled = true
     visible = true
-
-# signals
-signal cancel_reply_ability_button_pressed
-signal select_reply_ability_button_pressed
 
 # signals callbacks
 func on_tile_select_button_toggled(content, pressed):

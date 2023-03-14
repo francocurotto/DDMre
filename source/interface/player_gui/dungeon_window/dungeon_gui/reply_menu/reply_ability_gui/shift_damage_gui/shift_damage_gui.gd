@@ -13,12 +13,14 @@ onready var summon_info = $SummonInfo
 signal reply_ability_select_monster
 
 # setget functions
-func set_reply_interface(attacked):
+func set_reply_gui(attacked):
     var ability = attacked.get_ability("SHIFTDAMAGE")
     cost = ability.cost
     crest = ability.crest
     button.text = "✨SHIFT DAMAGE (%d%s)" % [cost, Globals.CRESTICONS[crest]] 
     button.disabled = cost > attacked.player.crestpool.slots[crest]
+    button.set_pressed_no_signal(false)
+    summon_info.visible = false
 
 func get_ability_dict():
     if button.pressed:

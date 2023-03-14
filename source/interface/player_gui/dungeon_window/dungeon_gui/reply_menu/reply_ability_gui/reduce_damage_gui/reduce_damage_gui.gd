@@ -14,9 +14,6 @@ func set_reply_gui(attacked):
     crest = ability.crest
     text = "✨REDUCE DAMAGE -%d (%d%s)" % [ability.amount, cost, Globals.CRESTICONS[crest]] 
     disabled = cost > attacked.player.crestpool.slots[crest]
-
-func deactivate():
-    visible = false
     set_pressed_no_signal(false)
 
 func get_ability_dict():

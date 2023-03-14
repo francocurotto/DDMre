@@ -35,17 +35,17 @@ func activate(attacked):
             visible = true
 
 func deactivate():
-    active_gui.deactivate()
     visible = false
+    active_gui.visible = false
 
 func get_ability_dict():
-    active_gui.get_ability_dict()
+    return active_gui.get_ability_dict()
 
 # signals callbacks
 func on_ability_cost_changed(cost, crest):
     emit_signal("reply_ability_cost_changed", cost, crest)
 
-func on_reply_abiliy_select_monster():
+func on_reply_ability_select_monster():
     emit_signal("reply_ability_select_monster")
 
 func on_cancel_reply_ability_button_pressed():

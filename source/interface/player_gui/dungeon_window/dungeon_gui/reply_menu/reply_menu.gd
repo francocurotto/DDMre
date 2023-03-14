@@ -41,10 +41,10 @@ func _on_TransparentButton_toggled(button_pressed):
 func on_reply_ability_cost_changed(cost, crest):
     menu_guard_button.disabled = crest=="DEFENSE" and cost+1 > attacked.player.crestpool.slots["DEFENSE"]
 
-#func on_cancel_reply_ability_button_pressed():
-#    visible = true
-#    reply_ability_gui.on_cancel_reply_ability_button_pressed()
-#
-#func on_select_reply_ability_button_pressed(tile):
-#    visible = true
-#    reply_ability_gui.on_select_reply_ability_button_pressed(tile)
+func on_cancel_reply_ability_button_pressed():
+    visible = true
+    reply_ability_gui.on_cancel_reply_ability_button_pressed()
+
+func on_select_reply_ability_button_pressed(tile):
+    visible = true
+    reply_ability_gui.on_select_reply_ability_button_pressed(tile)
