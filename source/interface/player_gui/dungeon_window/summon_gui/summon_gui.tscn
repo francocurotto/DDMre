@@ -34,4 +34,4 @@ icon = ExtResource( 2 )
 icon_align = 1
 expand_icon = true
 
-[connection signal="pressed" from="SummonGUIHBox/InfoButton" to="SummonGUIHBox" method="_on_InfoButton_pressed"]
+[connection signal="pressed" from="SummonGUIHBox/InfoButton" to="." method="_on_InfoButton_pressed"]
