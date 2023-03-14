@@ -3,7 +3,7 @@
 [ext_resource path="res://art/styleboxes/panel.tres" type="StyleBox" id=1]
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=2]
 [ext_resource path="res://art/icons/NET_L1.png" type="Texture" id=3]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/net_select_buttons/net_select_buttons.gd" type="Script" id=4]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/nets_menu/nets_menu.gd" type="Script" id=4]
 [ext_resource path="res://art/icons/NET_M1.png" type="Texture" id=5]
 [ext_resource path="res://art/icons/NET_Z2.png" type="Texture" id=6]
 [ext_resource path="res://art/icons/NET_S1.png" type="Texture" id=7]
@@ -15,7 +15,7 @@
 [ext_resource path="res://art/icons/NET_Z1.png" type="Texture" id=13]
 [ext_resource path="res://art/icons/NET_X1.png" type="Texture" id=14]
 
-[node name="NetSelectButtons" type="PanelContainer"]
+[node name="NetsMenu" type="PanelContainer"]
 margin_right = 450.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 450, 300 )

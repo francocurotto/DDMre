@@ -16,7 +16,7 @@ onready var rows = $Rows
 onready var move_menu = $MoveMenu
 onready var attack_menu = $AttackMenu
 onready var reply_menu = $ReplyMenu
-onready var net_select_buttons = $NetSelectButtons
+onready var nets_menu = $NetsMenu
 
 # signals
 signal tile_select_button_toggled(content, pressed)
@@ -161,7 +161,7 @@ func on_net_updated(net):
     emit_signal("net_updated", dungeon.can_dimension(net, player))
 
 func on_net_button_pressed():
-    net_select_buttons.activate()
+    nets_menu.activate()
 
 func on_FLR_button_pressed():
     net_creator.update_net_flr()

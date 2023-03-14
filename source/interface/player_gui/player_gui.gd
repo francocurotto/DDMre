@@ -12,7 +12,7 @@ onready var dicepool_gui = $MainWindow/DicepoolWindow/DicepoolGUI
 onready var roll_gui = $MainWindow/DicepoolWindow/RollGUI
 onready var dungeon_window = $MainWindow/DungeonWindow
 onready var dungeon_gui = $MainWindow/DungeonWindow/DungeonGUI
-onready var net_select_buttons = $MainWindow/DungeonWindow/DungeonGUI/NetSelectButtons
+onready var nets_menu = $MainWindow/DungeonWindow/DungeonGUI/NetsMenu
 onready var move_menu = $MainWindow/DungeonWindow/DungeonGUI/MoveMenu
 onready var attack_menu = $MainWindow/DungeonWindow/DungeonGUI/AttackMenu
 onready var reply_menu = $MainWindow/DungeonWindow/DungeonGUI/ReplyMenu
@@ -45,7 +45,7 @@ func _ready():
     # net creator
     dungeon_gui.net_creator.connect("net_updated", dungeon_gui, "on_net_updated")
     # net select buttons
-    net_select_buttons.connect("net_select_button_pressed", dungeon_gui.net_creator, "update_netidx")
+    nets_menu.connect("net_select_button_pressed", dungeon_gui.net_creator, "update_netidx")
     # dungeon info button
     summon_gui.connect("summon_gui_info_button_pressed", self, "on_info_button_pressed")
     # dungeon buttons
