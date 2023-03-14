@@ -44,8 +44,6 @@ func _ready():
     dungeon_gui.connect("monster_jumped", self, "on_jump_input")
     # net creator
     dungeon_gui.net_creator.connect("net_updated", dungeon_gui, "on_net_updated")
-    # net select buttons
-    nets_menu.connect("net_select_button_pressed", dungeon_gui.net_creator, "update_netidx")
     # dungeon info button
     summon_gui.connect("summon_gui_info_button_pressed", self, "on_info_button_pressed")
     # dungeon buttons
@@ -65,6 +63,8 @@ func _ready():
     dim_buttons.connect("TAW_button_pressed", dungeon_gui, "on_TAW_button_pressed")
     dim_buttons.connect("dim_button_pressed", dicepool_gui, "release_roll")
     dim_buttons.connect("dim_button_pressed", self, "on_dim_button_pressed")
+    # nets menu
+    nets_menu.connect("net_select_button_pressed", dungeon_gui.net_creator, "update_net_index")
     # move menu
     move_menu.connect("menu_move_button_pressed", self, "on_menu_move_button_pressed")
     move_menu.connect("menu_canceled", dungeon_window, "reset_to_dungeon")

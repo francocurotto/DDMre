@@ -11,10 +11,10 @@ const ROTATIONS = [[], ["TCW"], ["TCW", "TCW"], ["TAW"]]
 var playerid
 var pos
 var inittrans
-var netidx = 10
-var refxidx = 0
-var refyidx = 0
-var rotidx = 0
+var net_index = 10
+var refx_index = 0
+var refy_index = 0
+var rot_index = 0
 
 # signals
 signal net_updated(net)
@@ -26,13 +26,13 @@ func set_playerid(_playerid):
 
 # public functions
 func reset():
-    netidx = 10
-    refxidx = 0
-    refyidx = 0
-    rotidx = 0
+    net_index = 10
+    refx_index = 0
+    refy_index = 0
+    rot_index = 0
 
-func update_netidx(_netidx):
-    netidx = _netidx
+func update_netidx(_net_index):
+    net_index = _net_index
     create_net()
 
 func update_net_pos(_pos):
@@ -40,21 +40,21 @@ func update_net_pos(_pos):
     create_net()
 
 func update_net_flr():
-    refxidx = (refxidx+1) % len(REFLECTSX)
+    refx_index = (refx_index+1) % len(REFLECTSX)
     create_net()
 
 func update_net_fud():
-    refyidx = (refyidx+1) % len(REFLECTSY)
+    refy_index = (refy_index+1) % len(REFLECTSY)
     create_net()
 
 func update_net_tcw():
     var adder = -(playerid*2-3)
-    rotidx = (rotidx+adder) % len(ROTATIONS)
+    rot_index = (rot_index+adder) % len(ROTATIONS)
     create_net()
 
 func update_net_taw():
     var adder = playerid*2-3
-    rotidx = (rotidx+adder) % len(ROTATIONS)
+    rot_index = (rot_index+adder) % len(ROTATIONS)
     create_net()
 
 func create_net():
@@ -65,6 +65,6 @@ func create_net():
     emit_signal("net_updated", net)
 
 func get_netdata():
-    var netname = NETS[netidx]
-    var trans_list = inittrans + ROTATIONS[rotidx] + REFLECTSX[refxidx] + REFLECTSY[refyidx]
+    var netname = NETS[net_index]
+    var trans_list = inittrans + ROTATIONS[rot_index] + REFLECTSX[refx_index] + REFLECTSY[refy_index]
     return {"netname":netname, "pos":pos, "trans_list":trans_list}

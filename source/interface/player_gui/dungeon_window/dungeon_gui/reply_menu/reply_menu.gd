@@ -1,17 +1,5 @@
 extends PanelContainer
 
-# preloads
-const ReduceDamageInterface = preload("res://interface/player_gui/dungeon_window/dungeon_gui/reply_menu/reply_ability_interfaces/reduce_damage_interface/reduce_damage_interface.tscn")
-const ReduceDamageInfInterface = preload("res://interface/player_gui/dungeon_window/dungeon_gui/reply_menu/reply_ability_interfaces/reduce_damage_inf_interface/reduce_damage_inf_interface.tscn")
-const ShiftDamageInterface = preload("res://interface/player_gui/dungeon_window/dungeon_gui/reply_menu/reply_ability_interfaces/shift_damage_interface/shift_damage_interface.tscn")
-const ProtectSelfInterface = preload("res://interface/player_gui/dungeon_window/dungeon_gui/reply_menu/reply_ability_interfaces/protect_self_interface/protect_self_interface.tscn")
-const AddFoeDefenseInterface = preload("res://interface/player_gui/dungeon_window/dungeon_gui/reply_menu/reply_ability_interfaces/add_foe_defense_interface/add_foe_defense_interface.tscn")
-const ability_interfaces_dict = {"REDUCEDAMAGE"    : ReduceDamageInterface,
-                                 "REDUCEDAMAGEINF" : ReduceDamageInfInterface,
-                                 "SHIFTDAMAGE"     : ShiftDamageInterface,
-                                 "PROTECTSELF"     : ProtectSelfInterface,
-                                 "ADDFOEDEFENSE"   : AddFoeDefenseInterface}
-
 # variables
 var attacked
 var ability_interface
@@ -21,6 +9,17 @@ onready var attack_info = $VBox/AttackInfo
 onready var transparent_button = $VBox/TransparentButton
 onready var buttons = $VBox/Margins/Buttons
 onready var menu_guard_button = $VBox/Margins/Buttons/MenuGuardButton
+# reply ability guis
+onready var reduce_damage_gui = $VBox/Margins/Buttons/ReplyAbilityGUIs/ReduceDamageGUI
+onready var reduce_damage_inf_gui = $VBox/Margins/Buttons/ReplyAbilityGUIs/ReduceDamageInfGUI
+onready var shift_damage_gui = $VBox/Margins/Buttons/ReplyAbilityGUIs/ShiftDamageGUI
+onready var protect_self_gui = $VBox/Margins/Buttons/ReplyAbilityGUIs/ProtectSelfGUI
+onready var add_foe_defense_gui = $VBox/Margins/Buttons/ReplyAbilityGUIs/AddFoeDefenseGUI
+var ability_interfaces_dict = {"REDUCEDAMAGE"    : reduce_damage_gui,
+                               "REDUCEDAMAGEINF" : reduce_damage_inf_gui,
+                               "SHIFTDAMAGE"     : shift_damage_gui,
+                               "PROTECTSELF"     : protect_self_gui,
+                               "ADDFOEDEFENSE"   : add_foe_defense_gui}
 
 # singals
 signal reply_cmd
@@ -32,10 +31,7 @@ func activate(_attacker, _attacked):
     attack_info.set_summons(_attacker, _attacker.player, attacked, attacked.player)
     menu_guard_button.disabled = attacked.player.crestpool.slots["DEFENSE"] < 1
     for ability in attacked.card.abilities:
-        if ability.name in ability_interfaces_dict and not ability.is_negated():
-            ability_interface = ability_interfaces_dict[ability.name].instance()
-            buttons.add_child(ability_interface)
-            buttons.move_child(ability_interface, 0)
+        if ability.name in ability_interfaces_dict and not ability.is_negated(): # disable ability gui on negated instead of not show?
             ability_interface.set_reply_interface(self)
     visible = true
     transparent_button.pressed = false

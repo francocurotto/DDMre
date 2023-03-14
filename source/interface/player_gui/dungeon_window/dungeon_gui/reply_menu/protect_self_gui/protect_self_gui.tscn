@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/reply_menu/reply_ability_interfaces/add_foe_defense_interface/add_foe_defense_interface.gd" type="Script" id=2]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/reply_menu/protect_self_gui/protect_self_gui.gd" type="Script" id=2]
 
-[node name="AddFoeDefenseInterface" type="Button"]
+[node name="ProtectSelfGUI" type="Button"]
 self_modulate = Color( 1, 1, 0.501961, 1 )
 margin_right = 12.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 1 )
 toggle_mode = true
-text = "✨ADD FOE DEFENSE (3⚡)"
+text = "✨REDUCE DAMAGE 0 (2⚡)"
 script = ExtResource( 2 )

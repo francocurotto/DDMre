@@ -23,7 +23,7 @@ func get_ability_dict():
         return null
 
 # signals callbacks
-func _on_Button_toggled(button_pressed):
+func _on_ReduceDamageGUI_toggled(button_pressed):
     if button_pressed:
         emit_signal("ability_cost_changed", cost, crest)
     else:

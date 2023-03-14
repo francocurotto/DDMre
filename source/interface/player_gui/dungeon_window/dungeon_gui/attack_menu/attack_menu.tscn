@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://art/styleboxes/panel.tres" type="StyleBox" id=1]
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=2]
 [ext_resource path="res://interface/player_gui/info_display/attack_info/attack_info.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/attack_menu/attack_menu.gd" type="Script" id=4]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/attack_menu/raise_attack_gui/raise_attack_gui.tscn" type="PackedScene" id=5]
 
 [node name="AttackMenu" type="PanelContainer"]
 margin_left = 2.0
@@ -60,6 +61,12 @@ margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 2 )
 text = "⚔ATTACK (1⚔)"
+
+[node name="RaiseAttackGUI" parent="VBox/Margins/Buttons" instance=ExtResource( 5 )]
+visible = false
+margin_top = 90.0
+margin_right = 528.0
+margin_bottom = 90.0
 
 [node name="MenuCancelButton" type="Button" parent="VBox/Margins/Buttons"]
 margin_top = 90.0
