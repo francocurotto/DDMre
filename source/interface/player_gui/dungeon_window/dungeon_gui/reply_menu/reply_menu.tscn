@@ -1,14 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://art/styleboxes/panel.tres" type="StyleBox" id=1]
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=2]
 [ext_resource path="res://interface/player_gui/info_display/attack_info/attack_info.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/reply_menu/reply_menu.gd" type="Script" id=4]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/reply_menu/protect_self_gui/protect_self_gui.tscn" type="PackedScene" id=5]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/reply_menu/reduce_damage_gui/reduce_damage_gui.tscn" type="PackedScene" id=6]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/reply_menu/reduce_damage_inf_gui/reduce_damage_inf_gui.tscn" type="PackedScene" id=7]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/reply_menu/shift_damage_gui/shift_damage_gui.tscn" type="PackedScene" id=8]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/reply_menu/add_foe_defense_gui/add_foe_defense_gui.tscn" type="PackedScene" id=9]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/reply_menu/reply_ability_gui/reply_ability_gui.tscn" type="PackedScene" id=5]
 
 [node name="ReplyMenu" type="PanelContainer"]
 margin_right = 600.0
@@ -49,7 +45,7 @@ custom_constants/margin_top = 30
 custom_constants/margin_left = 30
 custom_constants/margin_bottom = 30
 
-[node name="Buttons" type="VBoxContainer" parent="VBox/Margins"]
+[node name="GUIVBox" type="VBoxContainer" parent="VBox/Margins"]
 margin_left = 30.0
 margin_top = 30.0
 margin_right = 558.0
@@ -57,43 +53,18 @@ margin_bottom = 180.0
 custom_constants/separation = 30
 alignment = 1
 
-[node name="ReplyAbilityGUIs" type="MarginContainer" parent="VBox/Margins/Buttons"]
-visible = false
+[node name="ReplyAbilityGUI" parent="VBox/Margins/GUIVBox" instance=ExtResource( 5 )]
 margin_right = 528.0
+margin_bottom = 0.0
 
-[node name="ReduceDamageGUI" parent="VBox/Margins/Buttons/ReplyAbilityGUIs" instance=ExtResource( 6 )]
-visible = false
-margin_right = 528.0
-margin_bottom = 60.0
-
-[node name="ReduceDamageInfGUI" parent="VBox/Margins/Buttons/ReplyAbilityGUIs" instance=ExtResource( 7 )]
-visible = false
-margin_right = 528.0
-margin_bottom = 120.0
-
-[node name="ShiftDamageGUI" parent="VBox/Margins/Buttons/ReplyAbilityGUIs" instance=ExtResource( 8 )]
-visible = false
-margin_right = 528.0
-margin_bottom = 60.0
-
-[node name="ProtectSelfGUI" parent="VBox/Margins/Buttons/ReplyAbilityGUIs" instance=ExtResource( 5 )]
-visible = false
-margin_right = 528.0
-margin_bottom = 60.0
-
-[node name="AddFoeDefenseGUI" parent="VBox/Margins/Buttons/ReplyAbilityGUIs" instance=ExtResource( 9 )]
-visible = false
-margin_right = 528.0
-margin_bottom = 60.0
-
-[node name="MenuGuardButton" type="Button" parent="VBox/Margins/Buttons"]
+[node name="MenuGuardButton" type="Button" parent="VBox/Margins/GUIVBox"]
 margin_right = 528.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 2 )
 text = "⛨GUARD (1⛨)"
 
-[node name="MenuWaitButton" type="Button" parent="VBox/Margins/Buttons"]
+[node name="MenuWaitButton" type="Button" parent="VBox/Margins/GUIVBox"]
 margin_top = 90.0
 margin_right = 528.0
 margin_bottom = 150.0
@@ -102,5 +73,5 @@ custom_fonts/font = ExtResource( 2 )
 text = "⏳WAIT"
 
 [connection signal="toggled" from="VBox/TransparentButton" to="." method="_on_TransparentButton_toggled"]
-[connection signal="pressed" from="VBox/Margins/Buttons/MenuGuardButton" to="." method="_on_MenuGuardButton_pressed"]
-[connection signal="pressed" from="VBox/Margins/Buttons/MenuWaitButton" to="." method="_on_MenuWaitButton_pressed"]
+[connection signal="pressed" from="VBox/Margins/GUIVBox/MenuGuardButton" to="." method="_on_MenuGuardButton_pressed"]
+[connection signal="pressed" from="VBox/Margins/GUIVBox/MenuWaitButton" to="." method="_on_MenuWaitButton_pressed"]

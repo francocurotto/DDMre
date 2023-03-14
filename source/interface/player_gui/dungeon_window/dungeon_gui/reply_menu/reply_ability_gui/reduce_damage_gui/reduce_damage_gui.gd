@@ -8,13 +8,16 @@ var crest
 signal ability_cost_changed(cost, crest)
 
 # setget functions
-func set_reply_interface(interface):
-    connect("ability_cost_changed", interface, "on_ability_cost_changed")
-    var ability = interface.attacked.get_ability("REDUCEDAMAGE")
+func set_reply_gui(attacked):
+    var ability = attacked.get_ability("REDUCEDAMAGE")
     cost = ability.cost
     crest = ability.crest
     text = "✨REDUCE DAMAGE -%d (%d%s)" % [ability.amount, cost, Globals.CRESTICONS[crest]] 
-    disabled = cost > interface.attacked.player.crestpool.slots[crest]
+    disabled = cost > attacked.player.crestpool.slots[crest]
+
+func deactivate():
+    visible = false
+    set_pressed_no_signal(false)
 
 func get_ability_dict():
     if pressed:

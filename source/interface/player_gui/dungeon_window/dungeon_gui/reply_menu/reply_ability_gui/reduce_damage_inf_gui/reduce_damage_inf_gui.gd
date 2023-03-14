@@ -15,9 +15,8 @@ onready var down_button = $Buttons/DownButton
 signal ability_cost_changed(cost, crest)
 
 # setget functions
-func set_reply_interface(interface):
-    connect("ability_cost_changed", interface, "on_ability_cost_changed")
-    player = interface.attacked.player
+func set_reply_interface(attacked):
+    player = attacked.player
     update_interface()
 
 func get_ability_dict():

@@ -10,16 +10,15 @@ onready var button = $Button
 onready var summon_info = $SummonInfo
 
 # signals
-signal shiftdamage_button_pressed
+signal reply_ability_select_monster
 
 # setget functions
-func set_reply_interface(interface):
-    connect("shiftdamage_button_pressed", interface, "on_shiftdamage_button_pressed")
-    var ability = interface.attacked.get_ability("SHIFTDAMAGE")
+func set_reply_interface(attacked):
+    var ability = attacked.get_ability("SHIFTDAMAGE")
     cost = ability.cost
     crest = ability.crest
     button.text = "✨SHIFT DAMAGE (%d%s)" % [cost, Globals.CRESTICONS[crest]] 
-    button.disabled = cost > interface.attacked.player.crestpool.slots[crest]
+    button.disabled = cost > attacked.player.crestpool.slots[crest]
 
 func get_ability_dict():
     if button.pressed:
@@ -30,7 +29,7 @@ func get_ability_dict():
 # signals callbacks
 func _on_Button_toggled(button_pressed):
     if button_pressed:
-        emit_signal("shiftdamage_button_pressed")
+        emit_signal("reply_ability_select_monster")
     else:
         summon_info.visible = false
 

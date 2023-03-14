@@ -16,6 +16,7 @@ onready var nets_menu = $MainWindow/DungeonWindow/DungeonGUI/NetsMenu
 onready var move_menu = $MainWindow/DungeonWindow/DungeonGUI/MoveMenu
 onready var attack_menu = $MainWindow/DungeonWindow/DungeonGUI/AttackMenu
 onready var reply_menu = $MainWindow/DungeonWindow/DungeonGUI/ReplyMenu
+onready var reply_ability_gui = $MainWindow/DungeonWindow/DungeonGUI/ReplyMenu/VBox/Margins/GUIVBox/ReplyAbilityGUI
 onready var summon_gui = $MainWindow/DungeonWindow/SummonGUI
 onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtons
 onready var reply_ability_buttons = $MainWindow/DungeonWindow/DungeonButtons/ReplyAbilityButtons
@@ -73,7 +74,9 @@ func _ready():
     attack_menu.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
     # reply menu
     reply_menu.connect("reply_cmd", self, "on_reply_cmd")
-    reply_menu.connect("shiftdamage_button_pressed", self, "on_shiftdamage_button_pressed")
+    # reply ability gui
+    reply_ability_gui.connect("reply_ability_cost_changed", reply_menu, "on_reply_ability_cost_changed")
+    reply_ability_gui.connect("reply_ability_select_monster", self, "on_reply_ability_select_monster")
     # card info
     card_info.connect("card_info_quit", self, "on_card_info_quit")
     # common window
@@ -159,11 +162,12 @@ func on_switch_button_pressed():
     dicepool_window.visible = not dicepool_window.visible
     dungeon_window.visible = not dungeon_window.visible
 
-func on_shiftdamage_button_pressed():
+func on_reply_ability_select_monster():
+    reply_menu.visible = false
     var monsters = engine.state.attacked.get_player_other_monsters()
     dungeon_gui.enable_select_buttons()
-    dungeon_buttons.switch_to_cancel_reply_ability_button(monsters)
     dungeon_gui.connect("tile_select_button_toggled", reply_ability_buttons, "on_tile_select_button_toggled")
+    dungeon_buttons.switch_to_cancel_reply_ability_button(monsters)
 
 func on_cancel_reply_ability_button_pressed():
     dungeon_buttons.switch_to_action_buttons()
