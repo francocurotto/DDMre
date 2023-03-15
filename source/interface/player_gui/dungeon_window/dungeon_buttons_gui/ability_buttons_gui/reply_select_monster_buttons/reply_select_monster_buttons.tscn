@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons/reply_ability_buttons.gd" type="Script" id=2]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/ability_buttons_gui/reply_select_monster_buttons/reply_select_monster_buttons.gd" type="Script" id=2]
 
-[node name="ReplyAbilityButtons" type="HBoxContainer"]
+[node name="ReplySelectMonsterButtons" type="HBoxContainer"]
 margin_right = 713.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 script = ExtResource( 2 )
 
-[node name="SelectReplyAbilityButton" type="Button" parent="."]
+[node name="SelectButton" type="Button" parent="."]
 margin_right = 354.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 50 )
@@ -19,7 +19,7 @@ custom_fonts/font = ExtResource( 1 )
 disabled = true
 text = "🔘SELECT"
 
-[node name="CancelReplyAbilityButton" type="Button" parent="."]
+[node name="CancelButton" type="Button" parent="."]
 margin_left = 358.0
 margin_right = 713.0
 margin_bottom = 60.0
@@ -29,5 +29,5 @@ size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 text = "❌CANCEL"
 
-[connection signal="pressed" from="SelectReplyAbilityButton" to="." method="_on_SelectReplyAbilityButton_pressed"]
-[connection signal="pressed" from="CancelReplyAbilityButton" to="." method="_on_CancelReplyAbilityButton_pressed"]
+[connection signal="pressed" from="SelectButton" to="." method="_on_SelectReplyAbilityButton_pressed"]
+[connection signal="pressed" from="CancelButton" to="." method="_on_CancelReplyAbilityButton_pressed"]

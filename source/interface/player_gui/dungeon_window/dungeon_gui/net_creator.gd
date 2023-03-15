@@ -31,7 +31,7 @@ func reset():
     refy_index = 0
     rot_index = 0
 
-func update_netidx(_net_index):
+func update_net_index(_net_index):
     net_index = _net_index
     create_net()
 

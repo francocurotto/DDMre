@@ -20,7 +20,7 @@ onready var buttons = [x1_button, t1_button, z1_button, x2_button, t2_button, z2
 onready var transparent_button = $Grid/TransparentButton
 
 # signals
-signal net_select_button_pressed(netidx)
+signal net_select_button_pressed(net_index)
 
 func _ready():
     button_group.connect("pressed", self, "on_button_pressed")
@@ -33,9 +33,9 @@ func activate():
 
 # signals callbacks
 func on_button_pressed(button):
-    var netidx = buttons.find(button)
+    var net_index = buttons.find(button)
     visible = false
-    emit_signal("net_select_button_pressed", netidx)
+    emit_signal("net_select_button_pressed", net_index)
 
 func _on_TransparentButton_toggled(button_pressed):
     modulate = Color(1.0, 1.0, 1.0, max(int(!button_pressed), 0.3))

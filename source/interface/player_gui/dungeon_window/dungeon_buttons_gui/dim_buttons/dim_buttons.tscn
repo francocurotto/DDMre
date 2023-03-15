@@ -2,7 +2,7 @@
 
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
 [ext_resource path="res://art/icons/NET_X1.png" type="Texture" id=2]
-[ext_resource path="res://interface/player_gui/dungeon_window/dim_buttons/dim_buttons.gd" type="Script" id=3]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/dim_buttons/dim_buttons.gd" type="Script" id=3]
 
 [node name="DimButtons" type="HBoxContainer"]
 margin_right = 286.0
@@ -29,7 +29,7 @@ text = "↔"
 
 [node name="FUDButton" type="Button" parent="."]
 margin_left = 86.0
-margin_right = 125.0
+margin_right = 126.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
@@ -37,8 +37,8 @@ disabled = true
 text = "↕"
 
 [node name="TCWButton" type="Button" parent="."]
-margin_left = 129.0
-margin_right = 168.0
+margin_left = 130.0
+margin_right = 169.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
@@ -46,8 +46,8 @@ disabled = true
 text = "🔃"
 
 [node name="TAWButton" type="Button" parent="."]
-margin_left = 172.0
-margin_right = 211.0
+margin_left = 173.0
+margin_right = 213.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
@@ -55,7 +55,7 @@ disabled = true
 text = "🔄"
 
 [node name="DimButton" type="Button" parent="."]
-margin_left = 215.0
+margin_left = 217.0
 margin_right = 286.0
 margin_bottom = 60.0
 size_flags_horizontal = 3

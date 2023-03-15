@@ -18,7 +18,6 @@ onready var attack_button = $ActionButtons/AttackButton
 onready var jump_button = $ActionButtons/JumpButton
 onready var endturn_button = $ActionButtons/EndTurnButton
 onready var cancel_button = $CancelButton
-onready var reply_ability_buttons = $ReplyAbilityButtons
 
 # setget functions
 func set_dungeon_buttons(_player, _engine):
@@ -41,10 +40,6 @@ func switch_to_action_buttons():
 func switch_to_cancel_button():
     hide_all_buttons()
     cancel_button.visible = true
-
-func switch_to_cancel_reply_ability_button(monsters):
-    hide_all_buttons()
-    reply_ability_buttons.initialize(monsters)
 
 # signals callbacks
 func on_tile_select_button_toggled(dungobj, pressed):
