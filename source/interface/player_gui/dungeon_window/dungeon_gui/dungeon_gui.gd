@@ -175,15 +175,15 @@ func on_TCW_button_pressed():
 func on_TAW_button_pressed():
     net_creator.update_net_taw()
 
-func on_cancel_reply_ability_button_pressed():
+func on_reply_ability_select_monster_cancel_button_pressed():
     unset_highlights()
     disable_tile_gui_buttons()
-    reply_menu.on_cancel_reply_ability_button_pressed()
+    reply_menu.on_select_monster_cancel_button_pressed()
 
-func on_select_reply_ability_button_pressed():
+func on_reply_ability_select_monster_select_button_pressed():
     unset_highlights()
     disable_tile_gui_buttons()    
-    reply_menu.on_select_reply_ability_button_pressed(selected_tile_gui.tile)
+    reply_menu.on_select_monster_button_pressed(selected_tile_gui.tile)
 
 # private functions
 func get_irow(idx):

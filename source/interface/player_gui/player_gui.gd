@@ -18,6 +18,7 @@ onready var attack_menu = $MainWindow/DungeonWindow/DungeonGUI/AttackMenu
 onready var reply_menu = $MainWindow/DungeonWindow/DungeonGUI/ReplyMenu
 onready var reply_ability_gui = $MainWindow/DungeonWindow/DungeonGUI/ReplyMenu/VBox/Margins/GUIVBox/ReplyAbilityGUI
 onready var summon_gui = $MainWindow/DungeonWindow/SummonGUI
+onready var dungeon_buttons_gui = $MainWindow/DungeonWindow/DungeonButtonsGUI
 onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/DungeonButtons
 onready var dim_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/DimButtons
 onready var ability_buttons_gui = $MainWindow/DungeonWindow/DungeonButtonsGUI/AbilityButtonsGUI
@@ -54,8 +55,8 @@ func _ready():
     dungeon_buttons.connect("endturn_button_pressed", self, "on_endturn_button_pressed")
     dungeon_buttons.connect("cancel_button_pressed", dungeon_window, "reset_to_dungeon")
     # ability buttons gui
-    #ability_buttons_gui.connect("cancel_reply_ability_button_pressed", self, "on_cancel_reply_ability_button_pressed")
-    #ability_buttons_gui.connect("select_reply_ability_button_pressed", self, "on_select_reply_ability_button_pressed")
+    ability_buttons_gui.connect("reply_ability_select_monster_cancel_button_pressed", self, "on_reply_ability_select_monster_cancel_button_pressed")
+    ability_buttons_gui.connect("reply_ability_select_monster_select_button_pressed", self, "on_reply_ability_select_monster_select_button_pressed")
     # dim buttons
     dim_buttons.connect("net_button_pressed", dungeon_gui, "on_net_button_pressed")
     dim_buttons.connect("FLR_button_pressed", dungeon_gui, "on_FLR_button_pressed")
@@ -167,17 +168,20 @@ func on_reply_ability_select_monster():
     var monsters = engine.state.attacked.get_player_other_monsters()
     dungeon_gui.enable_select_buttons()
     dungeon_gui.connect("tile_select_button_toggled", ability_buttons_gui, "on_tile_select_button_toggled")
-    dungeon_buttons.switch_to_cancel_reply_ability_button(monsters)
+    dungeon_buttons_gui.switch_to_ability_buttons_gui()
+    ability_buttons_gui.switch_to_reply_select_monster_buttons(monsters)
 
-func on_cancel_reply_ability_button_pressed():
-    dungeon_buttons.switch_to_action_buttons()
+func on_reply_ability_button_select_monster_cancel_pressed():
+    dungeon_buttons_gui.switch_to_dungeon_buttons()
+    #dungeon_buttons.switch_to_action_buttons()
     dungeon_gui.disconnect("tile_select_button_toggled", ability_buttons_gui, "on_tile_select_button_toggled")
-    dungeon_gui.on_cancel_reply_ability_button_pressed()
+    dungeon_gui.on_reply_ability_select_monster_cancel_button_pressed()
 
-func on_select_reply_ability_button_pressed():
-    dungeon_buttons.switch_to_action_buttons()
+func on_reply_ability_select_monster_select_button_pressed():
+    dungeon_buttons_gui.switch_to_dungeon_buttons()
+    #dungeon_buttons.switch_to_action_buttons()
     dungeon_gui.disconnect("tile_select_button_toggled", ability_buttons_gui, "on_tile_select_button_toggled")
-    dungeon_gui.on_select_reply_ability_button_pressed()
+    dungeon_gui.on_reply_ability_select_monster_select_button_pressed()
 
 # private functions
 func switch_to_dicepool_window():

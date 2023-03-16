@@ -4,24 +4,24 @@ extends HBoxContainer
 var monsters
 
 # onready variables
-onready var select_reply_ability_button = $SelectReplyAbilityButton
+onready var select_button = $SelectButton
 
 # signals
-signal cancel_reply_ability_button_pressed
-signal select_reply_ability_button_pressed
+signal reply_ability_select_monster_select_button_pressed
+signal reply_ability_select_monster_cancel_button_pressed
 
 # public functions
 func initialize(_monsters):
     monsters = _monsters
-    select_reply_ability_button.disabled = true
+    select_button.disabled = true
     visible = true
 
 # signals callbacks
 func on_tile_select_button_toggled(content, pressed):
-    select_reply_ability_button.disabled = not(pressed and content in monsters)
+    select_button.disabled = not(pressed and content in monsters)
 
-func _on_CancelReplyAbilityButton_pressed():
-    emit_signal("cancel_reply_ability_button_pressed")
+func _on_CancelButton_pressed():
+    emit_signal("reply_ability_select_monster_cancel_button_pressed")
 
-func _on_SelectReplyAbilityButton_pressed():
-    emit_signal("select_reply_ability_button_pressed")
+func _on_SelectButton_pressed():
+    emit_signal("reply_ability_select_monster_select_button_pressed")

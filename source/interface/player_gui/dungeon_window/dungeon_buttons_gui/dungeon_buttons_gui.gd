@@ -24,6 +24,10 @@ func switch_to_dim_buttons():
     hide_buttons_guis()
     dim_buttons.visible = true
 
+func switch_to_ability_buttons_gui():
+    hide_buttons_guis()
+    ability_buttons_gui.visible = true
+
 # private functions
 func hide_buttons_guis():
     for buttons_gui in get_children():

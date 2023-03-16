@@ -35,11 +35,11 @@ func _on_Button_toggled(button_pressed):
     else:
         summon_info.visible = false
 
-func on_cancel_reply_ability_button_pressed():
+func on_select_monster_cancel_button_pressed():
     button.pressed = false
     summon_info.visible = false
 
-func on_select_reply_ability_button_pressed(tile):
+func on_select_monster_select_button_pressed(tile):
     pos = tile.pos
     button.pressed = true
     summon_info.set_summon(tile.content, tile.content.player)

@@ -48,8 +48,8 @@ func on_ability_cost_changed(cost, crest):
 func on_reply_ability_select_monster():
     emit_signal("reply_ability_select_monster")
 
-func on_cancel_reply_ability_button_pressed():
-    active_gui.on_cancel_reply_ability_button_pressed()
+func on_select_monster_cancel_button_pressed():
+    active_gui.on_select_monster_cancel_button_pressed()
 
-func on_select_reply_ability_button_pressed(tile):
-    active_gui.on_select_reply_ability_button_pressed(tile)
+func on_select_monster_select_button_pressed(tile):
+    active_gui.on_select_monster_select_button_pressed(tile)

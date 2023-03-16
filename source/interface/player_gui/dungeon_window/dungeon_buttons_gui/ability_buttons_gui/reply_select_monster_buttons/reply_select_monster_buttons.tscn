@@ -29,5 +29,5 @@ size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 text = "❌CANCEL"
 
-[connection signal="pressed" from="SelectButton" to="." method="_on_SelectReplyAbilityButton_pressed"]
-[connection signal="pressed" from="CancelButton" to="." method="_on_CancelReplyAbilityButton_pressed"]
+[connection signal="pressed" from="SelectButton" to="." method="_on_SelectButton_pressed"]
+[connection signal="pressed" from="CancelButton" to="." method="_on_CancelButton_pressed"]
