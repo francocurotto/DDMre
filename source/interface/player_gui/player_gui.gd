@@ -171,7 +171,7 @@ func on_reply_ability_select_monster():
     dungeon_buttons_gui.switch_to_ability_buttons_gui()
     ability_buttons_gui.switch_to_reply_select_monster_buttons(monsters)
 
-func on_reply_ability_button_select_monster_cancel_pressed():
+func on_reply_ability_select_monster_cancel_button_pressed():
     dungeon_buttons_gui.switch_to_dungeon_buttons()
     #dungeon_buttons.switch_to_action_buttons()
     dungeon_gui.disconnect("tile_select_button_toggled", ability_buttons_gui, "on_tile_select_button_toggled")

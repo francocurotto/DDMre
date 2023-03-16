@@ -183,7 +183,7 @@ func on_reply_ability_select_monster_cancel_button_pressed():
 func on_reply_ability_select_monster_select_button_pressed():
     unset_highlights()
     disable_tile_gui_buttons()    
-    reply_menu.on_select_monster_button_pressed(selected_tile_gui.tile)
+    reply_menu.on_select_monster_select_button_pressed(selected_tile_gui.tile)
 
 # private functions
 func get_irow(idx):

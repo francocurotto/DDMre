@@ -6,6 +6,10 @@ var active_gui
 # onready variables
 onready var reply_select_monster_buttons = $ReplySelectMonsterButtons
 
+# signals
+signal reply_ability_select_monster_cancel_button_pressed
+signal reply_ability_select_monster_select_button_pressed
+
 func _ready():
     reply_select_monster_buttons.connect("reply_ability_select_monster_cancel_button_pressed", self, "on_reply_ability_select_monster_cancel_button_pressed")
     reply_select_monster_buttons.connect("reply_ability_select_monster_select_button_pressed", self, "on_reply_ability_select_monster_select_button_pressed")
