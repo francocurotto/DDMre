@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/ability_buttons_gui/reply_select_monster_buttons/reply_select_monster_buttons.tscn" type="PackedScene" id=1]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/ability_buttons_gui/ability_buttons_gui.gd" type="Script" id=2]
+
+[node name="AbilityButtonsGUI" type="MarginContainer"]
+margin_right = 542.0
+margin_bottom = 60.0
+script = ExtResource( 2 )
+
+[node name="ReplySelectMonsterButtons" parent="." instance=ExtResource( 1 )]
+visible = false
+margin_right = 542.0

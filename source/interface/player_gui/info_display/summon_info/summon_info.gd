@@ -3,15 +3,15 @@ extends VBoxContainer
 
 # onready variables
 onready var upper_name = $UpperName
-onready var tla = $SummonLine/TLA
+onready var tla_info = $SummonLine/TLAInfo
 onready var summon_name = $SummonLine/Name
-onready var attack = $SummonLine/MonsterStats/Attack
-onready var defense = $SummonLine/MonsterStats/Defense
-onready var health = $SummonLine/MonsterStats/Health
+onready var attack_info = $SummonLine/MonsterStats/AttackInfo
+onready var defense_info = $SummonLine/MonsterStats/DefenseInfo
+onready var health_info = $SummonLine/MonsterStats/HealthInfo
 
 # setget functions
 func set_summon(summon, player):
-    tla.set_tla(summon.card)
+    tla_info.set_tla(summon.card)
     set_summon_name(summon, player)
     set_summon_stats(summon)
     visible = true
@@ -21,7 +21,7 @@ func clear():
 
 func set_attacker_power(attacker, attacked):
     var power = attacker.get_power(attacked)
-    attack.set_stat_value_color(power, attacker.card.attack)
+    attack_info.set_stat_value_color(power, attacker.card.attack)
 
 # signals callbacks
 func _on_SummonInfo_resized():
@@ -49,11 +49,11 @@ func set_summon_stats(summon):
         set_item_stats()
 
 func set_monster_stats(summon):
-    attack.set_stat_value_color(summon.attack, summon.card.attack)
-    defense.set_stat_value_color(summon.defense, summon.card.defense)
-    health.set_stat_value_color(summon.health, summon.card.health)
+    attack_info.set_stat_value_color(summon.attack, summon.card.attack)
+    defense_info.set_stat_value_color(summon.defense, summon.card.defense)
+    health_info.set_stat_value_color(summon.health, summon.card.health)
 
 func set_item_stats():
-    attack.visible = false
-    defense.visible = false
-    health.visible = false
+    attack_info.visible = false
+    defense_info.visible = false
+    health_info.visible = false

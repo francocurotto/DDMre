@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/fonts/big_button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://interface/player_gui/lower_window/player_info/player_info.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/player_gui/lower_window/lower_window.gd" type="Script" id=3]
+
+[node name="LowerWindow" type="HBoxContainer"]
+margin_right = 691.0
+margin_bottom = 96.0
+custom_constants/separation = 0
+script = ExtResource( 3 )
+
+[node name="MenuButton" type="Button" parent="."]
+margin_right = 77.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Menu"
+
+[node name="PlayerInfoVBox" type="VBoxContainer" parent="."]
+margin_left = 77.0
+margin_right = 596.0
+margin_bottom = 96.0
+custom_constants/separation = 0
+
+[node name="PlayerInfo" parent="PlayerInfoVBox" instance=ExtResource( 2 )]
+
+[node name="OpponentInfo" parent="PlayerInfoVBox" instance=ExtResource( 2 )]
+margin_top = 48.0
+margin_bottom = 96.0
+playerid = 2
+
+[node name="SwitchButton" type="Button" parent="."]
+margin_left = 596.0
+margin_right = 704.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Switch"
+
+[connection signal="pressed" from="SwitchButton" to="." method="_on_SwitchButton_pressed"]

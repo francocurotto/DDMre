@@ -1,47 +1,31 @@
 extends VBoxContainer
 
 # onready variables
-onready var idungeon = $IDungeon
-onready var summon_info = $SummonPanel/SummonInfo
-onready var dungeon_buttons = $DungeonButtons
-onready var dim_buttons = $DimButtons
-onready var move_menu = $IDungeon/MoveMenu
+onready var dungeon_gui = $DungeonGUI
+onready var dungeon_buttons_gui = $DungeonButtonsGUI
 
 # public functions
 func reset_to_dungeon():
-    idungeon.reset()
-    dungeon_buttons.switch_to_action_buttons()
-    dungeon_buttons.endturn_button.disabled = false
-    dungeon_buttons.cancel_button.disabled = false
-    dim_buttons.disable_buttons()
-    switch_to_dungeon_buttons()
+    dungeon_gui.reset()
+    dungeon_buttons_gui.reset()
 
 # signals callbacks
 func on_state_update_roll():
-    idungeon.reset()
-    dungeon_buttons.disable_action_buttons()
+    dungeon_gui.reset()
+    dungeon_buttons_gui.disable_dungeon_action_buttons()
 
 func on_state_update_dungeon():
     reset_to_dungeon()
 
 func on_state_update_reply(attacker, attacked):
-    dungeon_buttons.disable_action_buttons()
-    idungeon.open_reply_menu(attacker, attacked)
-    idungeon.highlight_attack_reply(attacker, attacked)
+    dungeon_buttons_gui.disable_dungeon_action_buttons()
+    dungeon_gui.open_reply_menu(attacker, attacked)
+    dungeon_gui.highlight_attack_reply(attacker, attacked)
 
-func on_dice_dim_button_pressed(dice):
-    idungeon.on_dice_dim_button_pressed(dice)
-    switch_to_dim_buttons()
+func on_dice_gui_dim_button_pressed(dice):
+    dungeon_gui.on_dice_dim_button_pressed(dice)
+    dungeon_buttons_gui.switch_to_dim_buttons()
 
-func on_dice_dim_button_released():
-    idungeon.reset()
-    switch_to_dungeon_buttons()
-
-# private functions
-func switch_to_dim_buttons():
-    dim_buttons.visible = true
-    dungeon_buttons.visible = false
-
-func switch_to_dungeon_buttons():
-    dungeon_buttons.visible = true
-    dim_buttons.visible = false
+func on_dice_gui_dim_button_released():
+    dungeon_gui.reset()
+    dungeon_buttons_gui.switch_to_dungeon_buttons()

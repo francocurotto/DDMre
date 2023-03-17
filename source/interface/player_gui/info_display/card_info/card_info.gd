@@ -2,10 +2,10 @@ extends PanelContainer
 
 # onready variables
 onready var cardname = $VBox/InfoVBox/Name
-onready var tla = $VBox/InfoVBox/TLA
-onready var attack = $VBox/InfoVBox/StatsHBox/Attack
-onready var defense = $VBox/InfoVBox/StatsHBox/Defense
-onready var health = $VBox/InfoVBox/StatsHBox/Health
+onready var tla_info = $VBox/InfoVBox/TLAInfo
+onready var attack_info = $VBox/InfoVBox/StatsHBox/AttackInfo
+onready var defense_info = $VBox/InfoVBox/StatsHBox/DefenseInfo
+onready var health_info = $VBox/InfoVBox/StatsHBox/HealthInfo
 
 # signals
 signal card_info_quit
@@ -13,7 +13,7 @@ signal card_info_quit
 # setget functions
 func set_card(card):
     set_name(card.name)
-    tla.set_tla(card)
+    tla_info.set_tla(card)
     set_card_stats(card)
     if card.is_monster(): # monster info
         set_monster_stats(card)
@@ -33,11 +33,11 @@ func set_card_stats(card):
         set_item_stats()
 
 func set_monster_stats(card):
-    attack.set_stat("ATTACK", card.attack)
-    defense.set_stat("DEFENSE", card.defense)
-    health.set_stat("HEALTH", card.health)
+    attack_info.set_stat("ATTACK", card.attack)
+    defense_info.set_stat("DEFENSE", card.defense)
+    health_info.set_stat("HEALTH", card.health)
 
 func set_item_stats():
-    attack.hide()
-    defense.hide()
-    health.hide()
+    attack_info.hide()
+    defense_info.hide()
+    health_info.hide()

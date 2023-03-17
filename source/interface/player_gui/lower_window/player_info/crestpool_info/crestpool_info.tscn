@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://interface/player_gui/lower_window/player_info/crestpool_info/crestpool_info.gd" type="Script" id=1]
+[ext_resource path="res://interface/player_gui/lower_window/player_info/crestpool_info/crestslot_info/crestslot_info.tscn" type="PackedScene" id=2]
+
+[node name="CrestpoolInfo" type="HBoxContainer"]
+margin_right = 375.0
+margin_bottom = 36.0
+custom_constants/separation = 10
+script = ExtResource( 1 )
+
+[node name="MovementInfo" parent="." instance=ExtResource( 2 )]
+
+[node name="AttackInfo" parent="." instance=ExtResource( 2 )]
+margin_left = 80.0
+margin_right = 150.0
+slot = "ATTACK"
+
+[node name="DefenseInfo" parent="." instance=ExtResource( 2 )]
+margin_left = 160.0
+margin_right = 230.0
+slot = "DEFENSE"
+
+[node name="MagicInfo" parent="." instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_right = 310.0
+slot = "MAGIC"
+
+[node name="TrapInfo" parent="." instance=ExtResource( 2 )]
+margin_left = 320.0
+margin_right = 390.0
+slot = "TRAP"

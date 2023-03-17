@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://interface/player_gui/lower_window/player_info/hearts_info/hearts_info.gd" type="Script" id=1]
+[ext_resource path="res://art/icons/HEART_BLUE.png" type="Texture" id=2]
+
+[node name="HeartsInfo" type="HBoxContainer"]
+margin_right = 112.0
+margin_bottom = 36.0
+custom_constants/separation = 2
+script = ExtResource( 1 )
+
+[node name="Heart1" type="TextureRect" parent="."]
+margin_right = 36.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 36, 36 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Heart2" type="TextureRect" parent="."]
+margin_left = 38.0
+margin_right = 74.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 36, 36 )
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Heart3" type="TextureRect" parent="."]
+margin_left = 76.0
+margin_right = 112.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 36, 36 )
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6

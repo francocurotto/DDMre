@@ -2,7 +2,7 @@
 
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_window.tscn" type="PackedScene" id=1]
 [ext_resource path="res://interface/player_gui/player_gui.gd" type="Script" id=2]
-[ext_resource path="res://interface/player_gui/common_window/common_window.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/player_gui/lower_window/lower_window.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/player_gui/dicepool_window/dicepool_window.tscn" type="PackedScene" id=4]
 [ext_resource path="res://interface/player_gui/info_display/card_info/card_info.tscn" type="PackedScene" id=5]
 
@@ -35,7 +35,7 @@ margin_top = 592.0
 margin_right = 720.0
 margin_bottom = 1184.0
 
-[node name="CommonWindow" parent="." instance=ExtResource( 3 )]
+[node name="LowerWindow" parent="." instance=ExtResource( 3 )]
 margin_top = 1184.0
 margin_right = 720.0
 margin_bottom = 1280.0

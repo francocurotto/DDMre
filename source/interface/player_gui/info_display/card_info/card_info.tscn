@@ -2,9 +2,9 @@
 
 [ext_resource path="res://art/fonts/summon_stat.tres" type="DynamicFont" id=1]
 [ext_resource path="res://art/styleboxes/panel.tres" type="StyleBox" id=2]
-[ext_resource path="res://interface/player_gui/info_display/dice_info/tla/tla.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/player_gui/info_display/dice_info/tla_info/tla_info.tscn" type="PackedScene" id=3]
 [ext_resource path="res://art/fonts/panel_title.tres" type="DynamicFont" id=4]
-[ext_resource path="res://interface/player_gui/info_display/dice_info/monster_stat/monster_stat.tscn" type="PackedScene" id=5]
+[ext_resource path="res://interface/player_gui/info_display/dice_info/stat_info/stat_info.tscn" type="PackedScene" id=5]
 [ext_resource path="res://art/fonts/QuiviraRegular.otf" type="DynamicFontData" id=6]
 [ext_resource path="res://interface/player_gui/info_display/card_info/card_info.gd" type="Script" id=7]
 
@@ -61,7 +61,7 @@ custom_fonts/font = ExtResource( 1 )
 text = "Twin-headed Thunder Dragon"
 align = 1
 
-[node name="TLA" parent="VBox/InfoVBox" instance=ExtResource( 3 )]
+[node name="TLAInfo" parent="VBox/InfoVBox" instance=ExtResource( 3 )]
 margin_top = 40.0
 margin_right = 520.0
 margin_bottom = 76.0
@@ -72,17 +72,17 @@ margin_right = 520.0
 margin_bottom = 116.0
 alignment = 1
 
-[node name="Attack" parent="VBox/InfoVBox/StatsHBox" instance=ExtResource( 5 )]
+[node name="AttackInfo" parent="VBox/InfoVBox/StatsHBox" instance=ExtResource( 5 )]
 margin_left = 158.0
 margin_right = 223.0
 
-[node name="Defense" parent="VBox/InfoVBox/StatsHBox" instance=ExtResource( 5 )]
+[node name="DefenseInfo" parent="VBox/InfoVBox/StatsHBox" instance=ExtResource( 5 )]
 margin_left = 227.0
 margin_right = 292.0
 value = 20
 stat = "DEFENSE"
 
-[node name="Health" parent="VBox/InfoVBox/StatsHBox" instance=ExtResource( 5 )]
+[node name="HealthInfo" parent="VBox/InfoVBox/StatsHBox" instance=ExtResource( 5 )]
 margin_left = 296.0
 margin_right = 361.0
 value = 20

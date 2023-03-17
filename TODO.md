@@ -1,8 +1,7 @@
 ### TODO
-- instance ability interfaces directly on menus trees?
-    - player_gui diagram: add colors to non global signal nodes
 - BUFFSELF
 - BUFFDAMAGE
+- DISTANCEATTACK
 
 ### FIXES
 - add ability description in card info
@@ -51,7 +50,7 @@
 - ✅PROTECTSELF
 - ✅ADDFOEDEFENSE
 - ❌KILLBLOCK
-- ❌DUNGRAISEATTACK
+- ❌BUFFDAMAGE
 - ❌BUFFSELF
 - ❌TRADEHEALTH
 - ❌STEALMONSTER
