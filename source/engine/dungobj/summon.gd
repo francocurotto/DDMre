@@ -33,3 +33,9 @@ func has_active_ability(name):
         if ability.name == name and not ability.is_negated():
             return true
     return false
+
+func has_active_standing_ability():
+    for ability in card.abilities:
+        if ability.is_standing() and not ability.is_negated():
+            return true
+    return false    
