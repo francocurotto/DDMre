@@ -10,7 +10,7 @@ onready var menu_guard_button = $VBox/Margins/GUIVBox/MenuGuardButton
 onready var reply_ability_gui = $VBox/Margins/GUIVBox/ReplyAbilityGUI
 
 # singals
-signal reply_cmd
+signal reply_cmd(cmd)
 
 # public functions
 func activate(_attacker, _attacked):

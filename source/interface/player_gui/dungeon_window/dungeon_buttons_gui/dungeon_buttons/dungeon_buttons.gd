@@ -47,8 +47,8 @@ func switch_to_cancel_button():
 func on_tile_select_button_toggled(dungobj, pressed):
     var actionable = dungobj.is_monster() and dungobj.player == player and engine.state.NAME == "DUNGEON" and pressed
     move_button.disabled = !(actionable and player.crestpool.slots["MOVEMENT"]>0 and dungobj.max_move>0)
-    attack_button.disabled = !(actionable and player.crestpool.slots["ATTACK"]>0 and not dungobj.cooldown)
-    ability_button.disabled = !(actionable and dungobj.has_active_standing_ability())
+    attack_button.disabled = !(actionable and player.crestpool.slots["ATTACK"]>0 and not dungobj.attack_cooldown)
+    ability_button.disabled = !(actionable and dungobj.has_active_standing_ability() and not dungobj.ability_cooldown)
     jump_button.disabled = !(actionable and dungobj.tile.vortex)
     jump_button.visible = !jump_button.disabled
     

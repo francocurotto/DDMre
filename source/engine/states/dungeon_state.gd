@@ -56,9 +56,9 @@ func ATTACK(cmd):
     # check enough ATTACK crests
     if  player.crestpool.slots["ATTACK"] < 1:
         print("Not enough ATTACK crests.")
-    # check if monster already in cooldown
-    elif monster.cooldown:
-        print("Monster in cooldown.")
+    # check if monster already in attack cooldown
+    elif monster.attack_cooldown:
+        print("Monster in attack cooldown.")
     # check valid attack
     elif not pos_dest in dungeon.get_attack_poss(player, pos_origin):
         print("Target out of reach.")
@@ -74,6 +74,16 @@ func ATTACK(cmd):
         elif target.is_monster_lord():
             monster.attack_monster_lord(target)
         Events.emit_signal("duel_update")
+    return self
+
+func ABILITY(cmd):
+    var monster = dungeon.get_tile(cmd["pos"]).content
+    var activate_dict = cmd["ability"]
+    for ability in monster.card.abilities:
+        if ability.name == activate_dict["name"]:
+            ability.activate(dungeon, activate_dict)
+            monster.ability_cooldown = true
+    Events.emit_signal("duel_update")
     return self
 
 func JUMP(cmd):

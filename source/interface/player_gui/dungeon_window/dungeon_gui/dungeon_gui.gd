@@ -17,7 +17,7 @@ onready var nets_menu = $NetsMenu
 onready var move_menu = $MoveMenu
 onready var attack_menu = $AttackMenu
 onready var reply_menu = $ReplyMenu
-onready var ability_gui = $AbilityGUI
+onready var standing_ability_gui = $StandingAbilityGUI
 
 # signals
 signal tile_select_button_toggled(content, pressed)
@@ -152,7 +152,7 @@ func on_attack_button_pressed():
 
 func on_ability_button_pressed():
     disable_tile_gui_buttons()
-    ability_gui.activate_menu(selected_tile_gui.tile.content)
+    standing_ability_gui.activate_menu(selected_tile_gui.tile)
 
 func on_jump_button_pressed():
     disable_tile_gui_buttons()
@@ -189,6 +189,10 @@ func on_reply_ability_select_monster_select_button_pressed():
     unset_highlights()
     disable_tile_gui_buttons()    
     reply_menu.on_select_monster_select_button_pressed(selected_tile_gui.tile)
+
+func on_standing_ability_ended():
+    on_tile_select_button_toggled(selected_tile_gui, true)
+    enable_select_buttons()
 
 # private functions
 func get_irow(idx):

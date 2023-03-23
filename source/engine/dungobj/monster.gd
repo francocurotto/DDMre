@@ -11,7 +11,8 @@ const MaxMoveBehaviorBase = preload("res://engine/dungobj/behaviors/max_move_beh
 var attack
 var defense
 var health
-var cooldown = false
+var attack_cooldown = false
+var ability_cooldown = false
 var speed = 1
 var max_move setget , get_max_move
 var previous_tile = null
@@ -77,7 +78,7 @@ func attack_monster(monster, guard):
     """
     Attack an opponent monster.
     """
-    cooldown = true
+    attack_cooldown = true
     var damage = get_damage(monster, guard)
     if damage > 0: # attacker deals damage
         monster.damage_behavior.receiver.receive_damage(damage)
@@ -90,7 +91,7 @@ func attack_monster_lord(ml):
     """
     Attack the opponent monster lord.
     """
-    cooldown = true
+    attack_cooldown = true
     ml.receive_damage()
 
 func activate_ability(ability_dict):
