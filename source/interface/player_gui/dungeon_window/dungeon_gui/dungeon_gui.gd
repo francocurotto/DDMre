@@ -13,10 +13,11 @@ var selected_tile_gui
 
 # onready variables
 onready var rows = $Rows
+onready var nets_menu = $NetsMenu
 onready var move_menu = $MoveMenu
 onready var attack_menu = $AttackMenu
 onready var reply_menu = $ReplyMenu
-onready var nets_menu = $NetsMenu
+onready var ability_gui = $AbilityGUI
 
 # signals
 signal tile_select_button_toggled(content, pressed)
@@ -116,17 +117,24 @@ func on_tile_attack_button_pressed(tile_gui):
     elif attacker.can_target_ml(attacked):
         emit_signal("attack_cmd", {"name":"ATTACK", "origin":pos1, "dest":pos2})
 
+func on_tile_dim_button_pressed(tile_gui):
+    on_tile_select_button_toggled(tile_gui, true)
+    unset_summon_highlights()
+    tile_gui.summon_highlight_type = dim_dice.card.type
+    net_creator.update_net_pos(tile_gui.tile.pos)
+
 func on_tile_jump_button_pressed(tile_gui):
     var pos1 = selected_tile_gui.tile.pos
     var pos2 = tile_gui.tile.pos
     if not tile_gui.tile.is_occupied():
         emit_signal("monster_jumped", pos1, pos2)
 
-func on_tile_dim_button_pressed(tile_gui):
-    on_tile_select_button_toggled(tile_gui, true)
-    unset_summon_highlights()
-    tile_gui.summon_highlight_type = dim_dice.card.type
-    net_creator.update_net_pos(tile_gui.tile.pos)
+func on_dice_dim_button_pressed(dice):
+    disable_tile_gui_buttons()
+    dim_dice = dice
+    net_creator.reset()
+    for tile_gui in tile_guis:
+        tile_gui.enable_dim_button()
 
 func on_move_button_pressed():
     disable_tile_gui_buttons()
@@ -142,18 +150,15 @@ func on_attack_button_pressed():
     for attack_pos in attack_poss:
         get_tile_gui(attack_pos).enable_attack_button()
 
+func on_ability_button_pressed():
+    disable_tile_gui_buttons()
+    ability_gui.activate_menu(selected_tile_gui.tile.content)
+
 func on_jump_button_pressed():
     disable_tile_gui_buttons()
     var vortex_poss = dungeon.get_vortex_poss()
     for vortex_pos in vortex_poss:
         get_tile_gui(vortex_pos).enable_jump_button()
-
-func on_dice_dim_button_pressed(dice):
-    disable_tile_gui_buttons()
-    dim_dice = dice
-    net_creator.reset()
-    for tile_gui in tile_guis:
-        tile_gui.enable_dim_button()
 
 func on_net_updated(net):
     unset_highlights()

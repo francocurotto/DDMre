@@ -7,6 +7,7 @@ var engine
 # signals
 signal move_button_pressed
 signal attack_button_pressed
+signal ability_button_pressed
 signal jump_button_pressed
 signal endturn_button_pressed
 signal cancel_button_pressed
@@ -51,7 +52,6 @@ func on_tile_select_button_toggled(dungobj, pressed):
     jump_button.disabled = !(actionable and dungobj.tile.vortex)
     jump_button.visible = !jump_button.disabled
     
-
 func on_menu_opened():
     cancel_button.disabled = true
 
@@ -62,6 +62,10 @@ func _on_MoveButton_pressed():
 func _on_AttackButton_pressed():
     switch_to_cancel_button()
     emit_signal("attack_button_pressed")
+
+func _on_AbilityButton_pressed():
+    disable_action_buttons()
+    emit_signal("ability_button_pressed")
 
 func _on_JumpButton_pressed():
     switch_to_cancel_button()

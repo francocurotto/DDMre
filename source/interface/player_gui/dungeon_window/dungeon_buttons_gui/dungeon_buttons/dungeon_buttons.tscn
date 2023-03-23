@@ -72,6 +72,7 @@ text = "❌CANCEL"
 
 [connection signal="pressed" from="ActionButtons/MoveButton" to="." method="_on_MoveButton_pressed"]
 [connection signal="pressed" from="ActionButtons/AttackButton" to="." method="_on_AttackButton_pressed"]
+[connection signal="pressed" from="ActionButtons/AbilityButton" to="." method="_on_AbilityButton_pressed"]
 [connection signal="pressed" from="ActionButtons/JumpButton" to="." method="_on_JumpButton_pressed"]
 [connection signal="pressed" from="ActionButtons/EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
 [connection signal="pressed" from="CancelButton" to="." method="_on_CancelButton_pressed"]

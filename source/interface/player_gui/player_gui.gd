@@ -51,6 +51,7 @@ func _ready():
     # dungeon buttons
     dungeon_buttons.connect("move_button_pressed", dungeon_gui, "on_move_button_pressed")
     dungeon_buttons.connect("attack_button_pressed", dungeon_gui, "on_attack_button_pressed")
+    dungeon_buttons.connect("ability_button_pressed", dungeon_gui, "on_ability_button_pressed")
     dungeon_buttons.connect("jump_button_pressed", dungeon_gui, "on_jump_button_pressed")
     dungeon_buttons.connect("endturn_button_pressed", self, "on_endturn_button_pressed")
     dungeon_buttons.connect("cancel_button_pressed", dungeon_window, "reset_to_dungeon")

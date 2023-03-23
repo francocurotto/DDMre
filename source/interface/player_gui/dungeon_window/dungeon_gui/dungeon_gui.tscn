@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/tile_gui/tile_gui.tscn" type="PackedScene" id=1]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/attack_menu/attack_menu.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/move_menu/move_menu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/dungeon_gui.gd" type="Script" id=5]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/nets_menu/nets_menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/ability_gui/ability_gui.tscn" type="PackedScene" id=7]
 
 [node name="DungeonGUI" type="AspectRatioContainer"]
 anchor_right = 1.0
@@ -1399,3 +1400,8 @@ margin_left = 60.0
 margin_top = 346.0
 margin_right = 660.0
 margin_bottom = 706.0
+
+[node name="AbilityGUI" parent="." instance=ExtResource( 7 )]
+visible = false
+margin_right = 720.0
+margin_bottom = 1052.63

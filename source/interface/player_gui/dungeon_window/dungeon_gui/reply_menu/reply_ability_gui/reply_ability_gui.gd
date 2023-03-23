@@ -28,7 +28,7 @@ func _ready():
 # public functions
 func activate(attacked):
     for ability in attacked.card.abilities:
-        if ability.name in ability_guis_dict and not ability.is_negated(): #TODO: disable ability gui on negated instead of not show?
+        if ability.name in ability_guis_dict:
             active_gui = ability_guis_dict[ability.name]
             active_gui.set_reply_gui(attacked)
             active_gui.visible = true
