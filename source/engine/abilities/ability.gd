@@ -16,3 +16,7 @@ func enable():
 
 func disable():
     pass
+
+# is functions
+func is_standing():
+    return false

@@ -35,5 +35,3 @@ func remove_negate():
 func is_negated():
     return negate_count > 0
 
-func is_standing():
-    return false
