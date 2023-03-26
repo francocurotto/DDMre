@@ -54,18 +54,18 @@ func ATTACK(cmd):
     var target = tile_dest.content
 
     # check enough ATTACK crests
-    if  player.crestpool.slots["ATTACK"] < 1:
+    if  player.crestpool.slots["ATTACK"] < monster.attack_cost:
         print("Not enough ATTACK crests.")
     # check if monster already in attack cooldown
     elif monster.attack_cooldown:
         print("Monster in attack cooldown.")
     # check valid attack
-    elif not pos_dest in dungeon.get_attack_poss(player, pos_origin):
+    elif not pos_dest in dungeon.get_attack_poss(pos_origin):
         print("Target out of reach.")
     # the attack is valid
     else:
         # pay the cost of attack
-        player.crestpool.slots["ATTACK"] -= 1
+        player.crestpool.slots["ATTACK"] -= monster.attack_cost
         if target.is_monster():
             # activate attack ability if exists
             if ability_dict:

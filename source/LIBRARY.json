@@ -1228,7 +1228,7 @@
     "DEFENSE": 20,
     "HEALTH": 50,
     "ABILITY": [{"NAME": "DISTANCEATTACK",
-                 "MAX": 2,
+                 "DIST": 2,
                  "COST": 1,
                  "CREST": "MAGIC"}],
     "CRESTS": "SM2M4AGT"

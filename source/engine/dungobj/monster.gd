@@ -14,6 +14,8 @@ var health
 var attack_cooldown = false
 var ability_cooldown = false
 var speed = 1
+var attack_distance = 1
+var attack_cost = 1
 var max_move setget , get_max_move
 var previous_tile = null
 # behaviors (automatic abilities)

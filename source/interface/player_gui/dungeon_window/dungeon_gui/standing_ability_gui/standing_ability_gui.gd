@@ -8,6 +8,7 @@ var active_menu
 # onready variables
 onready var buff_self_menu = $BuffSelfMenu
 onready var buff_damage_menu = $BuffDamageMenu
+onready var distance_attack_menu = $DistanceAttackMenu
 
 # signals
 signal ability_cmd(cmd)
@@ -15,8 +16,9 @@ signal standing_ability_cast_button_pressed
 signal standing_ability_cancel_button_pressed
 
 func _ready():
-    ability_menus_dict = {"BUFFSELF"   : buff_self_menu,
-                          "BUFFDAMAGE" : buff_damage_menu}
+    ability_menus_dict = {"BUFFSELF"       : buff_self_menu,
+                          "BUFFDAMAGE"     : buff_damage_menu,
+                          "DISTANCEATTACK" : distance_attack_menu}
 
 # public functions
 func activate_menu(tile):

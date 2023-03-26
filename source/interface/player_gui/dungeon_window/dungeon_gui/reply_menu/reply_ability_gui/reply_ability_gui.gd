@@ -36,11 +36,15 @@ func activate(attacked):
 
 func deactivate():
     visible = false
-    active_gui.visible = false
+    if active_gui:
+        active_gui.visible = false
 
 func get_ability_dict():
-    return active_gui.get_ability_dict()
-
+    if active_gui:
+        return active_gui.get_ability_dict()
+    else:
+        return {}
+    
 # signals callbacks
 func on_ability_cost_changed(cost, crest):
     emit_signal("reply_ability_cost_changed", cost, crest)

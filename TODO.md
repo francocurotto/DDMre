@@ -1,5 +1,7 @@
 ### TODO
+- complete cmd_list for abilities
 - DISTANCEATTACK
+    - confirm distance attack cannot go through blocks and monster lords.
 - RANGEKILLALL
 ---
 - TRADEHEALTH
