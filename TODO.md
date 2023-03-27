@@ -1,7 +1,7 @@
 ### TODO
 - complete cmd_list for abilities
-- DISTANCEATTACK
-    - confirm distance attack cannot go through blocks and monster lords.
+- test change tile icons
+- test eye button gives access to dungeon
 - RANGEKILLALL
 ---
 - TRADEHEALTH
@@ -30,7 +30,7 @@
 ### ART
 - make everything 16-bitish
 
-### ABILITIES [32/46]
+### ABILITIES [33/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -67,7 +67,7 @@
 - ❌ROLLLEVELKILL
 - ❌RANGELEVELKILL
 - ❌RANGEKILLALL
-- ❌DISTANCEATTACK
+- ✅DISTANCEATTACK
 - ✅ITEMCURE
 - ✅ITEMDAMAGE
 - ✅TIMEMACHINE
