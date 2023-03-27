@@ -1,5 +1,4 @@
 ### TODO
-- complete cmd_list for abilities
 - test change tile icons
 - test eye button gives access to dungeon
 - RANGEKILLALL

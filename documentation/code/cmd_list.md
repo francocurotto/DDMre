@@ -55,6 +55,7 @@ Do not reply to an attack from opponent monster.
 ## ABILITY [DUNGEON state]
 Cast monster standing ability.
 - command: `ABILITY`
+- pos: `(0..18, 0..12)` (tuple of ints)
 - (rest of ability parameters, see abilities section)
 
 # Abilities
@@ -67,11 +68,28 @@ List of abilities parameters needed when casting a dimension, attack, reply, or 
 ## REDUCEDAMAGE [reply ability]
 - name: `REDUCEDAMAGE`
 
+## REDUCEDAMAGEINF [reply ability]
+- name: `REDUCEDAMAGEINF`
+- reduce: `1..99` (int)
+
+## SHIFTDAMAGE [reply ability]
+- name: `SHIFTDAMAGE`
+- pos: `(0..18, 0..12)` (tuple of ints)
+
 ## PROTECTSELF [reply ability]
 - name: `PROTECTSELF`
 
 ## ADDFOEDEFENSE [reply ability]
 - name: `ADDFOEDEFENSE`
+
+## BUFFDAMAGE [standing ability]
+- name: `BUFFDAMAGE`
+
+## BUFFSELF [standing ability]
+- name: `BUFFSELF`
+
+## DISTANCEATTACK [standing ability]
+- name: `DISTANCEATTACK`
 
 # Appendix
 ## List of Nets
