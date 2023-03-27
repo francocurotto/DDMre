@@ -128,7 +128,7 @@ Destroy all other monsters and items at a range of RANGE.
 Cost: COST x CREST
 
 ## DISTANCEATTACK (MAX, COST, CREST)
-Until the end of the turn the maximum attack distance for monster becomes MAX, and the attack crest cost becomes 0. NOTE: Distance attack can go through monsters and items, but not empty tiles, blocks and monster lords.
+Until the end of the turn the maximum attack distance for monster becomes MAX, and the attack crest cost becomes 0. NOTE: Distance attacks can go through monsters, items and monster lords, but not through empty tiles and blocks.
 
 Cost: COST x CREST
  
