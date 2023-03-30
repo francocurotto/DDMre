@@ -1,7 +1,6 @@
 ### TODO
-- test change tile icons
-- test eye button gives access to dungeon
 - RANGEKILLALL
+    - add highlight and check dungeon functionality
 ---
 - TRADEHEALTH
 - STEALMONSTER
@@ -15,7 +14,8 @@
 - add ability description in card info
 
 ### IMPROVEMENTS
-- dungeon buttons are being clipped?
+- remove move menu and add controls in menu buttons
+- on attack an reply menu, add ability to check dungeon
 - standarize cmd syntax and context checks
 - fix dim buttons active while net select?
 
@@ -27,6 +27,7 @@
 - make summon actions and dim transformations menus popable in dungeon?
 
 ### ART
+- test change tile icons
 - make everything 16-bitish
 
 ### ABILITIES [33/46]

@@ -9,6 +9,7 @@ var active_menu
 onready var buff_self_menu = $BuffSelfMenu
 onready var buff_damage_menu = $BuffDamageMenu
 onready var distance_attack_menu = $DistanceAttackMenu
+onready var range_kill_all = $RangeKillAllMenu
 
 # signals
 signal ability_cmd(cmd)
@@ -18,7 +19,8 @@ signal standing_ability_cancel_button_pressed
 func _ready():
     ability_menus_dict = {"BUFFSELF"       : buff_self_menu,
                           "BUFFDAMAGE"     : buff_damage_menu,
-                          "DISTANCEATTACK" : distance_attack_menu}
+                          "DISTANCEATTACK" : distance_attack_menu,
+                          "RANGEKILLALL"   : range_kill_all}
 
 # public functions
 func activate_menu(tile):
