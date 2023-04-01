@@ -13,11 +13,12 @@ var selected_tile_gui
 
 # onready variables
 onready var rows = $Rows
-onready var nets_menu = $NetsMenu
-onready var move_menu = $MoveMenu
-onready var attack_menu = $AttackMenu
-onready var reply_menu = $ReplyMenu
-onready var standing_ability_gui = $StandingAbilityGUI
+onready var menus = $Menus
+onready var nets_menu = $Menus/NetsMenu
+onready var move_menu = $Menus/MoveMenu
+onready var attack_menu = $Menus/AttackMenu
+onready var reply_menu = $Menus/ReplyMenu
+onready var standing_ability_gui = $Menus/StandingAbilityGUI
 
 # signals
 signal tile_select_button_toggled(content, pressed)
@@ -193,6 +194,12 @@ func on_reply_ability_select_monster_select_button_pressed():
 func on_standing_ability_ended():
     on_tile_select_button_toggled(selected_tile_gui, true)
     enable_select_buttons()
+
+func hide_menus():
+    menus.visible = false
+
+func show_menus():
+    menus.visible = true
 
 # private functions
 func get_irow(idx):

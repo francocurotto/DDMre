@@ -5,7 +5,6 @@ var pos1
 var pos2
 
 # onready variables
-onready var transparent_button = $VBox/TransparentButton
 onready var attack_info = $VBox/AttackInfo
 onready var buttons = $VBox/Margins/Buttons
 onready var menu_attack_button = $VBox/Margins/Buttons/MenuAttackButton
@@ -14,6 +13,7 @@ onready var raise_attack_gui = $VBox/Margins/Buttons/RaiseAttackGUI
 # singals
 signal attack_cmd(cmd)
 signal menu_canceled
+signal check_dungeon_button_pressed
 
 func _ready():
     raise_attack_gui.connect("attack_ability_activated", self, "on_attack_ability_activated")
@@ -26,7 +26,6 @@ func activate(_pos1, _pos2, attacker, attacked):
     if attacker.has_active_ability("RAISEATTACK"): # TODO: add case ability negated
         raise_attack_gui.set_raise_attack_interface(attacker)
     visible = true
-    transparent_button.pressed = false
 
 func deactivate():
     raise_attack_gui.visible = false
@@ -45,5 +44,5 @@ func _on_MenuCancelButton_pressed():
     deactivate()
     emit_signal("menu_canceled")
 
-func _on_TransparentButton_toggled(button_pressed):
-    modulate = Color(1.0, 1.0, 1.0, max(int(!button_pressed), 0.3))
+func _on_CheckDungeonButton_pressed():
+    emit_signal("check_dungeon_button_pressed")

@@ -1,4 +1,8 @@
 ### TODO
+- move functions to dungeon_window
+- reset summon_info at pressing dungeon buttons
+- remove transparent_button on net_select
+- remove move_menu and add move buttons to dungeon_buttons_gui
 - RANGEKILLALL
     - add highlight and check dungeon functionality
 ---

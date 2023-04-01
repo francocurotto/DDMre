@@ -70,9 +70,20 @@ size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 text = "❌CANCEL"
 
+[node name="BackButton" type="Button" parent="."]
+visible = false
+margin_top = 64.0
+margin_right = 713.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "↩BACK"
+
 [connection signal="pressed" from="ActionButtons/MoveButton" to="." method="_on_MoveButton_pressed"]
 [connection signal="pressed" from="ActionButtons/AttackButton" to="." method="_on_AttackButton_pressed"]
 [connection signal="pressed" from="ActionButtons/AbilityButton" to="." method="_on_AbilityButton_pressed"]
 [connection signal="pressed" from="ActionButtons/JumpButton" to="." method="_on_JumpButton_pressed"]
 [connection signal="pressed" from="ActionButtons/EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
 [connection signal="pressed" from="CancelButton" to="." method="_on_CancelButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
