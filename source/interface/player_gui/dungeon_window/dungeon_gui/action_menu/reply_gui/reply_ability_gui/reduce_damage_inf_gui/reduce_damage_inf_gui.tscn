@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://art/icons/ARROW_DOWN.png" type="Texture" id=2]
+[ext_resource path="res://art/icons/ARROW_UP.png" type="Texture" id=3]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/reply_gui/reply_ability_gui/reduce_damage_inf_gui/reduce_damage_inf_gui.gd" type="Script" id=4]
+
+[node name="ReduceDamageInfGUI" type="HBoxContainer"]
+margin_right = 419.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 419, 0 )
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+margin_top = 43.0
+margin_right = 385.0
+margin_bottom = 76.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "✨REDUCE DAMAGE -000 (00⛨)"
+align = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+margin_left = 389.0
+margin_right = 449.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 60, 120 )
+custom_constants/separation = 0
+
+[node name="UpButton" type="Button" parent="Buttons"]
+margin_right = 60.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource( 3 )
+expand_icon = true
+
+[node name="DownButton" type="Button" parent="Buttons"]
+margin_top = 60.0
+margin_right = 60.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource( 2 )
+expand_icon = true
+
+[connection signal="pressed" from="Buttons/UpButton" to="." method="_on_UpButton_pressed"]
+[connection signal="pressed" from="Buttons/DownButton" to="." method="_on_DownButton_pressed"]

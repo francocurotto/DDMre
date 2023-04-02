@@ -21,4 +21,3 @@ margin_bottom = 60.0
 [node name="AbilityButtonsGUI" parent="." instance=ExtResource( 3 )]
 visible = false
 margin_right = 588.0
-margin_bottom = 60.0

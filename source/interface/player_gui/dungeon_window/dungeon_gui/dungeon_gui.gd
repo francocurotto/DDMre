@@ -13,12 +13,12 @@ var selected_tile_gui
 
 # onready variables
 onready var rows = $Rows
-onready var menus = $Menus
-onready var nets_menu = $Menus/NetsMenu
-onready var move_menu = $Menus/MoveMenu
-onready var attack_menu = $Menus/AttackMenu
-onready var reply_menu = $Menus/ReplyMenu
-onready var standing_ability_gui = $Menus/StandingAbilityGUI
+onready var nets_menu = $NetsMenu
+onready var move_menu = $MoveMenu
+onready var action_menu = $ActionMenu
+onready var attack_gui = $ActionMenu/VBox/GUIs/AttackGUI
+onready var reply_gui = $ActionMenu/VBox/GUIs/ReplyGUI
+onready var standing_ability_gui = $ActionMenu/VBox/GUIs/StandingAbilityGUI
 
 # signals
 signal tile_select_button_toggled(content, pressed)
@@ -59,9 +59,13 @@ func reset():
     disable_tile_gui_buttons()
     disable_tile_gui_highlights()
     enable_select_buttons()
+    diselect_tile_gui()
+    update_dungeon()
+    action_menu.visible = false
+
+func diselect_tile_gui():
     if selected_tile_gui:
         selected_tile_gui._on_TileSelectButton_toggled(false) # deselect tile_gui
-    update_dungeon()
 
 func enable_select_buttons():
     for tile_gui in tile_guis:
@@ -84,7 +88,7 @@ func unset_summon_highlights():
         tile_gui.unset_summon_highlight()
 
 func open_reply_menu(attacker, attacked):
-    reply_menu.activate(attacker, attacked)
+    action_menu.activate_reply_gui(attacker, attacked)
 
 func highlight_attack_reply(attacker, attacked):
     highlight_attack(attacker.tile.pos, attacked.tile.pos)
@@ -113,7 +117,8 @@ func on_tile_attack_button_pressed(tile_gui):
     var attacked = tile_gui.tile.content
     if attacker.can_target_monster(attacked):
         highlight_attack(pos1, pos2)
-        attack_menu.activate(pos1, pos2, attacker, attacked)
+        action_menu.activate_attack_gui(attacker, attacked)
+        #attack_gui.activate(pos1, pos2, attacker, attacked)
         emit_signal("menu_opened")
     elif attacker.can_target_ml(attacked):
         emit_signal("attack_cmd", {"name":"ATTACK", "origin":pos1, "dest":pos2})
@@ -184,22 +189,21 @@ func on_TAW_button_pressed():
 func on_reply_ability_select_monster_cancel_button_pressed():
     unset_highlights()
     disable_tile_gui_buttons()
-    reply_menu.on_select_monster_cancel_button_pressed()
+    reply_gui.on_select_monster_cancel_button_pressed()
 
 func on_reply_ability_select_monster_select_button_pressed():
     unset_highlights()
     disable_tile_gui_buttons()    
-    reply_menu.on_select_monster_select_button_pressed(selected_tile_gui.tile)
+    reply_gui.on_select_monster_select_button_pressed(selected_tile_gui.tile)
 
 func on_standing_ability_ended():
-    on_tile_select_button_toggled(selected_tile_gui, true)
     enable_select_buttons()
 
 func hide_menus():
-    menus.visible = false
+    action_menu.visible = false
 
 func show_menus():
-    menus.visible = true
+    action_menu.visible = true
 
 # private functions
 func get_irow(idx):

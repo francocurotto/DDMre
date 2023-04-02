@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://art/fonts/summon_stat.tres" type="DynamicFont" id=2]
+
+[node name="RangeKillAllGUI" type="VBoxContainer"]
+margin_right = 252.0
+margin_bottom = 250.0
+
+[node name="Title" type="Label" parent="."]
+margin_right = 252.0
+margin_bottom = 36.0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 2 )
+text = "RANGE KILL ALL"
+align = 1
+
+[node name="Margins" type="MarginContainer" parent="."]
+margin_top = 40.0
+margin_right = 252.0
+margin_bottom = 250.0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+
+[node name="Buttons" type="VBoxContainer" parent="Margins"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 222.0
+margin_bottom = 180.0
+custom_constants/separation = 30
+
+[node name="CastButton" type="Button" parent="Margins/Buttons"]
+margin_right = 192.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 1 )
+text = "✨CAST"
+
+[node name="CancelButton" type="Button" parent="Margins/Buttons"]
+margin_top = 90.0
+margin_right = 192.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 1 )
+text = "❌CANCEL"

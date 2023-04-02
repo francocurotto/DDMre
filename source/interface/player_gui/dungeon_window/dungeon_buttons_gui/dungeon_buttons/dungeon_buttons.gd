@@ -90,5 +90,5 @@ func _on_CancelButton_pressed():
     emit_signal("cancel_button_pressed")
 
 func _on_BackButton_pressed():
-    switch_to_cancel_button()
+    switch_to_action_buttons()
     emit_signal("back_button_pressed")

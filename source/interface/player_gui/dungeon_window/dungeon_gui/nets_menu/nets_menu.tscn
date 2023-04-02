@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://art/styleboxes/panel.tres" type="StyleBox" id=1]
-[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=2]
 [ext_resource path="res://art/icons/NET_L1.png" type="Texture" id=3]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/nets_menu/nets_menu.gd" type="Script" id=4]
 [ext_resource path="res://art/icons/NET_M1.png" type="Texture" id=5]
@@ -15,7 +14,16 @@
 [ext_resource path="res://art/icons/NET_Z1.png" type="Texture" id=13]
 [ext_resource path="res://art/icons/NET_X1.png" type="Texture" id=14]
 
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://art/fonts/QuiviraRegular.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
 [node name="NetsMenu" type="PanelContainer"]
+modulate = Color( 1, 1, 1, 0.294118 )
 margin_right = 450.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 450, 300 )
@@ -158,13 +166,12 @@ icon = ExtResource( 3 )
 icon_align = 1
 expand_icon = true
 
-[node name="TransparentButton" type="Button" parent="Grid"]
+[node name="CancelButton" type="Button" parent="Grid"]
 margin_left = 332.0
 margin_top = 195.0
 margin_right = 438.0
 margin_bottom = 288.0
-custom_fonts/font = ExtResource( 2 )
-toggle_mode = true
-text = "👁"
+custom_fonts/font = SubResource( 2 )
+text = "❌"
 
-[connection signal="toggled" from="Grid/TransparentButton" to="." method="_on_TransparentButton_toggled"]
+[connection signal="pressed" from="Grid/CancelButton" to="." method="_on_CancelButton_pressed"]

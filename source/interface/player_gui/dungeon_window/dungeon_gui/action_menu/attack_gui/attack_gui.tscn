@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/attack_gui/raise_attack_gui/raise_attack_gui.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/player_gui/info_display/attack_info/attack_info.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/attack_gui/attack_gui.gd" type="Script" id=4]
+
+[node name="AttackGUI" type="VBoxContainer"]
+margin_right = 468.0
+margin_bottom = 450.0
+script = ExtResource( 4 )
+
+[node name="AttackInfo" parent="." instance=ExtResource( 3 )]
+margin_right = 468.0
+
+[node name="Margins" type="MarginContainer" parent="."]
+margin_top = 240.0
+margin_right = 468.0
+margin_bottom = 450.0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+
+[node name="Buttons" type="VBoxContainer" parent="Margins"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 438.0
+margin_bottom = 180.0
+custom_constants/separation = 30
+alignment = 1
+
+[node name="MenuAttackButton" type="Button" parent="Margins/Buttons"]
+margin_right = 408.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 1 )
+text = "⚔ATTACK (1⚔)"
+
+[node name="RaiseAttackGUI" parent="Margins/Buttons" instance=ExtResource( 2 )]
+visible = false
+margin_top = 90.0
+margin_right = 528.0
+margin_bottom = 90.0
+
+[node name="MenuCancelButton" type="Button" parent="Margins/Buttons"]
+margin_top = 90.0
+margin_right = 408.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 1 )
+text = "❌CANCEL"
+
+[connection signal="pressed" from="Margins/Buttons/MenuAttackButton" to="." method="_on_MenuAttackButton_pressed"]
+[connection signal="pressed" from="Margins/Buttons/MenuCancelButton" to="." method="_on_MenuCancelButton_pressed"]

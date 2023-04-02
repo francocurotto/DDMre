@@ -33,7 +33,6 @@ func on_net_updated(can_dimension):
     dim_button.disabled = not can_dimension
 
 func _on_NetButton_pressed():
-    disable_buttons()
     emit_signal("net_button_pressed")
 
 func _on_FLRButton_pressed():

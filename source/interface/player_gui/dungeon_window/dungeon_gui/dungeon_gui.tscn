@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/tile_gui/tile_gui.tscn" type="PackedScene" id=1]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/attack_menu/attack_menu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/reply_menu/reply_menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/action_menu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/move_menu/move_menu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/dungeon_gui.gd" type="Script" id=5]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/nets_menu/nets_menu.tscn" type="PackedScene" id=6]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/standing_ability_gui/standing_ability_gui.tscn" type="PackedScene" id=7]
 
 [node name="DungeonGUI" type="AspectRatioContainer"]
 anchor_right = 1.0
@@ -1372,43 +1370,23 @@ margin_left = 666.0
 margin_right = 720.0
 margin_bottom = 54.0
 
-[node name="Menus" type="MarginContainer" parent="."]
-margin_left = 360.0
-margin_top = 526.0
-margin_right = 360.0
-margin_bottom = 526.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="NetsMenu" parent="Menus" instance=ExtResource( 6 )]
+[node name="NetsMenu" parent="." instance=ExtResource( 6 )]
 visible = false
-margin_left = -225.0
-margin_top = -150.0
-margin_right = 225.0
-margin_bottom = 150.0
+margin_left = 135.0
+margin_top = 376.0
+margin_right = 585.0
+margin_bottom = 676.0
 
-[node name="MoveMenu" parent="Menus" instance=ExtResource( 4 )]
+[node name="MoveMenu" parent="." instance=ExtResource( 4 )]
 visible = false
-margin_left = -300.0
-margin_top = -165.0
-margin_right = 300.0
-margin_bottom = 165.0
+margin_left = 60.0
+margin_top = 361.0
+margin_right = 660.0
+margin_bottom = 691.0
 rect_scale = Vector2( 1, 1 )
 
-[node name="AttackMenu" parent="Menus" instance=ExtResource( 2 )]
-visible = false
-margin_left = -300.0
-margin_top = -6.0
-margin_right = 300.0
-margin_bottom = 6.0
-
-[node name="ReplyMenu" parent="Menus" instance=ExtResource( 3 )]
-visible = false
-margin_left = -300.0
-margin_top = -180.0
-margin_right = 300.0
-margin_bottom = 180.0
-
-[node name="StandingAbilityGUI" parent="Menus" instance=ExtResource( 7 )]
-margin_right = 0.0
-margin_bottom = 0.0
+[node name="ActionMenu" parent="." instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 520.0
+margin_right = 660.0
+margin_bottom = 532.0

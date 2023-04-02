@@ -1,7 +1,8 @@
 ### TODO
-- move functions to dungeon_window
-- reset summon_info at pressing dungeon buttons
-- remove transparent_button on net_select
+- add new action_menu scene that control all menus
+    - modify shift damage so that action_menu controls select monster and it can be generalize to all select monsters abilities
+    - add standing_ability_gui
+- on back button pressed, decide what summon info does
 - remove move_menu and add move buttons to dungeon_buttons_gui
 - RANGEKILLALL
     - add highlight and check dungeon functionality
