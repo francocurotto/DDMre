@@ -13,12 +13,12 @@ onready var add_foe_defense_gui = $AddFoeDefenseGUI
 
 # signals
 signal reply_ability_cost_changed(cost, crest)
-signal reply_ability_select_monster
+signal reply_ability_select_tile
 
 func _ready():
     reduce_damage_gui.connect("ability_cost_changed", self, "on_ability_cost_changed")
     reduce_damage_inf_gui.connect("ability_cost_changed", self, "on_ability_cost_changed")
-    shift_damage_gui.connect("reply_ability_select_monster", self, "on_reply_ability_select_monster")
+    shift_damage_gui.connect("ability_select_tile", self, "on_ability_select_tile")
     ability_guis_dict = {"REDUCEDAMAGE"    : reduce_damage_gui,
                          "REDUCEDAMAGEINF" : reduce_damage_inf_gui,
                          "SHIFTDAMAGE"     : shift_damage_gui,
@@ -49,11 +49,11 @@ func get_ability_dict():
 func on_ability_cost_changed(cost, crest):
     emit_signal("reply_ability_cost_changed", cost, crest)
 
-func on_reply_ability_select_monster():
-    emit_signal("reply_ability_select_monster")
+func on_reply_ability_select_tile(tiles):
+    emit_signal("reply_ability_select_tile", tiles)
 
-func on_select_monster_cancel_button_pressed():
-    active_gui.on_select_monster_cancel_button_pressed()
+func on_select_tile_cancel_button_pressed():
+    active_gui.on_select_tile_cancel_button_pressed()
 
-func on_select_monster_select_button_pressed(tile):
-    active_gui.on_select_monster_select_button_pressed(tile)
+func on_select_tile_select_button_pressed(tile):
+    active_gui.on_select_tile_select_button_pressed(tile)

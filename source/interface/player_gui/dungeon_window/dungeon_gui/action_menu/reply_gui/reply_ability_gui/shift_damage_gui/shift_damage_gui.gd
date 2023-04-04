@@ -1,6 +1,7 @@
 extends VBoxContainer
 
 # variables
+var ability
 var cost
 var crest
 var pos
@@ -10,11 +11,11 @@ onready var button = $Button
 onready var summon_info = $SummonInfo
 
 # signals
-signal reply_ability_select_monster
+signal ability_select_tile
 
 # setget functions
 func set_reply_gui(attacked):
-    var ability = attacked.get_ability("SHIFTDAMAGE")
+    ability = attacked.get_ability("SHIFTDAMAGE")
     cost = ability.cost
     crest = ability.crest
     button.text = "✨SHIFT DAMAGE (%d%s)" % [cost, Globals.CRESTICONS[crest]] 
@@ -31,7 +32,7 @@ func get_ability_dict():
 # signals callbacks
 func _on_Button_toggled(button_pressed):
     if button_pressed:
-        emit_signal("reply_ability_select_monster")
+        emit_signal("ability_select_tile", ability.get_select_tiles())
     else:
         summon_info.visible = false
 

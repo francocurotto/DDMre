@@ -50,7 +50,8 @@ func switch_to_back_button():
     back_button.visible = true
 
 # signals callbacks
-func on_tile_select_button_toggled(dungobj, pressed):
+func on_tile_select_button_toggled(tile, pressed):
+    var dungobj = tile.content
     var actionable = dungobj.is_monster() and dungobj.player == player and engine.state.NAME == "DUNGEON" and pressed
     move_button.disabled = !(actionable and player.crestpool.slots["MOVEMENT"]>0 and dungobj.max_move>0)
     attack_button.disabled = !(actionable and player.crestpool.slots["ATTACK"]>=dungobj.attack_cost and not dungobj.attack_cooldown)

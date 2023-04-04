@@ -55,6 +55,7 @@ func _ready():
     move_menu.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
     # action menu
     action_menu.connect("check_dungeon_button_pressed", dungeon_window, "on_check_dungeon_button_pressed")
+    action_menu.connect("ability_select_tile", dungeon_window, "on_ability_select_tile")
     # attack gui
     attack_gui.connect("attack_cmd", self, "on_attack_cmd")
     attack_gui.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
@@ -62,7 +63,7 @@ func _ready():
     reply_gui.connect("reply_cmd", self, "on_reply_cmd")
     # reply ability gui
     reply_ability_gui.connect("reply_ability_cost_changed", reply_gui, "on_reply_ability_cost_changed")
-    reply_ability_gui.connect("reply_ability_select_monster", self, "on_reply_ability_select_monster")
+    reply_ability_gui.connect("reply_ability_select_tile", action_menu, "on_ability_select_tile")
     # standing ability gui
     standing_ability_gui.connect("ability_cmd", self, "on_ability_cmd")
     standing_ability_gui.connect("standing_ability_cancel_button_pressed", dungeon_window, "on_standing_ability_ended")
@@ -85,8 +86,8 @@ func _ready():
     dim_buttons.connect("TAW_button_pressed", dungeon_gui, "on_TAW_button_pressed")
     dim_buttons.connect("dim_button_pressed", self, "on_dim_button_pressed")
     # ability buttons gui
-    ability_buttons_gui.connect("reply_ability_select_monster_cancel_button_pressed", dungeon_window, "on_reply_ability_select_monster_cancel_button_pressed")
-    ability_buttons_gui.connect("reply_ability_select_monster_select_button_pressed", dungeon_window, "on_reply_ability_select_monster_select_button_pressed")
+    ability_buttons_gui.connect("select_tile_cancel_button_pressed", dungeon_window, "on_select_tile_cancel_button_pressed")
+    ability_buttons_gui.connect("select_tile_select_button_pressed", dungeon_window, "on_select_tile_select_button_pressed")
     # card info
     card_info.connect("card_info_quit", self, "on_card_info_quit")
     # common window
@@ -177,10 +178,6 @@ func on_card_info_quit():
 func on_switch_button_pressed():
     dicepool_window.visible = not dicepool_window.visible
     dungeon_window.visible = not dungeon_window.visible
-
-func on_reply_ability_select_monster():
-    var monsters = engine.state.attacked.get_player_other_monsters()
-    dungeon_window.on_reply_ability_select_monster(monsters)
 
 # private functions
 func switch_to_dicepool_window():

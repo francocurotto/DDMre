@@ -97,7 +97,7 @@ func highlight_attack_reply(attacker, attacked):
 func on_tile_select_button_toggled(tile_gui, pressed):
     assign_selected_tile_gui(tile_gui, pressed)
     release_unselected_tile_guis()
-    emit_signal("tile_select_button_toggled", tile_gui.tile.content, pressed)
+    emit_signal("tile_select_button_toggled", tile_gui.tile, pressed)
 
 func on_tile_move_button_pressed(tile_gui):
     disable_tile_gui_buttons()
@@ -186,15 +186,15 @@ func on_TCW_button_pressed():
 func on_TAW_button_pressed():
     net_creator.update_net_taw()
 
-func on_reply_ability_select_monster_cancel_button_pressed():
+func on_select_tile_cancel_button_pressed():
     unset_highlights()
     disable_tile_gui_buttons()
-    reply_gui.on_select_monster_cancel_button_pressed()
+    action_menu.on_select_monster_cancel_button_pressed()
 
-func on_reply_ability_select_monster_select_button_pressed():
+func on_select_tile_select_button_pressed():
     unset_highlights()
     disable_tile_gui_buttons()    
-    reply_gui.on_select_monster_select_button_pressed(selected_tile_gui.tile)
+    action_menu.on_select_monster_select_button_pressed(selected_tile_gui.tile)
 
 func on_standing_ability_ended():
     enable_select_buttons()

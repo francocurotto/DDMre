@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/ability_buttons_gui/reply_select_monster_buttons/reply_select_monster_buttons.gd" type="Script" id=2]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/ability_buttons_gui/select_tile_buttons/select_tile_buttons.gd" type="Script" id=2]
 
-[node name="ReplySelectMonsterButtons" type="HBoxContainer"]
+[node name="SelectTileButtons" type="HBoxContainer"]
 margin_right = 713.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )

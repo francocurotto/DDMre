@@ -16,7 +16,8 @@ func set_player(_player):
     player = _player
 
 # signals callbacks
-func on_tile_select_button_toggled(dungobj, pressed):
+func on_tile_select_button_toggled(tile, pressed):
+    var dungobj = tile.content
     if pressed and dungobj.is_summon():
         summon_info.set_summon(dungobj, player)
         card = dungobj.card
