@@ -37,7 +37,7 @@ func on_reply_ability_cost_changed(cost, crest):
     menu_guard_button.disabled = crest=="DEFENSE" and cost+1 > attacked.player.crestpool.slots["DEFENSE"]
 
 func on_select_tile_cancel_button_pressed():
-    reply_ability_gui.on_select_monster_cancel_button_pressed()
+    reply_ability_gui.on_select_tile_cancel_button_pressed()
 
 func on_select_tile_select_button_pressed(tile):
-    reply_ability_gui.on_select_monster_select_button_pressed(tile)
+    reply_ability_gui.on_select_tile_select_button_pressed(tile)

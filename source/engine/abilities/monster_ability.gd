@@ -31,6 +31,13 @@ func remove_negate():
     if negate_count == 0:
         enable()
 
+func get_player_monsters_tiles():
+    var select_tiles = []
+    for tile in dungeon.tiles:
+        if tile.content.is_monster() and tile.content.player == monster.player:
+            select_tiles.append(tile)
+    return select_tiles 
+            
 # is functions
 func is_negated():
     return negate_count > 0

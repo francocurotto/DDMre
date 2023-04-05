@@ -1,7 +1,6 @@
 digraph player_gui {
     rankdir=LR
-    "Player GUI" -> {"Main Window", "Lower Window"}
-    "Main Window" -> {"Dicepool Window", "Dungeon Window", "Card Info"}
+    "Player GUI" -> {"Dicepool Window", "Dungeon Window", "Card Info", "Lower Window"}
     "Dicepool Window" -> {"Dicepool GUI", "Roll GUI"}
     "Dicepool GUI" -> {"15x Dice GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
     "15x Dice GUI" -> {"Dice Info"[color=darkred, fontcolor=darkred]} [color=darkred]
@@ -9,15 +8,17 @@ digraph player_gui {
     "Roll Info" -> {"Dice Roll Info"[color=darkred, fontcolor=darkred]} [color=darkred]
     "Dungeon Window" -> {"Dungeon GUI", "Summon GUI", "Dungeon Buttons GUI"}
     "Dungeon GUI" -> {"247x Tiles GUI" [color=darkred, fontcolor=darkred]} [color=darkred]
-    "Dungeon GUI" -> {"Net Menu", "Move Menu", "Attack Menu", "Reply Menu", "Ability GUI"}
-    "Attack Menu" -> "Attack Ability GUI"
-    "Attack Ability GUI" -> {"Xx Attack Ability GUIs"[color=darkred, fontcolor=darkred]} [color=darkred]
-    "Reply Menu" -> "Reply Ability GUI"
-    "Reply Ability GUI" -> {"Xx Reply Ability GUIs"[color=darkred, fontcolor=darkred]} [color=darkred]
-    "Ability GUI" -> {"Xx Ability Menus"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Dungeon GUI" -> {"Net Menu", "Action Menu"}
+    //"Action Menu" -> {"Attack GUI", "Reply GUI", "Ability GUI"}
+    "Action Menu" -> {"Attack GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Action Menu" -> {"Reply GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Action Menu" -> {"Ability GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Attack GUI" -> {"Raise Attack GUI"[color=darkgreen, fontcolor=darkgreen]} [color=darkgreen]
+    "Reply GUI" -> {"Reply Ability GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Reply Ability GUI" -> {"Xx Reply Ability GUIs"[color=darkgreen, fontcolor=darkgreen]} [color=darkgreen]
+    "Ability GUI" -> {"Xx Ability GUIs"[color=darkgreen, fontcolor=darkgreen]} [color=darkgreen]
     "Summon GUI" -> {"Summon Info"[color=darkred, fontcolor=darkred]} [color=darkred]
-    "Dungeon Buttons GUI" -> {"Dungeon Buttons", "Dim Buttons", "Ability Buttons GUI"}
-    "Ability Buttons GUI" -> {"Xx Ability Buttons"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Dungeon Buttons GUI" -> {"Dungeon Buttons", "Move Buttons", "Dim Buttons", "Select Tile Buttons", "Select Direction Buttons"}
     "Lower Window" -> {"2x Player Info"[color=darkred, fontcolor=darkred]} [color=darkred]
     "2x Player Info" -> {"Hearts Info"[color=darkred, fontcolor=darkred]} [color=darkred] 
     "2x Player Info" -> {"Crestpool Info"[color=darkred, fontcolor=darkred]} [color=darkred]

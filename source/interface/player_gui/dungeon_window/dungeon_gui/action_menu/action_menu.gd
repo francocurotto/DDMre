@@ -14,7 +14,7 @@ signal ability_select_tile(poss)
 
 # setget functions
 func get_active_gui():
-    for gui in guis:
+    for gui in guis.get_children():
         if gui.visible:
             return gui
 
@@ -36,9 +36,9 @@ func on_ability_select_tile(tiles):
     visible = false
 
 func on_select_tile_cancel_button_pressed():
-    active_gui.on_select_tile_cancel_button_pressed()
+    self.active_gui.on_select_tile_cancel_button_pressed()
     visible = true
     
 func on_select_tile_select_button_pressed(tile):
-    active_gui.on_select_tile_select_button_pressed(tile)
+    self.active_gui.on_select_tile_select_button_pressed(tile)
     visible = true

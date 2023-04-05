@@ -178,981 +178,954 @@ def
 %%EndSetup
 setupLatin1
 %%Page: 1 1
-%%PageBoundingBox: 36 36 1575 674
+%%PageBoundingBox: 36 36 1596 728
 %%PageOrientation: Portrait
 0 0 1 beginpage
 gsave
-36 36 1539 638 boxprim clip newpath
+36 36 1560 692 boxprim clip newpath
 1 1 set_scale 0 rotate 40 40 translate
 % Player GUI
 gsave
 1 setlinewidth
 0 0 0 nodecolor
-61.7445 126 61.99 18 ellipse_path stroke
+61.7445 369 61.99 18 ellipse_path stroke
 0 0 0 nodecolor
 14 /Times-Roman set_font
-22.2445 122.3 moveto 79 (Player GUI) alignedtext
-grestore
-% Main Window
-gsave
-1 setlinewidth
-0 0 0 nodecolor
-238.782 153 74.187 18 ellipse_path stroke
-0 0 0 nodecolor
-14 /Times-Roman set_font
-189.782 149.3 moveto 98 (Main Window) alignedtext
-grestore
-% Player GUI->Main Window
-gsave
-1 setlinewidth
-0 0 0 edgecolor
-newpath 116.6898 134.3212 moveto
-132.1622 136.7079 149.2846 139.349 165.664 141.8756 curveto
-stroke
-0 0 0 edgecolor
-newpath 165.3284 145.3651 moveto
-175.7451 143.4306 lineto
-166.3956 138.447 lineto
-closepath fill
-1 setlinewidth
-solid
-0 0 0 edgecolor
-newpath 165.3284 145.3651 moveto
-175.7451 143.4306 lineto
-166.3956 138.447 lineto
-closepath stroke
-grestore
-% Lower Window
-gsave
-1 setlinewidth
-0 0 0 nodecolor
-238.782 99 79.0865 18 ellipse_path stroke
-0 0 0 nodecolor
-14 /Times-Roman set_font
-185.782 95.3 moveto 106 (Lower Window) alignedtext
-grestore
-% Player GUI->Lower Window
-gsave
-1 setlinewidth
-0 0 0 edgecolor
-newpath 116.6898 117.6788 moveto
-131.1922 115.4418 147.1443 112.9811 162.5754 110.6008 curveto
-stroke
-0 0 0 edgecolor
-newpath 163.2705 114.0351 moveto
-172.6201 109.0514 lineto
-162.2033 107.1169 lineto
-closepath fill
-1 setlinewidth
-solid
-0 0 0 edgecolor
-newpath 163.2705 114.0351 moveto
-172.6201 109.0514 lineto
-162.2033 107.1169 lineto
-closepath stroke
+22.2445 365.3 moveto 79 (Player GUI) alignedtext
 grestore
 % Dicepool Window
 gsave
 1 setlinewidth
 0 0 0 nodecolor
-446.3668 558 90.9839 18 ellipse_path stroke
+251.7809 612 90.9839 18 ellipse_path stroke
 0 0 0 nodecolor
 14 /Times-Roman set_font
-384.3668 554.3 moveto 124 (Dicepool Window) alignedtext
+189.7809 608.3 moveto 124 (Dicepool Window) alignedtext
 grestore
-% Main Window->Dicepool Window
+% Player GUI->Dicepool Window
 gsave
 1 setlinewidth
 0 0 0 edgecolor
-newpath 248.881 170.9249 moveto
-281.4468 235.0793 392.3386 453.535 431.5178 530.7177 curveto
+newpath 76.5713 386.8684 moveto
+109.4433 429.3489 192.3754 536.5224 230.7411 586.1026 curveto
 stroke
 0 0 0 edgecolor
-newpath 428.4922 532.4899 moveto
-436.1396 539.8226 lineto
-434.7341 529.3214 lineto
+newpath 228.0459 588.3387 moveto
+236.9338 594.1054 lineto
+233.582 584.0548 lineto
 closepath fill
 1 setlinewidth
 solid
 0 0 0 edgecolor
-newpath 428.4922 532.4899 moveto
-436.1396 539.8226 lineto
-434.7341 529.3214 lineto
+newpath 228.0459 588.3387 moveto
+236.9338 594.1054 lineto
+233.582 584.0548 lineto
 closepath stroke
 grestore
 % Dungeon Window
 gsave
 1 setlinewidth
 0 0 0 nodecolor
-446.3668 180 92.0841 18 ellipse_path stroke
+251.7809 396 92.0841 18 ellipse_path stroke
 0 0 0 nodecolor
 14 /Times-Roman set_font
-383.3668 176.3 moveto 126 (Dungeon Window) alignedtext
+188.7809 392.3 moveto 126 (Dungeon Window) alignedtext
 grestore
-% Main Window->Dungeon Window
+% Player GUI->Dungeon Window
 gsave
 1 setlinewidth
 0 0 0 edgecolor
-newpath 304.2663 161.4689 moveto
-321.6537 163.7524 340.7477 166.2601 359.1177 168.6727 curveto
+newpath 117.385 376.8458 moveto
+132.8301 379.0635 150.0056 381.5298 166.7535 383.9346 curveto
 stroke
 0 0 0 edgecolor
-newpath 358.8627 172.1692 moveto
-369.2334 170.0012 lineto
-359.7743 165.2288 lineto
+newpath 166.7109 387.4643 moveto
+177.1068 385.4212 lineto
+167.7058 380.5353 lineto
 closepath fill
 1 setlinewidth
 solid
 0 0 0 edgecolor
-newpath 358.8627 172.1692 moveto
-369.2334 170.0012 lineto
-359.7743 165.2288 lineto
+newpath 166.7109 387.4643 moveto
+177.1068 385.4212 lineto
+167.7058 380.5353 lineto
 closepath stroke
 grestore
 % Card Info
 gsave
 1 setlinewidth
 0 0 0 nodecolor
-446.3668 126 53.8905 18 ellipse_path stroke
+251.7809 342 53.8905 18 ellipse_path stroke
 0 0 0 nodecolor
 14 /Times-Roman set_font
-412.8668 122.3 moveto 67 (Card Info) alignedtext
+218.2809 338.3 moveto 67 (Card Info) alignedtext
 grestore
-% Main Window->Card Info
+% Player GUI->Card Info
 gsave
 1 setlinewidth
 0 0 0 edgecolor
-newpath 304.2663 144.5311 moveto
-330.3594 141.1042 360.2957 137.1726 385.8612 133.815 curveto
+newpath 117.385 361.1542 moveto
+140.7254 357.8028 168.0178 353.8839 191.8139 350.467 curveto
 stroke
 0 0 0 edgecolor
-newpath 386.3328 137.2832 moveto
-395.7919 132.5108 lineto
-385.4213 130.3428 lineto
+newpath 192.3754 353.9224 moveto
+201.7764 349.0365 lineto
+191.3804 346.9934 lineto
 closepath fill
 1 setlinewidth
 solid
 0 0 0 edgecolor
-newpath 386.3328 137.2832 moveto
-395.7919 132.5108 lineto
-385.4213 130.3428 lineto
+newpath 192.3754 353.9224 moveto
+201.7764 349.0365 lineto
+191.3804 346.9934 lineto
 closepath stroke
 grestore
-% 2x Player Info
+% Lower Window
 gsave
 1 setlinewidth
-0 1 0.5451 nodecolor
-446.3668 72 75.2868 18 ellipse_path stroke
-0 1 0.5451 nodecolor
+0 0 0 nodecolor
+251.7809 180 79.0865 18 ellipse_path stroke
+0 0 0 nodecolor
 14 /Times-Roman set_font
-396.3668 68.3 moveto 100 (2x Player Info) alignedtext
+198.7809 176.3 moveto 106 (Lower Window) alignedtext
 grestore
-% Lower Window->2x Player Info
+% Player GUI->Lower Window
 gsave
 1 setlinewidth
-0 1 0.5451 edgecolor
-newpath 307.6679 90.0844 moveto
-327.5786 87.4694 349.4719 84.5941 369.8283 81.9207 curveto
+0 0 0 edgecolor
+newpath 80.0975 351.5581 moveto
+113.5951 317.8888 187.2677 243.8386 225.949 204.9591 curveto
 stroke
-0 1 0.5451 edgecolor
-newpath 370.5383 85.3576 moveto
-379.9974 80.5851 lineto
-369.6267 78.4172 lineto
+0 0 0 edgecolor
+newpath 228.6247 207.2322 moveto
+233.1965 197.6745 lineto
+223.6623 202.2951 lineto
 closepath fill
 1 setlinewidth
 solid
-0 1 0.5451 edgecolor
-newpath 370.5383 85.3576 moveto
-379.9974 80.5851 lineto
-369.6267 78.4172 lineto
+0 0 0 edgecolor
+newpath 228.6247 207.2322 moveto
+233.1965 197.6745 lineto
+223.6623 202.2951 lineto
 closepath stroke
 grestore
 % Dicepool GUI
 gsave
 1 setlinewidth
 0 0 0 nodecolor
-687.7486 612 72.2875 18 ellipse_path stroke
+493.1626 666 72.2875 18 ellipse_path stroke
 0 0 0 nodecolor
 14 /Times-Roman set_font
-640.2486 608.3 moveto 95 (Dicepool GUI) alignedtext
+445.6626 662.3 moveto 95 (Dicepool GUI) alignedtext
 grestore
 % Dicepool Window->Dicepool GUI
 gsave
 1 setlinewidth
 0 0 0 edgecolor
-newpath 507.1554 571.4872 moveto
-542.5984 579.4824 587.4834 589.6077 623.5143 597.7355 curveto
+newpath 312.5695 625.4872 moveto
+348.0124 633.4824 392.8975 643.6077 428.9284 651.7355 curveto
 stroke
 0 0 0 edgecolor
-newpath 622.9018 601.1853 moveto
-633.4269 599.9716 lineto
-624.4422 594.3568 lineto
+newpath 428.3158 655.1853 moveto
+438.8409 653.9716 lineto
+429.8563 648.3568 lineto
 closepath fill
 1 setlinewidth
 solid
 0 0 0 edgecolor
-newpath 622.9018 601.1853 moveto
-633.4269 599.9716 lineto
-624.4422 594.3568 lineto
+newpath 428.3158 655.1853 moveto
+438.8409 653.9716 lineto
+429.8563 648.3568 lineto
 closepath stroke
 grestore
 % Roll GUI
 gsave
 1 setlinewidth
 0 0 0 nodecolor
-687.7486 558 50.0912 18 ellipse_path stroke
+493.1626 612 50.0912 18 ellipse_path stroke
 0 0 0 nodecolor
 14 /Times-Roman set_font
-657.2486 554.3 moveto 61 (Roll GUI) alignedtext
+462.6626 608.3 moveto 61 (Roll GUI) alignedtext
 grestore
 % Dicepool Window->Roll GUI
 gsave
 1 setlinewidth
 0 0 0 edgecolor
-newpath 537.5257 558 moveto
-567.6109 558 600.3514 558 627.4789 558 curveto
+newpath 342.9397 612 moveto
+373.025 612 405.7655 612 432.8929 612 curveto
 stroke
 0 0 0 edgecolor
-newpath 627.5837 561.5001 moveto
-637.5837 558 lineto
-627.5836 554.5001 lineto
+newpath 432.9978 615.5001 moveto
+442.9977 612 lineto
+432.9977 608.5001 lineto
 closepath fill
 1 setlinewidth
 solid
 0 0 0 edgecolor
-newpath 627.5837 561.5001 moveto
-637.5837 558 lineto
-627.5836 554.5001 lineto
+newpath 432.9978 615.5001 moveto
+442.9977 612 lineto
+432.9977 608.5001 lineto
 closepath stroke
 grestore
 % Dungeon GUI
 gsave
 1 setlinewidth
 0 0 0 nodecolor
-687.7486 342 73.387 18 ellipse_path stroke
+493.1626 477 73.387 18 ellipse_path stroke
 0 0 0 nodecolor
 14 /Times-Roman set_font
-639.2486 338.3 moveto 97 (Dungeon GUI) alignedtext
+444.6626 473.3 moveto 97 (Dungeon GUI) alignedtext
 grestore
 % Dungeon Window->Dungeon GUI
 gsave
 1 setlinewidth
 0 0 0 edgecolor
-newpath 472.9848 197.3368 moveto
-516.473 226.7671 604.7208 286.4882 653.1206 319.2425 curveto
+newpath 298.6528 411.5218 moveto
+338.9562 425.1593 397.5805 444.9961 439.7292 459.258 curveto
 stroke
 0 0 0 edgecolor
-newpath 651.431 322.3252 moveto
-661.6745 325.0313 lineto
-655.3543 316.528 lineto
+newpath 438.6681 462.5939 moveto
+449.2624 462.4838 lineto
+440.9118 455.9632 lineto
 closepath fill
 1 setlinewidth
 solid
 0 0 0 edgecolor
-newpath 651.431 322.3252 moveto
-661.6745 325.0313 lineto
-655.3543 316.528 lineto
+newpath 438.6681 462.5939 moveto
+449.2624 462.4838 lineto
+440.9118 455.9632 lineto
 closepath stroke
 grestore
 % Summon GUI
 gsave
 1 setlinewidth
 0 0 0 nodecolor
-687.7486 180 73.387 18 ellipse_path stroke
+493.1626 396 73.387 18 ellipse_path stroke
 0 0 0 nodecolor
 14 /Times-Roman set_font
-639.2486 176.3 moveto 97 (Summon GUI) alignedtext
+444.6626 392.3 moveto 97 (Summon GUI) alignedtext
 grestore
 % Dungeon Window->Summon GUI
 gsave
 1 setlinewidth
 0 0 0 edgecolor
-newpath 538.8914 180 moveto
-560.3293 180 583.0453 180 604.0711 180 curveto
+newpath 344.3055 396 moveto
+365.7434 396 388.4594 396 409.4852 396 curveto
 stroke
 0 0 0 edgecolor
-newpath 604.2442 183.5001 moveto
-614.2441 180 lineto
-604.2441 176.5001 lineto
+newpath 409.6582 399.5001 moveto
+419.6582 396 lineto
+409.6582 392.5001 lineto
 closepath fill
 1 setlinewidth
 solid
 0 0 0 edgecolor
-newpath 604.2442 183.5001 moveto
-614.2441 180 lineto
-604.2441 176.5001 lineto
+newpath 409.6582 399.5001 moveto
+419.6582 396 lineto
+409.6582 392.5001 lineto
 closepath stroke
 grestore
 % Dungeon Buttons GUI
 gsave
 1 setlinewidth
 0 0 0 nodecolor
-687.7486 126 113.18 18 ellipse_path stroke
+493.1626 261 113.18 18 ellipse_path stroke
 0 0 0 nodecolor
 14 /Times-Roman set_font
-608.7486 122.3 moveto 158 (Dungeon Buttons GUI) alignedtext
+414.1626 257.3 moveto 158 (Dungeon Buttons GUI) alignedtext
 grestore
 % Dungeon Window->Dungeon Buttons GUI
 gsave
 1 setlinewidth
 0 0 0 edgecolor
-newpath 507.4639 166.4432 moveto
-539.103 159.306 578.201 150.4863 611.8028 142.9063 curveto
+newpath 310.901 382.0673 moveto
+322.1738 378.4648 333.6998 374.1242 344.0727 369 curveto
+389.7736 346.4238 436.2647 309.8145 464.6633 285.5735 curveto
 stroke
 0 0 0 edgecolor
-newpath 612.5957 146.3155 moveto
-621.5804 140.7007 lineto
-611.0553 139.4871 lineto
+newpath 467.2463 287.9673 moveto
+472.5262 278.7818 lineto
+462.6706 282.6699 lineto
 closepath fill
 1 setlinewidth
 solid
 0 0 0 edgecolor
-newpath 612.5957 146.3155 moveto
-621.5804 140.7007 lineto
-611.0553 139.4871 lineto
+newpath 467.2463 287.9673 moveto
+472.5262 278.7818 lineto
+462.6706 282.6699 lineto
+closepath stroke
+grestore
+% 2x Player Info
+gsave
+1 setlinewidth
+0 1 0.5451 nodecolor
+493.1626 72 75.2868 18 ellipse_path stroke
+0 1 0.5451 nodecolor
+14 /Times-Roman set_font
+443.1626 68.3 moveto 100 (2x Player Info) alignedtext
+grestore
+% Lower Window->2x Player Info
+gsave
+1 setlinewidth
+0 1 0.5451 edgecolor
+newpath 288.3602 163.9479 moveto
+330.7635 144.8172 401.646 112.8377 447.6436 92.0853 curveto
+stroke
+0 1 0.5451 edgecolor
+newpath 449.1028 95.2668 moveto
+456.7787 87.9639 lineto
+446.224 88.8861 lineto
+closepath fill
+1 setlinewidth
+solid
+0 1 0.5451 edgecolor
+newpath 449.1028 95.2668 moveto
+456.7787 87.9639 lineto
+446.224 88.8861 lineto
 closepath stroke
 grestore
 % 15x Dice GUI
 gsave
 1 setlinewidth
 0 1 0.5451 nodecolor
-938.8795 612 72.5877 18 ellipse_path stroke
+767.0415 666 72.5877 18 ellipse_path stroke
 0 1 0.5451 nodecolor
 14 /Times-Roman set_font
-890.8795 608.3 moveto 96 (15x Dice GUI) alignedtext
+719.0415 662.3 moveto 96 (15x Dice GUI) alignedtext
 grestore
 % Dicepool GUI->15x Dice GUI
 gsave
 1 setlinewidth
 0 1 0.5451 edgecolor
-newpath 760.1395 612 moveto
-789.9804 612 824.8335 612 855.7322 612 curveto
+newpath 565.5956 666 moveto
+601.8356 666 646.0381 666 683.7035 666 curveto
 stroke
 0 1 0.5451 edgecolor
-newpath 856.0464 615.5001 moveto
-866.0464 612 lineto
-856.0464 608.5001 lineto
+newpath 684.1417 669.5001 moveto
+694.1417 666 lineto
+684.1416 662.5001 lineto
 closepath fill
 1 setlinewidth
 solid
 0 1 0.5451 edgecolor
-newpath 856.0464 615.5001 moveto
-866.0464 612 lineto
-856.0464 608.5001 lineto
+newpath 684.1417 669.5001 moveto
+694.1417 666 lineto
+684.1416 662.5001 lineto
 closepath stroke
 grestore
 % Roll Info
 gsave
 1 setlinewidth
 0 1 0.5451 nodecolor
-938.8795 558 50.0912 18 ellipse_path stroke
+767.0415 612 50.0912 18 ellipse_path stroke
 0 1 0.5451 nodecolor
 14 /Times-Roman set_font
-908.3795 554.3 moveto 61 (Roll Info) alignedtext
+736.5415 608.3 moveto 61 (Roll Info) alignedtext
 grestore
 % Roll GUI->Roll Info
 gsave
 1 setlinewidth
 0 1 0.5451 edgecolor
-newpath 737.9688 558 moveto
-778.4033 558 835.8038 558 878.7322 558 curveto
+newpath 543.3978 612 moveto
+589.2565 612 657.7087 612 706.5944 612 curveto
 stroke
 0 1 0.5451 edgecolor
-newpath 878.7615 561.5001 moveto
-888.7615 558 lineto
-878.7614 554.5001 lineto
+newpath 706.714 615.5001 moveto
+716.714 612 lineto
+706.7139 608.5001 lineto
 closepath fill
 1 setlinewidth
 solid
 0 1 0.5451 edgecolor
-newpath 878.7615 561.5001 moveto
-888.7615 558 lineto
-878.7614 554.5001 lineto
+newpath 706.714 615.5001 moveto
+716.714 612 lineto
+706.7139 608.5001 lineto
 closepath stroke
 grestore
 % Dice Info
 gsave
 1 setlinewidth
 0 1 0.5451 nodecolor
-1171.812 612 51.9908 18 ellipse_path stroke
+1001.2739 666 51.9908 18 ellipse_path stroke
 0 1 0.5451 nodecolor
 14 /Times-Roman set_font
-1139.812 608.3 moveto 64 (Dice Info) alignedtext
+969.2739 662.3 moveto 64 (Dice Info) alignedtext
 grestore
 % 15x Dice GUI->Dice Info
 gsave
 1 setlinewidth
 0 1 0.5451 edgecolor
-newpath 1011.6821 612 moveto
-1042.9501 612 1079.2279 612 1109.2419 612 curveto
+newpath 839.9309 666 moveto
+871.6467 666 908.538 666 938.9333 666 curveto
 stroke
 0 1 0.5451 edgecolor
-newpath 1109.5785 615.5001 moveto
-1119.5785 612 lineto
-1109.5785 608.5001 lineto
+newpath 938.9754 669.5001 moveto
+948.9754 666 lineto
+938.9754 662.5001 lineto
 closepath fill
 1 setlinewidth
 solid
 0 1 0.5451 edgecolor
-newpath 1109.5785 615.5001 moveto
-1119.5785 612 lineto
-1109.5785 608.5001 lineto
+newpath 938.9754 669.5001 moveto
+948.9754 666 lineto
+938.9754 662.5001 lineto
 closepath stroke
 grestore
 % Dice Roll Info
 gsave
 1 setlinewidth
 0 1 0.5451 nodecolor
-1171.812 558 73.387 18 ellipse_path stroke
+1001.2739 612 73.387 18 ellipse_path stroke
 0 1 0.5451 nodecolor
 14 /Times-Roman set_font
-1123.312 554.3 moveto 97 (Dice Roll Info) alignedtext
+952.7739 608.3 moveto 97 (Dice Roll Info) alignedtext
 grestore
 % Roll Info->Dice Roll Info
 gsave
 1 setlinewidth
 0 1 0.5451 edgecolor
-newpath 989.137 558 moveto
-1017.8282 558 1054.7569 558 1087.8191 558 curveto
+newpath 817.292 612 moveto
+846.3715 612 883.9383 612 917.4601 612 curveto
 stroke
 0 1 0.5451 edgecolor
-newpath 1087.9423 561.5001 moveto
-1097.9423 558 lineto
-1087.9422 554.5001 lineto
+newpath 917.7196 615.5001 moveto
+927.7196 612 lineto
+917.7196 608.5001 lineto
 closepath fill
 1 setlinewidth
 solid
 0 1 0.5451 edgecolor
-newpath 1087.9423 561.5001 moveto
-1097.9423 558 lineto
-1087.9422 554.5001 lineto
+newpath 917.7196 615.5001 moveto
+927.7196 612 lineto
+917.7196 608.5001 lineto
 closepath stroke
 grestore
 % 247x Tiles GUI
 gsave
 1 setlinewidth
 0 1 0.5451 nodecolor
-938.8795 504 79.8859 18 ellipse_path stroke
+767.0415 558 79.8859 18 ellipse_path stroke
 0 1 0.5451 nodecolor
 14 /Times-Roman set_font
-885.3795 500.3 moveto 107 (247x Tiles GUI) alignedtext
+713.5415 554.3 moveto 107 (247x Tiles GUI) alignedtext
 grestore
 % Dungeon GUI->247x Tiles GUI
 gsave
 1 setlinewidth
 0 1 0.5451 edgecolor
-newpath 703.174 359.8005 moveto
-727.6099 388.7639 780.056 445.9682 836.8385 477 curveto
-846.0754 482.048 856.3104 486.1943 866.6178 489.5885 curveto
+newpath 532.0481 492.4204 moveto
+561.6935 504.0935 604.1415 519.95 642.2526 531 curveto
+659.2948 535.9413 677.8881 540.4494 695.3629 544.3067 curveto
 stroke
 0 1 0.5451 edgecolor
-newpath 865.9053 493.0308 moveto
-876.4921 492.6171 lineto
-867.958 486.3385 lineto
+newpath 694.9882 547.8066 moveto
+705.5023 546.501 lineto
+696.4689 540.9649 lineto
 closepath fill
 1 setlinewidth
 solid
 0 1 0.5451 edgecolor
-newpath 865.9053 493.0308 moveto
-876.4921 492.6171 lineto
-867.958 486.3385 lineto
+newpath 694.9882 547.8066 moveto
+705.5023 546.501 lineto
+696.4689 540.9649 lineto
 closepath stroke
 grestore
 % Net Menu
 gsave
 1 setlinewidth
 0 0 0 nodecolor
-938.8795 450 57.3905 18 ellipse_path stroke
+767.0415 504 57.3905 18 ellipse_path stroke
 0 0 0 nodecolor
 14 /Times-Roman set_font
-902.8795 446.3 moveto 72 (Net Menu) alignedtext
+731.0415 500.3 moveto 72 (Net Menu) alignedtext
 grestore
 % Dungeon GUI->Net Menu
 gsave
 1 setlinewidth
 0 0 0 edgecolor
-newpath 714.8289 358.7796 moveto
-743.7 376.7467 792.0858 405.0829 836.8385 423 curveto
-850.8769 428.6204 866.4747 433.4414 881.1317 437.3883 curveto
+newpath 561.718 483.7088 moveto
+604.5777 487.9652 659.7005 493.4394 701.8883 497.629 curveto
 stroke
 0 0 0 edgecolor
-newpath 880.5387 440.8504 moveto
-891.0977 439.9802 lineto
-882.3007 434.0758 lineto
+newpath 701.7488 501.1323 moveto
+712.0458 498.6377 lineto
+702.4406 494.1666 lineto
 closepath fill
 1 setlinewidth
 solid
 0 0 0 edgecolor
-newpath 880.5387 440.8504 moveto
-891.0977 439.9802 lineto
-882.3007 434.0758 lineto
+newpath 701.7488 501.1323 moveto
+712.0458 498.6377 lineto
+702.4406 494.1666 lineto
 closepath stroke
 grestore
-% Move Menu
+% Action Menu
 gsave
 1 setlinewidth
 0 0 0 nodecolor
-938.8795 396 65.7887 18 ellipse_path stroke
+767.0415 450 69.5877 18 ellipse_path stroke
 0 0 0 nodecolor
 14 /Times-Roman set_font
-896.3795 392.3 moveto 85 (Move Menu) alignedtext
+721.5415 446.3 moveto 91 (Action Menu) alignedtext
 grestore
-% Dungeon GUI->Move Menu
+% Dungeon GUI->Action Menu
 gsave
 1 setlinewidth
 0 0 0 edgecolor
-newpath 743.4214 353.8505 moveto
-782.8538 362.3976 836.1022 373.9394 876.9083 382.7843 curveto
+newpath 561.718 470.2912 moveto
+601.1525 466.3749 650.9685 461.4278 691.5389 457.3988 curveto
 stroke
 0 0 0 edgecolor
-newpath 876.219 386.2161 moveto
-886.7335 384.9139 lineto
-877.7019 379.3749 lineto
+newpath 692.0372 460.8666 moveto
+701.6423 456.3954 lineto
+691.3454 453.9009 lineto
 closepath fill
 1 setlinewidth
 solid
 0 0 0 edgecolor
-newpath 876.219 386.2161 moveto
-886.7335 384.9139 lineto
-877.7019 379.3749 lineto
-closepath stroke
-grestore
-% Attack Menu
-gsave
-1 setlinewidth
-0 0 0 nodecolor
-938.8795 342 69.5877 18 ellipse_path stroke
-0 0 0 nodecolor
-14 /Times-Roman set_font
-893.3795 338.3 moveto 91 (Attack Menu) alignedtext
-grestore
-% Dungeon GUI->Attack Menu
-gsave
-1 setlinewidth
-0 0 0 edgecolor
-newpath 761.4773 342 moveto
-791.9296 342 827.4125 342 858.537 342 curveto
-stroke
-0 0 0 edgecolor
-newpath 858.9116 345.5001 moveto
-868.9116 342 lineto
-858.9116 338.5001 lineto
-closepath fill
-1 setlinewidth
-solid
-0 0 0 edgecolor
-newpath 858.9116 345.5001 moveto
-868.9116 342 lineto
-858.9116 338.5001 lineto
-closepath stroke
-grestore
-% Reply Menu
-gsave
-1 setlinewidth
-0 0 0 nodecolor
-938.8795 288 66.0889 18 ellipse_path stroke
-0 0 0 nodecolor
-14 /Times-Roman set_font
-895.8795 284.3 moveto 86 (Reply Menu) alignedtext
-grestore
-% Dungeon GUI->Reply Menu
-gsave
-1 setlinewidth
-0 0 0 edgecolor
-newpath 743.4214 330.1495 moveto
-782.7215 321.631 835.7449 310.138 876.497 301.3049 curveto
-stroke
-0 0 0 edgecolor
-newpath 877.2809 304.7163 moveto
-886.3125 299.1773 lineto
-875.798 297.8752 lineto
-closepath fill
-1 setlinewidth
-solid
-0 0 0 edgecolor
-newpath 877.2809 304.7163 moveto
-886.3125 299.1773 lineto
-875.798 297.8752 lineto
-closepath stroke
-grestore
-% Ability GUI
-gsave
-1 setlinewidth
-0 0 0 nodecolor
-938.8795 234 62.2891 18 ellipse_path stroke
-0 0 0 nodecolor
-14 /Times-Roman set_font
-898.8795 230.3 moveto 80 (Ability GUI) alignedtext
-grestore
-% Dungeon GUI->Ability GUI
-gsave
-1 setlinewidth
-0 0 0 edgecolor
-newpath 714.8289 325.2204 moveto
-743.7 307.2533 792.0858 278.9171 836.8385 261 curveto
-850.0637 255.7052 864.6729 251.1199 878.5756 247.3064 curveto
-stroke
-0 0 0 edgecolor
-newpath 879.7732 250.61 moveto
-888.5442 244.6669 lineto
-877.9814 243.8432 lineto
-closepath fill
-1 setlinewidth
-solid
-0 0 0 edgecolor
-newpath 879.7732 250.61 moveto
-888.5442 244.6669 lineto
-877.9814 243.8432 lineto
+newpath 692.0372 460.8666 moveto
+701.6423 456.3954 lineto
+691.3454 453.9009 lineto
 closepath stroke
 grestore
 % Summon Info
 gsave
 1 setlinewidth
 0 1 0.5451 nodecolor
-938.8795 180 72.5877 18 ellipse_path stroke
+767.0415 396 72.5877 18 ellipse_path stroke
 0 1 0.5451 nodecolor
 14 /Times-Roman set_font
-890.8795 176.3 moveto 96 (Summon Info) alignedtext
+719.0415 392.3 moveto 96 (Summon Info) alignedtext
 grestore
 % Summon GUI->Summon Info
 gsave
 1 setlinewidth
 0 1 0.5451 edgecolor
-newpath 761.4773 180 moveto
-791.0263 180 825.312 180 855.7562 180 curveto
+newpath 566.664 396 moveto
+602.7545 396 646.5349 396 683.8666 396 curveto
 stroke
 0 1 0.5451 edgecolor
-newpath 855.9211 183.5001 moveto
-865.9211 180 lineto
-855.921 176.5001 lineto
+newpath 684.2133 399.5001 moveto
+694.2133 396 lineto
+684.2133 392.5001 lineto
 closepath fill
 1 setlinewidth
 solid
 0 1 0.5451 edgecolor
-newpath 855.9211 183.5001 moveto
-865.9211 180 lineto
-855.921 176.5001 lineto
+newpath 684.2133 399.5001 moveto
+694.2133 396 lineto
+684.2133 392.5001 lineto
 closepath stroke
 grestore
 % Dungeon Buttons
 gsave
 1 setlinewidth
 0 0 0 nodecolor
-938.8795 126 91.784 18 ellipse_path stroke
+767.0415 342 91.784 18 ellipse_path stroke
 0 0 0 nodecolor
 14 /Times-Roman set_font
-876.3795 122.3 moveto 125 (Dungeon Buttons) alignedtext
+704.5415 338.3 moveto 125 (Dungeon Buttons) alignedtext
 grestore
 % Dungeon Buttons GUI->Dungeon Buttons
 gsave
 1 setlinewidth
 0 0 0 edgecolor
-newpath 800.9244 126 moveto
-812.9113 126 825.0528 126 836.8989 126 curveto
+newpath 535.4759 277.7663 moveto
+564.9075 289.2895 605.5871 304.3691 642.2526 315 curveto
+657.8233 319.5146 674.689 323.6677 690.8133 327.2932 curveto
 stroke
 0 0 0 edgecolor
-newpath 837.2218 129.5001 moveto
-847.2217 126 lineto
-837.2217 122.5001 lineto
+newpath 690.22 330.7463 moveto
+700.7389 329.4809 lineto
+691.7267 323.9104 lineto
 closepath fill
 1 setlinewidth
 solid
 0 0 0 edgecolor
-newpath 837.2218 129.5001 moveto
-847.2217 126 lineto
-837.2217 122.5001 lineto
+newpath 690.22 330.7463 moveto
+700.7389 329.4809 lineto
+691.7267 323.9104 lineto
+closepath stroke
+grestore
+% Move Buttons
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+767.0415 288 75.2868 18 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+717.0415 284.3 moveto 100 (Move Buttons) alignedtext
+grestore
+% Dungeon Buttons GUI->Move Buttons
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 589.6347 270.4812 moveto
+621.3894 273.6348 656.3858 277.1102 686.7781 280.1284 curveto
+stroke
+0 0 0 edgecolor
+newpath 686.6003 283.6279 moveto
+696.8973 281.1334 lineto
+687.2921 276.6622 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 686.6003 283.6279 moveto
+696.8973 281.1334 lineto
+687.2921 276.6622 lineto
 closepath stroke
 grestore
 % Dim Buttons
 gsave
 1 setlinewidth
 0 0 0 nodecolor
-938.8795 72 69.5877 18 ellipse_path stroke
+767.0415 234 69.5877 18 ellipse_path stroke
 0 0 0 nodecolor
 14 /Times-Roman set_font
-893.3795 68.3 moveto 91 (Dim Buttons) alignedtext
+721.5415 230.3 moveto 91 (Dim Buttons) alignedtext
 grestore
 % Dungeon Buttons GUI->Dim Buttons
 gsave
 1 setlinewidth
 0 0 0 edgecolor
-newpath 755.5111 111.529 moveto
-792.6633 103.4761 838.6303 93.5126 875.1198 85.6034 curveto
+newpath 589.6347 251.5188 moveto
+623.1843 248.187 660.3522 244.4959 691.8861 241.3643 curveto
 stroke
 0 0 0 edgecolor
-newpath 876.1136 88.9693 moveto
-885.1452 83.4303 lineto
-874.6307 82.1282 lineto
+newpath 692.3095 244.8396 moveto
+701.9147 240.3684 lineto
+691.6177 237.8738 lineto
 closepath fill
 1 setlinewidth
 solid
 0 0 0 edgecolor
-newpath 876.1136 88.9693 moveto
-885.1452 83.4303 lineto
-874.6307 82.1282 lineto
+newpath 692.3095 244.8396 moveto
+701.9147 240.3684 lineto
+691.6177 237.8738 lineto
 closepath stroke
 grestore
-% Ability Buttons GUI
+% Select Tile Buttons
 gsave
 1 setlinewidth
 0 0 0 nodecolor
-938.8795 18 102.0819 18 ellipse_path stroke
+767.0415 180 98.5829 18 ellipse_path stroke
 0 0 0 nodecolor
 14 /Times-Roman set_font
-868.3795 14.3 moveto 141 (Ability Buttons GUI) alignedtext
+699.0415 176.3 moveto 136 (Select Tile Buttons) alignedtext
 grestore
-% Dungeon Buttons GUI->Ability Buttons GUI
+% Dungeon Buttons GUI->Select Tile Buttons
 gsave
 1 setlinewidth
 0 0 0 edgecolor
-newpath 771.1371 113.7586 moveto
-781.6782 110.0559 791.8943 105.2457 800.8385 99 curveto
-824.4877 82.4858 813.3955 61.8055 836.8385 45 curveto
-842.6722 40.818 849.1136 37.2838 855.8359 34.2969 curveto
+newpath 535.4759 244.2337 moveto
+564.9075 232.7105 605.5871 217.6309 642.2526 207 curveto
+657.0699 202.7038 673.0598 198.7351 688.4676 195.2368 curveto
 stroke
 0 0 0 edgecolor
-newpath 857.1734 37.5315 moveto
-865.146 30.5539 lineto
-854.5622 31.0368 lineto
+newpath 689.4891 198.5952 moveto
+698.4905 193.0072 lineto
+687.9691 191.7622 lineto
 closepath fill
 1 setlinewidth
 solid
 0 0 0 edgecolor
-newpath 857.1734 37.5315 moveto
-865.146 30.5539 lineto
-854.5622 31.0368 lineto
+newpath 689.4891 198.5952 moveto
+698.4905 193.0072 lineto
+687.9691 191.7622 lineto
 closepath stroke
 grestore
-% Attack Ability GUI
+% Select Direction Buttons
 gsave
 1 setlinewidth
 0 0 0 nodecolor
-1171.812 342 94.7833 18 ellipse_path stroke
+767.0415 126 124.5782 18 ellipse_path stroke
 0 0 0 nodecolor
 14 /Times-Roman set_font
-1106.812 338.3 moveto 130 (Attack Ability GUI) alignedtext
+679.0415 122.3 moveto 176 (Select Direction Buttons) alignedtext
 grestore
-% Attack Menu->Attack Ability GUI
+% Dungeon Buttons GUI->Select Direction Buttons
 gsave
 1 setlinewidth
 0 0 0 edgecolor
-newpath 1008.5416 342 moveto
-1026.7698 342 1046.8714 342 1066.5359 342 curveto
+newpath 513.0901 243.0901 moveto
+539.7532 218.8802 590.8807 176.0912 642.2526 153 curveto
+651.755 148.7288 661.9785 145.1138 672.3311 142.0584 curveto
 stroke
 0 0 0 edgecolor
-newpath 1066.7672 345.5001 moveto
-1076.7671 342 lineto
-1066.7671 338.5001 lineto
+newpath 673.5776 145.3448 moveto
+682.277 139.2974 lineto
+671.7051 138.5999 lineto
 closepath fill
 1 setlinewidth
 solid
 0 0 0 edgecolor
-newpath 1066.7672 345.5001 moveto
-1076.7671 342 lineto
-1066.7671 338.5001 lineto
+newpath 673.5776 145.3448 moveto
+682.277 139.2974 lineto
+671.7051 138.5999 lineto
+closepath stroke
+grestore
+% Attack GUI
+gsave
+1 setlinewidth
+0 1 0.5451 nodecolor
+1001.2739 504 61.99 18 ellipse_path stroke
+0 1 0.5451 nodecolor
+14 /Times-Roman set_font
+961.7739 500.3 moveto 79 (Attack GUI) alignedtext
+grestore
+% Action Menu->Attack GUI
+gsave
+1 setlinewidth
+0 1 0.5451 edgecolor
+newpath 821.4332 461.2879 moveto
+843.2876 466.0013 868.8037 471.6234 891.8305 477 curveto
+908.9668 481.0012 927.5728 485.5564 944.456 489.7707 curveto
+stroke
+0 1 0.5451 edgecolor
+newpath 943.6226 493.17 moveto
+954.1735 492.2059 lineto
+945.3242 486.3799 lineto
+closepath fill
+1 setlinewidth
+solid
+0 1 0.5451 edgecolor
+newpath 943.6226 493.17 moveto
+954.1735 492.2059 lineto
+945.3242 486.3799 lineto
+closepath stroke
+grestore
+% Reply GUI
+gsave
+1 setlinewidth
+0 1 0.5451 nodecolor
+1001.2739 450 58.4896 18 ellipse_path stroke
+0 1 0.5451 nodecolor
+14 /Times-Roman set_font
+964.2739 446.3 moveto 74 (Reply GUI) alignedtext
+grestore
+% Action Menu->Reply GUI
+gsave
+1 setlinewidth
+0 1 0.5451 edgecolor
+newpath 836.7763 450 moveto
+867.058 450 902.529 450 932.6786 450 curveto
+stroke
+0 1 0.5451 edgecolor
+newpath 932.6841 453.5001 moveto
+942.6841 450 lineto
+932.684 446.5001 lineto
+closepath fill
+1 setlinewidth
+solid
+0 1 0.5451 edgecolor
+newpath 932.6841 453.5001 moveto
+942.6841 450 lineto
+932.684 446.5001 lineto
+closepath stroke
+grestore
+% Ability GUI
+gsave
+1 setlinewidth
+0 1 0.5451 nodecolor
+1001.2739 396 62.2891 18 ellipse_path stroke
+0 1 0.5451 nodecolor
+14 /Times-Roman set_font
+961.2739 392.3 moveto 80 (Ability GUI) alignedtext
+grestore
+% Action Menu->Ability GUI
+gsave
+1 setlinewidth
+0 1 0.5451 edgecolor
+newpath 821.4332 438.7121 moveto
+843.2876 433.9987 868.8037 428.3766 891.8305 423 curveto
+908.7284 419.0545 927.0554 414.5703 943.7505 410.4054 curveto
+stroke
+0 1 0.5451 edgecolor
+newpath 945.0575 413.6862 moveto
+953.9072 407.8611 lineto
+943.3565 406.896 lineto
+closepath fill
+1 setlinewidth
+solid
+0 1 0.5451 edgecolor
+newpath 945.0575 413.6862 moveto
+953.9072 407.8611 lineto
+943.3565 406.896 lineto
+closepath stroke
+grestore
+% Raise Attack GUI
+gsave
+1 setlinewidth
+0.33333 1 0.39216 nodecolor
+1202.3593 504 90.1842 18 ellipse_path stroke
+0.33333 1 0.39216 nodecolor
+14 /Times-Roman set_font
+1140.8593 500.3 moveto 123 (Raise Attack GUI) alignedtext
+grestore
+% Attack GUI->Raise Attack GUI
+gsave
+1 setlinewidth
+0.33333 1 0.39216 edgecolor
+newpath 1063.0879 504 moveto
+1075.3895 504 1088.626 504 1101.8614 504 curveto
+stroke
+0.33333 1 0.39216 edgecolor
+newpath 1101.9669 507.5001 moveto
+1111.9669 504 lineto
+1101.9669 500.5001 lineto
+closepath fill
+1 setlinewidth
+solid
+0.33333 1 0.39216 edgecolor
+newpath 1101.9669 507.5001 moveto
+1111.9669 504 lineto
+1101.9669 500.5001 lineto
 closepath stroke
 grestore
 % Reply Ability GUI
 gsave
 1 setlinewidth
-0 0 0 nodecolor
-1171.812 288 91.784 18 ellipse_path stroke
-0 0 0 nodecolor
+0 1 0.5451 nodecolor
+1202.3593 450 91.784 18 ellipse_path stroke
+0 1 0.5451 nodecolor
 14 /Times-Roman set_font
-1109.312 284.3 moveto 125 (Reply Ability GUI) alignedtext
+1139.8593 446.3 moveto 125 (Reply Ability GUI) alignedtext
 grestore
-% Reply Menu->Reply Ability GUI
+% Reply GUI->Reply Ability GUI
 gsave
 1 setlinewidth
-0 0 0 edgecolor
-newpath 1005.4378 288 moveto
-1025.5586 288 1048.1831 288 1070.0881 288 curveto
+0 1 0.5451 edgecolor
+newpath 1059.8577 450 moveto
+1072.6102 450 1086.4872 450 1100.4012 450 curveto
 stroke
-0 0 0 edgecolor
-newpath 1070.0903 291.5001 moveto
-1080.0903 288 lineto
-1070.0903 284.5001 lineto
+0 1 0.5451 edgecolor
+newpath 1100.5237 453.5001 moveto
+1110.5237 450 lineto
+1100.5236 446.5001 lineto
 closepath fill
 1 setlinewidth
 solid
-0 0 0 edgecolor
-newpath 1070.0903 291.5001 moveto
-1080.0903 288 lineto
-1070.0903 284.5001 lineto
+0 1 0.5451 edgecolor
+newpath 1100.5237 453.5001 moveto
+1110.5237 450 lineto
+1100.5236 446.5001 lineto
 closepath stroke
 grestore
-% Xx Ability Menus
+% Xx Ability GUIs
 gsave
 1 setlinewidth
-0 1 0.5451 nodecolor
-1171.812 234 89.8845 18 ellipse_path stroke
-0 1 0.5451 nodecolor
+0.33333 1 0.39216 nodecolor
+1202.3593 396 81.7856 18 ellipse_path stroke
+0.33333 1 0.39216 nodecolor
 14 /Times-Roman set_font
-1110.812 230.3 moveto 122 (Xx Ability Menus) alignedtext
+1147.3593 392.3 moveto 110 (Xx Ability GUIs) alignedtext
 grestore
-% Ability GUI->Xx Ability Menus
+% Ability GUI->Xx Ability GUIs
 gsave
 1 setlinewidth
-0 1 0.5451 edgecolor
-newpath 1001.4618 234 moveto
-1023.0906 234 1047.9709 234 1071.8848 234 curveto
+0.33333 1 0.39216 edgecolor
+newpath 1063.9024 396 moveto
+1078.5161 396 1094.4117 396 1110.0353 396 curveto
 stroke
-0 1 0.5451 edgecolor
-newpath 1072.0622 237.5001 moveto
-1082.0622 234 lineto
-1072.0622 230.5001 lineto
+0.33333 1 0.39216 edgecolor
+newpath 1110.2469 399.5001 moveto
+1120.2468 396 lineto
+1110.2468 392.5001 lineto
 closepath fill
 1 setlinewidth
 solid
-0 1 0.5451 edgecolor
-newpath 1072.0622 237.5001 moveto
-1082.0622 234 lineto
-1072.0622 230.5001 lineto
-closepath stroke
-grestore
-% Xx Attack Ability GUIs
-gsave
-1 setlinewidth
-0 1 0.5451 nodecolor
-1417.0934 342 114.2798 18 ellipse_path stroke
-0 1 0.5451 nodecolor
-14 /Times-Roman set_font
-1337.0934 338.3 moveto 160 (Xx Attack Ability GUIs) alignedtext
-grestore
-% Attack Ability GUI->Xx Attack Ability GUIs
-gsave
-1 setlinewidth
-0 1 0.5451 edgecolor
-newpath 1266.8709 342 moveto
-1275.232 342 1283.7765 342 1292.3351 342 curveto
-stroke
-0 1 0.5451 edgecolor
-newpath 1292.3784 345.5001 moveto
-1302.3783 342 lineto
-1292.3783 338.5001 lineto
-closepath fill
-1 setlinewidth
-solid
-0 1 0.5451 edgecolor
-newpath 1292.3784 345.5001 moveto
-1302.3783 342 lineto
-1292.3783 338.5001 lineto
+0.33333 1 0.39216 edgecolor
+newpath 1110.2469 399.5001 moveto
+1120.2468 396 lineto
+1110.2468 392.5001 lineto
 closepath stroke
 grestore
 % Xx Reply Ability GUIs
 gsave
 1 setlinewidth
-0 1 0.5451 nodecolor
-1417.0934 288 111.2805 18 ellipse_path stroke
-0 1 0.5451 nodecolor
+0.33333 1 0.39216 nodecolor
+1441.1413 450 111.2805 18 ellipse_path stroke
+0.33333 1 0.39216 nodecolor
 14 /Times-Roman set_font
-1339.5934 284.3 moveto 155 (Xx Reply Ability GUIs) alignedtext
+1363.6413 446.3 moveto 155 (Xx Reply Ability GUIs) alignedtext
 grestore
 % Reply Ability GUI->Xx Reply Ability GUIs
 gsave
 1 setlinewidth
-0 1 0.5451 edgecolor
-newpath 1263.747 288 moveto
-1274.0769 288 1284.7228 288 1295.3596 288 curveto
+0.33333 1 0.39216 edgecolor
+newpath 1294.2282 450 moveto
+1302.5709 450 1311.1065 450 1319.6568 450 curveto
 stroke
-0 1 0.5451 edgecolor
-newpath 1295.5443 291.5001 moveto
-1305.5442 288 lineto
-1295.5442 284.5001 lineto
+0.33333 1 0.39216 edgecolor
+newpath 1319.69 453.5001 moveto
+1329.69 450 lineto
+1319.69 446.5001 lineto
 closepath fill
 1 setlinewidth
 solid
-0 1 0.5451 edgecolor
-newpath 1295.5443 291.5001 moveto
-1305.5442 288 lineto
-1295.5442 284.5001 lineto
-closepath stroke
-grestore
-% Xx Ability Buttons
-gsave
-1 setlinewidth
-0 1 0.5451 nodecolor
-1171.812 18 94.7833 18 ellipse_path stroke
-0 1 0.5451 nodecolor
-14 /Times-Roman set_font
-1106.812 14.3 moveto 130 (Xx Ability Buttons) alignedtext
-grestore
-% Ability Buttons GUI->Xx Ability Buttons
-gsave
-1 setlinewidth
-0 1 0.5451 edgecolor
-newpath 1041.1698 18 moveto
-1049.6133 18 1058.1594 18 1066.6239 18 curveto
-stroke
-0 1 0.5451 edgecolor
-newpath 1066.8959 21.5001 moveto
-1076.8959 18 lineto
-1066.8959 14.5001 lineto
-closepath fill
-1 setlinewidth
-solid
-0 1 0.5451 edgecolor
-newpath 1066.8959 21.5001 moveto
-1076.8959 18 lineto
-1066.8959 14.5001 lineto
+0.33333 1 0.39216 edgecolor
+newpath 1319.69 453.5001 moveto
+1329.69 450 lineto
+1319.69 446.5001 lineto
 closepath stroke
 grestore
 % Hearts Info
 gsave
 1 setlinewidth
 0 1 0.5451 nodecolor
-687.7486 72 63.8893 18 ellipse_path stroke
+767.0415 72 63.8893 18 ellipse_path stroke
 0 1 0.5451 nodecolor
 14 /Times-Roman set_font
-646.7486 68.3 moveto 82 (Hearts Info) alignedtext
+726.0415 68.3 moveto 82 (Hearts Info) alignedtext
 grestore
 % 2x Player Info->Hearts Info
 gsave
 1 setlinewidth
 0 1 0.5451 edgecolor
-newpath 521.7965 72 moveto
-551.1392 72 584.738 72 613.9223 72 curveto
+newpath 568.8143 72 moveto
+607.4883 72 654.5323 72 692.9738 72 curveto
 stroke
 0 1 0.5451 edgecolor
-newpath 614.0469 75.5001 moveto
-624.0468 72 lineto
-614.0468 68.5001 lineto
+newpath 693.0612 75.5001 moveto
+703.0612 72 lineto
+693.0612 68.5001 lineto
 closepath fill
 1 setlinewidth
 solid
 0 1 0.5451 edgecolor
-newpath 614.0469 75.5001 moveto
-624.0468 72 lineto
-614.0468 68.5001 lineto
+newpath 693.0612 75.5001 moveto
+703.0612 72 lineto
+693.0612 68.5001 lineto
 closepath stroke
 grestore
 % Crestpool Info
 gsave
 1 setlinewidth
 0 1 0.5451 nodecolor
-687.7486 18 76.8869 18 ellipse_path stroke
+767.0415 18 76.8869 18 ellipse_path stroke
 0 1 0.5451 nodecolor
 14 /Times-Roman set_font
-636.7486 14.3 moveto 102 (Crestpool Info) alignedtext
+716.0415 14.3 moveto 102 (Crestpool Info) alignedtext
 grestore
 % 2x Player Info->Crestpool Info
 gsave
 1 setlinewidth
 0 1 0.5451 edgecolor
-newpath 501.6862 59.7466 moveto
-537.3956 51.6912 584.3033 41.1097 621.9573 32.6157 curveto
+newpath 551.8212 60.548 moveto
+594.5709 52.0571 652.9885 40.4543 698.0225 31.5098 curveto
 stroke
 0 1 0.5451 edgecolor
-newpath 622.8308 36.0067 moveto
-631.8155 30.3919 lineto
-621.2904 29.1783 lineto
+newpath 698.8716 34.9096 moveto
+707.9981 29.5285 lineto
+697.5078 28.0437 lineto
 closepath fill
 1 setlinewidth
 solid
 0 1 0.5451 edgecolor
-newpath 622.8308 36.0067 moveto
-631.8155 30.3919 lineto
-621.2904 29.1783 lineto
+newpath 698.8716 34.9096 moveto
+707.9981 29.5285 lineto
+697.5078 28.0437 lineto
 closepath stroke
 grestore
 endpage
@@ -1162,7 +1135,7 @@ grestore
 %%EndPage: 1
 %%Trailer
 %%Pages: 1
-%%BoundingBox: 36 36 1575 674
+%%BoundingBox: 36 36 1596 728
 end
 restore
 %%EOF

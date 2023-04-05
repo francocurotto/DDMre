@@ -49,7 +49,7 @@ func get_ability_dict():
 func on_ability_cost_changed(cost, crest):
     emit_signal("reply_ability_cost_changed", cost, crest)
 
-func on_reply_ability_select_tile(tiles):
+func on_ability_select_tile(tiles):
     emit_signal("reply_ability_select_tile", tiles)
 
 func on_select_tile_cancel_button_pressed():

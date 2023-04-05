@@ -19,3 +19,6 @@ func activate(_attacker, dungeon, activate_dict):
 
 func on_attack_ends():
     monster.damage_behavior.receiver = monster
+
+func get_select_tiles():
+    return get_player_monsters_tiles()

@@ -1,6 +1,6 @@
 ### TODO
 - add new action_menu scene that control all menus
-    - modify shift damage so that action_menu controls select monster and it can be generalize to all select monsters abilities
+    - refactor player_gui tree
     - add standing_ability_gui
 - on back button pressed, decide what summon info does
 - remove move_menu and add move buttons to dungeon_buttons_gui

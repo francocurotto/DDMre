@@ -189,12 +189,12 @@ func on_TAW_button_pressed():
 func on_select_tile_cancel_button_pressed():
     unset_highlights()
     disable_tile_gui_buttons()
-    action_menu.on_select_monster_cancel_button_pressed()
+    action_menu.on_select_tile_cancel_button_pressed()
 
 func on_select_tile_select_button_pressed():
     unset_highlights()
     disable_tile_gui_buttons()    
-    action_menu.on_select_monster_select_button_pressed(selected_tile_gui.tile)
+    action_menu.on_select_tile_select_button_pressed(selected_tile_gui.tile)
 
 func on_standing_ability_ended():
     enable_select_buttons()
