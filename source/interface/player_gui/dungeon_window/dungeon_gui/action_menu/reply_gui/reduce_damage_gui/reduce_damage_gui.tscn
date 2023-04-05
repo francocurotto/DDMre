@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/reply_gui/reply_ability_gui/reduce_damage_gui/reduce_damage_gui.gd" type="Script" id=2]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/reply_gui/reduce_damage_gui/reduce_damage_gui.gd" type="Script" id=2]
 
 [node name="ReduceDamageGUI" type="Button"]
 self_modulate = Color( 1, 1, 0.501961, 1 )

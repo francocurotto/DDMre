@@ -178,11 +178,11 @@ def
 %%EndSetup
 setupLatin1
 %%Page: 1 1
-%%PageBoundingBox: 36 36 1596 728
+%%PageBoundingBox: 36 36 1377 728
 %%PageOrientation: Portrait
 0 0 1 beginpage
 gsave
-36 36 1560 692 boxprim clip newpath
+36 36 1341 692 boxprim clip newpath
 1 1 set_scale 0 rotate 40 40 translate
 % Player GUI
 gsave
@@ -868,28 +868,28 @@ grestore
 % Attack GUI
 gsave
 1 setlinewidth
-0 1 0.5451 nodecolor
+0 0 0 nodecolor
 1001.2739 504 61.99 18 ellipse_path stroke
-0 1 0.5451 nodecolor
+0 0 0 nodecolor
 14 /Times-Roman set_font
 961.7739 500.3 moveto 79 (Attack GUI) alignedtext
 grestore
 % Action Menu->Attack GUI
 gsave
 1 setlinewidth
-0 1 0.5451 edgecolor
+0 0 0 edgecolor
 newpath 821.4332 461.2879 moveto
 843.2876 466.0013 868.8037 471.6234 891.8305 477 curveto
 908.9668 481.0012 927.5728 485.5564 944.456 489.7707 curveto
 stroke
-0 1 0.5451 edgecolor
+0 0 0 edgecolor
 newpath 943.6226 493.17 moveto
 954.1735 492.2059 lineto
 945.3242 486.3799 lineto
 closepath fill
 1 setlinewidth
 solid
-0 1 0.5451 edgecolor
+0 0 0 edgecolor
 newpath 943.6226 493.17 moveto
 954.1735 492.2059 lineto
 945.3242 486.3799 lineto
@@ -898,27 +898,27 @@ grestore
 % Reply GUI
 gsave
 1 setlinewidth
-0 1 0.5451 nodecolor
+0 0 0 nodecolor
 1001.2739 450 58.4896 18 ellipse_path stroke
-0 1 0.5451 nodecolor
+0 0 0 nodecolor
 14 /Times-Roman set_font
 964.2739 446.3 moveto 74 (Reply GUI) alignedtext
 grestore
 % Action Menu->Reply GUI
 gsave
 1 setlinewidth
-0 1 0.5451 edgecolor
+0 0 0 edgecolor
 newpath 836.7763 450 moveto
 867.058 450 902.529 450 932.6786 450 curveto
 stroke
-0 1 0.5451 edgecolor
+0 0 0 edgecolor
 newpath 932.6841 453.5001 moveto
 942.6841 450 lineto
 932.684 446.5001 lineto
 closepath fill
 1 setlinewidth
 solid
-0 1 0.5451 edgecolor
+0 0 0 edgecolor
 newpath 932.6841 453.5001 moveto
 942.6841 450 lineto
 932.684 446.5001 lineto
@@ -927,28 +927,28 @@ grestore
 % Ability GUI
 gsave
 1 setlinewidth
-0 1 0.5451 nodecolor
+0 0 0 nodecolor
 1001.2739 396 62.2891 18 ellipse_path stroke
-0 1 0.5451 nodecolor
+0 0 0 nodecolor
 14 /Times-Roman set_font
 961.2739 392.3 moveto 80 (Ability GUI) alignedtext
 grestore
 % Action Menu->Ability GUI
 gsave
 1 setlinewidth
-0 1 0.5451 edgecolor
+0 0 0 edgecolor
 newpath 821.4332 438.7121 moveto
 843.2876 433.9987 868.8037 428.3766 891.8305 423 curveto
 908.7284 419.0545 927.0554 414.5703 943.7505 410.4054 curveto
 stroke
-0 1 0.5451 edgecolor
+0 0 0 edgecolor
 newpath 945.0575 413.6862 moveto
 953.9072 407.8611 lineto
 943.3565 406.896 lineto
 closepath fill
 1 setlinewidth
 solid
-0 1 0.5451 edgecolor
+0 0 0 edgecolor
 newpath 945.0575 413.6862 moveto
 953.9072 407.8611 lineto
 943.3565 406.896 lineto
@@ -957,117 +957,88 @@ grestore
 % Raise Attack GUI
 gsave
 1 setlinewidth
-0.33333 1 0.39216 nodecolor
-1202.3593 504 90.1842 18 ellipse_path stroke
-0.33333 1 0.39216 nodecolor
+0 1 0.5451 nodecolor
+1221.8576 504 90.1842 18 ellipse_path stroke
+0 1 0.5451 nodecolor
 14 /Times-Roman set_font
-1140.8593 500.3 moveto 123 (Raise Attack GUI) alignedtext
+1160.3576 500.3 moveto 123 (Raise Attack GUI) alignedtext
 grestore
 % Attack GUI->Raise Attack GUI
 gsave
 1 setlinewidth
-0.33333 1 0.39216 edgecolor
-newpath 1063.0879 504 moveto
-1075.3895 504 1088.626 504 1101.8614 504 curveto
-stroke
-0.33333 1 0.39216 edgecolor
-newpath 1101.9669 507.5001 moveto
-1111.9669 504 lineto
-1101.9669 500.5001 lineto
-closepath fill
-1 setlinewidth
-solid
-0.33333 1 0.39216 edgecolor
-newpath 1101.9669 507.5001 moveto
-1111.9669 504 lineto
-1101.9669 500.5001 lineto
-closepath stroke
-grestore
-% Reply Ability GUI
-gsave
-1 setlinewidth
-0 1 0.5451 nodecolor
-1202.3593 450 91.784 18 ellipse_path stroke
-0 1 0.5451 nodecolor
-14 /Times-Roman set_font
-1139.8593 446.3 moveto 125 (Reply Ability GUI) alignedtext
-grestore
-% Reply GUI->Reply Ability GUI
-gsave
-1 setlinewidth
 0 1 0.5451 edgecolor
-newpath 1059.8577 450 moveto
-1072.6102 450 1086.4872 450 1100.4012 450 curveto
+newpath 1063.1617 504 moveto
+1081.1261 504 1101.277 504 1121.014 504 curveto
 stroke
 0 1 0.5451 edgecolor
-newpath 1100.5237 453.5001 moveto
-1110.5237 450 lineto
-1100.5236 446.5001 lineto
+newpath 1121.2836 507.5001 moveto
+1131.2836 504 lineto
+1121.2835 500.5001 lineto
 closepath fill
 1 setlinewidth
 solid
 0 1 0.5451 edgecolor
-newpath 1100.5237 453.5001 moveto
-1110.5237 450 lineto
-1100.5236 446.5001 lineto
-closepath stroke
-grestore
-% Xx Ability GUIs
-gsave
-1 setlinewidth
-0.33333 1 0.39216 nodecolor
-1202.3593 396 81.7856 18 ellipse_path stroke
-0.33333 1 0.39216 nodecolor
-14 /Times-Roman set_font
-1147.3593 392.3 moveto 110 (Xx Ability GUIs) alignedtext
-grestore
-% Ability GUI->Xx Ability GUIs
-gsave
-1 setlinewidth
-0.33333 1 0.39216 edgecolor
-newpath 1063.9024 396 moveto
-1078.5161 396 1094.4117 396 1110.0353 396 curveto
-stroke
-0.33333 1 0.39216 edgecolor
-newpath 1110.2469 399.5001 moveto
-1120.2468 396 lineto
-1110.2468 392.5001 lineto
-closepath fill
-1 setlinewidth
-solid
-0.33333 1 0.39216 edgecolor
-newpath 1110.2469 399.5001 moveto
-1120.2468 396 lineto
-1110.2468 392.5001 lineto
+newpath 1121.2836 507.5001 moveto
+1131.2836 504 lineto
+1121.2835 500.5001 lineto
 closepath stroke
 grestore
 % Xx Reply Ability GUIs
 gsave
 1 setlinewidth
-0.33333 1 0.39216 nodecolor
-1441.1413 450 111.2805 18 ellipse_path stroke
-0.33333 1 0.39216 nodecolor
+0 1 0.5451 nodecolor
+1221.8576 450 111.2805 18 ellipse_path stroke
+0 1 0.5451 nodecolor
 14 /Times-Roman set_font
-1363.6413 446.3 moveto 155 (Xx Reply Ability GUIs) alignedtext
+1144.3576 446.3 moveto 155 (Xx Reply Ability GUIs) alignedtext
 grestore
-% Reply Ability GUI->Xx Reply Ability GUIs
+% Reply GUI->Xx Reply Ability GUIs
 gsave
 1 setlinewidth
-0.33333 1 0.39216 edgecolor
-newpath 1294.2282 450 moveto
-1302.5709 450 1311.1065 450 1319.6568 450 curveto
+0 1 0.5451 edgecolor
+newpath 1059.9901 450 moveto
+1072.5091 450 1086.1995 450 1100.1407 450 curveto
 stroke
-0.33333 1 0.39216 edgecolor
-newpath 1319.69 453.5001 moveto
-1329.69 450 lineto
-1319.69 446.5001 lineto
+0 1 0.5451 edgecolor
+newpath 1100.3232 453.5001 moveto
+1110.3232 450 lineto
+1100.3231 446.5001 lineto
 closepath fill
 1 setlinewidth
 solid
-0.33333 1 0.39216 edgecolor
-newpath 1319.69 453.5001 moveto
-1329.69 450 lineto
-1319.69 446.5001 lineto
+0 1 0.5451 edgecolor
+newpath 1100.3232 453.5001 moveto
+1110.3232 450 lineto
+1100.3231 446.5001 lineto
+closepath stroke
+grestore
+% Xx Ability GUIs
+gsave
+1 setlinewidth
+0 1 0.5451 nodecolor
+1221.8576 396 81.7856 18 ellipse_path stroke
+0 1 0.5451 nodecolor
+14 /Times-Roman set_font
+1166.8576 392.3 moveto 110 (Xx Ability GUIs) alignedtext
+grestore
+% Ability GUI->Xx Ability GUIs
+gsave
+1 setlinewidth
+0 1 0.5451 edgecolor
+newpath 1063.7433 396 moveto
+1084.2202 396 1107.487 396 1129.7222 396 curveto
+stroke
+0 1 0.5451 edgecolor
+newpath 1129.8522 399.5001 moveto
+1139.8521 396 lineto
+1129.8521 392.5001 lineto
+closepath fill
+1 setlinewidth
+solid
+0 1 0.5451 edgecolor
+newpath 1129.8522 399.5001 moveto
+1139.8521 396 lineto
+1129.8521 392.5001 lineto
 closepath stroke
 grestore
 % Hearts Info
@@ -1135,7 +1106,7 @@ grestore
 %%EndPage: 1
 %%Trailer
 %%Pages: 1
-%%BoundingBox: 36 36 1596 728
+%%BoundingBox: 36 36 1377 728
 end
 restore
 %%EOF

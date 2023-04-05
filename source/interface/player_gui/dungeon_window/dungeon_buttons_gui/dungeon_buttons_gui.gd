@@ -3,7 +3,7 @@ extends MarginContainer
 # onready variables
 onready var dungeon_buttons = $DungeonButtons
 onready var dim_buttons = $DimButtons
-onready var ability_buttons_gui = $AbilityButtonsGUI
+onready var select_tile_buttons = $SelectTileButtons
 
 # public functions
 func reset():
@@ -24,9 +24,10 @@ func switch_to_dim_buttons():
     hide_buttons_guis()
     dim_buttons.visible = true
 
-func switch_to_ability_buttons_gui():
+func switch_to_select_tile_buttons(tiles):
     hide_buttons_guis()
-    ability_buttons_gui.visible = true
+    select_tile_buttons.initialize(tiles)
+    select_tile_buttons.visible = true
 
 # private functions
 func hide_buttons_guis():

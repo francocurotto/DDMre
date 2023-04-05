@@ -9,14 +9,10 @@ digraph player_gui {
     "Dungeon Window" -> {"Dungeon GUI", "Summon GUI", "Dungeon Buttons GUI"}
     "Dungeon GUI" -> {"247x Tiles GUI" [color=darkred, fontcolor=darkred]} [color=darkred]
     "Dungeon GUI" -> {"Net Menu", "Action Menu"}
-    //"Action Menu" -> {"Attack GUI", "Reply GUI", "Ability GUI"}
-    "Action Menu" -> {"Attack GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
-    "Action Menu" -> {"Reply GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
-    "Action Menu" -> {"Ability GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
-    "Attack GUI" -> {"Raise Attack GUI"[color=darkgreen, fontcolor=darkgreen]} [color=darkgreen]
-    "Reply GUI" -> {"Reply Ability GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
-    "Reply Ability GUI" -> {"Xx Reply Ability GUIs"[color=darkgreen, fontcolor=darkgreen]} [color=darkgreen]
-    "Ability GUI" -> {"Xx Ability GUIs"[color=darkgreen, fontcolor=darkgreen]} [color=darkgreen]
+    "Action Menu" -> {"Attack GUI", "Reply GUI", "Ability GUI"}
+    "Attack GUI" -> {"Raise Attack GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Reply GUI" -> {"Xx Reply Ability GUIs"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Ability GUI" -> {"Xx Ability GUIs"[color=darkred, fontcolor=darkred]} [color=darkred]
     "Summon GUI" -> {"Summon Info"[color=darkred, fontcolor=darkred]} [color=darkred]
     "Dungeon Buttons GUI" -> {"Dungeon Buttons", "Move Buttons", "Dim Buttons", "Select Tile Buttons", "Select Direction Buttons"}
     "Lower Window" -> {"2x Player Info"[color=darkred, fontcolor=darkred]} [color=darkred]

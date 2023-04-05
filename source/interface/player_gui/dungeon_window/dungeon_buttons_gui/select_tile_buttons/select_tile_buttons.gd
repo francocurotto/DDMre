@@ -14,7 +14,6 @@ signal select_tile_cancel_button_pressed
 func initialize(_tiles):
     tiles = _tiles
     select_button.disabled = true
-    visible = true
 
 # signals callbacks
 func on_tile_select_button_toggled(tile, pressed):

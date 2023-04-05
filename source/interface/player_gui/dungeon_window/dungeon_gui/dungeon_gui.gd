@@ -187,12 +187,10 @@ func on_TAW_button_pressed():
     net_creator.update_net_taw()
 
 func on_select_tile_cancel_button_pressed():
-    unset_highlights()
     disable_tile_gui_buttons()
     action_menu.on_select_tile_cancel_button_pressed()
 
 func on_select_tile_select_button_pressed():
-    unset_highlights()
     disable_tile_gui_buttons()    
     action_menu.on_select_tile_select_button_pressed(selected_tile_gui.tile)
 

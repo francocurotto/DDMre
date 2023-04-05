@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/ability_buttons_gui/select_tile_buttons/select_tile_buttons.gd" type="Script" id=2]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/select_tile_buttons/select_tile_buttons.gd" type="Script" id=2]
 
 [node name="SelectTileButtons" type="HBoxContainer"]
 margin_right = 713.0

@@ -30,7 +30,8 @@
   "SUMMONS2": [{"POS":"g11", "DICE":1},
                {"POS":"h11", "DICE":2},
                {"POS":"i11", "DICE":3},
-               {"POS":"j11", "DICE":4}],
+               {"POS":"j11", "DICE":4},
+               {"POS":"g18", "DICE":5}],
   "CRESTS1": {
     "MOVEMENT": 40,
     "ATTACK"  : 10,

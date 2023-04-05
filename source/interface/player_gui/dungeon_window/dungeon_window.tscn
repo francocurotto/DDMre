@@ -21,9 +21,9 @@ margin_bottom = 1053.0
 [node name="SummonGUI" parent="." instance=ExtResource( 5 )]
 margin_top = 1057.0
 margin_right = 720.0
-margin_bottom = 1100.0
+margin_bottom = 1160.0
 
 [node name="DungeonButtonsGUI" parent="." instance=ExtResource( 1 )]
-margin_top = 1104.0
+margin_top = 1164.0
 margin_right = 720.0
 margin_bottom = 1164.0

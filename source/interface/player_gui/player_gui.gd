@@ -17,13 +17,12 @@ onready var move_menu = $MainWindow/DungeonWindow/DungeonGUI/MoveMenu
 onready var action_menu = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu
 onready var attack_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/AttackGUI
 onready var reply_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/ReplyGUI
-onready var reply_ability_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/ReplyGUI/Margins/GUIVBox/ReplyAbilityGUI
 onready var standing_ability_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/StandingAbilityGUI
 onready var summon_gui = $MainWindow/DungeonWindow/SummonGUI
 onready var dungeon_buttons_gui = $MainWindow/DungeonWindow/DungeonButtonsGUI
 onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/DungeonButtons
 onready var dim_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/DimButtons
-onready var ability_buttons_gui = $MainWindow/DungeonWindow/DungeonButtonsGUI/AbilityButtonsGUI
+onready var select_tile_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/SelectTileButtons
 onready var card_info = $CardInfo
 onready var lower_window = $LowerWindow
 
@@ -61,9 +60,7 @@ func _ready():
     attack_gui.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
     # reply gui
     reply_gui.connect("reply_cmd", self, "on_reply_cmd")
-    # reply ability gui
-    reply_ability_gui.connect("reply_ability_cost_changed", reply_gui, "on_reply_ability_cost_changed")
-    reply_ability_gui.connect("reply_ability_select_tile", action_menu, "on_ability_select_tile")
+    reply_gui.connect("ability_select_tile", action_menu, "on_ability_select_tile")
     # standing ability gui
     standing_ability_gui.connect("ability_cmd", self, "on_ability_cmd")
     standing_ability_gui.connect("standing_ability_cancel_button_pressed", dungeon_window, "on_standing_ability_ended")
@@ -86,8 +83,8 @@ func _ready():
     dim_buttons.connect("TAW_button_pressed", dungeon_gui, "on_TAW_button_pressed")
     dim_buttons.connect("dim_button_pressed", self, "on_dim_button_pressed")
     # ability buttons gui
-    ability_buttons_gui.connect("select_tile_cancel_button_pressed", dungeon_window, "on_select_tile_cancel_button_pressed")
-    ability_buttons_gui.connect("select_tile_select_button_pressed", dungeon_window, "on_select_tile_select_button_pressed")
+    select_tile_buttons.connect("select_tile_cancel_button_pressed", dungeon_window, "on_select_tile_cancel_button_pressed")
+    select_tile_buttons.connect("select_tile_select_button_pressed", dungeon_window, "on_select_tile_select_button_pressed")
     # card info
     card_info.connect("card_info_quit", self, "on_card_info_quit")
     # common window

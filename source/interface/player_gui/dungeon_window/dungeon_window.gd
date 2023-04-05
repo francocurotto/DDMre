@@ -5,7 +5,7 @@ onready var dungeon_gui = $DungeonGUI
 onready var reply_gui = $DungeonGUI/ActionMenu/VBox/GUIs/ReplyGUI
 onready var dungeon_buttons_gui = $DungeonButtonsGUI
 onready var dungeon_buttons = $DungeonButtonsGUI/DungeonButtons
-onready var ability_buttons_gui = $DungeonButtonsGUI/AbilityButtonsGUI
+onready var select_tile_buttons = $DungeonButtonsGUI/SelectTileButtons
 
 # public functions
 func reset_to_dungeon():
@@ -35,19 +35,17 @@ func on_dice_gui_dim_button_released():
 
 func on_ability_select_tile(tiles):
     dungeon_gui.enable_select_buttons()
-    dungeon_gui.connect("tile_select_button_toggled", ability_buttons_gui, "on_tile_select_button_toggled")
-    dungeon_buttons_gui.switch_to_ability_buttons_gui()
-    ability_buttons_gui.switch_to_select_tile_buttons(tiles)
-    #reply_gui.visible = false
+    dungeon_gui.connect("tile_select_button_toggled", select_tile_buttons, "on_tile_select_button_toggled")
+    dungeon_buttons_gui.switch_to_select_tile_buttons(tiles)
 
 func on_select_tile_cancel_button_pressed():
     dungeon_buttons_gui.switch_to_dungeon_buttons()
-    dungeon_gui.disconnect("tile_select_button_toggled", ability_buttons_gui, "on_tile_select_button_toggled")
+    dungeon_gui.disconnect("tile_select_button_toggled", select_tile_buttons, "on_tile_select_button_toggled")
     dungeon_gui.on_select_tile_cancel_button_pressed()
 
 func on_select_tile_select_button_pressed():
     dungeon_buttons_gui.switch_to_dungeon_buttons()
-    dungeon_gui.disconnect("tile_select_button_toggled", ability_buttons_gui, "on_tile_select_button_toggled")
+    dungeon_gui.disconnect("tile_select_button_toggled", select_tile_buttons, "on_tile_select_button_toggled")
     dungeon_gui.on_select_tile_select_button_pressed()
 
 func on_standing_ability_ended():
