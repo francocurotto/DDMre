@@ -1,5 +1,4 @@
 ### TODO
-- remove move_menu and add move buttons to dungeon_buttons_gui
 - add new action_menu scene that control all menus
     - add standing_ability_gui
 - RANGEKILLALL

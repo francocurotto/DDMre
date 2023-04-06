@@ -14,7 +14,7 @@ var selected_tile_gui
 # onready variables
 onready var rows = $Rows
 onready var nets_menu = $NetsMenu
-onready var move_menu = $MoveMenu
+#onready var move_menu = $MoveMenu
 onready var action_menu = $ActionMenu
 onready var attack_gui = $ActionMenu/VBox/GUIs/AttackGUI
 onready var reply_gui = $ActionMenu/VBox/GUIs/ReplyGUI
@@ -24,6 +24,7 @@ onready var standing_ability_gui = $ActionMenu/VBox/GUIs/StandingAbilityGUI
 signal tile_select_button_toggled(content, pressed)
 signal net_updated(can_dimension)
 signal menu_opened
+signal tile_move_button_pressed(pos1, pos2, move_cost)
 signal attack_cmd(cmd)
 signal monster_jumped(pos1, pos2)
 
@@ -107,8 +108,9 @@ func on_tile_move_button_pressed(tile_gui):
     var path = dungeon.get_move_path(pos1, pos2)
     var move_cost = dungeon.get_move_cost(path, monster)
     highlight_movement(pos1, pos2, path)
-    move_menu.activate(pos1, pos2, move_cost, player)
-    emit_signal("menu_opened")
+    emit_signal("tile_move_button_pressed", pos1, pos2, move_cost)
+    #move_menu.activate(pos1, pos2, move_cost, player)
+    #emit_signal("menu_opened")
 
 func on_tile_attack_button_pressed(tile_gui):
     var pos1 = selected_tile_gui.tile.pos

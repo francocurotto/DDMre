@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/move_buttons/move_buttons.gd" type="Script" id=2]
+
+[node name="MoveButtons" type="HBoxContainer"]
+margin_right = 671.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+script = ExtResource( 2 )
+
+[node name="MoveButton" type="Button" parent="."]
+margin_right = 333.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "⬆MOVE (0⬆)"
+
+[node name="CancelButton" type="Button" parent="."]
+margin_left = 337.0
+margin_right = 671.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "❌CANCEL"
+
+[connection signal="pressed" from="MoveButton" to="." method="_on_MoveButton_pressed"]
+[connection signal="pressed" from="CancelButton" to="." method="_on_CancelButton_pressed"]
