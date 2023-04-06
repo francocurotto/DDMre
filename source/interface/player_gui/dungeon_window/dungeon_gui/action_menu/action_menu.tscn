@@ -2,13 +2,12 @@
 
 [ext_resource path="res://art/styleboxes/panel.tres" type="StyleBox" id=1]
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=2]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/standing_ability_gui/standing_ability_gui.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/ability_gui.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/attack_gui/attack_gui.tscn" type="PackedScene" id=4]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/reply_gui/reply_gui.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/action_menu.gd" type="Script" id=6]
 
 [node name="ActionMenu" type="PanelContainer"]
-visible = false
 margin_right = 600.0
 margin_bottom = 526.0
 rect_min_size = Vector2( 600, 0 )
@@ -33,23 +32,21 @@ custom_fonts/font = ExtResource( 2 )
 text = "👁"
 
 [node name="GUIs" type="MarginContainer" parent="VBox"]
-margin_left = -6.0
-margin_top = -6.0
-margin_right = 34.0
-margin_bottom = 34.0
+margin_top = 64.0
+margin_right = 588.0
+margin_bottom = 314.0
 
 [node name="AttackGUI" parent="VBox/GUIs" instance=ExtResource( 4 )]
 visible = false
-margin_right = 329.0
+margin_right = 588.0
 
 [node name="ReplyGUI" parent="VBox/GUIs" instance=ExtResource( 5 )]
 visible = false
-margin_right = 329.0
+margin_right = 588.0
+margin_bottom = 480.0
 
-[node name="StandingAbilityGUI" parent="VBox/GUIs" instance=ExtResource( 3 )]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 20.0
-margin_bottom = 20.0
+[node name="AbilityGUI" parent="VBox/GUIs" instance=ExtResource( 3 )]
+margin_left = 194.0
+margin_right = 394.0
 
 [connection signal="pressed" from="VBox/CheckDungeonButton" to="." method="_on_CheckDungeonButton_pressed"]

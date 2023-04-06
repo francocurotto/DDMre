@@ -16,7 +16,7 @@ onready var nets_menu = $MainWindow/DungeonWindow/DungeonGUI/NetsMenu
 onready var action_menu = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu
 onready var attack_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/AttackGUI
 onready var reply_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/ReplyGUI
-onready var standing_ability_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/StandingAbilityGUI
+onready var ability_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/AbilityGUI
 onready var summon_gui = $MainWindow/DungeonWindow/SummonGUI
 onready var dungeon_buttons_gui = $MainWindow/DungeonWindow/DungeonButtonsGUI
 onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/DungeonButtons
@@ -60,9 +60,9 @@ func _ready():
     reply_gui.connect("reply_cmd", self, "on_reply_cmd")
     reply_gui.connect("ability_select_tile", action_menu, "on_ability_select_tile")
     # standing ability gui
-    standing_ability_gui.connect("ability_cmd", self, "on_ability_cmd")
-    standing_ability_gui.connect("standing_ability_cancel_button_pressed", dungeon_window, "on_standing_ability_ended")
-    standing_ability_gui.connect("check_dungeon_button_pressed", dungeon_window, "on_check_dungeon_button_pressed")
+    ability_gui.connect("ability_cmd", self, "on_ability_cmd")
+    ability_gui.connect("ability_cancel_button_pressed", dungeon_window, "on_ability_ended")
+    ability_gui.connect("check_dungeon_button_pressed", dungeon_window, "on_check_dungeon_button_pressed")
     # dungeon info button
     summon_gui.connect("summon_gui_info_button_pressed", self, "on_info_button_pressed")
     # dungeon buttons
@@ -136,7 +136,7 @@ func on_reply_cmd(cmd):
 
 func on_ability_cmd(cmd):
     engine.update(cmd)
-    dungeon_window.on_standing_ability_ended()
+    dungeon_window.on_ability_ended()
 
 func on_jump_input(pos1, pos2):
     dungeon_window.reset_to_dungeon()

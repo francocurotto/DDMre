@@ -18,7 +18,7 @@ onready var nets_menu = $NetsMenu
 onready var action_menu = $ActionMenu
 onready var attack_gui = $ActionMenu/VBox/GUIs/AttackGUI
 onready var reply_gui = $ActionMenu/VBox/GUIs/ReplyGUI
-onready var standing_ability_gui = $ActionMenu/VBox/GUIs/StandingAbilityGUI
+onready var ability_gui = $ActionMenu/VBox/GUIs/AbilityGUI
 
 # signals
 signal tile_select_button_toggled(content, pressed)
@@ -160,7 +160,7 @@ func on_attack_button_pressed():
 
 func on_ability_button_pressed():
     disable_tile_gui_buttons()
-    standing_ability_gui.activate_menu(selected_tile_gui.tile)
+    action_menu.activate_ability_gui(selected_tile_gui.tile)
 
 func on_jump_button_pressed():
     disable_tile_gui_buttons()
@@ -196,8 +196,10 @@ func on_select_tile_select_button_pressed():
     disable_tile_gui_buttons()    
     action_menu.on_select_tile_select_button_pressed(selected_tile_gui.tile)
 
-func on_standing_ability_ended():
+func on_ability_ended():
     enable_select_buttons()
+    on_tile_select_button_toggled(selected_tile_gui, true)
+    action_menu.visible = false
 
 func hide_menus():
     action_menu.visible = false

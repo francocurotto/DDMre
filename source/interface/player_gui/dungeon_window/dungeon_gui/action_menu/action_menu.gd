@@ -7,6 +7,7 @@ var active_gui setget , get_active_gui
 onready var guis = $VBox/GUIs
 onready var attack_gui = $VBox/GUIs/AttackGUI
 onready var reply_gui = $VBox/GUIs/ReplyGUI
+onready var ability_gui = $VBox/GUIs/AbilityGUI
 
 # signals
 signal check_dungeon_button_pressed
@@ -25,6 +26,10 @@ func activate_attack_gui(attacker, attacked):
 
 func activate_reply_gui(attacker, attacked):
     reply_gui.activate(attacker, attacked)
+    visible = true
+
+func activate_ability_gui(tile):
+    ability_gui.activate(tile)
     visible = true
 
 # signals callbacks

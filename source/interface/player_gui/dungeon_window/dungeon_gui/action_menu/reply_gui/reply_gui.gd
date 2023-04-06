@@ -49,7 +49,8 @@ func activate(_attacker, _attacked):
 
 func deactivate():
     menu_guard_button.disabled = false
-    self.ability_gui.visible = false
+    if self.ability_gui:
+        self.ability_gui.visible = false
     visible = false
 
 # signals callbacks
