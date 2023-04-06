@@ -15,7 +15,7 @@
 
 # Differences with the original (GBA) game and this
 - In the original, block tiles not only block their positions but also their neighbour positions (up, down, left right). In this implementation, a block tile will only block its actual position.
-- In original, you cannot activate a defensive ability (as a reply to an attack) and guard (defend) at the same time. This nerf defensive abilities quite a bit, and makes some borderline useless (e.g. REDUCEDAMAGE, ADDDFOEDEFENSE). In this implementation, the guard command accepts the activation a defensive abilities.
+- In original, you cannot activate a defensive ability (as a reply to an attack) and guard (defend) at the same time. This nerf defensive abilities quite a bit, and makes some borderline useless (e.g. REDUCEDAMAGE, ADDDFOEDEFENSE). In this implementation, the guard command accepts the activation of a defensive abilities.
 - In the original, movement cost is computed by dividing monster speed as float then multiplying dungeon move cost as float and then rounding to the highest int. For simplicity, in this implementation the cost is converted to int both after dividing the speed and multiplying the move cost. This difference is only relevant when combining a moster with higher speed and the gluminizer ability. For example for a monster with speed 3 and the gluminizer ability (move cost 2) the total movement cost is:
     - original costs per tile: 1,2,2,3,4,4,5,6,6...
     - new costs per tile: 2,2,2,4,4,4,6,6,6...

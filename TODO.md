@@ -1,4 +1,7 @@
 ### TODO
+- change tile button to green color
+- change attack highlight to orange
+- add ability button as purple
 - RANGEKILLALL
     - add highlights
 ---
