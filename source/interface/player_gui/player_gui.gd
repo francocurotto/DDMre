@@ -62,7 +62,7 @@ func _ready():
     # standing ability gui
     ability_gui.connect("ability_cmd", self, "on_ability_cmd")
     ability_gui.connect("ability_cancel_button_pressed", dungeon_window, "on_ability_ended")
-    ability_gui.connect("check_dungeon_button_pressed", dungeon_window, "on_check_dungeon_button_pressed")
+    ability_gui.connect("highlight_ability_tiles", dungeon_gui, "on_highlight_ability_tiles")
     # dungeon info button
     summon_gui.connect("summon_gui_info_button_pressed", self, "on_info_button_pressed")
     # dungeon buttons

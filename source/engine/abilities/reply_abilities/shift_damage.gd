@@ -9,7 +9,7 @@ func _init(ability_dict).(ability_dict):
     crest = ability_dict["CREST"]
 
 # public functions
-func activate(_attacker, dungeon, activate_dict):
+func activate(_attacker, activate_dict):
     """
     Add temporal limit to damage behavior.
     """

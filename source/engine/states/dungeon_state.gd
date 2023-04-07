@@ -81,7 +81,7 @@ func ABILITY(cmd):
     var activate_dict = cmd["ability"]
     for ability in monster.card.abilities:
         if ability.name == activate_dict["name"]:
-            ability.activate(dungeon, activate_dict)
+            ability.activate(activate_dict)
             monster.ability_cooldown = true
     Events.emit_signal("duel_update")
     return self

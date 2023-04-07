@@ -11,7 +11,7 @@ func _init(ability_dict).(ability_dict):
     crest = ability_dict["CREST"]
 
 # public functions
-func activate(_dungeon, _activate_dict):
+func activate(_activate_dict):
     """
     Buff monster attr by damage.
     """

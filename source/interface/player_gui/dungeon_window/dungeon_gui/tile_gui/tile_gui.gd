@@ -10,6 +10,7 @@ export (int, 1, 2) var dungobj_player = 1 setget set_dungobj_player
 export (bool) var vortex = false setget set_vortex
 export (bool) var highlight = false setget set_highlight
 export (bool) var attack_highlight = false setget set_attack_highlight
+export (bool) var ability_highlight = false setget set_ability_highlight
 export (String, "NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM") \
     var summon_highlight_type = "NONE" setget set_summon_highlight_type
 
@@ -75,6 +76,10 @@ func set_highlight(_highlight):
 func set_attack_highlight(_attack_highlight):
     attack_highlight = _attack_highlight
     $TileRects/AttackHighlightRect.visible = attack_highlight
+
+func set_ability_highlight(_ability_highlight):
+    ability_highlight = _ability_highlight
+    $TileRects/AbilityHighlightRect.visible = ability_highlight
 
 func set_summon_highlight_type(_summon_highlight_type):
     summon_highlight_type = _summon_highlight_type

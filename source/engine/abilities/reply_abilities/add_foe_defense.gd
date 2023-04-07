@@ -9,7 +9,7 @@ func _init(ability_dict).(ability_dict):
     crest = ability_dict["CREST"]
 
 # public functions
-func activate(attacker, _dungeon, _activate_dict):
+func activate(attacker, _activate_dict):
     """
     Permanently add foe defense to monster defense.
     """

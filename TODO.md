@@ -1,10 +1,4 @@
 ### TODO
-- change tile button to green color
-- change attack highlight to orange
-- add ability button as purple
-- RANGEKILLALL
-    - add highlights
----
 - TRADEHEALTH
 - STEALMONSTER
 - MINDCONTROL
@@ -33,7 +27,7 @@
 - test change tile icons
 - make everything 16-bitish
 
-### ABILITIES [33/46]
+### ABILITIES [34/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -69,7 +63,7 @@
 - ❌MINDCONTROL
 - ❌ROLLLEVELKILL
 - ❌RANGELEVELKILL
-- ❌RANGEKILLALL
+- ✅RANGEKILLALL
 - ✅DISTANCEATTACK
 - ✅ITEMCURE
 - ✅ITEMDAMAGE

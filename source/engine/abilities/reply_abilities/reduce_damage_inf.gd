@@ -7,7 +7,7 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func activate(_attacker, _dungeon, activate_dict):
+func activate(_attacker, activate_dict):
     """
     Add temporal reduce to damage behavior.
     """

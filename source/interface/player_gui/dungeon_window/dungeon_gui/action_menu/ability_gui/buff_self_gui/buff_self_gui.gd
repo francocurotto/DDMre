@@ -10,7 +10,6 @@ onready var cast_button = $Margins/Buttons/CastButton
 # signals
 signal cast_button_pressed(ability_dict)
 signal cancel_button_pressed
-signal check_dungeon_button_pressed
 
 # public functions
 func activate(monster):

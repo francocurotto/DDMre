@@ -13,7 +13,7 @@ func _init(ability_dict).(ability_dict):
     amount = ability_dict["AMOUNT"]
 
 # public functions
-func activate(_dungeon, _activate_dict):
+func activate(_activate_dict):
     """
     Buff monster attr by amount.
     """

@@ -8,9 +8,9 @@ var crest
 onready var cast_button = $Margins/Buttons/CastButton
 
 # signals
+signal highlight_ability_tiles(tiles)
 signal cast_button_pressed(ability_dict)
 signal cancel_button_pressed
-signal check_dungeon_button_pressed
 
 # public functions
 func activate(monster):
@@ -19,6 +19,7 @@ func activate(monster):
     crest = ability.crest
     cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[crest]]
     cast_button.disabled = cost > monster.player.crestpool.slots[crest]
+    emit_signal("highlight_ability_tiles", ability.get_tiles_in_range())
     visible = true
 
 func _on_CastButton_pressed():

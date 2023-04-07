@@ -14,7 +14,6 @@ var selected_tile_gui
 # onready variables
 onready var rows = $Rows
 onready var nets_menu = $NetsMenu
-#onready var move_menu = $MoveMenu
 onready var action_menu = $ActionMenu
 onready var attack_gui = $ActionMenu/VBox/GUIs/AttackGUI
 onready var reply_gui = $ActionMenu/VBox/GUIs/ReplyGUI
@@ -80,6 +79,10 @@ func disable_tile_gui_highlights():
     for tile_gui in tile_guis:
         tile_gui.disable_all_highlights()
 
+func disable_tile_gui_ability_highlights():
+    for tile_gui in tile_guis:
+        tile_gui.set_ability_highlight(false)
+
 func unset_highlights():
     for tile_gui in tile_guis:
         tile_gui.highlight = false
@@ -93,6 +96,12 @@ func open_reply_menu(attacker, attacked):
 
 func highlight_attack_reply(attacker, attacked):
     highlight_attack(attacker.tile.pos, attacked.tile.pos)
+
+func hide_menus():
+    action_menu.visible = false
+
+func show_menus():
+    action_menu.visible = true
 
 # signals callbacks
 func on_tile_select_button_toggled(tile_gui, pressed):
@@ -109,8 +118,6 @@ func on_tile_move_button_pressed(tile_gui):
     var move_cost = dungeon.get_move_cost(path, monster)
     highlight_movement(pos1, pos2, path)
     emit_signal("tile_move_button_pressed", pos1, pos2, move_cost)
-    #move_menu.activate(pos1, pos2, move_cost, player)
-    #emit_signal("menu_opened")
 
 func on_tile_attack_button_pressed(tile_gui):
     var pos1 = selected_tile_gui.tile.pos
@@ -120,7 +127,6 @@ func on_tile_attack_button_pressed(tile_gui):
     if attacker.can_target_monster(attacked):
         highlight_attack(pos1, pos2)
         action_menu.activate_attack_gui(attacker, attacked)
-        #attack_gui.activate(pos1, pos2, attacker, attacked)
         emit_signal("menu_opened")
     elif attacker.can_target_ml(attacked):
         emit_signal("attack_cmd", {"name":"ATTACK", "origin":pos1, "dest":pos2})
@@ -198,14 +204,13 @@ func on_select_tile_select_button_pressed():
 
 func on_ability_ended():
     enable_select_buttons()
+    disable_tile_gui_ability_highlights()
     on_tile_select_button_toggled(selected_tile_gui, true)
     action_menu.visible = false
 
-func hide_menus():
-    action_menu.visible = false
-
-func show_menus():
-    action_menu.visible = true
+func on_highlight_ability_tiles(tiles):
+    for tile in tiles:
+        get_tile_gui(tile.pos).set_ability_highlight(true)
 
 # private functions
 func get_irow(idx):

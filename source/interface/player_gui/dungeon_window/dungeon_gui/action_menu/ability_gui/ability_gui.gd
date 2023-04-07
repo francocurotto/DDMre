@@ -14,13 +14,14 @@ onready var range_kill_all_gui = $RangeKillAllGUI
 # signals
 signal ability_cmd(cmd)
 signal ability_cancel_button_pressed
-signal check_dungeon_button_pressed
+signal highlight_ability_tiles(tiles)
 
 func _ready():
     ability_guis_dict = {"BUFFSELF"       : buff_self_gui,
                          "BUFFDAMAGE"     : buff_damage_gui,
                          "DISTANCEATTACK" : distance_attack_gui,
                          "RANGEKILLALL"   : range_kill_all_gui}
+    range_kill_all_gui.connect("highlight_ability_tiles", self, "on_highlight_ability_tiles")
 
 # public functions
 func activate(tile):
@@ -31,7 +32,6 @@ func activate(tile):
             active_gui.activate(tile.content)
             active_gui.connect("cast_button_pressed", self, "on_cast_button_pressed")
             active_gui.connect("cancel_button_pressed", self, "on_cancel_button_pressed")
-            active_gui.connect("check_dungeon_button_pressed", self, "on_check_dungeon_button_pressed")
             visible = true
 
 # signals callbacks
@@ -39,15 +39,16 @@ func on_cast_button_pressed(ability_dict):
     visible = false
     active_gui.disconnect("cast_button_pressed", self, "on_cast_button_pressed")
     active_gui.disconnect("cancel_button_pressed", self, "on_cancel_button_pressed")
-    active_gui.disconnect("check_dungeon_button_pressed", self, "on_check_dungeon_button_pressed")
     emit_signal("ability_cmd", {"name":"ABILITY", "pos":pos, "ability":ability_dict})
 
 func on_cancel_button_pressed():
     visible = false
     active_gui.disconnect("cast_button_pressed", self, "on_cast_button_pressed")
     active_gui.disconnect("cancel_button_pressed", self, "on_cancel_button_pressed")
-    active_gui.disconnect("check_dungeon_button_pressed", self, "on_check_dungeon_button_pressed")
     emit_signal("ability_cancel_button_pressed")
+
+func on_highlight_ability_tiles(tiles):
+    emit_signal("highlight_ability_tiles", tiles)
 
 func on_check_dungeon_button_pressed():
     emit_signal("check_dungeon_button_pressed")

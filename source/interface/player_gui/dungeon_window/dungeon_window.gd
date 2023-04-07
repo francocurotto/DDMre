@@ -60,5 +60,3 @@ func on_check_dungeon_button_pressed():
 func on_back_button_pressed():
     dungeon_gui.show_menus()
     dungeon_gui.disable_tile_gui_buttons()
-    #dungeon_gui.unset_highlights()
-    #dungeon_gui.diselect_tile_gui()

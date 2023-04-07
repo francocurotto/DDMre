@@ -11,7 +11,7 @@ func _init(ability_dict).(ability_dict):
     amount = ability_dict["AMOUNT"]
 
 # public functions
-func activate(_attacker, _dungeon, _activate_dict):
+func activate(_attacker, _activate_dict):
     """
     Add temporal reduce to damage behavior.
     """

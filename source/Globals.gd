@@ -21,7 +21,8 @@ const LIBPATH = "res://LIBRARY.json"
 #const DUNGPATH = "res://dungeons/test_buff_self.json"
 #const DUNGPATH = "res://dungeons/test_buff_damage.json"
 #const DUNGPATH = "res://dungeons/test_distance_attack.json"
-const DUNGPATH = "res://dungeons/test_range_kill_all.json"
+#const DUNGPATH = "res://dungeons/test_range_kill_all.json"
+const DUNGPATH = "res://dungeons/test_trade_health.json"
 #const RANDOMPOOL = true
 const RANDOMPOOL = false
 #const POOL1PATH = "res://dicepools/test_pass.json";const POOL2PATH = "res://dicepools/test_pass.json"
@@ -43,7 +44,8 @@ const RANDOMPOOL = false
 #const POOL1PATH = "res://dicepools/test_buff_self.json";const POOL2PATH = "res://dicepools/test_buff_self.json"
 #const POOL1PATH = "res://dicepools/test_buff_damage.json";const POOL2PATH = "res://dicepools/test_buff_damage.json"
 #const POOL1PATH = "res://dicepools/test_distance_attack.json";const POOL2PATH = "res://dicepools/test_distance_attack.json"
-const POOL1PATH = "res://dicepools/test_range_kill_all.json";const POOL2PATH = "res://dicepools/test_range_kill_all.json"
+#const POOL1PATH = "res://dicepools/test_range_kill_all.json";const POOL2PATH = "res://dicepools/test_range_kill_all.json"
+const POOL1PATH = "res://dicepools/test_trade_health.json";const POOL2PATH = "res://dicepools/test_trade_health.json"
 
 # arrays, dictionaries
 const CRESTS = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
