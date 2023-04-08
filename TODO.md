@@ -1,5 +1,7 @@
 ### TODO
 - TRADEHEALTH
+    - add ability highlight to this ability and SHIFTDAMAGE
+        - fix when to de-highlight tiles
 - STEALMONSTER
 - MINDCONTROL
 ---

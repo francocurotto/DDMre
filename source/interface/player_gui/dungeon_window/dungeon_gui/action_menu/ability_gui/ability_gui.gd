@@ -10,18 +10,22 @@ onready var buff_self_gui = $BuffSelfGUI
 onready var buff_damage_gui = $BuffDamageGUI
 onready var distance_attack_gui = $DistanceAttackGUI
 onready var range_kill_all_gui = $RangeKillAllGUI
+onready var trade_health_gui = $TradeHealthGUI
 
 # signals
 signal ability_cmd(cmd)
 signal ability_cancel_button_pressed
 signal highlight_ability_tiles(tiles)
+signal ability_select_tile(tiles)
 
 func _ready():
+    range_kill_all_gui.connect("highlight_ability_tiles", self, "on_highlight_ability_tiles")
+    trade_health_gui.connect("ability_select_tile", self, "on_ability_select_tile")
     ability_guis_dict = {"BUFFSELF"       : buff_self_gui,
                          "BUFFDAMAGE"     : buff_damage_gui,
                          "DISTANCEATTACK" : distance_attack_gui,
-                         "RANGEKILLALL"   : range_kill_all_gui}
-    range_kill_all_gui.connect("highlight_ability_tiles", self, "on_highlight_ability_tiles")
+                         "RANGEKILLALL"   : range_kill_all_gui,
+                         "TRADEHEALTH"    : trade_health_gui}
 
 # public functions
 func activate(tile):
@@ -52,3 +56,12 @@ func on_highlight_ability_tiles(tiles):
 
 func on_check_dungeon_button_pressed():
     emit_signal("check_dungeon_button_pressed")
+
+func on_ability_select_tile(tiles):
+    emit_signal("ability_select_tile", tiles)
+
+func on_select_tile_cancel_button_pressed():
+    active_gui.on_select_tile_cancel_button_pressed()
+
+func on_select_tile_select_button_pressed(tile):
+    active_gui.on_select_tile_select_button_pressed(tile)
