@@ -21,4 +21,4 @@ func on_attack_ends():
     monster.damage_behavior.receiver = monster
 
 func get_select_tiles():
-    return get_player_monsters_tiles()
+    return get_player_other_monsters_tiles()

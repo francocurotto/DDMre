@@ -12,7 +12,7 @@ onready var dicepool_gui = $MainWindow/DicepoolWindow/DicepoolGUI
 onready var roll_gui = $MainWindow/DicepoolWindow/RollGUI
 onready var dungeon_window = $MainWindow/DungeonWindow
 onready var dungeon_gui = $MainWindow/DungeonWindow/DungeonGUI
-onready var nets_menu = $MainWindow/DungeonWindow/DungeonGUI/NetsMenu
+#onready var nets_menu = $MainWindow/DungeonWindow/DungeonGUI/NetsMenu
 onready var action_menu = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu
 onready var attack_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/AttackGUI
 onready var reply_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/ReplyGUI
@@ -49,7 +49,7 @@ func _ready():
     # net creator
     dungeon_gui.net_creator.connect("net_updated", dungeon_gui, "on_net_updated")
     # nets menu
-    nets_menu.connect("net_select_button_pressed", dungeon_gui.net_creator, "update_net_index")
+    #nets_menu.connect("net_select_button_pressed", dungeon_gui.net_creator, "update_net_index")
     # action menu
     action_menu.connect("check_dungeon_button_pressed", dungeon_window, "on_check_dungeon_button_pressed")
     action_menu.connect("ability_select_tile", dungeon_window, "on_ability_select_tile")
@@ -83,6 +83,7 @@ func _ready():
     dim_buttons.connect("FUD_button_pressed", dungeon_gui, "on_FUD_button_pressed")
     dim_buttons.connect("TCW_button_pressed", dungeon_gui, "on_TCW_button_pressed")
     dim_buttons.connect("TAW_button_pressed", dungeon_gui, "on_TAW_button_pressed")
+    dim_buttons.connect("net_select_button_pressed", dungeon_gui.net_creator, "update_net_index")
     dim_buttons.connect("dim_button_pressed", self, "on_dim_button_pressed")
     # ability buttons gui
     select_tile_buttons.connect("select_tile_cancel_button_pressed", dungeon_window, "on_select_tile_cancel_button_pressed")
@@ -116,7 +117,7 @@ func on_roll_gui_skip_button_pressed():
 
 func on_dim_button_pressed():
     dicepool_gui.release_roll()
-    nets_menu.deactivate()
+    #nets_menu.deactivate()
     var dimdice = dicepool_gui.get_selected_dim_index()
     var netdata = dungeon_gui.net_creator.get_netdata()
     var net = netdata["netname"]

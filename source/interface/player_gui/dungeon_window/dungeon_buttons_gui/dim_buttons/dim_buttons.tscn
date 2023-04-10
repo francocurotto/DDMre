@@ -1,71 +1,230 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
 [ext_resource path="res://art/icons/NET_X1.png" type="Texture" id=2]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/dim_buttons/dim_buttons.gd" type="Script" id=3]
+[ext_resource path="res://art/icons/NET_T1.png" type="Texture" id=4]
+[ext_resource path="res://art/icons/NET_T2.png" type="Texture" id=5]
+[ext_resource path="res://art/icons/NET_Z1.png" type="Texture" id=6]
+[ext_resource path="res://art/icons/NET_S2.png" type="Texture" id=7]
+[ext_resource path="res://art/icons/NET_S1.png" type="Texture" id=8]
+[ext_resource path="res://art/icons/NET_X2.png" type="Texture" id=9]
+[ext_resource path="res://art/icons/NET_Z2.png" type="Texture" id=10]
+[ext_resource path="res://art/icons/NET_M1.png" type="Texture" id=11]
+[ext_resource path="res://art/icons/NET_M2.png" type="Texture" id=12]
+[ext_resource path="res://art/icons/NET_L1.png" type="Texture" id=13]
 
-[node name="DimButtons" type="HBoxContainer"]
-margin_right = 286.0
-margin_bottom = 41.0
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://art/fonts/QuiviraRegular.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[node name="DimButtons" type="MarginContainer"]
+margin_right = 569.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 script = ExtResource( 3 )
 
-[node name="NetButton" type="Button" parent="."]
-margin_right = 39.0
+[node name="MainButtons" type="HBoxContainer" parent="."]
+margin_right = 569.0
+margin_bottom = 60.0
+
+[node name="NetButton" type="Button" parent="MainButtons"]
+margin_right = 91.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 disabled = true
 icon = ExtResource( 2 )
 icon_align = 1
 
-[node name="FLRButton" type="Button" parent="."]
-margin_left = 43.0
-margin_right = 82.0
+[node name="FLRButton" type="Button" parent="MainButtons"]
+margin_left = 95.0
+margin_right = 187.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
 text = "↔"
 
-[node name="FUDButton" type="Button" parent="."]
-margin_left = 86.0
-margin_right = 126.0
+[node name="FUDButton" type="Button" parent="MainButtons"]
+margin_left = 191.0
+margin_right = 282.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
 text = "↕"
 
-[node name="TCWButton" type="Button" parent="."]
-margin_left = 130.0
-margin_right = 169.0
+[node name="TCWButton" type="Button" parent="MainButtons"]
+margin_left = 286.0
+margin_right = 378.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
 text = "🔃"
 
-[node name="TAWButton" type="Button" parent="."]
-margin_left = 173.0
-margin_right = 213.0
+[node name="TAWButton" type="Button" parent="MainButtons"]
+margin_left = 382.0
+margin_right = 473.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
 text = "🔄"
 
-[node name="DimButton" type="Button" parent="."]
-margin_left = 217.0
-margin_right = 286.0
+[node name="DimButton" type="Button" parent="MainButtons"]
+margin_left = 477.0
+margin_right = 569.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
 text = "DIM!"
 
-[connection signal="pressed" from="NetButton" to="." method="_on_NetButton_pressed"]
-[connection signal="pressed" from="FLRButton" to="." method="_on_FLRButton_pressed"]
-[connection signal="pressed" from="FUDButton" to="." method="_on_FUDButton_pressed"]
-[connection signal="pressed" from="TCWButton" to="." method="_on_TCWButton_pressed"]
-[connection signal="pressed" from="TAWButton" to="." method="_on_TAWButton_pressed"]
-[connection signal="pressed" from="DimButton" to="." method="_on_DimButton_pressed"]
+[node name="NetButtons" type="HBoxContainer" parent="."]
+visible = false
+margin_right = 569.0
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( -837, -71 )
+
+[node name="X1Button" type="Button" parent="NetButtons"]
+margin_right = 43.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 2 )
+icon_align = 1
+expand_icon = true
+
+[node name="T1Button" type="Button" parent="NetButtons"]
+margin_left = 47.0
+margin_right = 91.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 4 )
+icon_align = 1
+expand_icon = true
+
+[node name="Z1Button" type="Button" parent="NetButtons"]
+margin_left = 95.0
+margin_right = 139.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 6 )
+icon_align = 1
+expand_icon = true
+
+[node name="X2Button" type="Button" parent="NetButtons"]
+margin_left = 143.0
+margin_right = 187.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 9 )
+icon_align = 1
+expand_icon = true
+
+[node name="T2Button" type="Button" parent="NetButtons"]
+margin_left = 191.0
+margin_right = 234.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 5 )
+icon_align = 1
+expand_icon = true
+
+[node name="Z2Button" type="Button" parent="NetButtons"]
+margin_left = 238.0
+margin_right = 282.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 10 )
+icon_align = 1
+expand_icon = true
+
+[node name="M1Button" type="Button" parent="NetButtons"]
+margin_left = 286.0
+margin_right = 330.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 11 )
+icon_align = 1
+expand_icon = true
+
+[node name="M2Button" type="Button" parent="NetButtons"]
+margin_left = 334.0
+margin_right = 378.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 12 )
+icon_align = 1
+expand_icon = true
+
+[node name="S1Button" type="Button" parent="NetButtons"]
+margin_left = 382.0
+margin_right = 425.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 8 )
+icon_align = 1
+expand_icon = true
+
+[node name="S2Button" type="Button" parent="NetButtons"]
+margin_left = 429.0
+margin_right = 473.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource( 7 )
+icon_align = 1
+expand_icon = true
+
+[node name="L1Button" type="Button" parent="NetButtons"]
+margin_left = 477.0
+margin_right = 521.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+pressed = true
+icon = ExtResource( 13 )
+icon_align = 1
+expand_icon = true
+
+[node name="CancelButton" type="Button" parent="NetButtons"]
+margin_left = 525.0
+margin_right = 569.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "❌"
+
+[connection signal="pressed" from="MainButtons/NetButton" to="." method="_on_NetButton_pressed"]
+[connection signal="pressed" from="MainButtons/FLRButton" to="." method="_on_FLRButton_pressed"]
+[connection signal="pressed" from="MainButtons/FUDButton" to="." method="_on_FUDButton_pressed"]
+[connection signal="pressed" from="MainButtons/TCWButton" to="." method="_on_TCWButton_pressed"]
+[connection signal="pressed" from="MainButtons/TAWButton" to="." method="_on_TAWButton_pressed"]
+[connection signal="pressed" from="MainButtons/DimButton" to="." method="_on_DimButton_pressed"]
+[connection signal="pressed" from="NetButtons/CancelButton" to="." method="_on_CancelButton_pressed"]

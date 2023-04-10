@@ -11,9 +11,10 @@ signal select_tile_select_button_pressed
 signal select_tile_cancel_button_pressed
 
 # public functions
-func initialize(_tiles):
+func initialize(_tiles, selected_tile_gui):
     tiles = _tiles
-    select_button.disabled = true
+    if selected_tile_gui != null:
+        on_tile_select_button_toggled(selected_tile_gui.tile, true)
 
 # signals callbacks
 func on_tile_select_button_toggled(tile, pressed):

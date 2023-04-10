@@ -14,13 +14,13 @@
 [ext_resource path="res://art/icons/NET_Z1.png" type="Texture" id=13]
 [ext_resource path="res://art/icons/NET_X1.png" type="Texture" id=14]
 
-[sub_resource type="DynamicFontData" id=1]
+[sub_resource type="DynamicFontData" id=3]
 font_path = "res://art/fonts/QuiviraRegular.otf"
 
 [sub_resource type="DynamicFont" id=2]
 size = 60
 outline_color = Color( 0, 0, 0, 1 )
-font_data = SubResource( 1 )
+font_data = SubResource( 3 )
 
 [node name="NetsMenu" type="PanelContainer"]
 modulate = Color( 1, 1, 1, 0.294118 )

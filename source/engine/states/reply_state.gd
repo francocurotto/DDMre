@@ -20,7 +20,7 @@ func GUARD(cmd):
     var ability_dict = cmd.get("ability")
     # activate attack ability if exists
     if ability_dict:
-        attacked.activate_reply_ability(attacker, dungeon, ability_dict)
+        attacked.activate_reply_ability(attacker, ability_dict)
     player.crestpool.slots["DEFENSE"] -= 1
     attacker.attack_monster(attacked, true)
     Events.emit_signal("duel_update")
@@ -33,7 +33,7 @@ func WAIT(cmd):
     var ability_dict = cmd.get("ability")
     # activate attack ability if exists
     if ability_dict:
-        attacked.activate_reply_ability(attacker, dungeon, ability_dict)
+        attacked.activate_reply_ability(attacker, ability_dict)
     attacker.attack_monster(attacked, false)
     Events.emit_signal("duel_update")
     return DungeonState.new(opponent, player, dungeon)

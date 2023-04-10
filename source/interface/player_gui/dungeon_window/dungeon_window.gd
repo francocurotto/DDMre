@@ -37,7 +37,8 @@ func on_ability_select_tile(tiles):
     dungeon_gui.enable_select_buttons()
     dungeon_gui.on_highlight_ability_tiles(tiles)
     dungeon_gui.connect("tile_select_button_toggled", select_tile_buttons, "on_tile_select_button_toggled")
-    dungeon_buttons_gui.switch_to_select_tile_buttons(tiles)
+    dungeon_buttons_gui.switch_to_select_tile_buttons(tiles, dungeon_gui.selected_tile_gui)
+    
 
 func on_select_tile_cancel_button_pressed():
     dungeon_buttons_gui.switch_to_dungeon_buttons()

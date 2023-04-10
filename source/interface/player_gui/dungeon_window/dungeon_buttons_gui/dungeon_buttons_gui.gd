@@ -29,9 +29,9 @@ func switch_to_dim_buttons():
     hide_buttons_guis()
     dim_buttons.visible = true
 
-func switch_to_select_tile_buttons(tiles):
+func switch_to_select_tile_buttons(tiles, selected_tile_gui):
     hide_buttons_guis()
-    select_tile_buttons.initialize(tiles)
+    select_tile_buttons.initialize(tiles, selected_tile_gui)
     select_tile_buttons.visible = true
 
 # signals callbacks

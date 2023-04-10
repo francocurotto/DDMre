@@ -104,13 +104,13 @@ func activate_ability(ability_dict):
         if ability.name == ability_dict["name"]:
             ability.activate(ability_dict)
 
-func activate_reply_ability(attacker, dungeon, ability_dict):
+func activate_reply_ability(attacker, ability_dict):
     """
     Activate reply ability given attacker monster and parameters in ability dict.
     """
     for ability in card.abilities:
         if ability.name == ability_dict["name"]:
-            ability.activate(attacker, dungeon, ability_dict)
+            ability.activate(attacker, ability_dict)
 
 func buff_attr(attr, amount):
     """

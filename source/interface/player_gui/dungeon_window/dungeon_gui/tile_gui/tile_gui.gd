@@ -98,7 +98,7 @@ func unset_summon_highlight():
 # public functions
 func enable_select_button():
     tile_select_button.visible = tile.is_path()
-    tile_select_button.set_pressed_no_signal(false)
+    #tile_select_button.set_pressed_no_signal(false)
 
 func release_select_button():
     set_highlight(false)

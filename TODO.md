@@ -1,7 +1,5 @@
 ### TODO
-- TRADEHEALTH
-    - add ability highlight to this ability and SHIFTDAMAGE
-        - fix when to de-highlight tiles
+- test net select buttons on phone
 - STEALMONSTER
 - MINDCONTROL
 ---
@@ -11,12 +9,10 @@
 
 ### FIXES
 - add ability description in card info
+- move net_select_menu to dungeon_buttons_gui
 
 ### IMPROVEMENTS
-- remove move menu and add controls in menu buttons
-- on attack an reply menu, add ability to check dungeon
 - standarize cmd syntax and context checks
-- fix dim buttons active while net select?
 
 ### ADDITIONS
 - implement better ability for Dark-eyes Illusionist
@@ -29,7 +25,7 @@
 - test change tile icons
 - make everything 16-bitish
 
-### ABILITIES [34/46]
+### ABILITIES [35/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -60,7 +56,7 @@
 - ❌KILLBLOCK
 - ✅BUFFDAMAGE
 - ✅BUFFSELF
-- ❌TRADEHEALTH
+- ✅TRADEHEALTH
 - ❌STEALMONSTER
 - ❌MINDCONTROL
 - ❌ROLLLEVELKILL

@@ -31,17 +31,19 @@ func remove_negate():
     if negate_count == 0:
         enable()
 
-func get_player_monsters_tiles():
+func get_player_other_monsters_tiles():
     var select_tiles = []
     for tile in dungeon.tiles:
-        if tile.content.is_monster() and tile.content.player == monster.player:
+        var dungobj = tile.content
+        if dungobj.is_monster() and dungobj != monster and dungobj.player == monster.player:
             select_tiles.append(tile)
     return select_tiles
 
 func get_opponent_monsters_tiles():
     var select_tiles = []
     for tile in dungeon.tiles:
-        if tile.content.is_monster() and tile.content.player != monster.player:
+        var dungobj = tile.content
+        if dungobj.is_monster() and dungobj.player != monster.player:
             select_tiles.append(tile)
     return select_tiles    
             
