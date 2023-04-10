@@ -13,7 +13,6 @@ var selected_tile_gui
 
 # onready variables
 onready var rows = $Rows
-onready var nets_menu = $NetsMenu
 onready var action_menu = $ActionMenu
 onready var attack_gui = $ActionMenu/VBox/GUIs/AttackGUI
 onready var reply_gui = $ActionMenu/VBox/GUIs/ReplyGUI
@@ -178,9 +177,6 @@ func on_net_updated(net):
     unset_highlights()
     highlight_net(net)
     emit_signal("net_updated", dungeon.can_dimension(net, player))
-
-func on_net_button_pressed():
-    nets_menu.activate()
 
 func on_FLR_button_pressed():
     net_creator.update_net_flr()

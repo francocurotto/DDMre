@@ -12,7 +12,6 @@ onready var dicepool_gui = $MainWindow/DicepoolWindow/DicepoolGUI
 onready var roll_gui = $MainWindow/DicepoolWindow/RollGUI
 onready var dungeon_window = $MainWindow/DungeonWindow
 onready var dungeon_gui = $MainWindow/DungeonWindow/DungeonGUI
-#onready var nets_menu = $MainWindow/DungeonWindow/DungeonGUI/NetsMenu
 onready var action_menu = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu
 onready var attack_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/AttackGUI
 onready var reply_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/ReplyGUI
@@ -48,8 +47,6 @@ func _ready():
     dungeon_gui.connect("monster_jumped", self, "on_jump_input")
     # net creator
     dungeon_gui.net_creator.connect("net_updated", dungeon_gui, "on_net_updated")
-    # nets menu
-    #nets_menu.connect("net_select_button_pressed", dungeon_gui.net_creator, "update_net_index")
     # action menu
     action_menu.connect("check_dungeon_button_pressed", dungeon_window, "on_check_dungeon_button_pressed")
     action_menu.connect("ability_select_tile", dungeon_window, "on_ability_select_tile")
@@ -78,7 +75,6 @@ func _ready():
     move_buttons.connect("move_buttons_move_button_pressed", self, "on_move_buttons_move_button_pressed")
     move_buttons.connect("move_buttons_cancel_button_pressed", dungeon_window, "reset_to_dungeon")
     # dim buttons
-    dim_buttons.connect("net_button_pressed", dungeon_gui, "on_net_button_pressed")
     dim_buttons.connect("FLR_button_pressed", dungeon_gui, "on_FLR_button_pressed")
     dim_buttons.connect("FUD_button_pressed", dungeon_gui, "on_FUD_button_pressed")
     dim_buttons.connect("TCW_button_pressed", dungeon_gui, "on_TCW_button_pressed")
@@ -117,7 +113,6 @@ func on_roll_gui_skip_button_pressed():
 
 func on_dim_button_pressed():
     dicepool_gui.release_roll()
-    #nets_menu.deactivate()
     var dimdice = dicepool_gui.get_selected_dim_index()
     var netdata = dungeon_gui.net_creator.get_netdata()
     var net = netdata["netname"]

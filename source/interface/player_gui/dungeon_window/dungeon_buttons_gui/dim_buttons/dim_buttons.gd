@@ -26,7 +26,6 @@ onready var l1_button = $NetButtons/L1Button
 onready var trans_buttons = [net_button, flr_button, fud_button, tcw_button, taw_button]
 onready var net_select_buttons = [x1_button, t1_button, z1_button, x2_button, t2_button, z2_button,
     m1_button, m2_button, s1_button, s2_button, l1_button]
-#onready var buttons = trans_buttons.duplicate() + [dim_button]
 
 # signals
 signal net_button_pressed
@@ -77,6 +76,7 @@ func _on_DimButton_pressed():
 
 func on_net_button_pressed(button):
     var net_index = net_select_buttons.find(button)
+    net_button.icon = button.icon
     emit_signal("net_select_button_pressed", net_index)
 
 func _on_CancelButton_pressed():

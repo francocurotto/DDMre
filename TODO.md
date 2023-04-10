@@ -1,5 +1,4 @@
 ### TODO
-- test net select buttons on phone
 - STEALMONSTER
 - MINDCONTROL
 ---
@@ -14,10 +13,11 @@
 - standarize cmd syntax and context checks
 
 ### ADDITIONS
-- implement better ability for Dark-eyes Illusionist
 - implement attack twice ability for Knight of Twin Swords
+- implement better ability for Dark-eyes Illusionist
 - add vortex initialization
 - add neutral path tile for vortex at start
+- make net select button scrollable to change nets
 - make summon actions and dim transformations menus popable in dungeon?
 
 ### ART

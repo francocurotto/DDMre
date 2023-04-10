@@ -37,7 +37,7 @@ margin_right = 91.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 disabled = true
-icon = ExtResource( 2 )
+icon = ExtResource( 13 )
 icon_align = 1
 
 [node name="FLRButton" type="Button" parent="MainButtons"]
