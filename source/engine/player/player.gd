@@ -16,7 +16,6 @@ var monsterlord = MonsterLord.new(self)
 var monsters = []
 var items = [] # unused?
 var graveyard = []
-var targets = [monsterlord] # unused?
 var tiles = []
 
 # signals

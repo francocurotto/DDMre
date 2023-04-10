@@ -34,7 +34,7 @@ func _init(_card, _player).(_card, _player):
     health = card.health
     # initialize behaviors
     pass_behavior = PassBehaviorBase.new()
-    target_behavior = TargetBehaviorBase.new(player)
+    target_behavior = TargetBehaviorBase.new()
     power_behavior = PowerBehaviorBase.new()
     damage_behavior = DamageBehaviorBase.new(self)
     max_move_behavior = MaxMoveBehaviorBase.new()
@@ -67,14 +67,14 @@ func can_target_monster(dungobj):
     Return true if dungobj is monster type and monster can target dungobj 
     for an attack.
     """
-    return target_behavior.can_target_monster(dungobj)
+    return target_behavior.can_target_monster(dungobj, player)
 
 func can_target_ml(dungobj):
     """
     Return true if dungobj is monster lord type and monster can target dungobj 
     for an attack.
     """
-    return target_behavior.can_target_ml(dungobj)
+    return target_behavior.can_target_ml(dungobj, player)
 
 func attack_monster(monster, guard):
     """
@@ -166,6 +166,14 @@ func get_power(attacked):
     Get the power when monster attacks attacked.
     """
     return power_behavior.get_power(attack, attacked, has_adv(attacked), has_disadv(attacked))
+
+func switch_player():
+    """
+    Change monster player ownership to the opponent player.
+    """
+    player.monsters.erase(self)
+    player = player.opponent
+    player.monsters.append(self)
 
 func has_adv(_attacked):
     """

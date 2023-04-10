@@ -114,6 +114,13 @@ func ENDTURN(_cmd):
     """
     Execute the ENDTURN command.
     """
+    # reset player monster cooldowns
+    for monster in player.monsters:
+        monster.attack_cooldown = false
+        monster.ability_cooldown = false
+    # reset monster turn move count
+    for monster in player.monsters:
+        monster.max_move_behavior.reset_turn_move_count()
     return RollState.new(opponent, player, dungeon)
 
 # private functions

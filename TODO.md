@@ -1,5 +1,4 @@
 ### TODO
-- STEALMONSTER
 - MINDCONTROL
 ---
 - RANGELEVELKILL
@@ -8,6 +7,7 @@
 
 ### FIXES
 - add ability description in card info
+- how will stealmonster interact with monsterreborn
 
 ### IMPROVEMENTS
 - standarize cmd syntax and context checks
@@ -24,7 +24,7 @@
 - test change tile icons
 - make everything 16-bitish
 
-### ABILITIES [35/46]
+### ABILITIES [36/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -56,7 +56,7 @@
 - ✅BUFFDAMAGE
 - ✅BUFFSELF
 - ✅TRADEHEALTH
-- ❌STEALMONSTER
+- ✅STEALMONSTER
 - ❌MINDCONTROL
 - ❌ROLLLEVELKILL
 - ❌RANGELEVELKILL

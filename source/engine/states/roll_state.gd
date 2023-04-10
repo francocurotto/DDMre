@@ -9,14 +9,7 @@ var DimensionState = load("engine/states/dimension_state.gd")
 
 
 func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
-    # reset player monster cooldowns
-    for monster in player.monsters:
-        monster.attack_cooldown = false
-        monster.ability_cooldown = false
-    # reset monster turn move count
-    for monster in player.monsters:
-        monster.max_move_behavior.reset_turn_move_count()
-    
+    pass
 
 # public functions
 func ROLL(cmd):

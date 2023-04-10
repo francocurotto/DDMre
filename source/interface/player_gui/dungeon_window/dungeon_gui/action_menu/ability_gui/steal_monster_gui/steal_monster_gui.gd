@@ -18,7 +18,7 @@ signal ability_select_tile(tiles)
 
 # public functions
 func activate(monster):
-    ability = monster.get_ability("TRADEHEALTH")
+    ability = monster.get_ability("STEALMONSTER")
     cost = ability.cost
     crest = ability.crest
     cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[crest]]
@@ -36,7 +36,7 @@ func _on_SelectButton_toggled(button_pressed):
 
 func _on_CastButton_pressed():
     visible = false
-    emit_signal("cast_button_pressed", {"name":"TRADEHEALTH", "pos":pos})
+    emit_signal("cast_button_pressed", {"name":"STEALMONSTER", "pos":pos})
 
 func _on_CancelButton_pressed():
     visible = false

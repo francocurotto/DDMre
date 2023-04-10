@@ -8,4 +8,4 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func on_dimension():
-    monster.target_behavior = TargetBehaviorFly.new(monster.player)
+    monster.target_behavior = TargetBehaviorFly.new()

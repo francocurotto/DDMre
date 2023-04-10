@@ -12,10 +12,10 @@ func _init(ability_dict).(ability_dict):
 # public functions
 func on_dimension():
     monster.pass_behavior = PassBehaviorFly.new()
-    monster.target_behavior = TargetBehaviorFly.new(monster.player)
+    monster.target_behavior = TargetBehaviorFly.new()
     monster.speed = 0.5
 
 func disable():
     monster.pass_behavior = PassBehaviorBase.new()
-    monster.target_behavior = TargetBehaviorBase.new(monster.player)
+    monster.target_behavior = TargetBehaviorBase.new()
     monster.speed = 1
