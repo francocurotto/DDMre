@@ -9,7 +9,6 @@
 
 ### FIXES
 - add ability description in card info
-- move net_select_menu to dungeon_buttons_gui
 
 ### IMPROVEMENTS
 - standarize cmd syntax and context checks
