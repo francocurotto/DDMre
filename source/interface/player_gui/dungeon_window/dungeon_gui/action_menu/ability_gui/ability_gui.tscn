@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/ability_gui.gd" type="Script" id=1]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/buff_self_gui/buff_self_gui.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/range_kill_all_gui/range_kill_all_gui.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/trade_health_gui/trade_health_gui.tscn" type="PackedScene" id=6]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/steal_monster_gui/steal_monster_gui.tscn" type="PackedScene" id=7]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/mind_control_gui/mind_control_gui.tscn" type="PackedScene" id=8]
 
 [node name="AbilityGUI" type="MarginContainer"]
 visible = false
@@ -35,5 +36,9 @@ visible = false
 margin_right = 406.0
 
 [node name="StealMonsterGUI" parent="." instance=ExtResource( 7 )]
+visible = false
+margin_right = 406.0
+
+[node name="MindControlGUI" parent="." instance=ExtResource( 8 )]
 visible = false
 margin_right = 406.0

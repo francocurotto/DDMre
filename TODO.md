@@ -1,5 +1,6 @@
 ### TODO
 - MINDCONTROL
+    - fix update dungeon after endturn
 ---
 - RANGELEVELKILL
 - KILLBLOCK
