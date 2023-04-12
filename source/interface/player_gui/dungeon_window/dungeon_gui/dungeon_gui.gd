@@ -47,10 +47,10 @@ func set_dungeon(_dungeon, _player):
 # public functions
 func update_dungeon():
     for i in range(rows.get_child_count()):
-        var irow = get_irow(i)
+        var row_gui = get_row_gui(i)
         var row = dungeon.array[i]
-        for j in range(irow.get_child_count()):
-            var tile_gui = irow.get_child(j)
+        for j in range(row_gui.get_child_count()):
+            var tile_gui = row_gui.get_child(j)
             var tile = row[j]
             tile_gui.set_tile(tile)
 
@@ -209,7 +209,7 @@ func on_highlight_ability_tiles(tiles):
         get_tile_gui(tile.pos).set_ability_highlight(true)
 
 # private functions
-func get_irow(idx):
+func get_row_gui(idx):
     if player.id == 1: # v-flip dungeon for player1
         return rows.get_child(rows.get_child_count()-idx-1)
     else:

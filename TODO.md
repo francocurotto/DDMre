@@ -1,7 +1,4 @@
 ### TODO
-- MINDCONTROL
-    - fix update dungeon after endturn
----
 - RANGELEVELKILL
 - KILLBLOCK
 - ROLLLEVELKILL
@@ -25,7 +22,7 @@
 - test change tile icons
 - make everything 16-bitish
 
-### ABILITIES [36/46]
+### ABILITIES [37/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -58,7 +55,7 @@
 - ✅BUFFSELF
 - ✅TRADEHEALTH
 - ✅STEALMONSTER
-- ❌MINDCONTROL
+- ✅MINDCONTROL
 - ❌ROLLLEVELKILL
 - ❌RANGELEVELKILL
 - ✅RANGEKILLALL

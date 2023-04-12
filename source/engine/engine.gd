@@ -46,11 +46,11 @@ func update(cmd):
     var next_turn = newstate.player != state.player and newstate.NAME == "ROLL"
     # perform the update
     state = newstate
-    if state_update:
-        Events.emit_signal("state_update", state.NAME)
     if next_turn:
         turn += 1
         Events.emit_signal("next_turn", state.player, turn)
+    if state_update:
+        Events.emit_signal("state_update", state.NAME)
 
 # private functions
 func add_opponent_reference():
