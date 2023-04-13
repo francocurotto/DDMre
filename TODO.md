@@ -1,7 +1,17 @@
 ### TODO
-- KILLBLOCK
+- inconsistency: when ability select monster menu is activated, monsters are not highlighted, but if you go to select monster and cancel the monsters are kept highlighted. Basically when menu is open, there are two states, monsters highlighted and not highlighted
 - RANGELEVELKILL
 - ROLLLEVELKILL
+---
+- DIMTRADECREST (modify ability definition to accept changing the cost)
+- DIMKILLTUNNELALL
+---
+- DIMKILLTUNNEL
+- DIMKILLWEAKEST (change to DIMKILLWEAKESTLVL)
+---
+- DIMCURE
+---
+- MONSTERREBORN
 
 ### FIXES
 - add ability description in card info
@@ -22,7 +32,7 @@
 - test change tile icons
 - make everything 16-bitish
 
-### ABILITIES [37/46]
+### ABILITIES [38/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -50,7 +60,7 @@
 - ✅SHIFTDAMAGE
 - ✅PROTECTSELF
 - ✅ADDFOEDEFENSE
-- ❌KILLBLOCK
+- ✅KILLBLOCK
 - ✅BUFFDAMAGE
 - ✅BUFFSELF
 - ✅TRADEHEALTH
