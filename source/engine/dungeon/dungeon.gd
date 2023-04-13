@@ -205,6 +205,12 @@ func place_path_tile(player, pos):
     """
     array[pos.y][pos.x] = player.create_tile(pos.y, pos.x)
 
+func place_empty_tile(pos):
+    """
+    Place empty tile at position pos.
+    """
+    array[pos.y][pos.x] = EmptyTile.new(pos.y, pos.x)
+
 func dimension(player, net, diceidx):
     """
     Dimension net for player and summon card on center of net.

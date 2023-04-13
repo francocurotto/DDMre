@@ -46,6 +46,13 @@ func get_opponent_monsters_tiles():
         if dungobj.is_monster() and dungobj.player != monster.player:
             select_tiles.append(tile)
     return select_tiles    
+
+func get_block_tiles():
+    var select_tiles = []
+    for tile in dungeon.tiles:
+        if tile.is_block():
+            select_tiles.append(tile)
+    return select_tiles
             
 # is functions
 func is_negated():
