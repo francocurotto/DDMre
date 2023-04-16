@@ -19,7 +19,7 @@ func activate(monster):
     crest = ability.crest
     cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[crest]]
     cast_button.disabled = cost > monster.player.crestpool.slots[crest]
-    emit_signal("highlight_ability_tiles", ability.get_tiles_in_range())
+    emit_signal("highlight_ability_tiles", ability.get_tiles_in_range(ability.tile_range))
     visible = true
 
 func _on_CastButton_pressed():

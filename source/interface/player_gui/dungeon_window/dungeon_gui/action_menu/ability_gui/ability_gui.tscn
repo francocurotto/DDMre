@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/ability_gui.gd" type="Script" id=1]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/buff_self_gui/buff_self_gui.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/steal_monster_gui/steal_monster_gui.tscn" type="PackedScene" id=7]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/mind_control_gui/mind_control_gui.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/kill_block_gui/kill_block_gui.tscn" type="PackedScene" id=9]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/range_level_kill_gui/range_level_kill_gui.tscn" type="PackedScene" id=10]
 
 [node name="AbilityGUI" type="MarginContainer"]
 visible = false
@@ -47,3 +48,7 @@ margin_right = 406.0
 [node name="KillBlockGUI" parent="." instance=ExtResource( 9 )]
 visible = false
 margin_right = 406.0
+
+[node name="RangeLevelKillGUI" parent="." instance=ExtResource( 10 )]
+visible = false
+margin_right = 422.0

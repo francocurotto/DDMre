@@ -47,13 +47,35 @@ func get_opponent_monsters_tiles():
             select_tiles.append(tile)
     return select_tiles    
 
+func get_opponent_summons_tiles():
+    var select_tiles = []
+    for tile in dungeon.tiles:
+        var dungobj = tile.content
+        if dungobj.is_summon() and dungobj.player != monster.player:
+            select_tiles.append(tile)
+    return select_tiles   
+
 func get_block_tiles():
     var select_tiles = []
     for tile in dungeon.tiles:
         if tile.is_block():
             select_tiles.append(tile)
     return select_tiles
-            
+
+func get_tiles_in_range(tile_range):
+    """
+    Return a list of tiles at range tile_range from ability monster position
+    (excluding monster own position).
+    """
+    var init_pos = monster.tile.pos
+    var range_tiles = []
+    for tile in dungeon.tiles:
+        var range_dist = abs(tile.pos.x-init_pos.x) + abs(tile.pos.y-init_pos.y)
+        if range_dist>0 and  range_dist<=tile_range:
+            if tile.is_path():
+                range_tiles.append(tile)
+    return range_tiles
+
 # is functions
 func is_negated():
     return negate_count > 0

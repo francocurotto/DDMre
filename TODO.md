@@ -1,6 +1,4 @@
 ### TODO
-- inconsistency: when ability select monster menu is activated, monsters are not highlighted, but if you go to select monster and cancel the monsters are kept highlighted. Basically when menu is open, there are two states, monsters highlighted and not highlighted
-- RANGELEVELKILL
 - ROLLLEVELKILL
 ---
 - DIMTRADECREST (modify ability definition to accept changing the cost)
@@ -15,7 +13,7 @@
 
 ### FIXES
 - add ability description in card info
-- how will stealmonster interact with monsterreborn
+- inconsistency: when ability select monster menu is activated, monsters are not highlighted, but if you go to select monster and cancel the monsters are kept highlighted. Basically when menu is open, there are two states, monsters highlighted and not highlighted
 
 ### IMPROVEMENTS
 - standarize cmd syntax and context checks
@@ -32,7 +30,7 @@
 - test change tile icons
 - make everything 16-bitish
 
-### ABILITIES [38/46]
+### ABILITIES [39/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -67,7 +65,7 @@
 - ✅STEALMONSTER
 - ✅MINDCONTROL
 - ❌ROLLLEVELKILL
-- ❌RANGELEVELKILL
+- ✅RANGELEVELKILL
 - ✅RANGEKILLALL
 - ✅DISTANCEATTACK
 - ✅ITEMCURE

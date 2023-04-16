@@ -14,6 +14,7 @@ onready var trade_health_gui = $TradeHealthGUI
 onready var steal_monster_gui = $StealMonsterGUI
 onready var mind_control_gui = $MindControlGUI
 onready var kill_block_gui = $KillBlockGUI
+onready var range_level_kill_gui = $RangeLevelKillGUI
 
 # signals
 signal ability_cmd(cmd)
@@ -27,6 +28,8 @@ func _ready():
     steal_monster_gui.connect("ability_select_tile", self, "on_ability_select_tile")
     mind_control_gui.connect("ability_select_tile", self, "on_ability_select_tile")
     kill_block_gui.connect("ability_select_tile", self, "on_ability_select_tile")
+    range_level_kill_gui.connect("highlight_ability_tiles", self, "on_highlight_ability_tiles")
+    range_level_kill_gui.connect("ability_select_tile", self, "on_ability_select_tile")
     ability_guis_dict = {"BUFFSELF"       : buff_self_gui,
                          "BUFFDAMAGE"     : buff_damage_gui,
                          "DISTANCEATTACK" : distance_attack_gui,
@@ -34,7 +37,8 @@ func _ready():
                          "TRADEHEALTH"    : trade_health_gui,
                          "STEALMONSTER"   : steal_monster_gui,
                          "MINDCONTROL"    : mind_control_gui,
-                         "KILLBLOCK"      : kill_block_gui}
+                         "KILLBLOCK"      : kill_block_gui,
+                         "RANGELEVELKILL" : range_level_kill_gui}
 
 # public functions
 func activate(tile):
