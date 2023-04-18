@@ -15,6 +15,7 @@ onready var steal_monster_gui = $StealMonsterGUI
 onready var mind_control_gui = $MindControlGUI
 onready var kill_block_gui = $KillBlockGUI
 onready var range_level_kill_gui = $RangeLevelKillGUI
+onready var roll_level_kill_gui = $RollLevelKillGUI
 
 # signals
 signal ability_cmd(cmd)

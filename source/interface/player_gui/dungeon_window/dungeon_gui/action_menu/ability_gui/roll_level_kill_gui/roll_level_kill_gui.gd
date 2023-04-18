@@ -1,14 +1,19 @@
 extends VBoxContainer
 
+# constants
+var directions = [Vector2(0,1), Vector2(-1,0), Vector2(0,-1), Vector2(1,0)]
+
 # variables
 var ability
 var cost
 var crest
-var level setget , get_level()
-var direction setget , get_direction()
-var total_cost setget , get_total_cost()
+var level setget , get_level
+var direction setget , get_direction
+var total_cost setget , get_total_cost
 
 # onready variables
+onready var level_buttongroup = $Margins/Buttons/LevelGUI/LevelButtons/ButtonLevel1.group
+onready var direction_buttongroup = $Margins/Buttons/DirectionGUI/DirectionButtons/ButtonDirUp.group
 onready var cast_button = $Margins/Buttons/CastButton
 
 # signals
@@ -17,6 +22,19 @@ signal cast_button_pressed(ability_dict)
 signal cancel_button_pressed
 signal ability_select_tile(tiles)
 
+func _ready():
+    level_buttongroup.connect("pressed", self, "on_level_button_pressed")
+
+# setget functions
+func get_level():
+    return level_buttongroup.get_pressed_button().get_index() + 1
+
+func get_direction():
+    return directions[direction_buttongroup.get_pressed_button().get_index()]
+
+func get_total_cost():
+    return cost + self.level
+
 # public functions
 func activate(monster):
     ability = monster.get_ability("ROLLLEVELKILL")
@@ -24,6 +42,7 @@ func activate(monster):
     crest = ability.crest
     cast_button.text = "✨CAST (%d%s)" % [self.total_cost, Globals.CRESTICONS[crest]]
     emit_signal("highlight_ability_tiles", ability.get_roll_tiles(self.direction))
+    cast_button.disabled = self.total_cost > ability.monster.player.crestpool.slots[crest]
     visible = true
 
 #func _on_SelectButton_toggled(button_pressed):
@@ -41,6 +60,10 @@ func _on_CastButton_pressed():
 func _on_CancelButton_pressed():
     visible = false
     emit_signal("cancel_button_pressed")
+
+func on_level_button_pressed():
+    cast_button.text = "✨CAST (%d%s)" % [self.total_cost, Globals.CRESTICONS[crest]]
+    cast_button.disabled = self.total_cost > ability.monster.player.crestpool.slots[crest]
 
 #func on_select_tile_cancel_button_pressed():
 #    cast_button.text = "✨CAST"
