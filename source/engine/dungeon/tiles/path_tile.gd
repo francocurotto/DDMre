@@ -26,6 +26,8 @@ func move_content_from(original_tile):
     Move content from original tile to this tile. Original tile gets 
     emptied (NoneObj).
     """
+    if self == original_tile: # case same tile
+        return
     content = original_tile.content
     original_tile.empty_tile()
     # update dungobj tile references

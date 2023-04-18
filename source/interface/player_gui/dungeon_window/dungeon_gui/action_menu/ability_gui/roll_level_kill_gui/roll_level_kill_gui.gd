@@ -23,6 +23,7 @@ signal cancel_button_pressed
 signal ability_select_tile(tiles)
 
 func _ready():
+    print(level_buttongroup)
     level_buttongroup.connect("pressed", self, "on_level_button_pressed")
 
 # setget functions
@@ -61,7 +62,7 @@ func _on_CancelButton_pressed():
     visible = false
     emit_signal("cancel_button_pressed")
 
-func on_level_button_pressed():
+func on_level_button_pressed(_button):
     cast_button.text = "✨CAST (%d%s)" % [self.total_cost, Globals.CRESTICONS[crest]]
     cast_button.disabled = self.total_cost > ability.monster.player.crestpool.slots[crest]
 

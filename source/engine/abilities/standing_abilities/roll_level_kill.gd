@@ -19,7 +19,7 @@ func activate(activate_dict):
     var roll_tiles = get_roll_tiles(activate_dict["direction"])
     
     # roll loop
-    var last_unoccupied = monster.pos
+    var last_unoccupied = monster.tile
     for tile in roll_tiles:
         var summon = tile.content
         if not tile.is_occupied():
@@ -34,7 +34,7 @@ func activate(activate_dict):
 func get_roll_tiles(direction):
     var pos = monster.tile.pos + direction
     var tiles = []
-    while dungeon.in_bound(pos):
+    while dungeon.pos_within_dungeon(pos):
         var tile = dungeon.get_tile(pos)
         if tile.is_empty() or tile.content.is_monster_lord():
             break

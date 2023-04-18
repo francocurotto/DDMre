@@ -39,7 +39,8 @@ func _ready():
                          "STEALMONSTER"   : steal_monster_gui,
                          "MINDCONTROL"    : mind_control_gui,
                          "KILLBLOCK"      : kill_block_gui,
-                         "RANGELEVELKILL" : range_level_kill_gui}
+                         "RANGELEVELKILL" : range_level_kill_gui,
+                         "ROLLLEVELKILL"  : roll_level_kill_gui}
 
 # public functions
 func activate(tile):
