@@ -2,8 +2,8 @@
 - ROLLLEVELKILL
     - select direction from dungeon
 ---
-- DIMTRADECREST (modify ability definition to accept changing the cost)
 - DIMKILLTUNNELALL
+- DIMTRADECREST (modify ability definition to accept changing the cost)
 ---
 - DIMKILLTUNNEL
 - DIMKILLWEAKEST (change to DIMKILLWEAKESTLVL)
