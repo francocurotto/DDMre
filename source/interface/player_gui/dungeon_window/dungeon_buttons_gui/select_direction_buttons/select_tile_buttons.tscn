@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/select_direction_buttons/direction_buttongroup.tres" type="ButtonGroup" id=2]
+
+[node name="SelectDirectionButtons" type="HBoxContainer"]
+margin_right = 713.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+
+[node name="UpButton" type="Button" parent="."]
+margin_right = 139.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+pressed = true
+group = ExtResource( 2 )
+text = "⬆"
+
+[node name="LeftButton" type="Button" parent="."]
+margin_left = 143.0
+margin_right = 282.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+group = ExtResource( 2 )
+text = "⬅"
+
+[node name="DownButton" type="Button" parent="."]
+margin_left = 286.0
+margin_right = 426.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+group = ExtResource( 2 )
+text = "⬇"
+
+[node name="RightButton" type="Button" parent="."]
+margin_left = 430.0
+margin_right = 569.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+group = ExtResource( 2 )
+text = "➡"
+
+[node name="SelectButton" type="Button" parent="."]
+margin_left = 573.0
+margin_right = 713.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "🔘SELECT"

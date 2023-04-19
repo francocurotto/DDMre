@@ -2,6 +2,7 @@ extends VBoxContainer
 
 # onready variables
 onready var dungeon_gui = $DungeonGUI
+onready var action_menu = $DungeonGUI/ActionMenu
 onready var reply_gui = $DungeonGUI/ActionMenu/VBox/GUIs/ReplyGUI
 onready var dungeon_buttons_gui = $DungeonButtonsGUI
 onready var dungeon_buttons = $DungeonButtonsGUI/DungeonButtons
@@ -39,6 +40,10 @@ func on_ability_select_tile(tiles):
     dungeon_gui.connect("tile_select_button_toggled", select_tile_buttons, "on_tile_select_button_toggled")
     dungeon_buttons_gui.switch_to_select_tile_buttons(tiles, dungeon_gui.selected_tile_gui)
     
+func on_ability_select_direction(ability):
+    action_menu.visible = false
+    dungeon_gui.enable_select_buttons()
+    dungeon_buttons_gui.switch_to_select_direction_buttons(ability)
 
 func on_select_tile_cancel_button_pressed():
     dungeon_buttons_gui.switch_to_dungeon_buttons()

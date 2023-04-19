@@ -22,6 +22,7 @@ signal ability_cmd(cmd)
 signal ability_cancel_button_pressed
 signal highlight_ability_tiles(tiles)
 signal ability_select_tile(tiles)
+signal on_ability_select_direction(ability)
 
 func _ready():
     range_kill_all_gui.connect("highlight_ability_tiles", self, "on_highlight_ability_tiles")
@@ -31,6 +32,7 @@ func _ready():
     kill_block_gui.connect("ability_select_tile", self, "on_ability_select_tile")
     range_level_kill_gui.connect("highlight_ability_tiles", self, "on_highlight_ability_tiles")
     range_level_kill_gui.connect("ability_select_tile", self, "on_ability_select_tile")
+    roll_level_kill_gui.connect("ability_select_direction", self, "on_ability_select_direction")
     ability_guis_dict = {"BUFFSELF"       : buff_self_gui,
                          "BUFFDAMAGE"     : buff_damage_gui,
                          "DISTANCEATTACK" : distance_attack_gui,
@@ -74,6 +76,9 @@ func on_check_dungeon_button_pressed():
 
 func on_ability_select_tile(tiles):
     emit_signal("ability_select_tile", tiles)
+
+func on_ability_select_direction(ability):
+    emit_signal("ability_select_direction", ability)
 
 func on_select_tile_cancel_button_pressed():
     active_gui.on_select_tile_cancel_button_pressed()

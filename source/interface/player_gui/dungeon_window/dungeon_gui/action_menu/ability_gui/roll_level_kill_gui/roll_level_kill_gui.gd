@@ -8,19 +8,19 @@ var ability
 var cost
 var crest
 var level setget , get_level
-var direction setget , get_direction
+var direction = Vector2(0,1)
 var total_cost setget , get_total_cost
 
 # onready variables
 onready var level_buttongroup = $Margins/Buttons/LevelGUI/LevelButtons/ButtonLevel1.group
-onready var direction_buttongroup = $Margins/Buttons/DirectionGUI/DirectionButtons/ButtonDirUp.group
+onready var direction_button = $Margins/Buttons/DirectionButton
 onready var cast_button = $Margins/Buttons/CastButton
 
 # signals
 signal highlight_ability_tiles(tiles)
 signal cast_button_pressed(ability_dict)
 signal cancel_button_pressed
-signal ability_select_tile(tiles)
+signal ability_select_direction(ability)
 
 func _ready():
     print(level_buttongroup)
@@ -29,9 +29,6 @@ func _ready():
 # setget functions
 func get_level():
     return level_buttongroup.get_pressed_button().get_index() + 1
-
-func get_direction():
-    return directions[direction_buttongroup.get_pressed_button().get_index()]
 
 func get_total_cost():
     return cost + self.level
@@ -42,17 +39,12 @@ func activate(monster):
     cost = ability.cost
     crest = ability.crest
     cast_button.text = "✨CAST (%d%s)" % [self.total_cost, Globals.CRESTICONS[crest]]
-    emit_signal("highlight_ability_tiles", ability.get_roll_tiles(self.direction))
+    emit_signal("highlight_ability_tiles", ability.get_roll_tiles(direction))
     cast_button.disabled = self.total_cost > ability.monster.player.crestpool.slots[crest]
     visible = true
 
-#func _on_SelectButton_toggled(button_pressed):
-#    if button_pressed:
-#        emit_signal("ability_select_tile", ability.get_select_tiles())
-#    else:
-#        cast_button.text = "✨CAST"
-#        cast_button.disabled = true
-#        summon_info.visible = false
+func _on_DirectionButton_pressed():
+    emit_signal("ability_select_direction", ability)
 
 func _on_CastButton_pressed():
     visible = false

@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
 [ext_resource path="res://art/fonts/summon_stat.tres" type="DynamicFont" id=2]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/roll_level_kill_gui/level_buttongroup.tres" type="ButtonGroup" id=3]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/roll_level_kill_gui/direction_buttongroup.tres" type="ButtonGroup" id=4]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/roll_level_kill_gui/roll_level_kill_gui.gd" type="Script" id=5]
 
 [node name="RollLevelKillGUI" type="VBoxContainer"]
@@ -95,66 +94,14 @@ toggle_mode = true
 group = ExtResource( 3 )
 text = "4★"
 
-[node name="DirectionGUI" type="HBoxContainer" parent="Margins/Buttons"]
+[node name="DirectionButton" type="Button" parent="Margins/Buttons"]
+self_modulate = Color( 1, 1, 0.498039, 1 )
 margin_top = 90.0
 margin_right = 542.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 0, 60 )
-size_flags_horizontal = 3
-custom_constants/separation = 40
-
-[node name="DirectionLabel" type="Label" parent="Margins/Buttons/DirectionGUI"]
-margin_top = 13.0
-margin_right = 193.0
-margin_bottom = 46.0
 custom_fonts/font = ExtResource( 1 )
-text = "Select Direction:"
-
-[node name="DirectionButtons" type="HBoxContainer" parent="Margins/Buttons/DirectionGUI"]
-margin_left = 233.0
-margin_right = 542.0
-margin_bottom = 60.0
-size_flags_horizontal = 3
-
-[node name="ButtonDirUp" type="Button" parent="Margins/Buttons/DirectionGUI/DirectionButtons"]
-margin_right = 74.0
-margin_bottom = 60.0
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
-pressed = true
-group = ExtResource( 4 )
-text = "⬆"
-
-[node name="ButtonDirLeft" type="Button" parent="Margins/Buttons/DirectionGUI/DirectionButtons"]
-margin_left = 78.0
-margin_right = 152.0
-margin_bottom = 60.0
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
-group = ExtResource( 4 )
-text = "⬅"
-
-[node name="ButtonDirDown" type="Button" parent="Margins/Buttons/DirectionGUI/DirectionButtons"]
-margin_left = 156.0
-margin_right = 230.0
-margin_bottom = 60.0
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
-group = ExtResource( 4 )
-text = "⬇"
-
-[node name="ButtonDirRight" type="Button" parent="Margins/Buttons/DirectionGUI/DirectionButtons"]
-margin_left = 234.0
-margin_right = 309.0
-margin_bottom = 60.0
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
-group = ExtResource( 4 )
-text = "➡"
+text = "Select Direction ⬆"
 
 [node name="CastButton" type="Button" parent="Margins/Buttons"]
 margin_top = 180.0
@@ -172,5 +119,6 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 1 )
 text = "❌CANCEL"
 
+[connection signal="pressed" from="Margins/Buttons/DirectionButton" to="." method="_on_DirectionButton_pressed"]
 [connection signal="pressed" from="Margins/Buttons/CastButton" to="." method="_on_CastButton_pressed"]
 [connection signal="pressed" from="Margins/Buttons/CancelButton" to="." method="_on_CancelButton_pressed"]
