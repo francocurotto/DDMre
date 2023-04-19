@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/dungeon_buttons/dungeon_buttons.tscn" type="PackedScene" id=1]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/dim_buttons/dim_buttons.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/select_tile_buttons/select_tile_buttons.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/dungeon_buttons_gui.gd" type="Script" id=4]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/move_buttons/move_buttons.tscn" type="PackedScene" id=5]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/select_direction_buttons/select_direction_buttons.tscn" type="PackedScene" id=6]
 
 [node name="DungeonButtonsGUI" type="MarginContainer"]
 margin_right = 588.0
@@ -21,8 +22,11 @@ margin_right = 588.0
 [node name="DimButtons" parent="." instance=ExtResource( 2 )]
 visible = false
 margin_right = 588.0
-margin_bottom = 60.0
 
 [node name="SelectTileButtons" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_right = 588.0
+
+[node name="SelectDirectionButtons" parent="." instance=ExtResource( 6 )]
 visible = false
 margin_right = 588.0

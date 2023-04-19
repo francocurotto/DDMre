@@ -1,6 +1,6 @@
 ### TODO
 - ROLLLEVELKILL
-    - select direction from dungeon
+    - add roll highlight
 ---
 - DIMKILLTUNNELALL
 - DIMTRADECREST (modify ability definition to accept changing the cost)

@@ -55,6 +55,10 @@ func on_select_tile_select_button_pressed():
     dungeon_gui.disconnect("tile_select_button_toggled", select_tile_buttons, "on_tile_select_button_toggled")
     dungeon_gui.on_select_tile_select_button_pressed()
 
+func on_select_direction_select_button_pressed(direction):
+    dungeon_buttons_gui.switch_to_dungeon_buttons()
+    dungeon_gui.on_select_direction_select_button_pressed(direction)
+
 func on_ability_ended():
     dungeon_gui.on_ability_ended()
     dungeon_buttons.endturn_button.disabled = false

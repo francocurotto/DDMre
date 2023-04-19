@@ -101,7 +101,7 @@ margin_right = 542.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 1 )
-text = "Select Direction ⬆"
+text = "SELECT DIRECTION ⬆"
 
 [node name="CastButton" type="Button" parent="Margins/Buttons"]
 margin_top = 180.0

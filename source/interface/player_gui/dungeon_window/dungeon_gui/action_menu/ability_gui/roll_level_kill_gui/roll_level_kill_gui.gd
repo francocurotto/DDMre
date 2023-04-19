@@ -8,7 +8,7 @@ var ability
 var cost
 var crest
 var level setget , get_level
-var direction = Vector2(0,1)
+var direction
 var total_cost setget , get_total_cost
 
 # onready variables
@@ -23,7 +23,6 @@ signal cancel_button_pressed
 signal ability_select_direction(ability)
 
 func _ready():
-    print(level_buttongroup)
     level_buttongroup.connect("pressed", self, "on_level_button_pressed")
 
 # setget functions
@@ -38,6 +37,8 @@ func activate(monster):
     ability = monster.get_ability("ROLLLEVELKILL")
     cost = ability.cost
     crest = ability.crest
+    direction = Vector2(0,1)
+    direction_button.text = "SELECT DIRECTION " + get_direction_string()
     cast_button.text = "✨CAST (%d%s)" % [self.total_cost, Globals.CRESTICONS[crest]]
     emit_signal("highlight_ability_tiles", ability.get_roll_tiles(direction))
     cast_button.disabled = self.total_cost > ability.monster.player.crestpool.slots[crest]
@@ -58,17 +59,17 @@ func on_level_button_pressed(_button):
     cast_button.text = "✨CAST (%d%s)" % [self.total_cost, Globals.CRESTICONS[crest]]
     cast_button.disabled = self.total_cost > ability.monster.player.crestpool.slots[crest]
 
-#func on_select_tile_cancel_button_pressed():
-#    cast_button.text = "✨CAST"
-#    select_button.pressed = false
-#    summon_info.visible = false
-#
-#func on_select_tile_select_button_pressed(tile):
-#    pos = tile.pos
-#    var summon = ability.dungeon.get_tile(pos).content
-#    var total_cost = cost + summon.card.level
-#    select_button.pressed = true
-#    summon_info.set_summon(tile.content, tile.content.player)
-#    cast_button.text = "✨CAST (%d%s)" % [total_cost, Globals.CRESTICONS[crest]]
-#    cast_button.disabled = total_cost > ability.monster.player.crestpool.slots[crest]
-#    summon_info.visible = true
+func on_select_direction_select_button_pressed(_direction):
+     direction = _direction
+     direction_button.text = "SELECT DIRECTION " + get_direction_string()
+
+# private functions
+func get_direction_string():
+    var dirkey = direction
+    if ability.monster.player.id == 2:
+        dirkey = dirkey.rotate(Vector2(1,0))
+    var dirdict = {Vector2(0,1)  : "⬆",
+                   Vector2(-1,0) : "⬅",
+                   Vector2(0,-1) : "⬇",
+                   Vector2(1,0)  : "➡"}
+    return dirdict[dirkey]

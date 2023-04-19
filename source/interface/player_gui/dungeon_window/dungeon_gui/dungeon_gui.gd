@@ -198,6 +198,9 @@ func on_select_tile_select_button_pressed():
     disable_tile_gui_buttons()    
     action_menu.on_select_tile_select_button_pressed(selected_tile_gui.tile)
 
+func on_select_direction_select_button_pressed(direction):
+    action_menu.on_select_direction_select_button_pressed(direction)
+
 func on_ability_ended():
     enable_select_buttons()
     disable_tile_gui_ability_highlights()

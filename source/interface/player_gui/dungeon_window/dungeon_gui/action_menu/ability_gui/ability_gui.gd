@@ -22,7 +22,7 @@ signal ability_cmd(cmd)
 signal ability_cancel_button_pressed
 signal highlight_ability_tiles(tiles)
 signal ability_select_tile(tiles)
-signal on_ability_select_direction(ability)
+signal ability_select_direction(ability)
 
 func _ready():
     range_kill_all_gui.connect("highlight_ability_tiles", self, "on_highlight_ability_tiles")
@@ -85,3 +85,6 @@ func on_select_tile_cancel_button_pressed():
 
 func on_select_tile_select_button_pressed(tile):
     active_gui.on_select_tile_select_button_pressed(tile)
+
+func on_select_direction_select_button_pressed(direction):
+    active_gui.on_select_direction_select_button_pressed(direction)

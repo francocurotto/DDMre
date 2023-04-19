@@ -47,3 +47,7 @@ func on_select_tile_cancel_button_pressed():
 func on_select_tile_select_button_pressed(tile):
     self.active_gui.on_select_tile_select_button_pressed(tile)
     visible = true
+
+func on_select_direction_select_button_pressed(direction):
+    self.active_gui.on_select_direction_select_button_pressed(direction)
+    visible = true

@@ -10,8 +10,7 @@ var ability
 onready var direction_buttongroup = $UpButton.group
 
 # signals
-signal select_tile_select_button_pressed
-signal select_tile_cancel_button_pressed
+signal select_direction_select_button_pressed
 
 # public functions
 func initialize(_ability):
@@ -19,13 +18,16 @@ func initialize(_ability):
     
 # signals callbacks
 func _on_SelectButton_pressed():
-    emit_signal("select_direction_select_button_pressed", get_direction())
+    var direction = get_direction()
+    direction_buttongroup.get_pressed_button().set_pressed_no_signal(false)
+    $UpButton.set_pressed_no_signal(true)
+    emit_signal("select_direction_select_button_pressed", direction)
 
 # private function
 func get_direction():
-    index = direction_buttongroup.get_pressed_button().get_index()
+    var index = direction_buttongroup.get_pressed_button().get_index()
     var direction = directions[index]
-    # correct for player
-    if ability.player.id == 2:
+    # correct for player perspective
+    if ability.monster.player.id == 2:
         direction = direction.rotate(Vector2(1,0))
     return direction

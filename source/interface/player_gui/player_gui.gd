@@ -22,6 +22,7 @@ onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/Dungeo
 onready var move_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/MoveButtons
 onready var dim_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/DimButtons
 onready var select_tile_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/SelectTileButtons
+onready var select_direction_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/SelectDirectionButtons
 onready var card_info = $CardInfo
 onready var lower_window = $LowerWindow
 
@@ -82,9 +83,11 @@ func _ready():
     dim_buttons.connect("TAW_button_pressed", dungeon_gui, "on_TAW_button_pressed")
     dim_buttons.connect("net_select_button_pressed", dungeon_gui.net_creator, "update_net_index")
     dim_buttons.connect("dim_button_pressed", self, "on_dim_button_pressed")
-    # ability buttons gui
+    # select tile buttons
     select_tile_buttons.connect("select_tile_cancel_button_pressed", dungeon_window, "on_select_tile_cancel_button_pressed")
     select_tile_buttons.connect("select_tile_select_button_pressed", dungeon_window, "on_select_tile_select_button_pressed")
+    # select direction buttons
+    select_direction_buttons.connect("select_direction_select_button_pressed", dungeon_window, "on_select_direction_select_button_pressed")
     # card info
     card_info.connect("card_info_quit", self, "on_card_info_quit")
     # common window
