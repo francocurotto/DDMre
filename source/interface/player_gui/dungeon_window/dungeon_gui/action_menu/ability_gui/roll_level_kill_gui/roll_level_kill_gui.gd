@@ -67,7 +67,7 @@ func on_select_direction_select_button_pressed(_direction):
 func get_direction_string():
     var dirkey = direction
     if ability.monster.player.id == 2:
-        dirkey = dirkey.rotate(Vector2(1,0))
+        dirkey = dirkey.reflect(Vector2(1,0))
     var dirdict = {Vector2(0,1)  : "⬆",
                    Vector2(-1,0) : "⬅",
                    Vector2(0,-1) : "⬇",

@@ -33,6 +33,7 @@ func _ready():
     range_level_kill_gui.connect("highlight_ability_tiles", self, "on_highlight_ability_tiles")
     range_level_kill_gui.connect("ability_select_tile", self, "on_ability_select_tile")
     roll_level_kill_gui.connect("ability_select_direction", self, "on_ability_select_direction")
+    roll_level_kill_gui.connect("highlight_ability_tiles", self, "on_highlight_ability_tiles")
     ability_guis_dict = {"BUFFSELF"       : buff_self_gui,
                          "BUFFDAMAGE"     : buff_damage_gui,
                          "DISTANCEATTACK" : distance_attack_gui,

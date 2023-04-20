@@ -87,6 +87,7 @@ func _ready():
     select_tile_buttons.connect("select_tile_cancel_button_pressed", dungeon_window, "on_select_tile_cancel_button_pressed")
     select_tile_buttons.connect("select_tile_select_button_pressed", dungeon_window, "on_select_tile_select_button_pressed")
     # select direction buttons
+    select_direction_buttons.connect("highlight_ability_tiles", dungeon_gui, "on_highlight_ability_tiles")
     select_direction_buttons.connect("select_direction_select_button_pressed", dungeon_window, "on_select_direction_select_button_pressed")
     # card info
     card_info.connect("card_info_quit", self, "on_card_info_quit")

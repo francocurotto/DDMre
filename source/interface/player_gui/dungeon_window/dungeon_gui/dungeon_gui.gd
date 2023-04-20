@@ -208,6 +208,7 @@ func on_ability_ended():
     action_menu.visible = false
 
 func on_highlight_ability_tiles(tiles):
+    disable_tile_gui_ability_highlights()
     for tile in tiles:
         get_tile_gui(tile.pos).set_ability_highlight(true)
 

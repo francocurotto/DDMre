@@ -1,6 +1,6 @@
 ### TODO
 - ROLLLEVELKILL
-    - add roll highlight
+    - fix player2 highlight at start
 ---
 - DIMKILLTUNNELALL
 - DIMTRADECREST (modify ability definition to accept changing the cost)
