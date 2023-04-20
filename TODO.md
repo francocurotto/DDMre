@@ -1,7 +1,4 @@
 ### TODO
-- ROLLLEVELKILL
-    - fix player2 highlight at start
----
 - DIMKILLTUNNELALL
 - DIMTRADECREST (modify ability definition to accept changing the cost)
 ---
@@ -14,24 +11,24 @@
 
 ### FIXES
 - add ability description in card info
-- inconsistency: when ability select monster menu is activated, monsters are not highlighted, but if you go to select monster and cancel the monsters are kept highlighted. Basically when menu is open, there are two states, monsters highlighted and not highlighted
+- standarize cmd syntax and context checks
 
 ### IMPROVEMENTS
-- standarize cmd syntax and context checks
+- inconsistency: when ability select monster menu is activated, monsters are not highlighted, but if you go to select monster and cancel the monsters are kept highlighted. Basically when menu is open, there are two states, monsters highlighted and not highlighted
+- make net select button scrollable to change nets
+- make summon actions and dim transformations menus popable in dungeon?
 
 ### ADDITIONS
 - implement attack twice ability for Knight of Twin Swords
 - implement better ability for Dark-eyes Illusionist
 - add vortex initialization
 - add neutral path tile for vortex at start
-- make net select button scrollable to change nets
-- make summon actions and dim transformations menus popable in dungeon?
 
 ### ART
 - test change tile icons
 - make everything 16-bitish
 
-### ABILITIES [39/46]
+### ABILITIES [40/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -65,7 +62,7 @@
 - ✅TRADEHEALTH
 - ✅STEALMONSTER
 - ✅MINDCONTROL
-- ❌ROLLLEVELKILL
+- ✅ROLLLEVELKILL
 - ✅RANGELEVELKILL
 - ✅RANGEKILLALL
 - ✅DISTANCEATTACK

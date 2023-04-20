@@ -14,7 +14,7 @@ It makes more sense to compute the cost by only using ints to get:
 # Typos
 - Saggi the Dark Clown ability says that it reduces the damage to "an ally", yet it only works when he himself is being attacked. Therefore it is equivalent to the "reduce damage" ability of Castle of D. Magic and Pumpking the King of Ghosts (i.e. the REDUCEDAMAGE ability).
 - Similar to Saggi, Dark-eyes Illusionist ability says that in negates the attack and effect on one ally, yet it only work when he himself it's under attack.
-- Knight of Twin Swords ability says that it can attack a monster more up to 3 times per turn, yet it can only attack once. Instead its ability is RAISEATTACK with MAX 4.
+- Knight of Twin Swords ability says that it can attack a monster more up to 3 times per turn, yet it can only attack once. Instead its ability is RAISEATTACK with MAX 3.
 - For Magician Dragon second ability, it says that it destroys everything a within a 3x3 grid, but instead, it destroys everything at range 3.
 
 # Bugs

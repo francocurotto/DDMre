@@ -37,7 +37,10 @@ func activate(monster):
     ability = monster.get_ability("ROLLLEVELKILL")
     cost = ability.cost
     crest = ability.crest
-    direction = Vector2(0,1)
+    if ability.monster.player.id == 1:
+        direction = Vector2(0,1)
+    else:
+        direction = Vector2(0,-1)
     direction_button.text = "SELECT DIRECTION " + get_direction_string()
     cast_button.text = "✨CAST (%d%s)" % [self.total_cost, Globals.CRESTICONS[crest]]
     emit_signal("highlight_ability_tiles", ability.get_roll_tiles(direction))
