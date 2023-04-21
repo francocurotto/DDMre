@@ -17,7 +17,7 @@ Cost: COST x CREST
 Restore AMOUNT HEALTH to all player monsters. This ability cannot be skipped.
 
 ## DIMKILLWEAKEST
-Destroy the opponent monster with the least ATTACK (after abilities effect computation).
+Excluding this monster, destroy the monster with the lowest ATTACK (after abilities effect computation).
 
 ## DIMKILLTUNNEL (COST, CREST)
 Destroy one monster with the (active) ability TUNNEL.
@@ -124,7 +124,7 @@ Choose an opponent monster/item at range RANGE. The ability cost is increased by
 Cost: COST+[1..4] x CREST
 
 ## RANGEKILLALL (RANGE, COST, CREST)
-Destroy all other monsters and items at a range of RANGE.
+Destroy all other monsters and items at a range of RANGE, except this monster.
 Cost: COST x CREST
 
 ## DISTANCEATTACK (MAX, COST, CREST)

@@ -3,7 +3,7 @@
 - DIMTRADECREST (modify ability definition to accept changing the cost)
 ---
 - DIMKILLTUNNEL
-- DIMKILLWEAKEST (change to DIMKILLWEAKESTLVL)
+- DIMKILLWEAKEST (change to cover all monsters)
 ---
 - DIMCURE
 ---
