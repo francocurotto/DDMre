@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/state_ability_gui/state_ability_gui.gd" type="Script" id=1]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/state_ability_gui/dim_kill_tunnel_all_gui/dim_kill_tunnel_all_gui.tscn" type="PackedScene" id=2]
+
+[node name="StateAbilityGUI" type="MarginContainer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+
+[node name="DimKillTunnelAllGUI" parent="." instance=ExtResource( 2 )]
+margin_right = 342.0

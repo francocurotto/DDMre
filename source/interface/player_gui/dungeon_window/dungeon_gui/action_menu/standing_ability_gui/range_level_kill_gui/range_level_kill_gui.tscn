@@ -1,20 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
 [ext_resource path="res://art/fonts/summon_stat.tres" type="DynamicFont" id=2]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/kill_block_gui/kill_block_gui.gd" type="Script" id=3]
+[ext_resource path="res://interface/player_gui/info_display/summon_info/summon_info.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/range_level_kill_gui/range_level_kill_gui.gd" type="Script" id=4]
 
-[node name="KillBlockGUI" type="VBoxContainer"]
+[node name="RangeLevelKillGUI" type="VBoxContainer"]
 margin_right = 603.0
 margin_bottom = 340.0
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Title" type="Label" parent="."]
 margin_right = 603.0
 margin_bottom = 36.0
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 2 )
-text = "KILL BLOCK"
+text = "RANGE LEVEL KILL"
 align = 1
 
 [node name="Margins" type="MarginContainer" parent="."]
@@ -40,7 +41,13 @@ margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 1 )
 toggle_mode = true
-text = "🔘SELECT BLOCK"
+text = "🔘SELECT MONSTER/ITEM"
+
+[node name="SummonInfo" parent="Margins/Buttons" instance=ExtResource( 3 )]
+visible = false
+margin_top = 90.0
+margin_right = 543.0
+margin_bottom = 126.0
 
 [node name="CastButton" type="Button" parent="Margins/Buttons"]
 margin_top = 90.0

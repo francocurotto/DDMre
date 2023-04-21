@@ -15,7 +15,8 @@ onready var dungeon_gui = $MainWindow/DungeonWindow/DungeonGUI
 onready var action_menu = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu
 onready var attack_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/AttackGUI
 onready var reply_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/ReplyGUI
-onready var ability_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/AbilityGUI
+onready var standing_ability_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/StandingAbilityGUI
+onready var state_ability_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/StateAbilityGUI
 onready var summon_gui = $MainWindow/DungeonWindow/SummonGUI
 onready var dungeon_buttons_gui = $MainWindow/DungeonWindow/DungeonButtonsGUI
 onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/DungeonButtons
@@ -37,7 +38,7 @@ func _ready():
     dicepool_gui.connect("dice_gui_info_button_pressed", self, "on_info_button_pressed")
     # roll gui
     roll_gui.connect("roll_gui_roll_button_pressed", self, "on_roll_gui_roll_button_pressed")
-    roll_gui.connect("roll_gui_skip_button_pressed", self, "on_roll_gui_skip_button_pressed")
+    roll_gui.connect("roll_gui_skip_button_pressed", self, "on_skip_cmd")
     # dungeon gui
     dungeon_gui.connect("tile_select_button_toggled", summon_gui, "on_tile_select_button_toggled")
     dungeon_gui.connect("tile_select_button_toggled", dungeon_buttons, "on_tile_select_button_toggled")
@@ -57,11 +58,14 @@ func _ready():
     reply_gui.connect("reply_cmd", self, "on_reply_cmd")
     reply_gui.connect("ability_select_tile", action_menu, "on_ability_select_tile")
     # standing ability gui
-    ability_gui.connect("ability_cmd", self, "on_ability_cmd")
-    ability_gui.connect("ability_cancel_button_pressed", dungeon_window, "on_ability_ended")
-    ability_gui.connect("highlight_ability_tiles", dungeon_gui, "on_highlight_ability_tiles")
-    ability_gui.connect("ability_select_tile", dungeon_window, "on_ability_select_tile")
-    ability_gui.connect("ability_select_direction", dungeon_window, "on_ability_select_direction")
+    standing_ability_gui.connect("ability_cmd", self, "on_ability_cmd")
+    standing_ability_gui.connect("ability_cancel_button_pressed", dungeon_window, "on_ability_ended")
+    standing_ability_gui.connect("highlight_ability_tiles", dungeon_gui, "on_highlight_ability_tiles")
+    standing_ability_gui.connect("ability_select_tile", dungeon_window, "on_ability_select_tile")
+    standing_ability_gui.connect("ability_select_direction", dungeon_window, "on_ability_select_direction")
+    # state ability gui
+    state_ability_gui.connect("ability_cmd", self, "on_ability_cmd")
+    state_ability_gui.connect("skip_cmd", self, "on_skip_cmd")
     # dungeon info button
     summon_gui.connect("summon_gui_info_button_pressed", self, "on_info_button_pressed")
     # dungeon buttons
@@ -112,8 +116,9 @@ func on_roll_gui_roll_button_pressed():
     var indeces = dicepool_gui.get_roll_indeces()
     engine.update({"name":"ROLL", "dice":indeces})
 
-func on_roll_gui_skip_button_pressed():
-    engine.update({"name":"SKIP"})
+func on_skip_cmd(cmd):
+    #action_menu.visible = false
+    engine.update(cmd)
 
 func on_dim_button_pressed():
     dicepool_gui.release_roll()
@@ -162,6 +167,10 @@ func on_state_update_reply():
     switch_to_dungeon_window()
     dicepool_window.on_state_update_reply()
     dungeon_window.on_state_update_reply(engine.state.attacker, engine.state.attacked)
+
+func on_state_update_ability():
+    dicepool_window.on_state_update_ability()
+    dungeon_window.on_state_update_ability(engine.state.summon)
 
 func on_info_button_pressed(card):
     card_info.set_card(card)

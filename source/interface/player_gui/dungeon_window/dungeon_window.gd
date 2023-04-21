@@ -23,8 +23,12 @@ func on_state_update_dungeon():
 
 func on_state_update_reply(attacker, attacked):
     dungeon_buttons_gui.disable_dungeon_action_buttons()
-    dungeon_gui.open_reply_menu(attacker, attacked)
+    dungeon_gui.activate_reply_gui(attacker, attacked)
     dungeon_gui.highlight_attack_reply(attacker, attacked)
+
+func on_state_update_ability(summon):
+    dungeon_buttons_gui.switch_to_dungeon_buttons()
+    dungeon_gui.activate_state_ability_gui(summon)
 
 func on_dice_gui_dim_button_pressed(dice):
     dungeon_gui.on_dice_dim_button_pressed(dice)

@@ -46,6 +46,7 @@ func on_state_update(state_name):
         "DIMENSION" : on_state_update_dimension()
         "DUNGEON"   : on_state_update_dungeon()
         "REPLY"     : on_state_update_reply()
+        "ABILITY"   : on_state_update_ability()
 
 func on_state_update_roll():
     self.player_gui.on_state_update_roll()
@@ -58,6 +59,9 @@ func on_state_update_dungeon():
 
 func on_state_update_reply():
     self.player_gui.on_state_update_reply()
+
+func on_state_update_ability():
+    self.player_gui.on_state_update_ability()
 
 func on_dice_rolled(sides):
     self.player_gui.set_roll(sides)

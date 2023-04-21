@@ -16,7 +16,7 @@ onready var rows = $Rows
 onready var action_menu = $ActionMenu
 onready var attack_gui = $ActionMenu/VBox/GUIs/AttackGUI
 onready var reply_gui = $ActionMenu/VBox/GUIs/ReplyGUI
-onready var ability_gui = $ActionMenu/VBox/GUIs/AbilityGUI
+#onready var standing_ability_gui = $ActionMenu/VBox/GUIs/StandingAbilityGUI
 
 # signals
 signal tile_select_button_toggled(content, pressed)
@@ -90,8 +90,13 @@ func unset_summon_highlights():
     for tile_gui in tile_guis:
         tile_gui.unset_summon_highlight()
 
-func open_reply_menu(attacker, attacked):
+func activate_reply_gui(attacker, attacked):
     action_menu.activate_reply_gui(attacker, attacked)
+
+func activate_state_ability_gui(summon):
+    disable_tile_gui_buttons()
+    disable_tile_gui_highlights()
+    action_menu.activate_state_ability_gui(summon)
 
 func highlight_attack_reply(attacker, attacked):
     highlight_attack(attacker.tile.pos, attacked.tile.pos)
@@ -204,7 +209,8 @@ func on_select_direction_select_button_pressed(direction):
 func on_ability_ended():
     enable_select_buttons()
     disable_tile_gui_ability_highlights()
-    on_tile_select_button_toggled(selected_tile_gui, true)
+    if selected_tile_gui:
+        on_tile_select_button_toggled(selected_tile_gui, true)
     action_menu.visible = false
 
 func on_highlight_ability_tiles(tiles):

@@ -72,8 +72,8 @@ func on_cancel_button_pressed():
 func on_highlight_ability_tiles(tiles):
     emit_signal("highlight_ability_tiles", tiles)
 
-func on_check_dungeon_button_pressed():
-    emit_signal("check_dungeon_button_pressed")
+#func on_check_dungeon_button_pressed():
+#    emit_signal("check_dungeon_button_pressed")
 
 func on_ability_select_tile(tiles):
     emit_signal("ability_select_tile", tiles)

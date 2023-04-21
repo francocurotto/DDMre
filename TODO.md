@@ -1,5 +1,4 @@
 ### TODO
-- DIMKILLTUNNELALL
 - DIMTRADECREST (modify ability definition to accept changing the cost)
 ---
 - DIMKILLTUNNEL
@@ -28,7 +27,7 @@
 - test change tile icons
 - make everything 16-bitish
 
-### ABILITIES [40/46]
+### ABILITIES [41/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -37,7 +36,7 @@
 - ✅DIMCUREALL
 - ❌DIMKILLWEAKEST
 - ❌DIMKILLTUNNEL
-- ❌DIMKILLTUNNELALL
+- ✅DIMKILLTUNNELALL
 - ✅DIMADDCREST
 - ❌DIMTRADECREST
 - ✅EXODIA

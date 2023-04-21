@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/ability_gui/buff_damage_gui/buff_damage_gui.gd" type="Script" id=1]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/buff_damage_gui/buff_damage_gui.gd" type="Script" id=1]
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=2]
 [ext_resource path="res://art/fonts/summon_stat.tres" type="DynamicFont" id=3]
 
