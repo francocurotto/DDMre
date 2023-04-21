@@ -77,6 +77,9 @@ func ATTACK(cmd):
     return self
 
 func ABILITY(cmd):
+    """
+    Excecute the ABILITY command.
+    """
     var monster = dungeon.get_tile(cmd["pos"]).content
     var activate_dict = cmd["ability"]
     for ability in monster.card.abilities:

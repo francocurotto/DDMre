@@ -224,3 +224,6 @@ func is_monster():
 
 func is_flying():
     return has_active_ability("FLY")
+
+func is_tunnel():
+    return has_active_ability("TUNNEL")

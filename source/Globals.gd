@@ -27,7 +27,8 @@ const LIBPATH = "res://LIBRARY.json"
 #const DUNGPATH = "res://dungeons/test_mind_control.json"
 #const DUNGPATH = "res://dungeons/test_kill_block.json"
 #const DUNGPATH = "res://dungeons/test_range_level_kill.json"
-const DUNGPATH = "res://dungeons/test_roll_level_kill.json"
+#const DUNGPATH = "res://dungeons/test_roll_level_kill.json"
+const DUNGPATH = "res://dungeons/test_dim_kill_tunnel_all.json"
 #const RANDOMPOOL = true
 const RANDOMPOOL = false
 #const POOL1PATH = "res://dicepools/test_pass.json";const POOL2PATH = "res://dicepools/test_pass.json"
@@ -55,7 +56,8 @@ const RANDOMPOOL = false
 #const POOL1PATH = "res://dicepools/test_mind_control.json";const POOL2PATH = "res://dicepools/test_mind_control.json"
 #const POOL1PATH = "res://dicepools/test_kill_block.json";const POOL2PATH = "res://dicepools/test_kill_block.json"
 #const POOL1PATH = "res://dicepools/test_range_level_kill.json";const POOL2PATH = "res://dicepools/test_range_level_kill.json"
-const POOL1PATH = "res://dicepools/test_roll_level_kill.json";const POOL2PATH = "res://dicepools/test_roll_level_kill.json"
+#const POOL1PATH = "res://dicepools/test_roll_level_kill.json";const POOL2PATH = "res://dicepools/test_roll_level_kill.json"
+const POOL1PATH = "res://dicepools/test_dim_kill_tunnel_all.json";const POOL2PATH = "res://dicepools/test_dim_kill_tunnel_all.json"
 
 # arrays, dictionaries
 const CRESTS = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]

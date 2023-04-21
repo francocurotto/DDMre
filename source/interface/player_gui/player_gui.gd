@@ -50,7 +50,6 @@ func _ready():
     dungeon_gui.net_creator.connect("net_updated", dungeon_gui, "on_net_updated")
     # action menu
     action_menu.connect("check_dungeon_button_pressed", dungeon_window, "on_check_dungeon_button_pressed")
-    action_menu.connect("ability_select_tile", dungeon_window, "on_ability_select_tile")
     # attack gui
     attack_gui.connect("attack_cmd", self, "on_attack_cmd")
     attack_gui.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
@@ -61,7 +60,7 @@ func _ready():
     ability_gui.connect("ability_cmd", self, "on_ability_cmd")
     ability_gui.connect("ability_cancel_button_pressed", dungeon_window, "on_ability_ended")
     ability_gui.connect("highlight_ability_tiles", dungeon_gui, "on_highlight_ability_tiles")
-    ability_gui.connect("ability_select_tile", action_menu, "on_ability_select_tile")
+    ability_gui.connect("ability_select_tile", dungeon_window, "on_ability_select_tile")
     ability_gui.connect("ability_select_direction", dungeon_window, "on_ability_select_direction")
     # dungeon info button
     summon_gui.connect("summon_gui_info_button_pressed", self, "on_info_button_pressed")

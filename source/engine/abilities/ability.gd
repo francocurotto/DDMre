@@ -20,3 +20,6 @@ func disable():
 # is functions
 func is_standing():
     return false
+
+func is_state_dim():
+    return false

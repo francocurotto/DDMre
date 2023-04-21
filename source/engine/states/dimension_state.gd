@@ -6,6 +6,7 @@ const NAME = "DIMENSION"
 # variables
 var dim_candidates
 var DungeonState = load("engine/states/dungeon_state.gd")
+var AbilityState = load("engine/states/ability_state.gd")
 
 func _init(_player, _opponent, _dungeon, _dim_candidates).(_player, _opponent, _dungeon):
     dim_candidates = _dim_candidates
@@ -33,8 +34,11 @@ func DIM(cmd):
 
     # verify for valid dimension
     if dungeon.can_dimension(net, player): # do dimension
-        dungeon.dimension(player, net, diceidx)
+        var summon = dungeon.dimension(player, net, diceidx)
         Events.emit_signal("duel_update")
-        return DungeonState.new(player, opponent, dungeon)
+        if summon.get_state_dim_ability():
+            return AbilityState.new(player, opponent, dungeon, summon)
+        else:
+            return DungeonState.new(player, opponent, dungeon)
     else: # invalid dimension, so nothing
         return self

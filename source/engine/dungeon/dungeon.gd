@@ -221,6 +221,7 @@ func dimension(player, net, diceidx):
     var summon = player.summon_card(diceidx)
     array[net.centerpos.y][net.centerpos.x].set_content(summon)
     summon.initialize_abilities(self)
+    return summon
 
 func can_dimension(net, player):
     """

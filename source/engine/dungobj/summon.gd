@@ -24,6 +24,12 @@ func negate_abilities():
     for ability in card.abilities:
         ability.disable()
 
+func get_state_dim_ability():
+    for ability in card.abilities:
+        if ability.is_state_dim():
+            return ability
+    return null
+
 # is functions
 func is_summon():
     return true
@@ -38,4 +44,4 @@ func has_active_standing_ability():
     for ability in card.abilities:
         if ability.is_standing() and not ability.is_negated():
             return true
-    return false    
+    return false 

@@ -36,10 +36,6 @@ func activate_ability_gui(tile):
 func _on_CheckDungeonButton_pressed():
     emit_signal("check_dungeon_button_pressed")
 
-func on_ability_select_tile(tiles):
-    emit_signal("ability_select_tile", tiles)
-    visible = false
-
 func on_select_tile_cancel_button_pressed():
     self.active_gui.on_select_tile_cancel_button_pressed()
     visible = true
