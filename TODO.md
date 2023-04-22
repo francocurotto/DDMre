@@ -1,5 +1,6 @@
 ### TODO
-- DIMTRADECREST (modify ability definition to accept changing the cost)
+- reset dim buttons when pressing dice button
+- DIMTRADECREST
 ---
 - DIMKILLTUNNEL
 - DIMKILLWEAKEST (change to cover all monsters)

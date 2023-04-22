@@ -27,11 +27,11 @@ Cost: COST x CREST
 Destroy all monsters with the (active) ability TUNNEL.
 Cost: COST x CREST
 
-## DIMADDCREST (CREST, AMOUNT)
+## DIMADDCREST (AMOUNT, CREST)
 Add AMOUNT CREST crest(s) to player crest pool. This ability cannot be skipped.
 
-## DIMTRADECREST (COST)
-Pay COST crest(s) of one type. Add for one crest of any type in player crest pool.
+## DIMTRADECREST (AMOUNT, COST)
+Pay COST crest(s) of one type. Add for AMOUNT crest of any type in player crest pool.
 
 ## EXODIA
 Win the game if player controls "R Leg of Forbidden", "L Leg of Forbidden", "L Arm of Forbidden" and "R Arm of Forbidden". This ability cannot be skipped.

@@ -688,6 +688,7 @@
     "DEFENSE": 10,
     "HEALTH": 20,
     "ABILITY": [{"NAME": "DIMTRADECREST",
+                 "AMOUNT": 1,
                  "COST": 3}],
     "CRESTS": "SSSM2AD"
   },
