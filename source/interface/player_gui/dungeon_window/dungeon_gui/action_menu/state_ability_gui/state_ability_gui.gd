@@ -7,6 +7,7 @@ var active_gui
 
 # onready variables
 onready var dim_kill_tunnel_all_gui = $DimKillTunnelAllGUI
+onready var dim_trade_crest_gui = $DimTradeCrestGUI
 
 # signals
 signal ability_cmd(cmd)
@@ -14,7 +15,8 @@ signal skip_cmd
 signal ability_select_tile(tiles)
 
 func _ready():
-    ability_guis_dict = {"DIMKILLTUNNELALL" : dim_kill_tunnel_all_gui}
+    ability_guis_dict = {"DIMKILLTUNNELALL" : dim_kill_tunnel_all_gui,
+                         "DIMTRADECREST"    : dim_trade_crest_gui}
 
 # public functions
 func activate(_summon):
@@ -42,9 +44,6 @@ func on_skip_button_pressed():
 
 func on_highlight_ability_tiles(tiles):
     emit_signal("highlight_ability_tiles", tiles)
-
-#func on_check_dungeon_button_pressed():
-#    emit_signal("check_dungeon_button_pressed")
 
 func on_ability_select_tile(tiles):
     emit_signal("ability_select_tile", tiles)

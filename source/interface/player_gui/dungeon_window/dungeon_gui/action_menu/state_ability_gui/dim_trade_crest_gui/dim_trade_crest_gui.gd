@@ -2,7 +2,7 @@ extends VBoxContainer
 
 # variables
 var cost
-var crest
+var amount
 
 # onready variables
 onready var cast_button = $Margins/Buttons/CastButton
@@ -13,11 +13,12 @@ signal skip_button_pressed
 
 # public functions
 func activate(monster):
-    var ability = monster.get_ability("DIMKILLTUNNELALL")
+    var ability = monster.get_ability("DIMTRADECREST")
     cost = ability.cost
-    crest = ability.crest
-    cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[crest]]
-    cast_button.disabled = cost > monster.player.crestpool.slots[crest]
+    amount = ability.amount
+    #cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[crest]]
+    #cast_button.disabled = cost > monster.player.crestpool.slots[crest]
+    cast_button.disabled = true
     visible = true
 
 func _on_CastButton_pressed():
