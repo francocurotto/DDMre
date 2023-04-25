@@ -193,3 +193,6 @@ margin_bottom = 330.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 2 )
 text = "❌SKIP"
+
+[connection signal="pressed" from="Margins/Buttons/CastButton" to="." method="_on_CastButton_pressed"]
+[connection signal="pressed" from="Margins/Buttons/SkipButton" to="." method="_on_SkipButton_pressed"]

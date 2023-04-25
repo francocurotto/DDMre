@@ -38,7 +38,7 @@ func _on_RollButton_pressed():
 
 func _on_SkipButton_pressed():
     switch_to_roll_button()
-    emit_signal("roll_gui_skip_button_pressed")
+    emit_signal("roll_gui_skip_button_pressed", {"name":"SKIP"})
 
 # private functions
 func switch_to_skip_button():

@@ -45,6 +45,7 @@ func _ready():
 func disable_buttons():
     for main_button in main_buttons.get_children():
         main_button.disabled = true
+    net_button.icon = l1_button.icon
 
 func enable_trans_buttons():
     for button in trans_buttons:

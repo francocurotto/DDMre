@@ -6,6 +6,7 @@ onready var action_menu = $DungeonGUI/ActionMenu
 onready var reply_gui = $DungeonGUI/ActionMenu/VBox/GUIs/ReplyGUI
 onready var dungeon_buttons_gui = $DungeonButtonsGUI
 onready var dungeon_buttons = $DungeonButtonsGUI/DungeonButtons
+onready var dim_buttons = $DungeonButtonsGUI/DimButtons
 onready var select_tile_buttons = $DungeonButtonsGUI/SelectTileButtons
 
 # public functions
@@ -37,6 +38,8 @@ func on_dice_gui_dim_button_pressed(dice):
 func on_dice_gui_dim_button_released():
     dungeon_gui.reset()
     dungeon_buttons_gui.switch_to_dungeon_buttons()
+    dim_buttons._on_CancelButton_pressed()
+    dim_buttons.disable_buttons()
 
 func on_ability_select_tile(tiles):
     action_menu.visible = false

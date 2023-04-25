@@ -1,7 +1,4 @@
 ### TODO
-- reset dim buttons when pressing dice button
-- DIMTRADECREST
----
 - DIMKILLTUNNEL
 - DIMKILLWEAKEST (change to cover all monsters)
 ---
@@ -28,7 +25,7 @@
 - test change tile icons
 - make everything 16-bitish
 
-### ABILITIES [41/46]
+### ABILITIES [42/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -39,7 +36,7 @@
 - ❌DIMKILLTUNNEL
 - ✅DIMKILLTUNNELALL
 - ✅DIMADDCREST
-- ❌DIMTRADECREST
+- ✅DIMTRADECREST
 - ✅EXODIA
 - ✅DIMBUFFDEADTYPE
 - ✅STOPFLY
