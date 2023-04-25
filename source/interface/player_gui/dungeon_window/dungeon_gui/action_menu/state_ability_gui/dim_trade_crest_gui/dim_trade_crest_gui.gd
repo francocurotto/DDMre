@@ -3,13 +3,14 @@ extends VBoxContainer
 # variables
 var cost
 var amount
+var monster
 var crests = ["MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
 
 # onready variables
-onready var pay_label = $Margins/Buttons/PayGUI/PayLabel
-onready var gain_label = $Margins/Buttons/GainGUI/GainLabel
-onready var paycrest_buttongroup = $Margin/Buttons/PayGUI/PayButtons/MovementButton.group
-onready var gaincrest_buttongroup = $Margin/Buttons/GainGUI/GainButtons/MovementButton.group
+onready var pay_label = $Margins/Buttons/PayGUI/PayText
+onready var gain_label = $Margins/Buttons/GainGUI/GainText
+onready var paycrest_buttongroup = $Margins/Buttons/PayGUI/PayButtons/MoveButton.group
+onready var gaincrest_buttongroup = $Margins/Buttons/GainGUI/GainButtons/MoveButton.group
 onready var cast_button = $Margins/Buttons/CastButton
 
 # signals
@@ -21,16 +22,17 @@ func _ready():
     gaincrest_buttongroup.connect("pressed", self, "on_gain_button_pressed")
 
 # public functions
-func activate(monster):
+func activate(_monster):
+    monster = _monster
     var ability = monster.get_ability("DIMTRADECREST")
     cost = ability.cost
     amount = ability.amount
     pay_label.text = "Pay Crest (%d)" % cost
     gain_label.text = "Gain Crest (%d)" % amount
     for i in range(len(crests)):
-        button = paycrest_buttongroup.get_child(i)
+        var button = paycrest_buttongroup.get_child(i)
         if monster.player.crestpool.slots[crests[i]] < cost:
-            button.disable
+            button.disable = true
     cast_button.disabled = true
     visible = true
 
