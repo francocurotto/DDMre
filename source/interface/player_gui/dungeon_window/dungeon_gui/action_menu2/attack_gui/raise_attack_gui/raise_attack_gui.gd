@@ -13,7 +13,7 @@ func setup(attack_gui, monster):
     for raise in range(1, max_raise+1):
         RaiseAttackButton.instance().setup(self, monster, raise)
     connect("attack_ability_activated", attack_gui, "on_attack_ability_activated")
-    add_child_below_node(attack_gui, attack_gui.get_node("Margins/Controls/AttackButton"))
+    attack_gui.add_child_below_node(self, attack_gui.get_node("Margins/Controls/AttackButton"))
 
 # signals callbacks
 func on_raise_attack_button_pressed(raise):
