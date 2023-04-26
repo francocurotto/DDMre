@@ -1,4 +1,5 @@
 ### TODO
+- refactor action menu
 - DIMKILLTUNNEL
 - DIMKILLWEAKEST (change to cover all monsters)
 ---

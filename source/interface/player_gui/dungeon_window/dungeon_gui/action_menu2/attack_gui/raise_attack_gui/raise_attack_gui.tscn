@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="RaiseAttackGUI" type="VBoxContainer"]
+margin_right = 234.0
+margin_bottom = 60.0
+custom_constants/separation = 30
