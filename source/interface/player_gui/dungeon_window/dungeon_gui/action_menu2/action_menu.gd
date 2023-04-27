@@ -11,6 +11,9 @@ var action_gui
 # signals
 signal check_dungeon_button_pressed
 signal attack_button_pressed
+signal cancel_button_pressed
+signal reply_button_pressed
+signal ability_select_tile
 
 # public functions
 func activate_attack_gui(attacker, attacked):
