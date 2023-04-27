@@ -11,9 +11,10 @@ func setup(attack_gui, monster):
     var ability = monster.get_ability("RAISEATTACK")
     var max_raise = ability.max_raise
     for raise in range(1, max_raise+1):
-        RaiseAttackButton.instance().setup(self, monster, raise)
+        var button = RaiseAttackButton.instance().setup(self, monster, raise)
+        add_child(button)
     connect("attack_ability_activated", attack_gui, "on_attack_ability_activated")
-    attack_gui.add_child_below_node(self, attack_gui.get_node("Margins/Controls/AttackButton"))
+    return self
 
 # signals callbacks
 func on_raise_attack_button_pressed(raise):

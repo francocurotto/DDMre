@@ -13,7 +13,7 @@ func setup(raise_attack_gui, monster, _raise):
     if monster.player.crestpool.slots["ATTACK"] < raise+1:
         disabled = true 
     connect("raise_attack_button_pressed", raise_attack_gui, "on_raise_attack_button_pressed")
-    raise_attack_gui.add_child(self)
+    return self
 
 # signals callbacks
 func _on_RaiseAttackButton_pressed():

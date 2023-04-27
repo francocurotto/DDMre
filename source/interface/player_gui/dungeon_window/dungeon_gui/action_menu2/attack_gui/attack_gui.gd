@@ -6,7 +6,6 @@ const RaiseAttackGUI = preload("res://interface/player_gui/dungeon_window/dungeo
 # variables
 var pos1
 var pos2
-var attack_ability_gui
 
 # onready variables
 onready var attack_info = $AttackInfo
@@ -22,10 +21,10 @@ func setup(action_menu, attacker, attacked):
     pos2 = attacked.tile.pos
     attack_info.set_summons(attacker, attacker.player, attacked, attacked.player)
     if attacker.has_active_ability("RAISEATTACK"): # TODO: add case ability negated
-        RaiseAttackGUI.instance().setup(self, attacker)
+        var raise_attack_gui = raiRaiseAttackGUI.instance().setup(self, attacker)
+        add_child_below_node(raise_attack_gui, attack_button)
     connect("attack_button_pressed", action_menu, "on_attack_button_pressed")
     connect("cancel_button_pressed", action_menu, "on_cancel_button_pressed")
-    action_menu.add_child(self)
     return self
 
 # signals callbacks
