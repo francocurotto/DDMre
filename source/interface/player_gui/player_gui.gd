@@ -13,10 +13,10 @@ onready var roll_gui = $MainWindow/DicepoolWindow/RollGUI
 onready var dungeon_window = $MainWindow/DungeonWindow
 onready var dungeon_gui = $MainWindow/DungeonWindow/DungeonGUI
 onready var action_menu = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu
-onready var attack_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/AttackGUI
-onready var reply_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/ReplyGUI
-onready var standing_ability_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/StandingAbilityGUI
-onready var state_ability_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/StateAbilityGUI
+#onready var attack_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/AttackGUI
+#onready var reply_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/ReplyGUI
+#onready var standing_ability_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/StandingAbilityGUI
+#onready var state_ability_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/StateAbilityGUI
 onready var summon_gui = $MainWindow/DungeonWindow/SummonGUI
 onready var dungeon_buttons_gui = $MainWindow/DungeonWindow/DungeonButtonsGUI
 onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/DungeonButtons
@@ -37,35 +37,34 @@ func _ready():
     dicepool_gui.connect("dice_gui_dim_button_released", dungeon_window, "on_dice_gui_dim_button_released")
     dicepool_gui.connect("dice_gui_info_button_pressed", self, "on_info_button_pressed")
     # roll gui
-    roll_gui.connect("roll_gui_roll_button_pressed", self, "on_roll_gui_roll_button_pressed")
-    roll_gui.connect("roll_gui_skip_button_pressed", self, "on_skip_cmd")
+    roll_gui.connect("roll_gui_roll_button_pressed", self, "input_roll_cmd")
+    roll_gui.connect("roll_gui_skip_button_pressed", self, "input_skip_cmd")
     # dungeon gui
     dungeon_gui.connect("tile_select_button_toggled", summon_gui, "on_tile_select_button_toggled")
     dungeon_gui.connect("tile_select_button_toggled", dungeon_buttons, "on_tile_select_button_toggled")
     dungeon_gui.connect("net_updated", dim_buttons, "on_net_updated")
     dungeon_gui.connect("menu_opened", dungeon_buttons, "on_menu_opened")
     dungeon_gui.connect("tile_move_button_pressed", dungeon_buttons_gui, "on_tile_move_button_pressed")
-    dungeon_gui.connect("attack_cmd", self, "on_attack_cmd")
-    dungeon_gui.connect("monster_jumped", self, "on_jump_input")
+    dungeon_gui.connect("attack_monster_lord", self, "on_attack_cmd")
+    dungeon_gui.connect("monster_jumped", self, "input_jump_cmd")
     # net creator
     dungeon_gui.net_creator.connect("net_updated", dungeon_gui, "on_net_updated")
     # action menu
     action_menu.connect("check_dungeon_button_pressed", dungeon_window, "on_check_dungeon_button_pressed")
     # attack gui
-    attack_gui.connect("attack_cmd", self, "on_attack_cmd")
-    attack_gui.connect("menu_canceled", dungeon_window, "reset_to_dungeon")
-    # reply gui
-    reply_gui.connect("reply_cmd", self, "on_reply_cmd")
-    reply_gui.connect("ability_select_tile", action_menu, "on_ability_select_tile")
+    action_menu.connect("attack_button_pressed", self, "input_attack_cmd")
+    action_menu.connect("cancel_button_pressed", dungeon_window, "reset_to_dungeon")
+    action_menu.connect("reply_button_pressed", self, "input_reply_cmd")
+    action_menu.connect("ability_select_tile", dungeon_window, "on_ability_select_tile")
     # standing ability gui
-    standing_ability_gui.connect("ability_cmd", self, "on_ability_cmd")
-    standing_ability_gui.connect("ability_cancel_button_pressed", dungeon_window, "on_ability_ended")
-    standing_ability_gui.connect("highlight_ability_tiles", dungeon_gui, "on_highlight_ability_tiles")
-    standing_ability_gui.connect("ability_select_tile", dungeon_window, "on_ability_select_tile")
-    standing_ability_gui.connect("ability_select_direction", dungeon_window, "on_ability_select_direction")
+    #standing_ability_gui.connect("ability_cmd", self, "on_ability_cmd")
+    #standing_ability_gui.connect("ability_cancel_button_pressed", dungeon_window, "on_ability_ended")
+    #standing_ability_gui.connect("highlight_ability_tiles", dungeon_gui, "on_highlight_ability_tiles")
+    #standing_ability_gui.connect("ability_select_tile", dungeon_window, "on_ability_select_tile")
+    #standing_ability_gui.connect("ability_select_direction", dungeon_window, "on_ability_select_direction")
     # state ability gui
-    state_ability_gui.connect("ability_cmd", self, "on_ability_cmd")
-    state_ability_gui.connect("skip_cmd", self, "on_skip_cmd")
+    #state_ability_gui.connect("ability_cmd", self, "on_ability_cmd")
+    #state_ability_gui.connect("skip_cmd", self, "on_skip_cmd")
     # dungeon info button
     summon_gui.connect("summon_gui_info_button_pressed", self, "on_info_button_pressed")
     # dungeon buttons
@@ -77,7 +76,7 @@ func _ready():
     dungeon_buttons.connect("cancel_button_pressed", dungeon_window, "reset_to_dungeon")
     dungeon_buttons.connect("back_button_pressed", dungeon_window, "on_back_button_pressed")
     # move buttons
-    move_buttons.connect("move_buttons_move_button_pressed", self, "on_move_buttons_move_button_pressed")
+    move_buttons.connect("move_buttons_move_button_pressed", self, "input_move_cmd")
     move_buttons.connect("move_buttons_cancel_button_pressed", dungeon_window, "reset_to_dungeon")
     # dim buttons
     dim_buttons.connect("FLR_button_pressed", dungeon_gui, "on_FLR_button_pressed")
@@ -112,15 +111,14 @@ func set_roll(sides):
     roll_gui.set_roll(sides)
 
 # signals callbacks
-func on_roll_gui_roll_button_pressed():
+func input_roll_cmd():
     var indeces = dicepool_gui.get_roll_indeces()
     engine.update({"name":"ROLL", "dice":indeces})
 
-func on_skip_cmd(cmd):
-    #action_menu.visible = false
+func input_skip_cmd(cmd):
     engine.update(cmd)
 
-func on_dim_button_pressed():
+func input_dim_cmd():
     dicepool_gui.release_roll()
     var dimdice = dicepool_gui.get_selected_dim_index()
     var netdata = dungeon_gui.net_creator.get_netdata()
@@ -129,26 +127,26 @@ func on_dim_button_pressed():
     var trans = netdata["trans_list"]
     engine.update({"name":"DIM", "dice":dimdice, "net":net, "pos":pos, "trans":trans})
 
-func on_move_buttons_move_button_pressed(pos1, pos2):
+func input_move_cmd(pos1, pos2):
     dungeon_window.reset_to_dungeon()
     engine.update({"name":"MOVE", "origin":pos1, "dest":pos2})
 
-func on_attack_cmd(cmd):
+func input_attack_cmd(pos1, pos2, ability_dict):
     dungeon_window.reset_to_dungeon()
-    engine.update(cmd)
+    engine.update({"name":"ATTACK", "origin":pos1, "dest":pos2, "ability":ability_dict})
 
-func on_reply_cmd(cmd):
-    engine.update(cmd)
+func input_reply_cmd(cmd, ability_dict):
+    engine.update({"name":cmd, "ability":ability_dict})
 
 func on_ability_cmd(cmd):
     engine.update(cmd)
     dungeon_window.on_ability_ended()
 
-func on_jump_input(pos1, pos2):
+func input_jump_input(pos1, pos2):
     dungeon_window.reset_to_dungeon()
     engine.update({"name":"JUMP", "origin":pos1, "dest":pos2})
 
-func on_endturn_button_pressed():
+func input_endturn_cmd():
     engine.update({"name":"ENDTURN"})
 
 func on_state_update_roll():

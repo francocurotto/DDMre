@@ -14,16 +14,13 @@ var selected_tile_gui
 # onready variables
 onready var rows = $Rows
 onready var action_menu = $ActionMenu
-onready var attack_gui = $ActionMenu/VBox/GUIs/AttackGUI
-onready var reply_gui = $ActionMenu/VBox/GUIs/ReplyGUI
-#onready var standing_ability_gui = $ActionMenu/VBox/GUIs/StandingAbilityGUI
 
 # signals
 signal tile_select_button_toggled(content, pressed)
 signal net_updated(can_dimension)
 signal menu_opened
 signal tile_move_button_pressed(pos1, pos2, move_cost)
-signal attack_cmd(cmd)
+signal attack_monster_lord(cmd)
 signal monster_jumped(pos1, pos2)
 
 func _ready():
@@ -133,7 +130,7 @@ func on_tile_attack_button_pressed(tile_gui):
         action_menu.activate_attack_gui(attacker, attacked)
         emit_signal("menu_opened")
     elif attacker.can_target_ml(attacked):
-        emit_signal("attack_cmd", {"name":"ATTACK", "origin":pos1, "dest":pos2})
+        emit_signal("attack_monster_lord", pos1, pos2, null)
 
 func on_tile_dim_button_pressed(tile_gui):
     on_tile_select_button_toggled(tile_gui, true)

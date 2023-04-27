@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/tile_gui/tile_gui.tscn" type="PackedScene" id=1]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/action_menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/action_menu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/dungeon_gui.gd" type="Script" id=5]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/nets_menu/nets_menu.tscn" type="PackedScene" id=6]
 
@@ -1377,6 +1377,7 @@ margin_right = 585.0
 margin_bottom = 676.0
 
 [node name="ActionMenu" parent="." instance=ExtResource( 2 )]
+visible = false
 margin_left = 60.0
 margin_top = 520.0
 margin_right = 660.0

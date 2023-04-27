@@ -21,7 +21,7 @@ func setup(action_menu, attacker, attacked):
     pos2 = attacked.tile.pos
     attack_info.set_summons(attacker, attacker.player, attacked, attacked.player)
     if attacker.has_active_ability("RAISEATTACK"): # TODO: add case ability negated
-        var raise_attack_gui = raiRaiseAttackGUI.instance().setup(self, attacker)
+        var raise_attack_gui = RaiseAttackGUI.instance().setup(self, attacker)
         add_child_below_node(raise_attack_gui, attack_button)
     connect("attack_button_pressed", action_menu, "on_attack_button_pressed")
     connect("cancel_button_pressed", action_menu, "on_cancel_button_pressed")

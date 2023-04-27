@@ -3,7 +3,6 @@ extends VBoxContainer
 # onready variables
 onready var dungeon_gui = $DungeonGUI
 onready var action_menu = $DungeonGUI/ActionMenu
-onready var reply_gui = $DungeonGUI/ActionMenu/VBox/GUIs/ReplyGUI
 onready var dungeon_buttons_gui = $DungeonButtonsGUI
 onready var dungeon_buttons = $DungeonButtonsGUI/DungeonButtons
 onready var dim_buttons = $DungeonButtonsGUI/DimButtons
