@@ -15,6 +15,7 @@ var reply_ability_gui
 
 # onready variables
 onready var attack_info = $AttackInfo
+onready var controls = $Margins/Controls
 onready var guard_button = $Margins/Controls/GuardButton
 
 # singals
@@ -27,6 +28,8 @@ func _ready():
     for ability in attacked.card.abilities:
         if ability.name in ability_guis_dict:
             reply_ability_gui = ability_guis_dict[ability.name].instance().setup(self, ability)
+            controls.add_child(reply_ability_gui)
+            controls.move_child(reply_ability_gui, 0)
 
 # public functions
 func setup(action_menu, _attacker, _attacked):

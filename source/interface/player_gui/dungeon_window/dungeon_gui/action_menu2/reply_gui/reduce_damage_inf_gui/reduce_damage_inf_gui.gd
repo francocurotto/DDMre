@@ -13,10 +13,11 @@ onready var down_button = $Buttons/DownButton
 # signals
 signal ability_cost_changed(cost, crest)
 
-# setget functions
+# public functions
 func setup(reply_gui, _ability):
     ability = _ability
     connect("ability_cost_changed", reply_gui, "on_ability_cost_changed")
+    return self
 
 func get_ability_dict():
     if cost>0:

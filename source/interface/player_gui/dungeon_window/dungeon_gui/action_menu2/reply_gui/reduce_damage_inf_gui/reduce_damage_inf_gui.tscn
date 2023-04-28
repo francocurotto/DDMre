@@ -13,16 +13,16 @@ script = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="."]
 margin_top = 43.0
-margin_right = 385.0
+margin_right = 359.0
 margin_bottom = 76.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
-text = "✨REDUCE DAMAGE -000 (00⛨)"
+text = "✨REDUCE DAMAGE -00 (0⛨)"
 align = 1
 
 [node name="Buttons" type="VBoxContainer" parent="."]
-margin_left = 389.0
-margin_right = 449.0
+margin_left = 363.0
+margin_right = 423.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 60, 120 )
 custom_constants/separation = 0
@@ -44,3 +44,6 @@ size_flags_vertical = 3
 disabled = true
 icon = ExtResource( 2 )
 expand_icon = true
+
+[connection signal="pressed" from="Buttons/UpButton" to="." method="_on_UpButton_pressed"]
+[connection signal="pressed" from="Buttons/DownButton" to="." method="_on_DownButton_pressed"]

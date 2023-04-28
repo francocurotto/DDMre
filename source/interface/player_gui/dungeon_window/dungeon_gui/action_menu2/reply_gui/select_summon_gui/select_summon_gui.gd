@@ -14,15 +14,18 @@ onready var summon_info = $SummonInfo
 signal ability_cost_changed(cost, crest)
 signal ability_select_tile
 
-# setget functions
-func set_reply_gui(reply_gui, _ability):
-    ability = _ability
+func _ready():
     cost = ability.cost
     crest = ability.crest
-    button.text = "✨%d (%d%s)" % [ability.name, cost, Globals.CRESTICONS[crest]]
+    button.text = "✨%s (%d%s)" % [ability.name, cost, Globals.CRESTICONS[crest]]
     button.disabled = cost > ability.monster.player.crestpool.slots[crest]
+
+# public functions
+func setup(reply_gui, _ability):
+    ability = _ability
     connect("ability_cost_changed", reply_gui, "on_ability_cost_changed")
     connect("ability_select_tile", reply_gui, "on_ability_select_tile")
+    return self
 
 func get_ability_dict():
     if button.pressed:

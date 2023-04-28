@@ -1,5 +1,7 @@
 ### TODO
 - refactor action menu
+- bug found: in reply ability with select summon, if same ability is activated in the same turn, selection of summon is preserved, but it should be reset
+- bug found: in reply ability with select summon, ability highlight is not reset after resolving attack
 - DIMKILLTUNNEL
 - DIMKILLWEAKEST (change to cover all monsters)
 ---
