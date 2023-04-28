@@ -8,6 +8,9 @@ const AbilityGUI = 0
 # variables
 var action_gui
 
+# onready variables
+onready var vbox_menu = $VBoxMenu
+
 # signals
 signal check_dungeon_button_pressed
 signal attack_button_pressed
@@ -18,11 +21,12 @@ signal ability_select_tile
 # public functions
 func activate_attack_gui(attacker, attacked):
     action_gui = AttackGUI.instance().setup(self, attacker, attacked)
+    vbox_menu.add_child(action_gui)
     visible = true
 
 func activate_reply_gui(attacker, attacked):
     action_gui = ReplyGUI.instance().setup(self, attacker, attacked)
-    add_child(action_gui)
+    vbox_menu.add_child(action_gui)
     visible = true
 
 #func activate_ability_gui(tile):

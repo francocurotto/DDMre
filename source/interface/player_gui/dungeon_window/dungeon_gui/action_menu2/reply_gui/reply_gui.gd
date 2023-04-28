@@ -9,28 +9,31 @@ const ability_guis_dict = {
    }
 
 # variables
+var attacker
 var attacked
 var reply_ability_gui
 
 # onready variables
 onready var attack_info = $AttackInfo
-onready var guard_button = $Margins/Control/GuardButton
+onready var guard_button = $Margins/Controls/GuardButton
 
 # singals
 signal reply_button_pressed(cmd, ability_dict)
 signal ability_select_tile(tiles)
 
-# public functions
-func activate(action_menu, _attacker, _attacked):
-    attacked = _attacked
-    attack_info.set_summons(_attacker, _attacker.player, attacked, attacked.player)
+func _ready():
+    attack_info.set_summons(attacker, attacker.player, attacked, attacked.player)
     guard_button.disabled = attacked.player.crestpool.slots["DEFENSE"] < 1
     for ability in attacked.card.abilities:
         if ability.name in ability_guis_dict:
             reply_ability_gui = ability_guis_dict[ability.name].instance().setup(self, ability)
+
+# public functions
+func setup(action_menu, _attacker, _attacked):
+    attacker = _attacker
+    attacked = _attacked
     connect("reply_button_pressed", action_menu, "on_reply_button_pressed")
     connect("ability_select_tile", action_menu, "on_ability_select_tile")
-    action_menu.add_child(self)
     return self
 
 # signals callbacks

@@ -43,3 +43,6 @@ margin_bottom = 150.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 2 )
 text = "⏳WAIT"
+
+[connection signal="pressed" from="Margins/Controls/GuardButton" to="." method="_on_GuardButton_pressed"]
+[connection signal="pressed" from="Margins/Controls/WaitButton" to="." method="_on_WaitButton_pressed"]
