@@ -17,22 +17,23 @@ signal cancel_button_pressed
 
 # public functions
 func setup(action_menu, attacker, attacked):
+    action_menu.add_child(self)
+    connect("attack_button_pressed", action_menu, "on_attack_button_pressed")
+    connect("cancel_button_pressed", action_menu, "on_cancel_button_pressed")
     pos1 = attacker.tile.pos
     pos2 = attacked.tile.pos
     attack_info.set_summons(attacker, attacker.player, attacked, attacked.player)
     if attacker.has_active_ability("RAISEATTACK"): # TODO: add case ability negated
         var raise_attack_gui = RaiseAttackGUI.instance().setup(self, attacker)
         add_child_below_node(raise_attack_gui, attack_button)
-    connect("attack_button_pressed", action_menu, "on_attack_button_pressed")
-    connect("cancel_button_pressed", action_menu, "on_cancel_button_pressed")
     return self
 
 # signals callbacks
 func _on_AttackButton_pressed():
-    emit_signal("attack_button_pressed", pos1, pos2)
+    emit_signal("attack_button_pressed", pos1, pos2, null)
 
 func _on_CancelButton_pressed():
-    emit_signal("cancel_button_canceled")
+    emit_signal("cancel_button_pressed")
 
 func on_attack_ability_activated(ability_dict):
     emit_signal("attack_button_pressed", pos1, pos2, ability_dict)

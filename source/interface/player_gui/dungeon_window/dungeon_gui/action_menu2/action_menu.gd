@@ -18,7 +18,6 @@ signal ability_select_tile
 # public functions
 func activate_attack_gui(attacker, attacked):
     action_gui = AttackGUI.instance().setup(self, attacker, attacked)
-    add_child(action_gui)
     visible = true
 
 func activate_reply_gui(attacker, attacked):
