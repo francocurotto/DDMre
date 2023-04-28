@@ -1,7 +1,5 @@
 ### TODO
 - refactor action menu
-- bug found: in reply ability with select summon, if same ability is activated in the same turn, selection of summon is preserved, but it should be reset
-- bug found: in reply ability with select summon, ability highlight is not reset after resolving attack
 - DIMKILLTUNNEL
 - DIMKILLWEAKEST (change to cover all monsters)
 ---
@@ -17,6 +15,11 @@
 
 ### FIXES
 - add ability description in card info
+    - add also in standing and state ability gui
+    - implement ability_info
+- standarize gay to get ability for guis?
+- bug found: in reply ability with select summon, if same ability is activated in the same turn, selection of summon is preserved, but it should be reset
+- bug found: in reply ability with select summon, ability highlight is not reset after resolving attack
 - standarize cmd syntax and context checks
 
 ### IMPROVEMENTS

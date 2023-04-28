@@ -3,7 +3,7 @@ extends PanelContainer
 # constants
 const AttackGUI = preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/attack_gui/attack_gui.tscn")
 const ReplyGUI = preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/reply_gui/reply_gui.tscn")
-const AbilityGUI = 0
+const StandingAbilityGUI = preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/standing_ability_gui.tscn")
 
 # variables
 var action_gui
@@ -29,9 +29,10 @@ func activate_reply_gui(attacker, attacked):
     vbox_menu.add_child(action_gui)
     visible = true
 
-#func activate_ability_gui(tile):
-#    action_gui = ReplyGUI.instance().setup(self, attacker, attacked)
-#    visible = true
+func activate_staniding_ability_gui(monster):
+    action_gui = StandingAbilityGUI.instance().setup(self, monster)
+    vbox_menu.add_child(action_gui)
+    visible = true
 
 # signals callbacks
 func _on_CheckDungeonButton_pressed():
