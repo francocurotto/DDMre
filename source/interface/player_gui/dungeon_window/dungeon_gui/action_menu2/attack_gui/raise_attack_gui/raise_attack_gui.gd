@@ -1,7 +1,7 @@
 extends VBoxContainer
 
 # preloads
-const RaiseAttackButton = preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/attack_gui/raise_attack_gui/raise_attack_button/raise_attack_button.gd")
+const RaiseAttackButton = preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/attack_gui/raise_attack_gui/raise_attack_button/raise_attack_button.tscn")
 
 # signals
 signal attack_ability_activated(ability_dict)

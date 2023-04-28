@@ -9,6 +9,7 @@ var attacked
 
 # onready variables
 onready var attack_info = $AttackInfo
+onready var controls = $Margins/Controls
 onready var attack_button = $Margins/Controls/AttackButton
 
 # singals
@@ -19,7 +20,7 @@ func _ready():
     attack_info.set_summons(attacker, attacker.player, attacked, attacked.player)
     if attacker.has_active_ability("RAISEATTACK"): # TODO: add case ability negated
         var raise_attack_gui = RaiseAttackGUI.instance().setup(self, attacker)
-        add_child_below_node(raise_attack_gui, attack_button)
+        controls.add_child_below_node(attack_button, raise_attack_gui)
 
 # public functions
 func setup(action_menu, _attacker, _attacked):

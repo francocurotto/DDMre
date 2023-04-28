@@ -3,7 +3,7 @@ extends Node
 
 # filepath
 const LIBPATH = "res://LIBRARY.json"
-const DUNGPATH = "res://dungeons/default.json"
+#const DUNGPATH = "res://dungeons/default.json"
 #const DUNGPATH = "res://dungeons/test_pass.json"
 #const DUNGPATH = "res://dungeons/test_target.json"
 #const DUNGPATH = "res://dungeons/test_power.json"
@@ -15,7 +15,7 @@ const DUNGPATH = "res://dungeons/default.json"
 #const DUNGPATH = "res://dungeons/test_stops.json"
 #const DUNGPATH = "res://dungeons/test_protect_type.json"
 #const DUNGPATH = "res://dungeons/test_turn_slow_type.json"
-#const DUNGPATH = "res://dungeons/test_raise_attack.json"
+const DUNGPATH = "res://dungeons/test_raise_attack.json"
 #const DUNGPATH = "res://dungeons/test_reduce_damage.json"
 #const DUNGPATH = "res://dungeons/test_reply_abilities.json"
 #const DUNGPATH = "res://dungeons/test_buff_self.json"
@@ -30,8 +30,8 @@ const DUNGPATH = "res://dungeons/default.json"
 #const DUNGPATH = "res://dungeons/test_roll_level_kill.json"
 #const DUNGPATH = "res://dungeons/test_dim_kill_tunnel_all.json"
 #const DUNGPATH = "res://dungeons/test_dim_trade_crest.json"
-const RANDOMPOOL = true
-#const RANDOMPOOL = false
+#const RANDOMPOOL = true
+const RANDOMPOOL = false
 #const POOL1PATH = "res://dicepools/test_pass.json";const POOL2PATH = "res://dicepools/test_pass.json"
 #const POOL1PATH = "res://dicepools/test_target.json";const POOL2PATH = "res://dicepools/test_target.json"
 #const POOL1PATH = "res://dicepools/test_power.json";const POOL2PATH = "res://dicepools/test_power.json"
@@ -45,7 +45,7 @@ const RANDOMPOOL = true
 #const POOL1PATH = "res://dicepools/test_protect_type.json";const POOL2PATH = "res://dicepools/test_protect_type.json"
 #const POOL1PATH = "res://dicepools/test_turn_slow_type.json";const POOL2PATH = "res://dicepools/test_turn_slow_type.json"
 #const POOL1PATH = "res://dicepools/test_vortex.json";const POOL2PATH = "res://dicepools/test_vortex.json"
-#const POOL1PATH = "res://dicepools/test_raise_attack.json";const POOL2PATH = "res://dicepools/test_raise_attack.json"
+const POOL1PATH = "res://dicepools/test_raise_attack.json";const POOL2PATH = "res://dicepools/test_raise_attack.json"
 #const POOL1PATH = "res://dicepools/test_reduce_damage.json";const POOL2PATH = "res://dicepools/test_reduce_damage.json"
 #const POOL1PATH = "res://dicepools/test_reply_abilities.json";const POOL2PATH = "res://dicepools/test_reply_abilities.json"
 #const POOL1PATH = "res://dicepools/test_buff_self.json";const POOL2PATH = "res://dicepools/test_buff_self.json"
@@ -59,7 +59,7 @@ const RANDOMPOOL = true
 #const POOL1PATH = "res://dicepools/test_range_level_kill.json";const POOL2PATH = "res://dicepools/test_range_level_kill.json"
 #const POOL1PATH = "res://dicepools/test_roll_level_kill.json";const POOL2PATH = "res://dicepools/test_roll_level_kill.json"
 #const POOL1PATH = "res://dicepools/test_dim_kill_tunnel_all.json";const POOL2PATH = "res://dicepools/test_dim_kill_tunnel_all.json"
-const POOL1PATH = "res://dicepools/test_dim_trade_crest.json";const POOL2PATH = "res://dicepools/test_dim_trade_crest.json"
+#const POOL1PATH = "res://dicepools/test_dim_trade_crest.json";const POOL2PATH = "res://dicepools/test_dim_trade_crest.json"
 
 # arrays, dictionaries
 const CRESTS = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
