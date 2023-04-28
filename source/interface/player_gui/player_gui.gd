@@ -72,7 +72,7 @@ func _ready():
     dungeon_buttons.connect("attack_button_pressed", dungeon_gui, "on_attack_button_pressed")
     dungeon_buttons.connect("ability_button_pressed", dungeon_gui, "on_ability_button_pressed")
     dungeon_buttons.connect("jump_button_pressed", dungeon_gui, "on_jump_button_pressed")
-    dungeon_buttons.connect("endturn_button_pressed", self, "on_endturn_button_pressed")
+    dungeon_buttons.connect("endturn_button_pressed", self, "input_endturn_cmd")
     dungeon_buttons.connect("cancel_button_pressed", dungeon_window, "reset_to_dungeon")
     dungeon_buttons.connect("back_button_pressed", dungeon_window, "on_back_button_pressed")
     # move buttons
@@ -84,7 +84,7 @@ func _ready():
     dim_buttons.connect("TCW_button_pressed", dungeon_gui, "on_TCW_button_pressed")
     dim_buttons.connect("TAW_button_pressed", dungeon_gui, "on_TAW_button_pressed")
     dim_buttons.connect("net_select_button_pressed", dungeon_gui.net_creator, "update_net_index")
-    dim_buttons.connect("dim_button_pressed", self, "on_dim_button_pressed")
+    dim_buttons.connect("dim_button_pressed", self, "input_dim_cmd")
     # select tile buttons
     select_tile_buttons.connect("select_tile_cancel_button_pressed", dungeon_window, "on_select_tile_cancel_button_pressed")
     select_tile_buttons.connect("select_tile_select_button_pressed", dungeon_window, "on_select_tile_select_button_pressed")
