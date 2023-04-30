@@ -10,12 +10,12 @@ const ability_guis_dict = {
 }
 
 # variables
-var monster
 var ability
 var active_gui
 
 # onready variables
 onready var ability_info = $AbilityInfo 
+onready var controls = $Margins/Controls
 onready var cast_button = $Margins/Controls/CastButton
 
 # signals
@@ -23,15 +23,16 @@ signal cast_button_pressed(ability_dict)
 signal cancel_button_pressed
 
 func _ready():
-    ability = monster.get_standing_ability()
     ability_info.set_ability(ability)
     cast_button.text = "✨CAST (%d%s)" % [ability.cost, Globals.CRESTICONS[ability.crest]]
     cast_button.disabled = ability.cost > monster.player.crestpool.slots[ability.crest]
-    # get active ability gui
+    active_gui = ability_guis_dict[ability.name]
+    controls.add_child(active_gui)
+    controls.move_child(active_gui, 0)
 
 # public functions
-func setup(action_menu, _monster):
-    monster = _monster
+func setup(action_menu, _ability):
+    ability = _ability
     connect("cast_button_pressed", action_menu, "on_cast_button_pressed")
     connect("cancel_button_pressed", action_menu, "on_cancel_button_pressed")
     return self

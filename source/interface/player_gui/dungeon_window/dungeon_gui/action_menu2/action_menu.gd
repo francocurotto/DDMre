@@ -29,8 +29,8 @@ func activate_reply_gui(attacker, attacked):
     vbox_menu.add_child(action_gui)
     visible = true
 
-func activate_staniding_ability_gui(monster):
-    action_gui = StandingAbilityGUI.instance().setup(self, monster)
+func activate_staniding_ability_gui(ability):
+    action_gui = StandingAbilityGUI.instance().setup(self, ability)
     vbox_menu.add_child(action_gui)
     visible = true
 
