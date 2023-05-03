@@ -25,7 +25,7 @@ signal cancel_button_pressed
 func _ready():
     ability_info.set_ability(ability)
     cast_button.text = "✨CAST (%d%s)" % [ability.cost, Globals.CRESTICONS[ability.crest]]
-    cast_button.disabled = ability.cost > monster.player.crestpool.slots[ability.crest]
+    cast_button.disabled = ability.cost > ability.monster.player.crestpool.slots[ability.crest]
     active_gui = ability_guis_dict[ability.name]
     controls.add_child(active_gui)
     controls.move_child(active_gui, 0)
