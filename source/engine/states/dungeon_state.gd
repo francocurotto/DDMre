@@ -47,7 +47,7 @@ func ATTACK(cmd):
     # get data
     var pos_origin = Vector2(cmd["origin"][0], cmd["origin"][1])
     var pos_dest = Vector2(cmd["dest"][0], cmd["dest"][1])
-    var ability_dict = cmd.get("ability")
+    var ability_dict = cmd.get("ability_dict")
     var tile_origin = dungeon.get_tile(pos_origin)
     var tile_dest = dungeon.get_tile(pos_dest)
     var monster = tile_origin.content
@@ -81,10 +81,10 @@ func ABILITY(cmd):
     Excecute the ABILITY command.
     """
     var monster = dungeon.get_tile(cmd["pos"]).content
-    var activate_dict = cmd["ability"]
+    var ability_dict = cmd["ability_dict"]
     for ability in monster.card.abilities:
-        if ability.name == activate_dict["name"]:
-            ability.activate(activate_dict)
+        if ability.name == ability_dict["name"]:
+            ability.activate(ability_dict)
             monster.ability_cooldown = true
     Events.emit_signal("duel_update")
     return self

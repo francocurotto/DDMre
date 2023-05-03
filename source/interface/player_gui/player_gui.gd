@@ -51,10 +51,11 @@ func _ready():
     dungeon_gui.net_creator.connect("net_updated", dungeon_gui, "on_net_updated")
     # action menu
     action_menu.connect("check_dungeon_button_pressed", dungeon_window, "on_check_dungeon_button_pressed")
-    # attack gui
     action_menu.connect("attack_button_pressed", self, "input_attack_cmd")
-    action_menu.connect("cancel_button_pressed", dungeon_window, "reset_to_dungeon")
     action_menu.connect("reply_button_pressed", self, "input_reply_cmd")
+    action_menu.connect("standing_cast_button_pressed", self, "input_standing_ability_cmd")
+    action_menu.connect("cancel_button_pressed", dungeon_window, "reset_to_dungeon")
+    
     action_menu.connect("ability_select_tile", dungeon_window, "on_ability_select_tile")
     # standing ability gui
     #standing_ability_gui.connect("ability_cmd", self, "on_ability_cmd")
@@ -133,14 +134,14 @@ func input_move_cmd(pos1, pos2):
 
 func input_attack_cmd(pos1, pos2, ability_dict):
     dungeon_window.reset_to_dungeon()
-    engine.update({"name":"ATTACK", "origin":pos1, "dest":pos2, "ability":ability_dict})
+    engine.update({"name":"ATTACK", "origin":pos1, "dest":pos2, "ability_dict":ability_dict})
 
 func input_reply_cmd(cmd, ability_dict):
-    engine.update({"name":cmd, "ability":ability_dict})
+    engine.update({"name":cmd, "ability_dict":ability_dict})
 
-func on_ability_cmd(cmd):
-    engine.update(cmd)
-    dungeon_window.on_ability_ended()
+func input_standing_ability_cmd(pos, ability_dict):
+    dungeon_window.reset_to_dungeon()
+    engine.update({"name":"ABILITY", "pos":pos, "ability_dict":ability_dict})
 
 func input_jump_input(pos1, pos2):
     dungeon_window.reset_to_dungeon()

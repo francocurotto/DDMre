@@ -30,7 +30,7 @@ Attack opponent monster or monster lord at position dest, with monster at positi
 - command: `ATTACK`
 - origin: `(0..18, 0..12)` (tuple of ints)
 - dest: `(0..18, 0..12)` (tuple of ints)
-- ability: `attack ability dict` (optional, see abilities section)
+- ability_dict: `attack ability dict` (optional, see abilities section)
 
 ## JUMP [DUNGEON state]
 Move monster through a vortex from position origin to position dest.
@@ -45,18 +45,23 @@ Finish turn.
 ## GUARD [REPLY state]
 Defend attack from opponent monster.
 - command: `GUARD`
-- ability: `reply ability dict` (optional, see abilities section)
+- ability_dict: `ability dict` (optional, see abilities section)
 
 ## WAIT [REPLY state]
 Do not reply to an attack from opponent monster.
 - command: `WAIT`
-- ability: `reply ability dict` (optional, see abilities section)
+- ability: `ability dict` (optional, see abilities section)
 
 ## ABILITY [DUNGEON state]
 Cast monster standing ability.
 - command: `ABILITY`
 - pos: `(0..18, 0..12)` (tuple of ints)
-- (rest of ability parameters, see abilities section)
+- ability_dict : `ability_dict`(optional, see abilities section)
+
+## ABILITY [ABILITY state]
+Cast monster standing ability.
+- command: `ABILITY`
+- ability_dict : `ability_dict`(optional, see abilities section)
 
 # Abilities
 List of abilities parameters needed when casting a dimension, attack, reply, or standing ability.

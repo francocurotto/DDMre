@@ -167,7 +167,11 @@ func on_attack_button_pressed():
 
 func on_ability_button_pressed():
     disable_tile_gui_buttons()
-    action_menu.activate_ability_gui(selected_tile_gui.tile)
+    var standing_ability
+    for ability in selected_tile_gui.tile.content.card.abilities:
+        if ability.is_standing():
+            standing_ability = ability
+    action_menu.activate_standing_ability_gui(standing_ability)
 
 func on_jump_button_pressed():
     disable_tile_gui_buttons()
@@ -202,13 +206,6 @@ func on_select_tile_select_button_pressed():
 
 func on_select_direction_select_button_pressed(direction):
     action_menu.on_select_direction_select_button_pressed(direction)
-
-func on_ability_ended():
-    enable_select_buttons()
-    disable_tile_gui_ability_highlights()
-    if selected_tile_gui:
-        on_tile_select_button_toggled(selected_tile_gui, true)
-    action_menu.visible = false
 
 func on_highlight_ability_tiles(tiles):
     disable_tile_gui_ability_highlights()

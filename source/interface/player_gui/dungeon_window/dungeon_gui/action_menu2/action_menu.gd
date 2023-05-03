@@ -14,8 +14,9 @@ onready var vbox_menu = $VBoxMenu
 # signals
 signal check_dungeon_button_pressed
 signal attack_button_pressed
-signal cancel_button_pressed
 signal reply_button_pressed
+signal standing_cast_button_pressed
+signal cancel_button_pressed
 signal ability_select_tile
 
 # public functions
@@ -29,7 +30,7 @@ func activate_reply_gui(attacker, attacked):
     vbox_menu.add_child(action_gui)
     visible = true
 
-func activate_staniding_ability_gui(ability):
+func activate_standing_ability_gui(ability):
     action_gui = StandingAbilityGUI.instance().setup(self, ability)
     vbox_menu.add_child(action_gui)
     visible = true
@@ -43,13 +44,18 @@ func on_attack_button_pressed(pos1, pos2, ability_dict):
     action_gui.queue_free()
     visible = false
 
-func on_cancel_button_pressed():
-    emit_signal("cancel_button_pressed")
+func on_reply_button_pressed(cmd, ability_dict):
+    emit_signal("reply_button_pressed", cmd, ability_dict)
+    action_gui.queue_free()
+    visible = false
+    
+func on_standing_cast_button_pressed(pos, ability_dict):
+    emit_signal("standing_cast_button_pressed", pos, ability_dict)
     action_gui.queue_free()
     visible = false
 
-func on_reply_button_pressed(cmd, ability_dict):
-    emit_signal("reply_button_pressed", cmd, ability_dict)
+func on_cancel_button_pressed():
+    emit_signal("cancel_button_pressed")
     action_gui.queue_free()
     visible = false
 

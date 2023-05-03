@@ -66,10 +66,6 @@ func on_select_direction_select_button_pressed(direction):
     dungeon_buttons_gui.switch_to_dungeon_buttons()
     dungeon_gui.on_select_direction_select_button_pressed(direction)
 
-func on_ability_ended():
-    dungeon_gui.on_ability_ended()
-    dungeon_buttons.endturn_button.disabled = false
-
 func on_check_dungeon_button_pressed():
     dungeon_gui.hide_menus()
     dungeon_gui.enable_select_buttons()

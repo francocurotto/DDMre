@@ -1,6 +1,7 @@
 ### TODO
 - refactor action menu
     - standing abilities
+        - add highligh functionality
     - dim abilities
     - ability buttons
 - DIMKILLTUNNEL
