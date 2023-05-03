@@ -1,5 +1,8 @@
 ### TODO
 - refactor action menu
+    - standing abilities
+    - dim abilities
+    - ability buttons
 - DIMKILLTUNNEL
 - DIMKILLWEAKEST (change to cover all monsters)
 ---
