@@ -30,7 +30,7 @@ func WAIT(cmd):
     """
     Excecute the WAIT command.
     """
-    var ability_dict = cmd.get("ability")
+    var ability_dict = cmd.get("ability_dict")
     # activate attack ability if exists
     if ability_dict:
         attacked.activate_reply_ability(attacker, ability_dict)

@@ -137,6 +137,7 @@ func input_attack_cmd(pos1, pos2, ability_dict):
     engine.update({"name":"ATTACK", "origin":pos1, "dest":pos2, "ability_dict":ability_dict})
 
 func input_reply_cmd(cmd, ability_dict):
+    dungeon_window.reset_to_dungeon()
     engine.update({"name":cmd, "ability_dict":ability_dict})
 
 func input_standing_ability_cmd(pos, ability_dict):

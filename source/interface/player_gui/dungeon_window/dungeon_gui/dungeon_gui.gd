@@ -91,6 +91,10 @@ func unset_summon_highlights():
     for tile_gui in tile_guis:
         tile_gui.unset_summon_highlight()
 
+func unset_ability_select_highlights():
+    for tile_gui in tile_guis:
+        tile_gui.set_ability_select_highlight(false)
+
 func activate_reply_gui(attacker, attacked):
     action_menu.activate_reply_gui(attacker, attacked)
 
@@ -202,10 +206,12 @@ func on_TAW_button_pressed():
 
 func on_select_tile_cancel_button_pressed():
     disable_tile_gui_buttons()
+    unset_ability_select_highlights()
     action_menu.on_select_tile_cancel_button_pressed()
 
 func on_select_tile_select_button_pressed():
     disable_tile_gui_buttons()    
+    unset_ability_select_highlights()
     action_menu.on_select_tile_select_button_pressed(selected_tile_gui.tile)
 
 func on_select_direction_select_button_pressed(direction):
