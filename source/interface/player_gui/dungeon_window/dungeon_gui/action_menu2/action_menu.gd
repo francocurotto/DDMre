@@ -17,6 +17,7 @@ signal attack_button_pressed
 signal reply_button_pressed
 signal standing_cast_button_pressed
 signal cancel_button_pressed
+signal highlight_ability_tiles(tiles)
 signal ability_select_tile
 
 # public functions
@@ -58,6 +59,9 @@ func on_cancel_button_pressed():
     emit_signal("cancel_button_pressed")
     action_gui.queue_free()
     visible = false
+
+func on_highlight_ability_tiles(tiles):
+    emit_signal("highlight_ability_tiles", tiles)
 
 func on_ability_select_tile(tiles):
     emit_signal("ability_select_tile", tiles)
