@@ -1,7 +1,7 @@
 ### TODO
 - refactor action menu
     - standing abilities
-        - add highligh functionality
+        - fix ability highlight inconsistency by implementing TileAbilityButton
     - dim abilities
     - ability buttons
 - DIMKILLTUNNEL

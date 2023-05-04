@@ -42,7 +42,7 @@ func setup(action_menu, _ability):
     ability = _ability
     connect("cast_button_pressed", action_menu, "on_standing_cast_button_pressed")
     connect("cancel_button_pressed", action_menu, "on_cancel_button_pressed")
-    connect("highlight_abiity_tiles", action_menu, "on_highlight_ability_tiles")
+    connect("highlight_ability_tiles", action_menu, "on_highlight_ability_tiles")
     return self
 
 func _on_CastButton_pressed():

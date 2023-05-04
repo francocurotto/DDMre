@@ -79,6 +79,10 @@ func disable_tile_gui_ability_highlights():
     for tile_gui in tile_guis:
         tile_gui.set_ability_highlight(false)
 
+func set_ability_select_highlights(tiles):
+    for tile in tiles:
+        get_tile_gui(tile.pos).set_ability_select_highlight(true)
+
 func unset_highlights():
     for tile_gui in tile_guis:
         tile_gui.highlight = false

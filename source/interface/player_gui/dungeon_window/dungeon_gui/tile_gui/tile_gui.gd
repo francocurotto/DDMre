@@ -11,6 +11,7 @@ export (bool) var vortex = false setget set_vortex
 export (bool) var highlight = false setget set_highlight
 export (bool) var attack_highlight = false setget set_attack_highlight
 export (bool) var ability_highlight = false setget set_ability_highlight
+export (bool) var ability_select_highlight = false setget set_ability_select_highlight
 export (String, "NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM") \
     var summon_highlight_type = "NONE" setget set_summon_highlight_type
 
@@ -81,6 +82,10 @@ func set_ability_highlight(_ability_highlight):
     ability_highlight = _ability_highlight
     $TileRects/AbilityHighlightRect.visible = ability_highlight
 
+func set_ability_select_highlight(_ability_select_highlight):
+    ability_select_highlight = _ability_select_highlight
+    $TileRects/AbilitySelectHighlightRect.visible = ability_select_highlight
+
 func set_summon_highlight_type(_summon_highlight_type):
     summon_highlight_type = _summon_highlight_type
     if summon_highlight_type == "NONE": # case no content
@@ -91,9 +96,6 @@ func set_summon_highlight_type(_summon_highlight_type):
 func set_vortex(_vortex):
     vortex = _vortex
     $DungobjRects/VortexRect.visible = vortex
-
-func unset_summon_highlight():
-    set_summon_highlight_type("NONE")
 
 # public functions
 func enable_select_button():
@@ -126,7 +128,9 @@ func disable_all_buttons():
 func disable_all_highlights():
     set_highlight(false)
     set_attack_highlight(false)
-    unset_summon_highlight()
+    set_ability_highlight(false)
+    set_ability_select_highlight(false)
+    set_summon_highlight_type("NONE")
 
 # signals callbacks
 func _on_TileSelectButton_toggled(button_pressed):

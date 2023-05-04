@@ -41,6 +41,14 @@ texture = ExtResource( 6 )
 expand = true
 stretch_mode = 5
 
+[node name="AbilitySelectHighlightRect" type="TextureRect" parent="TileRects"]
+visible = false
+margin_right = 28.0
+margin_bottom = 28.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
 [node name="HighlightRect" type="TextureRect" parent="TileRects"]
 visible = false
 margin_right = 28.0

@@ -43,7 +43,7 @@ func on_dice_gui_dim_button_released():
 func on_ability_select_tile(tiles):
     action_menu.visible = false
     dungeon_gui.enable_select_buttons()
-    dungeon_gui.on_highlight_ability_tiles(tiles)
+    dungeon_gui.set_ability_select_highlights(tiles)
     dungeon_gui.connect("tile_select_button_toggled", select_tile_buttons, "on_tile_select_button_toggled")
     dungeon_buttons_gui.switch_to_select_tile_buttons(tiles, dungeon_gui.selected_tile_gui)
     
