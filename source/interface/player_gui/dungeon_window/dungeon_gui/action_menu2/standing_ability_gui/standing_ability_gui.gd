@@ -7,7 +7,7 @@ const ability_guis_dict = {
     "STEALMONSTER"   : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
     "MINDCONTROL"    : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
     #"KILLBLOCK"      : select_tile_gui
-    "RANGELEVELKILL" : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
+    "RANGELEVELKILL" : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/range_level_kill_gui/range_level_kill_gui.tscn"),
     #"ROLLLEVELKILL"  : select_direction_gui
 }
 
@@ -52,6 +52,10 @@ func _on_CastButton_pressed():
 
 func _on_CancelButton_pressed():
     emit_signal("cancel_button_pressed")
+
+func on_ability_cost_changed(cost, crest):
+    cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[crest]]
+    cast_button.disabled = cost > ability.monster.player.crestpool.slots[crest]
 
 func on_ability_select_tile(tiles):
     emit_signal("ability_select_tile", tiles)

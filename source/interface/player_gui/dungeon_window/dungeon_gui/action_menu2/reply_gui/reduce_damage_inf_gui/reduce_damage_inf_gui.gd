@@ -22,8 +22,6 @@ func setup(reply_gui, _ability):
 func get_ability_dict():
     if cost>0:
         return {"name":"REDUCEDAMAGEINF", "reduce":cost}
-    else:
-        return null
 
 # signals callbacks
 func _on_UpButton_pressed():

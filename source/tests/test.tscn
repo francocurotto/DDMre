@@ -1,5 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource path="res://tests/test.gd" type="Script" id=1]
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="Button" type="Button"]
+margin_right = 499.0
+margin_bottom = 141.0
+text = "Test"
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="." to="." method="_on_Button_pressed"]

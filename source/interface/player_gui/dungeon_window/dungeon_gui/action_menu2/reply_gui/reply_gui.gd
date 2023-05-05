@@ -1,7 +1,7 @@
 extends VBoxContainer
 
 const ability_guis_dict = {
-    "REDUCEDAMAGE"    : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/reply_gui/button_gui/button_gui.tscn"),
+    "REDUCEDAMAGE"    : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/reply_gui/reduce_damage_gui/reduce_damage_gui.tscn"),
     "REDUCEDAMAGEINF" : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/reply_gui/reduce_damage_inf_gui/reduce_damage_inf_gui.tscn"),
     "SHIFTDAMAGE"     : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/reply_gui/select_summon_gui/select_summon_gui.tscn"),
     "PROTECTSELF"     : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/reply_gui/button_gui/button_gui.tscn"),
