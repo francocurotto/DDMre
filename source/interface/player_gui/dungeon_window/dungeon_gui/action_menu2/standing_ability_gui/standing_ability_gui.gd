@@ -3,11 +3,11 @@ extends VBoxContainer
 #constants
 const ability_range_highlight = ["RANGEKILLALL", "RANGELEVELKILL"]
 const ability_guis_dict = {
-    #"TRADEHEALTH"    : select_summon_gui
-    #"STEALMONSTER"   : select_summon_gui
-    #"MINDCONTROL"    : select_summon_gui
+    "TRADEHEALTH"    : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
+    "STEALMONSTER"   : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
+    "MINDCONTROL"    : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
     #"KILLBLOCK"      : select_tile_gui
-    #"RANGELEVELKILL" : select_summon_gui
+    "RANGELEVELKILL" : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
     #"ROLLLEVELKILL"  : select_direction_gui
 }
 
@@ -24,6 +24,7 @@ onready var cast_button = $Margins/Controls/CastButton
 signal cast_button_pressed(ability, ability_dict)
 signal cancel_button_pressed
 signal highlight_ability_tiles(tiles)
+signal ability_select_tile
 
 func _ready():
     #ability_info.set_ability(ability) # TODO: ability_info
@@ -43,6 +44,7 @@ func setup(action_menu, _ability):
     connect("cast_button_pressed", action_menu, "on_standing_cast_button_pressed")
     connect("cancel_button_pressed", action_menu, "on_cancel_button_pressed")
     connect("highlight_ability_tiles", action_menu, "on_highlight_ability_tiles")
+    connect("ability_select_tile", action_menu, "on_ability_select_tile")
     return self
 
 func _on_CastButton_pressed():
@@ -51,9 +53,18 @@ func _on_CastButton_pressed():
 func _on_CancelButton_pressed():
     emit_signal("cancel_button_pressed")
 
+func on_ability_select_tile(tiles):
+    emit_signal("ability_select_tile", tiles)
+
+func on_select_tile_cancel_button_pressed():
+    active_gui.on_select_tile_cancel_button_pressed()
+
+func on_select_tile_select_button_pressed(tile):
+    active_gui.on_select_tile_select_button_pressed(tile)
+
 # private functions
 func get_ability_dict():
     var ability_dict = {"name" : ability.name}
     if active_gui:
-        ability_dict += active_gui.get_ability_dict()
+        ability_dict.merge(active_gui.get_ability_dict())
     return ability_dict

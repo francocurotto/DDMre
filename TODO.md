@@ -1,6 +1,8 @@
 ### TODO
 - refactor action menu
     - standing abilities
+        - add cost_change to standing ability (RANGELEVELKILL)
+            - merge with reply_ability button_gui?
     - dim abilities
     - ability buttons
 - DIMKILLTUNNEL

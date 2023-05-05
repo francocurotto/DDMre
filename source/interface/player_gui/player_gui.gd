@@ -45,7 +45,7 @@ func _ready():
     dungeon_gui.connect("net_updated", dim_buttons, "on_net_updated")
     dungeon_gui.connect("menu_opened", dungeon_buttons, "on_menu_opened")
     dungeon_gui.connect("tile_move_button_pressed", dungeon_buttons_gui, "on_tile_move_button_pressed")
-    dungeon_gui.connect("attack_monster_lord", self, "on_attack_cmd")
+    dungeon_gui.connect("attack_monster_lord", self, "input_attack_cmd")
     dungeon_gui.connect("monster_jumped", self, "input_jump_cmd")
     # net creator
     dungeon_gui.net_creator.connect("net_updated", dungeon_gui, "on_net_updated")
