@@ -5,7 +5,6 @@ const SelectTileGUI = preload("res://interface/player_gui/dungeon_window/dungeon
 
 # variables
 var select_tile_gui
-var cost setget , get_cost
 
 # onready variables
 onready var summon_info = $SummonInfo
@@ -18,10 +17,6 @@ func _ready():
     select_tile_gui.connect("toggled", self, "on_button_toggled")
     add_child(select_tile_gui)
     move_child(select_tile_gui, 0)
-
-# getset functions
-func get_cost():
-    return select_tile_gui.cost
 
 # public functions
 func setup(standing_ability_gui, ability):

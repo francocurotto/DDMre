@@ -29,13 +29,13 @@ signal ability_select_tile
 func _ready():
     #ability_info.set_ability(ability) # TODO: ability_info
     ability_info.text = ability.name
+    on_ability_cost_changed(ability.cost)
     if ability.name in ability_guis_dict:
         active_gui = ability_guis_dict[ability.name].instance().setup(self, ability)
         controls.add_child(active_gui)
         controls.move_child(active_gui, 0)
     if ability.name in ability_range_highlight:
         emit_signal("highlight_ability_tiles", ability.get_tiles_in_range(ability.tile_range))
-    update_cast_button()
 
 # public functions
 func setup(action_menu, _ability):
@@ -46,10 +46,6 @@ func setup(action_menu, _ability):
     connect("ability_select_tile", action_menu, "on_ability_select_tile")
     return self
 
-func update_cast_button():
-    cast_button.text = "✨CAST (%d%s)" % [active_gui.cost, Globals.CRESTICONS[ability.crest]]
-    cast_button.disabled = active_gui.cost > ability.monster.player.crestpool.slots[ability.crest] 
-    
 # signals callbacks
 func _on_CastButton_pressed():
     emit_signal("cast_button_pressed", ability.monster.tile.pos, get_ability_dict())
@@ -57,11 +53,11 @@ func _on_CastButton_pressed():
 func _on_CancelButton_pressed():
     emit_signal("cancel_button_pressed")
 
-func on_ability_cost_changed():
-    update_cast_button()
-
-func on_ability_select_tile(tiles):
-    emit_signal("ability_select_tile", tiles)
+func on_ability_select_tile(pressed, tiles):
+    if pressed:
+        emit_signal("ability_select_tile", tiles)
+    else:
+        cast_button.disabled = true
 
 func on_select_tile_cancel_button_pressed():
     active_gui.on_select_tile_cancel_button_pressed()
@@ -69,6 +65,11 @@ func on_select_tile_cancel_button_pressed():
 
 func on_select_tile_select_button_pressed(tile):
     active_gui.on_select_tile_select_button_pressed(tile)
+    cast_button.disabled = false
+
+func on_ability_cost_changed(cost):
+    cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[ability.crest]]
+    cast_button.disabled = cost > ability.monster.player.crestpool.slots[ability.crest] 
 
 # private functions
 func get_ability_dict():
