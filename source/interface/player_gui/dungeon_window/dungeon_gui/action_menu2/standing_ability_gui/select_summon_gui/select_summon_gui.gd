@@ -9,10 +9,6 @@ var select_tile_gui
 # onready variables
 onready var summon_info = $SummonInfo
 
-# signals
-signal ability_select_tile
-signal ability_cost_changed(cost, crest)
-
 func _ready():
     select_tile_gui.connect("toggled", self, "on_button_toggled")
     add_child(select_tile_gui)

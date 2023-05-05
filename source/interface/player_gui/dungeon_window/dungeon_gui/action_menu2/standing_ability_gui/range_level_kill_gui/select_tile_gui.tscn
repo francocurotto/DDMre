@@ -12,3 +12,5 @@ custom_fonts/font = ExtResource( 1 )
 toggle_mode = true
 text = "🔘SELECT TILE"
 script = ExtResource( 2 )
+
+[connection signal="toggled" from="." to="." method="_on_SelectTileGUI_toggled"]
