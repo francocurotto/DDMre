@@ -40,7 +40,7 @@ func on_dice_gui_dim_button_released():
     dim_buttons._on_CancelButton_pressed()
     dim_buttons.disable_buttons()
 
-func on_ability_select_tile(tiles):
+func on_select_tile_gui_pressed(tiles):
     action_menu.visible = false
     dungeon_gui.enable_select_buttons()
     dungeon_gui.set_ability_select_highlights(tiles)

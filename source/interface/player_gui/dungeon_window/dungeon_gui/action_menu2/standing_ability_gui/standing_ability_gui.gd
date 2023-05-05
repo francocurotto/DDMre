@@ -24,7 +24,7 @@ onready var cast_button = $Margins/Controls/CastButton
 signal cast_button_pressed(ability, ability_dict)
 signal cancel_button_pressed
 signal highlight_ability_tiles(tiles)
-signal ability_select_tile
+signal select_tile_gui_pressed
 
 func _ready():
     #ability_info.set_ability(ability) # TODO: ability_info
@@ -43,7 +43,7 @@ func setup(action_menu, _ability):
     connect("cast_button_pressed", action_menu, "on_standing_cast_button_pressed")
     connect("cancel_button_pressed", action_menu, "on_cancel_button_pressed")
     connect("highlight_ability_tiles", action_menu, "on_highlight_ability_tiles")
-    connect("ability_select_tile", action_menu, "on_ability_select_tile")
+    connect("select_tile_gui_pressed", action_menu, "on_select_tile_gui_pressed")
     return self
 
 # signals callbacks
@@ -53,9 +53,9 @@ func _on_CastButton_pressed():
 func _on_CancelButton_pressed():
     emit_signal("cancel_button_pressed")
 
-func on_ability_select_tile(pressed, tiles):
+func on_select_tile_gui_toggled(pressed):
     if pressed:
-        emit_signal("ability_select_tile", tiles)
+        emit_signal("select_tile_gui_pressed", ability.get_select_tiles())
     else:
         cast_button.disabled = true
 

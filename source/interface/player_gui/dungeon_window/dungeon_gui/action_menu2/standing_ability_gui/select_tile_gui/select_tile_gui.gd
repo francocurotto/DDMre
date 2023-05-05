@@ -5,7 +5,7 @@ var ability
 var pos
 
 # signals
-signal ability_select_tile
+signal select_tile_gui_toggled
 
 func _ready():
     disabled = ability.cost > ability.monster.player.crestpool.slots[ability.crest]
@@ -13,7 +13,7 @@ func _ready():
 # public functions
 func setup(standing_ability_gui, _ability):
     ability = _ability
-    connect("ability_select_tile", standing_ability_gui, "on_ability_select_tile")
+    connect("select_tile_gui_toggled", standing_ability_gui, "on_select_tile_gui_toggled")
     _on_SelectTileGUI_toggled(false)
     return self
 
@@ -23,7 +23,7 @@ func get_ability_dict():
 
 # signals callbacks
 func _on_SelectTileGUI_toggled(button_pressed):
-    emit_signal("ability_select_tile", button_pressed, ability.get_select_tiles())
+    emit_signal("select_tile_gui_toggled", button_pressed)
 
 func on_select_tile_cancel_button_pressed():
     pressed = false
