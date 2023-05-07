@@ -8,7 +8,7 @@ const ability_guis_dict = {
     "MINDCONTROL"    : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
     "KILLBLOCK"      : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/select_tile_gui/select_tile_gui.tscn"),
     "RANGELEVELKILL" : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/range_level_kill_gui/range_level_kill_gui.tscn"),
-    #"ROLLLEVELKILL"  : select_direction_gui
+    "ROLLLEVELKILL"  : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/roll_level_kill_gui/roll_level_kill_gui.tscn")
 }
 
 # variables

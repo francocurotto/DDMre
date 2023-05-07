@@ -11,9 +11,9 @@ func _ready():
     disabled = ability.cost > ability.monster.player.crestpool.slots[ability.crest]
 
 # public functions
-func setup(standing_ability_gui, _ability):
+func setup(ability_gui, _ability):
     ability = _ability
-    connect("select_tile_gui_toggled", standing_ability_gui, "on_select_tile_gui_toggled")
+    connect("select_tile_gui_toggled", ability_gui, "on_select_tile_gui_toggled")
     _on_SelectTileGUI_toggled(false)
     return self
 
