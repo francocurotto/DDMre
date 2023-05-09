@@ -4,6 +4,7 @@ extends PanelContainer
 const AttackGUI = preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/attack_gui/attack_gui.tscn")
 const ReplyGUI = preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/reply_gui/reply_gui.tscn")
 const StandingAbilityGUI = preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/standing_ability_gui.tscn")
+const StateAbilityGUI = preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/state_ability_gui/state_ability_gui.tscn")
 
 # variables
 var action_gui
@@ -15,8 +16,10 @@ onready var vbox_menu = $VBoxMenu
 signal check_dungeon_button_pressed
 signal attack_button_pressed
 signal reply_button_pressed
-signal standing_cast_button_pressed
+signal standing_cast_button_pressed(pos, ability_dict)
+signal state_cast_button_pressed(ability_dict)
 signal cancel_button_pressed
+signal skip_button_pressed
 signal highlight_ability_tiles(tiles)
 signal select_tile_gui_pressed(tiles)
 signal select_direction_pressed(ability, direction)
@@ -34,6 +37,11 @@ func activate_reply_gui(attacker, attacked):
 
 func activate_standing_ability_gui(ability):
     action_gui = StandingAbilityGUI.instance().setup(self, ability)
+    vbox_menu.add_child(action_gui)
+    visible = true
+
+func activate_state_ability_gui(ability):
+    action_gui = StateAbilityGUI.instance().setup(self, ability)
     vbox_menu.add_child(action_gui)
     visible = true
 
@@ -56,8 +64,18 @@ func on_standing_cast_button_pressed(pos, ability_dict):
     action_gui.queue_free()
     visible = false
 
+func on_state_cast_button_pressed(ability_dict):
+    emit_signal("state_cast_button_pressed", ability_dict)
+    action_gui.queue_free()
+    visible = false
+
 func on_cancel_button_pressed():
     emit_signal("cancel_button_pressed")
+    action_gui.queue_free()
+    visible = false
+
+func on_skip_button_pressed():
+    emit_signal("skip_button_pressed")
     action_gui.queue_free()
     visible = false
 

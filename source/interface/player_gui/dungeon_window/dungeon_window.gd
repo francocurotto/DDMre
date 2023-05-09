@@ -28,7 +28,11 @@ func on_state_update_reply(attacker, attacked):
 
 func on_state_update_ability(summon):
     dungeon_buttons_gui.switch_to_dungeon_buttons()
-    dungeon_gui.activate_state_ability_gui(summon)
+    var state_ability
+    for ability in summon.card.abilities:
+        if ability.is_state_dim():
+            state_ability = ability
+    dungeon_gui.activate_state_ability_gui(state_ability)
 
 func on_dice_gui_dim_button_pressed(dice):
     dungeon_gui.on_dice_dim_button_pressed(dice)

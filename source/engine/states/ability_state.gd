@@ -21,7 +21,7 @@ func ABILITY(cmd):
     Excecute the ABILITY command.
     """
     # get data
-    var activate_dict = cmd["ability"]
+    var activate_dict = cmd["ability_dict"]
     for ability in summon.card.abilities:
         if ability.name == activate_dict["name"]:
             ability.activate(activate_dict)

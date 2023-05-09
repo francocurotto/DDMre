@@ -21,7 +21,7 @@ onready var controls = $Margins/Controls
 onready var cast_button = $Margins/Controls/CastButton
 
 # signals
-signal cast_button_pressed(ability, ability_dict)
+signal cast_button_pressed(pos, ability_dict)
 signal cancel_button_pressed
 signal highlight_ability_tiles(tiles)
 signal select_tile_gui_pressed(tiles)
@@ -41,7 +41,7 @@ func _ready():
 # public functions
 func setup(action_menu, _ability):
     ability = _ability
-    connect("cast_button_pressed", action_menu, "on_standing_cast_button_pressed")
+    connect("cast_button_pressed", action_menu, "on_state_cast_button_pressed")
     connect("cancel_button_pressed", action_menu, "on_cancel_button_pressed")
     connect("highlight_ability_tiles", action_menu, "on_highlight_ability_tiles")
     connect("select_tile_gui_pressed", action_menu, "on_select_tile_gui_pressed")

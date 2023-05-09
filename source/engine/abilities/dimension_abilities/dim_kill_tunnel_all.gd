@@ -9,6 +9,7 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func activate(_activate_dict):
+    monster.player.crestpool.remove_crests(crest, cost)
     for monster in dungeon.monsters:
         if monster.is_tunnel():
             monster.die()

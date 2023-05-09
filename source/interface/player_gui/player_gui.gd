@@ -13,10 +13,6 @@ onready var roll_gui = $MainWindow/DicepoolWindow/RollGUI
 onready var dungeon_window = $MainWindow/DungeonWindow
 onready var dungeon_gui = $MainWindow/DungeonWindow/DungeonGUI
 onready var action_menu = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu
-#onready var attack_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/AttackGUI
-#onready var reply_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/ReplyGUI
-#onready var standing_ability_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/StandingAbilityGUI
-#onready var state_ability_gui = $MainWindow/DungeonWindow/DungeonGUI/ActionMenu/VBox/GUIs/StateAbilityGUI
 onready var summon_gui = $MainWindow/DungeonWindow/SummonGUI
 onready var dungeon_buttons_gui = $MainWindow/DungeonWindow/DungeonButtonsGUI
 onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/DungeonButtons
@@ -54,16 +50,12 @@ func _ready():
     action_menu.connect("attack_button_pressed", self, "input_attack_cmd")
     action_menu.connect("reply_button_pressed", self, "input_reply_cmd")
     action_menu.connect("standing_cast_button_pressed", self, "input_standing_ability_cmd")
+    action_menu.connect("state_cast_button_pressed", self, "input_state_ability_cmd")
     action_menu.connect("cancel_button_pressed", dungeon_window, "reset_to_dungeon")
+    action_menu.connect("skip_button_pressed", self, "input_skip_cmd")
     action_menu.connect("highlight_ability_tiles", dungeon_gui, "on_highlight_ability_tiles")   
     action_menu.connect("select_tile_gui_pressed", dungeon_window, "on_select_tile_gui_pressed")
     action_menu.connect("select_direction_pressed", dungeon_window, "on_select_direction_pressed")
-    # standing ability gui
-    #standing_ability_gui.connect("ability_cmd", self, "on_ability_cmd")
-    #standing_ability_gui.connect("ability_cancel_button_pressed", dungeon_window, "on_ability_ended")
-    #standing_ability_gui.connect("highlight_ability_tiles", dungeon_gui, "on_highlight_ability_tiles")
-    #standing_ability_gui.connect("ability_select_tile", dungeon_window, "on_ability_select_tile")
-    #standing_ability_gui.connect("ability_select_direction", dungeon_window, "on_ability_select_direction")
     # state ability gui
     #state_ability_gui.connect("ability_cmd", self, "on_ability_cmd")
     #state_ability_gui.connect("skip_cmd", self, "on_skip_cmd")
@@ -117,8 +109,8 @@ func input_roll_cmd():
     var indeces = dicepool_gui.get_roll_indeces()
     engine.update({"name":"ROLL", "dice":indeces})
 
-func input_skip_cmd(cmd):
-    engine.update(cmd)
+func input_skip_cmd():
+    engine.update({"name":"SKIP"})
 
 func input_dim_cmd():
     dicepool_gui.release_roll()
@@ -144,6 +136,10 @@ func input_reply_cmd(cmd, ability_dict):
 func input_standing_ability_cmd(pos, ability_dict):
     dungeon_window.reset_to_dungeon()
     engine.update({"name":"ABILITY", "pos":pos, "ability_dict":ability_dict})
+
+func input_state_ability_cmd(ability_dict):
+    dungeon_window.reset_to_dungeon()
+    engine.update({"name":"ABILITY", "ability_dict":ability_dict})
 
 func input_jump_input(pos1, pos2):
     dungeon_window.reset_to_dungeon()
