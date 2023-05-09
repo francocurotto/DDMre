@@ -57,6 +57,7 @@ func _ready():
     action_menu.connect("cancel_button_pressed", dungeon_window, "reset_to_dungeon")
     action_menu.connect("highlight_ability_tiles", dungeon_gui, "on_highlight_ability_tiles")   
     action_menu.connect("select_tile_gui_pressed", dungeon_window, "on_select_tile_gui_pressed")
+    action_menu.connect("select_direction_pressed", dungeon_window, "on_select_direction_pressed")
     # standing ability gui
     #standing_ability_gui.connect("ability_cmd", self, "on_ability_cmd")
     #standing_ability_gui.connect("ability_cancel_button_pressed", dungeon_window, "on_ability_ended")

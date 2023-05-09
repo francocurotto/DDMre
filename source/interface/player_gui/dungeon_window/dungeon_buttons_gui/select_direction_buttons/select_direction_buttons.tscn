@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/select_direction_buttons/direction_buttongroup.tres" type="ButtonGroup" id=2]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/select_direction_buttons/select_direction_buttons.gd" type="Script" id=3]
 
 [node name="SelectDirectionButtons" type="HBoxContainer"]
@@ -10,56 +9,27 @@ margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 script = ExtResource( 3 )
 
-[node name="UpButton" type="Button" parent="."]
-margin_right = 139.0
+[node name="ClockWiseButton" type="Button" parent="."]
+margin_right = 235.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
-pressed = true
-group = ExtResource( 2 )
-text = "⬆"
+text = "🔃"
 
-[node name="LeftButton" type="Button" parent="."]
-margin_left = 143.0
-margin_right = 282.0
+[node name="CounterClockWiseButton" type="Button" parent="."]
+margin_left = 239.0
+margin_right = 474.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
-group = ExtResource( 2 )
-text = "⬅"
-
-[node name="DownButton" type="Button" parent="."]
-margin_left = 286.0
-margin_right = 426.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 0, 50 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
-group = ExtResource( 2 )
-text = "⬇"
-
-[node name="RightButton" type="Button" parent="."]
-margin_left = 430.0
-margin_right = 569.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 0, 50 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
-group = ExtResource( 2 )
-text = "➡"
+text = "🔄"
 
 [node name="SelectButton" type="Button" parent="."]
-margin_left = 573.0
+margin_left = 478.0
 margin_right = 713.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 50 )
@@ -68,4 +38,6 @@ size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 text = "🔘SELECT"
 
+[connection signal="pressed" from="ClockWiseButton" to="." method="_on_ClockWiseButton_pressed"]
+[connection signal="pressed" from="CounterClockWiseButton" to="." method="_on_CounterClockWiseButton_pressed"]
 [connection signal="pressed" from="SelectButton" to="." method="_on_SelectButton_pressed"]

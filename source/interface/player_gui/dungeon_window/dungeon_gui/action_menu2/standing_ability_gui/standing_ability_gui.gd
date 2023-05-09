@@ -24,7 +24,8 @@ onready var cast_button = $Margins/Controls/CastButton
 signal cast_button_pressed(ability, ability_dict)
 signal cancel_button_pressed
 signal highlight_ability_tiles(tiles)
-signal select_tile_gui_pressed
+signal select_tile_gui_pressed(tiles)
+signal select_direction_pressed(ability)
 
 func _ready():
     #ability_info.set_ability(ability) # TODO: ability_info
@@ -44,6 +45,7 @@ func setup(action_menu, _ability):
     connect("cancel_button_pressed", action_menu, "on_cancel_button_pressed")
     connect("highlight_ability_tiles", action_menu, "on_highlight_ability_tiles")
     connect("select_tile_gui_pressed", action_menu, "on_select_tile_gui_pressed")
+    connect("select_direction_pressed", action_menu, "on_select_direction_pressed")
     return self
 
 # signals callbacks
@@ -53,11 +55,17 @@ func _on_CastButton_pressed():
 func _on_CancelButton_pressed():
     emit_signal("cancel_button_pressed")
 
+func on_highlight_ability_tiles(tiles):
+    emit_signal("highlight_ability_tiles", tiles)
+
 func on_select_tile_gui_toggled(pressed):
     if pressed:
         emit_signal("select_tile_gui_pressed", ability.get_select_tiles())
     else:
         cast_button.disabled = true
+
+func on_select_direction_pressed():
+    emit_signal("select_direction_pressed", ability)
 
 func on_select_tile_cancel_button_pressed():
     active_gui.on_select_tile_cancel_button_pressed()
@@ -66,6 +74,9 @@ func on_select_tile_cancel_button_pressed():
 func on_select_tile_select_button_pressed(tile):
     active_gui.on_select_tile_select_button_pressed(tile)
     cast_button.disabled = false
+
+func on_select_direction_select_button_pressed(direction):
+    active_gui.on_select_direction_select_button_pressed(direction)
 
 func on_ability_cost_changed(cost):
     cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[ability.crest]]

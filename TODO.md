@@ -1,6 +1,5 @@
 ### TODO
 - refactor action menu
-    - standing abilities
     - dim abilities
     - ability buttons
 - DIMKILLTUNNEL
@@ -18,7 +17,6 @@
 
 ### IMPROVEMENTS
 - change net select to next/previous net buttons
-- change select_direction_buttons to be scrolls
 - make summon actions and dim transformations menus popable in dungeon?
 
 ### ADDITIONS

@@ -47,7 +47,7 @@ func on_select_tile_gui_pressed(tiles):
     dungeon_gui.connect("tile_select_button_toggled", select_tile_buttons, "on_tile_select_button_toggled")
     dungeon_buttons_gui.switch_to_select_tile_buttons(tiles, dungeon_gui.selected_tile_gui)
     
-func on_ability_select_direction(ability):
+func on_select_direction_pressed(ability):
     action_menu.visible = false
     dungeon_gui.enable_select_buttons()
     dungeon_buttons_gui.switch_to_select_direction_buttons(ability)

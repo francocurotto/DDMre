@@ -89,7 +89,7 @@ func unset_highlights():
 
 func unset_summon_highlights():
     for tile_gui in tile_guis:
-        tile_gui.unset_summon_highlight()
+        tile_gui.set_summon_highlight_type("NONE")
 
 func unset_ability_select_highlights():
     for tile_gui in tile_guis:
