@@ -19,7 +19,7 @@ signal standing_cast_button_pressed
 signal cancel_button_pressed
 signal highlight_ability_tiles(tiles)
 signal select_tile_gui_pressed(tiles)
-signal select_direction_pressed(ability)
+signal select_direction_pressed(ability, direction)
 
 # public functions
 func activate_attack_gui(attacker, attacked):
@@ -68,8 +68,8 @@ func on_select_tile_gui_pressed(tiles):
     emit_signal("select_tile_gui_pressed", tiles)
     visible = false
 
-func on_select_direction_pressed(ability):
-    emit_signal("select_direction_pressed", ability)
+func on_select_direction_pressed(ability, direction):
+    emit_signal("select_direction_pressed", ability, direction)
     visible = false
 
 func on_select_tile_cancel_button_pressed():

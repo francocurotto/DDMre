@@ -25,7 +25,7 @@ signal cast_button_pressed(ability, ability_dict)
 signal cancel_button_pressed
 signal highlight_ability_tiles(tiles)
 signal select_tile_gui_pressed(tiles)
-signal select_direction_pressed(ability)
+signal select_direction_pressed(ability, direction)
 
 func _ready():
     #ability_info.set_ability(ability) # TODO: ability_info
@@ -64,8 +64,8 @@ func on_select_tile_gui_toggled(pressed):
     else:
         cast_button.disabled = true
 
-func on_select_direction_pressed():
-    emit_signal("select_direction_pressed", ability)
+func on_select_direction_pressed(direction):
+    emit_signal("select_direction_pressed", ability, direction)
 
 func on_select_tile_cancel_button_pressed():
     active_gui.on_select_tile_cancel_button_pressed()

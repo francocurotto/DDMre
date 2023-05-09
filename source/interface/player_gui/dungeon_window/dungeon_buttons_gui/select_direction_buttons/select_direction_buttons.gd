@@ -5,7 +5,7 @@ const directions = [Vector2(0,1), Vector2(1,0), Vector2(0,-1), Vector2(-1, 0)]
 
 # variables
 var ability
-var index = 0
+var index
 var direction setget , get_direction 
 
 # signals
@@ -17,9 +17,10 @@ func get_direction():
     return directions[index%len(directions)]
 
 # public functions
-func initialize(_ability):
+func initialize(_ability, _direction):
     ability = _ability
-    
+    index = directions.find(_direction)
+
 # signals callbacks
 func _on_SelectButton_pressed():
     emit_signal("select_direction_select_button_pressed", self.direction)

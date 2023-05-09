@@ -16,7 +16,7 @@ onready var direction_button = $Controls/DirectionButton
 # signals
 signal highlight_ability_tiles(tiles)
 signal ability_cost_changed(cost)
-signal select_direction_pressed
+signal select_direction_pressed(direction)
 
 func _ready():
     if ability.monster.player.id == 1:
@@ -48,7 +48,7 @@ func get_ability_dict():
 
 # signals callbacks
 func _on_DirectionButton_pressed():
-    emit_signal("select_direction_pressed")
+    emit_signal("select_direction_pressed", direction)
 
 func on_level_button_pressed(_button):
     emit_signal("ability_cost_changed", self.total_cost)
