@@ -7,8 +7,8 @@ var pos
 # signals
 signal select_tile_gui_toggled
 
-func _ready():
-    disabled = ability.cost > ability.monster.player.crestpool.slots[ability.crest]
+#func _ready():
+#    disabled = ability.cost > ability.monster.player.crestpool.slots[ability.crest]
 
 # public functions
 func setup(ability_gui, _ability):

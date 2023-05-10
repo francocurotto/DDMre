@@ -25,6 +25,11 @@ func setup(ability_gui, _ability):
     connect("ability_cost_changed", ability_gui, "on_ability_cost_changed")
     return self
 
+func get_ability_dict():
+    return {"pay_crest":crests[paycrest_buttongroup.get_pressed_button().get_index()], 
+        "gain_crest":crests[gaincrest_buttongroup.get_pressed_button().get_index()]}
+
+# signals callbacks
 func on_pay_button_pressed(button):
     var crest = crests[button.get_index()]
     if gaincrest_buttongroup.get_pressed_button():
