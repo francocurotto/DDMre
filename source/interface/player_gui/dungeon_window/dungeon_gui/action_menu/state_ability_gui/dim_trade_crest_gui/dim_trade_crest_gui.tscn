@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/state_ability_gui/dim_trade_crest_gui/paycrest_buttongroup.tres" type="ButtonGroup" id=1]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/state_ability_gui/dim_trade_crest_gui/paycrest_buttongroup.tres" type="ButtonGroup" id=1]
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=2]
 [ext_resource path="res://art/fonts/summon_stat.tres" type="DynamicFont" id=3]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/state_ability_gui/dim_trade_crest_gui/gaincrest_buttongroup.tres" type="ButtonGroup" id=4]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/state_ability_gui/dim_trade_crest_gui/gaincrest_buttongroup.tres" type="ButtonGroup" id=4]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/state_ability_gui/dim_trade_crest_gui/dim_trade_crest_gui.gd" type="Script" id=5]
 
 [node name="DimTradeCrestGUI" type="VBoxContainer"]

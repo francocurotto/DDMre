@@ -1,0 +1,157 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/state_ability_gui/dim_trade_crest_gui/paycrest_buttongroup.tres" type="ButtonGroup" id=1]
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=2]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/state_ability_gui/dim_trade_crest_gui/gaincrest_buttongroup.tres" type="ButtonGroup" id=4]
+
+[node name="DimTradeCrestGUI" type="VBoxContainer"]
+margin_right = 550.0
+margin_bottom = 430.0
+
+[node name="Controls" type="VBoxContainer" parent="."]
+margin_right = 550.0
+margin_bottom = 150.0
+custom_constants/separation = 30
+
+[node name="PayGUI" type="HBoxContainer" parent="Controls"]
+margin_right = 550.0
+margin_bottom = 60.0
+
+[node name="PayText" type="Label" parent="Controls/PayGUI"]
+margin_top = 13.0
+margin_right = 163.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 2 )
+text = "Pay Crest (X):"
+
+[node name="PayButtons" type="HBoxContainer" parent="Controls/PayGUI"]
+margin_left = 167.0
+margin_right = 550.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+
+[node name="MoveButton" type="Button" parent="Controls/PayGUI/PayButtons"]
+margin_right = 73.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+group = ExtResource( 1 )
+text = "⬆"
+
+[node name="AttackButton" type="Button" parent="Controls/PayGUI/PayButtons"]
+margin_left = 77.0
+margin_right = 150.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+group = ExtResource( 1 )
+text = "⚔"
+
+[node name="DefenseButton" type="Button" parent="Controls/PayGUI/PayButtons"]
+margin_left = 154.0
+margin_right = 228.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+group = ExtResource( 1 )
+text = "⛨"
+
+[node name="MagicButton" type="Button" parent="Controls/PayGUI/PayButtons"]
+margin_left = 232.0
+margin_right = 305.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+group = ExtResource( 1 )
+text = "✡"
+
+[node name="TrapButton" type="Button" parent="Controls/PayGUI/PayButtons"]
+margin_left = 309.0
+margin_right = 383.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+group = ExtResource( 1 )
+text = "⚡"
+
+[node name="GainGUI" type="HBoxContainer" parent="Controls"]
+margin_top = 90.0
+margin_right = 550.0
+margin_bottom = 150.0
+
+[node name="GainText" type="Label" parent="Controls/GainGUI"]
+margin_top = 13.0
+margin_right = 172.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 2 )
+text = "Gain Crest (X):"
+
+[node name="GainButtons" type="HBoxContainer" parent="Controls/GainGUI"]
+margin_left = 176.0
+margin_right = 550.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+
+[node name="MoveButton" type="Button" parent="Controls/GainGUI/GainButtons"]
+margin_right = 71.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+group = ExtResource( 4 )
+text = "⬆"
+
+[node name="AttackButton" type="Button" parent="Controls/GainGUI/GainButtons"]
+margin_left = 75.0
+margin_right = 147.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+group = ExtResource( 4 )
+text = "⚔"
+
+[node name="DefenseButton" type="Button" parent="Controls/GainGUI/GainButtons"]
+margin_left = 151.0
+margin_right = 222.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+group = ExtResource( 4 )
+text = "⛨"
+
+[node name="MagicButton" type="Button" parent="Controls/GainGUI/GainButtons"]
+margin_left = 226.0
+margin_right = 298.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+group = ExtResource( 4 )
+text = "✡"
+
+[node name="TrapButton" type="Button" parent="Controls/GainGUI/GainButtons"]
+margin_left = 302.0
+margin_right = 374.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+group = ExtResource( 4 )
+text = "⚡"

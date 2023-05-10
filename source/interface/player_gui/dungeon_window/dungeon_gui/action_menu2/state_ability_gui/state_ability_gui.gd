@@ -2,7 +2,7 @@ extends VBoxContainer
 
 #constants
 const ability_guis_dict = {
-    #"DIMTRADECREST"  :preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/state_ability_gui/trade_crest_gui/trade_crest_gui.tscn"),
+    "DIMTRADECREST"  : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/state_ability_gui/dim_trade_crest_gui/dim_trade_crest_gui.tscn"),
     "DIMKILLTUNNEL"  : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
     "DIMKILLWEAKEST" : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
     #"DIMCURE"        : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/state_ability_gui/select_summons_gui/select_summons_gui.tscn"),
@@ -49,6 +49,10 @@ func _on_CastButton_pressed():
 
 func _on_SkipButton_pressed():
     emit_signal("skip_button_pressed")
+
+func on_ability_cost_changed(cost, crest):
+    cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[crest]]
+    cast_button.disabled = cost > ability.monster.player.crestpool.slots[crest] 
 
 func on_select_tile_gui_toggled(pressed):
     if pressed:
