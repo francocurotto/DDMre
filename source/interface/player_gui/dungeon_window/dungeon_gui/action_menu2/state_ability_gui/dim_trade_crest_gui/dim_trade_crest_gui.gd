@@ -7,13 +7,11 @@ var crests = ["MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
 # onready variables
 onready var pay_label = $Controls/PayGUI/PayText
 onready var gain_label = $Controls/GainGUI/GainText
-onready var pay_buttons = $Controls/PayGUI/PayButtons
-onready var gain_buttons = $Controls/GainGUI/GainButtons
 onready var paycrest_buttongroup = $Controls/PayGUI/PayButtons/MoveButton.group
 onready var gaincrest_buttongroup = $Controls/GainGUI/GainButtons/MoveButton.group
 
 # signals
-
+signal ability_cost_changed
 
 func _ready():
     pay_label.text = "Pay Crest (%d)" % ability.cost
@@ -30,10 +28,10 @@ func setup(ability_gui, _ability):
 func on_pay_button_pressed(button):
     var crest = crests[button.get_index()]
     if gaincrest_buttongroup.get_pressed_button():
-        emit_signal("ability_cost_change", ability.cost, crest)
+        emit_signal("ability_cost_changed", ability.cost, crest)
 
 func on_gain_button_pressed(_button):
     var button = paycrest_buttongroup.get_pressed_button()
     if button:
         var crest = crests[button.get_index()]
-        emit_signal("ability_cost_change", ability.cost, crest)
+        emit_signal("ability_cost_changed", ability.cost, crest)

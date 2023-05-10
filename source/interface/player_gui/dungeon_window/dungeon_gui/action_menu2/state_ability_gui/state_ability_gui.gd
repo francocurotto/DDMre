@@ -31,9 +31,7 @@ func _ready():
         active_gui = ability_guis_dict[ability.name].instance().setup(self, ability)
         controls.add_child(active_gui)
         controls.move_child(active_gui, 0)
-    if "cost" in ability:
-        cast_button.text = "✨CAST (%d%s)" % [ability.cost, Globals.CRESTICONS[ability.crest]]
-        cast_button.disabled = ability.cost > ability.monster.player.crestpool.slots[ability.crest]
+    set_cast_button()
         
 # public functions
 func setup(action_menu, _ability):
@@ -43,6 +41,12 @@ func setup(action_menu, _ability):
     connect("select_tile_gui_pressed", action_menu, "on_select_tile_gui_pressed")
     return self
 
+func set_cast_button():
+    if "cost" in ability and "crest" in ability:
+        on_ability_cost_changed(ability.cost, ability.crest)
+    elif "cost" in ability:
+        on_ability_cost_changed(ability.cost, null)
+
 # signals callbacks
 func _on_CastButton_pressed():
     emit_signal("cast_button_pressed", get_ability_dict())
@@ -51,8 +55,11 @@ func _on_SkipButton_pressed():
     emit_signal("skip_button_pressed")
 
 func on_ability_cost_changed(cost, crest):
-    cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[crest]]
-    cast_button.disabled = cost > ability.monster.player.crestpool.slots[crest] 
+    if crest:
+        cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[crest]]
+        cast_button.disabled = cost > ability.monster.player.crestpool.slots[crest]
+    else:
+        cast_button.disabled = true
 
 func on_select_tile_gui_toggled(pressed):
     if pressed:
