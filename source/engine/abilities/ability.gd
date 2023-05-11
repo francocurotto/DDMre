@@ -23,3 +23,6 @@ func is_standing():
 
 func is_state_dim():
     return false
+
+func is_state_item():
+    return false
