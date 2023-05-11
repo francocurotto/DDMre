@@ -31,7 +31,8 @@ const LIBPATH = "res://LIBRARY.json"
 #const DUNGPATH = "res://dungeons/test_dim_kill_tunnel_all.json"
 #const DUNGPATH = "res://dungeons/test_dim_trade_crest.json"
 #const DUNGPATH = "res://dungeons/test_dim_kill_tunnel.json"
-const DUNGPATH = "res://dungeons/test_dim_kill_weakest.json"
+#const DUNGPATH = "res://dungeons/test_dim_kill_weakest.json"
+const DUNGPATH = "res://dungeons/test_monster_reborn.json"
 #const RANDOMPOOL = true
 const RANDOMPOOL = false
 #const POOL1PATH = "res://dicepools/test_pass.json";const POOL2PATH = "res://dicepools/test_pass.json"
@@ -63,7 +64,8 @@ const RANDOMPOOL = false
 #const POOL1PATH = "res://dicepools/test_dim_kill_tunnel_all.json";const POOL2PATH = "res://dicepools/test_dim_kill_tunnel_all.json"
 #const POOL1PATH = "res://dicepools/test_dim_trade_crest.json";const POOL2PATH = "res://dicepools/test_dim_trade_crest.json"
 #const POOL1PATH = "res://dicepools/test_dim_kill_tunnel.json";const POOL2PATH = "res://dicepools/test_dim_kill_tunnel.json"
-const POOL1PATH = "res://dicepools/test_dim_kill_weakest.json";const POOL2PATH = "res://dicepools/test_dim_kill_weakest.json"
+#const POOL1PATH = "res://dicepools/test_dim_kill_weakest.json";const POOL2PATH = "res://dicepools/test_dim_kill_weakest.json"
+const POOL1PATH = "res://dicepools/test_monster_reborn.json";const POOL2PATH = "res://dicepools/test_monster_reborn.json"
 
 # arrays, dictionaries
 const CRESTS = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
