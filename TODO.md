@@ -5,6 +5,8 @@
         - change net select to next/previous net buttons
 ---
 - DIMCURE
+- implement attack twice ability for Knight of Twin Swords
+- implement better ability for Dark-eyes Iusionist
 - add ability description in card info
     - add also in standing and state ability gui
     - implement ability_info
@@ -14,8 +16,6 @@
 - standarize cmd syntax and context checks
 
 ### ADDITIONS
-- implement attack twice ability for Knight of Twin Swords
-- implement better ability for Dark-eyes Iusionist
 - add vortex initialization
 - add neutral path tile for vortex at start
 
