@@ -6,6 +6,7 @@ const NAME = "DUNGEON"
 # variables
 var RollState = load("engine/states/roll_state.gd")
 var ReplyState = load("engine/states/reply_state.gd")
+var AbilityState = load("engine/states/ability_state.gd")
 
 func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     pass
@@ -37,7 +38,8 @@ func MOVE(cmd):
         print("Not enough MOVEMENT crests.")
     # perform movement
     else: # case valid movement
-        perform_movement(tile_origin, tile_dest, path)
+        var state = perform_movement(tile_origin, tile_dest, path)
+        return state
     return self
 
 func ATTACK(cmd):
@@ -137,11 +139,14 @@ func perform_movement(tile1, tile2, path):
     var dest_content = tile2.content
     # make the movement
     tile2.move_content_from(tile1)
+    monster.max_move_behavior.update_turn_move_count(len(path)-1)
     # pay the cost of the movement
     player.crestpool.slots["MOVEMENT"] -= dungeon.get_move_cost(path, monster)
+    Events.emit_signal("duel_update")
     # activate item if necessary
     if dest_content.is_item():
-        dest_content.activate(monster)
-    monster.max_move_behavior.update_turn_move_count(len(path)-1)
-    # emit duel update signal
-    Events.emit_signal("duel_update")
+        if dest_content.card.abilities[0].is_state_item():
+            return AbilityState.new(player, opponent, dungeon, dest_content)
+        else:
+            dest_content.activate(monster)
+    return self
