@@ -26,13 +26,13 @@ func on_state_update_reply(attacker, attacked):
     dungeon_gui.activate_reply_gui(attacker, attacked)
     dungeon_gui.highlight_attack_reply(attacker, attacked)
 
-func on_state_update_ability(summon):
+func on_state_update_ability(state):
     dungeon_buttons_gui.switch_to_dungeon_buttons()
-    var state_ability
-    for ability in summon.card.abilities:
-        if ability.is_dim_state() or ability.is_item_state():
-            state_ability = ability
-    dungeon_gui.activate_state_ability_gui(state_ability)
+#    var state_ability
+#    for ability in summon.card.abilities:
+#        if ability.is_dim_state() or ability.is_item_state():
+#            state_ability = ability
+    dungeon_gui.activate_state_ability_gui(state)
 
 func on_dice_gui_dim_button_pressed(dice):
     dungeon_gui.on_dice_dim_button_pressed(dice)

@@ -98,10 +98,10 @@ func unset_ability_select_highlights():
 func activate_reply_gui(attacker, attacked):
     action_menu.activate_reply_gui(attacker, attacked)
 
-func activate_state_ability_gui(summon):
+func activate_state_ability_gui(state):
     disable_tile_gui_buttons()
     disable_tile_gui_highlights()
-    action_menu.activate_state_ability_gui(summon)
+    action_menu.activate_state_ability_gui(state)
 
 func highlight_attack_reply(attacker, attacked):
     highlight_attack(attacker.tile.pos, attacked.tile.pos)

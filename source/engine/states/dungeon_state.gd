@@ -39,6 +39,7 @@ func MOVE(cmd):
     # perform movement
     else: # case valid movement
         var state = perform_movement(tile_origin, tile_dest, path)
+        Events.emit_signal("duel_update")
         return state
     return self
 
@@ -142,7 +143,6 @@ func perform_movement(tile1, tile2, path):
     monster.max_move_behavior.update_turn_move_count(len(path)-1)
     # pay the cost of the movement
     player.crestpool.slots["MOVEMENT"] -= dungeon.get_move_cost(path, monster)
-    Events.emit_signal("duel_update")
     # activate item if necessary
     if dest_content.is_item():
         if dest_content.card.abilities[0].is_item_state():

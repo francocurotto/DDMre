@@ -56,9 +56,6 @@ func _ready():
     action_menu.connect("highlight_ability_tiles", dungeon_gui, "on_highlight_ability_tiles")   
     action_menu.connect("select_tile_gui_pressed", dungeon_window, "on_select_tile_gui_pressed")
     action_menu.connect("select_direction_pressed", dungeon_window, "on_select_direction_pressed")
-    # state ability gui
-    #state_ability_gui.connect("ability_cmd", self, "on_ability_cmd")
-    #state_ability_gui.connect("skip_cmd", self, "on_skip_cmd")
     # dungeon info button
     summon_gui.connect("summon_gui_info_button_pressed", self, "on_info_button_pressed")
     # dungeon buttons
@@ -167,10 +164,7 @@ func on_state_update_reply():
 
 func on_state_update_dim_ability():
     dicepool_window.on_state_update_dim_ability()
-    dungeon_window.on_state_update_ability(engine.state.summon)
-
-func on_state_update_item_ability():
-    dungeon_window.on_state_update_ability(engine.state.item)
+    dungeon_window.on_state_update_ability(engine.state)
 
 func on_info_button_pressed(card):
     card_info.set_card(card)

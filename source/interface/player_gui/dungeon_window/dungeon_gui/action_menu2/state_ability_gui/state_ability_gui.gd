@@ -6,10 +6,11 @@ const ability_guis_dict = {
     "DIMKILLTUNNEL"  : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
     "DIMKILLWEAKEST" : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
     #"DIMCURE"        : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/state_ability_gui/select_summons_gui/select_summons_gui.tscn"),
-    #"MONSTERREBORN"  : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/state_ability_gui/monster_reborn/monster_reborn.tscn"),
+    "MONSTERREBORN"  : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/state_ability_gui/monster_reborn_gui/monster_reborn_gui.tscn"),
 }
 
 # variables
+var state
 var ability
 var active_gui
 
@@ -26,16 +27,23 @@ signal select_direction_pressed(ability, direction)
 
 func _ready():
     #ability_info.set_ability(ability) # TODO: ability_info
+    if state.NAME == "DIMABILITY":
+        ability = get_state_ability(state.summon)
+        if ability.name in ability_guis_dict:
+            active_gui = ability_guis_dict[ability.name].instance().setup(self, ability)
+    elif state.NAME == "ITEMABILITY":
+        ability = get_state_ability(state.item)
+        if ability.name in ability_guis_dict:
+            active_gui = ability_guis_dict[ability.name].instance().setup(self, ability, state.monster)
     ability_info.text = ability.name
-    if ability.name in ability_guis_dict:
-        active_gui = ability_guis_dict[ability.name].instance().setup(self, ability)
+    if active_gui:
         controls.add_child(active_gui)
         controls.move_child(active_gui, 0)
     set_cast_button()
         
 # public functions
-func setup(action_menu, _ability):
-    ability = _ability
+func setup(action_menu, _state):
+    state = _state
     connect("cast_button_pressed", action_menu, "on_state_cast_button_pressed")
     connect("skip_button_pressed", action_menu, "on_skip_button_pressed")
     connect("select_tile_gui_pressed", action_menu, "on_select_tile_gui_pressed")
@@ -76,6 +84,11 @@ func on_select_tile_select_button_pressed(tile):
     cast_button.disabled = false 
 
 # private functions
+func get_state_ability(summon):
+    for _ability in summon.card.abilities:
+        if _ability.is_dim_state() or _ability.is_item_state():
+            return _ability
+
 func get_ability_dict():
     var ability_dict = {"name" : ability.name}
     if active_gui:

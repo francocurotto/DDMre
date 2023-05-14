@@ -40,8 +40,8 @@ func activate_standing_ability_gui(ability):
     vbox_menu.add_child(action_gui)
     visible = true
 
-func activate_state_ability_gui(ability):
-    action_gui = StateAbilityGUI.instance().setup(self, ability)
+func activate_state_ability_gui(state):
+    action_gui = StateAbilityGUI.instance().setup(self, state)
     vbox_menu.add_child(action_gui)
     visible = true
 
