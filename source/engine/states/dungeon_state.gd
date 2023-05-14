@@ -6,7 +6,7 @@ const NAME = "DUNGEON"
 # variables
 var RollState = load("engine/states/roll_state.gd")
 var ReplyState = load("engine/states/reply_state.gd")
-var AbilityState = load("engine/states/ability_state.gd")
+var ItemAbilityState = load("engine/states/item_ability_state.gd")
 
 func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     pass
@@ -145,8 +145,8 @@ func perform_movement(tile1, tile2, path):
     Events.emit_signal("duel_update")
     # activate item if necessary
     if dest_content.is_item():
-        if dest_content.card.abilities[0].is_state_item():
-            return AbilityState.new(player, opponent, dungeon, dest_content)
+        if dest_content.card.abilities[0].is_item_state():
+            return ItemAbilityState.new(player, opponent, dungeon, dest_content, monster)
         else:
             dest_content.activate(monster)
     return self

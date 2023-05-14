@@ -21,5 +21,5 @@ func get_select_tiles():
     return tiles
 
 # is functions
-func is_state_dim():
+func is_dim_state():
     return true

@@ -21,7 +21,7 @@ func on_state_update_dimension(dim_candidates):
     roll_gui.disable_roll()
     roll_gui.switch_to_skip_button()
 
-func on_state_update_ability():
+func on_state_update_dim_ability():
     on_state_update_dungeon()
 
 func on_state_update_reply():

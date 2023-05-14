@@ -165,9 +165,12 @@ func on_state_update_reply():
     dicepool_window.on_state_update_reply()
     dungeon_window.on_state_update_reply(engine.state.attacker, engine.state.attacked)
 
-func on_state_update_ability():
-    dicepool_window.on_state_update_ability()
+func on_state_update_dim_ability():
+    dicepool_window.on_state_update_dim_ability()
     dungeon_window.on_state_update_ability(engine.state.summon)
+
+func on_state_update_item_ability():
+    dungeon_window.on_state_update_ability(engine.state.item)
 
 func on_info_button_pressed(card):
     card_info.set_card(card)

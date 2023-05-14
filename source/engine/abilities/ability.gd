@@ -21,8 +21,8 @@ func disable():
 func is_standing():
     return false
 
-func is_state_dim():
+func is_dim_state():
     return false
 
-func is_state_item():
+func is_item_state():
     return false

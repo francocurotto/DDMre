@@ -12,7 +12,6 @@ func activate(monster, activate_dict):
 
 func get_select_dice(monster):
     var dicelist = []
-    
     for dice in monster.player.dicepool:
         if dice.dimensioned:
             for dead_monster in monster.player.graveyard:
@@ -27,5 +26,5 @@ func get_reborn_monster(player, dice):
             return monster
 
 # is functions
-func is_state_item():
+func is_item_state():
     return true

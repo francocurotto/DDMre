@@ -13,5 +13,5 @@ func activate(activate_dict):
     monster.player.crestpool.add_crests(activate_dict["gain_crest"], amount)
 
 # is functions
-func is_state_dim():
+func is_dim_state():
     return true

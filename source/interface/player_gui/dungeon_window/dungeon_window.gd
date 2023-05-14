@@ -30,7 +30,7 @@ func on_state_update_ability(summon):
     dungeon_buttons_gui.switch_to_dungeon_buttons()
     var state_ability
     for ability in summon.card.abilities:
-        if ability.is_state_dim() or ability.is_state_item():
+        if ability.is_dim_state() or ability.is_item_state():
             state_ability = ability
     dungeon_gui.activate_state_ability_gui(state_ability)
 
