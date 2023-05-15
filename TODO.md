@@ -4,13 +4,13 @@
         - change net select to next/previous net buttons
 --- merge to master
 - DIMCURE
-- implement attack twice ability for Knight of Twin Swords
-- implement better ability for Dark-eyes Iusionist
+- implement attack twice ability for Knight of Twin Swords (MULTIATTACK)
+- implement better ability for Dark-eyes Iusionist (NEGATEATKABI)
+- add vortex initialization
+- add neutral path tile for vortex at start
 - add ability description in card info
     - add also in standing and state ability gui
     - implement ability_info
-- add vortex initialization
-- add neutral path tile for vortex at start
 - test change tile icons
 
 ### FIXES
