@@ -3,7 +3,6 @@ extends VBoxContainer
 const ability_guis_dict = {
     "REDUCEDAMAGE"    : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/reply_gui/reduce_damage_gui/reduce_damage_gui.tscn"),
     "REDUCEDAMAGEINF" : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/reply_gui/reduce_damage_inf_gui/reduce_damage_inf_gui.tscn"),
-    #"SHIFTDAMAGE"     : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/reply_gui/select_summon_gui/select_summon_gui.tscn"),
     "SHIFTDAMAGE"     : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
     "PROTECTSELF"     : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/reply_gui/button_gui/button_gui.tscn"),
     "ADDFOEDEFENSE"   : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/reply_gui/button_gui/button_gui.tscn")
@@ -64,7 +63,6 @@ func on_select_tile_select_button_pressed(tile):
 
 # private functions
 func get_ability_dict():
-    var ability_dict = {"name" : ability.name}
     if reply_ability_gui:
-        ability_dict.merge(reply_ability_gui.get_ability_dict())
-    return ability_dict
+        return reply_ability_gui.get_ability_dict()
+    return {}

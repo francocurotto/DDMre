@@ -41,7 +41,7 @@ func _ready():
 # public functions
 func setup(action_menu, _ability):
     ability = _ability
-    connect("cast_button_pressed", action_menu, "on_state_cast_button_pressed")
+    connect("cast_button_pressed", action_menu, "on_standing_cast_button_pressed")
     connect("cancel_button_pressed", action_menu, "on_cancel_button_pressed")
     connect("highlight_ability_tiles", action_menu, "on_highlight_ability_tiles")
     connect("select_tile_gui_pressed", action_menu, "on_select_tile_gui_pressed")

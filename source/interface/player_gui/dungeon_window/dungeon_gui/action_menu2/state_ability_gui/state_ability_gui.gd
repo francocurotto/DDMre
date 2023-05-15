@@ -24,6 +24,7 @@ signal cast_button_pressed(ability_dict)
 signal skip_button_pressed
 signal select_tile_gui_pressed(tiles)
 signal select_direction_pressed(ability, direction)
+signal dice_gui_info_button_pressed(card)
 
 func _ready():
     #ability_info.set_ability(ability) # TODO: ability_info
@@ -47,6 +48,7 @@ func setup(action_menu, _state):
     connect("cast_button_pressed", action_menu, "on_state_cast_button_pressed")
     connect("skip_button_pressed", action_menu, "on_skip_button_pressed")
     connect("select_tile_gui_pressed", action_menu, "on_select_tile_gui_pressed")
+    connect("dice_gui_info_button_pressed", action_menu, "on_dice_gui_info_button_pressed")
     return self
 
 func set_cast_button():
@@ -68,12 +70,18 @@ func on_ability_cost_changed(cost, crest):
         cast_button.disabled = cost > ability.monster.player.crestpool.slots[crest]
     else:
         cast_button.disabled = true
+    
+func ability_castable(is_castable):
+    cast_button.disabled = not is_castable
 
 func on_select_tile_gui_toggled(pressed):
     if pressed:
         emit_signal("select_tile_gui_pressed", ability.get_select_tiles())
     else:
         cast_button.disabled = true
+
+func on_dice_gui_info_button_pressed(card):
+    emit_signal("dice_gui_info_button_pressed", card)
 
 func on_select_tile_cancel_button_pressed():
     active_gui.on_select_tile_cancel_button_pressed()

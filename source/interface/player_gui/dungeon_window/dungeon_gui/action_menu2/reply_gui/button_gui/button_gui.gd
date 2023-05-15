@@ -19,6 +19,8 @@ func setup(reply_gui, _ability):
 func get_ability_dict():
     if pressed:
         return {"name":ability.name}
+    else:
+        return {}
 
 # signals callbacks
 func _on_ButtonGUI_toggled(button_pressed):

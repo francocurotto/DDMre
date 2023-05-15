@@ -23,6 +23,7 @@ signal skip_button_pressed
 signal highlight_ability_tiles(tiles)
 signal select_tile_gui_pressed(tiles)
 signal select_direction_pressed(ability, direction)
+signal dice_gui_info_button_pressed(card)
 
 # public functions
 func activate_attack_gui(attacker, attacked):
@@ -89,6 +90,9 @@ func on_select_tile_gui_pressed(tiles):
 func on_select_direction_pressed(ability, direction):
     emit_signal("select_direction_pressed", ability, direction)
     visible = false
+
+func on_dice_gui_info_button_pressed(card):
+    emit_signal("dice_gui_info_button_pressed", card)
 
 func on_select_tile_cancel_button_pressed():
     action_gui.on_select_tile_cancel_button_pressed()
