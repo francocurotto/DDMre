@@ -71,11 +71,9 @@ func _ready():
     move_buttons.connect("move_buttons_move_button_pressed", self, "input_move_cmd")
     move_buttons.connect("move_buttons_cancel_button_pressed", dungeon_window, "reset_to_dungeon")
     # dim buttons
-    dim_buttons.connect("FLR_button_pressed", dungeon_gui, "on_FLR_button_pressed")
-    dim_buttons.connect("FUD_button_pressed", dungeon_gui, "on_FUD_button_pressed")
+    dim_buttons.connect("net_button_pressed", dungeon_gui.net_creator, "update_net_index")
     dim_buttons.connect("TCW_button_pressed", dungeon_gui, "on_TCW_button_pressed")
     dim_buttons.connect("TAW_button_pressed", dungeon_gui, "on_TAW_button_pressed")
-    dim_buttons.connect("net_select_button_pressed", dungeon_gui.net_creator, "update_net_index")
     dim_buttons.connect("dim_button_pressed", self, "input_dim_cmd")
     # select tile buttons
     select_tile_buttons.connect("select_tile_cancel_button_pressed", dungeon_window, "on_select_tile_cancel_button_pressed")

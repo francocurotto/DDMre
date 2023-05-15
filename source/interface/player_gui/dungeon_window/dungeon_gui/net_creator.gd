@@ -2,19 +2,34 @@ extends Node
 
 # constants
 const INITDICT = {1:[], 2:["FUD"]}
-const NETS = ["X1", "T1", "Z1", "X2", "T2", "Z2", "M1", "M2", "S1", "S2", "L1"]
-const REFLECTSX = [[], ["FLR"]]
-const REFLECTSY = [[], ["FUD"]]
+const NETS = [["X1", []],
+              ["T1", []],
+              ["Z1", []], 
+              ["Z1", ["FLR"]], 
+              ["X2", []], 
+              ["X2", ["FLR"]], 
+              ["T2", []], 
+              ["T2", ["FLR"]],
+              ["Z2", []], 
+              ["Z2", ["FLR"]], 
+              ["M1", []], 
+              ["M1", ["FLR"]], 
+              ["M2", []], 
+              ["M2", ["FLR"]], 
+              ["S1", []], 
+              ["S1", ["FLR"]], 
+              ["S2", []], 
+              ["S2", ["FLR"]], 
+              ["L1", []],
+              ["L1", ["FLR"]]]
 const ROTATIONS = [[], ["TCW"], ["TCW", "TCW"], ["TAW"]]
 
 # variables
 var playerid
 var pos
 var inittrans
-var net_index = 10
-var refx_index = 0
-var refy_index = 0
-var rot_index = 0
+var net_index
+var rot_index
 
 # signals
 signal net_updated(net)
@@ -26,25 +41,15 @@ func set_playerid(_playerid):
 
 # public functions
 func reset():
-    net_index = 10
-    refx_index = 0
-    refy_index = 0
+    net_index = 18
     rot_index = 0
 
-func update_net_index(_net_index):
-    net_index = _net_index
+func update_net_index(adder):
+    net_index = (net_index+adder) % len(NETS)
     create_net()
 
 func update_net_pos(_pos):
     pos = _pos
-    create_net()
-
-func update_net_flr():
-    refx_index = (refx_index+1) % len(REFLECTSX)
-    create_net()
-
-func update_net_fud():
-    refy_index = (refy_index+1) % len(REFLECTSY)
     create_net()
 
 func update_net_tcw():
@@ -65,6 +70,7 @@ func create_net():
     emit_signal("net_updated", net)
 
 func get_netdata():
-    var netname = NETS[net_index]
-    var trans_list = inittrans + ROTATIONS[rot_index] + REFLECTSX[refx_index] + REFLECTSY[refy_index]
+    
+    var netname = NETS[net_index][0]
+    var trans_list = inittrans + NETS[net_index][1] + ROTATIONS[rot_index]
     return {"netname":netname, "pos":pos, "trans_list":trans_list}

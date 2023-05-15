@@ -3,7 +3,7 @@ extends Node
 
 # filepath
 const LIBPATH = "res://LIBRARY.json"
-#const DUNGPATH = "res://dungeons/default.json"
+const DUNGPATH = "res://dungeons/default.json"
 #const DUNGPATH = "res://dungeons/test_pass.json"
 #const DUNGPATH = "res://dungeons/test_target.json"
 #const DUNGPATH = "res://dungeons/test_power.json"
@@ -32,9 +32,9 @@ const LIBPATH = "res://LIBRARY.json"
 #const DUNGPATH = "res://dungeons/test_dim_trade_crest.json"
 #const DUNGPATH = "res://dungeons/test_dim_kill_tunnel.json"
 #const DUNGPATH = "res://dungeons/test_dim_kill_weakest.json"
-const DUNGPATH = "res://dungeons/test_monster_reborn.json"
-#const RANDOMPOOL = true
-const RANDOMPOOL = false
+#const DUNGPATH = "res://dungeons/test_monster_reborn.json"
+const RANDOMPOOL = true
+#const RANDOMPOOL = false
 #const POOL1PATH = "res://dicepools/test_pass.json";const POOL2PATH = "res://dicepools/test_pass.json"
 #const POOL1PATH = "res://dicepools/test_target.json";const POOL2PATH = "res://dicepools/test_target.json"
 #const POOL1PATH = "res://dicepools/test_power.json";const POOL2PATH = "res://dicepools/test_power.json"
