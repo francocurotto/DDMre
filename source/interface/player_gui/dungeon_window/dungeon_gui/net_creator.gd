@@ -1,16 +1,16 @@
 extends Node
 
 # constants
-const INITDICT = {1:[], 2:["FUD"]}
-const ROTATIONS = [[], ["TCW"], ["TCW", "TCW"], ["TAW"]]
+#const INITDICT = {1:[], 2:["FUD"]}
+#const ROTATIONS = [[], ["TCW"], ["TCW", "TCW"], ["TAW"]]
 
 # variables
-var playerid
-var pos
-var inittrans
-var rot_index = 0
-var netname = "L1"
-var reflections = []
+#var playerid
+#var pos
+#var inittrans
+#var rot_index = 0
+#var netname = "L1"
+#var reflections = []
 
 # signals
 signal net_updated(net)

@@ -1,6 +1,8 @@
 extends MarginContainer
 
 # constants
+const INITDICT = {1:[], 2:["FUD"]}
+const ROTATIONS = [[], ["TCW"], ["TCW", "TCW"], ["TAW"]]
 const NETS = [["X1", []],
               ["T1", []],
               ["Z1", []], 
@@ -23,7 +25,10 @@ const NETS = [["X1", []],
               ["L1", ["FLR"]]]
 
 # variables
+var playerid
+var inittrans
 var net_index = 18
+var rot_index
 
 # onready variables
 onready var main_buttons = $MainButtons
@@ -32,12 +37,10 @@ onready var net_next_button = $MainButtons/NetNextButton
 onready var tcw_button = $MainButtons/TCWButton
 onready var taw_button = $MainButtons/TAWButton
 onready var dim_button = $MainButtons/DimButton
-onready var trans_buttons = [net_prev_button, net_next_button, tcw_button, taw_button]
+onready var net_buttons = [net_prev_button, net_next_button, tcw_button, taw_button]
 
 # signals
-signal net_button_pressed(adder)
-signal TCW_button_pressed
-signal TAW_button_pressed
+signal net_button_pressed
 signal dim_button_pressed
 
 # public functions
@@ -45,13 +48,16 @@ func disable_buttons():
     for main_button in main_buttons.get_children():
         main_button.disabled = true
 
-func enable_trans_buttons():
-    for button in trans_buttons:
+func enable_net_buttons():
+    for button in net_buttons:
        button.disabled = false
 
 # signals callbacks
-func on_net_updated(can_dimension):
-    enable_trans_buttons()
+func on_tile_dim_button_pressed():
+    enable_net_buttons()
+    on_net_button_pressed()
+
+func on_net_positioned(can_dimension):
     dim_button.disabled = not can_dimension
 
 func _on_NetPrevButton_pressed():
@@ -62,16 +68,23 @@ func _on_NetNextButton_pressed():
     net_index += 1
     on_net_button_pressed()
 
-func on_net_button_pressed():
-    var netname = NETS[net_index%len(NETS)][0]
-    var reflections = NETS[net_index%len(NETS)][1]
-    emit_signal("net_button_pressed", netname, reflections)
-
 func _on_TCWButton_pressed():
-    emit_signal("TCW_button_pressed")
+    var adder = -(playerid*2-3)
+    rot_index = (rot_index+adder) % len(ROTATIONS)
+    on_net_button_pressed()
 
 func _on_TAWButton_pressed():
-    emit_signal("TAW_button_pressed")
+    var adder = -(playerid*2-3)
+    rot_index = (rot_index+adder) % len(ROTATIONS)
+    on_net_button_pressed()
 
 func _on_DimButton_pressed():
     emit_signal("dim_button_pressed")
+
+func on_net_button_pressed():
+    var netname = NETS[net_index%len(NETS)][0]
+    var reflections = NETS[net_index%len(NETS)][1]
+    var rotations = ROTATIONS[rot_index%len(ROTATIONS)]
+    var trans_list = inittrans + reflections + rotations
+    emit_signal("net_button_pressed", netname, reflections)
+
