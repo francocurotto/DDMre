@@ -1,12 +1,8 @@
 extends AspectRatioContainer
 
-# constants
-const NetCreator = preload("res://interface/player_gui/dungeon_window/dungeon_gui/net_creator.gd")
-
 # variables
 var dungeon
 var player
-var net_creator = NetCreator.new()
 var dim_dice
 var tile_guis = []
 var selected_tile_gui
@@ -17,7 +13,8 @@ onready var action_menu = $ActionMenu
 
 # signals
 signal tile_select_button_toggled(content, pressed)
-signal net_updated(can_dimension)
+signal tile_dim_button_pressed
+signal net_positioned(can_dimension)
 signal menu_opened
 signal tile_move_button_pressed(pos1, pos2, move_cost)
 signal attack_monster_lord(cmd)
@@ -38,7 +35,6 @@ func _ready():
 func set_dungeon(_dungeon, _player):
     dungeon = _dungeon
     player = _player
-    net_creator.set_playerid(player.id)
     update_dungeon()
 
 # public functions
@@ -144,7 +140,7 @@ func on_tile_dim_button_pressed(tile_gui):
     on_tile_select_button_toggled(tile_gui, true)
     unset_summon_highlights()
     tile_gui.summon_highlight_type = dim_dice.card.type
-    net_creator.update_net_pos(tile_gui.tile.pos)
+    emit_signal("tile_dim_button_pressed", tile_gui.tile.pos)
 
 func on_tile_jump_button_pressed(tile_gui):
     var pos1 = selected_tile_gui.tile.pos
@@ -186,22 +182,13 @@ func on_jump_button_pressed():
     for vortex_pos in vortex_poss:
         get_tile_gui(vortex_pos).enable_jump_button()
 
-func on_net_updated(net):
+func on_net_button_pressed(netname, pos, trans_list):
+    var net = Globals.create_net(netname)
+    net.offset(pos)
+    net.apply_trans_list(trans_list)
     unset_highlights()
     highlight_net(net)
-    emit_signal("net_updated", dungeon.can_dimension(net, player))
-
-func on_FLR_button_pressed():
-    net_creator.update_net_flr()
-
-func on_FUD_button_pressed():
-    net_creator.update_net_fud()
-
-func on_TCW_button_pressed():
-    net_creator.update_net_tcw()
-
-func on_TAW_button_pressed():
-    net_creator.update_net_taw()
+    emit_signal("net_positioned", dungeon.can_dimension(net, player))
 
 func on_select_tile_cancel_button_pressed():
     disable_tile_gui_buttons()

@@ -1,8 +1,4 @@
 ### TODO
-- refactor action menu
-    - ability buttons (dungeon buttons and dim buttons should be kept in the main tree)
-        - change net select to next/previous net buttons
---- merge to master
 - DIMCURE
 - implement attack twice ability for Knight of Twin Swords (MULTIATTACK)
 - implement better ability for Dark-eyes Iusionist (NEGATEATKABI)

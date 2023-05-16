@@ -38,13 +38,13 @@ func _ready():
     # dungeon gui
     dungeon_gui.connect("tile_select_button_toggled", summon_gui, "on_tile_select_button_toggled")
     dungeon_gui.connect("tile_select_button_toggled", dungeon_buttons, "on_tile_select_button_toggled")
-    dungeon_gui.connect("net_updated", dim_buttons, "on_net_updated")
+    dungeon_gui.connect("tile_dim_button_pressed", dim_buttons, "on_tile_dim_button_pressed")
+    dungeon_gui.connect("net_positioned", dim_buttons, "on_net_positioned")
     dungeon_gui.connect("menu_opened", dungeon_buttons, "on_menu_opened")
     dungeon_gui.connect("tile_move_button_pressed", dungeon_buttons_gui, "on_tile_move_button_pressed")
     dungeon_gui.connect("attack_monster_lord", self, "input_attack_cmd")
     dungeon_gui.connect("monster_jumped", self, "input_jump_cmd")
     # net creator
-    dungeon_gui.net_creator.connect("net_updated", dungeon_gui, "on_net_updated")
     # action menu
     action_menu.connect("check_dungeon_button_pressed", dungeon_window, "on_check_dungeon_button_pressed")
     action_menu.connect("attack_button_pressed", self, "input_attack_cmd")
@@ -71,9 +71,7 @@ func _ready():
     move_buttons.connect("move_buttons_move_button_pressed", self, "input_move_cmd")
     move_buttons.connect("move_buttons_cancel_button_pressed", dungeon_window, "reset_to_dungeon")
     # dim buttons
-    dim_buttons.connect("net_button_pressed", dungeon_gui.net_creator, "update_net_index")
-    dim_buttons.connect("TCW_button_pressed", dungeon_gui, "on_TCW_button_pressed")
-    dim_buttons.connect("TAW_button_pressed", dungeon_gui, "on_TAW_button_pressed")
+    dim_buttons.connect("net_button_pressed", dungeon_gui, "on_net_button_pressed")
     dim_buttons.connect("dim_button_pressed", self, "input_dim_cmd")
     # select tile buttons
     select_tile_buttons.connect("select_tile_cancel_button_pressed", dungeon_window, "on_select_tile_cancel_button_pressed")
@@ -95,6 +93,7 @@ func set_duel(_engine, _player, _opponent):
     dungeon_gui.set_dungeon(engine.dungeon, player)
     summon_gui.set_player(player)
     dungeon_buttons.set_dungeon_buttons(player, engine)
+    dim_buttons.set_dim_buttons(player)
     lower_window.set_players_info(player, opponent)
 
 func set_roll(sides):
@@ -111,7 +110,7 @@ func input_skip_cmd():
 func input_dim_cmd():
     dicepool_gui.release_roll()
     var dimdice = dicepool_gui.get_selected_dim_index()
-    var netdata = dungeon_gui.net_creator.get_netdata()
+    var netdata = dim_buttons.get_netdata()
     var net = netdata["netname"]
     var pos = netdata["pos"]
     var trans = netdata["trans_list"]

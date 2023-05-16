@@ -29,7 +29,6 @@ func switch_to_move_buttons():
 func switch_to_dim_buttons():
     hide_buttons_guis()
     dim_buttons.visible = true
-    #dim_buttons.on_net_button_pressed()
 
 func switch_to_select_tile_buttons(tiles, selected_tile_gui):
     hide_buttons_guis()
