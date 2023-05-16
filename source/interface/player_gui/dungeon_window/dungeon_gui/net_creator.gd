@@ -2,34 +2,15 @@ extends Node
 
 # constants
 const INITDICT = {1:[], 2:["FUD"]}
-const NETS = [["X1", []],
-              ["T1", []],
-              ["Z1", []], 
-              ["Z1", ["FLR"]], 
-              ["X2", []], 
-              ["X2", ["FLR"]], 
-              ["T2", []], 
-              ["T2", ["FLR"]],
-              ["Z2", []], 
-              ["Z2", ["FLR"]], 
-              ["M1", []], 
-              ["M1", ["FLR"]], 
-              ["M2", []], 
-              ["M2", ["FLR"]], 
-              ["S1", []], 
-              ["S1", ["FLR"]], 
-              ["S2", []], 
-              ["S2", ["FLR"]], 
-              ["L1", []],
-              ["L1", ["FLR"]]]
 const ROTATIONS = [[], ["TCW"], ["TCW", "TCW"], ["TAW"]]
 
 # variables
 var playerid
 var pos
 var inittrans
-var net_index
-var rot_index
+var rot_index = 0
+var netname = "L1"
+var reflections = []
 
 # signals
 signal net_updated(net)
@@ -40,12 +21,9 @@ func set_playerid(_playerid):
     inittrans = INITDICT[playerid]
 
 # public functions
-func reset():
-    net_index = 18
-    rot_index = 0
-
-func update_net_index(adder):
-    net_index = (net_index+adder) % len(NETS)
+func update_net_index(_netname, _reflections):
+    netname = _netname
+    reflections = _reflections
     create_net()
 
 func update_net_pos(_pos):
@@ -70,7 +48,5 @@ func create_net():
     emit_signal("net_updated", net)
 
 func get_netdata():
-    
-    var netname = NETS[net_index][0]
-    var trans_list = inittrans + NETS[net_index][1] + ROTATIONS[rot_index]
+    var trans_list = inittrans + reflections + ROTATIONS[rot_index]
     return {"netname":netname, "pos":pos, "trans_list":trans_list}

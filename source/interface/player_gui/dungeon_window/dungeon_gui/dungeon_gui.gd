@@ -155,7 +155,6 @@ func on_tile_jump_button_pressed(tile_gui):
 func on_dice_dim_button_pressed(dice):
     disable_tile_gui_buttons()
     dim_dice = dice
-    net_creator.reset()
     for tile_gui in tile_guis:
         tile_gui.enable_dim_button()
 
