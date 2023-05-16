@@ -3,7 +3,6 @@ extends VBoxContainer
 # onready variables
 onready var dungeon_gui = $DungeonGUI
 onready var action_menu = $DungeonGUI/ActionMenu
-onready var reply_gui = $DungeonGUI/ActionMenu/VBox/GUIs/ReplyGUI
 onready var dungeon_buttons_gui = $DungeonButtonsGUI
 onready var dungeon_buttons = $DungeonButtonsGUI/DungeonButtons
 onready var dim_buttons = $DungeonButtonsGUI/DimButtons
@@ -27,9 +26,10 @@ func on_state_update_reply(attacker, attacked):
     dungeon_gui.activate_reply_gui(attacker, attacked)
     dungeon_gui.highlight_attack_reply(attacker, attacked)
 
-func on_state_update_ability(summon):
+func on_state_update_ability(state):
     dungeon_buttons_gui.switch_to_dungeon_buttons()
-    dungeon_gui.activate_state_ability_gui(summon)
+    dungeon_buttons_gui.disable_dungeon_action_buttons()
+    dungeon_gui.activate_state_ability_gui(state)
 
 func on_dice_gui_dim_button_pressed(dice):
     dungeon_gui.on_dice_dim_button_pressed(dice)
@@ -41,17 +41,17 @@ func on_dice_gui_dim_button_released():
     dim_buttons._on_CancelButton_pressed()
     dim_buttons.disable_buttons()
 
-func on_ability_select_tile(tiles):
+func on_select_tile_gui_pressed(tiles):
     action_menu.visible = false
     dungeon_gui.enable_select_buttons()
-    dungeon_gui.on_highlight_ability_tiles(tiles)
+    dungeon_gui.set_ability_select_highlights(tiles)
     dungeon_gui.connect("tile_select_button_toggled", select_tile_buttons, "on_tile_select_button_toggled")
     dungeon_buttons_gui.switch_to_select_tile_buttons(tiles, dungeon_gui.selected_tile_gui)
     
-func on_ability_select_direction(ability):
+func on_select_direction_pressed(ability, direction):
     action_menu.visible = false
     dungeon_gui.enable_select_buttons()
-    dungeon_buttons_gui.switch_to_select_direction_buttons(ability)
+    dungeon_buttons_gui.switch_to_select_direction_buttons(ability, direction)
 
 func on_select_tile_cancel_button_pressed():
     dungeon_buttons_gui.switch_to_dungeon_buttons()
@@ -66,10 +66,6 @@ func on_select_tile_select_button_pressed():
 func on_select_direction_select_button_pressed(direction):
     dungeon_buttons_gui.switch_to_dungeon_buttons()
     dungeon_gui.on_select_direction_select_button_pressed(direction)
-
-func on_ability_ended():
-    dungeon_gui.on_ability_ended()
-    dungeon_buttons.endturn_button.disabled = false
 
 func on_check_dungeon_button_pressed():
     dungeon_gui.hide_menus()

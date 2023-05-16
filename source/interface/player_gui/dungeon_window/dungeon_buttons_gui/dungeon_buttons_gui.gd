@@ -35,9 +35,9 @@ func switch_to_select_tile_buttons(tiles, selected_tile_gui):
     select_tile_buttons.initialize(tiles, selected_tile_gui)
     select_tile_buttons.visible = true
 
-func switch_to_select_direction_buttons(ability):
+func switch_to_select_direction_buttons(ability, direction):
     hide_buttons_guis()
-    select_direction_buttons.initialize(ability)
+    select_direction_buttons.initialize(ability, direction)
     select_direction_buttons.visible = true
 
 # signals callbacks

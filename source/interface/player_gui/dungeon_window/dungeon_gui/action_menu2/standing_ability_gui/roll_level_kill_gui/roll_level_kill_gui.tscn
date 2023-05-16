@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/roll_level_kill_gui/roll_level_kill_gui.gd" type="Script" id=2]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/standing_ability_gui/roll_level_kill_gui/level_buttongroup.tres" type="ButtonGroup" id=3]
+
+[node name="RollLevelKillGUI" type="VBoxContainer"]
+margin_right = 564.0
+margin_bottom = 150.0
+script = ExtResource( 2 )
+
+[node name="Controls" type="VBoxContainer" parent="."]
+margin_right = 564.0
+margin_bottom = 150.0
+custom_constants/separation = 30
+
+[node name="LevelGUI" type="HBoxContainer" parent="Controls"]
+margin_right = 564.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_constants/separation = 40
+
+[node name="LevelLabel" type="Label" parent="Controls/LevelGUI"]
+margin_top = 13.0
+margin_right = 155.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 1 )
+text = "Select Level:"
+
+[node name="LevelButtons" type="HBoxContainer" parent="Controls/LevelGUI"]
+margin_left = 195.0
+margin_right = 564.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+
+[node name="ButtonLevel1" type="Button" parent="Controls/LevelGUI/LevelButtons"]
+margin_right = 89.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+pressed = true
+group = ExtResource( 3 )
+text = "1★"
+
+[node name="ButtonLevel2" type="Button" parent="Controls/LevelGUI/LevelButtons"]
+margin_left = 93.0
+margin_right = 182.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+group = ExtResource( 3 )
+text = "2★"
+
+[node name="ButtonLevel3" type="Button" parent="Controls/LevelGUI/LevelButtons"]
+margin_left = 186.0
+margin_right = 275.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+group = ExtResource( 3 )
+text = "3★"
+
+[node name="ButtonLevel4" type="Button" parent="Controls/LevelGUI/LevelButtons"]
+margin_left = 279.0
+margin_right = 369.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+group = ExtResource( 3 )
+text = "4★"
+
+[node name="DirectionButton" type="Button" parent="Controls"]
+self_modulate = Color( 1, 1, 0.498039, 1 )
+margin_top = 90.0
+margin_right = 564.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 1 )
+text = "SELECT DIRECTION ⬆"
+
+[connection signal="pressed" from="Controls/DirectionButton" to="." method="_on_DirectionButton_pressed"]

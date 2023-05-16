@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/styleboxes/panel.tres" type="StyleBox" id=1]
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=2]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/action_menu.gd" type="Script" id=3]
+
+[node name="ActionMenu" type="PanelContainer"]
+margin_right = 600.0
+margin_bottom = 526.0
+rect_min_size = Vector2( 600, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/panel = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="VBoxMenu" type="VBoxContainer" parent="."]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 594.0
+margin_bottom = 520.0
+
+[node name="CheckDungeonButton" type="Button" parent="VBoxMenu"]
+margin_left = 528.0
+margin_right = 588.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_horizontal = 8
+custom_fonts/font = ExtResource( 2 )
+text = "👁"
+
+[connection signal="pressed" from="VBoxMenu/CheckDungeonButton" to="." method="_on_CheckDungeonButton_pressed"]

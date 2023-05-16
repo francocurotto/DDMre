@@ -1,85 +1,119 @@
 extends MarginContainer
 
+# constants
+const INITDICT = {1:[], 2:["FUD"]}
+const ROTATIONS = [[], ["TCW"], ["TCW", "TCW"], ["TAW"]]
+const NETS = [["X1", []],
+              ["T1", []],
+              ["Z1", []], 
+              ["Z1", ["FLR"]], 
+              ["X2", []], 
+              ["X2", ["FLR"]], 
+              ["T2", []], 
+              ["T2", ["FLR"]],
+              ["Z2", []], 
+              ["Z2", ["FLR"]], 
+              ["M1", []], 
+              ["M1", ["FLR"]], 
+              ["M2", []], 
+              ["M2", ["FLR"]], 
+              ["S1", []], 
+              ["S1", ["FLR"]], 
+              ["S2", []], 
+              ["S2", ["FLR"]], 
+              ["L1", []],
+              ["L1", ["FLR"]]]
+
 # variables
-var net_button_group = ButtonGroup.new()
+var player
+var inittrans
+var net_index = 18
+var rot_index = 0
+var pos
 
 # onready variables
 onready var main_buttons = $MainButtons
-onready var net_button = $MainButtons/NetButton
-onready var flr_button = $MainButtons/FLRButton
-onready var fud_button = $MainButtons/FUDButton
+onready var net_prev_button = $MainButtons/NetPrevButton
+onready var net_next_button = $MainButtons/NetNextButton
 onready var tcw_button = $MainButtons/TCWButton
 onready var taw_button = $MainButtons/TAWButton
 onready var dim_button = $MainButtons/DimButton
-onready var net_buttons = $NetButtons
-onready var x1_button = $NetButtons/X1Button
-onready var t1_button = $NetButtons/T1Button
-onready var z1_button = $NetButtons/Z1Button
-onready var x2_button = $NetButtons/X2Button
-onready var t2_button = $NetButtons/T2Button
-onready var z2_button = $NetButtons/Z2Button
-onready var m1_button = $NetButtons/M1Button
-onready var m2_button = $NetButtons/M2Button
-onready var s1_button = $NetButtons/S1Button
-onready var s2_button = $NetButtons/S2Button
-onready var l1_button = $NetButtons/L1Button
-onready var trans_buttons = [net_button, flr_button, fud_button, tcw_button, taw_button]
-onready var net_select_buttons = [x1_button, t1_button, z1_button, x2_button, t2_button, z2_button,
-    m1_button, m2_button, s1_button, s2_button, l1_button]
+onready var net_buttons = [net_prev_button, net_next_button, tcw_button, taw_button]
 
 # signals
 signal net_button_pressed
-signal FLR_button_pressed
-signal FUD_button_pressed
-signal TCW_button_pressed
-signal TAW_button_pressed
-signal net_select_button_pressed(net_index)
 signal dim_button_pressed
 
-func _ready():
-    net_button_group.connect("pressed", self, "on_net_button_pressed")
-    for net_select_button in net_select_buttons:
-        net_select_button.group = net_button_group
+# setget functions
+func set_dim_buttons(_player):
+    player = _player
+    inittrans = INITDICT[player.id]
+    set_net_icons()
 
 # public functions
 func disable_buttons():
     for main_button in main_buttons.get_children():
         main_button.disabled = true
-    net_button.icon = l1_button.icon
 
-func enable_trans_buttons():
-    for button in trans_buttons:
+func enable_net_buttons():
+    for button in net_buttons:
        button.disabled = false
 
+func get_netdata():
+    var netname = NETS[net_index%len(NETS)][0]
+    var reflections = NETS[net_index%len(NETS)][1]
+    var rotations = ROTATIONS[rot_index%len(ROTATIONS)]
+    var trans_list = inittrans + reflections + rotations
+    return {"netname":netname, "pos":pos, "trans_list":trans_list}
+
 # signals callbacks
-func on_net_updated(can_dimension):
-    enable_trans_buttons()
+func on_tile_dim_button_pressed(_pos):
+    pos = _pos
+    enable_net_buttons()
+    on_net_button_pressed()
+
+func on_net_positioned(can_dimension):
     dim_button.disabled = not can_dimension
 
-func _on_NetButton_pressed():
-    main_buttons.visible = false
-    net_buttons.visible = true
-
-func _on_FLRButton_pressed():
-    emit_signal("FLR_button_pressed")
-
-func _on_FUDButton_pressed():
-    emit_signal("FUD_button_pressed")
+func _on_NetPrevButton_pressed():
+    net_index -= 1
+    on_net_button_pressed()
+    set_net_icons()
+    
+func _on_NetNextButton_pressed():
+    net_index += 1
+    on_net_button_pressed()
+    set_net_icons()
 
 func _on_TCWButton_pressed():
-    emit_signal("TCW_button_pressed")
+    var adder = -(player.id*2-3)
+    rot_index = (rot_index+adder) % len(ROTATIONS)
+    on_net_button_pressed()
 
 func _on_TAWButton_pressed():
-    emit_signal("TAW_button_pressed")
+    var adder = -(player.id*2-3)
+    rot_index = (rot_index+adder) % len(ROTATIONS)
+    on_net_button_pressed()
 
 func _on_DimButton_pressed():
     emit_signal("dim_button_pressed")
 
-func on_net_button_pressed(button):
-    var net_index = net_select_buttons.find(button)
-    net_button.icon = button.icon
-    emit_signal("net_select_button_pressed", net_index)
+func on_net_button_pressed():
+    var netdata = get_netdata()
+    emit_signal("net_button_pressed", netdata["netname"], netdata["pos"], netdata["trans_list"])
 
-func _on_CancelButton_pressed():
-    main_buttons.visible = true
-    net_buttons.visible = false
+# private functions
+func set_net_icons():
+    set_net_icon(net_prev_button, -1)
+    set_net_icon(net_next_button, 1)
+
+func set_net_icon(button, offset):
+    var netlist = NETS[(net_index+offset)%len(NETS)]
+    var netname = netlist[0]
+    var icon = load("res://art/icons/NET_"+netname+".png")
+    if not netlist[1].empty():
+        var image = icon.get_data()
+        image.flip_x()
+        icon = ImageTexture.new()
+        icon.create_from_image(image)     
+    button.icon = icon

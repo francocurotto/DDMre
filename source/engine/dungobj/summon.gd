@@ -24,9 +24,9 @@ func negate_abilities():
     for ability in card.abilities:
         ability.disable()
 
-func get_state_dim_ability():
+func get_dim_state_ability():
     for ability in card.abilities:
-        if ability.is_state_dim():
+        if ability.is_dim_state():
             return ability
     return null
 

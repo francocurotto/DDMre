@@ -6,6 +6,7 @@ const NAME = "DUNGEON"
 # variables
 var RollState = load("engine/states/roll_state.gd")
 var ReplyState = load("engine/states/reply_state.gd")
+var ItemAbilityState = load("engine/states/item_ability_state.gd")
 
 func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     pass
@@ -37,7 +38,9 @@ func MOVE(cmd):
         print("Not enough MOVEMENT crests.")
     # perform movement
     else: # case valid movement
-        perform_movement(tile_origin, tile_dest, path)
+        var state = perform_movement(tile_origin, tile_dest, path)
+        Events.emit_signal("duel_update")
+        return state
     return self
 
 func ATTACK(cmd):
@@ -47,7 +50,7 @@ func ATTACK(cmd):
     # get data
     var pos_origin = Vector2(cmd["origin"][0], cmd["origin"][1])
     var pos_dest = Vector2(cmd["dest"][0], cmd["dest"][1])
-    var ability_dict = cmd.get("ability")
+    var ability_dict = cmd.get("ability_dict")
     var tile_origin = dungeon.get_tile(pos_origin)
     var tile_dest = dungeon.get_tile(pos_dest)
     var monster = tile_origin.content
@@ -81,10 +84,10 @@ func ABILITY(cmd):
     Excecute the ABILITY command.
     """
     var monster = dungeon.get_tile(cmd["pos"]).content
-    var activate_dict = cmd["ability"]
+    var ability_dict = cmd["ability_dict"]
     for ability in monster.card.abilities:
-        if ability.name == activate_dict["name"]:
-            ability.activate(activate_dict)
+        if ability.name == ability_dict["name"]:
+            ability.activate(ability_dict)
             monster.ability_cooldown = true
     Events.emit_signal("duel_update")
     return self
@@ -137,11 +140,13 @@ func perform_movement(tile1, tile2, path):
     var dest_content = tile2.content
     # make the movement
     tile2.move_content_from(tile1)
+    monster.max_move_behavior.update_turn_move_count(len(path)-1)
     # pay the cost of the movement
     player.crestpool.slots["MOVEMENT"] -= dungeon.get_move_cost(path, monster)
     # activate item if necessary
     if dest_content.is_item():
-        dest_content.activate(monster)
-    monster.max_move_behavior.update_turn_move_count(len(path)-1)
-    # emit duel update signal
-    Events.emit_signal("duel_update")
+        if dest_content.card.abilities[0].is_item_state():
+            return ItemAbilityState.new(player, opponent, dungeon, dest_content, monster)
+        else:
+            dest_content.activate(monster)
+    return self

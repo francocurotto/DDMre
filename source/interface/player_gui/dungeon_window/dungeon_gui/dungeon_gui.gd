@@ -1,12 +1,8 @@
 extends AspectRatioContainer
 
-# constants
-const NetCreator = preload("res://interface/player_gui/dungeon_window/dungeon_gui/net_creator.gd")
-
 # variables
 var dungeon
 var player
-var net_creator = NetCreator.new()
 var dim_dice
 var tile_guis = []
 var selected_tile_gui
@@ -14,16 +10,14 @@ var selected_tile_gui
 # onready variables
 onready var rows = $Rows
 onready var action_menu = $ActionMenu
-onready var attack_gui = $ActionMenu/VBox/GUIs/AttackGUI
-onready var reply_gui = $ActionMenu/VBox/GUIs/ReplyGUI
-#onready var standing_ability_gui = $ActionMenu/VBox/GUIs/StandingAbilityGUI
 
 # signals
 signal tile_select_button_toggled(content, pressed)
-signal net_updated(can_dimension)
+signal tile_dim_button_pressed
+signal net_positioned(can_dimension)
 signal menu_opened
 signal tile_move_button_pressed(pos1, pos2, move_cost)
-signal attack_cmd(cmd)
+signal attack_monster_lord(cmd)
 signal monster_jumped(pos1, pos2)
 
 func _ready():
@@ -41,7 +35,6 @@ func _ready():
 func set_dungeon(_dungeon, _player):
     dungeon = _dungeon
     player = _player
-    net_creator.set_playerid(player.id)
     update_dungeon()
 
 # public functions
@@ -82,21 +75,29 @@ func disable_tile_gui_ability_highlights():
     for tile_gui in tile_guis:
         tile_gui.set_ability_highlight(false)
 
+func set_ability_select_highlights(tiles):
+    for tile in tiles:
+        get_tile_gui(tile.pos).set_ability_select_highlight(true)
+
 func unset_highlights():
     for tile_gui in tile_guis:
         tile_gui.highlight = false
 
 func unset_summon_highlights():
     for tile_gui in tile_guis:
-        tile_gui.unset_summon_highlight()
+        tile_gui.set_summon_highlight_type("NONE")
+
+func unset_ability_select_highlights():
+    for tile_gui in tile_guis:
+        tile_gui.set_ability_select_highlight(false)
 
 func activate_reply_gui(attacker, attacked):
     action_menu.activate_reply_gui(attacker, attacked)
 
-func activate_state_ability_gui(summon):
+func activate_state_ability_gui(state):
     disable_tile_gui_buttons()
     disable_tile_gui_highlights()
-    action_menu.activate_state_ability_gui(summon)
+    action_menu.activate_state_ability_gui(state)
 
 func highlight_attack_reply(attacker, attacked):
     highlight_attack(attacker.tile.pos, attacked.tile.pos)
@@ -133,13 +134,13 @@ func on_tile_attack_button_pressed(tile_gui):
         action_menu.activate_attack_gui(attacker, attacked)
         emit_signal("menu_opened")
     elif attacker.can_target_ml(attacked):
-        emit_signal("attack_cmd", {"name":"ATTACK", "origin":pos1, "dest":pos2})
+        emit_signal("attack_monster_lord", pos1, pos2, null)
 
 func on_tile_dim_button_pressed(tile_gui):
     on_tile_select_button_toggled(tile_gui, true)
     unset_summon_highlights()
     tile_gui.summon_highlight_type = dim_dice.card.type
-    net_creator.update_net_pos(tile_gui.tile.pos)
+    emit_signal("tile_dim_button_pressed", tile_gui.tile.pos)
 
 func on_tile_jump_button_pressed(tile_gui):
     var pos1 = selected_tile_gui.tile.pos
@@ -150,7 +151,6 @@ func on_tile_jump_button_pressed(tile_gui):
 func on_dice_dim_button_pressed(dice):
     disable_tile_gui_buttons()
     dim_dice = dice
-    net_creator.reset()
     for tile_gui in tile_guis:
         tile_gui.enable_dim_button()
 
@@ -170,7 +170,11 @@ func on_attack_button_pressed():
 
 func on_ability_button_pressed():
     disable_tile_gui_buttons()
-    action_menu.activate_ability_gui(selected_tile_gui.tile)
+    var standing_ability
+    for ability in selected_tile_gui.tile.content.card.abilities:
+        if ability.is_standing():
+            standing_ability = ability
+    action_menu.activate_standing_ability_gui(standing_ability)
 
 func on_jump_button_pressed():
     disable_tile_gui_buttons()
@@ -178,40 +182,26 @@ func on_jump_button_pressed():
     for vortex_pos in vortex_poss:
         get_tile_gui(vortex_pos).enable_jump_button()
 
-func on_net_updated(net):
+func on_net_button_pressed(netname, pos, trans_list):
+    var net = Globals.create_net(netname)
+    net.offset(pos)
+    net.apply_trans_list(trans_list)
     unset_highlights()
     highlight_net(net)
-    emit_signal("net_updated", dungeon.can_dimension(net, player))
-
-func on_FLR_button_pressed():
-    net_creator.update_net_flr()
-
-func on_FUD_button_pressed():
-    net_creator.update_net_fud()
-
-func on_TCW_button_pressed():
-    net_creator.update_net_tcw()
-
-func on_TAW_button_pressed():
-    net_creator.update_net_taw()
+    emit_signal("net_positioned", dungeon.can_dimension(net, player))
 
 func on_select_tile_cancel_button_pressed():
     disable_tile_gui_buttons()
+    unset_ability_select_highlights()
     action_menu.on_select_tile_cancel_button_pressed()
 
 func on_select_tile_select_button_pressed():
     disable_tile_gui_buttons()    
+    unset_ability_select_highlights()
     action_menu.on_select_tile_select_button_pressed(selected_tile_gui.tile)
 
 func on_select_direction_select_button_pressed(direction):
     action_menu.on_select_direction_select_button_pressed(direction)
-
-func on_ability_ended():
-    enable_select_buttons()
-    disable_tile_gui_ability_highlights()
-    if selected_tile_gui:
-        on_tile_select_button_toggled(selected_tile_gui, true)
-    action_menu.visible = false
 
 func on_highlight_ability_tiles(tiles):
     disable_tile_gui_ability_highlights()

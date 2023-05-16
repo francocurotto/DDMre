@@ -1,39 +1,32 @@
 ### TODO
-- DIMKILLTUNNEL
-- DIMKILLWEAKEST (change to cover all monsters)
----
 - DIMCURE
----
-- MONSTERREBORN
-
-### ADDITIONS
-- implement attack twice ability for Knight of Twin Swords
-- implement better ability for Dark-eyes Illusionist
+- implement attack twice ability for Knight of Twin Swords (MULTIATTACK)
+- implement better ability for Dark-eyes Iusionist (NEGATEATKABI)
 - add vortex initialization
 - add neutral path tile for vortex at start
+- add ability description in card info
+    - add also in standing and state ability gui
+    - implement ability_info
+- test change tile icons
 
 ### FIXES
-- add ability description in card info
 - standarize cmd syntax and context checks
 
 ### IMPROVEMENTS
-- inconsistency: when ability select monster menu is activated, monsters are not highlighted, but if you go to select monster and cancel the monsters are kept highlighted. Basically when menu is open, there are two states, monsters highlighted and not highlighted
-- make net select button scrollable to change nets
 - make summon actions and dim transformations menus popable in dungeon?
 
 ### ART
-- test change tile icons
 - make everything 16-bitish
 
-### ABILITIES [42/46]
+### ABILITIES [45/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
 - ✅NEUTRAL
 - ❌DIMCURE
 - ✅DIMCUREALL
-- ❌DIMKILLWEAKEST
-- ❌DIMKILLTUNNEL
+- ✅DIMKILLWEAKEST
+- ✅DIMKILLTUNNEL
 - ✅DIMKILLTUNNELALL
 - ✅DIMADDCREST
 - ✅DIMTRADECREST
@@ -68,7 +61,7 @@
 - ✅TIMEMACHINE
 - ✅ITEMBUFF
 - ✅ITEMCRESTKILL
-- ❌MONSTERREBORN
+- ✅MONSTERREBORN
 - ✅BLACKHOLE
 - ✅GLUMINIZER
 - ✅WARPVORTEX

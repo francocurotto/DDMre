@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu2/state_ability_gui/monster_reborn_gui/monster_reborn_gui.gd" type="Script" id=1]
+
+[node name="MonsterRebornGUI" type="VBoxContainer"]
+margin_right = 550.0
+margin_bottom = 150.0
+script = ExtResource( 1 )
