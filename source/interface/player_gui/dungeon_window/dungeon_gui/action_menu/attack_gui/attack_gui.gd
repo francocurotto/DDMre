@@ -1,45 +1,41 @@
 extends VBoxContainer
 
+# constants
+const RaiseAttackGUI = preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/attack_gui/raise_attack_gui/raise_attack_gui.tscn")
+
 # variables
-var pos1
-var pos2
+var attacker
+var attacked
 
 # onready variables
 onready var attack_info = $AttackInfo
-onready var buttons = $Margins/Buttons
-onready var menu_attack_button = $Margins/Buttons/MenuAttackButton
-onready var raise_attack_gui = $Margins/Buttons/RaiseAttackGUI
+onready var controls = $Margins/Controls
+onready var attack_button = $Margins/Controls/AttackButton
 
 # singals
-signal attack_cmd(cmd)
-signal menu_canceled
+signal attack_button_pressed(pos1, pos2, activate_dict)
+signal cancel_button_pressed
 
 func _ready():
-    raise_attack_gui.connect("attack_ability_activated", self, "on_attack_ability_activated")
-
-# public functions
-func activate(attacker, attacked):
-    pos1 = attacker.tile.pos
-    pos2 = attacked.tile.pos
     attack_info.set_summons(attacker, attacker.player, attacked, attacked.player)
     if attacker.has_active_ability("RAISEATTACK"): # TODO: add case ability negated
-        raise_attack_gui.set_raise_attack_interface(attacker)
-    visible = true
+        var raise_attack_gui = RaiseAttackGUI.instance().setup(self, attacker)
+        controls.add_child_below_node(attack_button, raise_attack_gui)
 
-func deactivate():
-    raise_attack_gui.visible = false
-    visible = false
+# public functions
+func setup(action_menu, _attacker, _attacked):
+    attacker = _attacker
+    attacked = _attacked
+    connect("attack_button_pressed", action_menu, "on_attack_button_pressed")
+    connect("cancel_button_pressed", action_menu, "on_cancel_button_pressed")
+    return self
 
 # signals callbacks
-func _on_MenuAttackButton_pressed():
-    deactivate()
-    emit_signal("attack_cmd", {"name":"ATTACK", "origin":pos1, "dest":pos2})
+func _on_AttackButton_pressed():
+    emit_signal("attack_button_pressed", attacker.tile.pos, attacked.tile.pos, null)
+
+func _on_CancelButton_pressed():
+    emit_signal("cancel_button_pressed")
 
 func on_attack_ability_activated(ability_dict):
-    deactivate()
-    emit_signal("attack_cmd", {"name":"ATTACK", "origin":pos1, "dest":pos2, "ability":ability_dict})
-
-func _on_MenuCancelButton_pressed():
-    deactivate()
-    emit_signal("menu_canceled")
-
+    emit_signal("attack_button_pressed", attacker.tile.pos, attacked.tile.pos, ability_dict)

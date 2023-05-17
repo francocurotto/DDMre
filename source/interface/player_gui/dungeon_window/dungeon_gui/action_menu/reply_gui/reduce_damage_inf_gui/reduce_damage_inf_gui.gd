@@ -1,8 +1,8 @@
 extends HBoxContainer
 
 # variables
-var player
-var cost
+var ability
+var cost = 0
 var crest = "DEFENSE"
 
 # onready variables
@@ -13,17 +13,15 @@ onready var down_button = $Buttons/DownButton
 # signals
 signal ability_cost_changed(cost, crest)
 
-# setget functions
-func set_reply_gui(attacked):
-    player = attacked.player
-    cost = 0
-    update_gui()
+# public functions
+func setup(reply_gui, _ability):
+    ability = _ability
+    connect("ability_cost_changed", reply_gui, "on_ability_cost_changed")
+    return self
 
 func get_ability_dict():
     if cost>0:
         return {"name":"REDUCEDAMAGEINF", "reduce":cost}
-    else:
-        return null
 
 # signals callbacks
 func _on_UpButton_pressed():
@@ -39,5 +37,5 @@ func _on_DownButton_pressed():
 # private functions
 func update_gui():
     label.text = "✨REDUCE DAMAGE -%d (%d%s)" % [cost*10, cost, Globals.CRESTICONS[crest]]
-    up_button.disabled = cost >= player.crestpool.slots[crest]
+    up_button.disabled = cost >= ability.monster.player.crestpool.slots[crest]
     down_button.disabled = cost <= 0

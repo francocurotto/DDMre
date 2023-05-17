@@ -1,59 +1,52 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/standing_ability_gui.gd" type="Script" id=1]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/buff_self_gui/buff_self_gui.tscn" type="PackedScene" id=2]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/buff_damage_gui/buff_damage_gui.tscn" type="PackedScene" id=3]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/distance_attack_gui/distance_attack_gui.tscn" type="PackedScene" id=4]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/range_kill_all_gui/range_kill_all_gui.tscn" type="PackedScene" id=5]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/trade_health_gui/trade_health_gui.tscn" type="PackedScene" id=6]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/steal_monster_gui/steal_monster_gui.tscn" type="PackedScene" id=7]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/mind_control_gui/mind_control_gui.tscn" type="PackedScene" id=8]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/kill_block_gui/kill_block_gui.tscn" type="PackedScene" id=9]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/range_level_kill_gui/range_level_kill_gui.tscn" type="PackedScene" id=10]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/roll_level_kill_gui/roll_level_kill_gui.tscn" type="PackedScene" id=11]
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://art/fonts/summon_stat.tres" type="DynamicFont" id=2]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/standing_ability_gui.gd" type="Script" id=3]
 
-[node name="StandingAbilityGUI" type="MarginContainer"]
-visible = false
-margin_right = 406.0
+[node name="StandingAbilityGUI" type="VBoxContainer"]
+margin_right = 200.0
 margin_bottom = 250.0
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
-[node name="BuffSelfGUI" parent="." instance=ExtResource( 2 )]
-visible = false
-margin_right = 406.0
+[node name="AbilityInfo" type="Label" parent="."]
+margin_right = 216.0
+margin_bottom = 36.0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 2 )
+text = "ABILITY NAME"
+align = 1
 
-[node name="BuffDamageGUI" parent="." instance=ExtResource( 3 )]
-visible = false
-margin_right = 406.0
+[node name="Margins" type="MarginContainer" parent="."]
+margin_top = 40.0
+margin_right = 216.0
+margin_bottom = 250.0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
 
-[node name="DistanceAttackGUI" parent="." instance=ExtResource( 4 )]
-visible = false
-margin_right = 406.0
+[node name="Controls" type="VBoxContainer" parent="Margins"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 186.0
+margin_bottom = 180.0
+custom_constants/separation = 30
 
-[node name="RangeKillAllGUI" parent="." instance=ExtResource( 5 )]
-visible = false
-margin_right = 406.0
+[node name="CastButton" type="Button" parent="Margins/Controls"]
+margin_right = 156.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 1 )
+text = "✨CAST"
 
-[node name="TradeHealthGUI" parent="." instance=ExtResource( 6 )]
-visible = false
-margin_right = 406.0
+[node name="CancelButton" type="Button" parent="Margins/Controls"]
+margin_top = 90.0
+margin_right = 156.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 1 )
+text = "❌CANCEL"
 
-[node name="StealMonsterGUI" parent="." instance=ExtResource( 7 )]
-visible = false
-margin_right = 406.0
-
-[node name="MindControlGUI" parent="." instance=ExtResource( 8 )]
-visible = false
-margin_right = 406.0
-
-[node name="KillBlockGUI" parent="." instance=ExtResource( 9 )]
-visible = false
-margin_right = 406.0
-
-[node name="RangeLevelKillGUI" parent="." instance=ExtResource( 10 )]
-visible = false
-margin_right = 422.0
-
-[node name="RollLevelKillGUI" parent="." instance=ExtResource( 11 )]
-visible = false
-margin_right = 455.0
+[connection signal="pressed" from="Margins/Controls/CastButton" to="." method="_on_CastButton_pressed"]
+[connection signal="pressed" from="Margins/Controls/CancelButton" to="." method="_on_CancelButton_pressed"]

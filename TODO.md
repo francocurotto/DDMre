@@ -1,12 +1,12 @@
 ### TODO
 - DIMCURE
 - implement attack twice ability for Knight of Twin Swords (MULTIATTACK)
-- implement better ability for Dark-eyes Iusionist (NEGATEATKABI)
+- implement better ability for Dark-eyes Illusionist (NEGATEATKABI)
 - add vortex initialization
 - add neutral path tile for vortex at start
 - add ability description in card info
-    - add also in standing and state ability gui
     - implement ability_info
+    - add also in standing and state ability gui
 - test change tile icons
 
 ### FIXES

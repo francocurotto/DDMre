@@ -38,7 +38,6 @@ func on_dice_gui_dim_button_pressed(dice):
 func on_dice_gui_dim_button_released():
     dungeon_gui.reset()
     dungeon_buttons_gui.switch_to_dungeon_buttons()
-    dim_buttons._on_CancelButton_pressed()
     dim_buttons.disable_buttons()
 
 func on_select_tile_gui_pressed(tiles):

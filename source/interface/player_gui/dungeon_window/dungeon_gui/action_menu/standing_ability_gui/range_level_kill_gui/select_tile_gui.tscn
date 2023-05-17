@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/range_level_kill_gui/select_tile_gui.gd" type="Script" id=2]
+
+[node name="SelectTileGUI" type="Button"]
+self_modulate = Color( 1, 1, 0.501961, 1 )
+margin_right = 426.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+text = "🔘SELECT TILE"
+script = ExtResource( 2 )
+
+[connection signal="toggled" from="." to="." method="_on_SelectTileGUI_toggled"]

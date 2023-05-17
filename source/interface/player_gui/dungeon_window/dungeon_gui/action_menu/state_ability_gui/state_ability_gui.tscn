@@ -1,19 +1,52 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/state_ability_gui/state_ability_gui.gd" type="Script" id=1]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/state_ability_gui/dim_kill_tunnel_all_gui/dim_kill_tunnel_all_gui.tscn" type="PackedScene" id=2]
-[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/state_ability_gui/dim_trade_crest_gui/dim_trade_crest_gui.tscn" type="PackedScene" id=3]
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://art/fonts/summon_stat.tres" type="DynamicFont" id=2]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/state_ability_gui/state_ability_gui.gd" type="Script" id=3]
 
-[node name="StateAbilityGUI" type="MarginContainer"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 1 )
+[node name="StateAbilityGUI" type="VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 250.0
+script = ExtResource( 3 )
 
-[node name="DimKillTunnelAllGUI" parent="." instance=ExtResource( 2 )]
-visible = false
-margin_right = 342.0
+[node name="AbilityInfo" type="Label" parent="."]
+margin_right = 216.0
+margin_bottom = 36.0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 2 )
+text = "ABILITY NAME"
+align = 1
 
-[node name="DimTradeCrestGUI" parent="." instance=ExtResource( 3 )]
-visible = false
-margin_right = 400.0
+[node name="Margins" type="MarginContainer" parent="."]
+margin_top = 40.0
+margin_right = 216.0
+margin_bottom = 250.0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+
+[node name="Controls" type="VBoxContainer" parent="Margins"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 186.0
+margin_bottom = 180.0
+custom_constants/separation = 30
+
+[node name="CastButton" type="Button" parent="Margins/Controls"]
+margin_right = 156.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 1 )
+text = "✨CAST"
+
+[node name="SkipButton" type="Button" parent="Margins/Controls"]
+margin_top = 90.0
+margin_right = 156.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 1 )
+text = "❌SKIP"
+
+[connection signal="pressed" from="Margins/Controls/CastButton" to="." method="_on_CastButton_pressed"]
+[connection signal="pressed" from="Margins/Controls/SkipButton" to="." method="_on_SkipButton_pressed"]

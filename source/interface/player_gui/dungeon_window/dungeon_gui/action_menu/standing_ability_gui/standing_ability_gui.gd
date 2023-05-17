@@ -1,91 +1,90 @@
-extends MarginContainer
+extends VBoxContainer
+
+#constants
+const ability_range_highlight = ["RANGEKILLALL", "RANGELEVELKILL"]
+const ability_guis_dict = {
+    "TRADEHEALTH"    : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
+    "STEALMONSTER"   : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
+    "MINDCONTROL"    : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/select_summon_gui/select_summon_gui.tscn"),
+    "KILLBLOCK"      : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/select_tile_gui/select_tile_gui.tscn"),
+    "RANGELEVELKILL" : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/range_level_kill_gui/range_level_kill_gui.tscn"),
+    "ROLLLEVELKILL"  : preload("res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/standing_ability_gui/roll_level_kill_gui/roll_level_kill_gui.tscn")
+}
 
 # variables
-var pos
-var ability_guis_dict
+var ability
 var active_gui
 
 # onready variables
-onready var buff_self_gui = $BuffSelfGUI
-onready var buff_damage_gui = $BuffDamageGUI
-onready var distance_attack_gui = $DistanceAttackGUI
-onready var range_kill_all_gui = $RangeKillAllGUI
-onready var trade_health_gui = $TradeHealthGUI
-onready var steal_monster_gui = $StealMonsterGUI
-onready var mind_control_gui = $MindControlGUI
-onready var kill_block_gui = $KillBlockGUI
-onready var range_level_kill_gui = $RangeLevelKillGUI
-onready var roll_level_kill_gui = $RollLevelKillGUI
+onready var ability_info = $AbilityInfo 
+onready var controls = $Margins/Controls
+onready var cast_button = $Margins/Controls/CastButton
 
 # signals
-signal ability_cmd(cmd)
-signal ability_cancel_button_pressed
+signal cast_button_pressed(pos, ability_dict)
+signal cancel_button_pressed
 signal highlight_ability_tiles(tiles)
-signal ability_select_tile(tiles)
-signal ability_select_direction(ability)
+signal select_tile_gui_pressed(tiles)
+signal select_direction_pressed(ability, direction)
 
 func _ready():
-    range_kill_all_gui.connect("highlight_ability_tiles", self, "on_highlight_ability_tiles")
-    trade_health_gui.connect("ability_select_tile", self, "on_ability_select_tile")
-    steal_monster_gui.connect("ability_select_tile", self, "on_ability_select_tile")
-    mind_control_gui.connect("ability_select_tile", self, "on_ability_select_tile")
-    kill_block_gui.connect("ability_select_tile", self, "on_ability_select_tile")
-    range_level_kill_gui.connect("highlight_ability_tiles", self, "on_highlight_ability_tiles")
-    range_level_kill_gui.connect("ability_select_tile", self, "on_ability_select_tile")
-    roll_level_kill_gui.connect("ability_select_direction", self, "on_ability_select_direction")
-    roll_level_kill_gui.connect("highlight_ability_tiles", self, "on_highlight_ability_tiles")
-    ability_guis_dict = {"BUFFSELF"       : buff_self_gui,
-                         "BUFFDAMAGE"     : buff_damage_gui,
-                         "DISTANCEATTACK" : distance_attack_gui,
-                         "RANGEKILLALL"   : range_kill_all_gui,
-                         "TRADEHEALTH"    : trade_health_gui,
-                         "STEALMONSTER"   : steal_monster_gui,
-                         "MINDCONTROL"    : mind_control_gui,
-                         "KILLBLOCK"      : kill_block_gui,
-                         "RANGELEVELKILL" : range_level_kill_gui,
-                         "ROLLLEVELKILL"  : roll_level_kill_gui}
+    #ability_info.set_ability(ability) # TODO: ability_info
+    ability_info.text = ability.name
+    on_ability_cost_changed(ability.cost)
+    if ability.name in ability_guis_dict:
+        active_gui = ability_guis_dict[ability.name].instance().setup(self, ability)
+        controls.add_child(active_gui)
+        controls.move_child(active_gui, 0)
+    if ability.name in ability_range_highlight:
+        emit_signal("highlight_ability_tiles", ability.get_tiles_in_range(ability.tile_range))
 
 # public functions
-func activate(tile):
-    pos = tile.pos
-    for ability in tile.content.card.abilities:
-        if ability.name in ability_guis_dict:
-            active_gui = ability_guis_dict[ability.name]
-            active_gui.activate(tile.content)
-            active_gui.connect("cast_button_pressed", self, "on_cast_button_pressed")
-            active_gui.connect("cancel_button_pressed", self, "on_cancel_button_pressed")
-            visible = true
+func setup(action_menu, _ability):
+    ability = _ability
+    connect("cast_button_pressed", action_menu, "on_standing_cast_button_pressed")
+    connect("cancel_button_pressed", action_menu, "on_cancel_button_pressed")
+    connect("highlight_ability_tiles", action_menu, "on_highlight_ability_tiles")
+    connect("select_tile_gui_pressed", action_menu, "on_select_tile_gui_pressed")
+    connect("select_direction_pressed", action_menu, "on_select_direction_pressed")
+    return self
 
 # signals callbacks
-func on_cast_button_pressed(ability_dict):
-    visible = false
-    active_gui.disconnect("cast_button_pressed", self, "on_cast_button_pressed")
-    active_gui.disconnect("cancel_button_pressed", self, "on_cancel_button_pressed")
-    emit_signal("ability_cmd", {"name":"ABILITY", "pos":pos, "ability":ability_dict})
+func _on_CastButton_pressed():
+    emit_signal("cast_button_pressed", ability.monster.tile.pos, get_ability_dict())
 
-func on_cancel_button_pressed():
-    visible = false
-    active_gui.disconnect("cast_button_pressed", self, "on_cast_button_pressed")
-    active_gui.disconnect("cancel_button_pressed", self, "on_cancel_button_pressed")
-    emit_signal("ability_cancel_button_pressed")
+func _on_CancelButton_pressed():
+    emit_signal("cancel_button_pressed")
 
 func on_highlight_ability_tiles(tiles):
     emit_signal("highlight_ability_tiles", tiles)
 
-#func on_check_dungeon_button_pressed():
-#    emit_signal("check_dungeon_button_pressed")
+func on_select_tile_gui_toggled(pressed):
+    if pressed:
+        emit_signal("select_tile_gui_pressed", ability.get_select_tiles())
+    else:
+        cast_button.disabled = true
 
-func on_ability_select_tile(tiles):
-    emit_signal("ability_select_tile", tiles)
-
-func on_ability_select_direction(ability):
-    emit_signal("ability_select_direction", ability)
+func on_select_direction_pressed(direction):
+    emit_signal("select_direction_pressed", ability, direction)
 
 func on_select_tile_cancel_button_pressed():
     active_gui.on_select_tile_cancel_button_pressed()
+    cast_button.disabled = true
 
 func on_select_tile_select_button_pressed(tile):
     active_gui.on_select_tile_select_button_pressed(tile)
+    cast_button.disabled = false
 
 func on_select_direction_select_button_pressed(direction):
     active_gui.on_select_direction_select_button_pressed(direction)
+
+func on_ability_cost_changed(cost):
+    cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[ability.crest]]
+    cast_button.disabled = cost > ability.monster.player.crestpool.slots[ability.crest] 
+
+# private functions
+func get_ability_dict():
+    var ability_dict = {"name" : ability.name}
+    if active_gui:
+        ability_dict.merge(active_gui.get_ability_dict())
+    return ability_dict
