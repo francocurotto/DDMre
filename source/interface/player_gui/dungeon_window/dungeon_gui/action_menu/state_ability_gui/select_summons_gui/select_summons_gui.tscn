@@ -3,14 +3,25 @@
 [ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/state_ability_gui/select_summons_gui/select_summons_gui.gd" type="Script" id=2]
 
-[node name="SelectSummonsGUI" type="Button"]
+[node name="SelectSummonsGUI" type="VBoxContainer"]
+margin_right = 401.0
+margin_bottom = 60.0
+custom_constants/separation = 20
+script = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="."]
 self_modulate = Color( 1, 1, 0.501961, 1 )
-margin_right = 434.0
+margin_right = 401.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 1 )
 toggle_mode = true
 text = "🔘SELECT SUMMONS"
-script = ExtResource( 2 )
 
-[connection signal="toggled" from="." to="." method="_on_SelectSummonsGUI_toggled"]
+[node name="SummonInfos" type="VBoxContainer" parent="."]
+margin_top = 80.0
+margin_right = 401.0
+margin_bottom = 80.0
+custom_constants/separation = 20
+
+[connection signal="toggled" from="Button" to="." method="_on_Button_toggled"]

@@ -29,7 +29,7 @@ func on_tile_select_button_toggled(tile, pressed):
             select_button.text = "🔘SELECT (%d/%d)" % [len(poslist), max_summons]
             select_button.disabled = not (pressed and len(poslist)<max_summons)
         else:
-            select_button.text = "🔘DESELECT (%d/%d)" % [len(poslist), max_summons]
+            select_button.text = "🔘UNSELECT (%d/%d)" % [len(poslist), max_summons]
             select_button.disabled = not pressed
     else:
         select_button.text = "🔘SELECT (%d/%d)" % [len(poslist), max_summons]
@@ -38,7 +38,7 @@ func on_tile_select_button_toggled(tile, pressed):
 func _on_SelectButton_pressed():
     if not selected_tile.pos in poslist:
         poslist.append(selected_tile.pos)
-        select_button.text = "🔘DESELECT (%d/%d)" % [len(poslist), max_summons]
+        select_button.text = "🔘UNSELECT (%d/%d)" % [len(poslist), max_summons]
     else:
         poslist.erase(selected_tile.pos)
         select_button.text = "🔘SELECT (%d/%d)" % [len(poslist), max_summons]

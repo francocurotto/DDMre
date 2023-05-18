@@ -1,6 +1,4 @@
 ### TODO
-- DIMCURE
-    - add summon_info
 - implement attack twice ability for Knight of Twin Swords (MULTIATTACK)
 - implement better ability for Dark-eyes Illusionist (NEGATEATKABI)
 - add vortex initialization
@@ -19,12 +17,12 @@
 ### ART
 - make everything 16-bitish
 
-### ABILITIES [45/46]
+### ABILITIES [46/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
 - ✅NEUTRAL
-- ❌DIMCURE
+- ✅DIMCURE
 - ✅DIMCUREALL
 - ✅DIMKILLWEAKEST
 - ✅DIMKILLTUNNEL
