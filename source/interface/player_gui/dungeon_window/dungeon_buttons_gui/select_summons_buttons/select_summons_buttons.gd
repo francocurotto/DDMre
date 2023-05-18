@@ -33,7 +33,7 @@ func on_tile_select_button_toggled(tile, pressed):
             select_button.disabled = not pressed
     else:
         select_button.text = "🔘SELECT (%d/%d)" % [len(poslist), max_summons]
-        select_button.disabled = false
+        select_button.disabled = true
 
 func _on_SelectButton_pressed():
     if not selected_tile.pos in poslist:

@@ -31,17 +31,18 @@ func _ready():
     #ability_info.set_ability(ability) # TODO: ability_info
     if state.NAME == "DIMABILITY":
         ability = get_state_ability(state.summon)
+        set_cast_button()
         if ability.name in ability_guis_dict:
             active_gui = ability_guis_dict[ability.name].instance().setup(self, ability)
     elif state.NAME == "ITEMABILITY":
         ability = get_state_ability(state.item)
+        set_cast_button()
         if ability.name in ability_guis_dict:
             active_gui = ability_guis_dict[ability.name].instance().setup(self, ability, state.monster)
     ability_info.text = ability.name
     if active_gui:
         controls.add_child(active_gui)
         controls.move_child(active_gui, 0)
-    set_cast_button()
         
 # public functions
 func setup(action_menu, _state):
@@ -101,7 +102,8 @@ func on_select_tile_select_button_pressed(tile):
 
 func on_select_summons_done_button_pressed(poslist):
     active_gui.on_select_summons_done_button_pressed(poslist)
-    cast_button.disabled = false
+    if not poslist.empty():
+        cast_button.disabled = false
 
 # private functions
 func get_state_ability(summon):

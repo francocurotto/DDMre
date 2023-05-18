@@ -1,5 +1,6 @@
 ### TODO
 - DIMCURE
+    - add summon_info
 - implement attack twice ability for Knight of Twin Swords (MULTIATTACK)
 - implement better ability for Dark-eyes Illusionist (NEGATEATKABI)
 - add vortex initialization

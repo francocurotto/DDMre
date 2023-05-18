@@ -23,6 +23,7 @@ func _ready():
 func setup(ability_gui, _ability):
     ability = _ability
     connect("ability_cost_changed", ability_gui, "on_ability_cost_changed")
+    ability_gui.ability_castable(false) # disabled cast button  
     return self
 
 func get_ability_dict():
