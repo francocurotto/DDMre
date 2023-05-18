@@ -7,6 +7,7 @@ onready var dungeon_buttons_gui = $DungeonButtonsGUI
 onready var dungeon_buttons = $DungeonButtonsGUI/DungeonButtons
 onready var dim_buttons = $DungeonButtonsGUI/DimButtons
 onready var select_tile_buttons = $DungeonButtonsGUI/SelectTileButtons
+onready var select_summons_buttons = $DungeonButtonsGUI/SelectSummonsButtons
 
 # public functions
 func reset_to_dungeon():
@@ -46,7 +47,14 @@ func on_select_tile_gui_pressed(tiles):
     dungeon_gui.set_ability_select_highlights(tiles)
     dungeon_gui.connect("tile_select_button_toggled", select_tile_buttons, "on_tile_select_button_toggled")
     dungeon_buttons_gui.switch_to_select_tile_buttons(tiles, dungeon_gui.selected_tile_gui)
-    
+
+func on_select_summons_gui_pressed(tiles, max_summons):
+    action_menu.visible = false
+    dungeon_gui.enable_select_buttons()
+    dungeon_gui.set_ability_select_highlights(tiles)
+    dungeon_gui.connect("tile_select_button_toggled", select_summons_buttons, "on_tile_select_button_toggled")
+    dungeon_buttons_gui.switch_to_select_summons_buttons(tiles, max_summons, dungeon_gui.selected_tile_gui)
+
 func on_select_direction_pressed(ability, direction):
     action_menu.visible = false
     dungeon_gui.enable_select_buttons()
@@ -61,6 +69,11 @@ func on_select_tile_select_button_pressed():
     dungeon_buttons_gui.switch_to_dungeon_buttons()
     dungeon_gui.disconnect("tile_select_button_toggled", select_tile_buttons, "on_tile_select_button_toggled")
     dungeon_gui.on_select_tile_select_button_pressed()
+
+func on_select_summons_done_button_pressed(poslist):
+    dungeon_buttons_gui.switch_to_dungeon_buttons()
+    dungeon_gui.disconnect("tile_select_button_toggled", select_summons_buttons, "on_tile_select_button_toggled")
+    dungeon_gui.on_select_summons_done_button_pressed(poslist)
 
 func on_select_direction_select_button_pressed(direction):
     dungeon_buttons_gui.switch_to_dungeon_buttons()

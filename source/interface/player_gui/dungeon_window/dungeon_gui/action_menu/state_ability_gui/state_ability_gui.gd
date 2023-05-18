@@ -23,6 +23,7 @@ onready var cast_button = $Margins/Controls/CastButton
 signal cast_button_pressed(ability_dict)
 signal skip_button_pressed
 signal select_tile_gui_pressed(tiles)
+signal select_summons_gui_pressed(tiles)
 signal select_direction_pressed(ability, direction)
 signal dice_gui_info_button_pressed(card)
 
@@ -48,6 +49,7 @@ func setup(action_menu, _state):
     connect("cast_button_pressed", action_menu, "on_state_cast_button_pressed")
     connect("skip_button_pressed", action_menu, "on_skip_button_pressed")
     connect("select_tile_gui_pressed", action_menu, "on_select_tile_gui_pressed")
+    connect("select_summons_gui_pressed", action_menu, "on_select_summons_gui_pressed")
     connect("dice_gui_info_button_pressed", action_menu, "on_dice_gui_info_button_pressed")
     return self
 
@@ -80,6 +82,12 @@ func on_select_tile_gui_toggled(pressed):
     else:
         cast_button.disabled = true
 
+func on_select_summons_gui_toggled(pressed):
+    if pressed:
+        emit_signal("select_summons_gui_pressed", ability.get_select_tiles(), ability.number)
+    else:
+        cast_button.disabled = true
+
 func on_dice_gui_info_button_pressed(card):
     emit_signal("dice_gui_info_button_pressed", card)
 
@@ -89,7 +97,11 @@ func on_select_tile_cancel_button_pressed():
 
 func on_select_tile_select_button_pressed(tile):
     active_gui.on_select_tile_select_button_pressed(tile)
-    cast_button.disabled = false 
+    cast_button.disabled = false
+
+func on_select_summons_done_button_pressed(poslist):
+    active_gui.on_select_summons_done_button_pressed(poslist)
+    cast_button.disabled = false
 
 # private functions
 func get_state_ability(summon):

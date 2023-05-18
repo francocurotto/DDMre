@@ -19,6 +19,9 @@ func activate(activate_dict):
         var selected_monster = dungeon.get_tile(pos).content
         selected_monster.restore_health(amount)
 
+func get_select_tiles():
+    return get_player_other_monsters_tiles()
+
 # is functions
 func is_dim_state():
     return true

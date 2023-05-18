@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/fonts/icon_button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_buttons_gui/select_summons_buttons/select_summons_buttons.gd" type="Script" id=2]
+
+[node name="SelectSummonsButtons" type="HBoxContainer"]
+margin_right = 713.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+script = ExtResource( 2 )
+
+[node name="SelectButton" type="Button" parent="."]
+margin_right = 354.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "🔘SELECT (0/X)"
+
+[node name="DoneButton" type="Button" parent="."]
+margin_left = 358.0
+margin_right = 713.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "✅DONE"
+
+[connection signal="pressed" from="SelectButton" to="." method="_on_SelectButton_pressed"]
+[connection signal="pressed" from="DoneButton" to="." method="_on_DoneButton_pressed"]

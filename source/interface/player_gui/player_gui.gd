@@ -19,6 +19,7 @@ onready var dungeon_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/Dungeo
 onready var move_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/MoveButtons
 onready var dim_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/DimButtons
 onready var select_tile_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/SelectTileButtons
+onready var select_summons_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/SelectSummonsButtons
 onready var select_direction_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/SelectDirectionButtons
 onready var card_info = $CardInfo
 onready var lower_window = $LowerWindow
@@ -44,7 +45,6 @@ func _ready():
     dungeon_gui.connect("tile_move_button_pressed", dungeon_buttons_gui, "on_tile_move_button_pressed")
     dungeon_gui.connect("attack_monster_lord", self, "input_attack_cmd")
     dungeon_gui.connect("monster_jumped", self, "input_jump_cmd")
-    # net creator
     # action menu
     action_menu.connect("check_dungeon_button_pressed", dungeon_window, "on_check_dungeon_button_pressed")
     action_menu.connect("attack_button_pressed", self, "input_attack_cmd")
@@ -55,6 +55,7 @@ func _ready():
     action_menu.connect("skip_button_pressed", self, "input_skip_cmd")
     action_menu.connect("highlight_ability_tiles", dungeon_gui, "on_highlight_ability_tiles")   
     action_menu.connect("select_tile_gui_pressed", dungeon_window, "on_select_tile_gui_pressed")
+    action_menu.connect("select_summons_gui_pressed", dungeon_window, "on_select_summons_gui_pressed")
     action_menu.connect("select_direction_pressed", dungeon_window, "on_select_direction_pressed")
     action_menu.connect("dice_gui_info_button_pressed", self, "on_info_button_pressed")
     # dungeon info button
@@ -76,6 +77,8 @@ func _ready():
     # select tile buttons
     select_tile_buttons.connect("select_tile_cancel_button_pressed", dungeon_window, "on_select_tile_cancel_button_pressed")
     select_tile_buttons.connect("select_tile_select_button_pressed", dungeon_window, "on_select_tile_select_button_pressed")
+    # select summons buttons
+    select_summons_buttons.connect("select_summons_done_button_pressed", dungeon_window, "on_select_summons_done_button_pressed")
     # select direction buttons
     select_direction_buttons.connect("highlight_ability_tiles", dungeon_gui, "on_highlight_ability_tiles")
     select_direction_buttons.connect("select_direction_select_button_pressed", dungeon_window, "on_select_direction_select_button_pressed")

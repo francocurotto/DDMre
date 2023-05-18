@@ -22,6 +22,7 @@ signal cancel_button_pressed
 signal skip_button_pressed
 signal highlight_ability_tiles(tiles)
 signal select_tile_gui_pressed(tiles)
+signal select_summons_gui_pressed(tiles)
 signal select_direction_pressed(ability, direction)
 signal dice_gui_info_button_pressed(card)
 
@@ -87,6 +88,10 @@ func on_select_tile_gui_pressed(tiles):
     emit_signal("select_tile_gui_pressed", tiles)
     visible = false
 
+func on_select_summons_gui_pressed(tiles, max_summons):
+    emit_signal("select_summons_gui_pressed", tiles, max_summons)
+    visible = false
+
 func on_select_direction_pressed(ability, direction):
     emit_signal("select_direction_pressed", ability, direction)
     visible = false
@@ -100,6 +105,10 @@ func on_select_tile_cancel_button_pressed():
     
 func on_select_tile_select_button_pressed(tile):
     action_gui.on_select_tile_select_button_pressed(tile)
+    visible = true
+
+func on_select_summons_done_button_pressed(poslist):
+    action_gui.on_select_summons_done_button_pressed(poslist)
     visible = true
 
 func on_select_direction_select_button_pressed(direction):

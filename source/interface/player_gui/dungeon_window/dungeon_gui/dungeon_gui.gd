@@ -200,6 +200,11 @@ func on_select_tile_select_button_pressed():
     unset_ability_select_highlights()
     action_menu.on_select_tile_select_button_pressed(selected_tile_gui.tile)
 
+func on_select_summons_done_button_pressed(poslist):
+    disable_tile_gui_buttons()    
+    unset_ability_select_highlights()
+    action_menu.on_select_summons_done_button_pressed(poslist)
+
 func on_select_direction_select_button_pressed(direction):
     action_menu.on_select_direction_select_button_pressed(direction)
 

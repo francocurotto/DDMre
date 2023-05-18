@@ -24,10 +24,9 @@ func get_ability_dict():
 func _on_SelectSummonsGUI_toggled(button_pressed):
     emit_signal("select_summons_gui_toggled", button_pressed)
 
-func on_select_summons_done_button_pressed(tiles):
-    if not tiles.empty():
+func on_select_summons_done_button_pressed(_poslist):
+    if not _poslist.empty():
         pressed = true
-        for tile in tiles:
-            poslist.append(tile.pos)
+        poslist = _poslist
     else:
         pressed = false

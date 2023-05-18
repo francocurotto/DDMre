@@ -5,6 +5,7 @@ onready var dungeon_buttons = $DungeonButtons
 onready var move_buttons = $MoveButtons
 onready var dim_buttons = $DimButtons
 onready var select_tile_buttons = $SelectTileButtons
+onready var select_summons_buttons = $SelectSummonsButtons
 onready var select_direction_buttons = $SelectDirectionButtons
 
 # public functions
@@ -34,6 +35,11 @@ func switch_to_select_tile_buttons(tiles, selected_tile_gui):
     hide_buttons_guis()
     select_tile_buttons.initialize(tiles, selected_tile_gui)
     select_tile_buttons.visible = true
+
+func switch_to_select_summons_buttons(tiles, max_summons, selected_tile_gui):
+    hide_buttons_guis()
+    select_summons_buttons.initialize(tiles, max_summons, selected_tile_gui)
+    select_summons_buttons.visible = true
 
 func switch_to_select_direction_buttons(ability, direction):
     hide_buttons_guis()
