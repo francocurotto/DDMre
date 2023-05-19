@@ -1,5 +1,4 @@
 ### TODO
-- implement attack twice ability for Knight of Twin Swords (MULTIATTACK)
 - implement better ability for Dark-eyes Illusionist (NEGATEATKABI)
 - add vortex initialization
 - add neutral path tile for vortex at start
@@ -17,7 +16,7 @@
 ### ART
 - make everything 16-bitish
 
-### ABILITIES [46/46]
+### ABILITIES [47/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -39,7 +38,7 @@
 - ✅FROZEN
 - ✅MOVELIMIT
 - ✅RAISESPEED
-- ❌MULTIATTACK
+- ✅MULTIATTACK
 - ✅RAISEATTACK
 - ✅REDUCEDAMAGE
 - ✅REDUCEDAMAGEINF

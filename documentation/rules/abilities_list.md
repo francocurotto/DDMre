@@ -135,7 +135,7 @@ Until the end of the turn the maximum attack distance for monster becomes MAX, a
 Cost: COST x CREST
 
 ## NEGATEATKABI
-Select a monster. The selected monster cannot longer attack or activate abilities, and continuous abilities of the monster are negated.
+Select a monster. The selected monster cannot longer attack or activate its abilities, and continuous abilities of the monster are negated.
 Cost: COST x CREST
  
 # Manual Item Abilities

@@ -60,7 +60,7 @@ func ATTACK(cmd):
     if  player.crestpool.slots["ATTACK"] < monster.attack_cost:
         print("Not enough ATTACK crests.")
     # check if monster already in attack cooldown
-    elif monster.attack_cooldown:
+    elif not monster.attack_cooldown_behavior.can_attack():
         print("Monster in attack cooldown.")
     # check valid attack
     elif not pos_dest in dungeon.get_attack_poss(pos_origin):
@@ -122,7 +122,7 @@ func ENDTURN(_cmd):
     """
     # reset player monster cooldowns
     for monster in player.monsters:
-        monster.attack_cooldown = false
+        monster.attack_cooldown_behavior.reset()
         monster.ability_cooldown = false
     # reset monster turn move count
     for monster in player.monsters:

@@ -54,7 +54,7 @@ func on_tile_select_button_toggled(tile, pressed):
     var dungobj = tile.content
     var actionable = dungobj.is_monster() and dungobj.player == player and engine.state.NAME == "DUNGEON" and pressed
     move_button.disabled = !(actionable and player.crestpool.slots["MOVEMENT"]>0 and dungobj.max_move>0)
-    attack_button.disabled = !(actionable and player.crestpool.slots["ATTACK"]>=dungobj.attack_cost and not dungobj.attack_cooldown)
+    attack_button.disabled = !(actionable and player.crestpool.slots["ATTACK"]>=dungobj.attack_cost and dungobj.attack_cooldown_behavior.can_attack())
     ability_button.disabled = !(actionable and dungobj.has_active_standing_ability() and not dungobj.ability_cooldown)
     jump_button.disabled = !(actionable and dungobj.tile.vortex)
     jump_button.visible = !jump_button.disabled

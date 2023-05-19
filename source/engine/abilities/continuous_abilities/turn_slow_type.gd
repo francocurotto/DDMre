@@ -16,10 +16,8 @@ func on_next_turn(player, _turn):
         for dungeon_monster in dungeon.monsters:
             if dungeon_monster.NAME == type:
                 if effect_flag:
-                    print("effect on")
                     dungeon_monster.max_move_behavior.add_limit(0)
                 else:
-                    print("effect off")
                     dungeon_monster.max_move_behavior.remove_limit(0)
 
 func on_new_summon(summon):

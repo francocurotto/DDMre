@@ -6,12 +6,12 @@ const TargetBehaviorBase = preload("res://engine/dungobj/behaviors/target_behavi
 const PowerBehaviorBase = preload("res://engine/dungobj/behaviors/power_behavior_base.gd")
 const DamageBehaviorBase = preload("res://engine/dungobj/behaviors/damage_behavior_base.gd")
 const MaxMoveBehaviorBase = preload("res://engine/dungobj/behaviors/max_move_behavior_base.gd")
+const AttackCooldownBehaviorBase = preload("res://engine/dungobj/behaviors/attack_cooldown_behavior_base.gd")
 
 # variables
 var attack
 var defense
 var health
-var attack_cooldown = false
 var ability_cooldown = false
 var speed = 1
 var attack_distance = 1
@@ -24,6 +24,7 @@ var target_behavior
 var power_behavior
 var damage_behavior
 var max_move_behavior
+var attack_cooldown_behavior
 
 # signals
 signal attack_ends
@@ -38,6 +39,7 @@ func _init(_card, _player).(_card, _player):
     power_behavior = PowerBehaviorBase.new()
     damage_behavior = DamageBehaviorBase.new(self)
     max_move_behavior = MaxMoveBehaviorBase.new()
+    attack_cooldown_behavior = AttackCooldownBehaviorBase.new()
 
 # setget functions
 func get_max_move():
@@ -80,7 +82,7 @@ func attack_monster(monster, guard):
     """
     Attack an opponent monster.
     """
-    attack_cooldown = true
+    attack_cooldown_behavior.increase()
     var damage = get_damage(monster, guard)
     if damage > 0: # attacker deals damage
         monster.damage_behavior.receiver.receive_damage(damage)
@@ -93,7 +95,7 @@ func attack_monster_lord(ml):
     """
     Attack the opponent monster lord.
     """
-    attack_cooldown = true
+    attack_cooldown_behavior.increase()
     ml.receive_damage()
 
 func activate_ability(ability_dict):
