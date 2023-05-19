@@ -64,6 +64,9 @@ Monster can move a maximum of LIMIT tiles per turn.
 ## RAISESPEED (AMOUNT)
 Monster can move up to AMOUNT tiles per movement crest.
 
+## MULTIATTACK (MAX)
+Monster can attack a maximum of MAX number of times per turn.
+
 # Attack Abilities
 ## RAISEATTACK (MAX)
 Raise attack power by 10x the number of payed ATTACK crest (additional to the crest for attacking), up to a maximum of MAX.
@@ -129,7 +132,10 @@ Cost: COST x CREST
 
 ## DISTANCEATTACK (MAX, COST, CREST)
 Until the end of the turn the maximum attack distance for monster becomes MAX, and the attack crest cost becomes 0. NOTE: Distance attacks can go through monsters, items and monster lords, but not through empty tiles and blocks.
+Cost: COST x CREST
 
+## NEGATEATKABI
+Select a monster. The selected monster cannot longer attack or activate abilities, and continuous abilities of the monster are negated.
 Cost: COST x CREST
  
 # Manual Item Abilities

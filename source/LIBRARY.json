@@ -1175,7 +1175,7 @@
     "HEALTH": 30,
     "ABILITY": [{"NAME": "RAISESPEED",
                  "AMOUNT": 2},
-                {"NAME": "RAISEATTACK",
+                {"NAME": "MULTIATTACK",
                  "MAX": 3}],
     "CRESTS": "SSSMAD"
   },
