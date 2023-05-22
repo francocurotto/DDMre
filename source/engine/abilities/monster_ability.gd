@@ -31,6 +31,12 @@ func remove_negate():
     if negate_count == 0:
         enable()
 
+func get_monsters_tiles():
+    var select_tiles = []
+    for monster in dungeon.monsters:
+        select_tiles.append(monster.tile)
+    return select_tile
+
 func get_player_other_monsters_tiles():
     var select_tiles = []
     for tile in dungeon.tiles:
