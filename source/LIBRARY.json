@@ -1048,7 +1048,7 @@
     "ATTACK": 10,
     "DEFENSE": 10,
     "HEALTH": 10,
-    "ABILITY": [{"NAME": "PROTECTSELF",
+    "ABILITY": [{"NAME": "NEGATEATKABI",
                  "COST": 5,
                  "CREST": "TRAP"}],
     "CRESTS": "SMA2D2GT3"

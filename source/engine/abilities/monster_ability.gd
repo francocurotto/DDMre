@@ -33,9 +33,9 @@ func remove_negate():
 
 func get_monsters_tiles():
     var select_tiles = []
-    for monster in dungeon.monsters:
-        select_tiles.append(monster.tile)
-    return select_tile
+    for dungeon_monster in dungeon.monsters:
+        select_tiles.append(dungeon_monster.tile)
+    return select_tiles
 
 func get_player_other_monsters_tiles():
     var select_tiles = []

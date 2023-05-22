@@ -11,7 +11,7 @@ func can_attack():
     """
     return counter < max_attacks
 
-func increase():
+func activate():
     """
     Increase cooldown counter, usually after an attack.
     """

@@ -12,10 +12,10 @@ const AttackCooldownBehaviorBase = preload("res://engine/dungobj/behaviors/attac
 var attack
 var defense
 var health
-var ability_cooldown = false
 var speed = 1
 var attack_distance = 1
 var attack_cost = 1
+var ability_cooldown = false
 var max_move setget , get_max_move
 var previous_tile = null
 # behaviors (automatic abilities)
@@ -82,7 +82,7 @@ func attack_monster(monster, guard):
     """
     Attack an opponent monster.
     """
-    attack_cooldown_behavior.increase()
+    attack_cooldown_behavior.activate()
     var damage = get_damage(monster, guard)
     if damage > 0: # attacker deals damage
         monster.damage_behavior.receiver.receive_damage(damage)
@@ -95,7 +95,7 @@ func attack_monster_lord(ml):
     """
     Attack the opponent monster lord.
     """
-    attack_cooldown_behavior.increase()
+    attack_cooldown_behavior.activate()
     ml.receive_damage()
 
 func activate_ability(ability_dict):
