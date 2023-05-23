@@ -27,7 +27,7 @@ func _ready():
     attack_info.set_summons(attacker, attacker.player, attacked, attacked.player)
     guard_button.disabled = attacked.player.crestpool.slots["DEFENSE"] < 1
     for _ability in attacked.card.abilities:
-        if _ability.name in ability_guis_dict and not _ability.is_negated(): # TODO: disable when ability negated?
+        if _ability.name in ability_guis_dict and not _ability.is_negated():
             ability = _ability
             reply_ability_gui = ability_guis_dict[ability.name].instance().setup(self, ability)
             controls.add_child(reply_ability_gui)

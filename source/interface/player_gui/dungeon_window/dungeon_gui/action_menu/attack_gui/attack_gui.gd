@@ -18,7 +18,7 @@ signal cancel_button_pressed
 
 func _ready():
     attack_info.set_summons(attacker, attacker.player, attacked, attacked.player)
-    if attacker.has_active_ability("RAISEATTACK"): # TODO: disable when ability negated?
+    if attacker.has_active_ability("RAISEATTACK"):
         var raise_attack_gui = RaiseAttackGUI.instance().setup(self, attacker)
         controls.add_child_below_node(attack_button, raise_attack_gui)
 
