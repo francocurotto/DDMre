@@ -10,8 +10,10 @@ func enable():
     Events.connect("next_turn", self, "on_next_turn")
 
 func disable():
-    Events.disconnect("new_summon", self, "on_new_summon")
-    Events.disconnect("next_turn", self, "on_next_turn")
+    if Events.is_connected("new_summon", self, "on_new_summon"):
+        Events.disconnect("new_summon", self, "on_new_summon")
+    if Events.is_connected("next_turn", self, "on_next_turn"):
+        Events.disconnect("next_turn", self, "on_next_turn")
 
 func on_new_summon(_summon):
     pass

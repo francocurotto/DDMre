@@ -1,4 +1,4 @@
-extends "dimension_ability.gd"
+extends "continuous_ability.gd"
 
 var max_attack
 

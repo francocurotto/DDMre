@@ -1,5 +1,10 @@
 ### TODO
 - implement better ability for Dark-eyes Illusionist (NEGATEATKABI)
+    - multi-attack
+    - test protect_type
+    - test stop_fly
+    - test stop_tunnel
+    - test turn_slow_type
 - add vortex initialization
 - add neutral path tile for vortex at start
 - add ability description in card info

@@ -1,4 +1,4 @@
-extends "dimension_ability.gd"
+extends "continuous_ability.gd"
 
 # preloads
 const PassBehaviorBase = preload("res://engine/dungobj/behaviors/pass_behavior_base.gd")
@@ -12,4 +12,5 @@ func on_dimension():
     monster.pass_behavior = PassBehaviorTunnel.new()
 
 func disable():
+    .disable()
     monster.pass_behavior = PassBehaviorBase.new()

@@ -7,7 +7,7 @@ const LIBPATH = "res://LIBRARY.json"
 #const DUNGPATH = "res://dungeons/test_pass.json"
 #const DUNGPATH = "res://dungeons/test_target.json"
 #const DUNGPATH = "res://dungeons/test_power.json"
-#const DUNGPATH = "res://dungeons/test_move.json"
+const DUNGPATH = "res://dungeons/test_move.json"
 #const DUNGPATH = "res://dungeons/test_items.json"
 #const DUNGPATH = "res://dungeons/test_dim_abilities.json"
 #const DUNGPATH = "res://dungeons/test_dim_buff_dead_type.json"
@@ -35,13 +35,13 @@ const LIBPATH = "res://LIBRARY.json"
 #const DUNGPATH = "res://dungeons/test_monster_reborn.json"
 #const DUNGPATH = "res://dungeons/test_dim_cure.json"
 #const DUNGPATH = "res://dungeons/test_multi_attack.json"
-const DUNGPATH = "res://dungeons/test_negate_atk_abi.json"
+#const DUNGPATH = "res://dungeons/test_negate_atk_abi.json"
 #const RANDOMPOOL = true
 const RANDOMPOOL = false
 #const POOL1PATH = "res://dicepools/test_pass.json";const POOL2PATH = "res://dicepools/test_pass.json"
 #const POOL1PATH = "res://dicepools/test_target.json";const POOL2PATH = "res://dicepools/test_target.json"
 #const POOL1PATH = "res://dicepools/test_power.json";const POOL2PATH = "res://dicepools/test_power.json"
-#const POOL1PATH = "res://dicepools/test_move.json";const POOL2PATH = "res://dicepools/test_move.json"
+const POOL1PATH = "res://dicepools/test_move.json";const POOL2PATH = "res://dicepools/test_move.json"
 #const POOL1PATH = "res://dicepools/test_items.json";const POOL2PATH = "res://dicepools/test_items.json"
 #const POOL1PATH = "res://dicepools/test_dim_abilities.json";const POOL2PATH = "res://dicepools/test_dim_abilities.json"
 #const POOL1PATH = "res://dicepools/test_dim_buff_dead_type.json";const POOL2PATH = "res://dicepools/test_dim_buff_dead_type.json"
@@ -71,7 +71,7 @@ const RANDOMPOOL = false
 #const POOL1PATH = "res://dicepools/test_monster_reborn.json";const POOL2PATH = "res://dicepools/test_monster_reborn.json"
 #const POOL1PATH = "res://dicepools/test_dim_cure.json";const POOL2PATH = "res://dicepools/test_dim_cure.json"
 #const POOL1PATH = "res://dicepools/test_multi_attack.json";const POOL2PATH = "res://dicepools/test_multi_attack.json"
-const POOL1PATH = "res://dicepools/test_negate_atk_abi.json";const POOL2PATH = "res://dicepools/test_negate_atk_abi.json"
+#const POOL1PATH = "res://dicepools/test_negate_atk_abi.json";const POOL2PATH = "res://dicepools/test_negate_atk_abi.json"
 
 # arrays, dictionaries
 const CRESTS = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
