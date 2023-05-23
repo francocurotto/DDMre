@@ -10,4 +10,5 @@ func on_dimension():
     monster.attack_cooldown_behavior.max_attacks = max_attack
 
 func disable():
+    .disable()
     monster.attack_cooldown_behavior.max_attacks = 1

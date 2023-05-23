@@ -15,11 +15,11 @@ func activate(activate_dict):
     """
     monster.player.crestpool.remove_crests(crest, cost)
     var monster = dungeon.get_tile(activate_dict["pos"]).content
-    # negate attack
-    monster.attack_cooldown_behavior.max_attacks = 0
     # negate abilities
     for ability in monster.card.abilities:
         ability.negate()
+    # negate attack
+    monster.attack_cooldown_behavior.max_attacks = 0
 
 func get_select_tiles():
     return get_monsters_tiles()
