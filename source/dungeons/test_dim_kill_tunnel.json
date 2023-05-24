@@ -29,13 +29,13 @@
     "MOVEMENT": 40,
     "ATTACK"  : 10,
     "DEFENSE" : 1,
-    "MAGIC"   : 20,
+    "MAGIC"   : 0,
     "TRAP"    : 10},
   "CRESTS2": {
     "MOVEMENT": 40,
     "ATTACK"  : 10,
     "DEFENSE" : 10,
-    "MAGIC"   : 0,
+    "MAGIC"   : 20,
     "TRAP"    : 10},
   "HEARTS1": 3,
   "HEARTS2": 3

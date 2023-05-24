@@ -98,12 +98,15 @@ func on_select_tile_cancel_button_pressed():
 
 func on_select_tile_select_button_pressed(tile):
     active_gui.on_select_tile_select_button_pressed(tile)
-    cast_button.disabled = false
+    if "crest" in ability:
+        cast_button.disabled = ability.cost > ability.monster.player.crestpool.slots[ability.crest]
+    else:
+        cast_button.disabled = false
 
 func on_select_summons_done_button_pressed(poslist):
     active_gui.on_select_summons_done_button_pressed(poslist)
     if not poslist.empty():
-        cast_button.disabled = false
+        cast_button.disabled = ability.cost > ability.monster.player.crestpool.slots[ability.crest]
 
 # private functions
 func get_state_ability(summon):

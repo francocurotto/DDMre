@@ -1,9 +1,4 @@
 ### TODO
-- implement better ability for Dark-eyes Illusionist (NEGATEATKABI)
-    - test protect_type
-    - test stop_fly
-    - test stop_tunnel
-    - test turn_slow_type
 - add neutral path tile for vortex at start
 - add vortex initialization
 - add ability description in card info
@@ -14,13 +9,7 @@
 ### FIXES
 - standarize cmd syntax and context checks
 
-### IMPROVEMENTS
-- make summon actions and dim transformations menus popable in dungeon?
-
-### ART
-- make everything 16-bitish
-
-### ABILITIES [47/46]
+### ABILITIES [48/46]
 - ✅TUNNEL
 - ✅FLY
 - ✅ARCHER
@@ -59,7 +48,7 @@
 - ✅RANGELEVELKILL
 - ✅RANGEKILLALL
 - ✅DISTANCEATTACK
-- ❌NEGATEATKABI
+- ✅NEGATEATKABI
 - ✅ITEMCURE
 - ✅ITEMDAMAGE
 - ✅TIMEMACHINE

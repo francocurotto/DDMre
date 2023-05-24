@@ -8,7 +8,6 @@
 **DDMre** is a re-implementation of the GBA game [Yu-Gi-Oh! Dungeon Dice Monsters](https://en.wikipedia.org/wiki/Yu-Gi-Oh!_Dungeon_Dice_Monsters) in the [Godot game engine](https://godotengine.org/) for mobile devices. The idea is to re-implement the core game mechanics from the game, taking only a few liberties, while adding some modern features like a decent AI, and possibly online multiplayer. *It is in a very early stage* of development and even some core game mechanics are not implemented yet.
 
 # What is left to do? (A LOT)
-- Implement abilities of monsters and items
 - Improve UI and graphics
 - Add opponents, and decent AI
 - _Maybe_ online multiplayer
@@ -20,6 +19,8 @@
 - In the original, movement cost is computed by dividing monster speed as float then multiplying dungeon move cost as float and then rounding to the highest int. For simplicity, in this implementation the cost is converted to int both after dividing the speed and multiplying the move cost. This difference is only relevant when combining a monster with higher speed and the gluminizer ability. For example for a monster with speed 3 and the gluminizer ability (move cost 2) the total movement cost is:
     - original costs per tile: 1,2,2,3,4,4,5,6,6...
     - new costs per tile: 2,2,2,4,4,4,6,6,6...
+- In the original, Knight of Twin Swords has the ability RAISEATTACK. In this implementation this ability is replaced with a new ability called MULTIATTACK that a allows the moster to attack three times in one turn. This change is more in line with the ability description text and the anime.
+- In the original Dark-eyes Illusionist has the ability PROTECTSELF. In this implementation this ability is replaced with a new ability called NEGATEATKABI. When the ability is casted the player chooses a monster, the chosen monster cannot longer attack and its abilities are negated. This is more in line with the ability description text and casting cost.
 
 # Why?
 I first got captivated by Dungeon Dice Monsters when I saw it in the anime. I thought that the mechanics and complexity of the game made it even more interesting than the original card game. When I learned about the GBA game, I knew I had to try it. Unfortunately, the game is really held back by the terrible AI programming of the opponents: stupid dimension positions, nonsensical monster movements, failed attempts to defend the monster lord, etc. I would argue the AI is so bad that is even harder to lose intentionally to your opponent than to beat them.

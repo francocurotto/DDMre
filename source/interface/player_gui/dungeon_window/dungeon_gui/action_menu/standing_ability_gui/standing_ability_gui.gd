@@ -74,7 +74,7 @@ func on_select_tile_cancel_button_pressed():
 
 func on_select_tile_select_button_pressed(tile):
     active_gui.on_select_tile_select_button_pressed(tile)
-    cast_button.disabled = false
+    cast_button.disabled = ability.cost > ability.monster.player.crestpool.slots[ability.crest]
 
 func on_select_direction_select_button_pressed(direction):
     active_gui.on_select_direction_select_button_pressed(direction)
