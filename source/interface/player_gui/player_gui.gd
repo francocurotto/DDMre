@@ -139,7 +139,7 @@ func input_state_ability_cmd(ability_dict):
     dungeon_window.reset_to_dungeon()
     engine.update({"name":"ABILITY", "ability_dict":ability_dict})
 
-func input_jump_input(pos1, pos2):
+func input_jump_cmd(pos1, pos2):
     dungeon_window.reset_to_dungeon()
     engine.update({"name":"JUMP", "origin":pos1, "dest":pos2})
 

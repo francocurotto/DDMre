@@ -30,6 +30,9 @@ func is_empty():
 func is_path():
     return false
 
+func is_player_path():
+    return false
+
 func is_block():
     return false
 

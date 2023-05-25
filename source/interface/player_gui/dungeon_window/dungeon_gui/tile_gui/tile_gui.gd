@@ -3,7 +3,7 @@ extends MarginContainer
 
 # export variables
 export (String, "EMPTY", "BLOCK", "PATH") var tile_type = "EMPTY" setget set_tile_type
-export (int, 1, 2) var tile_player = 1 setget set_tile_player
+export (int, 0, 2) var tile_player = 1 setget set_tile_player
 export (String, "NONE", "MONSTER_LORD", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR",
     "ITEM") var dungobj_type = "NONE" setget set_dungobj_type
 export (int, 1, 2) var dungobj_player = 1 setget set_dungobj_player
@@ -43,7 +43,10 @@ func set_tile_icon(_tile_type, _tile_player, _vortex):
     tile_player = _tile_player
     var icon = "TILE_" + tile_type
     if _tile_type == "PATH": # case path
-        icon += "_P" + str(tile_player)
+        if _tile_player == 0: # case nautral
+            icon += "_NEUTRAL"
+        else: # case player path
+            icon += "_P" + str(tile_player)
     $TileRects/TileRect.texture = load("res://art/icons/" + icon + ".png")
     set_vortex(_vortex)
 
@@ -100,7 +103,6 @@ func set_vortex(_vortex):
 # public functions
 func enable_select_button():
     tile_select_button.visible = tile.is_path() or tile.is_block()
-    #tile_select_button.set_pressed_no_signal(false)
 
 func release_select_button():
     set_highlight(false)

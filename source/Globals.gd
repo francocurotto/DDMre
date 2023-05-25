@@ -3,7 +3,7 @@ extends Node
 
 # filepath
 const LIBPATH = "res://LIBRARY.json"
-const DUNGPATH = "res://dungeons/default.json"
+#const DUNGPATH = "res://dungeons/default.json"
 #const DUNGPATH = "res://dungeons/test_pass.json"
 #const DUNGPATH = "res://dungeons/test_target.json"
 #const DUNGPATH = "res://dungeons/test_power.json"
@@ -15,6 +15,7 @@ const DUNGPATH = "res://dungeons/default.json"
 #const DUNGPATH = "res://dungeons/test_stops.json"
 #const DUNGPATH = "res://dungeons/test_protect_type.json"
 #const DUNGPATH = "res://dungeons/test_turn_slow_type.json"
+const DUNGPATH = "res://dungeons/test_vortex.json"
 #const DUNGPATH = "res://dungeons/test_raise_attack.json"
 #const DUNGPATH = "res://dungeons/test_reduce_damage.json"
 #const DUNGPATH = "res://dungeons/test_reply_abilities.json"
@@ -36,9 +37,9 @@ const DUNGPATH = "res://dungeons/default.json"
 #const DUNGPATH = "res://dungeons/test_dim_cure.json"
 #const DUNGPATH = "res://dungeons/test_multi_attack.json"
 #const DUNGPATH = "res://dungeons/test_negate_atk_abi.json"
-const RANDOMPOOL = true
-#const RANDOMPOOL = false
-const POOL1PATH = "res://dicepools/test_pass.json";const POOL2PATH = "res://dicepools/test_pass.json"
+#const RANDOMPOOL = true
+const RANDOMPOOL = false
+#const POOL1PATH = "res://dicepools/test_pass.json";const POOL2PATH = "res://dicepools/test_pass.json"
 #const POOL1PATH = "res://dicepools/test_target.json";const POOL2PATH = "res://dicepools/test_target.json"
 #const POOL1PATH = "res://dicepools/test_power.json";const POOL2PATH = "res://dicepools/test_power.json"
 #const POOL1PATH = "res://dicepools/test_move.json";const POOL2PATH = "res://dicepools/test_move.json"
@@ -50,7 +51,7 @@ const POOL1PATH = "res://dicepools/test_pass.json";const POOL2PATH = "res://dice
 #const POOL1PATH = "res://dicepools/test_stops.json";const POOL2PATH = "res://dicepools/test_stops.json"
 #const POOL1PATH = "res://dicepools/test_protect_type.json";const POOL2PATH = "res://dicepools/test_protect_type.json"
 #const POOL1PATH = "res://dicepools/test_turn_slow_type.json";const POOL2PATH = "res://dicepools/test_turn_slow_type.json"
-#const POOL1PATH = "res://dicepools/test_vortex.json";const POOL2PATH = "res://dicepools/test_vortex.json"
+const POOL1PATH = "res://dicepools/test_vortex.json";const POOL2PATH = "res://dicepools/test_vortex.json"
 #const POOL1PATH = "res://dicepools/test_raise_attack.json";const POOL2PATH = "res://dicepools/test_raise_attack.json"
 #const POOL1PATH = "res://dicepools/test_reduce_damage.json";const POOL2PATH = "res://dicepools/test_reduce_damage.json"
 #const POOL1PATH = "res://dicepools/test_reply_abilities.json";const POOL2PATH = "res://dicepools/test_reply_abilities.json"

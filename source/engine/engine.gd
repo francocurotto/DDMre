@@ -68,13 +68,14 @@ func set_initstate(initpath):
     var initdict = Globals.read_jsonfile(initpath)
     for initkey in initdict:
         match initkey:
-            "DUNGEON" : dungeon.set_layout(self, initdict["DUNGEON"])
-            "SUMMONS1": set_initsummons(player1, initdict["SUMMONS1"])
-            "SUMMONS2": set_initsummons(player2, initdict["SUMMONS2"])
-            "CRESTS1" : set_initcrests(player1, initdict["CRESTS1"])
-            "CRESTS2" : set_initcrests(player2, initdict["CRESTS2"])
-            "HEARTS1" : player1.monsterlord.hearts = initdict["HEARTS1"]
-            "HEARTS2" : player2.monsterlord.hearts = initdict["HEARTS2"]
+            "DUNGEON"  : dungeon.set_layout(self, initdict["DUNGEON"])
+            "SUMMONS1" : set_initsummons(player1, initdict["SUMMONS1"])
+            "SUMMONS2" : set_initsummons(player2, initdict["SUMMONS2"])
+            "VORTEX"   : set_initvortex(initdict["VORTEX"])
+            "CRESTS1"  : set_initcrests(player1, initdict["CRESTS1"])
+            "CRESTS2"  : set_initcrests(player2, initdict["CRESTS2"])
+            "HEARTS1"  : player1.monsterlord.hearts = initdict["HEARTS1"]
+            "HEARTS2"  : player2.monsterlord.hearts = initdict["HEARTS2"]
 
 func set_initsummons(player, summonlist):
     """
@@ -86,6 +87,16 @@ func set_initsummons(player, summonlist):
         var summon = player.summon_card(idx)
         dungeon.array[pos.y][pos.x].set_content(summon)
         summon.initialize_abilities(dungeon)
+    
+func set_initvortex(vortexlist):
+    """
+    Set the initial vorteces in the dungeon.
+    """
+    for vortex in vortexlist:
+        var pos = Globals.str2pos(vortex)
+        var tile = dungeon.array[pos.y][pos.x]
+        if tile.is_path():
+            tile.vortex = true
 
 func set_initcrests(player, crests):
     """

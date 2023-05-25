@@ -2,6 +2,7 @@ extends Reference
 
 # preloads
 const EmptyTile = preload("res://engine/dungeon/tiles/empty_tile.gd")
+const PathTile = preload("res://engine/dungeon/tiles/path_tile.gd")
 const BlockTile = preload("res://engine/dungeon/tiles/block_tile.gd")
 
 # constants
@@ -244,12 +245,13 @@ func create_tile(engine, chr, i, j):
     Create the appropiate tile given the character from the dungeon json.
     """
     match chr:
-        "O": return EmptyTile.new(i, j)
-        "l": return engine.player1.create_ml_tile(i, j)
-        "L": return engine.player2.create_ml_tile(i, j)
-        "p": return engine.player1.create_tile(i, j)
-        "P": return engine.player2.create_tile(i, j)
-        "X": return BlockTile.new(i, j)
+        "O" : return EmptyTile.new(i, j)
+        "l" : return engine.player1.create_ml_tile(i, j)
+        "L" : return engine.player2.create_ml_tile(i, j)
+        "p" : return engine.player1.create_tile(i, j)
+        "P" : return engine.player2.create_tile(i, j)
+        "N" : return PathTile.new(i, j)
+        "X" : return BlockTile.new(i, j)
 
 func get_move_neighbours_poss(pos, monster):
     """
@@ -319,7 +321,7 @@ func net_connects(net, player):
     for pos in net.poslist:
         for neig in get_neighbours_poss(pos):
             var tile = get_tile(neig)
-            if tile.is_path() and tile.player == player:
+            if tile.is_player_path() and tile.player == player:
                 return true
     return false
 

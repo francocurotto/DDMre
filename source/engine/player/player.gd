@@ -3,7 +3,7 @@ extends Reference
 # preloads
 const CrestPool = preload("res://engine/player/crestpool.gd")
 const MonsterLord = preload("res://engine/dungobj/monster_lord.gd")
-const PathTile = preload("res://engine/dungeon/tiles/path_tile.gd")
+const PlayerPathTile = preload("res://engine/dungeon/tiles/player_path_tile.gd")
 const namedict = {1: "BLUE", 2: "RED"}
 
 # variables
@@ -31,7 +31,7 @@ func create_tile(i, j):
     """
     Create a path tile for the specific player.
     """
-    var tile = PathTile.new(i, j, self)
+    var tile = PlayerPathTile.new(i, j, self)
     tiles.append(tile)
     return tile
 

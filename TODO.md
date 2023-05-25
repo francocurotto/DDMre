@@ -1,6 +1,4 @@
 ### TODO
-- add neutral path tile for vortex at start
-- add vortex initialization
 - add ability description in card info
     - implement ability_info
     - add also in standing and state ability gui

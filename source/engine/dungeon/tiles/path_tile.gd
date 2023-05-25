@@ -3,11 +3,8 @@ extends "tile.gd"
 # constants
 const NAME = "PATH"
 
-# variables
-var player
-
-func _init(_y, _x, _player).(_y, _x):
-    player = _player
+func _init(_y, _x).(_y, _x):
+    pass
 
 # setget functions
 func set_content(dungobj):
@@ -16,9 +13,6 @@ func set_content(dungobj):
 
 func get_content():
     return content
-
-func get_playerid():
-    return player.id
 
 # public functions
 func move_content_from(original_tile):
