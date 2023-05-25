@@ -11,6 +11,7 @@
 [node name="DungeonButtonsGUI" type="MarginContainer"]
 margin_right = 588.0
 margin_bottom = 60.0
+size_flags_vertical = 3
 script = ExtResource( 4 )
 
 [node name="DungeonButtons" parent="." instance=ExtResource( 1 )]
