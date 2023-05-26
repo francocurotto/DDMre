@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TILE_NEUTRAL.png-ed24d3e4862ea021cbb030ba09a2f442.stex"
+path="res://.import/Empty Tile.png-ef0c9f2d525aedd575fbb159453398dc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/TILE_NEUTRAL.png"
-dest_files=[ "res://.import/TILE_NEUTRAL.png-ed24d3e4862ea021cbb030ba09a2f442.stex" ]
+source_file="res://art/icons/original/Empty Tile.png"
+dest_files=[ "res://.import/Empty Tile.png-ef0c9f2d525aedd575fbb159453398dc.stex" ]
 
 [params]
 
