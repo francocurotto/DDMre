@@ -1,3 +1,4 @@
+tool
 extends AspectRatioContainer
 
 # variables
@@ -6,6 +7,7 @@ var player
 var dim_dice
 var tile_guis = []
 var selected_tile_gui
+
 
 # onready variables
 onready var rows = $Rows
