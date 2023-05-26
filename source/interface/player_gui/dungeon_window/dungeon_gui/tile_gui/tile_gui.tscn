@@ -23,7 +23,6 @@ margin_right = 28.0
 margin_bottom = 28.0
 texture = ExtResource( 2 )
 expand = true
-stretch_mode = 5
 
 [node name="AttackHighlightRect" type="TextureRect" parent="TileRects"]
 visible = false
@@ -31,7 +30,6 @@ margin_right = 28.0
 margin_bottom = 28.0
 texture = ExtResource( 5 )
 expand = true
-stretch_mode = 5
 
 [node name="AbilityHighlightRect" type="TextureRect" parent="TileRects"]
 visible = false
@@ -39,7 +37,6 @@ margin_right = 28.0
 margin_bottom = 28.0
 texture = ExtResource( 6 )
 expand = true
-stretch_mode = 5
 
 [node name="AbilitySelectHighlightRect" type="TextureRect" parent="TileRects"]
 visible = false
@@ -47,7 +44,6 @@ margin_right = 28.0
 margin_bottom = 28.0
 texture = ExtResource( 6 )
 expand = true
-stretch_mode = 5
 
 [node name="HighlightRect" type="TextureRect" parent="TileRects"]
 visible = false
@@ -55,7 +51,6 @@ margin_right = 28.0
 margin_bottom = 28.0
 texture = ExtResource( 3 )
 expand = true
-stretch_mode = 5
 
 [node name="TileButtons" type="MarginContainer" parent="."]
 margin_right = 28.0
@@ -67,7 +62,6 @@ margin_bottom = 28.0
 toggle_mode = true
 action_mode = 0
 expand = true
-stretch_mode = 4
 
 [node name="TileMoveButton" type="TextureButton" parent="TileButtons"]
 visible = false
@@ -75,7 +69,6 @@ margin_right = 28.0
 margin_bottom = 28.0
 texture_normal = ExtResource( 5 )
 expand = true
-stretch_mode = 4
 
 [node name="TileAttackButton" type="TextureButton" parent="TileButtons"]
 visible = false
@@ -83,7 +76,6 @@ margin_right = 28.0
 margin_bottom = 28.0
 texture_normal = ExtResource( 5 )
 expand = true
-stretch_mode = 4
 
 [node name="TileJumpButton" type="TextureButton" parent="TileButtons"]
 visible = false
@@ -91,7 +83,6 @@ margin_right = 28.0
 margin_bottom = 28.0
 texture_normal = ExtResource( 5 )
 expand = true
-stretch_mode = 4
 
 [node name="TileDimButton" type="TextureButton" parent="TileButtons"]
 visible = false
@@ -99,35 +90,41 @@ margin_right = 28.0
 margin_bottom = 28.0
 toggle_mode = true
 expand = true
-stretch_mode = 4
 
 [node name="DungobjRects" type="MarginContainer" parent="."]
 margin_right = 28.0
 margin_bottom = 28.0
 mouse_filter = 2
+custom_constants/margin_right = 3
+custom_constants/margin_top = 3
+custom_constants/margin_left = 3
+custom_constants/margin_bottom = 3
 
 [node name="VortexRect" type="TextureRect" parent="DungobjRects"]
 visible = false
-margin_right = 28.0
-margin_bottom = 28.0
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 25.0
+margin_bottom = 25.0
 mouse_filter = 2
 texture = ExtResource( 4 )
 expand = true
-stretch_mode = 5
 
 [node name="SummonHighlightRect" type="TextureRect" parent="DungobjRects"]
-margin_right = 28.0
-margin_bottom = 28.0
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 25.0
+margin_bottom = 25.0
 mouse_filter = 2
 expand = true
-stretch_mode = 5
 
 [node name="DungobjRect" type="TextureRect" parent="DungobjRects"]
-margin_right = 28.0
-margin_bottom = 28.0
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 25.0
+margin_bottom = 25.0
 mouse_filter = 2
 expand = true
-stretch_mode = 5
 
 [connection signal="toggled" from="TileButtons/TileSelectButton" to="." method="_on_TileSelectButton_toggled"]
 [connection signal="pressed" from="TileButtons/TileMoveButton" to="." method="_on_TileMoveButton_pressed"]
