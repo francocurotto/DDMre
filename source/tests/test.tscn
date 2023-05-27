@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/tile_gui/tile_gui.tscn" type="PackedScene" id=1]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer"]
+margin_right = 127.0
+margin_bottom = 98.0
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_left = 14.5
+margin_right = 112.5
+margin_bottom = 98.0
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
+columns = 3
+
+[node name="TileGUI" parent="GridContainer" instance=ExtResource( 1 )]
+margin_right = 33.0
+margin_bottom = 33.0
+
+[node name="TileGUI2" parent="GridContainer" instance=ExtResource( 1 )]
+margin_left = 33.0
+margin_right = 66.0
+margin_bottom = 33.0
+
+[node name="TileGUI3" parent="GridContainer" instance=ExtResource( 1 )]
+margin_left = 66.0
+margin_right = 98.0
+margin_bottom = 33.0
+
+[node name="TileGUI4" parent="GridContainer" instance=ExtResource( 1 )]
+margin_top = 33.0
+margin_right = 33.0
+margin_bottom = 66.0
+
+[node name="TileGUI5" parent="GridContainer" instance=ExtResource( 1 )]
+margin_left = 33.0
+margin_top = 33.0
+margin_right = 66.0
+margin_bottom = 66.0
+
+[node name="TileGUI6" parent="GridContainer" instance=ExtResource( 1 )]
+margin_left = 66.0
+margin_top = 33.0
+margin_right = 98.0
+margin_bottom = 66.0
+
+[node name="TileGUI7" parent="GridContainer" instance=ExtResource( 1 )]
+margin_top = 66.0
+margin_right = 33.0
+margin_bottom = 98.0
+
+[node name="TileGUI8" parent="GridContainer" instance=ExtResource( 1 )]
+margin_left = 33.0
+margin_top = 66.0
+margin_right = 66.0
+margin_bottom = 98.0
+
+[node name="TileGUI9" parent="GridContainer" instance=ExtResource( 1 )]
+margin_left = 66.0
+margin_top = 66.0
+margin_right = 98.0
+margin_bottom = 98.0
