@@ -2,7 +2,6 @@
 - add ability description in card info
     - implement ability_info
     - add also in standing and state ability gui
-- test change tile icons
 
 ### FIXES
 - standarize cmd syntax and context checks
