@@ -3,6 +3,7 @@ extends Node
 
 # filepath
 const LIBPATH = "res://LIBRARY.json"
+const ABIPATH = "res://ABILITIES.json"
 const DUNGPATH = "res://dungeons/default.json"
 #const DUNGPATH = "res://dungeons/test_pass.json"
 #const DUNGPATH = "res://dungeons/test_target.json"
@@ -73,6 +74,9 @@ const POOL1PATH = "res://dicepools/test_vortex.json";const POOL2PATH = "res://di
 #const POOL1PATH = "res://dicepools/test_dim_cure.json";const POOL2PATH = "res://dicepools/test_dim_cure.json"
 #const POOL1PATH = "res://dicepools/test_multi_attack.json";const POOL2PATH = "res://dicepools/test_multi_attack.json"
 #const POOL1PATH = "res://dicepools/test_negate_atk_abi.json";const POOL2PATH = "res://dicepools/test_negate_atk_abi.json"
+
+# abilities dictionary
+var ability_dict = read_jsonfile(ABIPATH)
 
 # arrays, dictionaries
 const CRESTS = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]

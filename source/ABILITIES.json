@@ -185,13 +185,13 @@
     "PARAMETERS" : ["ATTR", "AMOUNT", "COST", "CREST"],
     "DESCRIPTION": "Raise this monster {ATTR} by the {AMOUNT}.\nCOST: {COST} X {CREST}"
   },
-  "TRADE HEALTH": {
+  "TRADEHEALTH": {
     "NAME": "TRADE HEALTH",
     "TYPE": "STANDING",
     "PARAMETERS" : ["AMOUNT", "COST", "CREST"],
     "DESCRIPTION": "Deal {AMOUNT} damage to this monster and an opponent monster.\nCOST: {COST} X {CREST}"
   },
-  "STEAL MONSTER": {
+  "STEALMONSTER": {
     "NAME": "STEAL MONSTER",
     "TYPE": "STANDING",
     "PARAMETERS" : ["COST", "CREST"],

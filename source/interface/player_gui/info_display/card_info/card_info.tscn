@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://art/fonts/summon_stat.tres" type="DynamicFont" id=1]
 [ext_resource path="res://art/styleboxes/panel.tres" type="StyleBox" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://interface/player_gui/info_display/dice_info/stat_info/stat_info.tscn" type="PackedScene" id=5]
 [ext_resource path="res://art/fonts/QuiviraRegular.otf" type="DynamicFontData" id=6]
 [ext_resource path="res://interface/player_gui/info_display/card_info/card_info.gd" type="Script" id=7]
+[ext_resource path="res://interface/player_gui/info_display/ability_info/abilities_info.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
@@ -23,7 +24,7 @@ script = ExtResource( 7 )
 margin_left = 6.0
 margin_top = 6.0
 margin_right = 526.0
-margin_bottom = 222.0
+margin_bottom = 262.0
 custom_constants/separation = 40
 
 [node name="TitleHBox" type="HBoxContainer" parent="VBox"]
@@ -87,5 +88,10 @@ margin_left = 296.0
 margin_right = 361.0
 value = 20
 stat = "HEALTH"
+
+[node name="AbilitiesInfo" parent="VBox" instance=ExtResource( 8 )]
+margin_top = 256.0
+margin_right = 520.0
+margin_bottom = 256.0
 
 [connection signal="pressed" from="VBox/TitleHBox/QuitButton" to="." method="_on_QuitButton_pressed"]

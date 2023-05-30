@@ -6,6 +6,7 @@ onready var tla_info = $VBox/InfoVBox/TLAInfo
 onready var attack_info = $VBox/InfoVBox/StatsHBox/AttackInfo
 onready var defense_info = $VBox/InfoVBox/StatsHBox/DefenseInfo
 onready var health_info = $VBox/InfoVBox/StatsHBox/HealthInfo
+onready var abilities_info = $VBox/AbilitiesInfo
 
 # signals
 signal card_info_quit
@@ -17,6 +18,7 @@ func set_card(card):
     set_card_stats(card)
     if card.is_monster(): # monster info
         set_monster_stats(card)
+    abilities_info.set_abilities(card)    
 
 # signals callbacks
 func _on_QuitButton_pressed():
