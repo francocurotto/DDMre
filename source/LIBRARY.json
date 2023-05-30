@@ -257,9 +257,9 @@
     "DEFENSE": 10,
     "HEALTH": 10,
     "ABILITY": [{"NAME": "REDUCEDAMAGE",
+                 "AMOUNT":10,
                  "COST": 2,
-                 "CREST": "DEFENSE",
-                 "AMOUNT": 10}],
+                 "CREST": "DEFENSE"}],
     "CRESTS": "SSSSDT"
   },
   "26": {
@@ -546,9 +546,9 @@
     "DEFENSE": 20,
     "HEALTH": 20,
     "ABILITY": [{"NAME": "REDUCEDAMAGE",
+                 "AMOUNT": 20,
                  "COST": 2,
-                 "CREST": "DEFENSE",
-                 "AMOUNT": 20}],
+                 "CREST": "DEFENSE"}],
     "CRESTS": "SSSMDD"
   },
   "52": {
@@ -605,9 +605,9 @@
     "DEFENSE": 30,
     "HEALTH": 30,
     "ABILITY": [{"NAME": "REDUCEDAMAGE",
+                 "AMOUNT": 30,
                  "COST": 3,
-                 "CREST": "DEFENSE",
-                 "AMOUNT": 30}],
+                 "CREST": "DEFENSE"}],
     "CRESTS": "SSMA2D3G2"
   },
   "57": {
@@ -619,8 +619,8 @@
     "HEALTH": 20,
     "ABILITY": [{"NAME": "ARCHER"},
                 {"NAME": "DIMADDCREST",
-                 "CREST": "ATTACK",
-                 "AMOUNT": 1}],
+                 "AMOUNT": 1,
+                 "CREST": "ATTACK"}],
     "CRESTS": "SSSSAG"
   },
   "58": {
@@ -838,7 +838,7 @@
     "DEFENSE": 40,
     "HEALTH": 60,
     "ABILITY": [{"NAME": "MOVELIMIT",
-                 "LIMIT": 1}],
+                 "MAX": 1}],
     "CRESTS": "SMADG2T"
   },
   "78": {
@@ -1138,8 +1138,8 @@
     "HEALTH": 20,
     "ABILITY": [{"NAME": "TUNNEL"},
                 {"NAME": "DIMADDCREST",
-                 "CREST": "TRAP",
-                 "AMOUNT": 1}],
+                 "AMOUNT": 1,
+                 "CREST": "TRAP"}],
     "CRESTS": "SSSSDG2"
   },
   "106": {
@@ -1149,8 +1149,7 @@
     "ATTACK": 10,
     "DEFENSE": 10,
     "HEALTH": 30,
-    "ABILITY": [{"NAME": "REDUCEDAMAGEINF",
-                 "CREST": "DEFENSE"}],
+    "ABILITY": [{"NAME": "REDUCEDAMAGEINF"}],
     "CRESTS": "SSSMDT"
   },
   "107": {
@@ -1229,7 +1228,7 @@
     "DEFENSE": 20,
     "HEALTH": 50,
     "ABILITY": [{"NAME": "DISTANCEATTACK",
-                 "DIST": 2,
+                 "MAX": 2,
                  "COST": 1,
                  "CREST": "MAGIC"}],
     "CRESTS": "SM2M4AGT"
@@ -1254,9 +1253,9 @@
     "HEALTH": 30,
     "ABILITY": [{"NAME": "BUFFSELF",
                  "ATTR": "ATTACK",
+                 "AMOUNT": 10,
                  "COST": 2,
-                 "CREST": "MAGIC",
-                 "AMOUNT": 10}],
+                 "CREST": "MAGIC"}],
     "CRESTS": "SSMM3A2D"
   },
   "115": {
@@ -1296,8 +1295,8 @@
     "TYPE": "ITEM",
     "LEVEL": 1,
     "ABILITY": [{"NAME": "ITEMCRESTKILL",
-                 "CREST": "TRAP",
-                 "AMOUNT": 1}],
+                 "AMOUNT": 1,
+                 "CREST": "TRAP"}],
     "CRESTS": "SSSSMT"
   },
   "120": {
@@ -1305,8 +1304,8 @@
     "TYPE": "ITEM",
     "LEVEL": 1,
     "ABILITY": [{"NAME": "ITEMCRESTKILL",
-                 "CREST": "MAGIC",
-                 "AMOUNT": 1}],
+                 "AMOUNT": 1,
+                 "CREST": "MAGIC"}],
     "CRESTS": "SSSSM2G"
   },
   "121": {
