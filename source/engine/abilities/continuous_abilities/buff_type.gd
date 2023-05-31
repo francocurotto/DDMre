@@ -1,27 +1,27 @@
 extends "continuous_ability.gd"
 
 # variables
-var type
-var attr
-var amount
+var TYPE
+var ATTR
+var AMOUNT
 
 func _init(ability_dict).(ability_dict):
-    type = ability_dict["TYPE"]
-    attr = ability_dict["ATTR"]
-    amount = ability_dict["AMOUNT"]
+    TYPE = ability_dict["TYPE"]
+    ATTR = ability_dict["ATTR"]
+    AMOUNT = ability_dict["AMOUNT"]
 
 # public functions
 func on_dimension():
     for dungeon_monster in dungeon.monsters:
-        if dungeon_monster.NAME == type:
-            dungeon_monster.buff_attr(attr.to_lower(), amount)
+        if dungeon_monster.NAME == TYPE:
+            dungeon_monster.buff_attr(ATTR.to_lower(), AMOUNT)
 
 func on_new_summon(summon):
-    if summon.NAME == type:
-        summon.buff_attr(attr.to_lower(), amount)
+    if summon.NAME == TYPE:
+        summon.buff_attr(ATTR.to_lower(), AMOUNT)
 
 func disable():
     .disable()
     for dungeon_monster in dungeon.monsters:
-        if dungeon_monster.NAME == type:
-            dungeon_monster.debuff_attr(attr.to_lower(), amount)
+        if dungeon_monster.NAME == TYPE:
+            dungeon_monster.debuff_attr(ATTR.to_lower(), AMOUNT)

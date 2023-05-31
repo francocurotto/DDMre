@@ -1,14 +1,14 @@
 extends "continuous_ability.gd"
 
 # variables
-var amount
+var AMOUNT
 
 func _init(ability_dict).(ability_dict):
-    amount = ability_dict["AMOUNT"]
+    AMOUNT = ability_dict["AMOUNT"]
 
 # public functions
 func on_dimension():
-    monster.speed = amount
+    monster.speed = AMOUNT
 
 func disable():
     .disable()

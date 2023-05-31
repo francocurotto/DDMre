@@ -1,12 +1,13 @@
 extends "manual_item_ability.gd"
 
-var attr
-var amount
+# variables
+var ATTR
+var AMOUNT
 
 func _init(ability_dict).(ability_dict):
-    attr = ability_dict["ATTR"]
-    amount = ability_dict["AMOUNT"]
+    ATTR = ability_dict["ATTR"]
+    AMOUNT = ability_dict["AMOUNT"]
 
 # public functions
 func activate(monster):
-    monster.buff_attr(attr.to_lower(), amount)
+    monster.buff_attr(ATTR.to_lower(), AMOUNT)

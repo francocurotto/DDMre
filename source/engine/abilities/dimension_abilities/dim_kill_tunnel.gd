@@ -1,15 +1,15 @@
 extends "dimension_ability.gd"
 
-var cost
-var crest
+var COST
+var CREST
 
 func _init(ability_dict).(ability_dict):
-    cost = ability_dict["COST"]
-    crest = ability_dict["CREST"]
+    COST = ability_dict["COST"]
+    CREST = ability_dict["CREST"]
 
 # public functions
 func activate(activate_dict):
-    monster.player.crestpool.remove_crests(crest, cost)
+    monster.player.crestpool.remove_crests(CREST, COST)
     var tunnel_monster = dungeon.get_tile(activate_dict["pos"]).content
     tunnel_monster.die()
 

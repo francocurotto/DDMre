@@ -1,7 +1,9 @@
 ### TODO
 - add ability description in card info
+    - check standing abilities
     - implement ability_info
     - add also in standing and state ability gui
+- add cost to SHIFTDAMAGE button
 
 ### FIXES
 - standarize cmd syntax and context checks

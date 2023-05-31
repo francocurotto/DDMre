@@ -1,10 +1,10 @@
 extends "attack_ability.gd"
 
 # variables
-var max_raise
+var MAX
 
 func _init(ability_dict).(ability_dict):
-    max_raise = ability_dict["MAX"]
+    MAX = ability_dict["MAX"]
 
 # public functions
 func activate(activate_dict):

@@ -24,8 +24,8 @@ script = ExtResource( 7 )
 margin_left = 6.0
 margin_top = 6.0
 margin_right = 526.0
-margin_bottom = 262.0
-custom_constants/separation = 40
+margin_bottom = 242.0
+custom_constants/separation = 30
 
 [node name="TitleHBox" type="HBoxContainer" parent="VBox"]
 margin_right = 520.0
@@ -50,9 +50,9 @@ icon_align = 1
 expand_icon = true
 
 [node name="InfoVBox" type="VBoxContainer" parent="VBox"]
-margin_top = 100.0
+margin_top = 90.0
 margin_right = 520.0
-margin_bottom = 216.0
+margin_bottom = 206.0
 alignment = 1
 
 [node name="Name" type="Label" parent="VBox/InfoVBox"]
@@ -90,8 +90,8 @@ value = 20
 stat = "HEALTH"
 
 [node name="AbilitiesInfo" parent="VBox" instance=ExtResource( 8 )]
-margin_top = 256.0
+margin_top = 236.0
 margin_right = 520.0
-margin_bottom = 256.0
+margin_bottom = 236.0
 
 [connection signal="pressed" from="VBox/TitleHBox/QuitButton" to="." method="_on_QuitButton_pressed"]

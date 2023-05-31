@@ -1,15 +1,15 @@
 extends "continuous_ability.gd"
 
 # variables
-var limit
+var MAX
 
 func _init(ability_dict).(ability_dict):
-    limit = ability_dict["LIMIT"]
+    MAX = ability_dict["MAX"]
 
 # public functions
 func on_dimension():
-    monster.max_move_behavior.add_limit(limit)
+    monster.max_move_behavior.add_limit(MAX)
 
 func disable():
     .disable()
-    monster.max_move_behavior.remove_limit(limit)
+    monster.max_move_behavior.remove_limit(MAX)

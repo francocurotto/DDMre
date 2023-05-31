@@ -1,13 +1,13 @@
 extends "dimension_ability.gd"
 
 # variables
-var crest
-var amount
+var CREST
+var AMOUNT
 
 func _init(ability_dict).(ability_dict):
-    crest = ability_dict["CREST"]
-    amount = ability_dict["AMOUNT"]
+    CREST = ability_dict["CREST"]
+    AMOUNT = ability_dict["AMOUNT"]
 
 # public functions
 func on_dimension():
-    monster.player.crestpool.add_crests(crest, amount)
+    monster.player.crestpool.add_crests(CREST, AMOUNT)

@@ -20,6 +20,4 @@ func format_description(ability, ability_info):
     var format_dict = {}
     for param in ability_info["PARAMETERS"]:
         format_dict[param] = ability.get(param)
-    print(ability_info["DESCRIPTION"])
-    print(format_dict)
-    return ability_info["DESCRIPTION"] % format_dict
+    return ability_info["DESCRIPTION"].format(format_dict)

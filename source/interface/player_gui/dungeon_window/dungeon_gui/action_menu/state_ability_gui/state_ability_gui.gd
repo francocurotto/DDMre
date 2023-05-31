@@ -55,10 +55,10 @@ func setup(action_menu, _state):
     return self
 
 func set_cast_button():
-    if "cost" in ability and "crest" in ability:
-        on_ability_cost_changed(ability.cost, ability.crest)
+    if "COST" in ability and "CREST" in ability:
+        on_ability_cost_changed(ability.COST, ability.CREST)
     elif "cost" in ability:
-        on_ability_cost_changed(ability.cost, null)
+        on_ability_cost_changed(ability.COST, null)
 
 # signals callbacks
 func _on_CastButton_pressed():
@@ -85,7 +85,7 @@ func on_select_tile_gui_toggled(pressed):
 
 func on_select_summons_gui_toggled(pressed):
     if pressed:
-        emit_signal("select_summons_gui_pressed", ability.get_select_tiles(), ability.number)
+        emit_signal("select_summons_gui_pressed", ability.get_select_tiles(), ability.NUMBER)
     else:
         cast_button.disabled = true
 
@@ -98,15 +98,15 @@ func on_select_tile_cancel_button_pressed():
 
 func on_select_tile_select_button_pressed(tile):
     active_gui.on_select_tile_select_button_pressed(tile)
-    if "crest" in ability:
-        cast_button.disabled = ability.cost > ability.monster.player.crestpool.slots[ability.crest]
+    if "CREST" in ability:
+        cast_button.disabled = ability.COST > ability.monster.player.crestpool.slots[ability.CREST]
     else:
         cast_button.disabled = false
 
 func on_select_summons_done_button_pressed(poslist):
     active_gui.on_select_summons_done_button_pressed(poslist)
     if not poslist.empty():
-        cast_button.disabled = ability.cost > ability.monster.player.crestpool.slots[ability.crest]
+        cast_button.disabled = ability.COST > ability.monster.player.crestpool.slots[ability.CREST]
 
 # private functions
 func get_state_ability(summon):

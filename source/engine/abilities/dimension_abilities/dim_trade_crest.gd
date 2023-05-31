@@ -1,16 +1,16 @@
 extends "dimension_ability.gd"
 
-var cost
-var amount
+var COST
+var AMOUNT
 
 func _init(ability_dict).(ability_dict):
-    cost = ability_dict["COST"]
-    amount = ability_dict["AMOUNT"]
+    COST = ability_dict["COST"]
+    AMOUNT = ability_dict["AMOUNT"]
 
 # public functions
 func activate(activate_dict):
-    monster.player.crestpool.remove_crests(activate_dict["pay_crest"], cost)
-    monster.player.crestpool.add_crests(activate_dict["gain_crest"], amount)
+    monster.player.crestpool.remove_crests(activate_dict["pay_crest"], COST)
+    monster.player.crestpool.add_crests(activate_dict["gain_crest"], AMOUNT)
 
 # is functions
 func is_dim_state():

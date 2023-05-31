@@ -1,13 +1,13 @@
 extends "continuous_ability.gd"
 
-var max_attack
+var MAX
 
 func _init(ability_dict).(ability_dict):
-    max_attack = ability_dict["MAX"]
+    MAX = ability_dict["MAX"]
 
 # public functions
 func on_dimension():
-    monster.attack_cooldown_behavior.max_attacks = max_attack
+    monster.attack_cooldown_behavior.max_attacks = MAX
 
 func disable():
     .disable()

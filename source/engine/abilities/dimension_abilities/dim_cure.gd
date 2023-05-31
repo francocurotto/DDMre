@@ -1,23 +1,23 @@
 extends "dimension_ability.gd"
 
 # variables
-var amount
-var number
-var cost
-var crest
+var AMOUNT
+var NUMBER
+var COST
+var CREST
 
 func _init(ability_dict).(ability_dict):
-    amount = ability_dict["AMOUNT"]
-    number = ability_dict["NUMBER"]
-    cost = ability_dict["COST"]
-    crest = ability_dict["CREST"]
+    AMOUNT = ability_dict["AMOUNT"]
+    NUMBER = ability_dict["NUMBER"]
+    COST = ability_dict["COST"]
+    CREST = ability_dict["CREST"]
 
 # public functions
 func activate(activate_dict):
-    monster.player.crestpool.remove_crests(crest, cost)
+    monster.player.crestpool.remove_crests(CREST, COST)
     for pos in activate_dict["poslist"]:
         var selected_monster = dungeon.get_tile(pos).content
-        selected_monster.restore_health(amount)
+        selected_monster.restore_health(AMOUNT)
 
 func get_select_tiles():
     return get_player_other_monsters_tiles()

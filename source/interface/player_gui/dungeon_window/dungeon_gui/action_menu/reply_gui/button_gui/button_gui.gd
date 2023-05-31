@@ -8,7 +8,7 @@ signal ability_cost_changed(cost, crest)
 
 func _ready():
     text = get_button_text()
-    disabled = ability.cost > ability.monster.player.crestpool.slots[ability.crest]
+    disabled = ability.COST > ability.monster.player.crestpool.slots[ability.CREST]
 
 # public functions
 func setup(reply_gui, _ability):
@@ -24,9 +24,9 @@ func get_ability_dict():
 
 # signals callbacks
 func _on_ButtonGUI_toggled(button_pressed):
-    emit_signal("ability_cost_changed", int(button_pressed)*0, ability.crest)
+    emit_signal("ability_cost_changed", int(button_pressed)*0, ability.CREST) # TODO: check * (does not make sense)
 
 # private functions
 func get_button_text():
-    return "✨%s (%d%s)" % [ability.name, ability.cost, Globals.CRESTICONS[ability.crest]]
+    return "✨%s (%d%s)" % [ability.name, ability.COST, Globals.CRESTICONS[ability.CREST]]
             

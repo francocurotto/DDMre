@@ -1,19 +1,19 @@
 extends "reply_ability.gd"
 
 # variables
-var cost
-var crest
+var COST
+var CREST
 
 func _init(ability_dict).(ability_dict):
-    cost = ability_dict["COST"]
-    crest = ability_dict["CREST"]
+    COST = ability_dict["COST"]
+    CREST = ability_dict["CREST"]
 
 # public functions
 func activate(attacker, _activate_dict):
     """
     Permanently add foe defense to monster defense.
     """
-    monster.player.crestpool.remove_crests(crest, cost)
+    monster.player.crestpool.remove_crests(CREST, COST)
     monster.defense += attacker.defense
 
 func on_attack_ends():

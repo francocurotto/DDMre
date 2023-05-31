@@ -31,7 +31,7 @@ signal select_direction_pressed(ability, direction)
 func _ready():
     #ability_info.set_ability(ability) # TODO: ability_info
     ability_info.text = ability.name
-    on_ability_cost_changed(ability.cost)
+    on_ability_cost_changed(ability.COST)
     if ability.name in ability_guis_dict:
         active_gui = ability_guis_dict[ability.name].instance().setup(self, ability)
         controls.add_child(active_gui)
@@ -74,14 +74,14 @@ func on_select_tile_cancel_button_pressed():
 
 func on_select_tile_select_button_pressed(tile):
     active_gui.on_select_tile_select_button_pressed(tile)
-    cast_button.disabled = ability.cost > ability.monster.player.crestpool.slots[ability.crest]
+    cast_button.disabled = ability.COST > ability.monster.player.crestpool.slots[ability.CREST]
 
 func on_select_direction_select_button_pressed(direction):
     active_gui.on_select_direction_select_button_pressed(direction)
 
 func on_ability_cost_changed(cost):
-    cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[ability.crest]]
-    cast_button.disabled = cost > ability.monster.player.crestpool.slots[ability.crest] 
+    cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[ability.CREST]]
+    cast_button.disabled = cost > ability.monster.player.crestpool.slots[ability.CREST] 
 
 # private functions
 func get_ability_dict():
