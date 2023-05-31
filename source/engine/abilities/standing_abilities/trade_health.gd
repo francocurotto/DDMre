@@ -1,24 +1,24 @@
 extends "standing_ability.gd"
 
 # variables
-var amount
-var cost
-var crest
+var AMOUNT
+var COST
+var CREST
 
 func _init(ability_dict).(ability_dict):
-    amount = ability_dict["AMOUNT"]
-    cost = ability_dict["COST"]
-    crest = ability_dict["CREST"]
+    AMOUNT = ability_dict["AMOUNT"]
+    COST = ability_dict["COST"]
+    CREST = ability_dict["CREST"]
 
 # public functions
 func activate(activate_dict):
     """
     Trade health with opponent monster in pos.
     """
-    monster.player.crestpool.remove_crests(crest, cost)
+    monster.player.crestpool.remove_crests(CREST, COST)
     var opponent_monster = dungeon.get_tile(activate_dict["pos"]).content
-    opponent_monster.receive_damage(amount)
-    monster.receive_damage(amount)
+    opponent_monster.receive_damage(AMOUNT)
+    monster.receive_damage(AMOUNT)
 
 func get_select_tiles():
     return get_opponent_monsters_tiles()

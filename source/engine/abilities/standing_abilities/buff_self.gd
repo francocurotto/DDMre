@@ -1,21 +1,21 @@
 extends "standing_ability.gd"
 
 # variables
-var attr
-var cost
-var crest
-var amount
+var ATTR
+var AMOUNT
+var COST
+var CREST
 
 func _init(ability_dict).(ability_dict):
-    attr = ability_dict["ATTR"]
-    cost = ability_dict["COST"]
-    crest = ability_dict["CREST"]
-    amount = ability_dict["AMOUNT"]
+    ATTR = ability_dict["ATTR"]
+    AMOUNT = ability_dict["AMOUNT"]
+    COST = ability_dict["COST"]
+    CREST = ability_dict["CREST"]
 
 # public functions
 func activate(_activate_dict):
     """
     Buff monster attr by amount.
     """
-    monster.player.crestpool.remove_crests(crest, cost)
-    monster.buff_attr(attr.to_lower(), amount)
+    monster.player.crestpool.remove_crests(CREST, COST)
+    monster.buff_attr(ATTR.to_lower(), AMOUNT)

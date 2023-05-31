@@ -33,7 +33,7 @@ func get_level():
     return level_buttongroup.get_pressed_button().get_index() + 1
 
 func get_total_cost():
-    return ability.cost + self.level
+    return ability.COST + self.level
 
 # public functions
 func setup(ability_gui, _ability):

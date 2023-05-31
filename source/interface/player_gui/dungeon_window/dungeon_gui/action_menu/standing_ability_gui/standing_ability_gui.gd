@@ -37,7 +37,7 @@ func _ready():
         controls.add_child(active_gui)
         controls.move_child(active_gui, 0)
     if ability.name in ability_range_highlight:
-        emit_signal("highlight_ability_tiles", ability.get_tiles_in_range(ability.tile_range))
+        emit_signal("highlight_ability_tiles", ability.get_tiles_in_range(ability.RANGE))
 
 # public functions
 func setup(action_menu, _ability):

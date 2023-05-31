@@ -1,12 +1,12 @@
 extends "standing_ability.gd"
 
 # variables
-var cost
-var crest
+var COST
+var CREST
 
 func _init(ability_dict).(ability_dict):
-    cost = ability_dict["COST"]
-    crest = ability_dict["CREST"]
+    COST = ability_dict["COST"]
+    CREST = ability_dict["CREST"]
 
 # public functions
 func activate(activate_dict):
@@ -14,8 +14,8 @@ func activate(activate_dict):
     Roll level kill.
     """
     var level = activate_dict["level"]
-    var total_cost = cost + level
-    monster.player.crestpool.remove_crests(crest, total_cost)
+    var total_cost = COST + level
+    monster.player.crestpool.remove_crests(CREST, total_cost)
     var roll_tiles = get_roll_tiles(activate_dict["direction"])
     
     # roll loop

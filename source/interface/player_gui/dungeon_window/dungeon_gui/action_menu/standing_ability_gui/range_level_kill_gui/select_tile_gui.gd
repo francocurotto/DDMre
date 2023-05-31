@@ -11,4 +11,4 @@ func setup(standing_ability_gui, ability):
 # signals callbacks
 func on_select_tile_select_button_pressed(tile):
     .on_select_tile_select_button_pressed(tile)
-    emit_signal("ability_cost_changed", ability.cost+tile.content.card.level)
+    emit_signal("ability_cost_changed", ability.COST+tile.content.card.level)
