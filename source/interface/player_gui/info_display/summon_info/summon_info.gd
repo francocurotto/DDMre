@@ -26,12 +26,12 @@ func set_attacker_power(attacker, attacked):
 # signals callbacks
 func _on_SummonInfo_resized():
     var size_limit = $UpperName.get_size().y + $SummonLine/Name.get_size().y + get_constant("separation") + 1
-    if get_size().y > size_limit:
+    if get_size().y < size_limit:
+        $UpperName.visible = false
+        $SummonLine/Name. visible = true  
+    else:
         $UpperName.visible = true
         $SummonLine/Name. visible = false
-    else:
-        $UpperName.visible = false
-        $SummonLine/Name. visible = true
 
 # private functions
 func set_summon_name(summon, player):

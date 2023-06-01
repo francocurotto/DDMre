@@ -28,7 +28,6 @@ signal select_direction_pressed(ability, direction)
 signal dice_gui_info_button_pressed(card)
 
 func _ready():
-    #ability_info.set_ability(ability) # TODO: ability_info
     if state.NAME == "DIMABILITY":
         ability = get_state_ability(state.summon)
         set_cast_button()
@@ -39,7 +38,7 @@ func _ready():
         set_cast_button()
         if ability.name in ability_guis_dict:
             active_gui = ability_guis_dict[ability.name].instance().setup(self, ability, state.monster)
-    ability_info.text = ability.name
+    ability_info.set_ability(ability)
     if active_gui:
         controls.add_child(active_gui)
         controls.move_child(active_gui, 0)

@@ -29,8 +29,7 @@ signal select_tile_gui_pressed(tiles)
 signal select_direction_pressed(ability, direction)
 
 func _ready():
-    #ability_info.set_ability(ability) # TODO: ability_info
-    ability_info.text = ability.name
+    ability_info.set_ability(ability)
     on_ability_cost_changed(ability.COST)
     if ability.name in ability_guis_dict:
         active_gui = ability_guis_dict[ability.name].instance().setup(self, ability)

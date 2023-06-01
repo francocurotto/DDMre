@@ -1,6 +1,5 @@
 ### TODO
 - ability info
-    - add ability info to standing and state ability gui
     - add ability name to summon info
 - add name and cost to SHIFTDAMAGE button
 
