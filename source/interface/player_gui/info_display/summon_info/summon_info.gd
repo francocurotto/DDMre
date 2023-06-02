@@ -65,6 +65,7 @@ func set_summon_abilities(summon, player):
             var ability = summon.card.abilities[i]
             var ability_name = abilities.get_child(i)
             ability_name.text = ability.name
+            ability_name.visible = true
 
 func set_monster_stats(summon):
     attack_info.set_stat_value_color(summon.attack, summon.card.attack)
