@@ -1,6 +1,4 @@
 ### TODO
-- ability info
-    - add ability name to summon info
 - add name and cost to SHIFTDAMAGE button
 
 ### FIXES
