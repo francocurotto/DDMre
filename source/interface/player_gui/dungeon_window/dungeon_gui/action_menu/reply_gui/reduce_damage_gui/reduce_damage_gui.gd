@@ -2,5 +2,5 @@ extends "res://interface/player_gui/dungeon_window/dungeon_gui/action_menu/reply
 
 # private functions
 func get_button_text():
-    return "✨%s -%d (%d%s)" % [ability.name, ability.amount, ability.cost, Globals.CRESTICONS[ability.crest]]
+    return "✨%s -%d (%d%s)" % [Globals.ability_dict[ability.name]["NAME"], ability.AMOUNT, ability.COST, Globals.CRESTICONS[ability.CREST]]
             

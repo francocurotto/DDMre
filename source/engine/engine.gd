@@ -26,7 +26,6 @@ func _init(initpath:=Globals.DUNGPATH, _pool1:=Globals.POOL1PATH, _pool2:=Global
     add_opponent_reference()
     dungeon = Dungeon.new()
     state = RollState.new(player1, player2, dungeon)
-    set_initstate(initpath)
     # connections
     for dice in player1.dicepool:
         dice.connect("rolled", player1.crestpool, "add_rolled_side")
@@ -34,6 +33,8 @@ func _init(initpath:=Globals.DUNGPATH, _pool1:=Globals.POOL1PATH, _pool2:=Global
         dice.connect("rolled", player2.crestpool, "add_rolled_side")
     player1.connect("summon_dead", dungeon, "on_summon_dead")
     player2.connect("summon_dead", dungeon, "on_summon_dead")
+    # set init state from file
+    set_initstate(initpath)
 
 # public functions
 func update(cmd):

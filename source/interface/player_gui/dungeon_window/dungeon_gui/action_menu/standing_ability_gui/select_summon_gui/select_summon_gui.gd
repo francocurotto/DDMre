@@ -22,6 +22,9 @@ func setup(standing_ability_gui, ability):
 func get_ability_dict():
     return select_tile_gui.get_ability_dict()
 
+func change_button_name(name):
+    select_tile_gui.text = name
+
 # signals callbacks
 func on_button_toggled(button_pressed):
     if not button_pressed:

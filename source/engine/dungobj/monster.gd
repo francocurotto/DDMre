@@ -55,14 +55,14 @@ func get_move_cost(path):
     """
     return ceil((len(path)-1) / speed)
 
-func get_max_tiles(move_crests):
-    """
-    Get the maximum number of tiles a monster can move given a number of 
-    move crests. It takes into account:
-    - number of move crests
-    - monster speed possibly modified by abilities
-    """
-    return int(move_crests * speed)
+#func get_max_tiles(move_crests):
+#    """
+#    Get the maximum number of tiles a monster can move given a number of 
+#    move crests. It takes into account:
+#    - number of move crests
+#    - monster speed possibly modified by abilities
+#    """
+#    return int(move_crests * speed)
     
 func can_target_monster(dungobj):
     """

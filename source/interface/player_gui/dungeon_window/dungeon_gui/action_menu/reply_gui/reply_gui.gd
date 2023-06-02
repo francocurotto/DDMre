@@ -32,6 +32,8 @@ func _ready():
             reply_ability_gui = ability_guis_dict[ability.name].instance().setup(self, ability)
             controls.add_child(reply_ability_gui)
             controls.move_child(reply_ability_gui, 0)
+            if ability.name == "SHIFTDAMAGE":
+                reply_ability_gui.change_button_name("✨%s (%d%s)" % [Globals.ability_dict[ability.name]["NAME"], ability.COST, Globals.CRESTICONS[ability.CREST]])
 
 # public functions
 func setup(action_menu, _attacker, _attacked):

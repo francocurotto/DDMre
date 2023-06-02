@@ -334,4 +334,5 @@ func get_max_tiles(move_crests, monster):
     - monster maximum movement crests possibly modified by abilities
     - dungeon move cost possibly modified by item abilities
     """
-    return min(int(monster.get_max_tiles(move_crests) / move_cost), monster.max_move)
+    #return min(int(monster.get_max_tiles(move_crests) / move_cost), monster.max_move)
+    return min(int(move_crests/move_cost)*monster.speed, monster.max_move)
