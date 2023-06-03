@@ -219,7 +219,7 @@
     "NAME": "RANGE KILL ALL",
     "TYPE": "STANDING",
     "PARAMETERS" : ["RANGE", "COST", "CREST"],
-    "DESCRIPTION": "Except for this monster, destroy all monster and items at range {RANGE}.\nCOST: {COST}+[1..4] X {CREST}"
+    "DESCRIPTION": "Except for this monster, destroy all monster and items at range {RANGE}.\nCOST: {COST} X {CREST}"
   },
   "DISTANCEATTACK": {
     "NAME": "DISTANCE ATTACK",
