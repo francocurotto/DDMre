@@ -29,6 +29,7 @@ func switch_to_move_buttons():
 
 func switch_to_dim_buttons():
     hide_buttons_guis()
+    dim_buttons.rot_index = 0
     dim_buttons.visible = true
 
 func switch_to_select_tile_buttons(tiles, selected_tile_gui):
