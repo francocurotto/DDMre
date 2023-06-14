@@ -1,21 +1,34 @@
-# DDMre (Dungeon Dice Monsters re-implementation)
+# DDMre (Dungeon Dice Monsters remake)
 <p align="center">
 <img src="https://github.com/francocurotto/DDMre/blob/master/images/example1.jpg" width="300" />&nbsp; &nbsp; &nbsp; &nbsp;
 <img src="https://github.com/francocurotto/DDMre/blob/master/images/example2.jpg" width="300" />
 </p>
 
 # What is this?
-**DDMre** is a re-implementation of the GBA game [Yu-Gi-Oh! Dungeon Dice Monsters](https://en.wikipedia.org/wiki/Yu-Gi-Oh!_Dungeon_Dice_Monsters) in the [Godot game engine](https://godotengine.org/) for mobile devices. The idea is to re-implement the core game mechanics from the game, taking only a few liberties, while adding some modern features like a decent AI, and possibly online multiplayer. *It is in a very early stage* of development and even some core game mechanics are not implemented yet.
+**DDMre** is a remake of the GBA game [Yu-Gi-Oh! Dungeon Dice Monsters](https://en.wikipedia.org/wiki/Yu-Gi-Oh!_Dungeon_Dice_Monsters) in the [Godot game engine](https://godotengine.org/) for mobile devices. The idea is to recreate the core game mechanics from the game, taking only a few liberties, while adding some modern features like a decent AI, and possibly online multiplayer. 
+
+*It is in a very early stage*  and is not playable yet.
+
+# What is finished
+- Core game mechanics during duel. Includes:
+    - Roll of dice
+    - Dimension of dice
+    - Movement of monsters
+    - Attack of monsters
+    - Reply of attacks (guard and wait)
+    - All 46 monsters and items abilities of the original (+2 extra)
+
 
 # What is left to do? (A LOT)
 - Improve UI and graphics
+- Interface to create own dicepools
 - Add opponents, and decent AI
 - _Maybe_ online multiplayer
 
-# Differences with the original (GBA) game and this
+# Differences with the original (GBA) game
 - In the original, block tiles not only block their positions but also their neighbour positions (up, down, left right). In this implementation, a block tile will only block its actual position.
-- In original, you cannot activate a reply ability (as a reply to an attack) and GUARD command at the same time. This nerf reply abilities quite a bit, and makes some borderline useless (e.g. REDUCEDAMAGE, ADDDFOEDEFENSE). In this implementation, the GUARD command accepts the activation of a reply abilities.
-- In the original, Time Wizard ability DIMKILLWEAKEST, affected only opponent monsters, which made it broken, as a dicepool full of Time Wizards could easily invalidate any other type of dicepool. In this implementation, DIMKILLWEAKEST considers both player's monsters, so if the monster with the lowest attack is a player monster, it cannot choose an opponent monster for the ability. 
+- In original, you cannot activate a reply ability (as a reply to an attack) and "GUARD" the attack at the same time. This nerf reply abilities quite a bit, and makes some borderline useless (e.g. REDUCEDAMAGE, ADDDFOEDEFENSE). In this remake, monsters can GUARD and activate a reply ability simultaneously.
+- In the original, Time Wizard ability DIMKILLWEAKEST, affects only opponent monsters, which made it broken, as a dicepool full of Time Wizards could easily invalidate any other type of dicepool. In this remake, DIMKILLWEAKEST considers both player's monsters, so if the monster with the lowest attack is a player monster, it cannot choose an opponent monster for the ability. 
 - In the original, movement cost is computed by dividing monster speed as float then multiplying dungeon move cost as float and then rounding to the highest int. For simplicity, in this implementation the cost is converted to int both after dividing the speed and multiplying the move cost. This difference is only relevant when combining a monster with higher speed and the gluminizer ability. For example for a monster with speed 3 and the gluminizer ability (move cost 2) the total movement cost is:
     - original costs per tile: 1,2,2,3,4,4,5,6,6...
     - new costs per tile: 2,2,2,4,4,4,6,6,6...

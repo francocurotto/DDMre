@@ -1,4 +1,4 @@
-Here I document the mistakes and oddities that I found while analysing the original game while working in this project. Most of the mistakes stem from weirdly or flat out wrong implementation of monster abilities. Since my goal is of reimplementation, unless stated otherwise, those weird behavior are kept in the reimplemented game.
+Here I document the mistakes and oddities that I found while analysing the original game while working in this project. Most of the mistakes stem from weirdly or flat out wrong implementation of monster abilities. Since my goal is to make a remake, unless stated otherwise, those weird behavior are kept in the remake version od the game.
 
 # Weird logic
 - In the original, a block tile forbids the dimension of a dice not only in its position, but in its 4 adjacent neighbors. In this implementation, a block in forbids dimensions only in its position, but the original behavior can be replicated by adding more block tiles. (in README)
