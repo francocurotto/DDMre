@@ -12,7 +12,6 @@ digraph player_gui {
     "Action Menu" -> {"Attack GUI", "Reply GUI", "Ability GUI" [color=darkred, fontcolor=darkred]} [color=darkred]
     "Attack GUI" -> {"Raise Attack GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
     "Reply GUI" -> {"Xx Reply Ability GUIs"[color=darkred, fontcolor=darkred]} [color=darkred]
-    //"Ability GUI" -> {"Xx Ability GUIs"[color=darkred, fontcolor=darkred]} [color=darkred]
     "Ability GUI" -> {"Standing Ability GUI", "State Ability GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
     "Standing Ability GUI" -> {"Xx Standing Ability GUI" [color=darkred, fontcolor=darkred]} [color=darkred]
     "State Ability GUI" -> {"Xx State Ability GUI" [color=darkred, fontcolor=darkred]} [color=darkred]

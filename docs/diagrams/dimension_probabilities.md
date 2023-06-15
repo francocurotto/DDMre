@@ -1,5 +1,3 @@
-# Dimension Probabilities
-
 |         | 3 Dice | 2 Dice |
 |---------|--------|--------|
 | Level 1 |    74% |    44% | 

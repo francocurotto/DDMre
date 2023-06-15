@@ -1,5 +1,0 @@
-digraph type advantages {
-    🐲 -> 🧙 -> 🧟 -> 🐺 -> 🥷 -> 🐲
-    {rank = same; 🧙; 🥷}
-    {rank = same; 🧟; 🐺}
-}
