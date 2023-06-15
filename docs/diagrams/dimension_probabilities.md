@@ -9,4 +9,4 @@
 
 Formula 3 dice: $$\frac{9 \cdot n^2 - n^3}{108}$$
 Formula 2 dice: $$\frac{n^2}{36}$$
-$$n=$$summon crests
+_n_ = summon crests
