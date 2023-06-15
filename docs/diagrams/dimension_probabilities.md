@@ -7,5 +7,5 @@
 | Level 3 |    26% |    11% |
 | Level 4 |   7.4% |   2.8% |
 
-- Formula 3 dice: (9 * n^2 - n^3) / 108, n=summon_crests
-- Formula 2 dice: n^2 / 36, n=summon_crests
+- Formula 3 dice: $$(9 * n^2 - n^3) / 108$$, n=summon\_crests$$
+- Formula 2 dice: $$n^2 / 36, n=summon\_crests$$
