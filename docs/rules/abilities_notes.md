@@ -1,13 +1,13 @@
 # Ability Types
 ## Monster Abilities
-- Dimension: Can only be activated immediately after monster dimension
-- Continuous: It is activated permanently while monster is in dungeon
-- Attack: Can be activated when monster attacks
-- Reply: Can be activated when monster is attacked
-- Standing: Can be activated once per turn during the DUNGEON phase
+- **Dimension:** Can only be activated immediately after monster dimension
+- **Continuous:** It is activated permanently while monster is in dungeon
+- **Attack:** Can be activated when monster attacks
+- **Reply:** Can be activated when monster is attacked
+- **Standing:** Can be activated once per turn during the DUNGEON phase
 ## Item Abilities
-- Manual Item: Is activated when a monster lands on the item position
-- Dimension Item: Is activated immediately after item dimension
+- **Manual Item:** Is activated when a monster lands on the item position
+- **Dimension Item:** Is activated immediately after item dimension
 
 # Common Abilities Definitions
 ## TUNNEL
