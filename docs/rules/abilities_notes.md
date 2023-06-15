@@ -16,18 +16,18 @@ Allows monster to move through other monsters, from player or opponent.
 **NOTE:** it does not allows moving through items or monster lords.
 
 ### FLY
-Allows monster to move through other non-flying monsters, from player or opponent.  Other (non-flying) monsters can also move through a flying monsters. Flying monsters can only be attacked by other flying monsters or monsters with the ARCHER ability. Movement cost is 2 crest per square.
+Allows monster to move through other non-flying monsters, from player or opponent.  Other (non-flying) monsters can also move through a flying monster. Can only be attacked by other flying monsters or monsters with the ARCHER ability. Movement cost is 2 crest per square.
 
 **NOTE:** it does not allows moving through other flying monster, items or monster lords.
 
-## ARCHER
+### ARCHER
 Allows monster to attack flying monsters.
 
-## NEUTRAL
+### NEUTRAL
 Negates the effect of type advantages and disadvantages during attacks, when attacking and being attacked.
 
-# Wrap Vortex
-Monsters can move through or be in the same location of a warp vortex. One monster can move to any vortex freely on command, as long as there is no other monster in that location.
+### Wrap Vortex
+When a monster is standing on a warp vortex, it can move freely on command to another vortex location without any crest payment, as long as there is no other monster in that location.
 
 # Description Disambiguation
 - Unless otherwise stated, if there is an ambiguity of multiple options (e.g. DIMCURE, DIMKILLWEAKEST), the casting player must choose.
