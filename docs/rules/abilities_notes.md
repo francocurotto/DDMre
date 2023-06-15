@@ -1,25 +1,31 @@
 # Ability Types
-## Monster Abilities
+### Monster Abilities
 - **Dimension:** Can only be activated immediately after monster dimension
 - **Continuous:** It is activated permanently while monster is in dungeon
 - **Attack:** Can be activated when monster attacks
 - **Reply:** Can be activated when monster replies to an attack
 - **Standing:** Can be activated once per turn during the DUNGEON phase
-## Item Abilities
+### Item Abilities
 - **Manual Item:** Is activated when a monster lands on the item position
 - **Dimension Item:** Is activated immediately after item dimension
 
 # Common Abilities Definitions
-## TUNNEL
+### TUNNEL
 Allows monster to move through other monsters, from player or opponent. 
+
 **NOTE:** it does not allows moving through items or monster lords.
-## FLY
+
+### FLY
 Allows monster to move through other non-flying monsters, from player or opponent.  Other (non-flying) monsters can also move through a flying monsters. Flying monsters can only be attacked by other flying monsters or monsters with the ARCHER ability. Movement cost is 2 crest per square.
+
 **NOTE:** it does not allows moving through other flying monster, items or monster lords.
+
 ## ARCHER
 Allows monster to attack flying monsters.
+
 ## NEUTRAL
 Negates the effect of type advantages and disadvantages during attacks, when attacking and being attacked.
+
 # Wrap Vortex
 Monsters can move through or be in the same location of a warp vortex. One monster can move to any vortex freely on command, as long as there is no other monster in that location.
 
