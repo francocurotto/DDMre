@@ -1,4 +1,3 @@
 ### SOLID
-- selective breadth first checks
-
+- update readme images
 - standarize cmd syntax and context checks
