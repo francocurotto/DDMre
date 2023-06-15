@@ -1,6 +1,12 @@
 # Rule Notes
 Some rules clarifications.
 
+## Dimension Notes
+For a valid dimension on the dungeon, the dice net must satisfy the following conditions:
+- The net must be in-bounds on the dungeon.
+- The net must not overlap other path tiles or block tiles.
+- Al least one of the net tiles must be neighbour of a player path tile.
+
 ## Move Notes
 - Monsters can move as many times as the player wants in its turn.
 - Monsters normally cannot move through other monsters (from player or opponent).
