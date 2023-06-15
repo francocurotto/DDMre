@@ -11,15 +11,7 @@ Some rules clarifications.
 - Monsters can attack only once per turn.
 
 ## Attack Damages
-- Attack on a type without advantage or disadvantage
-    - not-guarding: damage = attack
-    - guarding:     damage = attack-defense (retaliation if negative)
-- Attack on type with advantage:
-    - not-guarding: damage = attack+10
-    - guarding:     damage = attack-defense+10 (retaliation if negative)
-- Attack on type with disadvantage
-    - not-guading: damage = attack-10 (retaliation if negative)
-    - guarding:    damage = attack-defense-10 (retaliation if negative)
+Table below show the computation of the damage done to a monster when an opponent monster attacks it. The damage done changes if the attacking monster has a type advantage or disadvantage, or is neutral (no advantage or disadvantage), and if the attacked monster reply action is WAIT or GUARD.
 
 | Reply | Neutral            | Advantage             | Disadvantage              |
 |-------|--------------------|-----------------------|---------------------------|
