@@ -1,5 +1,5 @@
 # Rule Notes
-Some rules clarifications that I didn't know where else to put. 
+Some rules clarifications.
 
 ## Move Notes
 - Monsters can move as many times as the player wants in its turn.
@@ -7,9 +7,8 @@ Some rules clarifications that I didn't know where else to put.
 - Normal monsters cannot move through items, but can step into them to activate them.
 - No two monsters or (unactivated) items can occupy the same position, regardless of any ability.
 
-# Attack Notes
+## Attack Notes
 - Monsters can attack only once per turn.
-- Monster attack can only be raised by abilities up to 250
 
 ## Attack Damages
 - Normal attack

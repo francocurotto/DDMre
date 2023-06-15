@@ -3,13 +3,13 @@
 - Dimension: Can only be activated immediately after monster dimension
 - Continuous: It is activated permanently while monster is in dungeon
 - Attack: Can be activated when monster attacks
-- Reply: Can be activated when monster is attacked and does not GUARD
+- Reply: Can be activated when monster is attacked
 - Standing: Can be activated once per turn during the DUNGEON phase
 ## Item Abilities
 - Manual Item: Is activated when a monster lands on the item position
 - Dimension Item: Is activated immediately after item dimension
 
-# Common Abilities Definition
+# Common Abilities Definitions
 ## TUNNEL
 Allows monster to move through other monsters, from player or opponent. NOTE: it does not allows moving through items or monster lords.
 ## FLY
