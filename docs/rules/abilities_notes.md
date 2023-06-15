@@ -34,9 +34,10 @@ When a monster is standing on a warp vortex, it can move freely on command to an
 - Unless otherwise stated, dimension, attack, reply and standing abilities of monsters can be skipped.
 - Unless otherwise stated, continuous abilities of monsters cannot be suppressed.
 - Unless otherwise stated, item and item dimension abilities cannot be skipped. 
-- If an ability requires that to select a monster, and no valid monster is available, the ability cannot take action.
-- In monster ability descriptions, "monster" and "player" refers to the monster casting the ability, and the player that owns the monster respectively.
-- In manual item ability descriptions, "monster" and "player" refers to the monster activating the ability, and the player that owns the monster.
+- If an ability requires to select a monster, and no valid monster is available, the ability cannot take action.
+- In monster ability descriptions, "player" refers the player that owns the monster.
+- In manual item ability descriptions, "activator monster" refers to the monster that activated the item.
+- In manual item ability descriptions, "activator player" refers to the player that owns the monster that activated the ability.
 
 # Definitions
 - Range: minimum number of tiles to move from one position to another, including empty tiles.

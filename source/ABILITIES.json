@@ -237,43 +237,43 @@
     "NAME": "ITEM CURE",
     "TYPE": "MANUAL ITEM",
     "PARAMETERS" : ["AMOUNT"],
-    "DESCRIPTION": "Restore {AMOUNT} health to monster."
+    "DESCRIPTION": "Restore {AMOUNT} health to activator monster."
   },
   "ITEMDAMAGE": {
     "NAME": "ITEM DAMAGE",
     "TYPE": "MANUAL ITEM",
     "PARAMETERS" : ["AMOUNT"],
-    "DESCRIPTION": "Deal {AMOUNT} damage to monster."
+    "DESCRIPTION": "Deal {AMOUNT} damage to activator monster."
   },
   "TIMEMACHINE": {
     "NAME": "TIME MACHINE",
     "TYPE": "MANUAL ITEM",
     "PARAMETERS" : [],
-    "DESCRIPTION": "Move monster to its starting location of its last movement."
+    "DESCRIPTION": "Move activator monster to the starting location of its last movement."
   },
   "ITEMBUFF": {
     "NAME": "ITEM BUFF",
     "TYPE": "MANUAL ITEM",
     "PARAMETERS" : ["ATTR", "AMOUNT"],
-    "DESCRIPTION": "Raise monster {ATTR} by {AMOUNT}."
+    "DESCRIPTION": "Raise activator monster {ATTR} by {AMOUNT}."
   },
   "ITEMCRESTKILL": {
     "NAME": "ITEM CREST KILL",
     "TYPE": "MANUAL ITEM",
     "PARAMETERS" : ["AMOUNT", "CREST"],
-    "DESCRIPTION": "Remove {AMOUNT} {CREST} crest(s) from player crestpool."
+    "DESCRIPTION": "Remove {AMOUNT} {CREST} crest(s) from activator player crestpool."
   },
   "MONSTERREBORN": {
     "NAME": "MONSTER REBORN",
     "TYPE": "MANUAL ITEM",
     "PARAMETERS" : [],
-    "DESCRIPTION": "Select a monster dice from player graveyard. Remove that dice from graveyard and add it to player dicepool."
+    "DESCRIPTION": "Select a monster dice from activator player graveyard. Remove that dice from graveyard and add it to player dicepool."
   },
   "BLACKHOLE": {
     "NAME": "BLACK HOLE",
     "TYPE": "MANUAL ITEM",
     "PARAMETERS" : [],
-    "DESCRIPTION": "Destroy all monsters and tems in dungeon."
+    "DESCRIPTION": "Destroy all monsters and items in dungeon."
   },
   "GLUMINIZER": {
     "NAME": "GLUMINIZER",
