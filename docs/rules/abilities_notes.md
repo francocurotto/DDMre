@@ -33,16 +33,16 @@ When a monster is standing on a warp vortex, it can move freely on command to an
 - Unless otherwise stated, if there is an ambiguity of multiple options (e.g. DIMCURE, DIMKILLWEAKEST), the casting player must choose.
 - Unless otherwise stated, dimension, attack, reply and standing abilities of monsters can be skipped.
 - Unless otherwise stated, continuous abilities of monsters cannot be suppressed.
-- Unless otherwise stated, item and item dimension abilities cannot be skipped. 
+- Unless otherwise stated, manual item and dimension item abilities cannot be skipped. 
 - If an ability requires to select a monster, and no valid monster is available, the ability cannot take action.
 - In monster ability descriptions, "player" refers the player that owns the monster.
 - In manual item ability descriptions, "activator monster" refers to the monster that activated the item.
 - In manual item ability descriptions, "activator player" refers to the player that owns the monster that activated the ability.
 
 # Definitions
-- Range: minimum number of tiles to move from one position to another, including empty tiles.
-- Distance: minimum number of tiles to move from one position to another, considering only paths through dungeon tiles.
+- Range: group of tiles that can be reached by moving through neigbours positions a certain number of times, including empty and block tiles.
+- Distance: group of tiles that can be reached by moving through neigbours positions a certain number of times, not including empty and block tiles.
 - Negate: a monster with an ability negated cannot use that ability, and the ability effect is not being applied.
 - Active: an active ability is an ability that has not been negated, that is, its effect is being applied normally.
-- Flying: quality of having the active FLY ability.
-- Non-flying: quality of not having the FLY ability, or the FLY ability is currently negated.
+- Flying: a flying monster has the active FLY ability.
+- Non-flying: a non-flying monster doesn't have the FLY ability, or the FLY ability is currently negated.

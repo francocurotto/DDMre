@@ -1,7 +1,6 @@
 ### SOLID
 - docs
-    - rules
-        - ✅ rule_notes
-        - ❌ ability_notes
+    - code
+    - diagrams
 - update readme images
 - standarize cmd syntax and context checks
