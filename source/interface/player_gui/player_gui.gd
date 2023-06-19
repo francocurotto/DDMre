@@ -107,9 +107,6 @@ func input_roll_cmd():
     var indeces = dicepool_gui.get_roll_indeces()
     engine.update({"name":"ROLL", "dice":indeces})
 
-func input_skip_cmd():
-    engine.update({"name":"SKIP"})
-
 func input_dim_cmd():
     dicepool_gui.release_roll()
     var dimdice = dicepool_gui.get_selected_dim_index()
@@ -118,6 +115,9 @@ func input_dim_cmd():
     var pos = netdata["pos"]
     var trans = netdata["trans_list"]
     engine.update({"name":"DIM", "dice":dimdice, "net":net, "pos":pos, "trans":trans})
+
+func input_skip_cmd():
+    engine.update({"name":"SKIP"})
 
 func input_move_cmd(pos1, pos2):
     dungeon_window.reset_to_dungeon()
