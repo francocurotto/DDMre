@@ -29,7 +29,7 @@ Attack opponent monster or monster lord at position dest, with monster at positi
 - name: `ATTACK`
 - origin: `(0..18, 0..12)` (tuple of ints)
 - dest: `(0..18, 0..12)` (tuple of ints)
-- ability_dict: attack ability dict (optional, see abilities section)
+- ability_dict: attack ability dict (optional)
 
 ## JUMP [DUNGEON state]
 Move monster through a vortex from position origin to position dest.
@@ -44,56 +44,23 @@ Finish turn.
 ## GUARD [REPLY state]
 Defend attack from opponent monster. Optionally activate ability defined by ability_dict.
 - name: `GUARD`
-- ability_dict: reply ability dict (optional, see abilities section)
+- ability_dict: reply ability dict (optional)
 
 ## WAIT [REPLY state]
 Do not defend to an attack from opponent monster. Optionally activate ability defined by ability_dict.
 - name: `WAIT`
-- ability_dict: reoly ability dict (optional, see abilities section)
+- ability_dict: reoly ability dict (optional)
 
 ## ABILITY [DUNGEON state]
 Cast monster standing ability.
 - name: `ABILITY`
 - pos: `(0..18, 0..12)` (tuple of ints)
-- ability_dict : `ability_dict`(optional, see abilities section)
+- ability_dict : `ability_dict`(optional)
 
 ## ABILITY [DIM ABILITY state, ITEM ABILITY state]
 Cast monster dim or.item state ability.
 - name: `ABILITY`
-- ability_dict : `ability_dict`(optional, see abilities section)
-
-# Abilities
-List of abilities parameters needed when casting a dimension, attack, reply, standing, or item ability.
-
-## RAISEATTACK [attack ability]
-- name: `RAISEATTACK`
-- raise: `1..3` (int)
-
-## REDUCEDAMAGE [reply ability]
-- name: `REDUCEDAMAGE`
-
-## REDUCEDAMAGEINF [reply ability]
-- name: `REDUCEDAMAGEINF`
-- reduce: `1..99` (int)
-
-## SHIFTDAMAGE [reply ability]
-- name: `SHIFTDAMAGE`
-- pos: `(0..18, 0..12)` (tuple of ints)
-
-## PROTECTSELF [reply ability]
-- name: `PROTECTSELF`
-
-## ADDFOEDEFENSE [reply ability]
-- name: `ADDFOEDEFENSE`
-
-## BUFFDAMAGE [standing ability]
-- name: `BUFFDAMAGE`
-
-## BUFFSELF [standing ability]
-- name: `BUFFSELF`
-
-## DISTANCEATTACK [standing ability]
-- name: `DISTANCEATTACK`
+- ability_dict : `ability_dict`(optional)
 
 # Appendix
 ## List of Nets

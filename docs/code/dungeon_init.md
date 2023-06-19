@@ -42,12 +42,11 @@ Place player summons at the start of the game. Summons must be placed on a tile 
 
 Example:
 ```
-"SUMMONS1": ["g2-5","g4-1","g6-10"]
-"SUMMONS2": ["g17-15","g14-9","g12-2"]
+"SUMMONS1": [{"POS":"g2","DICE":5}, "POS":g4, "DICE":1}]
+"SUMMONS2": [{"POS":"g17","DICE":15}, {"POS":"g14","DICE":9}]
 ```
-- `g2-5`: 
+- {"POS":"g2","DICE":5}: 
     - `g2` : location in dungeon
-    - `-` : separator
     - `5` : dice index in pool to summon
 
 ## Crests
@@ -55,8 +54,8 @@ Indicate the initial crest for each players.
 
 Example:
 ```
-"CRESTS1": {"movement":9,"attack":1,"defense":3,"magic":5,"trap":2}
-"CRESTS2": {"movement":0,"attack":5,"defense":4,"magic":1,"trap":1}
+"CRESTS1": {"MOVEMENT":9,"ATTACK":1,"DEFENSE":3,"MAGIC":5,"TRAP":2}
+"CRESTS2": {"MOVEMENT":0,"ATTACK":5,"DEFENSE":4,"MAGIC":1,"TRAP":1}
 ```
 
 ## Hearts
