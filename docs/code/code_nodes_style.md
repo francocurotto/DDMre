@@ -15,7 +15,7 @@
     - is functions
 
 ## Code Order Interface
-- tools/extends
+- tool/extends
 - export variables
 - preloads
 - constants

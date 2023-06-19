@@ -14,8 +14,8 @@ Dimension dice in dungeon, in the shape of net, at position pos, applying transf
 - pos: `(0..18, 0..12)` (tuple of ints)
 - trans: `[T1,T2,...]` (list of transformations, see appendix)
 
-## SKIP [DIM state]
-Skip dimension.
+## SKIP [DIM state, DIM ABILITY state, ITEM ABILITY state]
+Skip dimension, or ability effect.
 - name: `SKIP`
 
 ## MOVE [DUNGEON state]
@@ -39,31 +39,31 @@ Move monster through a vortex from position origin to position dest.
 
 ## ENDTURN [DUNGEON state]
 Finish turn.
-- command: `ENDTURN`
+- name: `ENDTURN`
 
 ## GUARD [REPLY state]
-Defend attack from opponent monster.
-- command: `GUARD`
-- ability_dict: `ability dict` (optional, see abilities section)
+Defend attack from opponent monster. Optionally activate ability defined by ability_dict.
+- name: `GUARD`
+- ability_dict: reply ability dict (optional, see abilities section)
 
 ## WAIT [REPLY state]
-Do not reply to an attack from opponent monster.
-- command: `WAIT`
-- ability: `ability dict` (optional, see abilities section)
+Do not defend to an attack from opponent monster. Optionally activate ability defined by ability_dict.
+- name: `WAIT`
+- ability_dict: reoly ability dict (optional, see abilities section)
 
 ## ABILITY [DUNGEON state]
 Cast monster standing ability.
-- command: `ABILITY`
+- name: `ABILITY`
 - pos: `(0..18, 0..12)` (tuple of ints)
 - ability_dict : `ability_dict`(optional, see abilities section)
 
-## ABILITY [ABILITY state]
-Cast monster standing ability.
-- command: `ABILITY`
+## ABILITY [DIM ABILITY state, ITEM ABILITY state]
+Cast monster dim or.item state ability.
+- name: `ABILITY`
 - ability_dict : `ability_dict`(optional, see abilities section)
 
 # Abilities
-List of abilities parameters needed when casting a dimension, attack, reply, or standing ability.
+List of abilities parameters needed when casting a dimension, attack, reply, standing, or item ability.
 
 ## RAISEATTACK [attack ability]
 - name: `RAISEATTACK`

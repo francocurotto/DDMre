@@ -14,7 +14,7 @@ Example:
     "OOOOOOPOOOOOO",
     "OOOOOOPOOOOOO",
     "OOOOOOOOOOOOO",
-    "XXXXXOOOXXXXX",
+    "XXXXXNNNXXXXX",
     "OOOOOOOOOOOOO",
     "OOOOOOpOOOOOO",
     "OOOOOOpOOOOOO",
@@ -32,6 +32,7 @@ Example:
 - `L`: player 2 monster lord
 - `p`: player 1 path
 - `P`: player 2 path
+- `N`: neutral path
 
 # Debug Options
 This options should be used only for debugging purposes. Options with 1 are for player 1, and 2 for player 2.
@@ -66,6 +67,3 @@ Example:
 "HEARTS1": 3
 "HEARTS2": 1
 ```
-
-### Note on Debug options
-Since the debug options is only intended to be used for debugging, it does not have the safety mechanism from the rest of the code. That means the game may throw some errors or have unexpected behavior if not used correctly. Make sure to define SUMMONSX, CRESTSX, and HEARTSX as specified above to avoid errors.
