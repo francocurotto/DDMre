@@ -9,7 +9,6 @@ digraph engine {
     Dices -> {Card, Sides}
     Card -> Abilities
     Card -> Summons [color=gray, style=dashed, label="instance"]
-    //Abilities -> Summons [color=gray, style=dashed, label="instance\nbehavior"]
     Abilities -> Summons
     Abilities -> Dungeon
     Summons -> Card
