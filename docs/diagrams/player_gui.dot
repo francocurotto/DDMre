@@ -9,14 +9,13 @@ digraph player_gui {
     "Dungeon Window" -> {"Dungeon GUI", "Summon GUI", "Dungeon Buttons GUI"}
     "Dungeon GUI" -> {"247x Tiles GUI" [color=darkred, fontcolor=darkred]} [color=darkred]
     "Dungeon GUI" -> "Action Menu"
-    "Action Menu" -> {"Attack GUI", "Reply GUI", "Ability GUI" [color=darkred, fontcolor=darkred]} [color=darkred]
+    "Action Menu" -> {"Attack GUI", "Reply GUI", "Standing Ability GUI", "State Ability GUI" [color=darkred, fontcolor=darkred]} [color=darkred]
     "Attack GUI" -> {"Raise Attack GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
     "Reply GUI" -> {"Xx Reply Ability GUIs"[color=darkred, fontcolor=darkred]} [color=darkred]
-    "Ability GUI" -> {"Standing Ability GUI", "State Ability GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
     "Standing Ability GUI" -> {"Xx Standing Ability GUI" [color=darkred, fontcolor=darkred]} [color=darkred]
     "State Ability GUI" -> {"Xx State Ability GUI" [color=darkred, fontcolor=darkred]} [color=darkred]
     "Summon GUI" -> {"Summon Info"[color=darkred, fontcolor=darkred]} [color=darkred]
-    "Dungeon Buttons GUI" -> {"Dungeon Buttons", "Move Buttons", "Dim Buttons", "Select Tile Buttons", "Select Tiles Buttons", "Select Direction Buttons"}
+    "Dungeon Buttons GUI" -> {"Dungeon Buttons", "Move Buttons", "Dim Buttons", "Select Tile Buttons", "Select Summons Buttons", "Select Direction Buttons"}
     "Lower Window" -> {"2x Player Info"[color=darkred, fontcolor=darkred]} [color=darkred]
     "2x Player Info" -> {"Hearts Info"[color=darkred, fontcolor=darkred]} [color=darkred] 
     "2x Player Info" -> {"Crestpool Info"[color=darkred, fontcolor=darkred]} [color=darkred]

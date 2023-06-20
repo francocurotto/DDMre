@@ -1,47 +1,53 @@
 digraph states {
-    // node labels
-    rankdir=LR
-    Roll1     [label="Roll"]
-    Dimension1[label="Dimension"]
-    Dungeon1  [label="Dungeon"]
-    Ability1  [label="Ability"]
-    Reply1    [label="Reply"]
-    Roll2     [label="Roll"]
-    Dimension2[label="Dimension"]
-    Dungeon2  [label="Dungeon"]
-    Ability2  [label="Ability"]
-    Reply2    [label="Reply"]
     edge[fontsize=8]
-    // player 1
-	subgraph cluster_1 {
-		label="Player 1"
-        color=blue
-        fontcolor=blue
-		Roll1 -> Dimension1 [label="ROLL",weight=10]
-		Roll1 -> Dungeon1 [label="ROLL"]
-        Dimension1 -> Dungeon1 [label="DIM/SKIP",weight=10]
-        Dungeon1 -> Reply1 [weight=10, style=invis]
-        Dimension1 -> Ability1 [label="DIM"]
-        Ability1 -> Dungeon1 [label="ABILITY/SKIP"]
-        Dungeon1 -> Ability1 [label="MOVE"]
-	}
     // player 2
 	subgraph cluster_2 {
 		label="Player 2"
         color=red
         fontcolor=red
-		Roll2 -> Dimension2 [label="ROLL",weight=10]
-		Roll2 -> Dungeon2 [label="ROLL"]
-        Dimension2 -> Dungeon2 [label="DIM/SKIP",weight=10]
-        Dungeon2 -> Reply2 [weight=10, style=invis]
-        Dimension2 -> Ability2 [label="DIM"]
-        Ability2 -> Dungeon2 [label="ABILITY/SKIP"]
-        Dungeon2 -> Ability2 [label="MOVE"]
+		Roll2        -> Dimension2   [label="ROLL",weight=10]
+		Roll2        -> Dungeon2     [label="ROLL"]
+        Dimension2   -> Dungeon2     [label="DIM/SKIP",weight=10]
+        Dungeon2     -> Reply2       [weight=10, style=invis]
+        Dimension2   -> DimAbility2  [label="DIM"]
+        DimAbility2  -> Dungeon2     [label="ABILITY/SKIP"]
+        Dungeon2     -> ItemAbility2 [label="MOVE"]
+        ItemAbility2 -> Dungeon2     [label="ABILITY/SKIP"]
 	}
-	Dungeon1 -> Reply2 [label="ATTACK"]
-	Dungeon2 -> Reply1 [label="ATTACK"]
-	Reply1 -> Dungeon2 [label="REPLY/WAIT"]
-	Reply2 -> Dungeon1 [label="REPLY/WAIT"]
-    Dungeon1 -> Roll2 [label="ENDTURN"]
-    Dungeon2 -> Roll1 [label="ENDTURN"]
+    // player 1
+	subgraph cluster_1 {
+		label="Player 1"
+        color=blue
+        fontcolor=blue
+		Roll1        -> Dimension1   [label="ROLL",weight=10]
+		Roll1        -> Dungeon1     [label="ROLL"]
+        Dimension1   -> Dungeon1     [label="DIM/SKIP",weight=10]
+        Dungeon1     -> Reply1       [weight=10, style=invis]
+        Dimension1   -> DimAbility1  [label="DIM"]
+        DimAbility1  -> Dungeon1     [label="ABILITY/SKIP"]
+        Dungeon1     -> ItemAbility1 [label="MOVE"]
+        ItemAbility1 -> Dungeon1     [label="ABILITY/SKIP"]
+	}
+    // node labels
+    rankdir=LR
+    Roll1        [label="Roll"]
+    Dimension1   [label="Dimension"]
+    Dungeon1     [label="Dungeon"]
+    DimAbility1  [label="Dim Ability"]
+    ItemAbility1 [label="Item Ability"]
+    Reply1       [label="Reply"]
+    Roll2        [label="Roll"]
+    Dimension2   [label="Dimension"]
+    Dungeon2     [label="Dungeon"]
+    DimAbility2  [label="Dim Ability"]
+    ItemAbility2 [label="Item Ability"]
+    Reply2       [label="Reply"]
+
+    // inter player edges
+	Dungeon1 -> Reply2   [label="ATTACK"]
+	Dungeon2 -> Reply1   [label="ATTACK"]
+	Reply1   -> Dungeon2 [label="GUARD/WAIT"]
+	Reply2   -> Dungeon1 [label="GUARD/WAIT"]
+    Dungeon1 -> Roll2    [label="ENDTURN"]
+    Dungeon2 -> Roll1    [label="ENDTURN"]
 }
