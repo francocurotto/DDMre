@@ -7,6 +7,7 @@ var player
 var dim_dice
 var tile_guis = []
 var selected_tile_gui
+var NetCreator = load("res://engine/states/net_creator.gd")
 
 
 # onready variables
@@ -185,9 +186,7 @@ func on_jump_button_pressed():
         get_tile_gui(vortex_pos).enable_jump_button()
 
 func on_net_button_pressed(netname, pos, trans_list):
-    var net = Globals.create_net(netname)
-    net.offset(pos)
-    net.apply_trans_list(trans_list)
+    var net = NetCreator.create_net(netname, pos, trans_list)
     unset_highlights()
     highlight_net(net)
     emit_signal("net_positioned", dungeon.can_dimension(net, player))

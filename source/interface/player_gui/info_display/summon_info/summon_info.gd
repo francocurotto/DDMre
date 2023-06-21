@@ -64,7 +64,7 @@ func set_summon_abilities(summon, player):
         for i in range(len(summon.card.abilities)):
             var ability = summon.card.abilities[i]
             var ability_name = abilities.get_child(i)
-            ability_name.text = Globals.ability_dict[ability.name]["NAME"]
+            ability_name.text = Globals.ABIDICT[ability.name]["NAME"]
             ability_name.visible = true
 
 func set_monster_stats(summon):

@@ -14,15 +14,15 @@ var dungeon
 var state
 var turn = 1
 
-func _init(initpath:=Globals.DUNGPATH, _pool1:=Globals.POOL1PATH, _pool2:=Globals.POOL2PATH):
+func _init(initpath, random_pool:=true, pool1:=null, pool2:=null):
     # duel objects
     dicelib = Dicelib.new()
-    if Globals.RANDOMPOOL:
+    if random_pool:
         player1 = Player.new(1, dicelib.create_randpool())
         player2 = Player.new(2, dicelib.create_randpool())
     else:
-        player1 = Player.new(1, dicelib.create_dicepool(_pool1))
-        player2 = Player.new(2, dicelib.create_dicepool(_pool2))
+        player1 = Player.new(1, dicelib.create_dicepool(pool1))
+        player2 = Player.new(2, dicelib.create_dicepool(pool2))
     add_opponent_reference()
     dungeon = Dungeon.new()
     state = RollState.new(player1, player2, dungeon)
@@ -83,8 +83,8 @@ func set_initsummons(player, summonlist):
     Set the initial summons in the dungeon.
     """
     for summondict in summonlist:
-        var pos = Globals.str2pos(summondict["POS"])
-        var idx = Globals.to_engineidx(summondict["DICE"])
+        var pos = str_to_pos(summondict["POS"])
+        var idx = summondict["DICE"] - 1 # convert to zero indexing
         var summon = player.summon_card(idx)
         dungeon.array[pos.y][pos.x].set_content(summon)
         summon.initialize_abilities(dungeon)
@@ -94,7 +94,7 @@ func set_initvortex(vortexlist):
     Set the initial vorteces in the dungeon.
     """
     for vortex in vortexlist:
-        var pos = Globals.str2pos(vortex)
+        var pos = str_to_pos(vortex)
         var tile = dungeon.array[pos.y][pos.x]
         if tile.is_path():
             tile.vortex = true
@@ -105,3 +105,9 @@ func set_initcrests(player, crests):
     """
     for crest in crests:
         player.crestpool.slots[crest] = crests[crest]
+
+func str_to_pos(string):
+    """
+    Convert string type positioning to vector type.
+    """
+    return Vector2(ord(string[0])-97, int(string.substr(1))-1)

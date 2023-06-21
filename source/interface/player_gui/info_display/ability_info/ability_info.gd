@@ -6,7 +6,7 @@ onready var ability_desc = $AbilityDesc
 
 # setget functions
 func set_ability(ability):
-    var ability_info = Globals.ability_dict[ability.name]
+    var ability_info = Globals.ABIDICT[ability.name]
     ability_name.text = ability_info["NAME"]
     if not ability_info["DESCRIPTION"].empty():
         var description = format_description(ability, ability_info)

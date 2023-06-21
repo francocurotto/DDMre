@@ -57,7 +57,7 @@ func set_dungobj_icon(_dungobj_type, _dungobj_player):
         $DungobjRects/DungobjRect.texture = null
     else: # case content
         var icon = dungobj_type
-        if _dungobj_type in Globals.TYPES + ["ITEM"]: # case summon
+        if _dungobj_type in Globals.SUMMONTYPES: # case summon
             icon = "TYPE_" + dungobj_type + "_P" + str(dungobj_player)
         $DungobjRects/DungobjRect.texture = load("res://art/icons/" + icon + ".png")
 

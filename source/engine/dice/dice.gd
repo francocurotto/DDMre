@@ -1,5 +1,8 @@
 extends Reference
 
+# constants
+const CRESTCHARS = ["S", "M", "A", "D", "G", "T"]
+
 # preloads
 const MonsterCard = preload("res://engine/dice/cards/monster_card.gd")
 const ItemCard = preload("res://engine/dice/cards/item_card.gd")
@@ -35,7 +38,7 @@ func create_card(cardinfo):
     """
     Create card object with cardinfo dictionary.
     """
-    if cardinfo["TYPE"] in Globals.TYPES:
+    if cardinfo["TYPE"] in Globals.MONSTERTYPES:
         return MonsterCard.new(cardinfo)
     elif cardinfo["TYPE"] == "ITEM":
         return ItemCard.new(cardinfo)
@@ -48,7 +51,7 @@ func create_sides(string):
     # first break the string into a list of side strings
     var sidestrings = []
     for chr in string:
-        if chr in Globals.CRESTCHARS:
+        if chr in CRESTCHARS:
             sidestrings.append(chr)
             if chr == "S": # add level as multiplier
                 sidestrings[-1] += str(level)

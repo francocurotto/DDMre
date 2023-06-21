@@ -28,5 +28,4 @@ func _on_ButtonGUI_toggled(button_pressed):
 
 # private functions
 func get_button_text():
-    return "✨%s (%d%s)" % [Globals.ability_dict[ability.name]["NAME"], ability.COST, Globals.CRESTICONS[ability.CREST]]
-            
+    return "✨%s (%d%s)" % [Globals.ABIDICT[ability.name]["NAME"], ability.COST, Globals.CRESTICONS[ability.CREST]]

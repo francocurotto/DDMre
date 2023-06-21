@@ -7,6 +7,7 @@ const NAME = "DIMENSION"
 var dim_candidates
 var DungeonState = load("engine/states/dungeon_state.gd")
 var DimAbilityState = load("engine/states/dim_ability_state.gd")
+var NetCreator = load("res://engine/states/net_creator.gd")
 
 func _init(_player, _opponent, _dungeon, _dim_candidates).(_player, _opponent, _dungeon):
     dim_candidates = _dim_candidates
@@ -27,10 +28,8 @@ func DIM(cmd):
     var pos = cmd["pos"]
     var trans_list = cmd["trans"]
 
-    # create and transorm net
-    var net = Globals.create_net(netname)
-    net.offset(pos)
-    net.apply_trans_list(trans_list)
+    # create net
+    var net = NetCreator.create_net(netname, pos, trans_list)
 
     # verify for valid dimension
     if dungeon.can_dimension(net, player): # do dimension

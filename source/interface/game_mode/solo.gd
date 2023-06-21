@@ -2,6 +2,7 @@ extends MarginContainer
 
 # preloads
 const Engine = preload("res://engine/engine.gd")
+const Init = preload("init.gd")
 
 # variables
 var engine
@@ -14,7 +15,10 @@ onready var p2gui = $P2GUI
 
 func _ready():
     randomize()
-    engine = Engine.new()
+    if Init.RANDOMPOOL:
+        engine = Engine.new(Init.DUNGPATH, true)
+    else:
+        engine = Engine.new(Init.DUNGPATH, false, Init.POOL1PATH, Init.POOL2PATH)
     set_guis()
     # connections
     Events.connect("dice_rolled", self, "on_dice_rolled")
