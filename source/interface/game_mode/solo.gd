@@ -21,7 +21,8 @@ func _ready():
         print(Init.DUNGPATH)
         print(Init.POOL1PATH)
         print(Init.POOL2PATH)
-        engine = Engine.new(Init.DUNGPATH, false, Init.POOL1PATH, Init.POOL2PATH)
+        #engine = Engine.new(Init.DUNGPATH, false, Init.POOL1PATH, Init.POOL2PATH)
+        engine = Engine.new(Init.DUNGPATH, false, "res://databases/dicepools/ability_tests/dim_kill_tunnel.json", Init.POOL2PATH)
     set_guis()
     # connections
     Events.connect("dice_rolled", self, "on_dice_rolled")

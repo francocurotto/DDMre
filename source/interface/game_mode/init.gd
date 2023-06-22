@@ -1,7 +1,7 @@
 extends Node
 
-const RANDOMPOOL = true
-#const RANDOMPOOL = false
+#const RANDOMPOOL = true
+const RANDOMPOOL = false
 
 #const DUNGPATH = "res://databases/dungeons/default.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/pass.json";                const POOL1PATH = "res://databases/dicepools/ability_tests/pass.json";                const POOL2PATH = "res://databases/dicepools/ability_tests/pass.json"
