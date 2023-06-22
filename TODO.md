@@ -1,5 +1,4 @@
 ### SOLID
-- fix init of engine with not random dicepools
-- fix DIM KILL TUNNEL
+-bug: when negate ability, if negated monster is killed, the ability is disabled again
 - change name lower_window
 - standarize cmd syntax and context checks
