@@ -21,6 +21,9 @@ func _init(initpath, random_pool:=true, pool1:=null, pool2:=null):
         player1 = Player.new(1, dicelib.create_randpool())
         player2 = Player.new(2, dicelib.create_randpool())
     else:
+        print(initpath)
+        print(pool1)
+        print(pool2)
         player1 = Player.new(1, dicelib.create_dicepool(pool1))
         player2 = Player.new(2, dicelib.create_dicepool(pool2))
     add_opponent_reference()

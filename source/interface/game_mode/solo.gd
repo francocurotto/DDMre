@@ -18,6 +18,9 @@ func _ready():
     if Init.RANDOMPOOL:
         engine = Engine.new(Init.DUNGPATH, true)
     else:
+        print(Init.DUNGPATH)
+        print(Init.POOL1PATH)
+        print(Init.POOL2PATH)
         engine = Engine.new(Init.DUNGPATH, false, Init.POOL1PATH, Init.POOL2PATH)
     set_guis()
     # connections
