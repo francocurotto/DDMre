@@ -14,16 +14,13 @@ var dungeon
 var state
 var turn = 1
 
-func _init(initpath, random_pool:=true, pool1:=null, pool2:=null):
+func _init(initpath, random_pool=true, pool1=null, pool2=null):
     # duel objects
     dicelib = Dicelib.new()
     if random_pool:
         player1 = Player.new(1, dicelib.create_randpool())
         player2 = Player.new(2, dicelib.create_randpool())
     else:
-        print(initpath)
-        print(pool1)
-        print(pool2)
         player1 = Player.new(1, dicelib.create_dicepool(pool1))
         player2 = Player.new(2, dicelib.create_dicepool(pool2))
     add_opponent_reference()
