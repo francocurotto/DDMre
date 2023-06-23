@@ -1,6 +1,6 @@
 digraph player_gui {
     rankdir=LR
-    "Player GUI" -> {"Dicepool Window", "Dungeon Window", "Card Info", "Lower Window"}
+    "Player GUI" -> {"Dicepool Window", "Dungeon Window", "Card Info", "Players Window"}
     "Dicepool Window" -> {"Dicepool GUI", "Roll GUI"}
     "Dicepool GUI" -> {"15x Dice GUI"[color=darkred, fontcolor=darkred]} [color=darkred]
     "15x Dice GUI" -> {"Dice Info"[color=darkred, fontcolor=darkred]} [color=darkred]
@@ -16,7 +16,7 @@ digraph player_gui {
     "State Ability GUI" -> {"Xx State Ability GUI" [color=darkred, fontcolor=darkred]} [color=darkred]
     "Summon GUI" -> {"Summon Info"[color=darkred, fontcolor=darkred]} [color=darkred]
     "Dungeon Buttons GUI" -> {"Dungeon Buttons", "Move Buttons", "Dim Buttons", "Select Tile Buttons", "Select Summons Buttons", "Select Direction Buttons"}
-    "Lower Window" -> {"2x Player Info"[color=darkred, fontcolor=darkred]} [color=darkred]
+    "Players Window" -> {"2x Player Info"[color=darkred, fontcolor=darkred]} [color=darkred]
     "2x Player Info" -> {"Hearts Info"[color=darkred, fontcolor=darkred]} [color=darkred] 
     "2x Player Info" -> {"Crestpool Info"[color=darkred, fontcolor=darkred]} [color=darkred]
 }

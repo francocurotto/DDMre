@@ -2,8 +2,8 @@ extends Node
 
 const RANDOMPOOL = true
 #const RANDOMPOOL = false
-
 const DUNGPATH = "res://databases/dungeons/default.json"
+
 #const DUNGPATH = "res://databases/dungeons/ability_tests/pass.json";                const POOL1PATH = "res://databases/dicepools/ability_tests/pass.json";                const POOL2PATH = "res://databases/dicepools/ability_tests/pass.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/target.json";              const POOL1PATH = "res://databases/dicepools/ability_tests/target.json";              const POOL2PATH = "res://databases/dicepools/ability_tests/target.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/power.json";               const POOL1PATH = "res://databases/dicepools/ability_tests/power.json";               const POOL2PATH = "res://databases/dicepools/ability_tests/power.json"
@@ -12,7 +12,7 @@ const DUNGPATH = "res://databases/dungeons/default.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/dim_abilities.json";       const POOL1PATH = "res://databases/dicepools/ability_tests/dim_abilities.json";       const POOL2PATH = "res://databases/dicepools/ability_tests/dim_abilities.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/dim_buff_dead_type.json";  const POOL1PATH = "res://databases/dicepools/ability_tests/dim_buff_dead_type.json";  const POOL2PATH = "res://databases/dicepools/ability_tests/dim_buff_dead_type.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/exodia.json";              const POOL1PATH = "res://databases/dicepools/ability_tests/exodia.json";              const POOL2PATH = "res://databases/dicepools/ability_tests/exodia.json"
-#const DUNGPATH = "res://databases/dungeons/ability_tests/default.json";             const POOL1PATH = "res://databases/dicepools/ability_tests/bufftype.json";            const POOL2PATH = "res://databases/dicepools/ability_tests/bufftype.json"
+#const DUNGPATH = "res://databases/dungeons/ability_tests/buff_type.json";           const POOL1PATH = "res://databases/dicepools/ability_tests/buff_type.json";           const POOL2PATH = "res://databases/dicepools/ability_tests/buff_type.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/stops.json";               const POOL1PATH = "res://databases/dicepools/ability_tests/stops.json";               const POOL2PATH = "res://databases/dicepools/ability_tests/stops.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/protect_type.json";        const POOL1PATH = "res://databases/dicepools/ability_tests/protect_type.json";        const POOL2PATH = "res://databases/dicepools/ability_tests/protect_type.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/turn_slow_type.json";      const POOL1PATH = "res://databases/dicepools/ability_tests/turn_slow_type.json";      const POOL2PATH = "res://databases/dicepools/ability_tests/turn_slow_type.json"

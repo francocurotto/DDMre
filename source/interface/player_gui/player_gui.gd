@@ -22,7 +22,7 @@ onready var select_tile_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/Se
 onready var select_summons_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/SelectSummonsButtons
 onready var select_direction_buttons = $MainWindow/DungeonWindow/DungeonButtonsGUI/SelectDirectionButtons
 onready var card_info = $CardInfo
-onready var lower_window = $LowerWindow
+onready var players_window = $PlayersWindow
 
 func _ready():
     # signal connections
@@ -85,7 +85,7 @@ func _ready():
     # card info
     card_info.connect("card_info_quit", self, "on_card_info_quit")
     # common window
-    lower_window.connect("switch_button_pressed", self, "on_switch_button_pressed")
+    players_window.connect("switch_button_pressed", self, "on_switch_button_pressed")
 
 # setget functions
 func set_duel(_engine, _player, _opponent):
@@ -97,7 +97,7 @@ func set_duel(_engine, _player, _opponent):
     summon_gui.set_player(player)
     dungeon_buttons.set_dungeon_buttons(player, engine)
     dim_buttons.set_dim_buttons(player)
-    lower_window.set_players_info(player, opponent)
+    players_window.set_players_info(player, opponent)
 
 func set_roll(sides):
     roll_gui.set_roll(sides)
@@ -169,12 +169,12 @@ func on_state_update_dim_ability():
 
 func on_info_button_pressed(card):
     card_info.set_card(card)
-    lower_window.disable_switch_button()
+    players_window.disable_switch_button()
     main_window.visible = false
     card_info.visible = true
 
 func on_card_info_quit():
-    lower_window.enable_switch_button()
+    players_window.enable_switch_button()
     card_info.visible = false
     main_window.visible = true
 

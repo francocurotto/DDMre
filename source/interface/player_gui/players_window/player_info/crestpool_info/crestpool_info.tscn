@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://interface/player_gui/lower_window/player_info/crestpool_info/crestpool_info.gd" type="Script" id=1]
-[ext_resource path="res://interface/player_gui/lower_window/player_info/crestpool_info/crestslot_info/crestslot_info.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/player_gui/players_window/player_info/crestpool_info/crestpool_info.gd" type="Script" id=1]
+[ext_resource path="res://interface/player_gui/players_window/player_info/crestpool_info/crestslot_info/crestslot_info.tscn" type="PackedScene" id=2]
 
 [node name="CrestpoolInfo" type="HBoxContainer"]
 margin_right = 375.0

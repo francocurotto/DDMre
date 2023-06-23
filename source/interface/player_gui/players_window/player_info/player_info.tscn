@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://art/styleboxes/panel.tres" type="StyleBox" id=1]
+[ext_resource path="res://interface/player_gui/players_window/player_info/player_info.gd" type="Script" id=2]
+[ext_resource path="res://interface/player_gui/players_window/player_info/hearts_info/hearts_info.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/player_gui/players_window/player_info/crestpool_info/crestpool_info.tscn" type="PackedScene" id=4]
+
+[node name="PlayerInfo" type="PanelContainer"]
+margin_right = 519.0
+margin_bottom = 48.0
+custom_styles/panel = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="PlayerInfoHBox" type="HBoxContainer" parent="."]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 513.0
+margin_bottom = 42.0
+custom_constants/separation = 5
+
+[node name="HeartsInfo" parent="PlayerInfoHBox" instance=ExtResource( 3 )]
+
+[node name="CrestpoolInfo" parent="PlayerInfoHBox" instance=ExtResource( 4 )]
+margin_left = 117.0
+margin_right = 507.0
