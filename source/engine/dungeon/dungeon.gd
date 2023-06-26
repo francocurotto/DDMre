@@ -198,7 +198,7 @@ func get_move_cost(path, monster):
     - dungeon move cost possibly modified by item abilities
     """
     return int(monster.get_move_cost(path) * move_cost)
-
+    
 # public functions
 func place_path_tile(player, pos):
     """
@@ -212,16 +212,24 @@ func place_empty_tile(pos):
     """
     array[pos.y][pos.x] = EmptyTile.new(pos.y, pos.x)
 
+func place_summon(player, pos, diceidx):
+    """
+    Summon card with index diceidx and place it in dungeon.
+    """
+    var summon = player.summon_card(diceidx)
+    get_tile(pos).set_content(summon)
+    summon.initialize_abilities(self)
+    return summon
+
 func dimension(player, net, diceidx):
     """
     Dimension net for player and summon card on center of net.
     """
-    # add the net
+    # place the net
     for pos in net.poslist:
         place_path_tile(player, pos)
-    var summon = player.summon_card(diceidx)
-    array[net.centerpos.y][net.centerpos.x].set_content(summon)
-    summon.initialize_abilities(self)
+    # place summon
+    var summon = place_summon(player, net.centerpos, diceidx)
     return summon
 
 func can_dimension(net, player):

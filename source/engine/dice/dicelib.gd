@@ -4,40 +4,38 @@ extends Reference
 const Dice = preload("res://engine/dice/dice.gd")
 
 # variables
-var dict
+var dicelib_dict
+var rng
 
 func _init():
-    dict = Globals.read_jsonfile(Globals.LIBPATH)
+    dicelib_dict = Globals.read_jsonfile(Globals.LIBPATH)
+    rng = RandomNumberGenerator.new()
 
 # public functions
-func create_dicepool(filepath):
+func create_dicepool(filepath=null):
     """
-    Create dice pool list from json file.
+    Create dice pool list from json file. If filepath is null, create a 
+    dicepool from random dice in the dice library.
     """
-    var indexlist = Globals.read_jsonfile(filepath)
-    var dicelist = []
-    for i in indexlist:
-        dicelist.append(create_dice(i))
-    return dicelist
-
-func create_randpool():
+    # create index list
+    var diceidx_list
+    if filepath != null:
+        diceidx_list = Globals.read_jsonfile(filepath)
+    else:
+        diceidx_list = create_random_diceidx_list()
+    # create dice list
+    var dicepool = []
+    for diceidx in diceidx_list:
+        var dice = Dice.new(dicelib_dict[str(diceidx)])
+        dicepool.append(dicepool)
+    return dicepool
+    
+# private fuctions
+func create_random_diceidx_list():
     """
-    Create a random dice pool.
+    Create a list of random dice index numbers from the dice library.
     """
-    var dicelist = []
+    var diceidx_list = []
     for _i in range(15):
-        dicelist.append(create_randdice())
-    return dicelist
-
-# private functions
-func create_dice(id):
-    """
-    Create dice object from dictionary and return it.
-    """
-    return Dice.new(id, dict[str(id)])
-
-func create_randdice():
-    """
-    Return a random dice in the library.
-    """
-    return create_dice(randi() % dict.size() + 1)
+        diceidx_list.append(rng.randi_range(1,len(dicelib_dict)))
+    return diceidx_list

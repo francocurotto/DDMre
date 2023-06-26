@@ -9,7 +9,6 @@ const ItemCard = preload("res://engine/dice/cards/item_card.gd")
 const Side = preload("res://engine/dice/crests/side.gd")
 
 # variables
-var id
 var level
 var card
 var sides
@@ -18,11 +17,10 @@ var dimensioned = false
 # signals
 signal rolled(side)
 
-func _init(_id, dicedict):
-    id = _id
-    level = dicedict["LEVEL"]
-    card = create_card(dicedict)
-    sides = create_sides(dicedict["CRESTS"])
+func _init(dice_dict):
+    level = dice_dict["LEVEL"]
+    card = create_card(dice_dict)
+    sides = create_sides(dice_dict["CRESTS"])
 
 # public functions
 func roll():
