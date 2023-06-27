@@ -43,8 +43,8 @@ func create_ml_tile(y, x):
 
 func summon_card(poolidx):
     """
-    Summon card in position poolidx from the dicepool. Also mark dice as 
-    dimensioned.
+    Summon card in position poolidx from the dicepool and return it. Also mark 
+    dice as dimensioned.
     """
     var dice = dicepool[poolidx]
     dice.dimensioned = true

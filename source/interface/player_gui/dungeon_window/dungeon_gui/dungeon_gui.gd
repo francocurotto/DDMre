@@ -44,7 +44,7 @@ func set_dungeon(_dungeon, _player):
 func update_dungeon():
     for i in range(rows.get_child_count()):
         var row_gui = get_row_gui(i)
-        var row = dungeon.array[i]
+        var row = dungeon.grid[i]
         for j in range(row_gui.get_child_count()):
             var tile_gui = row_gui.get_child(j)
             var tile = row[j]

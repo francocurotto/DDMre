@@ -6,42 +6,41 @@ const PathTile = preload("res://engine/dungeon/tiles/path_tile.gd")
 const BlockTile = preload("res://engine/dungeon/tiles/block_tile.gd")
 
 # variables
-var array = []
+var grid = []
 var move_cost = 1
 var tiles setget , get_tiles
 var monsters setget , get_monsters
 var summons setget , get_summons
 
 func _init():
-    for i in range(Globals.DUNGEON_HEIGHT):
+    for y in Globals.DUNGEON_HEIGHT:
         var row = []
-        for j in range(Globals.DUNGEON_WIDTH):
-            row.append(EmptyTile.new(i, j))
-        array.append(row)
+        for x in Globals.DUNGEON_WIDTH:
+            row.append(EmptyTile.new(y, x))
+        grid.append(row)
 
 # setget functions
 func set_layout(player1, player2, layout):
     """
-    Set the layout of the dungeon given a dictionary.
+    Set the the dungeon tiles given a layout array.
     """
-    for i in range(len(array)):
-        var row = array[i]
-        var layrow = layout[len(array)-i-1]
-        for j in range(len(row)):
-            array[i][j] = create_tile(player1, player2, layrow[j], i, j)
+    layout.invert() # correct for reverse order in json format
+    for y in Globals.DUNGEON_HEIGHT:
+        for x in Globals.DUNGEON_WIDTH:
+            grid[y][x] = create_tile(player1, player2, layout[y][x], y, x)
 
 func get_tile(pos):
     """
     Returns the tile at postion pos.
     """
-    return array[pos.y][pos.x]
+    return grid[pos.y][pos.x]
 
 func get_tiles():
     """
     Get an 1D array of tiles.
     """
     var tile_array = []
-    for row in array:
+    for row in grid:
         tile_array += row
     return tile_array
 
@@ -199,13 +198,13 @@ func place_path_tile(player, pos):
     """
     Place path tile for player at postion pos.
     """
-    array[pos.y][pos.x] = player.create_tile(pos.y, pos.x)
+    grid[pos.y][pos.x] = player.create_tile(pos.y, pos.x)
 
 func place_empty_tile(pos):
     """
     Place empty tile at position pos.
     """
-    array[pos.y][pos.x] = EmptyTile.new(pos.y, pos.x)
+    grid[pos.y][pos.x] = EmptyTile.new(pos.y, pos.x)
 
 func place_summon(player, pos, diceidx):
     """
