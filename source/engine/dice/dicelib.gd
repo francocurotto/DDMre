@@ -27,7 +27,7 @@ func create_dicepool(filepath=null):
     var dicepool = []
     for diceidx in diceidx_list:
         var dice = Dice.new(dicelib_dict[str(diceidx)])
-        dicepool.append(dicepool)
+        dicepool.append(dice)
     return dicepool
     
 # private fuctions

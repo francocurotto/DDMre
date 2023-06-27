@@ -93,7 +93,7 @@ func set_duel(_engine, _player, _opponent):
     player = _player
     opponent = _opponent
     dicepool_gui.set_dicepool(player.dicepool)
-    dungeon_gui.set_dungeon(engine.dungeon, player)
+    dungeon_gui.set_dungeon(engine.state.dungeon, player)
     summon_gui.set_player(player)
     dungeon_buttons.set_dungeon_buttons(player, engine)
     dim_buttons.set_dim_buttons(player)

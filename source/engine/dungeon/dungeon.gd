@@ -5,10 +5,6 @@ const EmptyTile = preload("res://engine/dungeon/tiles/empty_tile.gd")
 const PathTile = preload("res://engine/dungeon/tiles/path_tile.gd")
 const BlockTile = preload("res://engine/dungeon/tiles/block_tile.gd")
 
-# constants
-const HEIGHT = 19
-const WIDTH = 13
-
 # variables
 var array = []
 var move_cost = 1
@@ -17,14 +13,14 @@ var monsters setget , get_monsters
 var summons setget , get_summons
 
 func _init():
-    for i in range(HEIGHT):
+    for i in range(Globals.DUNGEON_HEIGHT):
         var row = []
-        for j in range(WIDTH):
+        for j in range(Globals.DUNGEON_WIDTH):
             row.append(EmptyTile.new(i, j))
         array.append(row)
 
 # setget functions
-func set_layout(engine, layout):
+func set_layout(player1, player2, layout):
     """
     Set the layout of the dungeon given a dictionary.
     """
@@ -32,7 +28,7 @@ func set_layout(engine, layout):
         var row = array[i]
         var layrow = layout[len(array)-i-1]
         for j in range(len(row)):
-            array[i][j] = create_tile(engine, layrow[j], i, j)
+            array[i][j] = create_tile(player1, player2, layrow[j], i, j)
 
 func get_tile(pos):
     """
@@ -180,7 +176,6 @@ func get_attack_poss(init_pos):
     pos_list.pop_front()
     return pos_list
 
-
 func get_vortex_poss():
     """
     Get all positions where a vortex is activated in a tile.
@@ -221,6 +216,12 @@ func place_summon(player, pos, diceidx):
     summon.initialize_abilities(self)
     return summon
 
+func place_vortex(pos):
+    """
+    Place a vortex in position pos.
+    """
+    get_tile(pos).vortex = true
+
 func dimension(player, net, diceidx):
     """
     Dimension net for player and summon card on center of net.
@@ -248,16 +249,16 @@ func on_summon_dead(summon):
     summon.tile.empty_tile()
 
 # private functions
-func create_tile(engine, chr, i, j):
+func create_tile(player1, player2, chr, i, j):
     """
     Create the appropiate tile given the character from the dungeon json.
     """
     match chr:
         "O" : return EmptyTile.new(i, j)
-        "l" : return engine.player1.create_ml_tile(i, j)
-        "L" : return engine.player2.create_ml_tile(i, j)
-        "p" : return engine.player1.create_tile(i, j)
-        "P" : return engine.player2.create_tile(i, j)
+        "l" : return player1.create_ml_tile(i, j)
+        "L" : return player2.create_ml_tile(i, j)
+        "p" : return player1.create_tile(i, j)
+        "P" : return player2.create_tile(i, j)
         "N" : return PathTile.new(i, j)
         "X" : return BlockTile.new(i, j)
 
@@ -301,7 +302,9 @@ func pos_within_dungeon(pos):
     """
     Check if position is within dungeon limits.
     """
-    return 0 <= pos.y and pos.y <= HEIGHT-1 and 0 <= pos.x and pos.x <= WIDTH-1
+    var y_ok = 0 <= pos.y and pos.y <= Globals.DUNGEON_HEIGHT-1
+    var x_ok = 0 <= pos.x and pos.x <= Globals.DUNGEON_WIDTH-1
+    return y_ok and x_ok
 
 # private functions
 func net_inbound(net):

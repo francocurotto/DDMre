@@ -5,9 +5,14 @@ extends Node
 const LIBPATH = "res://databases/LIBRARY.json"
 const ABIPATH = "res://databases/ABILITIES.json"
 
+# values
+const DUNGEON_HEIGHT = 19
+const DUNGEON_WIDTH = 13
+
 # arrays, dictionaries
 const MONSTERTYPES = ["DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR"]
 const SUMMONTYPES  = ["DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM"]
+const CRESTTYPES = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
 const CRESTICONS = {"SUMMON":"★", "MOVEMENT":"⬆", "ATTACK":"⚔", "DEFENSE":"⛨", "MAGIC":"✡", "TRAP":"⚡"}
 var ABIDICT = read_jsonfile(ABIPATH)
 
