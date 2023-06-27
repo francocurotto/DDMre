@@ -19,10 +19,10 @@ func create_dicepool(filepath=null):
     """
     # create index list
     var diceidx_list
-    if filepath != null:
-        diceidx_list = Globals.read_jsonfile(filepath)
-    else:
+    if filepath == null: # case no filepath, use random dice
         diceidx_list = create_random_diceidx_list()
+    else: # case read dice from file in filepath
+        diceidx_list = Globals.read_jsonfile(filepath)
     # create dice list
     var dicepool = []
     for diceidx in diceidx_list:
@@ -36,6 +36,6 @@ func create_random_diceidx_list():
     Create a list of random dice index numbers from the dice library.
     """
     var diceidx_list = []
-    for _i in range(15):
+    for _i in range(Globals.DICEPOOL_SIZE):
         diceidx_list.append(rng.randi_range(1,len(dicelib_dict)))
     return diceidx_list

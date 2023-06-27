@@ -26,8 +26,8 @@ func _init(initpath, pool1=null, pool2=null):
     # create initial state
     state = RollState.new(player1, player2, dungeon)
     # connections
-    player1.connect("summon_dead", dungeon, "on_summon_dead")
-    player2.connect("summon_dead", dungeon, "on_summon_dead")
+    player1.connect("summon_destroyed", dungeon, "on_summon_destroyed")
+    player2.connect("summon_destroyed", dungeon, "on_summon_destroyed")
     # set init state from file
     set_init_state(initpath, dungeon)
 
@@ -52,7 +52,7 @@ func update(cmd):
 func set_init_state(initpath, dungeon):
     """
     Set the initial state of the duel, which includes: dungeon layout,
-    summons, crests, and hearts.
+    summons, vortices, crests, and hearts.
     """
     var initdict = Globals.read_jsonfile(initpath)
     for initkey in initdict:

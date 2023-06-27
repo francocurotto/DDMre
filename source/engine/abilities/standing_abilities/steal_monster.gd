@@ -17,7 +17,7 @@ func activate(activate_dict):
     var opponent_monster = dungeon.get_tile(activate_dict["pos"]).content
     opponent_monster.switch_player()
     var tile = monster.tile
-    monster.die()
+    monster.destroy()
     tile.move_content_from(opponent_monster.tile)
 
 func get_select_tiles():

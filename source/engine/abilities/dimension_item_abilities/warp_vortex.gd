@@ -6,5 +6,5 @@ func _init(ability_dict).(ability_dict):
 # public functions
 func on_dimension():
     item.tile.vortex = true
-    item.die()
+    item.destroy()
 

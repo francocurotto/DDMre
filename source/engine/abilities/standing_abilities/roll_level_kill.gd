@@ -25,7 +25,7 @@ func activate(activate_dict):
         if not tile.is_occupied():
             last_unoccupied = tile
         elif not is_passable(summon) and summon.card.level<=level:
-            summon.die()
+            summon.destroy()
             last_unoccupied = tile
         elif not is_passable(summon) and summon.card.level>level:
             break

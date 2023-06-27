@@ -18,7 +18,7 @@ func activate(activate_dict):
     var summon = dungeon.get_tile(activate_dict["pos"]).content
     var total_cost = COST + summon.card.level
     monster.player.crestpool.remove_crests(CREST, total_cost)
-    summon.die()
+    summon.destroy()
 
 func get_select_tiles():
     var opponent_summon_tiles = get_opponent_summons_tiles()

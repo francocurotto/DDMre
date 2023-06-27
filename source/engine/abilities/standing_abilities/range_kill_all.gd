@@ -19,4 +19,4 @@ func activate(_activate_dict):
     var tiles = get_tiles_in_range(RANGE)
     for tile in tiles:
         if tile.is_path() and tile.content.is_summon():
-            tile.content.die()
+            tile.content.destroy()

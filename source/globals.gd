@@ -8,6 +8,7 @@ const ABIPATH = "res://databases/ABILITIES.json"
 # values
 const DUNGEON_HEIGHT = 19
 const DUNGEON_WIDTH = 13
+const DICEPOOL_SIZE = 15
 
 # arrays, dictionaries
 const MONSTERTYPES = ["DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR"]

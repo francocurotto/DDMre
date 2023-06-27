@@ -12,7 +12,6 @@ func summon(player):
     Return a item object from card.
     """
     var item = Item.new(self, player)
-    player.items.append(item)
     return item
 
 func activate(monster):

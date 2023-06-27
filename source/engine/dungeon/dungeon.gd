@@ -241,10 +241,10 @@ func can_dimension(net, player):
     return net_inbound(net) and net_not_overlaps(net) and net_connects(net, player)
 
 # signals callback
-func on_summon_dead(summon):
+func on_summon_destroyed(summon):
     """
-    When a summon dies (monster is killed of item deactivate itself), 
-    remove summon from dungeon.
+    When a summon is destroyed (monster is killed or dimension item is 
+    activated), remove summon from dungeon.
     """
     summon.tile.empty_tile()
 

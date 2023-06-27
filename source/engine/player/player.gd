@@ -4,72 +4,71 @@ extends Reference
 const CrestPool = preload("res://engine/player/crestpool.gd")
 const MonsterLord = preload("res://engine/dungobj/monster_lord.gd")
 const PlayerPathTile = preload("res://engine/dungeon/tiles/player_path_tile.gd")
-const namedict = {1: "BLUE", 2: "RED"}
 
 # variables
 var id
-var name
 var opponent
 var dicepool
 var crestpool = CrestPool.new()
 var monsterlord = MonsterLord.new(self)
 var monsters = []
-var items = [] # unused?
 var graveyard = []
-var tiles = []
 
 # signals
-signal summon_dead(summon)
+signal summon_destroyed(summon)
 
 func _init(_id, _dicepool):
     id = _id
-    name = namedict[id]
     dicepool = _dicepool
     # connections
     for dice in dicepool:
         dice.connect("rolled", crestpool, "add_rolled_side")
 
 # public functions
-func create_tile(i, j):
+func create_tile(y, x):
     """
-    Create a path tile for the specific player.
+    Create a path tile for the specific player with position (y,x).
     """
-    var tile = PlayerPathTile.new(i, j, self)
-    tiles.append(tile)
+    var tile = PlayerPathTile.new(y, x, self)
     return tile
 
-func create_ml_tile(i, j):
+func create_ml_tile(y, x):
     """
-    Create a path tile with the player's monster lord as content.
+    Create a path tile with the player's monster lord as content with 
+    position (y,x).
     """
-    var tile = create_tile(i, j)
+    var tile = create_tile(y, x)
     tile.set_content(monsterlord)
     return tile
 
-func summon_card(idx):
+func summon_card(poolidx):
     """
-    Summon card in position idx from the dicepool.
+    Summon card in position poolidx from the dicepool. Also mark dice as 
+    dimensioned.
     """
-    var dice = dicepool[idx]
+    var dice = dicepool[poolidx]
     dice.dimensioned = true
-    var summon = dicepool[idx].card.summon(self)
+    var summon = dice.card.summon(self)
     Events.emit_signal("new_summon", summon)
     return summon
 
-func on_monster_dead(monster):
+# signals callbacks
+func on_monster_destroyed(monster):
     """
-    Remove monster from list, add to graveyard, and alert dungeon for removal.
+    Destroy player monster.
     """
     monsters.erase(monster)
     graveyard.append(monster)
-    emit_signal("summon_dead", monster)
+    emit_signal("summon_destroyed", monster)
 
-func on_item_dead(item):
+func on_item_destroyed(item):
     """
-    Remove item from list, and alert dungeon for removal.
+    Destroy player item.
     """
-    items.erase(item)
-    emit_signal("summon_dead", item)
+    emit_signal("summon_destroyed", item)
 
 func on_hearts_depleted():
+    """
+    Lose duel as all hearts were destroyed.
+    """
     Events.emit_signal("player_lost", self)

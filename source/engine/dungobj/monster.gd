@@ -154,14 +154,14 @@ func receive_damage(damage):
     """
     health -= damage_behavior.get_inflicted_damage(damage)
     if health <= 0:
-        die()
+        destroy()
 
-func die():
+func destroy():
     """
-    Remove monster from play due to being kill by attack or ability.
+    Remove monster from play due to being destroyed by attack or ability.
     """
     negate_abilities()
-    player.on_monster_dead(self)
+    player.on_monster_destroyed(self)
 
 func get_power(attacked):
     """

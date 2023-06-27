@@ -12,7 +12,7 @@ func activate(_activate_dict):
     monster.player.crestpool.remove_crests(CREST, COST)
     for dungeon_monster in dungeon.monsters:
         if dungeon_monster.is_tunnel():
-            dungeon_monster.die()
+            dungeon_monster.destroy()
 
 # is functions
 func is_dim_state():
