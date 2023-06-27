@@ -1,4 +1,5 @@
 ### SOLID
+- refactor crestpool slots
 - standarize cmd syntax and context checks
 
 # state
