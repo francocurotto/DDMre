@@ -22,7 +22,7 @@ func _init():
 # setget functions
 func set_layout(player1, player2, layout):
     """
-    Set the the dungeon tiles given a layout array.
+    Set the dungeon tiles given a layout array.
     """
     layout.invert() # correct for reverse order in json format
     for y in Globals.DUNGEON_HEIGHT:
@@ -39,30 +39,34 @@ func get_tiles():
     """
     Get an 1D array of tiles.
     """
-    var tile_array = []
+    var tiles_array = []
     for row in grid:
-        tile_array += row
-    return tile_array
+        tiles_array += row
+    return tiles_array
 
 func get_monsters():
     """
     Get all monsters in dungeon.
     """
-    var monster_array = []
+    #GODOT4: use array filter
+    #GODOT4: remove self
+    var monsters_array = []
     for tile in self.tiles:
         if tile.content.is_monster():
-            monster_array.append(tile.content)
-    return monster_array
+            monsters_array.append(tile.content)
+    return monsters_array
 
 func get_summons():
     """
     Get all summons in dungeon.
     """
-    var summon_array = []
+    #GODOT4: use array filter
+    #GODOT4: remove self
+    var summons_array = []
     for tile in self.tiles:
         if tile.content.is_summon():
-            summon_array.append(tile.content)
-    return summon_array
+            summons_array.append(tile.content)
+    return summons_array
 
 func get_move_poss(player, init_pos):
     """
@@ -74,10 +78,10 @@ func get_move_poss(player, init_pos):
     # init variables
     var monster = get_tile(init_pos).content
 
-    # needed varaibles
+    # needed variables
     var pos_list = [init_pos]
     var pos_queue = []
-    var move_crests = player.crestpool.slots["MOVEMENT"]
+    var move_crests = player.crestpool.movement
     var max_tiles = get_max_tiles(move_crests, monster)
 
     # init queue, use dictionary to mix positions and move counter
@@ -248,18 +252,18 @@ func on_summon_destroyed(summon):
     summon.tile.empty_tile()
 
 # private functions
-func create_tile(player1, player2, chr, i, j):
+func create_tile(player1, player2, chr, y, x):
     """
     Create the appropiate tile given the character from the dungeon json.
     """
     match chr:
-        "O" : return EmptyTile.new(i, j)
-        "l" : return player1.create_ml_tile(i, j)
-        "L" : return player2.create_ml_tile(i, j)
-        "p" : return player1.create_tile(i, j)
-        "P" : return player2.create_tile(i, j)
-        "N" : return PathTile.new(i, j)
-        "X" : return BlockTile.new(i, j)
+        "O" : return EmptyTile.new(y, x)
+        "l" : return player1.create_ml_tile(y, x)
+        "L" : return player2.create_ml_tile(y, x)
+        "p" : return player1.create_tile(y, x)
+        "P" : return player2.create_tile(y, x)
+        "N" : return PathTile.new(y, x)
+        "X" : return BlockTile.new(y, x)
 
 func get_move_neighbours_poss(pos, monster):
     """
@@ -344,5 +348,4 @@ func get_max_tiles(move_crests, monster):
     - monster maximum movement crests possibly modified by abilities
     - dungeon move cost possibly modified by item abilities
     """
-    #return min(int(monster.get_max_tiles(move_crests) / move_cost), monster.max_move)
     return min(int(move_crests/move_cost)*monster.speed, monster.max_move)

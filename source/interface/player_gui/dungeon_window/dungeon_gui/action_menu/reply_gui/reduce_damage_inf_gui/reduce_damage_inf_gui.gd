@@ -37,5 +37,5 @@ func _on_DownButton_pressed():
 # private functions
 func update_gui():
     label.text = "✨REDUCE DAMAGE -%d (%d%s)" % [cost*10, cost, Globals.CRESTICONS[crest]]
-    up_button.disabled = cost >= ability.monster.player.crestpool.slots[crest]
+    up_button.disabled = cost >= ability.monster.player.crestpool.get_crest(crest)
     down_button.disabled = cost <= 0

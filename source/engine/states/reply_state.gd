@@ -21,7 +21,7 @@ func GUARD(cmd):
     # activate attack ability if exists
     if ability_dict:
         attacked.activate_reply_ability(attacker, ability_dict)
-    player.crestpool.slots["DEFENSE"] -= 1
+    player.crestpool.remove_defense(1)
     attacker.attack_monster(attacked, true)
     Events.emit_signal("duel_update")
     return DungeonState.new(opponent, player, dungeon)

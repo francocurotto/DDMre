@@ -34,7 +34,7 @@ func MOVE(cmd):
     elif monster.max_move < len(path)-1:
         print("Movement exceed monster max movement per turn")
     # case missing movement crests
-    elif monster.get_move_cost(path) > player.crestpool.slots["MOVEMENT"]:
+    elif monster.get_move_cost(path) > player.crestpool.movement:
         print("Not enough MOVEMENT crests.")
     # perform movement
     else: # case valid movement
@@ -57,7 +57,7 @@ func ATTACK(cmd):
     var target = tile_dest.content
 
     # check enough ATTACK crests
-    if  player.crestpool.slots["ATTACK"] < monster.attack_cost:
+    if  player.crestpool.attack < monster.attack_cost:
         print("Not enough ATTACK crests.")
     # check if monster already in attack cooldown
     elif not monster.attack_cooldown_behavior.can_attack():
@@ -68,7 +68,7 @@ func ATTACK(cmd):
     # the attack is valid
     else:
         # pay the cost of attack
-        player.crestpool.slots["ATTACK"] -= monster.attack_cost
+        player.crestpool.remove_attack(monster.attack_cost)
         if target.is_monster():
             # activate attack ability if exists
             if ability_dict:
@@ -142,7 +142,7 @@ func perform_movement(tile1, tile2, path):
     tile2.move_content_from(tile1)
     monster.max_move_behavior.update_turn_move_count(len(path)-1)
     # pay the cost of the movement
-    player.crestpool.slots["MOVEMENT"] -= dungeon.get_move_cost(path, monster)
+    player.crestpool.remove_movement(dungeon.get_move_cost(path, monster))
     # activate item if necessary
     if dest_content.is_item():
         if dest_content.card.abilities[0].is_item_state():

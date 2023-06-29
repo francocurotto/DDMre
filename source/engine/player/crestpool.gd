@@ -4,14 +4,13 @@ extends Reference
 const LIMIT = 99
 
 # variables
-var slots = {
-    "MOVEMENT" : 0,
-    "ATTACK"   : 0,
-    "DEFENSE"  : 0,
-    "MAGIC"    : 0,
-    "TRAP"     : 0}
+var movement = 0
+var attack   = 0
+var defense  = 0
+var magic    = 0
+var trap     = 0
 
-# set functions
+# setget functions
 func set_crest(crest, amount):
     """
     Set an amount number of crests of type crest to crestpool. It clips the 
@@ -22,7 +21,13 @@ func set_crest(crest, amount):
     # check for upper limit
     amount = min(LIMIT, amount)
     # update crest pool
-    slots[crest] = amount
+    set(crest.to_lower(), amount)
+
+func get_crest(crest):
+    """
+    Get crest value by name. Convert to lowercase.
+    """
+    return get(crest.to_lower())
 
 # public functions
 func add_rolled_side(side):
@@ -36,10 +41,28 @@ func add_crests(crest, amount):
     """
     Add amount number of crests of type crest to crestpool.
     """
-    set_crest(crest, slots[crest]+amount)
+    set_crest(crest, get_crest(crest)+amount)
 
 func remove_crests(crest, amount):
     """
     Remove amount number of crests of type crest from dicepool.
     """
-    set_crest(crest, slots[crest]-amount)
+    set_crest(crest, get_crest(crest)-amount)
+
+func remove_movement(amount):
+    """
+    Helper function to remove movement crests quickly.
+    """
+    remove_crests("movement", amount)
+    
+func remove_attack(amount):
+    """
+    Helper function to remove attack crests quickly.
+    """
+    remove_crests("attack", amount)
+
+func remove_defense(amount):
+    """
+    Helper function to remove defense crests quickly.
+    """
+    remove_crests("defense", amount)

@@ -69,7 +69,7 @@ func _on_SkipButton_pressed():
 func on_ability_cost_changed(cost, crest):
     if crest:
         cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[crest]]
-        cast_button.disabled = cost > ability.monster.player.crestpool.slots[crest]
+        cast_button.disabled = cost > ability.monster.player.crestpool.get_crest(crest)
     else:
         cast_button.disabled = true
     
@@ -98,14 +98,14 @@ func on_select_tile_cancel_button_pressed():
 func on_select_tile_select_button_pressed(tile):
     active_gui.on_select_tile_select_button_pressed(tile)
     if "CREST" in ability:
-        cast_button.disabled = ability.COST > ability.monster.player.crestpool.slots[ability.CREST]
+        cast_button.disabled = ability.COST > ability.monster.player.crestpool.get_crest(ability.CREST)
     else:
         cast_button.disabled = false
 
 func on_select_summons_done_button_pressed(poslist):
     active_gui.on_select_summons_done_button_pressed(poslist)
     if not poslist.empty():
-        cast_button.disabled = ability.COST > ability.monster.player.crestpool.slots[ability.CREST]
+        cast_button.disabled = ability.COST > ability.monster.player.crestpool.get_crest(ability.CREST)
 
 # private functions
 func get_state_ability(summon):

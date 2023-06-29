@@ -1,5 +1,5 @@
 ### SOLID
-- refactor crestpool slots
+- refactor dungeon
 - standarize cmd syntax and context checks
 
 # state

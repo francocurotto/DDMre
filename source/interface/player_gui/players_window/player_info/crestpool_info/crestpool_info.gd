@@ -20,8 +20,8 @@ func set_crestpool(_crestpool):
 
 # signals callbacks
 func update_crestpool():
-    movement_info.set_slot_value(crestpool.slots["MOVEMENT"])
-    attack_info  .set_slot_value(crestpool.slots["ATTACK"])
-    defense_info .set_slot_value(crestpool.slots["DEFENSE"])
-    magic_info   .set_slot_value(crestpool.slots["MAGIC"])
-    trap_info    .set_slot_value(crestpool.slots["TRAP"])
+    movement_info.set_slot_value(crestpool.movement)
+    attack_info  .set_slot_value(crestpool.attack)
+    defense_info .set_slot_value(crestpool.defense)
+    magic_info   .set_slot_value(crestpool.magic)
+    trap_info    .set_slot_value(crestpool.trap)

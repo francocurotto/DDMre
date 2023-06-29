@@ -18,10 +18,6 @@ static func check_dungeon_layout(dungeon_layout):
         # check correct length (dungeon width)
         if len(row) != Globals.DUNGEON_WIDTH:
             return false
-        # check correct type for each character
-        for tile in row:
-            if not tile in "OXlLpPN":
-                return false
     # all tests passed
     return true
 

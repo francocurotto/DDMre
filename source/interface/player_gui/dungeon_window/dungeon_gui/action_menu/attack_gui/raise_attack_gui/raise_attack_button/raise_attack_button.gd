@@ -9,7 +9,7 @@ signal raise_attack_button_pressed(raise)
 
 func _ready():
     text = "⚔ATTACK +%d (%d⚔)" % [10*raise, raise+1]
-    if monster.player.crestpool.slots["ATTACK"] < raise+1:
+    if monster.player.crestpool.attack < raise+1:
         disabled = true 
 
 # public functions

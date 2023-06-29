@@ -25,7 +25,7 @@ signal select_tile_gui_pressed(tiles)
 
 func _ready():
     attack_info.set_summons(attacker, attacker.player, attacked, attacked.player)
-    guard_button.disabled = attacked.player.crestpool.slots["DEFENSE"] < 1
+    guard_button.disabled = attacked.player.crestpool.defense < 1
     for _ability in attacked.card.abilities:
         if _ability.name in ability_guis_dict and not _ability.is_negated():
             ability = _ability
@@ -51,7 +51,7 @@ func _on_WaitButton_pressed():
     emit_signal("reply_button_pressed", "WAIT", get_ability_dict())
 
 func on_ability_cost_changed(cost, crest):
-    guard_button.disabled = crest=="DEFENSE" and cost+1 > attacked.player.crestpool.slots["DEFENSE"]
+    guard_button.disabled = crest=="DEFENSE" and cost+1 > attacked.player.crestpool.defense
 
 func on_select_tile_gui_toggled(pressed):
     if pressed:
