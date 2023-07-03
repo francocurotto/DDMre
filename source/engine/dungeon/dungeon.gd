@@ -68,43 +68,44 @@ func get_summons():
             summons_array.append(tile.content)
     return summons_array
 
-func get_max_move_tiles(monster):
-    """
-    Computes the maximum number of tiles a monster can move. 
-    It takes into account:
-    - number of move crests
-    - monster speed possibly modified by abilities
-    - monster maximum movement crests possibly modified by abilities
-    - dungeon move cost possibly modified by item abilities
-    """
-    var move_crests = monster.player.crestpool.movement
-    return min(int(move_crests/move_cost)*monster.speed, monster.max_move)
+#func get_max_move_tiles(monster):
+#    """
+#    Computes the maximum number of tiles a monster can move. 
+#    It takes into account:
+#    - number of move crests
+#    - monster speed possibly modified by abilities
+#    - monster maximum movement crests possibly modified by abilities
+#    - dungeon move cost possibly modified by item abilities
+#    """
+#    var move_crests = monster.player.crestpool.movement
+#    return min(int(move_crests/move_cost)*monster.speed, monster.max_move)
 
-func get_move_pos(monster):
-    var max_length = get_max_move_tiles(monster)
-    var move_path = MovePathQueue(monster)
-    var move_path_queue = fill_path_queue(move_path_queue, max_length)
-    return move_path_queue.visited
+func get_move_tiles(monster):
+    #var max_length = get_max_move_tiles(monster)
+    var move_path_queue = MovePathQueue.new(self, monster)
+    return move_path_queue.tiles
+    #var move_path_queue = get_path_queue(MovePath, monster, max_length)
+    #return move_path_queue.keys()
 
 func get_move_path(monster, dest):
-    var max_length = get_max_move_tiles(monster)
-    var move_path = MovePathQueue(monster)
-    var move_path_queue = fill_path_queue(move_path_queue, max_length)
+    var move_path_queue = MovePathQueue.new(self, monster)
     return move_path_queue.get_path(dest)
 
-func get_attack_pos(monster):
-    var max_length = monster.attack_distance
-    var attack_path = AttackPath(monster)
-    var attack_path_queue = fill_path_queue(attack_path_queue, max_length)
-    return attack_path_queue.visited
+func get_attack_tiles(monster):
+    var attack_path_queue = AttackPathQueue.new(self, monster)
+    return attack_path_queue.tiles
 
-func fill_path_queue(path_queue, max_length):
-    for path in path_queue:
-        if path.length > max_length:
-            continue
-        new_paths = path.get_extended_paths(grid)
-        path_queue.queue_paths(new_path)
-    return path_queue
+#func get_path_queue(PathScript, monster, max_length):
+#    var init_path = PathScript.new(monster)
+#    var path_queue = {init_path.dest : init_path}
+#    for dest in path_queue:
+#        var path = path_queue[dest]
+#        if path.length >= max_length or not path.is_passable():
+#            continue
+#        var new_paths = path.get_extended_paths(self)
+#        for new_path in new_paths:
+#            if new_path.dest in path_queue:
+#                path_queue[new_path.dest] = new_path
 
 #func get_move_poss(player, init_pos):
 #    """

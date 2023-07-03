@@ -1,14 +1,9 @@
 extends Node
 
 func _ready():
-    var l = [8]
-    fill_list(l)
-    print(l)
-    var dict = {[0,1]:"a"}
-    print(dict[[0,1]])
-
-func fill_list(ll):
-    for i in ll:
-        if len(ll) > 10:
+    var d = {"a":1}
+    for k in d:
+        if d[k]>10:
             break
-        ll.append(ll[-1]+1)
+        d[k+"a"] = d[k]+1
+    print(d)
