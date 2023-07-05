@@ -68,27 +68,26 @@ func get_summons():
             summons_array.append(tile.content)
     return summons_array
 
-#func get_max_move_tiles(monster):
-#    """
-#    Computes the maximum number of tiles a monster can move. 
-#    It takes into account:
-#    - number of move crests
-#    - monster speed possibly modified by abilities
-#    - monster maximum movement crests possibly modified by abilities
-#    - dungeon move cost possibly modified by item abilities
-#    """
-#    var move_crests = monster.player.crestpool.movement
-#    return min(int(move_crests/move_cost)*monster.speed, monster.max_move)
+func get_max_move_tiles(monster):
+    """
+    Computes the maximum number of tiles a monster can move. 
+    It takes into account:
+    - number of move crests
+    - monster speed possibly modified by abilities
+    - monster maximum movement crests possibly modified by abilities
+    - dungeon move cost possibly modified by item abilities
+    """
+    var move_crests = monster.player.crestpool.movement
+    return min(int(move_crests/move_cost)*monster.speed, monster.max_move)
 
 func get_move_tiles(monster):
-    #var max_length = get_max_move_tiles(monster)
     var move_path_queue = MovePathQueue.new(self, monster)
     return move_path_queue.tiles
     #var move_path_queue = get_path_queue(MovePath, monster, max_length)
     #return move_path_queue.keys()
 
 func get_move_path(monster, dest):
-    var move_path_queue = MovePathQueue.new(self, monster)
+    var move_path_queue = PathQueue.new(self, monster, MovePath)
     return move_path_queue.get_path(dest)
 
 func get_attack_tiles(monster):

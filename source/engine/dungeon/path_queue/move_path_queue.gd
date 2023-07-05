@@ -1,13 +1,9 @@
 extends "path_queue.gd"
 
-# constants
-const MovePath = preload("move_path.gd")
+# is functions 
+func is_path_extendable(path):
+    var max_length = dungeon.get_max_move_tiles(monster)
+    return len(path) < max_length and path[-1].is_passable()
 
-# setget functions
-func get_max_tiles():
-    var move_crests = monster.player.crestpool.movement
-    return min(int(move_crests/dungeon.move_cost)*monster.speed, monster.max_move)
-
-# private functions
-func init_paths():
-    paths = [MovePath.new(monster.tile)]
+func is_extend_tile(tile):
+    return tile.is_reachable() or tile.is_passable()

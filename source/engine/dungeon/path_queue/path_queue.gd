@@ -8,31 +8,40 @@ var tiles setget , get_tiles
 func _init(_dungeon, _monster):
     dungeon = _dungeon
     monster = _monster
-    init_paths()
+    paths = [[monster.tile]]
     fill_paths()
 
 # setget functions
 func get_tiles():
     var dests = []
     for path in paths:
-        dests.append(path.dest)
+        dests.append(path[-1])
     return dests
 
 func get_path(dest):
     for path in paths:
-        if path.dest == dest:
+        if path[-1] == dest:
             return path
 
-func get_max_tiles():
-    pass
-
 # private functions
-func init_paths():
-    pass
-
 func fill_paths():
     for path in paths:
-        for new_path in path.get_new_paths(get_max_tiles()):
-            if not new_path.dest in self.tiles:
+        for next_tile in get_next_tiles(path):
+            if not next_tile in self.tiles:
+                var new_path = path.duplicate().append(next_tile)
                 paths.append(new_path)
 
+func get_next_tiles(path):
+    tiles = []
+    if is_path_extendable(path):
+        for tile in dungeon.get_neighbor_tiles(path_dest):
+            if tile != path[-1] and tile.is_reachable():
+                tiles.append(tile)
+    return tiles
+
+# is functions
+func is_path_extendable(_path):
+    pass
+
+func is_extend_tile(_tile):
+    pass
