@@ -25,11 +25,10 @@
                {"POS":"m2", "DICE":4},
                {"POS":"e2", "DICE":5},
                {"POS":"c2", "DICE":6},
-               {"POS":"m1", "DICE":15},
-               {"POS":"h2", "DICE":7}],
+               {"POS":"m1", "DICE":15}],
   "SUMMONS2": [],
   "CRESTS1": {
-    "MOVEMENT": 3,
+    "MOVEMENT": 10,
     "ATTACK"  : 3,
     "DEFENSE" : 0,
     "MAGIC"   : 0,

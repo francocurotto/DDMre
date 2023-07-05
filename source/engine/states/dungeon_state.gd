@@ -24,7 +24,7 @@ func MOVE(cmd):
     var monster = tile_origin.content
 
     # get path for movement
-    var path = dungeon.get_move_path(pos_origin, pos_dest)
+    var path = dungeon.get_move_path(tile_origin.content, tile_dest)
     if path.empty(): # case not valid path found
         print("No path to destination.")
     # case destination is not reachable (e.g. there is a monster)

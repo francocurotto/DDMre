@@ -3,21 +3,16 @@ extends Reference
 var dungeon
 var monster
 var paths
-var tiles setget , get_tiles
+var tiles
 
 func _init(_dungeon, _monster):
     dungeon = _dungeon
     monster = _monster
     paths = [[monster.tile]]
+    tiles = [monster.tile]
     fill_paths()
 
 # setget functions
-func get_tiles():
-    var dests = []
-    for path in paths:
-        dests.append(path[-1])
-    return dests
-
 func get_path(dest):
     for path in paths:
         if path[-1] == dest:
@@ -28,17 +23,19 @@ func get_path(dest):
 func fill_paths():
     for path in paths:
         for next_tile in get_next_tiles(path):
-            if not next_tile in self.tiles:
-                var new_path = path.duplicate().append(next_tile)
+            if not next_tile in tiles:
+                var new_path = path.duplicate()
+                new_path.append(next_tile)
                 paths.append(new_path)
+                tiles.append(next_tile)
 
 func get_next_tiles(path):
-    tiles = []
+    var next_tiles = []
     if is_path_extendable(path):
         for tile in dungeon.get_neighbours_tiles(path[-1]):
             if tile != path[-1] and tile.is_reachable():
-                tiles.append(tile)
-    return tiles
+                next_tiles.append(tile)
+    return next_tiles
 
 # is functions
 func is_path_extendable(_path):
@@ -46,3 +43,13 @@ func is_path_extendable(_path):
 
 func is_extend_tile(_tile):
     pass
+
+func print_paths():
+    for path in paths:
+        print_path(path)
+
+func print_path(path):
+    var pathpos = []
+    for tile in path:
+        pathpos.append(tile.pos)
+    print(",".join(pathpos))

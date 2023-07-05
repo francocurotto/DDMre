@@ -244,8 +244,8 @@ func highlight_net(net):
 
 func highlight_movement(pos1, pos2, path):
     disable_tile_gui_highlights()
-    for pos in path:
-        get_tile_gui(pos).highlight = true
+    for tile in path:
+        get_tile_gui(tile.pos).highlight = true
     get_tile_gui(pos2).set_dungobj_icon(get_tile_gui(pos1).dungobj_type, player.id)
     get_tile_gui(pos1).set_dungobj_icon("NONE", 0)
 
