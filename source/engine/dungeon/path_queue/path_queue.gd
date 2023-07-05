@@ -31,5 +31,17 @@ func fill_paths():
                 var new_path = path.duplicate().append(next_tile)
                 paths.append(new_path)
 
-func get_next_tiles(_path):
+func get_next_tiles(path):
+    tiles = []
+    if is_path_extendable(path):
+        for tile in dungeon.get_neighbor_tiles(path_dest):
+            if tile != path[-1] and tile.is_reachable():
+                tiles.append(tile)
+    return tiles
+
+# is functions
+func is_path_extendable(_path):
+    pass
+
+func is_extend_tile(_tile):
     pass

@@ -1,12 +1,9 @@
 extends "path_queue.gd"
 
-func get_next_tiles(path):
-    var path_dest = path[-1]
-    tiles = []
-    if len(path)<dungeon.get_max_move_tiles(monster) and path_dest.is_passable():
-        for tile in dungeon.get_neighbor_tiles(path_dest):
-            if tile.is_reachable():
-                tiles.append(tile)
-    return tiles
-    
-    
+# is functions 
+func is_path_extendable(path):
+    var max_length = dungeon.get_max_move_tiles(monster)
+    return len(path) < max_length and path[-1].is_passable()
+
+func is_extend_tile(tile):
+    return tile.is_reachable() or tile.is_passable()
