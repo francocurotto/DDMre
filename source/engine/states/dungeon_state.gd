@@ -34,8 +34,8 @@ func MOVE(cmd):
     elif monster.max_move < len(path)-1:
         print("Movement exceed monster max movement per turn")
     # case missing movement crests
-    elif monster.get_move_cost(path) > player.crestpool.movement:
-        print("Not enough MOVEMENT crests.")
+    #elif monster.get_move_cost(path) > player.crestpool.movement:
+    #    print("Not enough MOVEMENT crests.")
     # perform movement
     else: # case valid movement
         var state = perform_movement(tile_origin, tile_dest, path)
@@ -63,8 +63,8 @@ func ATTACK(cmd):
     elif not monster.attack_cooldown_behavior.can_attack():
         print("Monster in attack cooldown.")
     # check valid attack
-    elif not pos_dest in dungeon.get_attack_poss(pos_origin):
-        print("Target out of reach.")
+    #elif not pos_dest in dungeon.get_attack_poss(pos_origin):
+    #    print("Target out of reach.")
     # the attack is valid
     else:
         # pay the cost of attack

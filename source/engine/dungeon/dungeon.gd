@@ -4,6 +4,8 @@ extends Reference
 const EmptyTile = preload("res://engine/dungeon/tiles/empty_tile.gd")
 const PathTile = preload("res://engine/dungeon/tiles/path_tile.gd")
 const BlockTile = preload("res://engine/dungeon/tiles/block_tile.gd")
+var MovePathQueue = load("res://engine/dungeon/path_queue/move_path_queue.gd")
+var AttackPathQueue = load("res://engine/dungeon/path_queue/attack_path_queue.gd")
 
 # variables
 var grid = []
@@ -80,31 +82,29 @@ func get_max_move_tiles(monster):
     var move_crests = monster.player.crestpool.movement
     return min(int(move_crests/move_cost)*monster.speed, monster.max_move)
 
+func get_neighbours_tiles(tile):
+    """
+    Get neighbours tiles to tile.
+    """
+    var deltas = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
+    var neighbours_tiles = []
+    for delta in deltas:
+        var new_pos = tile.pos + delta
+        if pos_within_dungeon(new_pos):
+            neighbours_tiles.append(get_tile(new_pos))
+    return neighbours_tiles
+
 func get_move_tiles(monster):
     var move_path_queue = MovePathQueue.new(self, monster)
     return move_path_queue.tiles
-    #var move_path_queue = get_path_queue(MovePath, monster, max_length)
-    #return move_path_queue.keys()
 
 func get_move_path(monster, dest):
-    var move_path_queue = PathQueue.new(self, monster, MovePath)
+    var move_path_queue = MovePathQueue.new(self, monster)
     return move_path_queue.get_path(dest)
 
 func get_attack_tiles(monster):
     var attack_path_queue = AttackPathQueue.new(self, monster)
     return attack_path_queue.tiles
-
-#func get_path_queue(PathScript, monster, max_length):
-#    var init_path = PathScript.new(monster)
-#    var path_queue = {init_path.dest : init_path}
-#    for dest in path_queue:
-#        var path = path_queue[dest]
-#        if path.length >= max_length or not path.is_passable():
-#            continue
-#        var new_paths = path.get_extended_paths(self)
-#        for new_path in new_paths:
-#            if new_path.dest in path_queue:
-#                path_queue[new_path.dest] = new_path
 
 #func get_move_poss(player, init_pos):
 #    """
@@ -371,8 +371,7 @@ func net_connects(net, player):
     Return true if net connects player path.
     """
     for pos in net.poslist:
-        for neig in get_neighbours_poss(pos):
-            var tile = get_tile(neig)
+        for tile in get_neighbours_tiles(get_tile(pos)):
             if tile.is_player_path() and tile.player == player:
                 return true
     return false

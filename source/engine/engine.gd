@@ -98,7 +98,7 @@ func set_init_crests(player, crests_dict):
     """
     if InitChecks.check_crests_dict(crests_dict):
         for crest in crests_dict:
-            player.crestpool.set_crests(crest, crests_dict[crest])
+            player.crestpool.set_crest(crest, crests_dict[crest])
 
 func set_init_hearts(player, hearts):
     """

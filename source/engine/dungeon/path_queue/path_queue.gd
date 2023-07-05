@@ -22,6 +22,7 @@ func get_path(dest):
     for path in paths:
         if path[-1] == dest:
             return path
+    return []
 
 # private functions
 func fill_paths():
@@ -34,7 +35,7 @@ func fill_paths():
 func get_next_tiles(path):
     tiles = []
     if is_path_extendable(path):
-        for tile in dungeon.get_neighbor_tiles(path_dest):
+        for tile in dungeon.get_neighbours_tiles(path[-1]):
             if tile != path[-1] and tile.is_reachable():
                 tiles.append(tile)
     return tiles

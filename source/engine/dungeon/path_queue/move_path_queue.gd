@@ -1,5 +1,8 @@
 extends "path_queue.gd"
 
+func _init(_dungeon, _monster).(_dungeon, monster):
+    pass
+
 # is functions 
 func is_path_extendable(path):
     var max_length = dungeon.get_max_move_tiles(monster)

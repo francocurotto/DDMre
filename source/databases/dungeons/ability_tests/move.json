@@ -40,6 +40,6 @@
     "DEFENSE" : 0,
     "MAGIC"   : 0,
     "TRAP"    : 10},
-  "HEARTS1": 3,
-  "HEARTS2": 3
+  "HEARTS1": 2,
+  "HEARTS2": 1
 }

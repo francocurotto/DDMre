@@ -1,5 +1,6 @@
 ### SOLID
 - refactor dungeon
+    - debug path_queue
 - standarize cmd syntax and context checks
 
 # state
