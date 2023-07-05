@@ -1,9 +1,8 @@
 extends Node
 
+const Test2 = preload("test2.gd")
+
 func _ready():
-    var d = {"a":1}
-    for k in d:
-        if d[k]>10:
-            break
-        d[k+"a"] = d[k]+1
-    print(d)
+    var test2 = Test2.new(1)
+    var test3 = test2.duplicate()
+    print(test3.i)
