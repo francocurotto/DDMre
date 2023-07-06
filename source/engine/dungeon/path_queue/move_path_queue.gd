@@ -5,7 +5,7 @@ func _init(_dungeon, _monster).(_dungeon, _monster):
 
 # is functions 
 func is_path_extendable(path):
-    var max_length = dungeon.get_max_move_tiles(monster)
+    var max_length = dungeon.get_max_move_tiles(monster) + 1
     var is_passable = path[-1].is_passable(monster) or path[-1]==monster.tile
     return len(path) < max_length and is_passable
 
