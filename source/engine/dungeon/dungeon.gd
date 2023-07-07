@@ -26,7 +26,7 @@ func set_layout(player1, player2, layout):
     """
     Set the dungeon tiles given a layout array.
     """
-    layout.invert() # correct for reverse order in json format
+    layout.invert() # correction for reverse order in json format
     for y in Globals.DUNGEON_HEIGHT:
         for x in Globals.DUNGEON_WIDTH:
             grid[y][x] = create_tile(player1, player2, layout[y][x], y, x)
@@ -80,7 +80,7 @@ func get_max_move_tiles(monster):
     - dungeon move cost possibly modified by item abilities
     """
     var move_crests = monster.player.crestpool.movement
-    return min(int(move_crests/move_cost*monster.speed), monster.max_move)
+    return min(floor(move_crests/move_cost*monster.speed), monster.max_move)
 
 func get_move_cost(path, monster):
     """
@@ -89,12 +89,14 @@ func get_move_cost(path, monster):
     - monster speed possibly modified by abilities
     - dungeon move cost possibly modified by item abilities
     """
-    return int(((len(path)-1)/monster.speed)*move_cost)
+    var move_tiles = len(path)-1 
+    return ceil(move_tiles/monster.speed*move_cost)
 
 func get_neighbours_tiles(tile):
     """
     Get neighbours tiles to tile.
     """
+    #GODOT4: change to vector2i
     var deltas = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
     var neighbours_tiles = []
     for delta in deltas:
@@ -114,117 +116,6 @@ func get_move_path(monster, dest):
 func get_attack_tiles(monster):
     var attack_path_queue = AttackPathQueue.new(self, monster)
     return attack_path_queue.tiles
-
-#func get_move_poss(player, init_pos):
-#    """
-#    Get all the posible positions a monster at position initpos could reach or
-#    pass through with all the available movement crests from player 
-#    (includes non-passable positions like items and non-reachable positions 
-#    like over flying monsters).
-#    """
-#    # init variables
-#    var monster = get_tile(init_pos).content
-#
-#    # needed variables
-#    var pos_list = [init_pos]
-#    var pos_queue = []
-#    var move_crests = player.crestpool.movement
-#    var max_tiles = get_max_tiles(move_crests, monster)
-#
-#    # init queue, use dictionary to mix positions and move counter
-#    pos_queue.append({pos=init_pos,count=0})
-#
-#    # iterations
-#    while not pos_queue.empty():
-#        # get move item information
-#        var pos_item = pos_queue.pop_front()
-#        var pos = pos_item.pos
-#        var count = pos_item.count
-#        # if count for next pos will surpass move crest, skip pos
-#        var new_count = count + 1
-#        if new_count > max_tiles:
-#            continue
-#        # check if tile is passable or is initial position
-#        if get_tile(pos).is_passable(monster) or pos==init_pos:
-#            # get next passable positions
-#            var move_poss = get_move_neighbours_poss(pos, monster)
-#            # check to add next positions to poslist
-#            for move_pos in move_poss:
-#                # check if new position not visited
-#                if not pos_list.has(move_pos):
-#                    pos_list.append(move_pos)
-#                    pos_queue.append({pos=move_pos, count=new_count})
-#    # remove initial position
-#    pos_list.pop_front()
-#    return pos_list
-#
-#func get_move_path(pos1, pos2):
-#    """
-#    Find the shortest path from pos1 to pos2 in the dungeon.
-#    """
-#    # init data
-#    var path_queue = [[pos1]]
-#    var visited = []
-#    var monster = get_tile(pos1).content
-#
-#    # iterations
-#    while not path_queue.empty():
-#        # get curent path
-#        var path = path_queue.pop_front()
-#        # check for getting to destination
-#        var last_pos = path[-1]
-#        if last_pos == pos2:
-#            return path
-#        visited.append(last_pos)
-#        # check if tile is passable or is initial position
-#        if get_tile(last_pos).is_passable(monster) or last_pos==pos1:
-#            # expand path with neighbours and add to queue
-#            var pass_poss = get_move_neighbours_poss(last_pos, monster)
-#            for pass_pos in pass_poss:
-#                if not visited.has(pass_pos):
-#                    path_queue.append(path+[pass_pos])
-#     # case not path found
-#    return []
-#
-#func get_attack_poss(init_pos):
-#    """
-#    Get all the posible positions a monster at position init_pos could attack
-#    given the available attack crests.
-#    """
-#    # init variables
-#    var monster = get_tile(init_pos).content
-#
-#    # needed varaibles
-#    var pos_list = [init_pos]
-#    var pos_queue = []
-#    var max_distance = monster.attack_distance
-#
-#    # init queue, use dictionary to mix positions and move counter
-#    pos_queue.append({pos=init_pos,count=0})
-#
-#    # iterations
-#    while not pos_queue.empty():
-#        # get move item information
-#        var pos_item = pos_queue.pop_front()
-#        var pos = pos_item.pos
-#        var count = pos_item.count
-#        # if count for next pos will surpass move crest, skip pos
-#        var new_count = count + 1
-#        if new_count > max_distance:
-#            continue
-#        # check if tile is passable or is initial position
-#        if get_tile(pos).is_path() or pos==init_pos:
-#            # get next passable positions
-#            var attack_poss = get_attack_neighbours_poss(pos)
-#            # check to add next positions to poslist
-#            for attack_pos in attack_poss:
-#                # check if new position not visited
-#                if not pos_list.has(attack_pos):
-#                    pos_list.append(attack_pos)
-#                    pos_queue.append({pos=attack_pos, count=new_count})
-#    # remove initial position
-#    pos_list.pop_front()
-#    return pos_list
 
 func get_vortex_poss():
     """
@@ -303,42 +194,6 @@ func create_tile(player1, player2, chr, y, x):
         "P" : return player2.create_tile(y, x)
         "N" : return PathTile.new(y, x)
         "X" : return BlockTile.new(y, x)
-
-#func get_move_neighbours_poss(pos, monster):
-#    """
-#    Get neighbours positions to pos that are passable tiles for monster.
-#    """
-#    var neig_poss = get_neighbours_poss(pos)
-#    var pass_poss = []
-#    for neig_pos in neig_poss:
-#        var tile = get_tile(neig_pos)
-#        if tile.is_reachable() or tile.is_passable(monster):
-#            pass_poss.append(neig_pos)
-#    return pass_poss
-#
-#func get_attack_neighbours_poss(pos):
-#    """
-#    Get neighbours positions to pos where an attack can pass through.
-#    """
-#    var neig_poss = get_neighbours_poss(pos)
-#    var pass_poss = []
-#    for neig_pos in neig_poss:
-#        var tile = get_tile(neig_pos)
-#        if tile.is_path():
-#            pass_poss.append(neig_pos)
-#    return pass_poss
-#
-#func get_neighbours_poss(pos):
-#    """
-#    Get neighbours positions to pos.
-#    """
-#    var deltas = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
-#    var neigposs = []
-#    for delta in deltas:
-#        var newpos = pos + delta
-#        if pos_within_dungeon(newpos):
-#            neigposs.append(newpos)
-#    return neigposs
 
 func pos_within_dungeon(pos):
     """
