@@ -1,8 +1,7 @@
 extends Node
 
-const Test2 = preload("test2.gd")
 
 func _ready():
-    var test2 = Test2.new(1)
-    var test3 = test2.duplicate()
-    print(test3.i)
+    print(int(1.1))
+    print(int(1.5))
+    print(int(1.9))
