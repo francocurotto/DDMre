@@ -6,11 +6,14 @@ const LIBPATH = "res://databases/LIBRARY.json"
 const ABIPATH = "res://databases/ABILITIES.json"
 
 # values
+#GODOT4: check replace with static var
 const DUNGEON_HEIGHT = 19
 const DUNGEON_WIDTH = 13
 const DICEPOOL_SIZE = 15
 
 # arrays, dictionaries
+#GODOT4: check replace with static var
+#TODO: add _ space
 const MONSTERTYPES = ["DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR"]
 const SUMMONTYPES  = ["DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM"]
 const CRESTTYPES = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
