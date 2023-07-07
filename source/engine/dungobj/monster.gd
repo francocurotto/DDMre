@@ -49,21 +49,6 @@ func get_max_move():
     return max_move_behavior.get_max_move()
 
 # public functions
-#func get_move_cost(path):
-#    """
-#    Get the movement cost of monster for a given path.
-#    """
-#    return ceil((len(path)-1) / speed)
-
-#func get_max_tiles(move_crests):
-#    """
-#    Get the maximum number of tiles a monster can move given a number of 
-#    move crests. It takes into account:
-#    - number of move crests
-#    - monster speed possibly modified by abilities
-#    """
-#    return int(move_crests * speed)
-    
 func can_target_monster(dungobj):
     """
     Return true if dungobj is monster type and monster can target dungobj 

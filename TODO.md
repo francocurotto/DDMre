@@ -1,6 +1,5 @@
 ### SOLID
 - refactor dungeon
-    - debug path_queue
 - standarize cmd syntax and context checks
 
 # state
@@ -8,3 +7,6 @@
 # abilities
 - bug: when negate ability, if negated monster is killed, the ability is disabled again
 - potential bug: negating a dim ability and reenabling it will reactivate the ability (maybe cannot be triggered)
+
+### GODOT4
+- add proper godot4 documentation
