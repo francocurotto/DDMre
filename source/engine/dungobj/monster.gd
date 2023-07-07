@@ -49,11 +49,11 @@ func get_max_move():
     return max_move_behavior.get_max_move()
 
 # public functions
-func get_move_cost(path):
-    """
-    Get the movement cost of monster for a given path.
-    """
-    return ceil((len(path)-1) / speed)
+#func get_move_cost(path):
+#    """
+#    Get the movement cost of monster for a given path.
+#    """
+#    return ceil((len(path)-1) / speed)
 
 #func get_max_tiles(move_crests):
 #    """

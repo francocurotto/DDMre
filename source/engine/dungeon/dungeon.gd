@@ -80,7 +80,16 @@ func get_max_move_tiles(monster):
     - dungeon move cost possibly modified by item abilities
     """
     var move_crests = monster.player.crestpool.movement
-    return min(int(move_crests/move_cost)*monster.speed, monster.max_move)
+    return min(int(move_crests/move_cost*monster.speed), monster.max_move)
+
+func get_move_cost(path, monster):
+    """
+    Get movement const of monster moving through path. It takes into account:
+    - path length
+    - monster speed possibly modified by abilities
+    - dungeon move cost possibly modified by item abilities
+    """
+    return int(((len(path)-1)/monster.speed)*move_cost)
 
 func get_neighbours_tiles(tile):
     """
@@ -226,15 +235,7 @@ func get_vortex_poss():
         if tile.vortex:
             vortex_poss.append(tile.pos)
     return vortex_poss
-
-func get_move_cost(path, monster):
-    """
-    Get movement const of monster moving through path. It takes into account:
-    - monster speed possibly modified by abilities
-    - dungeon move cost possibly modified by item abilities
-    """
-    return int(monster.get_move_cost(path) * move_cost)
-    
+  
 # public functions
 func place_path_tile(player, pos):
     """
