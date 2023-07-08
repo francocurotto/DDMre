@@ -1,7 +1,7 @@
 extends Reference
 
 # preloads
-const EmptyTile = preload("res://engine/dungeon/tiles/empty_tile.gd")
+const OpenTile = preload("res://engine/dungeon/tiles/open_tile.gd")
 const PathTile = preload("res://engine/dungeon/tiles/path_tile.gd")
 const BlockTile = preload("res://engine/dungeon/tiles/block_tile.gd")
 var MovePathQueue = load("res://engine/dungeon/path_queue/move_path_queue.gd")
@@ -18,7 +18,7 @@ func _init():
     for y in Globals.DUNGEON_HEIGHT:
         var row = []
         for x in Globals.DUNGEON_WIDTH:
-            row.append(EmptyTile.new(y, x))
+            row.append(OpenTile.new(y, x))
         grid.append(row)
 
 # setget functions
@@ -135,18 +135,21 @@ func place_path_tile(player, pos):
     """
     grid[pos.y][pos.x] = player.create_tile(pos.y, pos.x)
 
-func place_empty_tile(pos):
+func place_open_tile(pos):
     """
     Place empty tile at position pos.
     """
-    grid[pos.y][pos.x] = EmptyTile.new(pos.y, pos.x)
+    grid[pos.y][pos.x] = OpenTile.new(pos.y, pos.x)
 
 func place_summon(player, pos, diceidx):
     """
     Summon card with index diceidx and place it in dungeon.
     """
     var summon = player.summon_card(diceidx)
+    print(get_tile(pos).TYPE)
+    print(summon.NAME)
     get_tile(pos).set_content(summon)
+    print(get_tile(pos).content.NAME)
     summon.initialize_abilities(self)
     return summon
 
@@ -173,7 +176,7 @@ func create_tile(player1, player2, chr, y, x):
     Create the appropiate tile given the character from the dungeon json.
     """
     match chr:
-        "O" : return EmptyTile.new(y, x)
+        "O" : return OpenTile.new(y, x)
         "l" : return player1.create_ml_tile(y, x)
         "L" : return player2.create_ml_tile(y, x)
         "p" : return player1.create_tile(y, x)
@@ -213,7 +216,7 @@ func net_overlaps(net):
     """
     #GODOT4: use array all
     for pos in net.poslist:
-        if not get_tile(pos).is_empty():
+        if not get_tile(pos).is_open():
             return true
     return false
 

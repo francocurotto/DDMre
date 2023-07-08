@@ -1,5 +1,8 @@
 extends "path_tile.gd"
 
+# constant
+const TYPE = "PLAYER"
+
 # variables
 var player
 

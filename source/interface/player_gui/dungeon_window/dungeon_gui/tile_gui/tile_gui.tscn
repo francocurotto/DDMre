@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://interface/player_gui/dungeon_window/dungeon_gui/tile_gui/tile_gui.gd" type="Script" id=1]
-[ext_resource path="res://art/icons/TILE_EMPTY.png" type="Texture" id=2]
+[ext_resource path="res://art/icons/TILE_OPEN.png" type="Texture" id=2]
 [ext_resource path="res://art/icons/TILE_HIGHLIGHT.png" type="Texture" id=3]
 [ext_resource path="res://art/icons/VORTEX.png" type="Texture" id=4]
 [ext_resource path="res://art/icons/TILE_BUTTON.png" type="Texture" id=5]

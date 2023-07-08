@@ -109,7 +109,7 @@ func JUMP(cmd):
     # check dest correct
     elif not tile_dest.vortex:
         print("Dest tile is not a vortex")
-    elif tile_dest.is_occupied():
+    elif not tile_dest.is_empty():
         print("Dest tile is not a occupied")
     else: # case valid jump
         tile_dest.move_content_from(tile_origin)

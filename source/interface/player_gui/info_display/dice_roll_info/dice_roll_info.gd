@@ -19,7 +19,3 @@ func set_dice(dice):
 func remove_dice():
     dice_icon.modulate = Color(1.0, 1.0, 1.0)
     summon_icon.texture = null
-
-# public variables
-func is_empty():
-    return summon_icon.texture == null

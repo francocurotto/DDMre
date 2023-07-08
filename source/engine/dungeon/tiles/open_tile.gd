@@ -1,11 +1,11 @@
 extends "tile.gd"
 
 # constants
-const NAME = "EMPTY"
+const TYPE = "OPEN"
 
 func _init(y, x).(y, x):
     pass
 
 # is functions
-func is_empty():
+func is_open():
     return true

@@ -148,7 +148,7 @@ func on_tile_dim_button_pressed(tile_gui):
 func on_tile_jump_button_pressed(tile_gui):
     var pos1 = selected_tile_gui.tile.pos
     var pos2 = tile_gui.tile.pos
-    if not tile_gui.tile.is_occupied():
+    if tile_gui.tile.is_empty():
         emit_signal("monster_jumped", pos1, pos2)
 
 func on_dice_dim_button_pressed(dice):

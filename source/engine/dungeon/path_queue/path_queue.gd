@@ -40,6 +40,6 @@ func get_next_tiles(path):
     var next_tiles = []
     if is_path_extendable(path):
         for tile in dungeon.get_neighbours_tiles(path[-1]):
-            if tile != path[-1] and tile.is_reachable():
+            if tile != path[-1] and is_extend_tile(tile):
                 next_tiles.append(tile)
     return next_tiles

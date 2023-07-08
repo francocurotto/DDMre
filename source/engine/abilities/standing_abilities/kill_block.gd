@@ -14,7 +14,7 @@ func activate(activate_dict):
     Kill block.
     """
     monster.player.crestpool.remove_crests(CREST, COST)
-    dungeon.place_empty_tile(activate_dict["pos"])
+    dungeon.place_open_tile(activate_dict["pos"])
 
 func get_select_tiles():
     return get_block_tiles()

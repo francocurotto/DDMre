@@ -35,18 +35,15 @@ signal tile_dim_button_pressed(tile_gui)
 # setget functions
 func set_tile(_tile):
     tile = _tile
-    set_tile_icon(tile.NAME, tile.playerid, tile.vortex)
+    set_tile_icon(tile.TYPE, tile.playerid, tile.vortex)
     set_dungobj_icon(tile.content.NAME, tile.content.playerid)
 
 func set_tile_icon(_tile_type, _tile_player, _vortex):
     tile_type = _tile_type
     tile_player = _tile_player
     var icon = "TILE_" + tile_type
-    if _tile_type == "PATH": # case path
-        if _tile_player == 0: # case nautral
-            icon += "_NEUTRAL"
-        else: # case player path
-            icon += "_P" + str(tile_player)
+    if _tile_type == "PLAYER": # case player path
+        icon += "_P" + str(tile_player)
     $TileRects/TileRect.texture = load("res://art/icons/" + icon + ".png")
     set_vortex(_vortex)
 

@@ -19,17 +19,17 @@ func activate(activate_dict):
     var roll_tiles = get_roll_tiles(activate_dict["direction"])
     
     # roll loop
-    var last_unoccupied = monster.tile
+    var last_empty = monster.tile
     for tile in roll_tiles:
         var summon = tile.content
-        if not tile.is_occupied():
-            last_unoccupied = tile
+        if not tile.is_empty():
+            last_empty = tile
         elif not is_passable(summon) and summon.card.level<=level:
             summon.destroy()
-            last_unoccupied = tile
+            last_empty = tile
         elif not is_passable(summon) and summon.card.level>level:
             break
-    last_unoccupied.move_content_from(monster.tile)
+    last_empty.move_content_from(monster.tile)
 
 func get_roll_tiles(direction):
     var pos = monster.tile.pos + direction

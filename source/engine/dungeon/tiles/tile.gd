@@ -10,12 +10,13 @@ var content setget set_content, get_content
 var playerid setget , get_playerid
 
 func _init(y, x):
+    # GODOT4: change to vector2i
     pos = Vector2(x, y)
     content = Noneobj.new()
 
 # setget functions
 func set_content(_dungobj):
-    content = Noneobj.new()
+    pass
 
 func get_content():
     return Noneobj.new()
@@ -24,7 +25,7 @@ func get_playerid():
     return 0
 
 # is functions
-func is_empty():
+func is_open():
     return false
 
 func is_path():
@@ -36,11 +37,8 @@ func is_player_path():
 func is_block():
     return false
 
-func is_occupied():
+func is_empty():
     return false
 
 func is_reachable():
-    return false
-
-func is_passable(_monster):
     return false

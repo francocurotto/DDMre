@@ -1,7 +1,7 @@
 extends "tile.gd"
 
 # constants
-const NAME = "BLOCK"
+const TYPE = "BLOCK"
 
 func _init(y, x).(y, x):
     pass
