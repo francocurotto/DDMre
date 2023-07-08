@@ -145,8 +145,10 @@ func destroy():
     """
     Remove monster from play due to being destroyed by attack or ability.
     """
+    #TODO:refactor into summon
     negate_abilities()
     player.on_monster_destroyed(self)
+    tile.empty_tile()
 
 func get_power(attacked):
     """

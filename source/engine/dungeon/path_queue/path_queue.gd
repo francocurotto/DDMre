@@ -19,6 +19,13 @@ func get_path(dest):
             return path
     return []
 
+# is functions
+func is_path_extendable(_path):
+    pass
+
+func is_extend_tile(_tile):
+    pass
+
 # private functions
 func fill_paths():
     for path in paths:
@@ -36,20 +43,3 @@ func get_next_tiles(path):
             if tile != path[-1] and tile.is_reachable():
                 next_tiles.append(tile)
     return next_tiles
-
-# is functions
-func is_path_extendable(_path):
-    pass
-
-func is_extend_tile(_tile):
-    pass
-
-func print_paths():
-    for path in paths:
-        print_path(path)
-
-func print_path(path):
-    var pathpos = []
-    for tile in path:
-        pathpos.append(tile.pos)
-    print(",".join(pathpos))

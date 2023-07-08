@@ -1,5 +1,6 @@
 ### SOLID
-- refactor dungeon
+- refactor dungobj
+- refactor tiles/net
 - standarize cmd syntax and context checks
 
 # state

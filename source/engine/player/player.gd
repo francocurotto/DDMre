@@ -59,13 +59,6 @@ func on_monster_destroyed(monster):
     """
     monsters.erase(monster)
     graveyard.append(monster)
-    emit_signal("summon_destroyed", monster)
-
-func on_item_destroyed(item):
-    """
-    Destroy player item.
-    """
-    emit_signal("summon_destroyed", item)
 
 func on_hearts_depleted():
     """

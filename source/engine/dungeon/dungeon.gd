@@ -76,7 +76,7 @@ func get_max_move_tiles(monster):
     It takes into account:
     - number of move crests
     - monster speed possibly modified by abilities
-    - monster maximum movement crests possibly modified by abilities
+    - monster maximum movement tiles possibly modified by abilities
     - dungeon move cost possibly modified by item abilities
     """
     var move_crests = monster.player.crestpool.movement
@@ -84,7 +84,7 @@ func get_max_move_tiles(monster):
 
 func get_move_cost(path, monster):
     """
-    Get movement const of monster moving through path. It takes into account:
+    Get movement cost of monster moving through path. It takes into account:
     - path length
     - monster speed possibly modified by abilities
     - dungeon move cost possibly modified by item abilities
@@ -117,15 +117,16 @@ func get_attack_tiles(monster):
     var attack_path_queue = AttackPathQueue.new(self, monster)
     return attack_path_queue.tiles
 
-func get_vortex_poss():
+func get_vortex_tiles():
     """
-    Get all positions where a vortex is activated in a tile.
+    Get all tiles where a vortex is activated.
     """
-    var vortex_poss = []
+    #GODOT4: use array filter
+    var vortex_tiles = []
     for tile in self.tiles:
         if tile.vortex:
-            vortex_poss.append(tile.pos)
-    return vortex_poss
+            vortex_tiles.append(tile)
+    return vortex_tiles
   
 # public functions
 func place_path_tile(player, pos):
@@ -166,21 +167,6 @@ func dimension(player, net, diceidx):
     var summon = place_summon(player, net.centerpos, diceidx)
     return summon
 
-func can_dimension(net, player):
-    """
-    Check if it is possible to dimension net. Return true if dimension
-    is possible.
-    """
-    return net_inbound(net) and net_not_overlaps(net) and net_connects(net, player)
-
-# signals callback
-func on_summon_destroyed(summon):
-    """
-    When a summon is destroyed (monster is killed or dimension item is 
-    activated), remove summon from dungeon.
-    """
-    summon.tile.empty_tile()
-
 # private functions
 func create_tile(player1, player2, chr, y, x):
     """
@@ -195,6 +181,7 @@ func create_tile(player1, player2, chr, y, x):
         "N" : return PathTile.new(y, x)
         "X" : return BlockTile.new(y, x)
 
+# is functions
 func pos_within_dungeon(pos):
     """
     Check if position is within dungeon limits.
@@ -203,24 +190,32 @@ func pos_within_dungeon(pos):
     var x_ok = 0 <= pos.x and pos.x <= Globals.DUNGEON_WIDTH-1
     return y_ok and x_ok
 
-# private functions
+func can_dimension(net, player):
+    """
+    Check if it is possible to dimension net. Return true if dimension
+    is possible.
+    """
+    return net_inbound(net) and not net_overlaps(net) and net_connects(net, player)
+
 func net_inbound(net):
     """
     Return true if net is inbound of dungeon.
     """
+    #GODOT4: use array all
     for pos in net.poslist:
         if not pos_within_dungeon(pos):
             return false
     return true
 
-func net_not_overlaps(net):
+func net_overlaps(net):
     """
-    Return true if net does not overlaps current path in dungeon.
+    Return true if net overlaps current path in dungeon.
     """
+    #GODOT4: use array all
     for pos in net.poslist:
         if not get_tile(pos).is_empty():
-            return false
-    return true
+            return true
+    return false
 
 func net_connects(net, player):
     """

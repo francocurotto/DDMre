@@ -11,8 +11,8 @@
     - setget functions
     - public functions
     - signals callbacks
-    - private functions
     - is functions
+    - private functions
 
 ## Code Order Interface
 - tool/extends

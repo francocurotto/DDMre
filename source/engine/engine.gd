@@ -25,9 +25,6 @@ func _init(initpath, pool1=null, pool2=null):
     var dungeon = Dungeon.new()
     # create initial state
     state = RollState.new(player1, player2, dungeon)
-    # connections
-    player1.connect("summon_destroyed", dungeon, "on_summon_destroyed")
-    player2.connect("summon_destroyed", dungeon, "on_summon_destroyed")
     # set init state from file
     set_init_state(initpath, dungeon)
 

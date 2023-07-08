@@ -180,9 +180,9 @@ func on_ability_button_pressed():
 
 func on_jump_button_pressed():
     disable_tile_gui_buttons()
-    var vortex_poss = dungeon.get_vortex_poss()
-    for vortex_pos in vortex_poss:
-        get_tile_gui(vortex_pos).enable_jump_button()
+    var vortex_tiles = dungeon.get_vortex_tiles()
+    for vortex_tile in vortex_tiles:
+        get_tile_gui(vortex_tile.pos).enable_jump_button()
 
 func on_net_button_pressed(netname, pos, trans_list):
     var net = NetCreator.create_net(netname, pos, trans_list)
