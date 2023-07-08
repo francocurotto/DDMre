@@ -5,11 +5,11 @@ func _init(_y, _x).(_y, _x):
 
 # setget functions
 func set_content(dungobj):
-    print("seting content")
     content = dungobj
     content.tile = self
-    print(content.NAME)
-    print("done")
+
+func get_content():
+    return content
 
 # public functions
 func empty_tile():
@@ -33,6 +33,9 @@ func move_content_from(original_tile):
 # is functions
 func is_path():
     return true
+
+func is_empty():
+    return content.is_none()
 
 func is_reachable():
     return not content.is_target()

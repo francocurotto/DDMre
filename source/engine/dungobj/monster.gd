@@ -218,4 +218,4 @@ func is_tunnel():
     return has_active_ability("TUNNEL")
 
 func is_tile_passable(_tile):
-    return tile==_tile or pass_behavior.is_passable(tile)
+    return tile==_tile or pass_behavior.is_passable(_tile)

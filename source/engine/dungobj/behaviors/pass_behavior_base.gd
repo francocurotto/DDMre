@@ -1,8 +1,8 @@
 extends Reference
 
 # public functions
-func is_passable(dungobj):
+func is_passable(tile):
     """
     Return true if pass behavior allows to pass dungobj during movement.
     """
-    return dungobj.is_none() or dungobj.is_flying() 
+    return tile.is_empty() or tile.content.is_flying() 
