@@ -11,4 +11,4 @@ func can_target_monster(dungobj, player):
     """
     Return true if dungobj is monster and can be target.
     """
-    return dungobj.is_monster() and not dungobj.is_flying() and dungobj.player != player
+    return dungobj.is_monster() and not dungobj.has_active_ability("FLY") and dungobj.player != player

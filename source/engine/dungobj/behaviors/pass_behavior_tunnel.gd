@@ -1,8 +1,8 @@
 extends Reference
 
 # public functions
-func is_passable(dungobj):
+func can_pass(monster):
     """
-    Return true if pass behavior allows to pass dungobj during movement.
+    Return true if pass behavior allows to pass monster during movement.
     """
-    return dungobj.is_none() or dungobj.is_monster()
+    return true

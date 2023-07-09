@@ -1,5 +1,6 @@
 ### SOLID
-- fix is_monster() and not is_flying() in pass/target behaviours
+- fix target behavior overchecking
+- check dungeon
 - refactor dungobj
 - refactor tiles/net
 - standarize cmd syntax and context checks
