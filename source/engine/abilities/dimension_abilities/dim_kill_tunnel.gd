@@ -16,7 +16,7 @@ func activate(activate_dict):
 func get_select_tiles():
     var tiles = []
     for monster in dungeon.monsters:
-        if monster.is_tunnel():
+        if monster.has_active_ability("TUNNEL"):
             tiles.append(monster.tile)
     return tiles
 

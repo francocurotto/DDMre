@@ -11,7 +11,7 @@ func _init(ability_dict).(ability_dict):
 func activate(_activate_dict):
     monster.player.crestpool.remove_crests(CREST, COST)
     for dungeon_monster in dungeon.monsters:
-        if dungeon_monster.is_tunnel():
+        if dungeon_monster.has_active_ability("TUNNEL"):
             dungeon_monster.destroy()
 
 # is functions

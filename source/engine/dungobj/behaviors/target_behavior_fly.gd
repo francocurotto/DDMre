@@ -1,8 +1,8 @@
-extends "res://engine/dungobj/behaviors/target_behavior_base.gd"
+extends Reference
 
 # private functions
-func can_target_monster(dungobj, player):
+func can_target_monster(opponent monster):
     """
-    Return true if dungobj is monster and can be target.
+    Return true if opponent monster can be targeted for an attack.
     """
-    return dungobj.is_monster() and dungobj.player != player
+    return true
