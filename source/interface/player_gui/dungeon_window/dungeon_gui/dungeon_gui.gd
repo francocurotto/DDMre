@@ -166,9 +166,9 @@ func on_move_button_pressed():
 
 func on_attack_button_pressed():
     disable_tile_gui_buttons()
-    var attack_poss = dungeon.get_attack_tiles(selected_tile_gui.tile.content)
-    for attack_pos in attack_poss:
-        get_tile_gui(attack_pos).enable_attack_button()
+    var attack_tiles = dungeon.get_attack_tiles(selected_tile_gui.tile.content)
+    for attack_tile in attack_tiles:
+        get_tile_gui(attack_tile.pos).enable_attack_button()
 
 func on_ability_button_pressed():
     disable_tile_gui_buttons()
