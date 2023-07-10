@@ -26,5 +26,5 @@ func is_monster_lord():
 func is_target():
     return is_monster() or is_monster_lord()
 
-func is_flying():
+func is_passable_by(_monster):
     return false

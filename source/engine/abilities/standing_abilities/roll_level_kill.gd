@@ -36,7 +36,7 @@ func get_roll_tiles(direction):
     var tiles = []
     while dungeon.pos_within_dungeon(pos):
         var tile = dungeon.get_tile(pos)
-        if tile.is_empty() or tile.content.is_monster_lord():
+        if tile.is_open() or tile.content.is_monster_lord():
             break
         tiles.append(dungeon.get_tile(pos))
         pos = pos + direction
@@ -44,4 +44,4 @@ func get_roll_tiles(direction):
 
 # private functions
 func is_passable(summon):
-    return summon.is_monster() and summon.is_flying()
+    return summon.has_active_ability("FLY")

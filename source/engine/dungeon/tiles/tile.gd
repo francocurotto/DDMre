@@ -42,3 +42,6 @@ func is_empty():
 
 func is_reachable():
     return false
+
+func is_passable_by(_monster):
+    return false

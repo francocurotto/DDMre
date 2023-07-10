@@ -39,3 +39,6 @@ func is_empty():
 
 func is_reachable():
     return not content.is_target()
+
+func is_passable_by(monster):
+    return is_empty() or content.is_passable_by(monster)

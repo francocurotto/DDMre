@@ -211,8 +211,8 @@ func has_disadv_over_warrior():
 func is_monster():
     return true
 
-func is_tile_passable(_tile):
-    return tile==_tile or pass_behavior.is_passable(_tile)
+func is_passable_by(monster):
+    return monster==self or monster.pass_behavior.can_pass(self)
 
 func can_target(monster):
     monster.player != player and target.behavior.can_target(monster)
