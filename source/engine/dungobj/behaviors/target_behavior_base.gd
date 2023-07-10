@@ -1,14 +1,8 @@
 extends Reference
 
 # public functions
-func can_target_ml(dungobj, player):
+func can_target_monster(opponent_monster):
     """
-    Return true if dungobj is monster lord and can be target.
+    Return true if opponent monster can be targeted for an attack.
     """
-    return dungobj.is_monster_lord() and dungobj.player != player
-
-func can_target_monster(dungobj, player):
-    """
-    Return true if dungobj is monster and can be target.
-    """
-    return dungobj.is_monster() and not dungobj.is_flying() and dungobj.player != player
+    return not opponent_monster.has_active_ability("FLY")

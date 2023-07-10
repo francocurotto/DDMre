@@ -65,3 +65,7 @@ func on_hearts_depleted():
     Lose duel as all hearts were destroyed.
     """
     Events.emit_signal("player_lost", self)
+
+# is functions
+func is_opponent_ml(dungobj):
+    return dungobj.is_monster_lord() and dungobj.player != self
