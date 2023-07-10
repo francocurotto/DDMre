@@ -1,9 +1,11 @@
 ### SOLID
-- fix target behavior overchecking
 - check dungeon
-- refactor dungobj
 - refactor tiles/net
-- standarize cmd syntax and context checks
+- refactor dungobjs
+- refactor dice
+- refactor states
+    - standarize cmd syntax and context checks
+- refactor abilities
 
 # state
 - fix place summon, place vortex, place path to react accordingly to invalid place

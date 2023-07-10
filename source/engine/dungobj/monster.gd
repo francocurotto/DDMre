@@ -212,7 +212,7 @@ func is_monster():
     return true
 
 func is_passable_by(monster):
-    return monster==self or monster.pass_behavior.can_pass(self)
+    return monster == self or monster.pass_behavior.can_pass(self)
 
 func can_target(monster):
-    monster.player != player and target.behavior.can_target(monster)
+    return monster.player != player and target_behavior.can_target(monster)

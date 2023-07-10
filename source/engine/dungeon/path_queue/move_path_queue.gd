@@ -9,4 +9,4 @@ func is_path_extendable(path):
     return len(path)<max_length and path[-1].is_passable_by(monster)
 
 func is_extend_tile(tile):
-    return tile.is_reachable() or monster.is_tile_passable(tile)
+    return tile.is_reachable() or tile.is_passable_by(monster)
