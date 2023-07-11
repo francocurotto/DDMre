@@ -54,4 +54,4 @@ func apply_flip_up_down():
 
 func apply_flip_left_right():
     for i in self.idxlist:
-        poslist[i].x = 2*self.centerpos.x-poslist[i].x
+        poslist[i].x = 2*self.centerpos.x-poslist[i].x # mathemagics

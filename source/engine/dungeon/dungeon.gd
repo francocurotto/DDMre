@@ -4,8 +4,8 @@ extends Reference
 const OpenTile = preload("res://engine/dungeon/tiles/open_tile.gd")
 const PathTile = preload("res://engine/dungeon/tiles/path_tile.gd")
 const BlockTile = preload("res://engine/dungeon/tiles/block_tile.gd")
-var MovePathQueue = load("res://engine/dungeon/path_queue/move_path_queue.gd")
-var AttackPathQueue = load("res://engine/dungeon/path_queue/attack_path_queue.gd")
+const MovePathQueue = preload("res://engine/dungeon/path_queue/move_path_queue.gd")
+const AttackPathQueue = preload("res://engine/dungeon/path_queue/attack_path_queue.gd")
 
 # variables
 var grid = []

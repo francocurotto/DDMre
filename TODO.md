@@ -1,6 +1,5 @@
 ### SOLID
-- check dungeon
-- refactor tiles/net
+- refactor nets
 - refactor dungobjs
 - refactor dice
 - refactor states

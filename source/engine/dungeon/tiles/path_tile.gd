@@ -25,7 +25,7 @@ func move_content_from(original_tile):
         return
     # set tile content with content from original tile
     set_content(original_tile.content)
-    # set previou tile (for TIME MACHINE ability)
+    # set previous tile (for TIME MACHINE ability)
     content.previous_tile = original_tile
     # empty original tile
     original_tile.empty_tile()
