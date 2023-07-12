@@ -2,7 +2,7 @@ extends Reference
 
 # preloads
 const CrestPool = preload("res://engine/player/crestpool.gd")
-const MonsterLord = preload("res://engine/dungobj/monster_lord.gd")
+const MonsterLord = preload("res://engine/dungobj/monsterlord.gd")
 const PlayerPathTile = preload("res://engine/dungeon/tiles/player_path_tile.gd")
 
 # variables

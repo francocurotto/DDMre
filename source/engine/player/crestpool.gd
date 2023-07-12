@@ -16,10 +16,8 @@ func set_crest(crest, amount):
     Set an amount number of crests of type crest to crestpool. It clips the 
     values if the amount goes off limits.
     """
-    # check lower limit of zero
-    amount = max(0, amount)
-    # check for upper limit
-    amount = min(LIMIT, amount)
+    # clamp amount between limits
+    amount = clamp(amount, 0 , LIMIT)
     # update crest pool
     set(crest.to_lower(), amount)
 

@@ -1,7 +1,7 @@
 extends "dungobj.gd"
 
 # constants
-const NAME = "NONE"
+const TYPE = "NONE"
 
 # is functions
 func is_none():

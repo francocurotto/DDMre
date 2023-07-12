@@ -4,7 +4,7 @@ extends MarginContainer
 # export variables
 export (String, "EMPTY", "BLOCK", "PATH") var tile_type = "EMPTY" setget set_tile_type
 export (int, 0, 2) var tile_player = 1 setget set_tile_player
-export (String, "NONE", "MONSTER_LORD", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR",
+export (String, "NONE", "MONSTERLORD", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR",
     "ITEM") var dungobj_type = "NONE" setget set_dungobj_type
 export (int, 1, 2) var dungobj_player = 1 setget set_dungobj_player
 export (bool) var vortex = false setget set_vortex
@@ -36,7 +36,7 @@ signal tile_dim_button_pressed(tile_gui)
 func set_tile(_tile):
     tile = _tile
     set_tile_icon(tile.TYPE, tile.playerid, tile.vortex)
-    set_dungobj_icon(tile.content.NAME, tile.content.playerid)
+    set_dungobj_icon(tile.content.TYPE, tile.content.playerid)
 
 func set_tile_icon(_tile_type, _tile_player, _vortex):
     tile_type = _tile_type

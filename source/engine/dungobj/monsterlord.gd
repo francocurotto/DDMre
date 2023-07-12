@@ -1,7 +1,7 @@
 extends "playerobj.gd"
 
 # constants
-const NAME = "MONSTER_LORD"
+const TYPE = "MONSTER_LORD"
 const LIMIT = 3
 
 # variables
@@ -15,10 +15,8 @@ func set_hearts(amount):
     """
     Set number of hearts in monster lord. Correct for hearts outside limits.
     """
-    # check for lower limit of zero
-    amount = max(0, amount)
-    # check for upper limit of 3
-    amount = min(LIMIT, amount)
+    # clamp amount between limits
+    amount = clamp(amount, 0 , LIMIT)
     # set hearts
     hearts = amount
     # check for player lost
