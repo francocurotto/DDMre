@@ -1,7 +1,7 @@
 extends "monster.gd"
 
 # constants
-const NAME = "BEAST"
+const TYPE = "BEAST"
 
 func _init(_card, _player).(_card, _player):
     pass

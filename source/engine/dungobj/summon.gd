@@ -11,6 +11,7 @@ func get_ability(name):
     """
     Get ability from ability list.
     """
+    #GODOT4: use array filter
     for ability in card.abilities:
         if ability.name == name:
             return ability
@@ -28,19 +29,20 @@ func get_dim_state_ability():
     for ability in card.abilities:
         if ability.is_dim_state():
             return ability
-    return null
 
 # is functions
 func is_summon():
     return true
 
 func has_active_ability(name):
+    #GODOT4: use array any
     for ability in card.abilities:
         if ability.name == name and not ability.is_negated():
             return true
     return false
 
 func has_active_standing_ability():
+    #GODOT4: use array any
     for ability in card.abilities:
         if ability.is_standing() and not ability.is_negated():
             return true

@@ -1,7 +1,7 @@
 extends "summon.gd"
 
 # constants
-const NAME = "ITEM"
+const TYPE = "ITEM"
 
 func _init(_card, _player).(_card, _player):
     pass

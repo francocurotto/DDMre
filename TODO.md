@@ -1,5 +1,6 @@
 ### SOLID
 - refactor dungobjs
+    - refactor monster
 - refactor dice
 - refactor states
     - standarize cmd syntax and context checks
