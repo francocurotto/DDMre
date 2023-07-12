@@ -48,21 +48,28 @@ func get_max_move():
     """
     return max_move_behavior.get_max_move()
 
+func get_player_other_monsters():
+    """
+    Return an array of player monster without this monster.
+    """
+    var other_monsters = player.monsters
+    other_monsters.erase(self)
+    return other_monsters
+
+func get_damage(monster, guard):
+    """
+    Get damage for an attack.
+    """
+    # "int(guard)*" accounts for attacking a guarding or not guarding monster
+    return get_power(monster) - int(guard)*monster.defense
+
+func get_power(attacked):
+    """
+    Get the power when monster attacks attacked.
+    """
+    return power_behavior.get_power(attack, attacked, has_adv(attacked), has_disadv(attacked))
+
 # public functions
-func can_target_monster(dungobj):
-    """
-    Return true if dungobj is monster type and monster can target dungobj 
-    for an attack.
-    """
-    return target_behavior.can_target_monster(dungobj, player)
-
-func can_target_ml(dungobj):
-    """
-    Return true if dungobj is monster lord type and monster can target dungobj 
-    for an attack.
-    """
-    return target_behavior.can_target_ml(dungobj, player)
-
 func attack_monster(monster, guard):
     """
     Attack an opponent monster.
@@ -82,6 +89,23 @@ func attack_monster_lord(ml):
     """
     attack_cooldown_behavior.activate()
     ml.receive_damage()
+
+func receive_damage(damage):
+    """
+    Receive damage from an attack or ability.
+    """
+    health -= damage_behavior.get_inflicted_damage(damage)
+    if health <= 0:
+        destroy()
+
+func destroy():
+    """
+    Remove monster from play due to being destroyed by attack or ability.
+    """
+    #TODO:refactor into summon
+    negate_abilities()
+    player.on_monster_destroyed(self)
+    tile.empty_tile()
 
 func activate_ability(ability_dict):
     """
@@ -117,45 +141,6 @@ func restore_health(amount):
     """
     health = min(health + amount, card.health)
 
-func get_player_other_monsters():
-    """
-    Return an array of player monster without this monster.
-    """
-    var other_monsters = player.monsters
-    other_monsters.erase(self)
-    return other_monsters
-
-# private functions
-func get_damage(monster, guard):
-    """
-    Get damage for an attack.
-    """
-    # "int(guard)*" accounts for attacking a guarding or not guarding monster
-    return get_power(monster) - int(guard)*monster.defense
-
-func receive_damage(damage):
-    """
-    Receive damage from an attack or ability.
-    """
-    health -= damage_behavior.get_inflicted_damage(damage)
-    if health <= 0:
-        destroy()
-
-func destroy():
-    """
-    Remove monster from play due to being destroyed by attack or ability.
-    """
-    #TODO:refactor into summon
-    negate_abilities()
-    player.on_monster_destroyed(self)
-    tile.empty_tile()
-
-func get_power(attacked):
-    """
-    Get the power when monster attacks attacked.
-    """
-    return power_behavior.get_power(attack, attacked, has_adv(attacked), has_disadv(attacked))
-
 func switch_player():
     """
     Change monster player ownership to the opponent player.
@@ -163,6 +148,16 @@ func switch_player():
     player.monsters.erase(self)
     player = player.opponent
     player.monsters.append(self)
+
+# is functions
+func is_monster():
+    return true
+
+func is_passable_by(monster):
+    return monster == self or monster.pass_behavior.can_pass(self)
+
+func can_target(monster):
+    return monster.player != player and target_behavior.can_target(monster)
 
 func has_adv(_attacked):
     """
@@ -206,13 +201,3 @@ func has_disadv_over_warrior():
     Return true if monster has advantage over warrior.
     """
     return false
-
-# is functions
-func is_monster():
-    return true
-
-func is_passable_by(monster):
-    return monster == self or monster.pass_behavior.can_pass(self)
-
-func can_target(monster):
-    return monster.player != player and target_behavior.can_target(monster)

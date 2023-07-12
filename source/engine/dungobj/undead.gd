@@ -6,7 +6,7 @@ const NAME = "UNDEAD"
 func _init(_card, _player).(_card, _player):
     pass
 
-# public functions
+# is functions
 func has_adv(attacked):
     """
     Return true if monster has advantage over attacked monster.
