@@ -2,13 +2,13 @@ extends Reference
 
 # variables
 var poslist
-var center_index
+var centeridx
 var centerpos setget , get_centerpos
 
 func _init():
     create_poslist()
     #GODOT4: replace for Vector2i
-    center_index = poslist.find(Vector2(0,0))
+    centeridx = poslist.find(Vector2(0,0))
 
 # setget functions
 func get_centerpos():
