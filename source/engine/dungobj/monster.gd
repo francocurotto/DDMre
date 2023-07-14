@@ -77,7 +77,7 @@ func attack_monster(monster, guard):
     attack_cooldown_behavior.activate()
     var damage = get_damage(monster, guard)
     if damage > 0: # attacker deals damage
-        monster.damage_behavior.receiver.receive_damage(damage)
+        monster.receive_damage(damage)
     elif damage < 0: # attacker receives retailation damage
         receive_damage(-damage)
     emit_signal("attack_ends")
@@ -94,18 +94,14 @@ func receive_damage(damage):
     """
     Receive damage from an attack or ability.
     """
-    health -= damage_behavior.get_inflicted_damage(damage)
-    if health <= 0:
-        destroy()
+    damage_behavior.receive_damage(damage)
 
 func destroy():
     """
     Remove monster from play due to being destroyed by attack or ability.
     """
-    #TODO:refactor into summon
-    negate_abilities()
+    .destroy()
     player.on_monster_destroyed(self)
-    tile.empty_tile()
 
 func activate_ability(ability_dict):
     """

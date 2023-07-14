@@ -17,6 +17,10 @@ func get_ability(name):
             return ability
 
 # public function
+func destroy():
+    negate_abilities()
+    tile.empty_tile()
+
 func initialize_abilities(dungeon):
     for ability in card.abilities:
         ability.initialize(self, dungeon)
