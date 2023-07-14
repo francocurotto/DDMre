@@ -2,6 +2,8 @@ extends Node
 
 
 func _ready():
-    print(int(1.1))
-    print(int(1.5))
-    print(int(1.9))
+    var test = "SS3M9A1D4G2"
+    var regex = RegEx.new()
+    regex.compile("S|[MADTG][1-9]")
+    for result in regex.search_all(test):
+        print(result.get_string())

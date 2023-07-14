@@ -25,6 +25,7 @@ func create_dicepool(filepath=null):
         diceidx_list = Globals.read_jsonfile(filepath)
     # create dice list
     var dicepool = []
+    #GODOT4: use array map
     for diceidx in diceidx_list:
         var dice = Dice.new(dicelib_dict[str(diceidx)])
         dicepool.append(dice)
