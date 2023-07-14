@@ -9,15 +9,15 @@ func _init(ability_dict).(ability_dict):
 # public functions
 func on_dimension():
     for dungeon_monster in dungeon.monsters:
-        if dungeon_monster.NAME == TYPE:
+        if dungeon_monster.TYPE == TYPE:
             dungeon_monster.damage_behavior.add_limit(0)
 
 func on_new_summon(summon):
-    if summon.NAME == TYPE:
+    if summon.TYPE == TYPE:
         summon.damage_behavior.add_limit(0)
 
 func disable():
     .disable()
     for dungeon_monster in dungeon.monsters:
-        if dungeon_monster.NAME == TYPE:
+        if dungeon_monster.TYPE == TYPE:
             dungeon_monster.damage_behavior.remove_limit(0)

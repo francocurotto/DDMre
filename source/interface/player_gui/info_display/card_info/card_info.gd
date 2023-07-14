@@ -16,7 +16,7 @@ func set_card(card):
     set_name(card.name)
     tla_info.set_tla(card)
     set_card_stats(card)
-    if card.is_monster(): # monster info
+    if card.TYPE == "MONSTER": # monster info
         set_monster_stats(card)
     abilities_info.set_abilities(card)    
 
@@ -29,7 +29,7 @@ func set_name(name):
     cardname.text = name
 
 func set_card_stats(card):
-    if card.is_monster(): # monster info
+    if card.TYPE == "MONSTER": # monster info
         set_monster_stats(card)
     else: # item info
         set_item_stats()

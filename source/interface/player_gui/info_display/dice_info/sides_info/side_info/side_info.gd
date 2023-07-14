@@ -10,7 +10,7 @@ func _ready():
 
 # setget functions
 func set_side(side):
-    set_crest(side.crest.NAME)
+    set_crest(side.crest.TYPE)
     set_mult(side.mult)
 
 func set_crest(_crest):

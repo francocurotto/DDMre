@@ -52,7 +52,7 @@ func set_summon_name(summon, player):
         upper_name.text = summon.card.name
 
 func set_summon_stats(summon):
-    if summon.card.is_monster(): # monster info
+    if summon.is_monster(): # monster info
         set_monster_stats(summon)
     else: # item info
         set_item_stats()

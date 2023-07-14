@@ -1,5 +1,8 @@
 extends Reference
 
+# constants
+const CREST_TYPES = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
+
 static func check_dungeon_layout(dungeon_layout):
     """
     Check if dungeon layout has a valid format for dungeon initialization.
@@ -83,7 +86,7 @@ static func check_crests_dict(crests_dict):
         return false
     for crest in crests_dict:
         # check valid crest name
-        if not crest in Globals.CRESTTYPES:
+        if not crest in CREST_TYPES:
             return false
         # check correct type for crests count
         if typeof(crests_dict[crest]) != TYPE_REAL:

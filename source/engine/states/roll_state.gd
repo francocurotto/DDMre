@@ -17,8 +17,10 @@ func ROLL(cmd):
     Execute the ROLL command.
     """
     var sides = roll_dice(cmd["dice"])
-    Events.emit_signal("dice_rolled", sides)
+    player.crestpool.add_rolled_sides(sides)
     Events.emit_signal("duel_update")
+    Events.emit_signal("dice_rolled", sides)
+     
     var dim_candidates = get_dim_candidates(cmd["dice"], sides)
     if dim_candidates:
         return DimensionState.new(player, opponent, dungeon, dim_candidates)
@@ -43,7 +45,7 @@ func get_dim_candidates(indeces, sides):
     for level in range(1,5):
         var dim_candidates = []
         for i in range(sides.size()):
-            if sides[i].crest.is_summon() and sides[i].mult==level:
+            if sides[i].crest.TYPE=="SUMMON" and sides[i].mult==level:
                 dim_candidates.append(indeces[i])
         if dim_candidates.size()>=2:
             return dim_candidates

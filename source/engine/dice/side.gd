@@ -20,7 +20,14 @@ const CRESTDICT = {"S" : SummonCrest,
 var crest
 var mult
 
-func _init(sidestring):
-    crest = CRESTDICT[sidestring[0]].new()
-    #TODO: support >9 mults
-    mult = int(sidestring[1]) if len(sidestring)>1 else 1
+func _init(side_string, level):
+    # create crest
+    crest = CRESTDICT[side_string[0]].new()
+    
+    # get mult depending of the type
+    if side_string[0] == "S": # if summon crest, mult equals level
+        mult = level
+    elif len(side_string) > 1: # else mult is second char 
+        mult = int(side_string[1])
+    else: # if no char, mult is 1
+        mult = 1

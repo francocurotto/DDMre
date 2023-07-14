@@ -1,5 +1,8 @@
 extends "summon_card.gd"
 
+# constants
+const TYPE = "ITEM"
+
 # preloads
 const Item = preload("res://engine/dungobj/item.gd")
 
@@ -17,7 +20,3 @@ func summon(player):
 func activate(monster):
     for ability in abilities:
         ability.activate(monster)
-
-# is functions
-func is_item():
-    return true

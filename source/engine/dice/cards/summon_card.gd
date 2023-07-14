@@ -14,13 +14,6 @@ func _init(cardinfo):
     for ability_info in cardinfo["ABILITY"]:
         abilities.append(create_ability(ability_info))
 
-# is functions
-func is_monster():
-    return false
-
-func is_item():
-    return false
-
 # private functions
 const Tunnel = preload("res://engine/abilities/continuous_abilities/tunnel.gd")
 const Fly = preload("res://engine/abilities/continuous_abilities/fly.gd")

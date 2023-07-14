@@ -20,9 +20,6 @@ signal summon_destroyed(summon)
 func _init(_id, _dicepool):
     id = _id
     dicepool = _dicepool
-    # connections
-    for dice in dicepool:
-        dice.connect("rolled", crestpool, "add_rolled_side")
 
 # public functions
 func create_tile(y, x):

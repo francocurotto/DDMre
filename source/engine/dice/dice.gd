@@ -1,21 +1,18 @@
 extends Reference
 
 # constants
-const CRESTCHARS = ["S", "M", "A", "D", "G", "T"]
+const MONSTER_TYPES = ["DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR"]
 
 # preloads
 const MonsterCard = preload("res://engine/dice/cards/monster_card.gd")
 const ItemCard = preload("res://engine/dice/cards/item_card.gd")
-const Side = preload("res://engine/dice/crests/side.gd")
+const Side = preload("res://engine/dice/side.gd")
 
 # variables
 var level
 var card
 var sides
 var dimensioned = false
-
-# signals
-signal rolled(side)
 
 func _init(dice_dict):
     level = dice_dict["LEVEL"]
@@ -28,7 +25,6 @@ func roll():
     Roll the dice and produce a side.
     """
     var side = sides[randi() % sides.size()]
-    emit_signal("rolled", side)
     return side
 
 # private functions
@@ -36,7 +32,7 @@ func create_card(cardinfo):
     """
     Create card object with cardinfo dictionary.
     """
-    if cardinfo["TYPE"] in Globals.MONSTERTYPES:
+    if cardinfo["TYPE"] in MONSTER_TYPES:
         return MonsterCard.new(cardinfo)
     elif cardinfo["TYPE"] == "ITEM":
         return ItemCard.new(cardinfo)
@@ -46,17 +42,17 @@ func create_sides(string):
     Create a list of dice sides given a string of crests from
     dice library file.
     """
-    # first break the string into a list of side strings
-    var sidestrings = []
-    for chr in string:
-        if chr in CRESTCHARS:
-            sidestrings.append(chr)
-            if chr == "S": # add level as multiplier
-                sidestrings[-1] += str(level)
-        else: # expected to be a digit
-            sidestrings[-1] += chr
+    # prepare regex for side string separation
+    var regex = RegEx.new()
+    regex.compile("S|[MADTG][1-9]?") # regex for side detection
+    
+    # create list of side strings
+    var side_strings = []
+    for result in regex.search_all(string):
+        side_strings.append(result.get_string())
+    
     # then convert the side strings into side objects
-    var sidelist = []
-    for sidestring in sidestrings:
-        sidelist.append(Side.new(sidestring))
-    return sidelist
+    var side_list = []
+    for side_string in side_strings:
+        side_list.append(Side.new(side_string, level))
+    return side_list

@@ -1,8 +1,11 @@
 tool
 extends MarginContainer
 
+# constants
+const SUMMON_TYPES  = ["DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM"]
+
 # export variables
-export (String, "EMPTY", "BLOCK", "PATH") var tile_type = "EMPTY" setget set_tile_type
+export (String, "OPEN", "BLOCK", "PATH") var tile_type = "OPEN" setget set_tile_type
 export (int, 0, 2) var tile_player = 1 setget set_tile_player
 export (String, "NONE", "MONSTERLORD", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR",
     "ITEM") var dungobj_type = "NONE" setget set_dungobj_type
@@ -26,7 +29,7 @@ onready var tile_jump_button = $TileButtons/TileJumpButton
 onready var tile_dim_button = $TileButtons/TileDimButton
 
 # signals
-signal tile_select_button_toggled(tile_gui, pressed)
+signal tile_select_button_toggled(tile_gui, pressed) 
 signal tile_move_button_pressed(tile_gui)
 signal tile_attack_button_pressed(tile_gui)
 signal tile_jump_button_pressed(tile_gui)
@@ -54,7 +57,7 @@ func set_dungobj_icon(_dungobj_type, _dungobj_player):
         $DungobjRects/DungobjRect.texture = null
     else: # case content
         var icon = dungobj_type
-        if _dungobj_type in Globals.SUMMONTYPES: # case summon
+        if _dungobj_type in SUMMON_TYPES: # case summon
             icon = "TYPE_" + dungobj_type + "_P" + str(dungobj_player)
         $DungobjRects/DungobjRect.texture = load("res://art/icons/" + icon + ".png")
 

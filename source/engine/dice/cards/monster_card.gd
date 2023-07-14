@@ -1,7 +1,10 @@
 extends "summon_card.gd"
 
+# constants
+const TYPE = "MONSTER"
+
 # preloads
-const summondict = {
+const summon_dict = {
     "DRAGON"      : preload("res://engine/dungobj/dragon.gd"),
     "SPELLCASTER" : preload("res://engine/dungobj/spellcaster.gd"),
     "UNDEAD"      : preload("res://engine/dungobj/undead.gd"),
@@ -23,10 +26,6 @@ func summon(player):
     """
     Return a summon monster from card.
     """
-    var monster = summondict[type].new(self, player)
+    var monster = summon_dict[type].new(self, player)
     player.monsters.append(monster)
     return monster
-
-# is functions
-func is_monster():
-    return true

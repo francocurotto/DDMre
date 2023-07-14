@@ -14,7 +14,7 @@ func on_next_turn(player, _turn):
         effect_flag = not effect_flag
         # apply effect if effect flag is on, remove effect if off
         for dungeon_monster in dungeon.monsters:
-            if dungeon_monster.NAME == TYPE:
+            if dungeon_monster.TYPE == TYPE:
                 if effect_flag:
                     dungeon_monster.max_move_behavior.add_limit(0)
                 else:
@@ -22,7 +22,7 @@ func on_next_turn(player, _turn):
 
 func on_new_summon(summon):
     # add effect if effect flag is on
-    if summon.NAME == TYPE:
+    if summon.TYPE == TYPE:
         if effect_flag:
             summon.max_move_behavior.add_limit(0)
 
@@ -30,6 +30,6 @@ func disable():
     .disable()
     # remove effect if effect flag is on
     for dungeon_monster in dungeon.monsters:
-        if dungeon_monster.NAME == TYPE:
+        if dungeon_monster.TYPE == TYPE:
             if effect_flag:
                 dungeon_monster.max_move_behavior.remove_limit(0)

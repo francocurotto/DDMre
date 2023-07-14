@@ -13,15 +13,15 @@ func _init(ability_dict).(ability_dict):
 # public functions
 func on_dimension():
     for dungeon_monster in dungeon.monsters:
-        if dungeon_monster.NAME == TYPE:
+        if dungeon_monster.TYPE == TYPE:
             dungeon_monster.buff_attr(ATTR.to_lower(), AMOUNT)
 
 func on_new_summon(summon):
-    if summon.NAME == TYPE:
+    if summon.TYPE == TYPE:
         summon.buff_attr(ATTR.to_lower(), AMOUNT)
 
 func disable():
     .disable()
     for dungeon_monster in dungeon.monsters:
-        if dungeon_monster.NAME == TYPE:
+        if dungeon_monster.TYPE == TYPE:
             dungeon_monster.debuff_attr(ATTR.to_lower(), AMOUNT)

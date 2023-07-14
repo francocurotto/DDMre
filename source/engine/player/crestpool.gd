@@ -28,12 +28,13 @@ func get_crest(crest):
     return get(crest.to_lower())
 
 # public functions
-func add_rolled_side(side):
+func add_rolled_sides(sides):
     """
-    Add rolled side to crest pool. If rolled side is summon, skip the addition.
+    Add rolled sides to crest pool. If rolled side is summon, skip the addition.
     """
-    if side.crest.NAME != "SUMMON":
-        add_crests(side.crest.NAME, side.mult)
+    for side in sides:
+        if side.crest.TYPE != "SUMMON":
+            add_crests(side.crest.TYPE, side.mult)
     
 func add_crests(crest, amount):
     """

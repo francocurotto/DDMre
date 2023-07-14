@@ -17,7 +17,7 @@ func set_dice(dice):
 
 # private functions
 func set_card_stats(card):
-    if card.is_monster(): # monster info
+    if card.TYPE == "MONSTER": # monster info
         set_monster_stats(card)
     else: # item info
         set_item_stats()

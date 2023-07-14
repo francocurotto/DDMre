@@ -1,4 +1,4 @@
-extends "crest.gd"
+extends Reference
 
 # constants
-const NAME = "ATTACK"
+const TYPE = "ATTACK"

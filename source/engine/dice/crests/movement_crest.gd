@@ -1,4 +1,4 @@
-extends "crest.gd"
+extends Reference
 
 # constants
-const NAME = "MOVEMENT"
+const TYPE = "MOVEMENT"
