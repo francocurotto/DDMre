@@ -1,5 +1,7 @@
-extends Node
+extends "test_parent.gd"
 
+func _init():
+    print("child")
 
 func _ready():
     var test = "SS3M9AD4G2"
