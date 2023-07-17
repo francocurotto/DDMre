@@ -15,7 +15,7 @@ func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     pass
 
 # public functions
-func ROLL(cmd):
+func run_ROLL(cmd):
     """
     Execute the ROLL command.
     """
@@ -46,8 +46,7 @@ func check_syntax_ROLL(cmd):
     # check dice are diceidx
     #GODOT4: use array any
     for diceidx in cmd["dice"]:
-        print(diceidx)
-        if not Checks.check_diceidx_num(diceidx):
+        if not Checks.check_diceidx_int(diceidx):
             return false
     # all checks passed
     return true
