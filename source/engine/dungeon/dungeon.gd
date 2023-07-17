@@ -146,7 +146,7 @@ func place_summon(player, pos, diceidx):
     Summon card with index diceidx and place it in dungeon.
     """
     var summon = player.summon_card(diceidx)
-    get_tile(pos).set_content(summon)
+    get_tile(pos).content = summon
     summon.initialize_abilities(self)
     return summon
 

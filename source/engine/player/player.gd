@@ -35,7 +35,7 @@ func create_ml_tile(y, x):
     position (y,x).
     """
     var tile = create_tile(y, x)
-    tile.set_content(monsterlord)
+    tile.content = monsterlord
     return tile
 
 func summon_card(poolidx):

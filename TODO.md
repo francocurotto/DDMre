@@ -1,6 +1,6 @@
 ### SOLID
 - refactor states
-    - fix place summon, place vortex, place path to react accordingly to invalid place
+    - use get_vortex, set_vortex
     - make no dicepool create random dicepool, make no dungeon create default dungeon
 
 - refactor abilities

@@ -13,7 +13,7 @@ func get_content():
 
 # public functions
 func empty_tile():
-    content = Noneobj.new()
+    self.content = Noneobj.new()
 
 func move_content_from(original_tile):
     """
@@ -24,7 +24,7 @@ func move_content_from(original_tile):
     if self == original_tile:
         return
     # set tile content with content from original tile
-    set_content(original_tile.content)
+    self.content = original_tile.content
     # set previous tile (for TIME MACHINE ability)
     content.previous_tile = original_tile
     # empty original tile
