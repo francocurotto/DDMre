@@ -15,4 +15,11 @@ func update(cmd):
     """
     Update state given command cmd.
     """
-    return call(cmd["name"], cmd)
+    # check for correct syntax in command
+    if call("check_syntax_" + cmd["name"], cmd):
+        return self
+    # check for correct context in command
+    elif call("check_context_" + cmd["name"], cmd):
+        return self
+    # run command if checks passed
+    return call("run_" + cmd["name"], cmd)

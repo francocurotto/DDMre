@@ -21,7 +21,7 @@ static func check_dungeon_layout(dungeon_layout):
         # check correct length (dungeon width)
         if len(row) != Globals.DUNGEON_WIDTH:
             return false
-    # all tests passed
+    # all checks passed
     return true
 
 static func check_summon_dict(summon_dict):
@@ -39,7 +39,7 @@ static func check_summon_dict(summon_dict):
     var diceidx_ok = check_diceidx_num(summon_dict["DICE"])
     if not pos_ok or not diceidx_ok:
         return false
-    # all tests passed
+    # all checks passed
     return true
 
 static func check_pos_string(pos_str):
@@ -57,24 +57,23 @@ static func check_pos_string(pos_str):
         return false
     if int(pos_str.substr(1)) < 1 or int(pos_str.substr(1)) > 19:
         return false
-    # all test passed
+    # all checks passed
     return true
 
 static func check_diceidx_num(diceidx_num):
     """
-    Check if number is a valid dice index in 1-indexing (is expected to be 
-    transformed to 0-indexing by the engine).
+    Check if number is a valid dice index in 0-indexing.
     """
     # check correct type
-    if typeof(diceidx_num) != TYPE_REAL:
+    if typeof(diceidx_num)!=TYPE_REAL or typeof(diceidx_num)!=TYPE_INT:
         return false
     # check is int
     if diceidx_num-int(diceidx_num) != 0:
         return false
     # check correct range
-    if not diceidx_num in range(1,16):
+    if not diceidx_num in range(15):
         return false
-    # all test passed
+    # all checks passed
     return true
 
 static func check_crests_dict(crests_dict):
@@ -94,7 +93,7 @@ static func check_crests_dict(crests_dict):
         # check crest count is int
         if crests_dict[crest]-int(crests_dict[crest]) != 0:
             return false
-    # all tests passed
+    # all checks passed
     return true
         
 static func check_hearts_int(hearts_num):
@@ -110,5 +109,16 @@ static func check_hearts_int(hearts_num):
     # check correct value
     if hearts_num < 1 or hearts_num > 3:
         return false
-    # all tests passed
+    # all checks passed
     return true
+
+static func check_repeated_values(array):
+    """
+    Check if array has repeated values
+    """
+    var values_list = []
+    for value in array:
+        if value in values_list:
+            return true
+        values_list.append(value)
+    return false

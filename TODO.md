@@ -1,4 +1,10 @@
 ### SOLID
+- dungeon initialization changed to 0-indexing
+
+- refactor states
+    - standarize cmd syntax and context checks
+    - fix place summon, place vortex, place path to react accordingly to invalid place
+    - make no dicepool create random dicepool, make no dungeon create default dungeon
 
 - refactor abilities
 
@@ -15,11 +21,6 @@
 - refactor monster
     - activate_ability
     - activate_reply_ability
-
-- refactor states
-    - standarize cmd syntax and context checks
-    - fix place summon, place vortex, place path to react accordingly to invalid place
-    - make no dicepool create random dicepool, make no dungeon create default dungeon
 
 # state
 # abilities

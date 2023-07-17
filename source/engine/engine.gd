@@ -5,7 +5,7 @@ const Dicelib = preload("res://engine/dice/dicelib.gd")
 const Player = preload("res://engine/player/player.gd")
 const Dungeon = preload("res://engine/dungeon/dungeon.gd")
 const RollState = preload("res://engine/states/roll_state.gd")
-const InitChecks = preload("res://engine/init_checks.gd")
+const Checks = preload("res://engine/checks.gd")
 
 # variables
 var dicelib
@@ -67,7 +67,7 @@ func set_init_dungeon(dungeon, dungeon_layout):
     """
     Set initial dungeon layout.
     """
-    if InitChecks.check_dungeon_layout(dungeon_layout):
+    if Checks.check_dungeon_layout(dungeon_layout):
         dungeon.set_layout(player1, player2, dungeon_layout)
 
 func set_init_summons(player, dungeon, summon_list):
@@ -75,9 +75,9 @@ func set_init_summons(player, dungeon, summon_list):
     Set the initial summons in the dungeon.
     """
     for summon_dict in summon_list:
-        if InitChecks.check_summon_dict(summon_dict):
+        if Checks.check_summon_dict(summon_dict):
             var pos = str_to_pos(summon_dict["POS"])
-            var diceidx = summon_dict["DICE"] - 1 # convert to zero indexing
+            var diceidx = summon_dict["DICE"]
             dungeon.place_summon(player, pos, diceidx)
     
 func set_init_vortex(dungeon, vortex_list):
@@ -85,7 +85,7 @@ func set_init_vortex(dungeon, vortex_list):
     Set the initial vorteces in the dungeon.
     """
     for vortex in vortex_list:
-        if InitChecks.check_pos_string(vortex):
+        if Checks.check_pos_string(vortex):
             var pos = str_to_pos(vortex)
             dungeon.place_vortex(pos)
 
@@ -93,7 +93,7 @@ func set_init_crests(player, crests_dict):
     """
     Set the initial crests for player.
     """
-    if InitChecks.check_crests_dict(crests_dict):
+    if Checks.check_crests_dict(crests_dict):
         for crest in crests_dict:
             player.crestpool.set_crest(crest, crests_dict[crest])
 
@@ -101,7 +101,7 @@ func set_init_hearts(player, hearts):
     """
     Set initial hearts for player.
     """
-    if InitChecks.check_hearts_int(hearts):
+    if Checks.check_hearts_int(hearts):
         player.monsterlord.set_hearts(hearts)
 
 func str_to_pos(string):
