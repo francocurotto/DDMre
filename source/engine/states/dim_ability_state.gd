@@ -4,11 +4,11 @@ extends "state.gd"
 const NAME = "DIMABILITY"
 
 # variables
-var summon
+var monster
 var DungeonState = load("engine/states/dungeon_state.gd")
 
-func _init(_player, _opponent, _dungeon, _summon).(_player, _opponent, _dungeon):
-    summon = _summon
+func _init(_player, _opponent, _dungeon, _monster).(_player, _opponent, _dungeon):
+    monster = _monster
 
 func SKIP(_cmd):
     """
@@ -22,7 +22,7 @@ func ABILITY(cmd):
     """
     # get data
     var activate_dict = cmd["ability_dict"]
-    for ability in summon.card.abilities:
+    for ability in monster.card.abilities:
         if ability.name == activate_dict["name"]:
             ability.activate(activate_dict)
     Events.emit_signal("duel_update")

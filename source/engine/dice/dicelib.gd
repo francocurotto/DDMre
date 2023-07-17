@@ -10,6 +10,7 @@ var rng
 func _init():
     dicelib_dict = Globals.read_jsonfile(Globals.LIBPATH)
     rng = RandomNumberGenerator.new()
+    rng.randomize()
 
 # public functions
 func create_dicepool(filepath=null):

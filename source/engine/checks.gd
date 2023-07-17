@@ -55,7 +55,7 @@ static func check_pos_string(pos_str):
     # check correct elements in string
     if not pos_str[0] in "abcdefghijklm":
         return false
-    if int(pos_str.substr(1)) < 1 or int(pos_str.substr(1)) > 19:
+    if int(pos_str.substr(1)) < 1 or int(pos_str.substr(1)) > Globals.DUNGEON_HEIGHT:
         return false
     # all checks passed
     return true
@@ -68,20 +68,7 @@ static func check_diceidx_float(diceidx):
     if typeof(diceidx) != TYPE_REAL:
         return false
     # check correct range
-    if not diceidx in range(1,16):
-        return false
-    # all checks passed
-    return true
-
-static func check_diceidx_int(diceidx):
-    """
-    Check if int is a valid dice index in 0-indexing.
-    """
-    # check correct type
-    if typeof(diceidx) != TYPE_INT:
-        return false
-    # check correct range
-    if not diceidx in range(15):
+    if not diceidx in range(1,Globals.DICEPOOL_SIZE+1):
         return false
     # all checks passed
     return true
@@ -121,14 +108,3 @@ static func check_hearts_int(hearts_num):
         return false
     # all checks passed
     return true
-
-static func check_repeated_values(array):
-    """
-    Check if array has repeated values
-    """
-    var values_list = []
-    for value in array:
-        if value in values_list:
-            return true
-        values_list.append(value)
-    return false

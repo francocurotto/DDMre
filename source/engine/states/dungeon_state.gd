@@ -22,25 +22,21 @@ func MOVE(cmd):
     var tile_origin = dungeon.get_tile(pos_origin)
     var tile_dest = dungeon.get_tile(pos_dest)
     var monster = tile_origin.content
+    var dest_content = tile_dest.content
 
-    # get path for movement
-    var path = dungeon.get_move_path(tile_origin.content, tile_dest)
-    if path.empty(): # case not valid path found
-        print("No path to destination.")
-    # case destination is not reachable (e.g. there is a monster)
-    elif not tile_dest.is_reachable():
-        print("Destination cannot be reached.")
-    # case exceeded max movement per turn (due to ability)
-    elif monster.max_move < len(path)-1:
-        print("Movement exceed monster max movement per turn")
-    # case missing movement crests
-    #elif monster.get_move_cost(path) > player.crestpool.movement:
-    #    print("Not enough MOVEMENT crests.")
     # perform movement
-    else: # case valid movement
-        var state = perform_movement(tile_origin, tile_dest, path)
-        Events.emit_signal("duel_update")
-        return state
+    var path = dungeon.get_move_path(monster, tile_dest)
+    player.crestpool.remove_movement(dungeon.get_move_cost(path, monster))
+    tile_dest.move_content_from(tile_origin)
+    monster.max_move_behavior.update_turn_move_count(len(path)-1)
+    
+    # check for item ability effect
+    if dest_content.has_item_state_ability():
+        return ItemAbilityState.new(player, opponent, dungeon, dest_content, monster)
+    elif dest_content.is_item():
+        dest_content.activate(monster)
+    
+    Events.emit_signal("duel_update")
     return self
 
 func ATTACK(cmd):
@@ -51,44 +47,40 @@ func ATTACK(cmd):
     var pos_origin = Vector2(cmd["origin"][0], cmd["origin"][1])
     var pos_dest = Vector2(cmd["dest"][0], cmd["dest"][1])
     var ability_dict = cmd.get("ability_dict")
-    var tile_origin = dungeon.get_tile(pos_origin)
-    var tile_dest = dungeon.get_tile(pos_dest)
-    var monster = tile_origin.content
-    var target = tile_dest.content
+    var monster = dungeon.get_tile(pos_origin).content
+    var target = dungeon.get_tile(pos_dest).content
 
-    # check enough ATTACK crests
-    if  player.crestpool.attack < monster.attack_cost:
-        print("Not enough ATTACK crests.")
-    # check if monster already in attack cooldown
-    elif not monster.attack_cooldown_behavior.can_attack():
-        print("Monster in attack cooldown.")
-    # check valid attack
-    #elif not pos_dest in dungeon.get_attack_poss(pos_origin):
-    #    print("Target out of reach.")
-    # the attack is valid
-    else:
-        # pay the cost of attack
-        player.crestpool.remove_attack(monster.attack_cost)
-        if target.is_monster():
-            # activate attack ability if exists
-            if ability_dict:
-                monster.activate_ability(ability_dict)
-            return ReplyState.new(opponent, player, dungeon, monster, target)
-        elif target.is_monster_lord():
-            monster.attack_monster_lord(target)
-        Events.emit_signal("duel_update")
+    # pay the cost of attack
+    player.crestpool.remove_attack(monster.attack_cost)
+    
+    # case attack monster
+    if target.is_monster():
+        # activate attack ability if exists
+        if ability_dict:
+            monster.activate_ability(ability_dict)
+        return ReplyState.new(opponent, player, dungeon, monster, target)
+    
+    # case attack monster lord
+    elif target.is_monster_lord():
+        monster.attack_monster_lord(target)
+    
+    Events.emit_signal("duel_update")
     return self
 
 func ABILITY(cmd):
     """
     Excecute the ABILITY command.
     """
+    # get data
+    #TODO: check get tile
     var monster = dungeon.get_tile(cmd["pos"]).content
     var ability_dict = cmd["ability_dict"]
-    for ability in monster.card.abilities:
-        if ability.name == ability_dict["name"]:
-            ability.activate(ability_dict)
-            monster.ability_cooldown = true
+    
+    # activate ablity
+    var ability = monster.get_ability(ability_dict["name"])
+    ability.activate(ability_dict)
+    monster.ability_cooldown = true
+    
     Events.emit_signal("duel_update")
     return self
 
@@ -120,33 +112,9 @@ func ENDTURN(_cmd):
     """
     Execute the ENDTURN command.
     """
-    # reset player monster cooldowns
+    # reset player monster cooldowns and counts
     for monster in player.monsters:
         monster.attack_cooldown_behavior.reset()
         monster.ability_cooldown = false
-    # reset monster turn move count
-    for monster in player.monsters:
         monster.max_move_behavior.reset_turn_move_count()
     return RollState.new(opponent, player, dungeon)
-
-# private functions
-func perform_movement(tile1, tile2, path):
-    """
-    Move content from tile1 to tile2 and pay movement crest.
-    """
-    # get monster
-    var monster = tile1.content
-    # check if item is activated
-    var dest_content = tile2.content
-    # make the movement
-    tile2.move_content_from(tile1)
-    monster.max_move_behavior.update_turn_move_count(len(path)-1)
-    # pay the cost of the movement
-    player.crestpool.remove_movement(dungeon.get_move_cost(path, monster))
-    # activate item if necessary
-    if dest_content.is_item():
-        if dest_content.card.abilities[0].is_item_state():
-            return ItemAbilityState.new(player, opponent, dungeon, dest_content, monster)
-        else:
-            dest_content.activate(monster)
-    return self

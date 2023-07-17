@@ -15,11 +15,11 @@ func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     pass
 
 # public functions
-func run_ROLL(cmd):
+func ROLL(cmd):
     """
     Execute the ROLL command.
     """
-    # effects of dice roll
+    # roll dice
     var sides = roll_dice(cmd["dice"])
     player.crestpool.add_rolled_sides(sides)
     Events.emit_signal("duel_update")
@@ -33,31 +33,6 @@ func run_ROLL(cmd):
         return DungeonState.new(player, opponent, dungeon)
 
 # private functions
-func check_syntax_ROLL(cmd):
-    # check dice in command dict
-    if not "dice" in cmd:
-        return false
-    # check if 3 dice in roll
-    elif len(cmd["dice"]) != 3:
-        return false
-    # check all rolled dice are different
-    elif Checks.check_repeated_values(cmd["dice"]):
-        return false
-    # check dice are diceidx
-    #GODOT4: use array any
-    for diceidx in cmd["dice"]:
-        if not Checks.check_diceidx_int(diceidx):
-            return false
-    # all checks passed
-    return true
-
-func check_context_ROLL(cmd):
-    #GODOT4 use array any
-    for diceidx in cmd["dice"]:
-        if player.dicepool[diceidx].dimensioned:
-            return false
-    return true
-
 func roll_dice(dice_indeces):
     """
     Roll dice given dice indeces.

@@ -29,11 +29,6 @@ func negate_abilities():
     for ability in card.abilities:
         ability.disable()
 
-func get_dim_state_ability():
-    for ability in card.abilities:
-        if ability.is_dim_state():
-            return ability
-
 # is functions
 func is_summon():
     return true
@@ -51,3 +46,10 @@ func has_active_standing_ability():
         if ability.is_standing() and not ability.is_negated():
             return true
     return false 
+
+func has_item_state_ability():
+    #GODOT4: use array any
+    for ability in card.abilities:
+        if ability.is_item_state():
+            return true
+    return false

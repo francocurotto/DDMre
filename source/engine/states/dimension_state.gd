@@ -3,6 +3,9 @@ extends "state.gd"
 # constants
 const NAME = "DIMENSION"
 
+# preloads
+const Checks = preload("res://engine/checks.gd")
+
 # variables
 var dim_candidates
 var DungeonState = load("engine/states/dungeon_state.gd")
@@ -12,7 +15,8 @@ var NetCreator = load("res://engine/states/net_creator.gd")
 func _init(_player, _opponent, _dungeon, _dim_candidates).(_player, _opponent, _dungeon):
     dim_candidates = _dim_candidates
 
-func SKIP(_cmd):
+# public functions
+func run_SKIP(_cmd):
     """
     Execute the SKIP command.
     """
@@ -31,13 +35,12 @@ func DIM(cmd):
     # create net
     var net = NetCreator.create_net(netname, pos, trans_list)
 
-    # verify for valid dimension
-    if dungeon.can_dimension(net, player): # do dimension
-        var summon = dungeon.dimension(player, net, diceidx)
-        Events.emit_signal("duel_update")
-        if summon.get_dim_state_ability():
-            return DimAbilityState.new(player, opponent, dungeon, summon)
-        else:
-            return DungeonState.new(player, opponent, dungeon)
-    else: # invalid dimension, so nothing
-        return self
+    # dimension
+    var summon = dungeon.dimension(player, net, diceidx)
+    Events.emit_signal("duel_update")
+    
+    # dice to go to dungeon or dim ability state
+    if summon.has_dim_state_ability():
+        return DimAbilityState.new(player, opponent, dungeon, summon)
+    else:
+        return DungeonState.new(player, opponent, dungeon)
