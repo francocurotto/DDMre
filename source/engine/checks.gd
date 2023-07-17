@@ -36,7 +36,7 @@ static func check_summon_dict(summon_dict):
         return false
     # lastly check for the position and dice independently
     var pos_ok = check_pos_string(summon_dict["POS"])
-    var diceidx_ok = check_diceidx_num(summon_dict["DICE"])
+    var diceidx_ok = check_diceidx(summon_dict["DICE"])
     if not pos_ok or not diceidx_ok:
         return false
     # all checks passed
@@ -60,15 +60,14 @@ static func check_pos_string(pos_str):
     # all checks passed
     return true
 
-static func check_diceidx_num(diceidx_num):
+static func check_diceidx(diceidx):
     """
     Check if number is a valid dice index in 0-indexing.
     """
     # check correct type
-    if typeof(diceidx_num)!=TYPE_REAL or typeof(diceidx_num)!=TYPE_INT:
-        return false
-    # check is int
-    if diceidx_num-int(diceidx_num) != 0:
+    var is_int   = typeof(diceidx) == TYPE_REAL
+    var is_float = typeof(diceidx) == TYPE_IMT
+    if is_int or is_float:
         return false
     # check correct range
     if not diceidx_num in range(15):
