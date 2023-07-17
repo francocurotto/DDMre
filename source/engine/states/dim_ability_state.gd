@@ -22,8 +22,10 @@ func ABILITY(cmd):
     """
     # get data
     var activate_dict = cmd["ability_dict"]
-    for ability in monster.card.abilities:
-        if ability.name == activate_dict["name"]:
-            ability.activate(activate_dict)
+    var ability = monster.get_ability(ability_dict["name"])
+    
+    # activate ability
+    ability.activate(activate_dict)
+    
     Events.emit_signal("duel_update")
     return DungeonState.new(player, opponent, dungeon)

@@ -17,10 +17,8 @@ func MOVE(cmd):
     Excecute the MOVE command.
     """
     # get data
-    var pos_origin = Vector2(cmd["origin"][0], cmd["origin"][1])
-    var pos_dest = Vector2(cmd["dest"][0], cmd["dest"][1])
-    var tile_origin = dungeon.get_tile(pos_origin)
-    var tile_dest = dungeon.get_tile(pos_dest)
+    var tile_origin = dungeon.get_tile(cmd["origin"])
+    var tile_dest = dungeon.get_tile(cmd["dest"])
     var monster = tile_origin.content
     var dest_content = tile_dest.content
 
@@ -44,11 +42,9 @@ func ATTACK(cmd):
     Excecute the ATTACK command.
     """
     # get data
-    var pos_origin = Vector2(cmd["origin"][0], cmd["origin"][1])
-    var pos_dest = Vector2(cmd["dest"][0], cmd["dest"][1])
+    var monster = dungeon.get_tile(cmd["origin"]).content
+    var target = dungeon.get_tile(cmd["dest"]).content
     var ability_dict = cmd.get("ability_dict")
-    var monster = dungeon.get_tile(pos_origin).content
-    var target = dungeon.get_tile(pos_dest).content
 
     # pay the cost of attack
     player.crestpool.remove_attack(monster.attack_cost)
@@ -72,12 +68,11 @@ func ABILITY(cmd):
     Excecute the ABILITY command.
     """
     # get data
-    #TODO: check get tile
     var monster = dungeon.get_tile(cmd["pos"]).content
     var ability_dict = cmd["ability_dict"]
+    var ability = monster.get_ability(ability_dict["name"])
     
     # activate ablity
-    var ability = monster.get_ability(ability_dict["name"])
     ability.activate(ability_dict)
     monster.ability_cooldown = true
     
@@ -88,24 +83,13 @@ func JUMP(cmd):
     """
     Excecute JUMP command.
     """
-    var pos_origin = Vector2(cmd["origin"][0], cmd["origin"][1])
-    var pos_dest = Vector2(cmd["dest"][0], cmd["dest"][1])
-    var tile_origin = dungeon.get_tile(pos_origin)
-    var tile_dest = dungeon.get_tile(pos_dest)
+    # get data
+    var tile_origin = dungeon.get_tile(cmd["origin"])
+    var tile_dest = dungeon.get_tile(cmd["dest"])
     
-    # check origin correct
-    if not tile_origin.vortex:
-        print("Origin tile is not a vortex")
-    elif not tile_origin.content.is_monster() or not tile_origin.content.player == player:
-        print("Not appropiate monster at origin")
-    # check dest correct
-    elif not tile_dest.vortex:
-        print("Dest tile is not a vortex")
-    elif not tile_dest.is_empty():
-        print("Dest tile is not a occupied")
-    else: # case valid jump
-        tile_dest.move_content_from(tile_origin)
-        Events.emit_signal("duel_update")
+    # jump
+    tile_dest.move_content_from(tile_origin)
+    Events.emit_signal("duel_update")
     return self
 
 func ENDTURN(_cmd):
