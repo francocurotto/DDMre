@@ -1,6 +1,5 @@
 ### SOLID
 - refactor states
-    - use get_vortex, set_vortex
     - make no dicepool create random dicepool, make no dungeon create default dungeon
 
 - refactor abilities

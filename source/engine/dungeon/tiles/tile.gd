@@ -5,7 +5,7 @@ const Noneobj = preload("res://engine/dungobj/noneobj.gd")
 
 # variables
 var pos
-var vortex = false
+var vortex = false setget set_vortex, get_vortex
 var content setget set_content, get_content
 var playerid setget , get_playerid
 
@@ -15,6 +15,12 @@ func _init(y, x):
     content = Noneobj.new()
 
 # setget functions
+func set_vortex(_bool):
+    pass
+
+func get_vortex():
+    return false
+
 func set_content(_dungobj):
     pass
 

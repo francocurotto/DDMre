@@ -4,6 +4,12 @@ func _init(_y, _x).(_y, _x):
     pass
 
 # setget functions
+func set_vortex(_bool):
+    vortex = _bool
+
+func get_vortex():
+    return vortex
+
 func set_content(dungobj):
     content = dungobj
     content.tile = self
