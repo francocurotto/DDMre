@@ -47,6 +47,13 @@ func has_active_standing_ability():
             return true
     return false 
 
+func has_dim_state_ability():
+    #GODOT4: use array any
+    for ability in card.abilities:
+        if ability.is_dim_state():
+            return true
+    return false
+
 func has_item_state_ability():
     #GODOT4: use array any
     for ability in card.abilities:

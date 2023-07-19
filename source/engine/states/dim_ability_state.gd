@@ -22,7 +22,7 @@ func ABILITY(cmd):
     """
     # get data
     var activate_dict = cmd["ability_dict"]
-    var ability = monster.get_ability(ability_dict["name"])
+    var ability = monster.get_ability(activate_dict["name"])
     
     # activate ability
     ability.activate(activate_dict)

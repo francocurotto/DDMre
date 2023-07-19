@@ -51,9 +51,10 @@ func ATTACK(cmd):
     
     # case attack monster
     if target.is_monster():
-        # activate attack ability if exists
+        # activate attack ability if in command
         if ability_dict:
-            monster.activate_ability(ability_dict)
+            var ability = monster.get_ability(ability_dict["name"])
+            ability.activate(ability_dict)
         return ReplyState.new(opponent, player, dungeon, monster, target)
     
     # case attack monster lord

@@ -1,5 +1,5 @@
 ### SOLID
-- refactor abilities
+- fix ability_dict/activate_dict inconsistency
 
 - refactor summon card
     - create_ability
@@ -7,15 +7,11 @@
 - refactor summon
     - initialize_abilities
     - negate_abilities
-    - get_dim_state_ability
     - has_active_ability
     - has_active_standing_ability
 
-- refactor monster
-    - activate_ability
-    - activate_reply_ability
-
 # abilities
+- refactor abilities
 - bug: when negate ability, if negated monster is killed, the ability is disabled again
 - potential bug: negating a dim ability and reenabling it will reactivate the ability (maybe cannot be triggered)
 

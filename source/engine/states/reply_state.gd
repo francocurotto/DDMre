@@ -20,9 +20,10 @@ func GUARD(cmd):
     # get data
     var ability_dict = cmd.get("ability_dict")
     
-    # activate attack ability if exists
+    # activate attack ability if in command
     if ability_dict:
-        attacked.activate_reply_ability(attacker, ability_dict)
+        var ability = attacked.get_ability(ability_dict["name"])
+        ability.activate(attacker, ability_dict)
 
     # guard attack
     player.crestpool.remove_defense(1)
