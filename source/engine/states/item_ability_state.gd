@@ -27,7 +27,7 @@ func ABILITY(cmddict):
     var ability = item.get_ability(ability_dict["name"])
 
     # activate ability
-    ability.activate(monster, activate_dict)
+    ability.activate(monster, ability_dict)
     
     Events.emit_signal("duel_update")
     return DungeonState.new(player, opponent, dungeon)
