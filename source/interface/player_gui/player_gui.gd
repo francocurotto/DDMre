@@ -105,7 +105,7 @@ func set_roll(sides):
 # signals callbacks
 func input_roll_cmd():
     var indeces = dicepool_gui.get_roll_indeces()
-    engine.update({"name":"ROLL", "dice":indeces})
+    engine.update({"cmd":"ROLL", "dice":indeces})
 
 func input_dim_cmd():
     dicepool_gui.release_roll()
@@ -114,37 +114,37 @@ func input_dim_cmd():
     var net = netdata["netname"]
     var pos = netdata["pos"]
     var trans = netdata["trans_list"]
-    engine.update({"name":"DIM", "dice":dimdice, "net":net, "pos":pos, "trans":trans})
+    engine.update({"cmd":"DIM", "dice":dimdice, "net":net, "pos":pos, "trans":trans})
 
 func input_skip_cmd():
-    engine.update({"name":"SKIP"})
+    engine.update({"cmd":"SKIP"})
 
 func input_move_cmd(pos1, pos2):
     dungeon_window.reset_to_dungeon()
-    engine.update({"name":"MOVE", "origin":pos1, "dest":pos2})
+    engine.update({"cmd":"MOVE", "origin":pos1, "dest":pos2})
 
 func input_attack_cmd(pos1, pos2, ability_dict):
     dungeon_window.reset_to_dungeon()
-    engine.update({"name":"ATTACK", "origin":pos1, "dest":pos2, "ability_dict":ability_dict})
+    engine.update({"cmd":"ATTACK", "origin":pos1, "dest":pos2, "ability":ability_dict})
 
 func input_reply_cmd(cmd, ability_dict):
     dungeon_window.reset_to_dungeon()
-    engine.update({"name":cmd, "ability_dict":ability_dict})
+    engine.update({"cmd":cmd, "ability":ability_dict})
 
 func input_standing_ability_cmd(pos, ability_dict):
     dungeon_window.reset_to_dungeon()
-    engine.update({"name":"ABILITY", "pos":pos, "ability_dict":ability_dict})
+    engine.update({"cmd":"CAST", "pos":pos, "ability":ability_dict})
 
 func input_state_ability_cmd(ability_dict):
     dungeon_window.reset_to_dungeon()
-    engine.update({"name":"ABILITY", "ability_dict":ability_dict})
+    engine.update({"cmd":"CAST", "ability":ability_dict})
 
 func input_jump_cmd(pos1, pos2):
     dungeon_window.reset_to_dungeon()
-    engine.update({"name":"JUMP", "origin":pos1, "dest":pos2})
+    engine.update({"cmd":"JUMP", "origin":pos1, "dest":pos2})
 
 func input_endturn_cmd():
-    engine.update({"name":"ENDTURN"})
+    engine.update({"cmd":"ENDTURN"})
 
 func on_state_update_roll():
     switch_to_dicepool_window()

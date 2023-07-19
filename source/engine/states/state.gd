@@ -11,9 +11,9 @@ func _init(_player, _opponent, _dungeon):
     dungeon = _dungeon
 
 # public functions
-func update(cmd):
+func update(cmddict):
     """
-    Update state given command cmd.
+    Update state given command dict cmddict.
     """
     # run command if checks passed
-    return call(cmd["name"], cmd)
+    return call(cmddict["cmd"], cmddict)

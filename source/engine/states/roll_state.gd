@@ -15,18 +15,18 @@ func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     pass
 
 # public functions
-func ROLL(cmd):
+func ROLL(cmddict):
     """
     Execute the ROLL command.
     """
     # roll dice
-    var sides = roll_dice(cmd["dice"])
+    var sides = roll_dice(cmddict["dice"])
     player.crestpool.add_rolled_sides(sides)
     Events.emit_signal("duel_update")
     Events.emit_signal("dice_rolled", sides)
      
     # decide to go to dungeon or dimension state
-    var dim_candidates = get_dim_candidates(cmd["dice"], sides)
+    var dim_candidates = get_dim_candidates(cmddict["dice"], sides)
     if dim_candidates:
         return DimensionState.new(player, opponent, dungeon, dim_candidates)
     else:

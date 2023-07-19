@@ -16,21 +16,21 @@ func _init(_player, _opponent, _dungeon, _dim_candidates).(_player, _opponent, _
     dim_candidates = _dim_candidates
 
 # public functions
-func run_SKIP(_cmd):
+func SKIP(_cmddict):
     """
     Execute the SKIP command.
     """
     return DungeonState.new(player, opponent, dungeon)
 
-func DIM(cmd):
+func DIM(cmddict):
     """
     Excecute the DIM command.
     """
     # get data
-    var diceidx = cmd["dice"]
-    var netname = cmd["net"]
-    var pos = cmd["pos"]
-    var trans_list = cmd["trans"]
+    var diceidx = cmddict["dice"]
+    var netname = cmddict["net"]
+    var pos = cmddict["pos"]
+    var trans_list = cmddict["trans"]
 
     # create net
     var net = NetCreator.create_net(netname, pos, trans_list)

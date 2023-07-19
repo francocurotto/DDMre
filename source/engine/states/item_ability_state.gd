@@ -12,19 +12,19 @@ func _init(_player, _opponent, _dungeon, _item, _monster).(_player, _opponent, _
     item = _item
     monster = _monster
 
-func SKIP(_cmd):
+func SKIP(_cmddict):
     """
     Execute the SKIP command.
     """
     return DungeonState.new(player, opponent, dungeon)
 
-func ABILITY(cmd):
+func ABILITY(cmddict):
     """
     Excecute the ABILITY command.
     """
     # get data
-    var activate_dict = cmd["ability_dict"]
-    var ability = item.get_ability(activate_dict["name"])
+    var ability_dict = cmddict["ability"]
+    var ability = item.get_ability(ability_dict["name"])
 
     # activate ability
     ability.activate(monster, activate_dict)

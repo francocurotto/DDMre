@@ -12,13 +12,13 @@ func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     pass
 
 # public functions
-func MOVE(cmd):
+func MOVE(cmddict):
     """
     Excecute the MOVE command.
     """
     # get data
-    var tile_origin = dungeon.get_tile(cmd["origin"])
-    var tile_dest = dungeon.get_tile(cmd["dest"])
+    var tile_origin = dungeon.get_tile(cmddict["origin"])
+    var tile_dest = dungeon.get_tile(cmddict["dest"])
     var monster = tile_origin.content
     var dest_content = tile_dest.content
 
@@ -37,14 +37,14 @@ func MOVE(cmd):
     Events.emit_signal("duel_update")
     return self
 
-func ATTACK(cmd):
+func ATTACK(cmddict):
     """
     Excecute the ATTACK command.
     """
     # get data
-    var monster = dungeon.get_tile(cmd["origin"]).content
-    var target = dungeon.get_tile(cmd["dest"]).content
-    var ability_dict = cmd.get("ability_dict")
+    var monster = dungeon.get_tile(cmddict["origin"]).content
+    var target = dungeon.get_tile(cmddict["dest"]).content
+    var ability_dict = cmddict.get("ability")
 
     # pay the cost of attack
     player.crestpool.remove_attack(monster.attack_cost)
@@ -64,13 +64,13 @@ func ATTACK(cmd):
     Events.emit_signal("duel_update")
     return self
 
-func ABILITY(cmd):
+func ABILITY(cmddict):
     """
     Excecute the ABILITY command.
     """
     # get data
-    var monster = dungeon.get_tile(cmd["pos"]).content
-    var ability_dict = cmd["ability_dict"]
+    var monster = dungeon.get_tile(cmddict["pos"]).content
+    var ability_dict = cmddict["ability"]
     var ability = monster.get_ability(ability_dict["name"])
     
     # activate ablity
@@ -80,20 +80,20 @@ func ABILITY(cmd):
     Events.emit_signal("duel_update")
     return self
 
-func JUMP(cmd):
+func JUMP(cmddict):
     """
     Excecute JUMP command.
     """
     # get data
-    var tile_origin = dungeon.get_tile(cmd["origin"])
-    var tile_dest = dungeon.get_tile(cmd["dest"])
+    var tile_origin = dungeon.get_tile(cmddict["origin"])
+    var tile_dest = dungeon.get_tile(cmddict["dest"])
     
     # jump
     tile_dest.move_content_from(tile_origin)
     Events.emit_signal("duel_update")
     return self
 
-func ENDTURN(_cmd):
+func ENDTURN(_cmddict):
     """
     Execute the ENDTURN command.
     """

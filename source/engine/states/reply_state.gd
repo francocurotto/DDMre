@@ -13,12 +13,12 @@ func _init(_player, _opponent, _dungeon, _attacker, _attacked).(_player, _oppone
     attacked = _attacked
 
 # public functions
-func GUARD(cmd):
+func GUARD(cmddict):
     """
     Excecute the GUARD command.
     """
     # get data
-    var ability_dict = cmd.get("ability_dict")
+    var ability_dict = cmddict.get("ability")
     
     # activate attack ability if in command
     if ability_dict:
@@ -32,12 +32,12 @@ func GUARD(cmd):
     Events.emit_signal("duel_update")
     return DungeonState.new(opponent, player, dungeon)
 
-func WAIT(cmd):
+func WAIT(cmddict):
     """
     Excecute the WAIT command.
     """
     # get data
-    var ability_dict = cmd.get("ability_dict")
+    var ability_dict = cmddict.get("ability")
     
     # activate attack ability if exists
     if ability_dict:

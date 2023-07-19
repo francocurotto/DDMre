@@ -29,12 +29,12 @@ func _init(dungpath=null, pool1path=null, pool2path=null):
     set_init_state(dungpath, dungeon)
 
 # public functions
-func update(cmd):
+func update(cmddict):
     """
     Update engine with given command.
     """
     # get new state info
-    var newstate = state.update(cmd)
+    var newstate = state.update(cmddict)
     var state_update = newstate != state
     var next_turn = newstate.player != state.player and newstate.NAME == "ROLL"
     # perform the update
