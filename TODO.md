@@ -1,7 +1,4 @@
 ### SOLID
-- refactor states
-    - make no dicepool create random dicepool, make no dungeon create default dungeon
-
 - refactor abilities
 
 - refactor summon card

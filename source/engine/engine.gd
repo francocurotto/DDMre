@@ -14,7 +14,7 @@ var player2
 var state
 var turn = 1
 
-func _init(initpath, pool1=null, pool2=null):
+func _init(initpath=null, pool1=null, pool2=null):
     # create dicelib
     dicelib = Dicelib.new()
     # objects for state
@@ -51,6 +51,10 @@ func set_init_state(initpath, dungeon):
     Set the initial state of the duel, which includes: dungeon layout,
     summons, vortices, crests, and hearts.
     """
+    # resolve initpath is null
+    if initpath == null:
+        initpath = Globals.DUNGPATH
+    # get initpath
     var initdict = Globals.read_jsonfile(initpath)
     for initkey in initdict:
         match initkey:

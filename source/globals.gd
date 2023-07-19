@@ -2,11 +2,11 @@ tool
 extends Node
 
 # filepath
-const LIBPATH = "res://databases/LIBRARY.json"
-const ABIPATH = "res://databases/ABILITIES.json"
+const LIBPATH  = "res://databases/LIBRARY.json"
+const ABIPATH  = "res://databases/ABILITIES.json"
+const DUNGPATH = "res://databases/dungeons/default.json"
 
 # values
-#GODOT4: check replace with static var
 const DUNGEON_HEIGHT = 19
 const DUNGEON_WIDTH = 13
 const DICEPOOL_SIZE = 15
