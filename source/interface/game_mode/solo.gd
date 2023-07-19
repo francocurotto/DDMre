@@ -16,11 +16,12 @@ onready var p2gui = $P2GUI
 func _ready():
     randomize()
     # get initialization parameters
-    var initpath  = Init.new().get("DUNGPATH")
-    var pool1path = Init.new().get("POOL1PATH")
-    var pool2path = Init.new().get("POOL2PATH")
+    var init = Init.new() # needed to use .get
+    var dungpath  = init.get("DUNGPATH")
+    var pool1path = init.get("POOL1PATH")
+    var pool2path = init.get("POOL2PATH")
     # create engine
-    engine = Engine.new(initpath, pool1path, pool2path)
+    engine = Engine.new(dungpath, pool1path, pool2path)
     set_guis()
     # connections
     Events.connect("dice_rolled", self, "on_dice_rolled")

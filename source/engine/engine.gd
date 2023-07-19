@@ -14,19 +14,19 @@ var player2
 var state
 var turn = 1
 
-func _init(initpath=null, pool1=null, pool2=null):
+func _init(dungpath=null, pool1path=null, pool2path=null):
     # create dicelib
     dicelib = Dicelib.new()
     # objects for state
-    player1 = Player.new(1, dicelib.create_dicepool(pool1))
-    player2 = Player.new(2, dicelib.create_dicepool(pool2))
+    player1 = Player.new(1, dicelib.create_dicepool(pool1path))
+    player2 = Player.new(2, dicelib.create_dicepool(pool2path))
     player1.opponent = player2
     player2.opponent = player1
     var dungeon = Dungeon.new()
     # create initial state
     state = RollState.new(player1, player2, dungeon)
     # set init state from file
-    set_init_state(initpath, dungeon)
+    set_init_state(dungpath, dungeon)
 
 # public functions
 func update(cmd):
@@ -46,16 +46,16 @@ func update(cmd):
         Events.emit_signal("state_update", state.NAME)
 
 # private functions
-func set_init_state(initpath, dungeon):
+func set_init_state(dungpath, dungeon):
     """
     Set the initial state of the duel, which includes: dungeon layout,
     summons, vortices, crests, and hearts.
     """
-    # resolve initpath is null
-    if initpath == null:
-        initpath = Globals.DUNGPATH
-    # get initpath
-    var initdict = Globals.read_jsonfile(initpath)
+    # resolve dungpath is null
+    if dungpath == null:
+        dungpath = Globals.DUNGPATH
+    # get dungpath
+    var initdict = Globals.read_jsonfile(dungpath)
     for initkey in initdict:
         match initkey:
             "DUNGEON"  : set_init_dungeon(dungeon, initdict["DUNGEON"])
