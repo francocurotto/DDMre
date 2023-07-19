@@ -1,9 +1,6 @@
 ### SOLID
 - fix ability_dict/activate_dict inconsistency
 
-- refactor summon card
-    - create_ability
-
 - refactor summon
     - initialize_abilities
     - negate_abilities
