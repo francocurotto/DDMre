@@ -1,6 +1,4 @@
 ### SOLID
-- fix ability_dict/activate_dict inconsistency
-
 - refactor summon
     - initialize_abilities
     - negate_abilities
