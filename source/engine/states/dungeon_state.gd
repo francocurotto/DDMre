@@ -34,7 +34,7 @@ func MOVE(cmddict):
         if dest_content.has_item_state_ability():
             return ItemAbilityState.new(player, opponent, dungeon, dest_content, monster)
         # if item ability activates automatically
-        elif dest_content.is_item():
+        else:
             dest_content.activate(monster)
     
     Events.emit_signal("duel_update")

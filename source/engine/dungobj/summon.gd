@@ -6,7 +6,7 @@ var card
 func _init(_card, _player).(_player):
     card = _card
 
-# getset functions
+# setget functions
 func get_ability(name):
     """
     Get ability from ability list.
@@ -27,7 +27,7 @@ func initialize_abilities(dungeon):
 
 func negate_abilities():
     for ability in card.abilities:
-        ability.disable()
+        ability.negate()
 
 # is functions
 func is_summon():

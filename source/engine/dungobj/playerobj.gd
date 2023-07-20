@@ -2,7 +2,6 @@ extends "dungobj.gd"
 
 # variables
 var player
-var tile
 
 func _init(_player):
     player = _player
@@ -10,3 +9,6 @@ func _init(_player):
 # setget functions
 func get_playerid():
     return player.id
+
+func set_tile(_tile):
+    tile = _tile

@@ -1,13 +1,10 @@
 ### SOLID
-- refactor summon
-    - initialize_abilities
-    - negate_abilities
-    - has_active_ability
-    - has_active_standing_ability
+- refactor dimension and continuous abilities activation
 
 # abilities
 - refactor abilities
 - bug: when negate ability, if negated monster is killed, the ability is disabled again
+    - fix changing disable for negate in summon.negate_abilities (TEST)
 - potential bug: negating a dim ability and reenabling it will reactivate the ability (maybe cannot be triggered)
 
 ### GODOT4

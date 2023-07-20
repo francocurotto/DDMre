@@ -2,10 +2,14 @@ extends Reference
 
 # variable
 var playerid setget , get_playerid
+var tile setget set_tile
 
 # setget functions
 func get_playerid():
     return 0
+
+func set_tile(_tile):
+    pass
 
 # is functions
 func is_none():

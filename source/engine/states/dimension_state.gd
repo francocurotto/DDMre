@@ -39,7 +39,7 @@ func DIM(cmddict):
     var summon = dungeon.dimension(player, net, diceidx)
     Events.emit_signal("duel_update")
     
-    # dice to go to dungeon or dim ability state
+    # decide to go to dungeon or dim ability state
     if summon.has_dim_state_ability():
         return DimAbilityState.new(player, opponent, dungeon, summon)
     else:
