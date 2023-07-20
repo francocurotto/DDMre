@@ -29,10 +29,13 @@ func MOVE(cmddict):
     monster.max_move_behavior.update_turn_move_count(len(path)-1)
     
     # check for item ability effect
-    if dest_content.has_item_state_ability():
-        return ItemAbilityState.new(player, opponent, dungeon, dest_content, monster)
-    elif dest_content.is_item():
-        dest_content.activate(monster)
+    if dest_content.is_item():
+        # if item ability requires item ability state
+        if dest_content.has_item_state_ability():
+            return ItemAbilityState.new(player, opponent, dungeon, dest_content, monster)
+        # if item ability activates automatically
+        elif dest_content.is_item():
+            dest_content.activate(monster)
     
     Events.emit_signal("duel_update")
     return self

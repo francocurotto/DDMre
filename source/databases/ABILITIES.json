@@ -141,7 +141,7 @@
     "NAME": "REDUCE DAMAGE",
     "TYPE": "REPLY",
     "PARAMETERS" : ["AMOUNT", "COST", "CREST"],
-    "DESCRIPTION": "Reduce damage dealt during attack by{AMOUNT}.\nCOST: {COST} X {CREST}"
+    "DESCRIPTION": "Reduce damage dealt during attack by {AMOUNT}.\nCOST: {COST} X {CREST}"
   },
   "REDUCEDAMAGEINF": {
     "NAME": "REDUCE DAMAGE INF",
