@@ -5,8 +5,8 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func activate(activate_dict):
-    var weakest_monster = dungeon.get_tile(activate_dict["pos"]).content
-    weakest_monster.destroy()
+    var monster = dungeon.get_tile(activate_dict["pos"]).content
+    monster.destroy()
 
 func get_select_tiles():
     var tiles = []

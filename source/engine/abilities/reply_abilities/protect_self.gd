@@ -13,8 +13,10 @@ func activate(_attacker, _activate_dict):
     """
     Add temporal limit to damage behavior.
     """
-    summon.player.crestpool.remove_crests(CREST, COST)
+    .activate(_attacker, _activate_dict)
+    pay_crests(CREST, COST)
     summon.damage_behavior.add_limit(0)
 
-func on_attack_ends():
+func deactivate():
+    .deactivate()
     summon.damage_behavior.remove_limit(0)

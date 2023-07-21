@@ -6,4 +6,4 @@ func _init(ability_dict).(ability_dict):
 # public functions
 func activate(_monster):
     for summon in dungeon.summons:
-            summon.destroy()
+        summon.destroy()

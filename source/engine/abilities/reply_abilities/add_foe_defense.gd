@@ -15,6 +15,3 @@ func activate(attacker, _activate_dict):
     """
     summon.player.crestpool.remove_crests(CREST, COST)
     summon.defense += attacker.defense
-
-func on_attack_ends():
-    pass

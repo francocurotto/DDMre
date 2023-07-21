@@ -15,8 +15,10 @@ func activate(_attacker, _activate_dict):
     """
     Add temporal reduce to damage behavior.
     """
-    summon.player.crestpool.remove_crests(CREST, COST)
+    .activate(_attacker, _activate_dict)
+    pay_crests(CREST, COST)
     summon.damage_behavior.ability_reduce += AMOUNT
 
-func on_attack_ends():
+func deactivate():
+    .deactivate()
     summon.damage_behavior.ability_reduce = 0

@@ -3,7 +3,7 @@ extends "res://engine/abilities/standing_ability.gd"
 # variables
 var COST
 var CREST
-var opponent_monster
+var monster
 
 func _init(ability_dict).(ability_dict):
     COST = ability_dict["COST"]
@@ -14,9 +14,9 @@ func activate(activate_dict):
     """
     Mind control.
     """
-    summon.player.crestpool.remove_crests(CREST, COST)
-    opponent_monster = dungeon.get_tile(activate_dict["pos"]).content
-    opponent_monster.switch_player()
+    pay_crests(CREST, COST)
+    monster = dungeon.get_tile(activate_dict["pos"]).content
+    monster.switch_player()
     Events.connect("next_turn", self, "on_next_turn")
 
 func get_select_tiles():
@@ -24,5 +24,5 @@ func get_select_tiles():
 
 # signals callbacks
 func on_next_turn(_player, _turn):
-    opponent_monster.switch_player()
+    monster.switch_player()
     Events.disconnect("next_turn", self, "on_next_turn")

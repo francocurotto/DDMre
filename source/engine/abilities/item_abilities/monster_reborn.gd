@@ -5,7 +5,7 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func activate(monster, activate_dict):
-    var dice = monster.player.dicepool[activate_dict["dice_index"]]
+    var dice = monster.player.dicepool[activate_dict["diceidx"]]
     dice.dimensioned = false
     var reborn_monster = get_reborn_monster(monster.player, dice)
     monster.player.graveyard.erase(reborn_monster)

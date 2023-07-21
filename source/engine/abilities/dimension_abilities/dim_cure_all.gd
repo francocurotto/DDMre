@@ -7,6 +7,6 @@ func _init(ability_dict).(ability_dict):
     AMOUNT = ability_dict["AMOUNT"]
 
 # public functions
-func on_dimension():
-    for player_monster in summon.player.monsters:
-        player_monster.restore_health(AMOUNT)
+func activate():
+    for monster in summon.player.monsters:
+        monster.restore_health(AMOUNT)

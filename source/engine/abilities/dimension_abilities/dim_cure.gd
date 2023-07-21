@@ -14,10 +14,10 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func activate(activate_dict):
-    summon.player.crestpool.remove_crests(CREST, COST)
+    pay_crests(CREST, COST)
     for pos in activate_dict["poslist"]:
-        var selected_monster = dungeon.get_tile(pos).content
-        selected_monster.restore_health(AMOUNT)
+        var monster = dungeon.get_tile(pos).content
+        monster.restore_health(AMOUNT)
 
 func get_select_tiles():
     return get_player_other_monsters_tiles()

@@ -13,7 +13,7 @@ func activate(activate_dict):
     """
     Trade health with opponent monster in pos.
     """
-    summon.player.crestpool.remove_crests(CREST, COST)
+    pay_crests(CREST, COST)
     var monster = dungeon.get_tile(activate_dict["pos"]).content
     # negate abilities
     monster.negate_abilities()

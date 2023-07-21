@@ -13,7 +13,7 @@ func activate(activate_dict):
     """
     Kill block.
     """
-    summon.player.crestpool.remove_crests(CREST, COST)
+    pay_crests(CREST, COST)
     dungeon.place_open_tile(activate_dict["pos"])
 
 func get_select_tiles():

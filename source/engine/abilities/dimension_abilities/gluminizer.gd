@@ -4,6 +4,6 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func on_dimension():
+func activate():
     dungeon.move_cost = 2
     summon.destroy()

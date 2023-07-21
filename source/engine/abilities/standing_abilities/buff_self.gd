@@ -17,5 +17,5 @@ func activate(_activate_dict):
     """
     Buff monster attr by amount.
     """
-    summon.player.crestpool.remove_crests(CREST, COST)
+    pay_crests(CREST, COST)
     summon.buff_attr(ATTR.to_lower(), AMOUNT)

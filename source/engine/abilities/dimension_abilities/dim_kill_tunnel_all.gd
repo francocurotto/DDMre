@@ -9,7 +9,7 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func activate(_activate_dict):
-    summon.player.crestpool.remove_crests(CREST, COST)
-    for dungeon_monster in dungeon.monsters:
-        if dungeon_monster.has_active_ability("TUNNEL"):
-            dungeon_monster.destroy()
+    pay_crests(CREST, COST)
+    for monster in dungeon.monsters:
+        if monster.has_active_ability("TUNNEL"):
+            monster.destroy()

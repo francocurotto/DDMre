@@ -9,5 +9,5 @@ func _init(ability_dict).(ability_dict):
     AMOUNT = ability_dict["AMOUNT"]
 
 # public functions
-func on_dimension():
-    summon.player.crestpool.add_crests(CREST, AMOUNT)
+func activate():
+    gain_crests(CREST, AMOUNT)

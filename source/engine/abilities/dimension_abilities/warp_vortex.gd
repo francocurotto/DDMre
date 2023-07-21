@@ -4,7 +4,7 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func on_dimension():
+func activate():
     summon.tile.vortex = true
     summon.destroy()
 

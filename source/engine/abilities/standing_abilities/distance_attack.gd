@@ -15,7 +15,7 @@ func activate(_activate_dict):
     """
     Buff monster attr by damage.
     """
-    summon.player.crestpool.remove_crests(CREST, COST)
+    pay_crests(CREST, COST)
     summon.attack_distance = MAX
     summon.attack_cost = 0
     Events.connect("next_turn", self, "on_next_turn")

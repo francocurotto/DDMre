@@ -9,9 +9,9 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func activate(activate_dict):
-    summon.player.crestpool.remove_crests(CREST, COST)
-    var tunnel_monster = dungeon.get_tile(activate_dict["pos"]).content
-    tunnel_monster.destroy()
+    pay_crests(CREST, COST)
+    var monster = dungeon.get_tile(activate_dict["pos"]).content
+    monster.destroy()
 
 func get_select_tiles():
     var tiles = []

@@ -13,12 +13,12 @@ func activate(activate_dict):
     """
     Steal monster.
     """
-    summon.player.crestpool.remove_crests(CREST, COST)
-    var opponent_monster = dungeon.get_tile(activate_dict["pos"]).content
-    opponent_monster.switch_player()
+    pay_crests(CREST, COST)
+    var monster = dungeon.get_tile(activate_dict["pos"]).content
+    monster.switch_player()
     var tile = summon.tile
     summon.destroy()
-    tile.move_content_from(opponent_monster.tile)
+    tile.move_content_from(monster.tile)
 
 func get_select_tiles():
     return get_opponent_monsters_tiles()

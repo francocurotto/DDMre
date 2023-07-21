@@ -9,5 +9,5 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func activate(activate_dict):
-    summon.player.crestpool.remove_crests(activate_dict["pay_crest"], COST)
-    summon.player.crestpool.add_crests(activate_dict["gain_crest"], AMOUNT)
+    pay_crests(activate_dict["pay_crest"], COST)
+    gain_crests(activate_dict["gain_crest"], AMOUNT)

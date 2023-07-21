@@ -15,7 +15,7 @@ func activate(activate_dict):
     """
     var level = activate_dict["level"]
     var total_cost = COST + level
-    summon.player.crestpool.remove_crests(CREST, total_cost)
+    pay_crests(CREST, total_cost)
     var roll_tiles = get_roll_tiles(activate_dict["direction"])
     
     # roll loop

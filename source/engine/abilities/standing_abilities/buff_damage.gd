@@ -15,6 +15,6 @@ func activate(_activate_dict):
     """
     Buff monster attr by damage.
     """
-    summon.player.crestpool.remove_crests(CREST, COST)
+    pay_crests(CREST, COST)
     var damage = summon.card.health - summon.health
     summon.buff_attr(ATTR.to_lower(), damage)
