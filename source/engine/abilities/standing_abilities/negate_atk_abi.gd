@@ -1,4 +1,4 @@
-extends "standing_ability.gd"
+extends "res://engine/abilities/standing_ability.gd"
 
 # variables
 var COST
@@ -13,7 +13,7 @@ func activate(activate_dict):
     """
     Trade health with opponent monster in pos.
     """
-    monster.player.crestpool.remove_crests(CREST, COST)
+    summon.player.crestpool.remove_crests(CREST, COST)
     var monster = dungeon.get_tile(activate_dict["pos"]).content
     # negate abilities
     monster.negate_abilities()

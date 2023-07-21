@@ -1,4 +1,4 @@
-extends "standing_ability.gd"
+extends "res://engine/abilities/standing_ability.gd"
 
 # variables
 var RANGE
@@ -15,10 +15,10 @@ func activate(activate_dict):
     """
     Range level kill.
     """
-    var summon = dungeon.get_tile(activate_dict["pos"]).content
-    var total_cost = COST + summon.card.level
-    monster.player.crestpool.remove_crests(CREST, total_cost)
-    summon.destroy()
+    var kill_summon = dungeon.get_tile(activate_dict["pos"]).content
+    var total_cost = COST + kill_summon.card.level
+    summon.player.crestpool.remove_crests(CREST, total_cost)
+    kill_summon.destroy()
 
 func get_select_tiles():
     var opponent_summon_tiles = get_opponent_summons_tiles()

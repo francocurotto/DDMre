@@ -22,7 +22,6 @@ func ROLL(cmddict):
     # roll dice
     var sides = roll_dice(cmddict["dice"])
     player.crestpool.add_rolled_sides(sides)
-    Events.emit_signal("duel_update")
     Events.emit_signal("dice_rolled", sides)
      
     # decide to go to dungeon or dimension state

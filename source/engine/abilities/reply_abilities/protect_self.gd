@@ -1,4 +1,4 @@
-extends "reply_ability.gd"
+extends "res://engine/abilities/reply_ability.gd"
 
 # variables
 var COST
@@ -13,8 +13,8 @@ func activate(_attacker, _activate_dict):
     """
     Add temporal limit to damage behavior.
     """
-    monster.player.crestpool.remove_crests(CREST, COST)
-    monster.damage_behavior.add_limit(0)
+    summon.player.crestpool.remove_crests(CREST, COST)
+    summon.damage_behavior.add_limit(0)
 
 func on_attack_ends():
-    monster.damage_behavior.remove_limit(0)
+    summon.damage_behavior.remove_limit(0)

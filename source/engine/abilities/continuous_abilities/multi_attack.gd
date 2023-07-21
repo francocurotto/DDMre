@@ -1,4 +1,4 @@
-extends "continuous_ability.gd"
+extends "res://engine/abilities/continuous_ability.gd"
 
 var MAX
 
@@ -7,8 +7,8 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func on_dimension():
-    monster.attack_cooldown_behavior.max_attacks = MAX
+    summon.attack_cooldown_behavior.max_attacks = MAX
 
 func disable():
     .disable()
-    monster.attack_cooldown_behavior.max_attacks = 1
+    summon.attack_cooldown_behavior.max_attacks = 1

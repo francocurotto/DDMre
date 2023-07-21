@@ -1,4 +1,4 @@
-extends "continuous_ability.gd"
+extends "res://engine/abilities/continuous_ability.gd"
 
 # variables
 var MAX
@@ -8,8 +8,8 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func on_dimension():
-    monster.max_move_behavior.add_limit(MAX)
+    summon.max_move_behavior.add_limit(MAX)
 
 func disable():
     .disable()
-    monster.max_move_behavior.remove_limit(MAX)
+    summon.max_move_behavior.remove_limit(MAX)

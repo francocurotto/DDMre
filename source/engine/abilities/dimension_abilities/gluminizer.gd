@@ -1,4 +1,4 @@
-extends "dimension_item_ability.gd"
+extends "res://engine/abilities/dim_auto_ability.gd"
 
 func _init(ability_dict).(ability_dict):
     pass
@@ -6,4 +6,4 @@ func _init(ability_dict).(ability_dict):
 # public functions
 func on_dimension():
     dungeon.move_cost = 2
-    item.destroy()
+    summon.destroy()

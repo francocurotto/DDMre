@@ -6,7 +6,7 @@ const NAME = "DUNGEON"
 # variables
 var RollState = load("engine/states/roll_state.gd")
 var ReplyState = load("engine/states/reply_state.gd")
-var ItemAbilityState = load("engine/states/item_ability_state.gd")
+var AbilityState = load("engine/states/ability_state.gd")
 
 func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     pass
@@ -31,13 +31,13 @@ func MOVE(cmddict):
     # check for item ability effect
     if dest_content.is_item():
         # if item ability requires item ability state
-        if dest_content.has_item_state_ability():
-            return ItemAbilityState.new(player, opponent, dungeon, dest_content, monster)
+        if dest_content.has_item_manual_ability():
+            return AbilityState.new(player, opponent, dungeon, dest_content)
         # if item ability activates automatically
         else:
             dest_content.activate(monster)
     
-    Events.emit_signal("duel_update")
+    # return same state
     return self
 
 func ATTACK(cmddict):
@@ -58,13 +58,14 @@ func ATTACK(cmddict):
         if ability_dict:
             var ability = monster.get_ability(ability_dict["name"])
             ability.activate(ability_dict)
+        # return opponent reply state
         return ReplyState.new(opponent, player, dungeon, monster, target)
     
     # case attack monster lord
     elif target.is_monster_lord():
         monster.attack_monster_lord(target)
     
-    Events.emit_signal("duel_update")
+    # return same state
     return self
 
 func ABILITY(cmddict):
@@ -80,7 +81,7 @@ func ABILITY(cmddict):
     ability.activate(ability_dict)
     monster.ability_cooldown = true
     
-    Events.emit_signal("duel_update")
+    # return same state
     return self
 
 func JUMP(cmddict):
@@ -93,7 +94,8 @@ func JUMP(cmddict):
     
     # jump
     tile_dest.move_content_from(tile_origin)
-    Events.emit_signal("duel_update")
+    
+    # return same state
     return self
 
 func ENDTURN(_cmddict):
@@ -105,4 +107,6 @@ func ENDTURN(_cmddict):
         monster.attack_cooldown_behavior.reset()
         monster.ability_cooldown = false
         monster.max_move_behavior.reset_turn_move_count()
+    
+    # return new opponent state
     return RollState.new(opponent, player, dungeon)

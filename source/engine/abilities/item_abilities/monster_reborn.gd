@@ -1,4 +1,4 @@
-extends "manual_item_ability.gd"
+extends "res://engine/abilities/item_manual_ability.gd"
 
 func _init(ability_dict).(ability_dict):
     pass
@@ -24,7 +24,3 @@ func get_reborn_monster(player, dice):
     for monster in player.graveyard:
         if monster.card == dice.card:
             return monster
-
-# is functions
-func is_item_state():
-    return true

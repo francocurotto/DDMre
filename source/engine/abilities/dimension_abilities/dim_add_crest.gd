@@ -1,4 +1,4 @@
-extends "dimension_ability.gd"
+extends "res://engine/abilities/dim_auto_ability.gd"
 
 # variables
 var CREST
@@ -10,4 +10,4 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func on_dimension():
-    monster.player.crestpool.add_crests(CREST, AMOUNT)
+    summon.player.crestpool.add_crests(CREST, AMOUNT)

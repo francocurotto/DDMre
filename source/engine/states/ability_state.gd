@@ -1,16 +1,14 @@
 extends "state.gd"
 
 # constants
-const NAME = "ITEMABILITY"
+const NAME = "ABILITY"
 
 # variables
-var item
-var monster
+var summon
 var DungeonState = load("engine/states/dungeon_state.gd")
 
-func _init(_player, _opponent, _dungeon, _item, _monster).(_player, _opponent, _dungeon):
-    item = _item
-    monster = _monster
+func _init(_player, _opponent, _dungeon, _summon).(_player, _opponent, _dungeon):
+    summon = _summon
 
 func SKIP(_cmddict):
     """
@@ -24,10 +22,10 @@ func ABILITY(cmddict):
     """
     # get data
     var ability_dict = cmddict["ability"]
-    var ability = item.get_ability(ability_dict["name"])
-
-    # activate ability
-    ability.activate(monster, ability_dict)
+    var ability = summon.get_ability(ability_dict["name"])
     
-    Events.emit_signal("duel_update")
+    # activate ability
+    ability.activate(ability_dict)
+    
+    # return dungeon state
     return DungeonState.new(player, opponent, dungeon)

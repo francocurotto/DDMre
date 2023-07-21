@@ -1,4 +1,4 @@
-extends "standing_ability.gd"
+extends "res://engine/abilities/standing_ability.gd"
 
 # variables
 var ATTR
@@ -17,5 +17,5 @@ func activate(_activate_dict):
     """
     Buff monster attr by amount.
     """
-    monster.player.crestpool.remove_crests(CREST, COST)
-    monster.buff_attr(ATTR.to_lower(), AMOUNT)
+    summon.player.crestpool.remove_crests(CREST, COST)
+    summon.buff_attr(ATTR.to_lower(), AMOUNT)

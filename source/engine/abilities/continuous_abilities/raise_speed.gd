@@ -1,4 +1,4 @@
-extends "continuous_ability.gd"
+extends "res://engine/abilities/continuous_ability.gd"
 
 # variables
 var AMOUNT
@@ -8,8 +8,8 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func on_dimension():
-    monster.speed = AMOUNT
+    summon.speed = AMOUNT
 
 func disable():
     .disable()
-    monster.speed = 1
+    summon.speed = 1

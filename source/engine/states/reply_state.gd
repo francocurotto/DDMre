@@ -29,7 +29,7 @@ func GUARD(cmddict):
     player.crestpool.remove_defense(1)
     attacker.attack_monster(attacked, true)
     
-    Events.emit_signal("duel_update")
+    # return opponent dungeon state
     return DungeonState.new(opponent, player, dungeon)
 
 func WAIT(cmddict):
@@ -46,5 +46,5 @@ func WAIT(cmddict):
     # wait attack
     attacker.attack_monster(attacked, false)
     
-    Events.emit_signal("duel_update")
+    # return opponent dungeon state
     return DungeonState.new(opponent, player, dungeon)

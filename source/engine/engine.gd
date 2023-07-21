@@ -34,11 +34,11 @@ func update(cmddict):
     Update engine with given command.
     """
     # get new state info
-    var newstate = state.update(cmddict)
-    var state_update = newstate != state
-    var next_turn = newstate.player != state.player and newstate.NAME == "ROLL"
+    var new_state = state.update(cmddict)
+    var state_update = new_state != state
+    var next_turn = new_state.player != state.player and new_state.NAME == "ROLL"
     # perform the update
-    state = newstate
+    state = new_state
     if next_turn:
         turn += 1
         Events.emit_signal("next_turn", state.player, turn)

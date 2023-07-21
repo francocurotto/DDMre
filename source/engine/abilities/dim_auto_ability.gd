@@ -1,8 +1,8 @@
-extends "res://engine/abilities/monster_ability.gd"
+extends "res://engine/abilities/dimension_ability.gd"
 
 func _init(ability_dict).(ability_dict):
     pass
 
 # is functions
-func is_standing():
+func activates_on_dim():
     return true

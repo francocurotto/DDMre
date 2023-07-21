@@ -1,19 +1,19 @@
-extends "dimension_ability.gd"
+extends "res://engine/abilities/dim_auto_ability.gd"
 
 # variables
-var TYPE
+var MONSTER_TYPE
 
 func _init(ability_dict).(ability_dict):
-    TYPE = ability_dict["TYPE"]
+    MONSTER_TYPE = ability_dict["TYPE"]
 
 # public functions
 func on_dimension():
     var attack_buff = 0
     var defense_buff = 0
-    var total_graveyard = monster.player.graveyard + monster.player.opponent.graveyard
+    var total_graveyard = summon.player.graveyard + summon.player.opponent.graveyard
     for dead_monster in total_graveyard:
-        if dead_monster.TYPE == TYPE:
+        if dead_monster.TYPE == MONSTER_TYPE:
             attack_buff += dead_monster.card.attack
             defense_buff += dead_monster.card.defense
-    monster.attack += attack_buff
-    monster.defense += defense_buff
+    summon.attack += attack_buff
+    summon.defense += defense_buff

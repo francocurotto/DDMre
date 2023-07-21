@@ -1,4 +1,4 @@
-extends "continuous_ability.gd"
+extends "res://engine/abilities/continuous_ability.gd"
 
 # preloads
 const PowerBehaviorNeutral = preload("res://engine/dungobj/behaviors/power_behavior_neutral.gd")
@@ -9,8 +9,8 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func on_dimension():
-    monster.power_behavior = PowerBehaviorNeutral.new()
+    summon.power_behavior = PowerBehaviorNeutral.new()
 
 func disable():
     .disable()
-    monster.target_behavior = PowerBehaviorBase.new()
+    summon.target_behavior = PowerBehaviorBase.new()

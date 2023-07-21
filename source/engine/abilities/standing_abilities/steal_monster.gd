@@ -1,4 +1,4 @@
-extends "standing_ability.gd"
+extends "res://engine/abilities/standing_ability.gd"
 
 # variables
 var COST
@@ -13,11 +13,11 @@ func activate(activate_dict):
     """
     Steal monster.
     """
-    monster.player.crestpool.remove_crests(CREST, COST)
+    summon.player.crestpool.remove_crests(CREST, COST)
     var opponent_monster = dungeon.get_tile(activate_dict["pos"]).content
     opponent_monster.switch_player()
-    var tile = monster.tile
-    monster.destroy()
+    var tile = summon.tile
+    summon.destroy()
     tile.move_content_from(opponent_monster.tile)
 
 func get_select_tiles():

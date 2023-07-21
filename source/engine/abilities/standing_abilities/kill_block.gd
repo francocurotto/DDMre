@@ -1,4 +1,4 @@
-extends "standing_ability.gd"
+extends "res://engine/abilities/standing_ability.gd"
 
 # variables
 var COST
@@ -13,7 +13,7 @@ func activate(activate_dict):
     """
     Kill block.
     """
-    monster.player.crestpool.remove_crests(CREST, COST)
+    summon.player.crestpool.remove_crests(CREST, COST)
     dungeon.place_open_tile(activate_dict["pos"])
 
 func get_select_tiles():

@@ -9,7 +9,7 @@ const Checks = preload("res://engine/checks.gd")
 # variables
 var dim_candidates
 var DungeonState = load("engine/states/dungeon_state.gd")
-var DimAbilityState = load("engine/states/dim_ability_state.gd")
+var AbilityState = load("engine/states/ability_state.gd")
 var NetCreator = load("res://engine/states/net_creator.gd")
 
 func _init(_player, _opponent, _dungeon, _dim_candidates).(_player, _opponent, _dungeon):
@@ -37,10 +37,15 @@ func DIM(cmddict):
 
     # dimension
     var summon = dungeon.dimension(player, net, diceidx)
-    Events.emit_signal("duel_update")
+    
+    # activate autodim abilities
+    #GODOT4: use array filter
+    for ability in summon.card.abilities:
+        if ability.activates_on_dim():
+            ability.activate()
     
     # decide to go to dungeon or dim ability state
-    if summon.has_dim_state_ability():
-        return DimAbilityState.new(player, opponent, dungeon, summon)
+    if summon.has_dim_manual_ability():
+        return AbilityState.new(player, opponent, dungeon, summon)
     else:
         return DungeonState.new(player, opponent, dungeon)

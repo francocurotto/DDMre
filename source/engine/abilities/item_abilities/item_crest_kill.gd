@@ -1,4 +1,4 @@
-extends "manual_item_ability.gd"
+extends "res://engine/abilities/item_ability.gd"
 
 # variables
 var CREST

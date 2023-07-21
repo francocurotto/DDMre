@@ -1,4 +1,4 @@
-extends "reply_ability.gd"
+extends "res://engine/abilities/reply_ability.gd"
 
 # variables
 var COST
@@ -13,8 +13,8 @@ func activate(attacker, _activate_dict):
     """
     Permanently add foe defense to monster defense.
     """
-    monster.player.crestpool.remove_crests(CREST, COST)
-    monster.defense += attacker.defense
+    summon.player.crestpool.remove_crests(CREST, COST)
+    summon.defense += attacker.defense
 
 func on_attack_ends():
     pass

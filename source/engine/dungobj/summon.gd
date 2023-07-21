@@ -18,16 +18,17 @@ func get_ability(name):
 
 # public function
 func destroy():
-    negate_abilities()
+    deactivate_abilities()
     tile.empty_tile()
 
 func initialize_abilities(dungeon):
     for ability in card.abilities:
         ability.initialize(self, dungeon)
 
-func negate_abilities():
+func deactivate_abilities():
     for ability in card.abilities:
-        ability.negate()
+        if not ability.is_negated():
+            ability.deactivate()
 
 # is functions
 func is_summon():
@@ -47,16 +48,16 @@ func has_active_standing_ability():
             return true
     return false 
 
-func has_dim_state_ability():
+func has_dim_manual_ability():
     #GODOT4: use array any
     for ability in card.abilities:
-        if ability.is_dim_state():
+        if ability.is_dim_manual():
             return true
     return false
 
-func has_item_state_ability():
+func has_item_manual_ability():
     #GODOT4: use array any
     for ability in card.abilities:
-        if ability.is_item_state():
+        if ability.is_item_manual():
             return true
     return false

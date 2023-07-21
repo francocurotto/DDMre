@@ -1,4 +1,4 @@
-extends "dimension_ability.gd"
+extends "res://engine/abilities/dim_manual_ability.gd"
 
 func _init(ability_dict).(ability_dict):
     pass
@@ -13,7 +13,7 @@ func get_select_tiles():
     
     # get a copy of the monsters without the casting monster
     var monsters = dungeon.monsters.duplicate()
-    monsters.erase(monster)
+    monsters.erase(summon)
     
     for monster in monsters:
         if tiles.empty():
@@ -24,6 +24,3 @@ func get_select_tiles():
             tiles = [monster.tile]
     return tiles
 
-# is functions
-func is_dim_state():
-    return true

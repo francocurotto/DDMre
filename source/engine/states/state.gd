@@ -15,5 +15,7 @@ func update(cmddict):
     """
     Update state given command dict cmddict.
     """
-    # run command if checks passed
-    return call(cmddict["cmd"], cmddict)
+    # run command
+    var new_state = call(cmddict["cmd"], cmddict)
+    Events.emit_signal("duel_update")
+    return new_state

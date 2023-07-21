@@ -1,4 +1,4 @@
-extends "reply_ability.gd"
+extends "res://engine/abilities/reply_ability.gd"
 
 # variables
 var AMOUNT
@@ -15,8 +15,8 @@ func activate(_attacker, _activate_dict):
     """
     Add temporal reduce to damage behavior.
     """
-    monster.player.crestpool.remove_crests(CREST, COST)
-    monster.damage_behavior.ability_reduce += AMOUNT
+    summon.player.crestpool.remove_crests(CREST, COST)
+    summon.damage_behavior.ability_reduce += AMOUNT
 
 func on_attack_ends():
-    monster.damage_behavior.ability_reduce = 0
+    summon.damage_behavior.ability_reduce = 0

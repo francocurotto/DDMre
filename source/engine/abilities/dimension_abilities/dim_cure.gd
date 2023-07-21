@@ -1,4 +1,4 @@
-extends "dimension_ability.gd"
+extends "res://engine/abilities/dim_manual_ability.gd"
 
 # variables
 var AMOUNT
@@ -14,14 +14,10 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func activate(activate_dict):
-    monster.player.crestpool.remove_crests(CREST, COST)
+    summon.player.crestpool.remove_crests(CREST, COST)
     for pos in activate_dict["poslist"]:
         var selected_monster = dungeon.get_tile(pos).content
         selected_monster.restore_health(AMOUNT)
 
 func get_select_tiles():
     return get_player_other_monsters_tiles()
-
-# is functions
-func is_dim_state():
-    return true

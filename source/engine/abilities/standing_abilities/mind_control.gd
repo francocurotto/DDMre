@@ -1,4 +1,4 @@
-extends "standing_ability.gd"
+extends "res://engine/abilities/standing_ability.gd"
 
 # variables
 var COST
@@ -14,7 +14,7 @@ func activate(activate_dict):
     """
     Mind control.
     """
-    monster.player.crestpool.remove_crests(CREST, COST)
+    summon.player.crestpool.remove_crests(CREST, COST)
     opponent_monster = dungeon.get_tile(activate_dict["pos"]).content
     opponent_monster.switch_player()
     Events.connect("next_turn", self, "on_next_turn")
@@ -22,7 +22,7 @@ func activate(activate_dict):
 func get_select_tiles():
     return get_opponent_monsters_tiles()
 
-# signals
+# signals callbacks
 func on_next_turn(_player, _turn):
     opponent_monster.switch_player()
     Events.disconnect("next_turn", self, "on_next_turn")

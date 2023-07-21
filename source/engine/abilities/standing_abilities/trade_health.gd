@@ -1,4 +1,4 @@
-extends "standing_ability.gd"
+extends "res://engine/abilities/standing_ability.gd"
 
 # variables
 var AMOUNT
@@ -15,10 +15,10 @@ func activate(activate_dict):
     """
     Trade health with opponent monster in pos.
     """
-    monster.player.crestpool.remove_crests(CREST, COST)
+    summon.player.crestpool.remove_crests(CREST, COST)
     var opponent_monster = dungeon.get_tile(activate_dict["pos"]).content
     opponent_monster.receive_damage(AMOUNT)
-    monster.receive_damage(AMOUNT)
+    summon.receive_damage(AMOUNT)
 
 func get_select_tiles():
     return get_opponent_monsters_tiles()

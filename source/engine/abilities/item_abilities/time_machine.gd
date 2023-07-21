@@ -4,8 +4,5 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func enable():
-    on_dimension()
-
-func on_dimension():
-    pass
+func activate(monster):
+    monster.previous_tile.move_content_from(monster.tile)
