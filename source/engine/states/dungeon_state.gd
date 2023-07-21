@@ -6,7 +6,7 @@ const NAME = "DUNGEON"
 # variables
 var RollState = load("engine/states/roll_state.gd")
 var ReplyState = load("engine/states/reply_state.gd")
-var AbilityState = load("engine/states/ability_state.gd")
+var ItemAbilityState = load("engine/states/item_ability_state.gd")
 
 func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
     pass
@@ -32,7 +32,7 @@ func MOVE(cmddict):
     if dest_content.is_item():
         # if item ability requires item ability state
         if dest_content.has_item_manual_ability():
-            return AbilityState.new(player, opponent, dungeon, dest_content)
+            return ItemAbilityState.new(player, opponent, dungeon, dest_content, monster)
         # if item ability activates automatically
         else:
             dest_content.activate(monster)

@@ -107,12 +107,14 @@ func buff_attr(attr, amount):
     """
     Buff monster attribute attr by amount.
     """
+    attr = attr.to_lower()
     set(attr, get(attr) + amount)
 
 func debuff_attr(attr, amount):
     """
     Debuff monster attribute attr by amount.
     """
+    attr = attr.to_lower()
     set(attr, max(get(attr) - amount, 0))
     
 func restore_health(amount):

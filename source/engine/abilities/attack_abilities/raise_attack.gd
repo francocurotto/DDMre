@@ -1,10 +1,10 @@
 extends "res://engine/abilities/attack_ability.gd"
 
 # variables
-var MAX
+var max_raise
 
 func _init(ability_dict).(ability_dict):
-    MAX = ability_dict["MAX"]
+    max_raise = ability_dict["MAX"]
 
 # public functions
 func activate(activate_dict):

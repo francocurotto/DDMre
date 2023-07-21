@@ -11,7 +11,7 @@ signal attack_ability_activated(ability_dict)
 
 func _ready():
     var ability = monster.get_ability("RAISEATTACK")
-    for raise in range(1, ability.MAX+1):
+    for raise in range(1, ability.max_raise+1):
         var button = RaiseAttackButton.instance().setup(self, monster, raise)
         add_child(button)
 
