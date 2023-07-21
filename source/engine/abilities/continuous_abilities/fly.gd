@@ -10,13 +10,12 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func on_dimension():
+func activate():
     summon.pass_behavior = PassBehaviorFly.new()
     summon.target_behavior = TargetBehaviorFly.new()
     summon.speed = 0.5
 
-func disable():
-    .disable()
+func deactivate():
     summon.pass_behavior = PassBehaviorBase.new()
     summon.target_behavior = TargetBehaviorBase.new()
     summon.speed = 1

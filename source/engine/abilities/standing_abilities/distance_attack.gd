@@ -1,4 +1,4 @@
-extends "res://engine/abilities/reply_ability.gd"
+extends "res://engine/abilities/standing_ability.gd"
 
 # variables
 var MAX

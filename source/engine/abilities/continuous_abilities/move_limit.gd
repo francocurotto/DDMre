@@ -7,9 +7,8 @@ func _init(ability_dict).(ability_dict):
     MAX = ability_dict["MAX"]
 
 # public functions
-func on_dimension():
+func activate():
     summon.max_move_behavior.add_limit(MAX)
 
-func disable():
-    .disable()
+func deactivate():
     summon.max_move_behavior.remove_limit(MAX)

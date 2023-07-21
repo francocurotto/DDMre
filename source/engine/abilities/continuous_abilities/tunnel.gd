@@ -8,9 +8,8 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func on_dimension():
+func activate():
     summon.pass_behavior = PassBehaviorTunnel.new()
 
-func disable():
-    .disable()
+func deactivate():
     summon.pass_behavior = PassBehaviorBase.new()

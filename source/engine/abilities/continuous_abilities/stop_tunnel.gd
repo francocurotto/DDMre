@@ -4,20 +4,19 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func on_dimension():
-    for dungeon_monster in dungeon.monsters:
-        for ability in dungeon_monster.card.abilities:
-            if ability.name == "TUNNEL":
-                ability.negate()
+func activate():
+    .activate()
+    for monster in dungeon.monsters:
+        if monster.has_ability("TUNNEL"):
+            monster.get_ability("TUNNEL").negate()
 
-func on_new_summon(summon):
-    for ability in summon.card.abilities:
-        if ability.name == "TUNNEL":
-            ability.negate()
-
-func disable():
+func deactivate():
     .disable()
-    for dungeon_monster in dungeon.monsters:
-        for ability in dungeon_monster.card.abilities:
-            if ability.name == "TUNNEL":
-                ability.remove_negate()
+    for monster in dungeon.monsters:
+        if monster.has_ability("TUNNEL"):
+            monster.get_ability("TUNNEL").negate()
+
+# signals callbacks
+func on_new_summon(_summon):
+    if _summon.has_ability("TUNNEL"):
+        _summon.get_ability("TUNNEL").negate()

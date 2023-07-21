@@ -1,35 +1,36 @@
 extends "res://engine/abilities/continuous_ability.gd"
 
 # variables
-var MONSTER_TYPE
+var MTYPE
 var effect_flag = false
 
 func _init(ability_dict).(ability_dict):
-    MONSTER_TYPE = ability_dict["TYPE"]
+    MTYPE = ability_dict["MTYPE"]
 
 # public functions
+func deactivate():
+    .deactivate()
+    # remove effect if effect flag is on
+    for monster in dungeon.monsters:
+        if monster.TYPE == MTYPE:
+            if effect_flag:
+                monster.max_move_behavior.remove_limit(0)
+
+# signals callbacks
 func on_next_turn(player, _turn):
     # update effect on opponent turn
     if summon.player != player:
         effect_flag = not effect_flag
         # apply effect if effect flag is on, remove effect if off
-        for dungeon_monster in dungeon.monsters:
-            if dungeon_monster.TYPE == MONSTER_TYPE:
+        for monster in dungeon.monsters:
+            if monster.TYPE == MTYPE:
                 if effect_flag:
-                    dungeon_monster.max_move_behavior.add_limit(0)
+                    monster.max_move_behavior.add_limit(0)
                 else:
-                    dungeon_monster.max_move_behavior.remove_limit(0)
+                    monster.max_move_behavior.remove_limit(0)
 
-func on_new_summon(summon):
+func on_new_summon(_summon):
     # add effect if effect flag is on
-    if summon.TYPE == MONSTER_TYPE:
+    if _summon.TYPE == MTYPE:
         if effect_flag:
-            summon.max_move_behavior.add_limit(0)
-
-func disable():
-    .disable()
-    # remove effect if effect flag is on
-    for dungeon_monster in dungeon.monsters:
-        if dungeon_monster.TYPE == MONSTER_TYPE:
-            if effect_flag:
-                dungeon_monster.max_move_behavior.remove_limit(0)
+            _summon.max_move_behavior.add_limit(0)

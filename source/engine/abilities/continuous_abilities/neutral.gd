@@ -8,9 +8,8 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func on_dimension():
+func activate():
     summon.power_behavior = PowerBehaviorNeutral.new()
 
-func disable():
-    .disable()
+func deactivate():
     summon.target_behavior = PowerBehaviorBase.new()

@@ -8,9 +8,8 @@ func _init(ability_dict).(ability_dict):
     pass
 
 # public functions
-func on_dimension():
+func activate():
     summon.target_behavior = TargetBehaviorFly.new()
 
-func disable():
-    .disable()
+func deactivate():
     summon.target_behavior = TargetBehaviorBase.new()

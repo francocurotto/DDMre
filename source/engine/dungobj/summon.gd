@@ -34,6 +34,13 @@ func deactivate_abilities():
 func is_summon():
     return true
 
+func has_ability(name):
+    #GODOT4: use array any
+    for ability in card.abilities:
+        if ability.name == name:
+            return true
+    return false
+
 func has_active_ability(name):
     #GODOT4: use array any
     for ability in card.abilities:

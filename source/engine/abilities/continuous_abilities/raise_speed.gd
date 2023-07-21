@@ -7,9 +7,8 @@ func _init(ability_dict).(ability_dict):
     AMOUNT = ability_dict["AMOUNT"]
 
 # public functions
-func on_dimension():
+func activate():
     summon.speed = AMOUNT
 
-func disable():
-    .disable()
+func deactivate():
     summon.speed = 1
