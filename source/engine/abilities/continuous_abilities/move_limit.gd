@@ -1,14 +1,14 @@
 extends "res://engine/abilities/continuous_ability.gd"
 
 # variables
-var MAX
+var max_move
 
 func _init(ability_dict).(ability_dict):
-    MAX = ability_dict["MAX"]
+    max_move = ability_dict["MAX"]
 
 # public functions
 func activate():
-    summon.max_move_behavior.add_limit(MAX)
+    summon.max_move_behavior.add_limit(max_move)
 
 func deactivate():
-    summon.max_move_behavior.remove_limit(MAX)
+    summon.max_move_behavior.remove_limit(max_move)

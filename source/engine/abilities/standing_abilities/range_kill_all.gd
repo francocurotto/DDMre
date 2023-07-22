@@ -1,22 +1,19 @@
 extends "res://engine/abilities/standing_ability.gd"
 
 # variables
-var RANGE
-var COST
-var CREST
+var tile_range
+var cost
+var crest
 
 func _init(ability_dict).(ability_dict):
-    RANGE = ability_dict["RANGE"]
-    COST = ability_dict["COST"]
-    CREST = ability_dict["CREST"]
+    tile_range = ability_dict["RANGE"]
+    cost = ability_dict["COST"]
+    crest = ability_dict["CREST"]
 
 # public functions
 func activate(_activate_dict):
-    """
-    Destroy everything in range.
-    """
-    pay_crests(CREST, COST)
-    var tiles = get_tiles_in_range(RANGE)
+    pay_crests(crest, cost)
+    var tiles = get_tiles_in_range(tile_range)
     for tile in tiles:
-        if tile.is_path() and tile.content.is_summon():
+        if tile != summon.tile and tile.content.is_summon():
             tile.content.destroy()

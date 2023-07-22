@@ -9,8 +9,8 @@ func activate():
     var l_leg = false
     var r_arm = false
     var l_arm = false
-    for player_monster in summon.player.monsters:
-        match player_monster.card.name:
+    for monster in summon.player.monsters:
+        match monster.card.name:
             "R Leg of Forbidden" : r_leg = true
             "L Leg of Forbidden" : l_leg = true
             "R Arm of Forbidden" : r_arm = true

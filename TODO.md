@@ -1,5 +1,6 @@
 ### SOLID
-- refactor dimension and continuous abilities activation
+- check roll_level_kill
+- change activate_dict["pos"]
 
 # abilities
 - refactor abilities

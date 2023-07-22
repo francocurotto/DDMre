@@ -1,22 +1,17 @@
 extends "res://engine/abilities/dim_manual_ability.gd"
 
-var COST
-var CREST
+var cost
+var crest
 
 func _init(ability_dict).(ability_dict):
-    COST = ability_dict["COST"]
-    CREST = ability_dict["CREST"]
+    cost = ability_dict["COST"]
+    crest = ability_dict["CREST"]
 
 # public functions
 func activate(activate_dict):
-    pay_crests(CREST, COST)
+    pay_crests(crest, cost)
     var monster = dungeon.get_tile(activate_dict["pos"]).content
     monster.destroy()
 
 func get_select_tiles():
-    var tiles = []
-    for monster in dungeon.monsters:
-        if monster.has_active_ability("TUNNEL"):
-            tiles.append(monster.tile)
-    return tiles
-
+    return get_active_ability_monsters_tiles("TUNNEL")

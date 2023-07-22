@@ -1,12 +1,12 @@
 extends "res://engine/abilities/reply_ability.gd"
 
 # variables
-var COST
-var CREST
+var cost
+var crest
 
 func _init(ability_dict).(ability_dict):
-    COST = ability_dict["COST"]
-    CREST = ability_dict["CREST"]
+    cost = ability_dict["COST"]
+    crest = ability_dict["CREST"]
 
 # public functions
 func activate(_attacker, activate_dict):
@@ -14,7 +14,7 @@ func activate(_attacker, activate_dict):
     Add temporal limit to damage behavior.
     """
     .activate(_attacker, activate_dict)
-    pay_crests(CREST, COST)
+    pay_crests(crest, cost)
     var receiver = dungeon.get_tile(activate_dict["pos"]).content
     summon.damage_behavior.receiver = receiver
 

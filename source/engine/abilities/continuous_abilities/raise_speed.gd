@@ -1,14 +1,14 @@
 extends "res://engine/abilities/continuous_ability.gd"
 
 # variables
-var AMOUNT
+var amount
 
 func _init(ability_dict).(ability_dict):
-    AMOUNT = ability_dict["AMOUNT"]
+    amount = ability_dict["AMOUNT"]
 
 # public functions
 func activate():
-    summon.speed = AMOUNT
+    summon.speed = amount
 
 func deactivate():
     summon.speed = 1

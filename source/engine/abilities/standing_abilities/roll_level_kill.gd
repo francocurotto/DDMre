@@ -1,12 +1,12 @@
 extends "res://engine/abilities/standing_ability.gd"
 
 # variables
-var COST
-var CREST
+var cost
+var crest
 
 func _init(ability_dict).(ability_dict):
-    COST = ability_dict["COST"]
-    CREST = ability_dict["CREST"]
+    cost = ability_dict["COST"]
+    crest = ability_dict["CREST"]
 
 # public functions
 func activate(activate_dict):
@@ -14,8 +14,8 @@ func activate(activate_dict):
     Roll level kill.
     """
     var level = activate_dict["level"]
-    var total_cost = COST + level
-    pay_crests(CREST, total_cost)
+    var total_cost = cost + level
+    pay_crests(crest, total_cost)
     var roll_tiles = get_roll_tiles(activate_dict["direction"])
     
     # roll loop

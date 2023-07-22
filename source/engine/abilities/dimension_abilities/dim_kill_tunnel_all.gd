@@ -1,15 +1,16 @@
 extends "res://engine/abilities/dim_manual_ability.gd"
 
-var COST
-var CREST
+var cost
+var crest
 
 func _init(ability_dict).(ability_dict):
-    COST = ability_dict["COST"]
-    CREST = ability_dict["CREST"]
+    cost = ability_dict["COST"]
+    crest = ability_dict["CREST"]
 
 # public functions
 func activate(_activate_dict):
-    pay_crests(CREST, COST)
+    pay_crests(crest, cost)
+    #GODOT4: use array map
     for monster in dungeon.monsters:
         if monster.has_active_ability("TUNNEL"):
             monster.destroy()

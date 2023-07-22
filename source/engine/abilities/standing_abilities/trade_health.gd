@@ -1,24 +1,21 @@
 extends "res://engine/abilities/standing_ability.gd"
 
 # variables
-var AMOUNT
-var COST
-var CREST
+var amount
+var cost
+var crest
 
 func _init(ability_dict).(ability_dict):
-    AMOUNT = ability_dict["AMOUNT"]
-    COST = ability_dict["COST"]
-    CREST = ability_dict["CREST"]
+    amount = ability_dict["AMOUNT"]
+    cost = ability_dict["COST"]
+    crest = ability_dict["CREST"]
 
 # public functions
 func activate(activate_dict):
-    """
-    Trade health with opponent monster in pos.
-    """
-    pay_crests(CREST, COST)
+    pay_crests(crest, cost)
     var monster = dungeon.get_tile(activate_dict["pos"]).content
-    monster.receive_damage(AMOUNT)
-    summon.receive_damage(AMOUNT)
+    monster.receive_damage(amount)
+    summon.receive_damage(amount)
 
 func get_select_tiles():
     return get_opponent_monsters_tiles()

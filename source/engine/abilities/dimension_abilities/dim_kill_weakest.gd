@@ -9,18 +9,5 @@ func activate(activate_dict):
     monster.destroy()
 
 func get_select_tiles():
-    var tiles = []
-    
-    # get a copy of the monsters without the casting monster
-    var monsters = dungeon.monsters.duplicate()
-    monsters.erase(summon)
-    
-    for monster in monsters:
-        if tiles.empty():
-            tiles.append(monster.tile)
-        elif tiles[0].content.attack == monster.attack:
-            tiles.append(monster.tile)
-        elif tiles[0].content.attack > monster.attack:
-            tiles = [monster.tile]
-    return tiles
+    return get_weakest_monsters_tiles()
 

@@ -1,29 +1,21 @@
 extends "res://engine/abilities/standing_ability.gd"
 
 # variables
-var RANGE
-var COST
-var CREST
+var tile_range
+var cost
+var crest
 
 func _init(ability_dict).(ability_dict):
-    RANGE = ability_dict["RANGE"]
-    COST = ability_dict["COST"]
-    CREST = ability_dict["CREST"]
+    tile_range = ability_dict["RANGE"]
+    cost = ability_dict["COST"]
+    crest = ability_dict["CREST"]
 
 # public functions
 func activate(activate_dict):
-    """
-    Range level kill.
-    """
     var kill_summon = dungeon.get_tile(activate_dict["pos"]).content
-    var total_cost = COST + kill_summon.card.level
-    pay_crests(CREST, total_cost)
+    var total_cost = cost + kill_summon.card.level
+    pay_crests(crest, total_cost)
     kill_summon.destroy()
 
 func get_select_tiles():
-    var opponent_summon_tiles = get_opponent_summons_tiles()
-    var range_tiles = []
-    for tile in get_tiles_in_range(RANGE):
-        if tile in opponent_summon_tiles:
-            range_tiles.append(tile)
-    return range_tiles
+    return get_range_opponent_summon_tiles(tile_range)

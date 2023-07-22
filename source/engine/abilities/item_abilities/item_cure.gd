@@ -1,10 +1,10 @@
 extends "res://engine/abilities/item_ability.gd"
 
-var AMOUNT
+var amount
 
 func _init(ability_dict).(ability_dict):
-    AMOUNT = ability_dict["AMOUNT"]
+    amount = ability_dict["AMOUNT"]
 
 # public functions
 func activate(monster):
-    monster.restore_health(AMOUNT)
+    monster.restore_health(amount)

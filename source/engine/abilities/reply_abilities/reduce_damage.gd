@@ -1,14 +1,14 @@
 extends "res://engine/abilities/reply_ability.gd"
 
 # variables
-var AMOUNT
-var COST
-var CREST
+var amount
+var cost
+var crest
 
 func _init(ability_dict).(ability_dict):
-    AMOUNT = ability_dict["AMOUNT"]
-    COST = ability_dict["COST"]
-    CREST = ability_dict["CREST"]
+    amount = ability_dict["AMOUNT"]
+    cost = ability_dict["COST"]
+    crest = ability_dict["CREST"]
 
 # public functions
 func activate(_attacker, _activate_dict):
@@ -16,8 +16,8 @@ func activate(_attacker, _activate_dict):
     Add temporal reduce to damage behavior.
     """
     .activate(_attacker, _activate_dict)
-    pay_crests(CREST, COST)
-    summon.damage_behavior.ability_reduce += AMOUNT
+    pay_crests(crest, cost)
+    summon.damage_behavior.ability_reduce += amount
 
 func deactivate():
     .deactivate()

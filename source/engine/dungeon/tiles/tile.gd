@@ -30,6 +30,13 @@ func get_content():
 func get_playerid():
     return 0
 
+# public functions
+func tile_range(tile):
+    var x_range = abs(pos.x-tile.pos.x)
+    var y_range = abs(pos.y-tile.pos.y)
+    var range_dist = x_range + y_range
+    return range_dist
+
 # is functions
 func is_open():
     return false

@@ -1,25 +1,27 @@
 extends "res://engine/abilities/continuous_ability.gd"
 
 # variables
-var MTYPE
+var type
 
 func _init(ability_dict).(ability_dict):
-    MTYPE = ability_dict["MTYPE"]
+    type = ability_dict["TYPE"]
 
 # public functions
 func activate():
     .activate()
+    #GODTO4: use array filter
     for monster in dungeon.monsters:
-        if monster.TYPE == MTYPE:
+        if monster.TYPE == type:
             monster.damage_behavior.add_limit(0)
 
 func deactivate():
     .deactivate()
+    #GODTO4: use array filter
     for monster in dungeon.monsters:
-        if monster.TYPE == MTYPE:
+        if monster.TYPE == type:
             monster.damage_behavior.remove_limit(0)
 
 # signals callbacks
 func on_new_summon(_summon):
-    if _summon.TYPE == MTYPE:
+    if _summon.TYPE == type:
         _summon.damage_behavior.add_limit(0)

@@ -84,7 +84,7 @@ func on_select_tile_gui_toggled(pressed):
 
 func on_select_summons_gui_toggled(pressed):
     if pressed:
-        emit_signal("select_summons_gui_pressed", ability.get_select_tiles(), ability.NUMBER)
+        emit_signal("select_summons_gui_pressed", ability.get_select_tiles(), ability.number)
     else:
         cast_button.disabled = true
 

@@ -6,12 +6,14 @@ func _init(ability_dict).(ability_dict):
 # public functions
 func activate():
     .activate()
+    #GODOT4: use array filter
     for monster in dungeon.monsters:
         if monster.has_ability("TUNNEL"):
             monster.get_ability("TUNNEL").negate()
 
 func deactivate():
-    .disable()
+    .deactivate()
+    #GODOT4: use array filter
     for monster in dungeon.monsters:
         if monster.has_ability("TUNNEL"):
             monster.get_ability("TUNNEL").negate()
