@@ -1,6 +1,8 @@
 ### SOLID
 - check roll_level_kill
 - change activate_dict["pos"]
+- update abilities diagram
+- todo move differences
 
 # abilities
 - refactor abilities
