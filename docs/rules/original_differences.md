@@ -5,7 +5,7 @@ A list with the main differences between the original game and this remake.
 -  Original: 
     - Block tiles block their position and their neighbour positions (up, down, left right). 
 - Remake:
-    - block tile will only block their position.
+    - Block tiles only block their position.
 
 
 
