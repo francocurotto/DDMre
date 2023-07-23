@@ -10,7 +10,7 @@ func set_ability(ability):
     ability_name.text = ability_info["NAME"]
     if not ability_info["DESCRIPTION"].empty():
         var description = format_description(ability, ability_info)
-        ability_desc.text = "[%s]: %s" % [ability_info["TYPE"], description]
+        ability_desc.text = "%s: %s" % [ability_info["TYPE"], description]
         ability_desc.visible = true
     else:
         ability_desc.visible = false
@@ -19,5 +19,5 @@ func set_ability(ability):
 func format_description(ability, ability_info):
     var format_dict = {}
     for param in ability_info["PARAMETERS"]:
-        format_dict[param] = ability.get(param)
+        format_dict[param] = ability.ability_info[param]
     return ability_info["DESCRIPTION"].format(format_dict)

@@ -1,11 +1,13 @@
 extends Reference
 
 # variables
+var ability_info
 var name
 var summon
 var dungeon
 
-func _init(ability_info):
+func _init(_ability_info):
+    ability_info = _ability_info
     name = ability_info["NAME"]
 
 # public functions

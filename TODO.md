@@ -1,5 +1,4 @@
 ### SOLID
-- fix abilities description
 - test abilities
 - update abilities diagram
 - todo move differences
