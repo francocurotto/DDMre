@@ -25,11 +25,5 @@
 - Add opponents, and decent AI
 - _Maybe_ online multiplayer
 
-# Differences with the original (GBA) game
-- In original, you cannot activate a reply ability (as a reply to an attack) and "GUARD" the attack at the same time. This nerf reply abilities quite a bit, and makes some borderline useless (e.g. REDUCEDAMAGE, ADDDFOEDEFENSE). In this remake, monsters can GUARD and activate a reply ability simultaneously.
-- In the original,  I consider Time Wizard ability DIMKILLWEAKEST to be broken, as it affects only opponent monsters, a dicepool full of Time Wizards could easily invalidate any other type of dicepools. In this remake, DIMKILLWEAKEST considers both player's monsters, so if the monster with the lowest attack is a player monster, it cannot be used to kill an opponent monster. 
-- In the original, Knight of Twin Swords has the ability RAISEATTACK. In this remake this ability is replaced with a new ability called MULTIATTACK that a allows the monster to attack three times in one turn. This change is more in line with the ability description text and the anime.
-- In the original Dark-eyes Illusionist has the ability PROTECTSELF. In this remake this ability is replaced with a new ability called NEGATEATKABI. When the ability is casted the player chooses a monster, the chosen monster cannot longer attack and its abilities are negated. This is more in line with the ability description text and casting cost.
-
 # Why?
 I've always been a huge fan of Dungeon Dice Monsters game mechanics, but the few implementations that have been made are very lackluster. In particular, the GBA game (the only official video game version) is really held back by the terrible AI programming of the opponents: stupid dimension positions, nonsensical monster movements, failed attempts to defend the monster lord, etc. Konami has essentially abandoned this game, so I decided to make my own version...
