@@ -1,6 +1,6 @@
 ### SOLID
-- check roll_level_kill
 - change activate_dict["pos"]
+- test abilities
 - update abilities diagram
 - todo move differences
 

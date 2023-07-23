@@ -10,9 +10,6 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func activate(activate_dict):
-    """
-    Roll level kill.
-    """
     var level = activate_dict["level"]
     var total_cost = cost + level
     pay_crests(crest, total_cost)
@@ -34,14 +31,17 @@ func activate(activate_dict):
 func get_roll_tiles(direction):
     var pos = summon.tile.pos + direction
     var tiles = []
-    while dungeon.pos_within_dungeon(pos):
-        var tile = dungeon.get_tile(pos)
-        if tile.is_open() or tile.content.is_monster_lord():
-            break
+    while is_pos_rollable(pos):
         tiles.append(dungeon.get_tile(pos))
         pos = pos + direction
     return tiles
 
-# private functions
+# is functions
+func is_pos_rollable(pos):
+    if not dungeon.pos_within_dungeon(pos):
+        return false
+    var tile = dungeon.get_tile(pos)
+    return tile.is_path() and not tile.content.is_monster_lord()
+
 func is_passable(roll_summon):
     return roll_summon.has_active_ability("FLY")
