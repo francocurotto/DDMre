@@ -1,8 +1,6 @@
 ### SOLID
 - test abilities
 - update abilities diagram
-- todo move differences
-
 
 ### GODOT4
 - make it work without errors

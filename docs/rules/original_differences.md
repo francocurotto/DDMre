@@ -35,6 +35,6 @@ A list with the main differences between the original game and this remake.
 
 [^2]: The original Time Wizard ability is too broken. A dicepool filled with Time Wizards can effectively invalidate any opponent dicepool.
 
-[^3]: The original ability of Dark-eyes Illusionist is too weak compared to its cost, specially compared to Strike Ninja that has the same ability for a lower cost.
+[^3]: The original ability of Dark-eyes Illusionist is too weak in relation to its cost, specially compared to Strike Ninja that has the same ability for a lower cost.
 
 [^4]: The remake ability is more in line with the ability description, and the anime ability.
