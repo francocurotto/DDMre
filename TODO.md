@@ -1,15 +1,12 @@
 ### SOLID
-- change activate_dict["pos"]
+- fix abilities description
 - test abilities
 - update abilities diagram
 - todo move differences
 
-# abilities
-- refactor abilities
-- bug: when negate ability, if negated monster is killed, the ability is disabled again
-    - fix changing disable for negate in summon.negate_abilities (TEST)
-- potential bug: negating a dim ability and reenabling it will reactivate the ability (maybe cannot be triggered)
 
 ### GODOT4
 - make it work without errors
+- correct GODOT4 notes
 - add proper godot4 documentation
+- start new interface

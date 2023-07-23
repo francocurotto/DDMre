@@ -5,7 +5,7 @@ var type
 var effect_flag = false
 
 func _init(ability_dict).(ability_dict):
-    type = ability_dict["MTYPE"]
+    type = ability_dict["TYPE"]
 
 # public functions
 func deactivate():

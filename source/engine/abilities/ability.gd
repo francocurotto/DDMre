@@ -16,6 +16,9 @@ func initialize(_summon, _dungeon):
 func deactivate():
     pass
 
+func negate():
+    pass
+
 func pay_crests(crest, amount):
     summon.player.crestpool.remove_crests(crest, amount)
 
@@ -29,10 +32,10 @@ func activates_on_dim():
 func is_standing():
     return false
 
-func is_manual_dim():
+func is_dim_manual():
     return false
 
-func is_manual_item():
+func is_item_manual():
     return false
 
 func is_negated():

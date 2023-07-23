@@ -25,10 +25,20 @@ func initialize_abilities(dungeon):
     for ability in card.abilities:
         ability.initialize(self, dungeon)
 
+#GODOT4: use array filter
+func activate_dim_abilities():
+    for ability in card.abilities:
+        if ability.activates_on_dim():
+            ability.activate()
+
 func deactivate_abilities():
     for ability in card.abilities:
         if not ability.is_negated():
             ability.deactivate()
+
+func negate_abilities():
+    for ability in card.abilities:
+        ability.negate()
 
 # is functions
 func is_summon():

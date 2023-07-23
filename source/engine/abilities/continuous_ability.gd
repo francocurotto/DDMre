@@ -25,8 +25,13 @@ func remove_negate():
     if negate_count == 0:
         activate()
 
+# signals callbacks
 func on_new_summon(_summon):
     pass
 
 func on_next_turn(_player, _turn):
     pass
+
+# is functions
+func activates_on_dim():
+    return true

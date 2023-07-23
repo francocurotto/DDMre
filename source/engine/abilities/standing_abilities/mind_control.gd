@@ -13,7 +13,8 @@ func _init(ability_dict).(ability_dict):
 func activate(activate_dict):
     Events.connect("next_turn", self, "on_next_turn")
     pay_crests(crest, cost)
-    monster = dungeon.get_tile(activate_dict["pos"]).content
+    var pos = activate_dict["pos"]
+    monster = dungeon.get_tile(pos).content
     monster.switch_player()
 
 func get_select_tiles():

@@ -15,7 +15,8 @@ func activate(_attacker, activate_dict):
     """
     .activate(_attacker, activate_dict)
     pay_crests(crest, cost)
-    var receiver = dungeon.get_tile(activate_dict["pos"]).content
+    var pos = activate_dict["pos"]
+    var receiver = dungeon.get_tile(pos).content
     summon.damage_behavior.receiver = receiver
 
 func deactivate():

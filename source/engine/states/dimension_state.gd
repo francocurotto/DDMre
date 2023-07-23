@@ -38,12 +38,9 @@ func DIM(cmddict):
     # dimension
     var summon = dungeon.dimension(player, net, diceidx)
     
-    # activate autodim abilities
-    #GODOT4: use array filter
-    for ability in summon.card.abilities:
-        if ability.activates_on_dim():
-            ability.activate()
-    
+    # activate dim abilities
+    summon.activate_dim_abilities()
+
     # decide to go to dungeon or dim ability state
     if summon.has_dim_manual_ability():
         return DimAbilityState.new(player, opponent, dungeon, summon)

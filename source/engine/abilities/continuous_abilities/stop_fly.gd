@@ -16,7 +16,7 @@ func deactivate():
     #GODOT4: use array filter
     for monster in dungeon.monsters:
         if monster.has_ability("FLY"):
-            monster.get_ability("FLY").negate()
+            monster.get_ability("FLY").remove_negate()
 
 # signals callbacks
 func on_new_summon(_summon):

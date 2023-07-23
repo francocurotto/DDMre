@@ -12,7 +12,8 @@ func _init(ability_dict).(ability_dict):
 
 # public functions
 func activate(activate_dict):
-    var kill_summon = dungeon.get_tile(activate_dict["pos"]).content
+    var pos = activate_dict["pos"]
+    var kill_summon = dungeon.get_tile(pos).content
     var total_cost = cost + kill_summon.card.level
     pay_crests(crest, total_cost)
     kill_summon.destroy()

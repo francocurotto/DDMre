@@ -16,7 +16,7 @@ func deactivate():
     #GODOT4: use array filter
     for monster in dungeon.monsters:
         if monster.has_ability("TUNNEL"):
-            monster.get_ability("TUNNEL").negate()
+            monster.get_ability("TUNNEL").remove_negate()
 
 # signals callbacks
 func on_new_summon(_summon):

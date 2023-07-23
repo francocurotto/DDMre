@@ -14,7 +14,8 @@ func activate(activate_dict):
     Kill block.
     """
     pay_crests(crest, cost)
-    dungeon.place_open_tile(activate_dict["pos"])
+    var pos = activate_dict["pos"]
+    dungeon.place_open_tile(pos)
 
 func get_select_tiles():
     return get_block_tiles()

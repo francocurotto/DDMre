@@ -110,7 +110,7 @@ func on_select_summons_done_button_pressed(poslist):
 # private functions
 func get_state_ability(summon):
     for _ability in summon.card.abilities:
-        if _ability.is_dim_state() or _ability.is_item_state():
+        if _ability.is_dim_manual() or _ability.is_item_manual():
             return _ability
 
 func get_ability_dict():
