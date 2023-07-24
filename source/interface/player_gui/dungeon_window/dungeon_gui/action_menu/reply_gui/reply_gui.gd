@@ -33,7 +33,7 @@ func _ready():
             controls.add_child(reply_ability_gui)
             controls.move_child(reply_ability_gui, 0)
             if ability.name == "SHIFTDAMAGE":
-                reply_ability_gui.change_button_name("✨%s (%d%s)" % [Globals.ABIDICT[ability.name]["NAME"], ability.COST, Globals.CRESTICONS[ability.CREST]])
+                reply_ability_gui.change_button_name("✨%s (%d%s)" % [Globals.ABIDICT[ability.name]["NAME"], ability.cost, Globals.CRESTICONS[ability.crest]])
 
 # public functions
 func setup(action_menu, _attacker, _attacked):

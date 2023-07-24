@@ -30,13 +30,13 @@ signal select_direction_pressed(ability, direction)
 
 func _ready():
     ability_info.set_ability(ability)
-    on_ability_cost_changed(ability.COST)
+    on_ability_cost_changed(ability.cost)
     if ability.name in ability_guis_dict:
         active_gui = ability_guis_dict[ability.name].instance().setup(self, ability)
         controls.add_child(active_gui)
         controls.move_child(active_gui, 0)
     if ability.name in ability_range_highlight:
-        emit_signal("highlight_ability_tiles", ability.get_tiles_in_range(ability.RANGE))
+        emit_signal("highlight_ability_tiles", ability.get_tiles_in_range(ability.tile_range))
 
 # public functions
 func setup(action_menu, _ability):
@@ -73,14 +73,14 @@ func on_select_tile_cancel_button_pressed():
 
 func on_select_tile_select_button_pressed(tile):
     active_gui.on_select_tile_select_button_pressed(tile)
-    cast_button.disabled = ability.COST > ability.monster.player.crestpool.get_crest(ability.CREST)
+    cast_button.disabled = ability.cost > ability.monster.player.crestpool.get_crest(ability.crest)
 
 func on_select_direction_select_button_pressed(direction):
     active_gui.on_select_direction_select_button_pressed(direction)
 
 func on_ability_cost_changed(cost):
-    cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[ability.CREST]]
-    cast_button.disabled = cost > ability.monster.player.crestpool.get_crest(ability.CREST) 
+    cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[ability.crest]]
+    cast_button.disabled = cost > ability.monster.player.crestpool.get_crest(ability.crest) 
 
 # private functions
 func get_ability_dict():

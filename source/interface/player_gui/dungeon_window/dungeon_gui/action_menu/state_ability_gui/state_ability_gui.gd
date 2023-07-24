@@ -54,10 +54,10 @@ func setup(action_menu, _state):
     return self
 
 func set_cast_button():
-    if "COST" in ability and "CREST" in ability:
-        on_ability_cost_changed(ability.COST, ability.CREST)
+    if "cost" in ability and "crest" in ability:
+        on_ability_cost_changed(ability.cost, ability.crest)
     elif "cost" in ability:
-        on_ability_cost_changed(ability.COST, null)
+        on_ability_cost_changed(ability.cost, null)
 
 # signals callbacks
 func _on_CastButton_pressed():
@@ -97,15 +97,15 @@ func on_select_tile_cancel_button_pressed():
 
 func on_select_tile_select_button_pressed(tile):
     active_gui.on_select_tile_select_button_pressed(tile)
-    if "CREST" in ability:
-        cast_button.disabled = ability.COST > ability.monster.player.crestpool.get_crest(ability.CREST)
+    if "crest" in ability:
+        cast_button.disabled = ability.cost > ability.monster.player.crestpool.get_crest(ability.crest)
     else:
         cast_button.disabled = false
 
 func on_select_summons_done_button_pressed(poslist):
     active_gui.on_select_summons_done_button_pressed(poslist)
     if not poslist.empty():
-        cast_button.disabled = ability.COST > ability.monster.player.crestpool.get_crest(ability.CREST)
+        cast_button.disabled = ability.cost > ability.monster.player.crestpool.get_crest(ability.crest)
 
 # private functions
 func get_state_ability(summon):

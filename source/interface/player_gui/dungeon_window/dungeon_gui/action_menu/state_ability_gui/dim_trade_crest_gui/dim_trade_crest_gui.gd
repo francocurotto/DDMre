@@ -14,8 +14,8 @@ onready var gaincrest_buttongroup = $Controls/GainGUI/GainButtons/MoveButton.gro
 signal ability_cost_changed
 
 func _ready():
-    pay_label.text = "Pay Crest (%d)" % ability.COST
-    gain_label.text = "Gain Crest (%d)" % ability.AMOUNT
+    pay_label.text = "Pay Crest (%d)" % ability.cost
+    gain_label.text = "Gain Crest (%d)" % ability.amount
     paycrest_buttongroup.connect("pressed", self, "on_pay_button_pressed")
     gaincrest_buttongroup.connect("pressed", self, "on_gain_button_pressed")
 
@@ -34,10 +34,10 @@ func get_ability_dict():
 func on_pay_button_pressed(button):
     var crest = crests[button.get_index()]
     if gaincrest_buttongroup.get_pressed_button():
-        emit_signal("ability_cost_changed", ability.COST, crest)
+        emit_signal("ability_cost_changed", ability.cost, crest)
 
 func on_gain_button_pressed(_button):
     var button = paycrest_buttongroup.get_pressed_button()
     if button:
         var crest = crests[button.get_index()]
-        emit_signal("ability_cost_changed", ability.COST, crest)
+        emit_signal("ability_cost_changed", ability.cost, crest)
