@@ -82,8 +82,7 @@ func set_init_summons(player, dungeon, summon_list):
         if Checks.check_summon_dict(summon_dict):
             var pos = str_to_pos(summon_dict["POS"])
             var diceidx = summon_dict["DICE"]-1
-            var summon = dungeon.place_summon(player, pos, diceidx)
-            summon.activate_dim_abilities()
+            dungeon.place_summon(player, pos, diceidx)
     
 func set_init_vortex(dungeon, vortex_list):
     """

@@ -46,7 +46,6 @@ func summon_card(poolidx):
     var dice = dicepool[poolidx]
     dice.dimensioned = true
     var summon = dice.card.summon(self)
-    Events.emit_signal("new_summon", summon)
     return summon
 
 # signals callbacks

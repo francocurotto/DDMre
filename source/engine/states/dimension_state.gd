@@ -37,9 +37,6 @@ func DIM(cmddict):
 
     # dimension
     var summon = dungeon.dimension(player, net, diceidx)
-    
-    # activate dim abilities
-    summon.activate_dim_abilities()
 
     # decide to go to dungeon or dim ability state
     if summon.has_dim_manual_ability():

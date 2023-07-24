@@ -148,6 +148,8 @@ func place_summon(player, pos, diceidx):
     var summon = player.summon_card(diceidx)
     get_tile(pos).content = summon
     summon.initialize_abilities(self)
+    summon.activate_dim_abilities()
+    Events.emit_signal("new_summon", summon)
     return summon
 
 func place_vortex(pos):
