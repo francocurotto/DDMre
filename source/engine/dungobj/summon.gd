@@ -28,7 +28,7 @@ func initialize_abilities(dungeon):
 #GODOT4: use array filter
 func activate_dim_abilities():
     for ability in card.abilities:
-        if ability.activates_on_dim():
+        if ability.activates_on_dim() and not ability.negated():
             ability.activate()
 
 func deactivate_abilities():
