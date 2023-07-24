@@ -16,9 +16,9 @@ func SKIP(_cmddict):
     """
     return DungeonState.new(player, opponent, dungeon)
 
-func ABILITY(cmddict):
+func CAST(cmddict):
     """
-    Excecute the ABILITY command.
+    Excecute the CAST command.
     """
     # get data
     var ability_dict = cmddict["ability"]

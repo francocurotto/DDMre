@@ -19,7 +19,7 @@ signal ability_cost_changed(cost)
 signal select_direction_pressed(direction)
 
 func _ready():
-    if ability.monster.player.id == 1:
+    if ability.summon.player.id == 1:
         direction = Vector2(0,1)
     else:
         direction = Vector2(0,-1)
@@ -60,7 +60,7 @@ func on_select_direction_select_button_pressed(_direction):
 # private functions
 func set_direction_button_text():
     var dirkey = direction
-    if ability.monster.player.id == 2:
+    if ability.summon.player.id == 2:
         dirkey = dirkey.reflect(Vector2(1,0))
     var dirdict = {Vector2(0,1)  : "⬆",
                    Vector2(-1,0) : "⬅",

@@ -50,7 +50,7 @@ func setup(action_menu, _ability):
 
 # signals callbacks
 func _on_CastButton_pressed():
-    emit_signal("cast_button_pressed", ability.monster.tile.pos, get_ability_dict())
+    emit_signal("cast_button_pressed", ability.summon.tile.pos, get_ability_dict())
 
 func _on_CancelButton_pressed():
     emit_signal("cancel_button_pressed")
@@ -73,14 +73,14 @@ func on_select_tile_cancel_button_pressed():
 
 func on_select_tile_select_button_pressed(tile):
     active_gui.on_select_tile_select_button_pressed(tile)
-    cast_button.disabled = ability.cost > ability.monster.player.crestpool.get_crest(ability.crest)
+    cast_button.disabled = ability.cost > ability.summon.player.crestpool.get_crest(ability.crest)
 
 func on_select_direction_select_button_pressed(direction):
     active_gui.on_select_direction_select_button_pressed(direction)
 
 func on_ability_cost_changed(cost):
     cast_button.text = "✨CAST (%d%s)" % [cost, Globals.CRESTICONS[ability.crest]]
-    cast_button.disabled = cost > ability.monster.player.crestpool.get_crest(ability.crest) 
+    cast_button.disabled = cost > ability.summon.player.crestpool.get_crest(ability.crest) 
 
 # private functions
 func get_ability_dict():

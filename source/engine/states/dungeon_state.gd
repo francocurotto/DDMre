@@ -68,9 +68,9 @@ func ATTACK(cmddict):
     # return same state
     return self
 
-func ABILITY(cmddict):
+func CAST(cmddict):
     """
-    Excecute the ABILITY command.
+    Excecute the CAST command.
     """
     # get data
     var monster = dungeon.get_tile(cmddict["pos"]).content

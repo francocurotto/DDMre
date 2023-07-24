@@ -43,6 +43,6 @@ func on_select_summons_done_button_pressed(_poslist):
             var summon = ability.dungeon.get_tile(pos).content
             var summon_info = SummonInfo.instance()
             summon_infos.add_child(summon_info)
-            summon_info.set_summon(summon, ability.monster.player)            
+            summon_info.set_summon(summon, ability.summon.player)            
     else:
         button.pressed = false

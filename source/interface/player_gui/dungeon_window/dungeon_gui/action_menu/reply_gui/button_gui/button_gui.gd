@@ -8,7 +8,7 @@ signal ability_cost_changed(cost, crest)
 
 func _ready():
     text = get_button_text()
-    disabled = ability.cost > ability.monster.player.crestpool.get_crest(ability.crest)
+    disabled = ability.cost > ability.summon.player.crestpool.get_crest(ability.crest)
 
 # public functions
 func setup(reply_gui, _ability):
