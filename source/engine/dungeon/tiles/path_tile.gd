@@ -5,7 +5,8 @@ func _init(_y, _x).(_y, _x):
 
 # setget functions
 func set_vortex(_bool):
-    vortex = _bool
+    if  not content.is_monster_lord():
+        vortex = _bool
 
 func get_vortex():
     return vortex

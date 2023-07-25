@@ -41,7 +41,8 @@ func WAIT(cmddict):
     
     # activate attack ability if exists
     if ability_dict:
-        attacked.activate_reply_ability(attacker, ability_dict)
+        var ability = attacked.get_ability(ability_dict["name"])
+        ability.activate(attacker, ability_dict)
     
     # wait attack
     attacker.attack_monster(attacked, false)

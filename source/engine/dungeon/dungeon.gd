@@ -2,7 +2,7 @@ extends Reference
 
 # preloads
 const OpenTile = preload("res://engine/dungeon/tiles/open_tile.gd")
-const PathTile = preload("res://engine/dungeon/tiles/path_tile.gd")
+const NeutralPathTile = preload("res://engine/dungeon/tiles/neutral_path_tile.gd")
 const BlockTile = preload("res://engine/dungeon/tiles/block_tile.gd")
 const MovePathQueue = preload("res://engine/dungeon/path_queue/move_path_queue.gd")
 const AttackPathQueue = preload("res://engine/dungeon/path_queue/attack_path_queue.gd")
@@ -180,7 +180,7 @@ func create_tile(player1, player2, chr, y, x):
         "L" : return player2.create_ml_tile(y, x)
         "p" : return player1.create_tile(y, x)
         "P" : return player2.create_tile(y, x)
-        "N" : return PathTile.new(y, x)
+        "N" : return NeutralPathTile.new(y, x)
         "X" : return BlockTile.new(y, x)
 
 # is functions

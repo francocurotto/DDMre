@@ -26,15 +26,15 @@ func _on_SelectButton_pressed():
     emit_signal("select_direction_select_button_pressed", self.direction)
 
 func _on_ClockWiseButton_pressed():
-    if ability.monster.player.id == 1:
+    if ability.summon.player.id == 1:
         index += 1
-    elif ability.monster.player.id == 2:
+    elif ability.summon.player.id == 2:
         index -= 1
     emit_signal("highlight_ability_tiles", ability.get_roll_tiles(self.direction))
 
 func _on_CounterClockWiseButton_pressed():
-    if ability.monster.player.id == 1:
+    if ability.summon.player.id == 1:
         index -= 1
-    elif ability.monster.player.id == 2:
+    elif ability.summon.player.id == 2:
         index += 1
     emit_signal("highlight_ability_tiles", ability.get_roll_tiles(self.direction))

@@ -19,7 +19,7 @@ func activate(activate_dict):
     var last_empty = summon.tile
     for tile in roll_tiles:
         var roll_summon = tile.content
-        if not tile.is_empty():
+        if tile.is_empty():
             last_empty = tile
         elif not is_passable(roll_summon) and roll_summon.card.level<=level:
             roll_summon.destroy()
