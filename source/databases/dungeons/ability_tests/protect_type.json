@@ -27,7 +27,7 @@
     "ATTACK"  : 2,
     "DEFENSE" : 1,
     "MAGIC"   : 0,
-    "TRAP"    : 0},
+    "TRAP"    : 10},
   "CRESTS2": {
     "MOVEMENT": 20,
     "ATTACK"  : 2,
