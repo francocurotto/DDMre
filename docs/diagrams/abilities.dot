@@ -1,16 +1,16 @@
 digraph abilities {
     // nodes
     node[shape=record]
-    Ability[label="{Ability|+ ability_info\l+ name\l+ summon\l+ dungeon\l|- initialize(dungeon)\l}"]
+    Ability[label="{Ability|+ ability_info\l+ name\l+ summon\l+ dungeon\l|- initialize(summon, dungeon)\l}"]
     DimensionAbility[label="{Dimension Ability}"]
     DimAutoAbility[label="{Dim Auto Ability|- activate()\l}"]
     DimManualAbility[label="{Dim Manual Ability|- activate(activate_dict)\l}"]
-    LingerAbility[label="{Linger Ability|+ monster\l+ negate_count\l|- negate()\l- remove_negate()\l- is_negated()\l}"]
-    ContinuousAbility[label="{Continuous Ability|- activate()\l- deactivate()\l- negate()\l- remove_negate()\l- on_new_summon(summon)\l- on_next_turn(player, turn)}"]
+    LingerAbility[label="{Linger Ability|+ negate_count\l|- negate()\l- remove_negate()\l- is_negated()\l}"]
+    ContinuousAbility[label="{Continuous Ability|- activate()\l- deactivate()\l- negate()\l- remove_negate()\l- on_new_summon(summon)\l- on_next_turn(player, turn)\l}"]
     AttackAbility[label="{Attack Ability|- activate(activate_dict)\l- deactivate()\l}"]
     ReplyAbility[label="{Reply Ability|- activate(attacker, activate_dict)\l- deactivate()\l}"]
     StandingAbility[label="{Standing Ability|- activate(activate_dict)\l}"]
-    ItemAbility[label="{Item Ability\l|- activate(monster)}"]
+    ItemAbility[label="{Item Ability|- activate(monster)\l}"]
     ItemManualAbility[label="{Item Manual Ability|- activate(monster, activate_dict)\l}"]
     // edges
     Ability -> DimensionAbility

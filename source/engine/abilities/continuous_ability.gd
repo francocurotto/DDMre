@@ -12,8 +12,15 @@ func activate():
     Events.connect("next_turn", self, "on_next_turn")
 
 func deactivate():
-    Events.disconnect("new_summon", self, "on_new_summon")
-    Events.disconnect("next_turn", self, "on_next_turn")
+    # "if"s are not necessary for now, but are there for future proof.
+    # If a continuous ability that uses the signals is negated on summon,
+    # the disconnect will throw an error if not tested first, because the 
+    # connections (on activate) are performed after the summon signal is 
+    # triggered.
+    if Events.is_connected("new_summon", self, "on_new_summon"):
+        Events.disconnect("new_summon", self, "on_new_summon")
+    if Events.is_connected("next_turn", self, "on_next_turn"):
+        Events.disconnect("next_turn", self, "on_next_turn")
 
 func negate():
     .negate()

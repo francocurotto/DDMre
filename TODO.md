@@ -1,6 +1,3 @@
-### SOLID
-- update abilities diagram
-
 ### GODOT4
 - make it work without errors
 - correct GODOT4 notes
