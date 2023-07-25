@@ -118,14 +118,15 @@ func on_tile_select_button_toggled(tile_gui, pressed):
     emit_signal("tile_select_button_toggled", tile_gui.tile, pressed)
 
 func on_tile_move_button_pressed(tile_gui):
-    disable_tile_gui_buttons()
     var pos1 = selected_tile_gui.tile.pos
     var pos2 = tile_gui.tile.pos
     var monster = selected_tile_gui.tile.content
     var path = dungeon.get_move_path(monster, tile_gui.tile)
     var move_cost = dungeon.get_move_cost(path, monster)
-    highlight_movement(pos1, pos2, path)
-    emit_signal("tile_move_button_pressed", pos1, pos2, move_cost)
+    if tile_gui.tile.is_reachable():
+        disable_tile_gui_buttons()
+        highlight_movement(pos1, pos2, path)
+        emit_signal("tile_move_button_pressed", pos1, pos2, move_cost)
 
 func on_tile_attack_button_pressed(tile_gui):
     var pos1 = selected_tile_gui.tile.pos
@@ -161,8 +162,7 @@ func on_move_button_pressed():
     disable_tile_gui_buttons()
     var move_tiles = dungeon.get_move_tiles(selected_tile_gui.tile.content)
     for move_tile in move_tiles:
-        if move_tile.is_reachable():
-            get_tile_gui(move_tile.pos).enable_move_button()
+        get_tile_gui(move_tile.pos).enable_move_button()
 
 func on_attack_button_pressed():
     disable_tile_gui_buttons()

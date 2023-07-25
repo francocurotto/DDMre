@@ -1,7 +1,5 @@
 ### SOLID
 - update abilities diagram
-- highlight move path in passable monsters
-- swap direction buttons positions
 
 ### GODOT4
 - make it work without errors

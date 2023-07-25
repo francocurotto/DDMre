@@ -9,16 +9,16 @@ margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 script = ExtResource( 3 )
 
-[node name="ClockWiseButton" type="Button" parent="."]
+[node name="CounterClockWiseButton" type="Button" parent="."]
 margin_right = 235.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
-text = "🔃"
+text = "🔄"
 
-[node name="CounterClockWiseButton" type="Button" parent="."]
+[node name="ClockWiseButton" type="Button" parent="."]
 margin_left = 239.0
 margin_right = 474.0
 margin_bottom = 60.0
@@ -26,7 +26,7 @@ rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
-text = "🔄"
+text = "🔃"
 
 [node name="SelectButton" type="Button" parent="."]
 margin_left = 478.0
@@ -38,6 +38,6 @@ size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 text = "🔘SELECT"
 
-[connection signal="pressed" from="ClockWiseButton" to="." method="_on_ClockWiseButton_pressed"]
 [connection signal="pressed" from="CounterClockWiseButton" to="." method="_on_CounterClockWiseButton_pressed"]
+[connection signal="pressed" from="ClockWiseButton" to="." method="_on_ClockWiseButton_pressed"]
 [connection signal="pressed" from="SelectButton" to="." method="_on_SelectButton_pressed"]
