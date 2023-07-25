@@ -100,7 +100,7 @@ func get_weakest_monsters_tiles():
                 select_tiles.append(monster.tile)
             elif select_tiles[0].content.attack > monster.attack:
                 select_tiles = [monster.tile]
-        return select_tiles
+    return select_tiles
 
 func get_range_opponent_summon_tiles(tile_range):
     var select_tiles = []
