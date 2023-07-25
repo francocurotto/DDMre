@@ -40,7 +40,7 @@ func get_ability_dict():
         if dice_gui.button.pressed:
             selected_dice_gui = dice_gui
             break
-    return {"dice_index" : monster.player.dicepool.find(selected_dice_gui.dice)}
+    return {"diceidx" : monster.player.dicepool.find(selected_dice_gui.dice)}
 
 # signals callbacks
 func on_button_pressed(_button):

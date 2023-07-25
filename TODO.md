@@ -1,5 +1,4 @@
 ### SOLID
-- test abilities
 - update abilities diagram
 - highlight move path in passable monsters
 - swap direction buttons positions
