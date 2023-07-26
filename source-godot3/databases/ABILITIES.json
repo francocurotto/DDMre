@@ -1,0 +1,290 @@
+{
+  "TUNNEL": {
+    "NAME": "TUNNEL",
+    "TYPE": "CONTINUOUS",
+    "PARAMETERS" : [],
+    "DESCRIPTION": ""
+  },
+  "FLY": {
+    "NAME": "FLY",
+    "TYPE": "CONTINUOUS",
+    "PARAMETERS" : [],
+    "DESCRIPTION": ""
+  },
+  "ARCHER": {
+    "NAME": "ARCHER",
+    "TYPE": "CONTINUOUS",
+    "PARAMETERS" : [],
+    "DESCRIPTION": ""
+  },
+  "NEUTRAL": {
+    "NAME": "NEUTRAL",
+    "TYPE": "CONTINUOUS",
+    "PARAMETERS" : [],
+    "DESCRIPTION": ""
+  },
+  "DIMCURE": {
+    "NAME": "DIM CURE",
+    "TYPE": "DIMENSION",
+    "PARAMETERS" : ["AMOUNT", "NUMBER", "COST", "CREST"],
+    "DESCRIPTION": "Restore {AMOUNT} health to {NUMBER} different player monster(s).\nCOST: {COST} X {CREST}"
+  },
+  "DIMCUREALL": {
+    "NAME": "DIM CURE ALL",
+    "TYPE": "DIMENSION",
+    "PARAMETERS" : ["AMOUNT"],
+    "DESCRIPTION": "Restore {AMOUNT} health to all player monster(s). This ability cannot be skipped."
+  },
+  "DIMKILLWEAKEST": {
+    "NAME": "DIM KILL WEAKEST",
+    "TYPE": "DIMENSION",
+    "PARAMETERS" : [],
+    "DESCRIPTION": "Excluding this monster, destroy the monster with the lowest attack (after ability effect computation)."
+  },
+  "DIMKILLTUNNEL": {
+    "NAME": "DIM KILL TUNNEL",
+    "TYPE": "DIMENSION",
+    "PARAMETERS" : ["COST", "CREST"],
+    "DESCRIPTION": "Destroy one monster with the active ability TUNNEL.\nCOST: {COST} X {CREST}"
+  },
+  "DIMKILLTUNNELALL": {
+    "NAME": "DIM KILL TUNNEL ALL",
+    "TYPE": "DIMENSION",
+    "PARAMETERS" : ["COST", "CREST"],
+    "DESCRIPTION": "Destroy all monsters with the active ability TUNNEL.\nCOST: {COST} X {CREST}"
+  },
+  "DIMADDCREST": {
+    "NAME": "DIM ADD CREST",
+    "TYPE": "DIMENSION",
+    "PARAMETERS" : ["AMOUNT", "CREST"],
+    "DESCRIPTION": "Add {AMOUNT} {CREST}(s) to player crestpool. This ability cannot be skipped."
+  },
+  "DIMTRADECREST": {
+    "NAME": "DIM TRADE CREST",
+    "TYPE": "DIMENSION",
+    "PARAMETERS" : ["AMOUNT", "COST"],
+    "DESCRIPTION": "Pay {COST} crest(s) of any type. Add {AMOUNT} crest(s) of any type to player crestpool."
+  },
+  "EXODIA": {
+    "NAME": "EXODIA",
+    "TYPE": "DIMENSION",
+    "PARAMETERS" : [],
+    "DESCRIPTION": "Win the game if player controls 'R Leg of Forbidden', 'L Leg of Forbidden', 'L Arm of Forbidden' and 'R Arm of Forbidden'. This ability cannot be skipped."
+  },
+  "DIMBUFFDEADTYPE": {
+    "NAME": "DIM BUFF DEAD TYPE",
+    "TYPE": "DIMENSION",
+    "PARAMETERS" : ["TYPE"],
+    "DESCRIPTION": "For each dead monster of type {TYPE} of both players, add the original attack and defense of the dead monsters to this monster. This ability cannot be skipped."
+  },
+  "STOPFLY": {
+    "NAME": "STOP FLY",
+    "TYPE": "CONTINUOUS",
+    "PARAMETERS" : [],
+    "DESCRIPTION": "Negate the FLY ability of all monsters."
+  },
+  "STOPTUNNEL": {
+    "NAME": "STOP TUNNEL",
+    "TYPE": "CONTINUOUS",
+    "PARAMETERS" : [],
+    "DESCRIPTION": "Negate the TUNNEL ability of all monsters."
+  },
+  "TURNSLOWTYPE": {
+    "NAME": "TURN SLOW TYPE",
+    "TYPE": "CONTINUOUS",
+    "PARAMETERS" : ["TYPE"],
+    "DESCRIPTION": "{TYPE} monsters can only move once every two turns, stating forbidding movement in each player next turn and re-enabling it in the turn after the next. NOTE: Two or more instances of this ability can be stacked to cancel movement completely."
+  },
+  "BUFFTYPE": {
+    "NAME": "BUFF TYPE",
+    "TYPE": "CONTINUOUS",
+    "PARAMETERS" : ["TYPE", "ATTR", "AMOUNT"],
+    "DESCRIPTION": "Raise {ATTR} of all {TYPE} monsters by {AMOUNT}."
+  },
+  "PROTECTTYPE": {
+    "NAME": "PROTECT TYPE",
+    "TYPE": "CONTINUOUS",
+    "PARAMETERS" : ["TYPE"],
+    "DESCRIPTION": "Reduce attack and ability damage to all {TYPE} monsters to 0."
+  },
+  "FROZEN": {
+    "NAME": "FROZEN",
+    "TYPE": "CONTINUOUS",
+    "PARAMETERS" : [],
+    "DESCRIPTION": "This monster cannot move."
+  },
+  "MOVELIMIT": {
+    "NAME": "MOVE LIMIT",
+    "TYPE": "CONTINUOUS",
+    "PARAMETERS" : ["MAX"],
+    "DESCRIPTION": "This monster can move a maximum of {MAX} tile(s) per turn."
+  },
+  "RAISESPEED": {
+    "NAME": "RAISE SPEED",
+    "TYPE": "CONTINUOUS",
+    "PARAMETERS" : ["AMOUNT"],
+    "DESCRIPTION": "This monster can move up to {AMOUNT} tiles per MOVEMENT crest."
+  },
+  "MULTIATTACK": {
+    "NAME": "MULTI ATTACK",
+    "TYPE": "CONTINUOUS",
+    "PARAMETERS" : ["MAX"],
+    "DESCRIPTION": "This monster can attack a maximum of {MAX} time(s) per turn."
+  },
+  "RAISEATTACK": {
+    "NAME": "RAISE ATTACK",
+    "TYPE": "ATTACK",
+    "PARAMETERS" : ["MAX"],
+    "DESCRIPTION": "Raise attack power by 10x the number of paid ATTACK crests (additionals to the crest for attacking), up to a maximum of {MAX}.\nCOST: (1..{MAX} X ATTACK)"
+  },
+  "REDUCEDAMAGE": {
+    "NAME": "REDUCE DAMAGE",
+    "TYPE": "REPLY",
+    "PARAMETERS" : ["AMOUNT", "COST", "CREST"],
+    "DESCRIPTION": "Reduce damage dealt during attack by {AMOUNT}.\nCOST: {COST} X {CREST}"
+  },
+  "REDUCEDAMAGEINF": {
+    "NAME": "REDUCE DAMAGE INF",
+    "TYPE": "REPLY",
+    "PARAMETERS" : [],
+    "DESCRIPTION": "Choose a number of DEFENSE crests to pay. Reduce damage dealt during attack by 10x the number of paid crests.\nCOST: (1..99) X DEFENSE"
+  },
+  "SHIFTDAMAGE": {
+    "NAME": "SHIFT DAMAGE",
+    "TYPE": "REPLY",
+    "PARAMETERS" : ["COST", "CREST"],
+    "DESCRIPTION": "Select a player monster other than this monster. Shift all the damage dealt during attack to the selected monster.\nCOST: {COST} X {CREST}"
+  },
+  "PROTECTSELF": {
+    "NAME": "PROTECT SELF",
+    "TYPE": "REPLY",
+    "PARAMETERS" : ["COST", "CREST"],
+    "DESCRIPTION": "Reduce damage dealt during attack to 0.\nCOST: {COST} X {CREST}"
+  },
+  "ADDFOEDEFENSE": {
+    "NAME": "ADD FOE DEFENSE",
+    "TYPE": "REPLY",
+    "PARAMETERS" : ["COST", "CREST"],
+    "DESCRIPTION": "Before attack calculations, permanently add attacking monster defense to this monster defense.\nCOST: {COST} X {CREST}"
+  },
+  "KILLBLOCK": {
+    "NAME": "KILL BLOCK",
+    "TYPE": "STANDING",
+    "PARAMETERS" : ["COST", "CREST"],
+    "DESCRIPTION": "Replace a block tile with an empty tile.\nCOST: {COST} X {CREST}"
+  },
+  "BUFFDAMAGE": {
+    "NAME": "BUFF DAMAGE",
+    "TYPE": "STANDING",
+    "PARAMETERS" : ["ATTR", "COST", "CREST"],
+    "DESCRIPTION": "Raise this monster {ATTR} by the total damage dealt to this monster (monster max. health minus current health).\nCOST: {COST} X {CREST}"
+  },
+  "BUFFSELF": {
+    "NAME": "BUFF SELF",
+    "TYPE": "STANDING",
+    "PARAMETERS" : ["ATTR", "AMOUNT", "COST", "CREST"],
+    "DESCRIPTION": "Raise this monster {ATTR} by the {AMOUNT}.\nCOST: {COST} X {CREST}"
+  },
+  "TRADEHEALTH": {
+    "NAME": "TRADE HEALTH",
+    "TYPE": "STANDING",
+    "PARAMETERS" : ["AMOUNT", "COST", "CREST"],
+    "DESCRIPTION": "Deal {AMOUNT} damage to this monster and an opponent monster.\nCOST: {COST} X {CREST}"
+  },
+  "STEALMONSTER": {
+    "NAME": "STEAL MONSTER",
+    "TYPE": "STANDING",
+    "PARAMETERS" : ["COST", "CREST"],
+    "DESCRIPTION": "Destroy this monster. Gain control of one opponent monster for the rest of the duel.\nCOST: {COST} X {CREST}"
+  },
+  "MINDCONTROL": {
+    "NAME": "MIND CONTROL",
+    "TYPE": "STANDING",
+    "PARAMETERS" : ["COST", "CREST"],
+    "DESCRIPTION": "Gain control of one opponent monster until the end of the turn.\nCOST: {COST} X {CREST}"
+  },
+  "ROLLLEVELKILL": {
+    "NAME": "ROLL LEVEL KILL",
+    "TYPE": "STANDING",
+    "PARAMETERS" : ["COST", "CREST"],
+    "DESCRIPTION": "Choose a level (1 to 4). The ability cost is increased by the selected level x {CREST} crest. Choose a direction (left, right, up, down). Move the monster in the chosen direction. If it hits a flying monster, continue movement without affecting the hit monster. If it hits a non-flying monster/item whose level is lower or equal to the selected level, destroy that monster/item and continue movement (items abilities are not activated). If it hits a non-flying monster/item whose level is higher that the selected level, or a monster lord, or an empty tile, stop movement and locate the monster in the last visited unoccupied path tile.\nCOST: {COST}+[1..4] X {CREST}"
+  },
+  "RANGELEVELKILL": {
+    "NAME": "RANGE LEVEL KILL",
+    "TYPE": "STANDING",
+    "PARAMETERS" : ["RANGE", "COST", "CREST"],
+    "DESCRIPTION": "Choose an opponent monster/item at range {RANGE}. The ability cost is increased by the level of the selected monster/item x {CREST} crest. Destroy the selected monster/item.\nCOST: {COST}+[1..4] X {CREST}"
+  },
+  "RANGEKILLALL": {
+    "NAME": "RANGE KILL ALL",
+    "TYPE": "STANDING",
+    "PARAMETERS" : ["RANGE", "COST", "CREST"],
+    "DESCRIPTION": "Except for this monster, destroy all monster and items at range {RANGE}.\nCOST: {COST} X {CREST}"
+  },
+  "DISTANCEATTACK": {
+    "NAME": "DISTANCE ATTACK",
+    "TYPE": "STANDING",
+    "PARAMETERS" : ["MAX", "COST", "CREST"],
+    "DESCRIPTION": "Until the end of the turn, the maximum attack distance for this monster becomes {MAX}, and the attack crest cost becomes 0. NOTE: Distance attacks can go through monsters, items and monster lords, but not through empty tiles and blocks.\nCOST: {COST} X {CREST}"
+  },
+  "NEGATEATKABI": {
+    "NAME": "NEGATE ATTACK ABILITY",
+    "TYPE": "STANDING",
+    "PARAMETERS" : ["COST", "CREST"],
+    "DESCRIPTION": "Select a monster. The selected monster cannot longer attack or activate its abilities, and its continuous abilities are negated.\nCOST: {COST} X {CREST}"
+  },
+  "ITEMCURE": {
+    "NAME": "ITEM CURE",
+    "TYPE": "MANUAL ITEM",
+    "PARAMETERS" : ["AMOUNT"],
+    "DESCRIPTION": "Restore {AMOUNT} health to activator monster."
+  },
+  "ITEMDAMAGE": {
+    "NAME": "ITEM DAMAGE",
+    "TYPE": "MANUAL ITEM",
+    "PARAMETERS" : ["AMOUNT"],
+    "DESCRIPTION": "Deal {AMOUNT} damage to activator monster."
+  },
+  "TIMEMACHINE": {
+    "NAME": "TIME MACHINE",
+    "TYPE": "MANUAL ITEM",
+    "PARAMETERS" : [],
+    "DESCRIPTION": "Move activator monster to the starting location of its last movement."
+  },
+  "ITEMBUFF": {
+    "NAME": "ITEM BUFF",
+    "TYPE": "MANUAL ITEM",
+    "PARAMETERS" : ["ATTR", "AMOUNT"],
+    "DESCRIPTION": "Raise activator monster {ATTR} by {AMOUNT}."
+  },
+  "ITEMCRESTKILL": {
+    "NAME": "ITEM CREST KILL",
+    "TYPE": "MANUAL ITEM",
+    "PARAMETERS" : ["AMOUNT", "CREST"],
+    "DESCRIPTION": "Remove {AMOUNT} {CREST} crest(s) from activator player crestpool."
+  },
+  "MONSTERREBORN": {
+    "NAME": "MONSTER REBORN",
+    "TYPE": "MANUAL ITEM",
+    "PARAMETERS" : [],
+    "DESCRIPTION": "Select a monster dice from activator player graveyard. Remove that dice from graveyard and add it to player dicepool."
+  },
+  "BLACKHOLE": {
+    "NAME": "BLACK HOLE",
+    "TYPE": "MANUAL ITEM",
+    "PARAMETERS" : [],
+    "DESCRIPTION": "Destroy all monsters and items in dungeon."
+  },
+  "GLUMINIZER": {
+    "NAME": "GLUMINIZER",
+    "TYPE": "DIM ITEM",
+    "PARAMETERS" : [],
+    "DESCRIPTION": "Double the movement cost of all monsters. Only one GLUMINIZER ability can be activated per duel."
+  },
+  "WARPVORTEX": {
+    "NAME": "WARP VORTEX",
+    "TYPE": "DIM ITEM",
+    "PARAMETERS" : [],
+    "DESCRIPTION": "Summon a warp vortex in the dimensioned location."
+  }
+}

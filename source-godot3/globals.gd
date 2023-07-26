@@ -12,6 +12,7 @@ const DUNGEON_WIDTH = 13
 const DICEPOOL_SIZE = 15
 
 # arrays, dictionaries
+const CRESTICONS = {"SUMMON":"★", "MOVEMENT":"⬆", "ATTACK":"⚔", "DEFENSE":"⛨", "MAGIC":"✡", "TRAP":"⚡"}
 var ABIDICT = read_jsonfile(ABIPATH)
 
 # IO functions
