@@ -32,23 +32,23 @@ disabled = true
 icon = ExtResource( 13 )
 icon_align = 1
 
-[node name="TCWButton" type="Button" parent="MainButtons"]
+[node name="TAWButton" type="Button" parent="MainButtons"]
 margin_left = 270.0
 margin_right = 401.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
-text = "🔃"
+text = "🔄"
 
-[node name="TAWButton" type="Button" parent="MainButtons"]
+[node name="TCWButton" type="Button" parent="MainButtons"]
 margin_left = 405.0
 margin_right = 536.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 disabled = true
-text = "🔄"
+text = "🔃"
 
 [node name="DimButton" type="Button" parent="MainButtons"]
 margin_left = 540.0
@@ -61,6 +61,6 @@ text = "DIM!"
 
 [connection signal="pressed" from="MainButtons/NetPrevButton" to="." method="_on_NetPrevButton_pressed"]
 [connection signal="pressed" from="MainButtons/NetNextButton" to="." method="_on_NetNextButton_pressed"]
-[connection signal="pressed" from="MainButtons/TCWButton" to="." method="_on_TCWButton_pressed"]
 [connection signal="pressed" from="MainButtons/TAWButton" to="." method="_on_TAWButton_pressed"]
+[connection signal="pressed" from="MainButtons/TCWButton" to="." method="_on_TCWButton_pressed"]
 [connection signal="pressed" from="MainButtons/DimButton" to="." method="_on_DimButton_pressed"]

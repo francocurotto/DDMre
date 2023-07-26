@@ -91,7 +91,7 @@ func _on_TCWButton_pressed():
     on_net_button_pressed()
 
 func _on_TAWButton_pressed():
-    var adder = -(player.id*2-3)
+    var adder = player.id*2-3
     rot_index = (rot_index+adder) % len(ROTATIONS)
     on_net_button_pressed()
 
