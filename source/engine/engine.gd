@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 # preloads
 const Dicelib = preload("res://engine/dice/dicelib.gd")
@@ -112,4 +112,4 @@ func str_to_pos(string):
     """
     Convert string type positioning to vector type.
     """
-    return Vector2(ord(string[0])-97, int(string.substr(1))-1)
+    return Vector2(string.unicode_at(0)-97, int(string.substr(1))-1)

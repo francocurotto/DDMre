@@ -3,7 +3,8 @@ extends "res://engine/abilities/continuous_ability.gd"
 # variables
 var max_move
 
-func _init(ability_dict).(ability_dict):
+func _init(ability_dict):
+    super(ability_dict)
     max_move = ability_dict["MAX"]
 
 # public functions

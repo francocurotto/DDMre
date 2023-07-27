@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 # variables
 var damage_limits = [INF]

@@ -5,7 +5,8 @@ var amount
 var cost
 var crest
 
-func _init(ability_dict).(ability_dict):
+func _init(ability_dict):
+    super(ability_dict)
     amount = ability_dict["AMOUNT"]
     cost = ability_dict["COST"]
     crest = ability_dict["CREST"]

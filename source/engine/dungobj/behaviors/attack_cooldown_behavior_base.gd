@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 # variables
 var max_attacks = 1

@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 # preloads
 const CrestPool = preload("res://engine/player/crestpool.gd")

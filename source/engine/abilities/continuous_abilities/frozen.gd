@@ -1,6 +1,7 @@
 extends "res://engine/abilities/continuous_ability.gd"
 
-func _init(ability_dict).(ability_dict):
+func _init(ability_dict):
+    super(ability_dict)
     pass
 
 # public functions

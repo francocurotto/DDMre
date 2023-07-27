@@ -12,7 +12,8 @@ var DungeonState = load("engine/states/dungeon_state.gd")
 var DimAbilityState = load("engine/states/dim_ability_state.gd")
 var NetCreator = load("res://engine/states/net_creator.gd")
 
-func _init(_player, _opponent, _dungeon, _dim_candidates).(_player, _opponent, _dungeon):
+func _init(_player, _opponent, _dungeon, _dim_candidates):
+    super(_player, _opponent, _dungeon)
     dim_candidates = _dim_candidates
 
 # public functions

@@ -3,7 +3,8 @@ extends "playerobj.gd"
 # variables
 var card
 
-func _init(_card, _player).(_player):
+func _init(_card, _player):
+    super(_player)
     card = _card
 
 # setget functions

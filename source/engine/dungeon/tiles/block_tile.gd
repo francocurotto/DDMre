@@ -3,7 +3,8 @@ extends "tile.gd"
 # constants
 const TYPE = "BLOCK"
 
-func _init(y, x).(y, x):
+func _init(y, x):
+    super(y, x)
     pass
 
 # is functions

@@ -1,9 +1,9 @@
-extends Reference
+extends RefCounted
 
 # variables
 var poslist
 var centeridx
-var centerpos setget , get_centerpos
+var centerpos : get = get_centerpos
 
 func _init():
     create_poslist()

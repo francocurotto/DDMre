@@ -1,13 +1,13 @@
-extends Reference
+extends RefCounted
 
 # preloads
 const Noneobj = preload("res://engine/dungobj/noneobj.gd")
 
 # variables
 var pos
-var vortex = false setget set_vortex, get_vortex
-var content setget set_content, get_content
-var playerid setget , get_playerid
+var vortex = false: get = get_vortex, set = set_vortex
+var content : get = get_content, set = set_content
+var playerid : get = get_playerid
 
 func _init(y, x):
     # GODOT4: change to vector2i

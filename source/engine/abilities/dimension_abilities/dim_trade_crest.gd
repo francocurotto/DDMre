@@ -3,7 +3,8 @@ extends "res://engine/abilities/dim_manual_ability.gd"
 var cost
 var amount
 
-func _init(ability_dict).(ability_dict):
+func _init(ability_dict):
+    super(ability_dict)
     cost = ability_dict["COST"]
     amount = ability_dict["AMOUNT"]
 

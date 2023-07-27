@@ -6,7 +6,8 @@ const TargetBehaviorBase = preload("res://engine/dungobj/behaviors/target_behavi
 const PassBehaviorFly = preload("res://engine/dungobj/behaviors/pass_behavior_fly.gd")
 const TargetBehaviorFly = preload("res://engine/dungobj/behaviors/target_behavior_fly.gd")
 
-func _init(ability_dict).(ability_dict):
+func _init(ability_dict):
+    super(ability_dict)
     pass
 
 # public functions

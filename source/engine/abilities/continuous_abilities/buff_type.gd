@@ -5,21 +5,22 @@ var type
 var attr
 var amount
 
-func _init(ability_dict).(ability_dict):
+func _init(ability_dict):
+    super(ability_dict)
     type = ability_dict["TYPE"]
     attr = ability_dict["ATTR"]
     amount = ability_dict["AMOUNT"]
 
 # public functions
 func activate():
-    .activate()
+    super.activate()
     #GODOT4: use array filter
     for monster in dungeon.monsters:
         if monster.TYPE == type:
             monster.buff_attr(attr, amount)
 
 func deactivate():
-    .deactivate()
+    super.deactivate()
     #GODOT4: use array filter
     for monster in dungeon.monsters:
         if monster.TYPE == type:

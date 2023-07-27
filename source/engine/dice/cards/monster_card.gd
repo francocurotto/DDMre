@@ -16,7 +16,8 @@ var attack
 var defense
 var health
 
-func _init(cardinfo).(cardinfo):
+func _init(cardinfo):
+    super(cardinfo)
     attack = cardinfo["ATTACK"]
     defense = cardinfo["DEFENSE"]
     health = cardinfo["HEALTH"]

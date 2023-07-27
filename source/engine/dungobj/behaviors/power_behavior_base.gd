@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 var ability_buff = 0
 

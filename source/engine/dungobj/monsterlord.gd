@@ -7,7 +7,8 @@ const LIMIT = 3
 # variables
 var hearts = 3
 
-func _init(_player).(_player):
+func _init(_player):
+    super(_player)
     pass
 
 # set functions

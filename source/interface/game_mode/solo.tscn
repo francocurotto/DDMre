@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://bc5xu4k841jhk"]
 
-[ext_resource path="res://interface/game_mode/solo.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://interface/game_mode/solo.gd" id="1"]
 
 [node name="Solo" type="MarginContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+script = ExtResource("1")

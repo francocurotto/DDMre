@@ -8,7 +8,8 @@ var DungeonState = load("engine/states/dungeon_state.gd")
 var attacker
 var attacked
 
-func _init(_player, _opponent, _dungeon, _attacker, _attacked).(_player, _opponent, _dungeon):
+func _init(_player, _opponent, _dungeon, _attacker, _attacked):
+    super(_player, _opponent, _dungeon)
     attacker = _attacker
     attacked = _attacked
 

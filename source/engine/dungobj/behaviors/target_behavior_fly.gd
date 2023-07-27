@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 # private functions
 func can_target(_opponent_monster):

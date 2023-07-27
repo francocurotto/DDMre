@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 # constants
 const MONSTER_TYPES = ["DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR"]

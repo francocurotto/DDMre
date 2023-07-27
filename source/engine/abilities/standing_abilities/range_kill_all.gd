@@ -5,7 +5,8 @@ var tile_range
 var cost
 var crest
 
-func _init(ability_dict).(ability_dict):
+func _init(ability_dict):
+    super(ability_dict)
     tile_range = ability_dict["RANGE"]
     cost = ability_dict["COST"]
     crest = ability_dict["CREST"]

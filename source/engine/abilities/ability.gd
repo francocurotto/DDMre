@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 # variables
 var ability_info
@@ -94,7 +94,7 @@ func get_weakest_monsters_tiles():
     var select_tiles = []
     for monster in dungeon.monsters:
         if monster != summon:
-            if select_tiles.empty():
+            if select_tiles.is_empty():
                 select_tiles.append(monster.tile)
             elif select_tiles[0].content.attack == monster.attack:
                 select_tiles.append(monster.tile)

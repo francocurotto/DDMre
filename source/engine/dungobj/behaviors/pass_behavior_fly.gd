@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 # public functions
 func can_pass(monster):

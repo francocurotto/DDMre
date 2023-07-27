@@ -1,6 +1,7 @@
 extends "res://engine/abilities/dimension_ability.gd"
 
-func _init(ability_dict).(ability_dict):
+func _init(ability_dict):
+    super(ability_dict)
     pass
 
 # is functions

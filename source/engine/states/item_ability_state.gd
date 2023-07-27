@@ -8,7 +8,8 @@ var item
 var monster
 var DungeonState = load("engine/states/dungeon_state.gd")
 
-func _init(_player, _opponent, _dungeon, _item, _monster).(_player, _opponent, _dungeon):
+func _init(_player, _opponent, _dungeon, _item, _monster):
+    super(_player, _opponent, _dungeon)
     item = _item
     monster = _monster
 

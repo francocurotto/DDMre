@@ -2,7 +2,8 @@ extends "res://engine/abilities/continuous_ability.gd"
 
 var max_attack
 
-func _init(ability_dict).(ability_dict):
+func _init(ability_dict):
+    super(ability_dict)
     max_attack = ability_dict["MAX"]
 
 # public functions

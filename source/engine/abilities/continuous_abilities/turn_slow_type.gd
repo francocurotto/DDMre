@@ -4,12 +4,13 @@ extends "res://engine/abilities/continuous_ability.gd"
 var type
 var effect_flag = false
 
-func _init(ability_dict).(ability_dict):
+func _init(ability_dict):
+    super(ability_dict)
     type = ability_dict["TYPE"]
 
 # public functions
 func deactivate():
-    .deactivate()
+    super.deactivate()
     # remove effect if effect flag is on
     for monster in dungeon.monsters:
         if monster.TYPE == type:

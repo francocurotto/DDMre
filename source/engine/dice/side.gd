@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 # preloads
 const SummonCrest = preload("res://engine/dice/crests/summon_crest.gd")

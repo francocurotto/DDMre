@@ -6,7 +6,8 @@ const TYPE = "ITEM"
 # preloads
 const Item = preload("res://engine/dungobj/item.gd")
 
-func _init(cardinfo).(cardinfo):
+func _init(cardinfo):
+    super(cardinfo)
     pass
 
 # public functions

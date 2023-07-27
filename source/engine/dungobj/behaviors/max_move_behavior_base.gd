@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 # variables
 var turn_move_limits = [INF]

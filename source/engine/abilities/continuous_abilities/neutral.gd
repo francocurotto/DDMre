@@ -4,7 +4,8 @@ extends "res://engine/abilities/continuous_ability.gd"
 const PowerBehaviorNeutral = preload("res://engine/dungobj/behaviors/power_behavior_neutral.gd")
 const PowerBehaviorBase = preload("res://engine/dungobj/behaviors/power_behavior_base.gd")
 
-func _init(ability_dict).(ability_dict):
+func _init(ability_dict):
+    super(ability_dict)
     pass
 
 # public functions

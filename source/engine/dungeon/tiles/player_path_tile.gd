@@ -6,7 +6,8 @@ const TYPE = "PLAYER"
 # variables
 var player
 
-func _init(_y, _x, _player).(_y, _x):
+func _init(_y, _x, _player):
+    super(_y, _x)
     player = _player
 
 # setget functions

@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 # constants
 const NetT1 = preload("res://engine/dungeon/nets/net_t1.gd")

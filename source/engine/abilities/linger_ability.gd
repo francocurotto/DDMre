@@ -3,7 +3,8 @@ extends "ability.gd"
 # variables
 var negate_count = 0
 
-func _init(ability_dict).(ability_dict):
+func _init(ability_dict):
+    super(ability_dict)
     pass
 
 # public functions

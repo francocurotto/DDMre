@@ -1,10 +1,9 @@
-extends Reference
+extends RefCounted
 
 var dungeon
 var monster
 var paths
 var tiles
-var max_length
 
 func _init(_dungeon, _monster):
     dungeon = _dungeon

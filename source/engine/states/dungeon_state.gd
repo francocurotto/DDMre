@@ -8,7 +8,8 @@ var RollState = load("engine/states/roll_state.gd")
 var ReplyState = load("engine/states/reply_state.gd")
 var ItemAbilityState = load("engine/states/item_ability_state.gd")
 
-func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
+func _init(_player, _opponent, _dungeon):
+    super(_player, _opponent, _dungeon)
     pass
 
 # public functions

@@ -11,8 +11,8 @@ var DungeonState = load("engine/states/dungeon_state.gd")
 var DimensionState = load("engine/states/dimension_state.gd")
 
 
-func _init(_player, _opponent, _dungeon).(_player, _opponent, _dungeon):
-    pass
+func _init(_player, _opponent, _dungeon):
+    super(_player, _opponent, _dungeon)
 
 # public functions
 func ROLL(cmddict):

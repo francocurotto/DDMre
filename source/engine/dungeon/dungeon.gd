@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 # preloads
 const OpenTile = preload("res://engine/dungeon/tiles/open_tile.gd")
@@ -10,9 +10,9 @@ const AttackPathQueue = preload("res://engine/dungeon/path_queue/attack_path_que
 # variables
 var grid = []
 var move_cost = 1
-var tiles setget , get_tiles
-var monsters setget , get_monsters
-var summons setget , get_summons
+var tiles : get = get_tiles
+var monsters : get = get_monsters
+var summons : get = get_summons
 
 func _init():
     for y in Globals.DUNGEON_HEIGHT:
@@ -26,7 +26,7 @@ func set_layout(player1, player2, layout):
     """
     Set the dungeon tiles given a layout array.
     """
-    layout.invert() # correction for reverse order in json format
+    layout.reverse() # correction for reverse order in json format
     for y in Globals.DUNGEON_HEIGHT:
         for x in Globals.DUNGEON_WIDTH:
             grid[y][x] = create_tile(player1, player2, layout[y][x], y, x)

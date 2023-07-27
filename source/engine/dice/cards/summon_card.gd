@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 # preloads
 const AbilityCreator = preload("res://engine/dice/cards/ability_creator.gd")

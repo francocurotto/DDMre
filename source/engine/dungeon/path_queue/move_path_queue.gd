@@ -1,6 +1,7 @@
 extends "path_queue.gd"
 
-func _init(_dungeon, _monster).(_dungeon, _monster):
+func _init(_dungeon, _monster):
+    super(_dungeon, _monster)
     pass
 
 # is functions 

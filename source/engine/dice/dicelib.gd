@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 # preloads
 const Dice = preload("res://engine/dice/dice.gd")

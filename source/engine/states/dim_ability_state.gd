@@ -7,7 +7,8 @@ const NAME = "DIMABILITY"
 var summon
 var DungeonState = load("engine/states/dungeon_state.gd")
 
-func _init(_player, _opponent, _dungeon, _summon).(_player, _opponent, _dungeon):
+func _init(_player, _opponent, _dungeon, _summon):
+    super(_player, _opponent, _dungeon)
     summon = _summon
 
 func SKIP(_cmddict):

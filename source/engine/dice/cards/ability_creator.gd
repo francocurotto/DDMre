@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 const ABILITY_DICT = {
     "TUNNEL"           : preload("res://engine/abilities/continuous_abilities/tunnel.gd"),

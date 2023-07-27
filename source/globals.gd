@@ -1,4 +1,4 @@
-tool
+@tool
 extends Node
 
 # filepath
@@ -19,8 +19,6 @@ func read_jsonfile(filepath):
     """
     Read json file and return it as a dictionary.
     """
-    var file = File.new()
-    file.open(filepath, File.READ)
-    var jsondict = parse_json(file.get_as_text())
-    file.close()
+    var jsonstr = FileAccess.get_file_as_string(filepath)
+    var jsondict = JSON.parse_string(jsonstr)
     return jsondict

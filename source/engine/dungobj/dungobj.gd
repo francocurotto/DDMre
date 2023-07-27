@@ -1,8 +1,8 @@
-extends Reference
+extends RefCounted
 
 # variable
-var playerid setget , get_playerid
-var tile setget set_tile
+var playerid : get = get_playerid
+var tile : set = set_tile
 
 # setget functions
 func get_playerid():

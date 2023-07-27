@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 # constants
 const CREST_TYPES = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
@@ -65,7 +65,7 @@ static func check_diceidx_float(diceidx):
     Check if float is a valid dice index in 1-indexing.
     """
     # check correct type
-    if typeof(diceidx) != TYPE_REAL:
+    if typeof(diceidx) != TYPE_FLOAT:
         return false
     # check correct range
     if not diceidx in range(1,Globals.DICEPOOL_SIZE+1):
@@ -85,7 +85,7 @@ static func check_crests_dict(crests_dict):
         if not crest in CREST_TYPES:
             return false
         # check correct type for crests count
-        if typeof(crests_dict[crest]) != TYPE_REAL:
+        if typeof(crests_dict[crest]) != TYPE_FLOAT:
             return false
         # check crest count is int
         if crests_dict[crest]-int(crests_dict[crest]) != 0:
@@ -98,7 +98,7 @@ static func check_hearts_int(hearts_num):
     Check if number has a valid format for hearts initualization.
     """
     # check correct type
-    if typeof(hearts_num) != TYPE_REAL:
+    if typeof(hearts_num) != TYPE_FLOAT:
         return false
     # check is int
     if hearts_num-int(hearts_num) != 0:

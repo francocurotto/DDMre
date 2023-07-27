@@ -16,7 +16,7 @@ var speed = 1
 var attack_distance = 1
 var attack_cost = 1
 var ability_cooldown = false
-var max_move setget , get_max_move
+var max_move : get = get_max_move
 var previous_tile = null
 # behaviors (automatic abilities)
 var pass_behavior
@@ -29,7 +29,8 @@ var attack_cooldown_behavior
 # signals
 signal attack_ends
 
-func _init(_card, _player).(_card, _player):
+func _init(_card, _player):
+    super(_card, _player)
     attack = card.attack
     defense = card.defense
     health = card.health
@@ -100,7 +101,7 @@ func destroy():
     """
     Remove monster from play due to being destroyed by attack or ability.
     """
-    .destroy()
+    super.destroy()
     player.on_monster_destroyed(self)
 
 func buff_attr(attr, amount):
