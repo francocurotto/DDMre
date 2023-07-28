@@ -1,4 +1,9 @@
 extends RefCounted
+## Engine that controls the game logic of a set between two players.
+##
+## The engine receives commands in form of dictionaries and update the state 
+## of the set. It also initialize  each players dicepools, and  optionally the 
+## dungeon layout.
 
 # preloads
 const Dicelib = preload("res://engine/dice/dicelib.gd")
@@ -34,7 +39,7 @@ func update(cmddict):
     # get new state info
     var new_state = state.update(cmddict)
     var state_update = new_state != state
-    var next_turn = new_state.player != state.player and new_state.NAME == "ROLL"
+    var next_turn = state.NAME == "DUNGEON" and new_state.NAME == "ROLL"
     # perform the update
     state = new_state
     if next_turn:
