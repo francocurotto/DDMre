@@ -49,7 +49,7 @@ func update(cmddict):
         Events.emit_signal("state_update", state.NAME)
 
 # private functions
-## Set initial state of the engine as defined in the json file 
+## Set initial state of the engine as defined in the JSON file 
 ## [param dungpath]. It is mainly use to define the initial dungeon layout, but 
 ## it can also be used for debugging purposes like defining inital summons, 
 ## crests, etc.

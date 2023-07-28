@@ -1,5 +1,9 @@
 extends Node
-# TODO class documentation
+## Autoload for DDMre engine events.
+##
+## Autoload used to report DDMre engine to the outside world. It is also used 
+## internally by the DDMre engine for logic better suited for signals (e.g. 
+## ability actions on summons).
 
 ## Emit when the duel is updated in any way. Used to update the interface
 ## elements.
