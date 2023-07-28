@@ -26,13 +26,11 @@ func _init(dungpath=null, pool1path=null, pool2path=null):
     # create initial state
     state = RollState.new(player1, player2, dungeon)
     # set init state from file
-    set_init_state(dungpath, dungeon)
+    set_init_state(dungpath)
 
 # public functions
+## Update engine with given command [param cmddict].
 func update(cmddict):
-    """
-    Update engine with given command.
-    """
     # get new state info
     var new_state = state.update(cmddict)
     var state_update = new_state != state
@@ -46,70 +44,60 @@ func update(cmddict):
         Events.emit_signal("state_update", state.NAME)
 
 # private functions
-func set_init_state(dungpath, dungeon):
-    """
-    Set the initial state of the duel, which includes: dungeon layout,
-    summons, vortices, crests, and hearts.
-    """
-    # resolve dungpath is null
+## Set initial state of the engine as defined in the json file [param dungpath].
+## It is mainly use to define the initial dungeon layout, but it can also be 
+## used for debugging purposes like defining inital summons, crests, etc.
+func set_init_state(dungpath):
+    # if dungpath is null, use default
     if dungpath == null:
         dungpath = Globals.DUNGPATH
-    # get dungpath
+    # convert json to dict
     var initdict = Globals.read_jsonfile(dungpath)
+    # go through every key in dict
     for initkey in initdict:
         match initkey:
-            "DUNGEON"  : set_init_dungeon(dungeon, initdict["DUNGEON"])
-            "SUMMONS1" : set_init_summons(player1, dungeon, initdict["SUMMONS1"])
-            "SUMMONS2" : set_init_summons(player2, dungeon, initdict["SUMMONS2"])
-            "VORTEX"   : set_init_vortex(dungeon, initdict["VORTEX"])
+            "DUNGEON"  : set_init_dungeon(initdict["DUNGEON"])
+            "SUMMONS1" : set_init_summons(player1, initdict["SUMMONS1"])
+            "SUMMONS2" : set_init_summons(player2, initdict["SUMMONS2"])
+            "VORTEX"   : set_init_vortex(initdict["VORTEX"])
             "CRESTS1"  : set_init_crests(player1, initdict["CRESTS1"])
             "CRESTS2"  : set_init_crests(player2, initdict["CRESTS2"])
             "HEARTS1"  : set_init_hearts(player1, initdict["HEARTS1"])
             "HEARTS2"  : set_init_hearts(player2, initdict["HEARTS2"])
 
-func set_init_dungeon(dungeon, dungeon_layout):
-    """
-    Set initial dungeon layout.
-    """
-    if Checks.check_dungeon_layout(dungeon_layout):
-        dungeon.set_layout(player1, player2, dungeon_layout)
+## Set the initial dungeon layout according to [param layout] array.
+func set_init_dungeon(layout):
+    if Checks.check_dungeon_layout(layout):
+        state.dungeon.set_layout(player1, player2, layout)
 
-func set_init_summons(player, dungeon, summon_list):
-    """
-    Set the initial summons in the dungeon.
-    """
-    for summon_dict in summon_list:
+## Set the initial summons in dungeon for [param player] according to 
+## [param summons] array.
+func set_init_summons(player, summons):
+    for summon_dict in summons:
         if Checks.check_summon_dict(summon_dict):
             var pos = str_to_pos(summon_dict["POS"])
-            var diceidx = summon_dict["DICE"]-1
-            dungeon.place_summon(player, pos, diceidx)
+            var diceidx = summon_dict["DICE"]-1 # convert diceidx to 0-indexing
+            state.dungeon.place_summon(player, pos, diceidx)
     
-func set_init_vortex(dungeon, vortex_list):
-    """
-    Set the initial vorteces in the dungeon.
-    """
-    for vortex in vortex_list:
+## Set the initial vorteces in dungeon according to [param vorteces] array.
+func set_init_vortex(dungeon, vorteces):
+    for vortex in vorteces:
         if Checks.check_pos_string(vortex):
             var pos = str_to_pos(vortex)
-            dungeon.place_vortex(pos)
+            state.dungeon.place_vortex(pos)
 
-func set_init_crests(player, crests_dict):
-    """
-    Set the initial crests for player.
-    """
-    if Checks.check_crests_dict(crests_dict):
-        for crest in crests_dict:
-            player.crestpool.set_crest(crest, crests_dict[crest])
+## Set the initial crests for [param player] according to [param crests] array.
+func set_init_crests(player, crests):
+    if Checks.check_crests_dict(crests):
+        for crest in crests:
+            player.crestpool.set_crest(crest, crests[crest])
 
+## Set the initial hearts for [param player] to value [param hearts].
 func set_init_hearts(player, hearts):
-    """
-    Set initial hearts for player.
-    """
     if Checks.check_hearts_int(hearts):
         player.monsterlord.set_hearts(hearts)
 
+## Convert position [param string] into a Vector2i position.
+## For example,"a1" is converted to (0,0)
 func str_to_pos(string):
-    """
-    Convert string type positioning to vector type.
-    """
-    return Vector2(string.unicode_at(0)-97, int(string.substr(1))-1)
+    return Vector2i(string.unicode_at(0)-97, int(string.substr(1))-1)
