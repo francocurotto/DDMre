@@ -1,9 +1,9 @@
 extends RefCounted
-## Engine that controls the game logic of a set between two players.
+## Engine that controls the game logic of a duel between two players.
 ##
-## The engine receives commands in form of dictionaries and update the state 
-## of the set. It also initialize  each players dicepools, and  optionally the 
-## dungeon layout.
+## The engine receives commands in the form of dictionaries and update the 
+## state of the duel. It also initialize each players dicepools, and  
+## optionally the dungeon layout.
 
 # preloads
 const Dicelib = preload("res://engine/dice/dicelib.gd")
@@ -49,9 +49,10 @@ func update(cmddict):
         Events.emit_signal("state_update", state.NAME)
 
 # private functions
-## Set initial state of the engine as defined in the json file [param dungpath].
-## It is mainly use to define the initial dungeon layout, but it can also be 
-## used for debugging purposes like defining inital summons, crests, etc.
+## Set initial state of the engine as defined in the json file 
+## [param dungpath]. It is mainly use to define the initial dungeon layout, but 
+## it can also be used for debugging purposes like defining inital summons, 
+## crests, etc.
 func set_init_state(dungpath):
     # if dungpath is null, use default
     if dungpath == null:
@@ -85,7 +86,7 @@ func set_init_summons(player, summons):
             state.dungeon.place_summon(player, pos, diceidx)
     
 ## Set the initial vorteces in dungeon according to [param vorteces] array.
-func set_init_vortex(dungeon, vorteces):
+func set_init_vortex(vorteces):
     for vortex in vorteces:
         if Checks.check_pos_string(vortex):
             var pos = str_to_pos(vortex)
