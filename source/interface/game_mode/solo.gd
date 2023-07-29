@@ -10,7 +10,7 @@ var engine
 func _ready():
     randomize()
     # get initialization parameters
-    var init = Init.new() # needed to use super.get
+    var init = Init.new() # needed to use get()
     var dungpath  = init.get("DUNGPATH")
     var pool1path = init.get("POOL1PATH")
     var pool2path = init.get("POOL2PATH")

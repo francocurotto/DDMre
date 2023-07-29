@@ -1,12 +1,16 @@
 extends RefCounted
+## Library for checking the validity of IO elements.
+##
+## The library has a collection of static functions that check the validity of 
+## elements extracted from external sources, like JSON files for the 
+## initialization of the DDMre engine. 
 
 # constants
 const CREST_TYPES = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
 
+## Check if [param dungeon_layout] array has a valid format for dungeon 
+## initialization.
 static func check_dungeon_layout(dungeon_layout):
-    """
-    Check if dungeon layout has a valid format for dungeon initialization.
-    """
     # check correct type
     if typeof(dungeon_layout) != TYPE_ARRAY:
         return false
@@ -24,10 +28,9 @@ static func check_dungeon_layout(dungeon_layout):
     # all checks passed
     return true
 
+## Check if [param summon_dict] dictionary has a valid format for summons 
+## initialization.
 static func check_summon_dict(summon_dict):
-    """
-    Check if summon_dict has a valid format for summons initialization.
-    """
     # check correct type
     if typeof(summon_dict) != TYPE_DICTIONARY:
         return false
@@ -42,28 +45,27 @@ static func check_summon_dict(summon_dict):
     # all checks passed
     return true
 
+## Check if [param pos_str] string is a valid position in dungeon.
 static func check_pos_string(pos_str):
-    """
-    Check if pos string is a valid position in dungeon.
-    """
     # check correct type
     if typeof(pos_str) != TYPE_STRING:
         return false
     # check correct length
-    if len(pos_str) < 2 or len(pos_str) > 3:
+    if len(pos_str) < 2:
         return false
     # check correct elements in string
     if not pos_str[0] in "abcdefghijklm":
         return false
-    if int(pos_str.substr(1)) < 1 or int(pos_str.substr(1)) > Globals.DUNGEON_HEIGHT:
+    var height_str = pos_str.substr(1)
+    if not height_str.is_valid_int():
+        return false
+    if int(height_str) < 1 or int(height_str) > Globals.DUNGEON_HEIGHT:
         return false
     # all checks passed
     return true
 
+## Check if [param diceidx] float is a valid dice index in 1-indexing.
 static func check_diceidx_float(diceidx):
-    """
-    Check if float is a valid dice index in 1-indexing.
-    """
     # check correct type
     if typeof(diceidx) != TYPE_FLOAT:
         return false
@@ -73,10 +75,9 @@ static func check_diceidx_float(diceidx):
     # all checks passed
     return true
 
+## Check if [param crests_dict] dictictionary has a valid format for crests 
+## initializations.
 static func check_crests_dict(crests_dict):
-    """
-    Check if dict has a valid format for crests initializations.
-    """
     # check correct type
     if typeof(crests_dict) != TYPE_DICTIONARY:
         return false
@@ -92,15 +93,14 @@ static func check_crests_dict(crests_dict):
             return false
     # all checks passed
     return true
-        
+
+## Check if [param hearts_num] float has a valid format for hearts 
+## initialization.      
 static func check_hearts_int(hearts_num):
-    """
-    Check if number has a valid format for hearts initualization.
-    """
     # check correct type
     if typeof(hearts_num) != TYPE_FLOAT:
         return false
-    # check is int
+    # check number has an interger value
     if hearts_num-int(hearts_num) != 0:
         return false
     # check correct value

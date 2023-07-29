@@ -13,11 +13,11 @@ const RollState = preload("res://engine/states/roll_state.gd")
 const Checks = preload("res://engine/checks.gd")
 
 # variables
-var dicelib
-var player1
-var player2
-var state
-var turn = 1
+var dicelib   ## Dice library object used to generate the players dicepools
+var player1   ## Object for Player 1
+var player2   ## Object for Player 2
+var state     ## Object that represent the current state of the engine
+var turn = 1  ## Turn count
 
 func _init(dungpath=null, pool1path=null, pool2path=null):
     # create dicelib
@@ -44,9 +44,9 @@ func update(cmddict):
     state = new_state
     if next_turn:
         turn += 1
-        Events.emit_signal("next_turn", state.player, turn)
+        Events.next_turn.emit(state.player, turn)
     if state_update:
-        Events.emit_signal("state_update", state.NAME)
+        Events.state_update.emit(state.NAME)
 
 # private functions
 ## Set initial state of the engine as defined in the JSON file 

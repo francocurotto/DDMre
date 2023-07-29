@@ -1,9 +1,12 @@
 extends RefCounted
-
-# variables
-var player
-var opponent
-var dungeon
+## Current state of the engine.
+##
+## The state holds all the information of the duel for its correct progression,
+## which correspond to the players and the dungeon current information. It also 
+## runs input commands from the player 
+var player   ## Current player of the state
+var opponent ## Current opponent of the state
+var dungeon  ## Dungeon of the state
 
 func _init(_player, _opponent, _dungeon):
     player = _player
