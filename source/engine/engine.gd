@@ -34,7 +34,8 @@ func _init(dungpath=null, pool1path=null, pool2path=null):
     set_init_state(dungpath)
 
 # public functions
-## Update engine with given command [param cmddict].
+## Update engine with given command [param cmddict]. The engine state is 
+## updated and the turn count is increased if needeed.
 func update(cmddict):
     # get new state info
     var new_state = state.update(cmddict)
