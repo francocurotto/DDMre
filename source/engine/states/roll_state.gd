@@ -41,8 +41,8 @@ func ROLL(cmddict):
 ## Roll dice from player dicepool given the [param dice_indeces] array of dice
 ## indeces. Return the resulted sides of the roll.
 func roll_dice(dice_indeces):
-    roll_dice = dice_indeces.map(func(i): return player.dicepool[i])
-    sides = roll_dice.map(func(dice): return dice.roll())
+    var dice_array = dice_indeces.map(func(i): return player.dicepool[i])
+    var sides = dice_array.map(func(dice): return dice.roll())
     return sides
 
 ## Given [param indeces] array of dice indeces and [param sides] array of sides
