@@ -52,6 +52,6 @@ const ABILITY_DICT = {
 }
 
 # public functions
-func create_ability(ability_info):
+static func create_ability(ability_info):
     var ability_name = ability_info["NAME"]
     return ABILITY_DICT[ability_name].new(ability_info)

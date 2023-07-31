@@ -2,7 +2,7 @@ extends "state.gd"
 ## Dungeon State.
 ##
 ## State where the player can control its monsters in the dungoen. This 
-## includes moving and attacking and casting abilities.
+## includes moving, attacking, and casting abilities.
 
 # constants
 const NAME = "DUNGEON"
@@ -98,8 +98,7 @@ func JUMP(cmddict):
     # return same state
     return self
 
-## Excecute the ENDTURN command. End player player turn and start the opponent 
-## turn.
+## Excecute the ENDTURN command. End player turn and start the opponent turn.
 func ENDTURN(_cmddict):
     # reset player monster cooldowns and counts
     for monster in player.monsters:
