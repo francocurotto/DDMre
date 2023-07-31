@@ -1,4 +1,7 @@
 extends RefCounted
+## Create a dice net for dimension.
+##
+## The net creator 
 
 # constants
 const NetT1 = preload("res://engine/dungeon/nets/net_t1.gd")

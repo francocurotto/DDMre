@@ -1,4 +1,8 @@
 extends "state.gd"
+## Dimension State.
+##
+## State where the player dimension dice in the dungeon and summon a monster or 
+## item.
 
 # constants
 const NAME = "DIMENSION"
@@ -7,26 +11,24 @@ const NAME = "DIMENSION"
 const Checks = preload("res://engine/checks.gd")
 
 # variables
-var dim_candidates
 var DungeonState = load("engine/states/dungeon_state.gd")
 var DimAbilityState = load("engine/states/dim_ability_state.gd")
 var NetCreator = load("res://engine/states/net_creator.gd")
+var dim_candidates ## Array of dicepool indeces with the possible dimensions
 
 func _init(_player, _opponent, _dungeon, _dim_candidates):
     super(_player, _opponent, _dungeon)
     dim_candidates = _dim_candidates
 
 # public functions
+## Excecute the SKIP command. Skip the dice dimension.
 func SKIP(_cmddict):
-    """
-    Execute the SKIP command.
-    """
     return DungeonState.new(player, opponent, dungeon)
 
+## Excecute the DIM command. Dimension a dice in the dungeon given the 
+## parameters in [param cmdict] dictionary. Go to Dungeon State or Dim Ability 
+## State depending on the summon. 
 func DIM(cmddict):
-    """
-    Excecute the DIM command.
-    """
     # get data
     var diceidx = cmddict["dice"]
     var netname = cmddict["net"]

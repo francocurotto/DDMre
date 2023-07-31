@@ -1,5 +1,5 @@
 extends "state.gd"
-## Roll state.
+## Roll State.
 ##
 ## State where the player rolls a group of three dice to try to get crests 
 ## and/or dimension a dice.
@@ -19,8 +19,8 @@ func _init(_player, _opponent, _dungeon):
     super(_player, _opponent, _dungeon)
 
 # public functions
-## Excecute the ROLL command. The player roll three dice and depending on the
-## results, it goes to dimension state or dungeon state.
+## Excecute the ROLL command. Roll three dice and depending on the results, go
+## to dimension state or dungeon state.
 func ROLL(cmddict):
     # get data
     var dice_indeces = cmddict["dice"]

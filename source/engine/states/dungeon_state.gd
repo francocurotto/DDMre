@@ -1,4 +1,8 @@
 extends "state.gd"
+## Dungeon State.
+##
+## State where the player can control its monsters in the dungoen. This 
+## includes moving and attacking and casting abilities.
 
 # constants
 const NAME = "DUNGEON"
@@ -10,13 +14,12 @@ var ItemAbilityState = load("engine/states/item_ability_state.gd")
 
 func _init(_player, _opponent, _dungeon):
     super(_player, _opponent, _dungeon)
-    pass
 
 # public functions
+## Excecute the MOVE command. Move a player monster from one tile to another. 
+## If an item that requires manual activation is reached, go to Item Ability
+## State.
 func MOVE(cmddict):
-    """
-    Excecute the MOVE command.
-    """
     # get data
     var tile_origin = dungeon.get_tile(cmddict["origin"])
     var tile_dest = dungeon.get_tile(cmddict["dest"])
@@ -37,14 +40,14 @@ func MOVE(cmddict):
         # if item ability activates automatically
         else:
             dest_content.activate(monster)
-    
+            
     # return same state
     return self
 
+## Excecute the ATTACK command. Attack an opponent monster or monster lord with 
+## a player monster. If target is a monster go to Reply State from the side of 
+## opponent.
 func ATTACK(cmddict):
-    """
-    Excecute the ATTACK command.
-    """
     # get data
     var monster = dungeon.get_tile(cmddict["origin"]).content
     var target = dungeon.get_tile(cmddict["dest"]).content
@@ -61,34 +64,30 @@ func ATTACK(cmddict):
             ability.activate(ability_dict)
         # return opponent reply state
         return ReplyState.new(opponent, player, dungeon, monster, target)
-    
     # case attack monster lord
     elif target.is_monster_lord():
         monster.attack_monster_lord(target)
-    
+        
     # return same state
     return self
 
+## Excecute the CAST command. Cast the standing ability of a player monster.
 func CAST(cmddict):
-    """
-    Excecute the CAST command.
-    """
     # get data
     var monster = dungeon.get_tile(cmddict["pos"]).content
     var ability_dict = cmddict["ability"]
     var ability = monster.get_ability(ability_dict["name"])
     
-    # activate ablity
+    # cast ablity
     ability.activate(ability_dict)
     monster.ability_cooldown = true
     
     # return same state
     return self
 
+## Excecute the JUMP command. Move a player monster located in a tile with a 
+## vortex to another tile with a vortex.
 func JUMP(cmddict):
-    """
-    Excecute JUMP command.
-    """
     # get data
     var tile_origin = dungeon.get_tile(cmddict["origin"])
     var tile_dest = dungeon.get_tile(cmddict["dest"])
@@ -99,10 +98,9 @@ func JUMP(cmddict):
     # return same state
     return self
 
+## Excecute the ENDTURN command. End player player turn and start the opponent 
+## turn.
 func ENDTURN(_cmddict):
-    """
-    Execute the ENDTURN command.
-    """
     # reset player monster cooldowns and counts
     for monster in player.monsters:
         monster.attack_cooldown_behavior.reset()
