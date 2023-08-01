@@ -1,28 +1,27 @@
 extends "state.gd"
+## Item Ability State.
+##
+## State to activate an item ability that requires manual input.
 
 # constants
 const NAME = "ITEMABILITY"
 
 # variables
-var item
-var monster
 var DungeonState = load("engine/states/dungeon_state.gd")
+var item    ## Item with the ability to activate.
+var monster ## Monster that activated the item.
 
 func _init(_player, _opponent, _dungeon, _item, _monster):
     super(_player, _opponent, _dungeon)
     item = _item
     monster = _monster
 
+## Execute the SKIP command. Skip the item ability activation.
 func SKIP(_cmddict):
-    """
-    Execute the SKIP command.
-    """
     return DungeonState.new(player, opponent, dungeon)
 
+## Execute the CAST command. Cast the item ability.
 func CAST(cmddict):
-    """
-    Excecute the CAST command.
-    """
     # get data
     var ability_dict = cmddict["ability"]
     var ability = item.get_ability(ability_dict["name"])

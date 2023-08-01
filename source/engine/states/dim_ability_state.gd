@@ -1,26 +1,25 @@
 extends "state.gd"
+## Dim Ability State.
+##
+## State to activate a dimension ability that requires manual input.
 
 # constants
 const NAME = "DIMABILITY"
 
 # variables
-var summon
 var DungeonState = load("engine/states/dungeon_state.gd")
+var summon ## Summon with dimension ability to activate.
 
 func _init(_player, _opponent, _dungeon, _summon):
     super(_player, _opponent, _dungeon)
     summon = _summon
 
+## Execute the SKIP command. Skip the dimension ability activation.
 func SKIP(_cmddict):
-    """
-    Execute the SKIP command.
-    """
     return DungeonState.new(player, opponent, dungeon)
 
+## Execute the CAST command. Cast the dimension ability.
 func CAST(cmddict):
-    """
-    Excecute the CAST command.
-    """
     # get data
     var ability_dict = cmddict["ability"]
     var ability = summon.get_ability(ability_dict["name"])
