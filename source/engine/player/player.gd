@@ -1,4 +1,8 @@
 extends RefCounted
+## Player that participates in duel.
+##
+## The player manages all the information available to one of the participant
+## of the duel. It can also create tiles, monster lords and summons for itself.
 
 # preloads
 const CrestPool = preload("res://engine/player/crestpool.gd")
@@ -6,62 +10,49 @@ const MonsterLord = preload("res://engine/dungobj/monsterlord.gd")
 const PlayerPathTile = preload("res://engine/dungeon/tiles/player_path_tile.gd")
 
 # variables
-var id
-var opponent
-var dicepool
-var crestpool = CrestPool.new()
-var monsterlord = MonsterLord.new(self)
-var monsters = []
-var graveyard = []
-
-# signals
-signal summon_destroyed(summon)
+var id       ## Player ID, either 1 or 2
+var opponent ## Refenrece to opponent
+var dicepool ## Array of dice to use in duel
+var crestpool = CrestPool.new() ## Pool of crest acquired during the duel
+var monsterlord = MonsterLord.new(self) ## Player representation in dungeon
+var monsters = []  ## Array of player monsters in dungeon
+var graveyard = [] ## Array of destroyed player monsters
 
 func _init(_id, _dicepool):
     id = _id
     dicepool = _dicepool
 
 # public functions
+## Create and return a player path tile expected to be located at position
+## ([param y],[param x]).
 func create_tile(y, x):
-    """
-    Create a path tile for the specific player with position (y,x).
-    """
     var tile = PlayerPathTile.new(y, x, self)
     return tile
 
+## Create and return a player path tile expected to be located at position
+## ([param y],[param x]), and add to that tile content the player monster 
+## lord.
 func create_ml_tile(y, x):
-    """
-    Create a path tile with the player's monster lord as content with 
-    position (y,x).
-    """
     var tile = create_tile(y, x)
     tile.content = monsterlord
     return tile
 
-func summon_card(poolidx):
-    """
-    Summon card in position poolidx from the dicepool and return it. Also mark 
-    dice as dimensioned.
-    """
-    var dice = dicepool[poolidx]
+## Summon the card from the dicepool at position [param diceidx], and mark the
+## dice corresponding dice as dimensioned. Return the resulting summon.
+func summon_card(diceidx):
+    var dice = dicepool[diceidx]
     dice.dimensioned = true
     var summon = dice.card.summon(self)
     return summon
 
 # signals callbacks
+### When [param monster] is destroyed, erase monster from monsters array, and
+## add monster to graveyard array.
 func on_monster_destroyed(monster):
-    """
-    Destroy player monster.
-    """
     monsters.erase(monster)
     graveyard.append(monster)
 
+## When player hearts are depleted, send signal indicating that player have 
+## lost.
 func on_hearts_depleted():
-    """
-    Lose duel as all hearts were destroyed.
-    """
     Events.emit_signal("player_lost", self)
-
-# is functions
-func is_opponent_ml(dungobj):
-    return dungobj.is_monster_lord() and dungobj.player != self
