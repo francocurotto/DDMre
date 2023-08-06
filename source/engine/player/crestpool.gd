@@ -1,67 +1,57 @@
 extends RefCounted
+## Pool of crests.
+##
+## The crest pool stores counters for all the crests acquired by a player
+## during rolls and other methods. It also manages how crests are added and
+## removed from the crestpool.
 
 # constants
-const LIMIT = 99
+const LIMIT = 99 ## Maximum number of crests for each type.
 
 # variables
-var movement = 0
-var attack   = 0
-var defense  = 0
-var magic    = 0
-var trap     = 0
+var movement = 0 ## Movement crest counter.
+var attack   = 0 ## Attack crest counter.
+var defense  = 0 ## Defense crest counter.
+var magic    = 0 ## Magic crest counter.
+var trap     = 0 ## Trap crest counter.
 
 # setget functions
+## Set the crest number of type [param crest] to [param amount]. Clip the value
+## if the amount if it goes off limit.
 func set_crest(crest, amount):
-    """
-    Set an amount number of crests of type crest to crestpool. It clips the 
-    values if the amount goes off limits.
-    """
     # clamp amount between limits
     amount = clamp(amount, 0 , LIMIT)
     # update crest pool
     set(crest.to_lower(), amount)
 
+## Get the crest number of type [param crest].
 func get_crest(crest):
-    """
-    Get crest value by name. Convert to lowercase.
-    """
     return get(crest.to_lower())
 
 # public functions
+## Add the rolled [param sides] list of sides to the crest pool. If a rolled 
+## side is of type SUMMON, skip the addition.
 func add_rolled_sides(sides):
-    """
-    Add rolled sides to crest pool. If rolled side is summon, skip the addition.
-    """
     for side in sides:
         if side.crest.TYPE != "SUMMON":
             add_crests(side.crest.TYPE, side.mult)
     
+## Add [param amount] number of crests of type [param crest] to crest pool.
 func add_crests(crest, amount):
-    """
-    Add amount number of crests of type crest to crestpool.
-    """
     set_crest(crest, get_crest(crest)+amount)
 
+## Remove [param amount] number of crests of type [param crest] to crest pool.
 func remove_crests(crest, amount):
-    """
-    Remove amount number of crests of type crest from dicepool.
-    """
     set_crest(crest, get_crest(crest)-amount)
 
+## Remove [param amount] number of crests of type MOVEMENT to crest pool.
 func remove_movement(amount):
-    """
-    Helper function to remove movement crests quickly.
-    """
     remove_crests("movement", amount)
     
+## Remove [param amount] number of crests of type ATTACK to crest pool.
 func remove_attack(amount):
-    """
-    Helper function to remove attack crests quickly.
-    """
     remove_crests("attack", amount)
 
+## Remove [param amount] number of crests of type DEFENSE to crest pool.
 func remove_defense(amount):
-    """
-    Helper function to remove defense crests quickly.
-    """
     remove_crests("defense", amount)
