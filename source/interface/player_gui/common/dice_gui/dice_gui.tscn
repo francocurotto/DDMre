@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcn6sx8mo0acg"]
+
+[ext_resource type="Texture2D" uid="uid://brg5dayviasne" path="res://art/icons/DICE.svg" id="1_rrcdu"]
+[ext_resource type="Script" path="res://interface/player_gui/common/dice_gui/dice_gui.gd" id="2_vc5wr"]
+[ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://fonts/Archimoto.otf" id="2_wxenh"]
+
+[node name="DiceGUI" type="TextureRect"]
+self_modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(128, 128)
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("1_rrcdu")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_vc5wr")
+
+[node name="Level" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.5
+offset_top = -17.5
+offset_right = 9.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_wxenh")
+theme_override_font_sizes/font_size = 32
+text = "1"
+
+[connection signal="resized" from="." to="." method="_on_resized"]
