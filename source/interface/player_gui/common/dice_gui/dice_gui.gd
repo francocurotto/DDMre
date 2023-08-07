@@ -8,6 +8,11 @@ var type : String = "DRAGON" :
         type = _type
         self_modulate = COLORS[type]
 
+@export_range(1, 4) var level = 3 :
+    set(_level):
+        level = _level
+        $Level.text = str(level)
+
 # constants
 const COLORS = {
     "DRAGON"      : Color(1,0,0),
