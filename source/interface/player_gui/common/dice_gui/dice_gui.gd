@@ -15,15 +15,21 @@ var type : String = "DRAGON" :
 
 # constants
 const COLORS = {
-    "DRAGON"      : Color(1,0,0),
-    "SPELLCASTER" : Color(1,1,1),
-    "UNDEAD"      : Color(1,1,0),
-    "BEAST"       : Color(0,1,0),
-    "WARRIOR"     : Color(0,0,1),
-    "ITEM"        : Color(0,0,0)}
+    "DRAGON"      : Color(1.0,0.2,0.2),
+    "SPELLCASTER" : Color(0.8,0.8,0.8),
+    "UNDEAD"      : Color(1.0,1.0,0.2),
+    "BEAST"       : Color(0.2,1.0,0.2),
+    "WARRIOR"     : Color(0.2,0.2,1.0),
+    "ITEM"        : Color(0.3,0.3,0.3)}
 
 # signals callbacks
 func _on_resized():
     var min_size = min(size.y, size.x)
     $Level.add_theme_font_size_override("font_size", min_size/4)
     $Level.add_theme_constant_override("outline_size", min_size/8)
+
+func _on_button_button_down():
+    print("button down")
+
+func _on_button_button_up():
+    print("button up")
