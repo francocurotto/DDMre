@@ -30,3 +30,7 @@ window/handheld/orientation="portrait"
 [filesystem]
 
 import/blender/enabled=false
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true

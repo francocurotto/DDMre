@@ -28,8 +28,10 @@ func _on_resized():
     $Level.add_theme_font_size_override("font_size", min_size/4)
     $Level.add_theme_constant_override("outline_size", min_size/8)
 
-func _on_button_button_down():
-    print("button down")
-
-func _on_button_button_up():
-    print("button up")
+func _input(event):
+    if event is InputEventScreenTouch and event.pressed:
+        if get_rect().has_point(event.position):
+            print("dice entered")
+    elif event is InputEventScreenDrag:
+        if get_rect().has_point(event.position):
+            print("dice entered")

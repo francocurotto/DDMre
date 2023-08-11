@@ -33,15 +33,4 @@ theme_override_fonts/font = ExtResource("2_wxenh")
 theme_override_font_sizes/font_size = 32
 text = "3"
 
-[node name="Button" type="Button" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [connection signal="resized" from="." to="." method="_on_resized"]
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
-[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
