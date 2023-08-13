@@ -22,6 +22,9 @@ const COLORS = {
     "WARRIOR"     : Color(0.2,0.2,1.0),
     "ITEM"        : Color(0.3,0.3,0.3)}
 
+# signals
+signal dice_entered(dice_gui)
+
 # signals callbacks
 func _on_resized():
     var min_size = min(size.y, size.x)
@@ -36,4 +39,4 @@ func _input(event):
     if event_touch_pressed or event_drag:
         # check event inside dice
         if get_rect().has_point(event.position):
-            print("dice entered")
+            dice_entered.emit(self)
