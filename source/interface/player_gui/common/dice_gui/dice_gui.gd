@@ -1,12 +1,12 @@
 @tool
-extends TextureRect
+extends MarginContainer
 
 # exports
 @export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM") 
 var type : String = "DRAGON" :
     set(_type):
         type = _type
-        self_modulate = COLORS[type]
+        $DiceIcon.modulate = COLORS[type]
 
 @export_range(1, 4) var level = 3 :
     set(_level):
@@ -15,11 +15,11 @@ var type : String = "DRAGON" :
 
 # constants
 const COLORS = {
-    "DRAGON"      : Color(1.0,0.2,0.2),
+    "DRAGON"      : Color(1.0,0.3,0.3),
     "SPELLCASTER" : Color(0.8,0.8,0.8),
-    "UNDEAD"      : Color(1.0,1.0,0.2),
-    "BEAST"       : Color(0.2,1.0,0.2),
-    "WARRIOR"     : Color(0.2,0.2,1.0),
+    "UNDEAD"      : Color(1.0,1.0,0.3),
+    "BEAST"       : Color(0.3,1.0,0.3),
+    "WARRIOR"     : Color(0.3,0.3,1.0),
     "ITEM"        : Color(0.3,0.3,0.3)}
 
 # signals

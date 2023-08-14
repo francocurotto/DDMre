@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dicepool_gui/dicepool_gui.gd" id="1_1jbbo"]
 [ext_resource type="PackedScene" uid="uid://bcn6sx8mo0acg" path="res://interface/player_gui/common/dice_gui/dice_gui.tscn" id="1_xouyd"]
-[ext_resource type="Texture2D" uid="uid://ea8u6v6msk33" path="res://art/icons/SELECTOR.svg" id="3_gba0w"]
+[ext_resource type="Texture2D" uid="uid://dh3qqx87mefqs" path="res://art/icons/SELECTOR.svg" id="3_n73mt"]
 
 [node name="DicepoolGUI" type="PanelContainer"]
 offset_right = 656.0
@@ -20,12 +20,12 @@ columns = 5
 [node name="DiceGUI1" parent="5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="5-3Ratio/Grid/DiceGUI1"]
+[node name="Selector" type="TextureRect" parent="5-3Ratio/Grid/DiceGUI1"]
+visible = false
 layout_mode = 2
-offset_right = 656.0
-offset_bottom = 392.0
-texture = ExtResource("3_gba0w")
-stretch_mode = 2
+texture = ExtResource("3_n73mt")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="DiceGUI2" parent="5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
