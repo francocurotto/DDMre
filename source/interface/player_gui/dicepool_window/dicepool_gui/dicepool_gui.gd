@@ -14,9 +14,13 @@ func _ready():
 
 # signals callbacks
 func on_dice_entered(dice_gui):
+    print(selector.position)
     if dice_gui != selected_dice_gui:
         selected_dice_gui = dice_gui
-        selector.get_parent().remove_child(selector)
-        selected_dice_gui.add_child(selector)
+        print(selector.position)
+        selector.position = selected_dice_gui.position
+        print(selector.position)
+        #selector.get_parent().remove_child(selector)
+        #selected_dice_gui.add_child(selector)
         selector.visible = true
-
+        print(selector.position)

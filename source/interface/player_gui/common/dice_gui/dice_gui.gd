@@ -32,11 +32,9 @@ func _on_resized():
     $Level.add_theme_constant_override("outline_size", min_size/8)
 
 func _input(event):
-    # event type bools
-    var event_touch_pressed = event is InputEventScreenTouch and event.pressed
-    var event_drag = event is InputEventScreenDrag
     # check event type
-    if event_touch_pressed or event_drag:
+    if (event is InputEventScreenTouch and event.pressed or
+        event is InputEventScreenDrag):
         # check event inside dice
         if get_rect().has_point(event.position):
             dice_entered.emit(self)
