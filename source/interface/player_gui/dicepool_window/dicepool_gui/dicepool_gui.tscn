@@ -20,13 +20,6 @@ columns = 5
 [node name="DiceGUI1" parent="5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="Selector" type="TextureRect" parent="5-3Ratio/Grid/DiceGUI1"]
-visible = false
-layout_mode = 2
-texture = ExtResource("3_n73mt")
-expand_mode = 1
-stretch_mode = 4
-
 [node name="DiceGUI2" parent="5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
@@ -68,3 +61,8 @@ layout_mode = 2
 
 [node name="DiceGUI15" parent="5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
+
+[node name="Selector" type="Sprite2D" parent="5-3Ratio"]
+visible = false
+texture = ExtResource("3_n73mt")
+centered = false
