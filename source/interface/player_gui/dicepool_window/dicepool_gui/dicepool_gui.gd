@@ -17,5 +17,5 @@ func on_dice_entered(dice_gui):
     if dice_gui != selected_dice_gui:
         selected_dice_gui = dice_gui
         selector.scale = selected_dice_gui.size / selector.get_rect().size
-        selector.position = grid.position + selected_dice_gui.position
+        selector.global_position = selected_dice_gui.global_position
         selector.visible = true
