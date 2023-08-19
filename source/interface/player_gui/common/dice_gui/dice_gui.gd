@@ -36,5 +36,14 @@ func _input(event):
     if (event is InputEventScreenTouch and event.pressed or
         event is InputEventScreenDrag):
         # check event inside dice
-        if get_rect().has_point(event.position):
+        var rect = Rect2(position, size)
+        if rect.has_point(event.position):
             dice_entered.emit(self)
+
+
+
+
+
+
+
+
