@@ -1,7 +1,9 @@
+### NEW INTERFACE
+- reiterate over dice selector movement
+
 ### GODOT4
 - correct GODOT4 notes
 - add proper godot4 documentation
-- start new interface
 
 ### FIXES
 - change diceidx to poolidx?

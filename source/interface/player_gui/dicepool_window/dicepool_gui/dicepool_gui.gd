@@ -14,10 +14,14 @@ func _ready():
 
 # signals callbacks
 func on_dice_entered(dice_gui):
+    # case first selection
+    if selected_dice_gui == null:
+        dice_selector.global_position = dice_gui.global_position
+        dice_selector.scale_to_size(dice_gui.size)
+        dice_selector.show()
+    # case new selection
     if dice_gui != selected_dice_gui:
         selected_dice_gui = dice_gui
-        dice_selector.scale_to_size(selected_dice_gui.size)
         dice_selector.target = selected_dice_gui.global_position
-        if not dice_selector.visible:
-            dice_selector.global_position = dice_selector.target
-            dice_selector.show()
+        
+            
