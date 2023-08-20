@@ -5,7 +5,7 @@ var selected_dice_gui
 
 # onready variables
 @onready var grid =  $"5-3Ratio/Grid"
-@onready var selector = $"5-3Ratio/Selector"
+@onready var dice_selector = $"5-3Ratio/DiceSelector"
 
 func _ready():
     # connections
@@ -16,6 +16,6 @@ func _ready():
 func on_dice_entered(dice_gui):
     if dice_gui != selected_dice_gui:
         selected_dice_gui = dice_gui
-        selector.scale = selected_dice_gui.size / selector.get_rect().size
-        selector.global_position = selected_dice_gui.global_position
-        selector.visible = true
+        dice_selector.scale = selected_dice_gui.size / dice_selector.get_rect().size
+        dice_selector.global_position = selected_dice_gui.global_position
+        dice_selector.visible = true

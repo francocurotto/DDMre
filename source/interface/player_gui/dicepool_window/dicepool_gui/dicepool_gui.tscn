@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dicepool_gui/dicepool_gui.gd" id="1_1jbbo"]
 [ext_resource type="PackedScene" uid="uid://bcn6sx8mo0acg" path="res://interface/player_gui/common/dice_gui/dice_gui.tscn" id="1_xouyd"]
-[ext_resource type="Texture2D" uid="uid://dh3qqx87mefqs" path="res://art/icons/SELECTOR.svg" id="3_n73mt"]
+[ext_resource type="PackedScene" uid="uid://di3rgwqx285jb" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_selector/dice_selector.tscn" id="3_eagq2"]
 
 [node name="DicepoolGUI" type="PanelContainer"]
 offset_top = 400.0
@@ -63,7 +63,5 @@ layout_mode = 2
 [node name="DiceGUI15" parent="5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="Selector" type="Sprite2D" parent="5-3Ratio"]
+[node name="DiceSelector" parent="5-3Ratio" instance=ExtResource("3_eagq2")]
 visible = false
-texture = ExtResource("3_n73mt")
-centered = false

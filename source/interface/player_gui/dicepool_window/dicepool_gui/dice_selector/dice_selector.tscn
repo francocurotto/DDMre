@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://di3rgwqx285jb"]
+
+[ext_resource type="Texture2D" uid="uid://cova2jmunvfr3" path="res://art/icons/DICE_SELECTOR.svg" id="1_7kn8w"]
+
+[node name="DiceSelector" type="Sprite2D"]
+texture = ExtResource("1_7kn8w")
+centered = false
