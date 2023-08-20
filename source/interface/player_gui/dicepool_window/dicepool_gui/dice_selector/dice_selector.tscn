@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://di3rgwqx285jb"]
+[gd_scene load_steps=3 format=3 uid="uid://di3rgwqx285jb"]
 
 [ext_resource type="Texture2D" uid="uid://cova2jmunvfr3" path="res://art/icons/DICE_SELECTOR.svg" id="1_7kn8w"]
+[ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_selector/dice_selector.gd" id="2_2abje"]
 
 [node name="DiceSelector" type="Sprite2D"]
 texture = ExtResource("1_7kn8w")
 centered = false
+script = ExtResource("2_2abje")
