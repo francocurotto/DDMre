@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv3h35fawxupw"]
+
+[ext_resource type="PackedScene" uid="uid://clg2g2fqnsm0p" path="res://interface/player_gui/dicepool_window/dicepool_gui/dicepool_gui.tscn" id="1_1mrna"]
+[ext_resource type="Script" path="res://interface/player_gui/player_gui.gd" id="1_o5612"]
+
+[node name="PlayerGUI" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5612")
+
+[node name="DicepoolGUI" parent="." instance=ExtResource("1_1mrna")]
+layout_mode = 2

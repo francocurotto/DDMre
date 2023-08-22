@@ -13,6 +13,9 @@ var type : String = "DRAGON" :
         level = _level
         $Level.text = str(level)
 
+# variables
+var dice
+
 # constants
 const COLORS = {
     "DRAGON"      : Color(1.0,0.3,0.3),
@@ -24,6 +27,12 @@ const COLORS = {
 
 # signals
 signal dice_entered(dice_gui)
+
+# public vatriables
+func initialize(_dice):
+    dice = _dice
+    type = dice.card.type
+    level = dice.level
 
 # signals callbacks
 func _on_resized():

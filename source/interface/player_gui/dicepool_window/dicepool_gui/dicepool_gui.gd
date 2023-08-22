@@ -1,6 +1,8 @@
 extends PanelContainer
 
 # variables
+var dicepool
+var dice_guis
 var selected_dice_gui
 
 # onready variables
@@ -8,10 +10,18 @@ var selected_dice_gui
 @onready var dice_selector = $"5-3Ratio/DiceSelector"
 
 func _ready():
+    # define dice guis
+    dice_guis = grid.get_children()
     # connections
-    for dice_gui in grid.get_children():
+    for dice_gui in dice_guis:
         dice_gui.dice_entered.connect(on_dice_entered)
 
+# public functions
+func initialize(_dicepool):
+    dicepool = _dicepool
+    for i in len(dicepool):
+        dice_guis[i].initialize(dicepool[i])
+        
 # signals callbacks
 func on_dice_entered(dice_gui):
     # case first selection
