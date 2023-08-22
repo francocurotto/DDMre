@@ -1,16 +1,15 @@
 extends Sprite2D
 
 # variables
-var speed = 2000
+var speed = 20
 var target
 
 func _ready():
     target = global_position
 
 func _process(delta):
-    if global_position.distance_to(target) > 20:
-        var velocity = global_position.direction_to(target) * speed
-        global_position += velocity * delta
+    if global_position.distance_to(target) > 1:
+        global_position = global_position.lerp(target, delta*speed)
     else:
         global_position = target
 
