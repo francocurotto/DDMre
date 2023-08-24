@@ -9,8 +9,8 @@ var opponent
 @onready var dicepool_gui = $DicepoolGUI
 
 # public functions
-func initialize(_engine, _player, _opponent):
+func setup(_engine, _player, _opponent):
     engine = _engine
     player = _player
     opponent = _opponent
-    dicepool_gui.initialize(player.dicepool)
+    dicepool_gui.setup(player.dicepool)

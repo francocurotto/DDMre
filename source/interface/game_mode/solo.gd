@@ -21,5 +21,5 @@ func _ready():
     # create engine
     engine = DDMreEngine.new(dungpath, pool1path, pool2path)
     # set player guis
-    p1gui.initialize(engine, engine.player1, engine.player2)    
-    p2gui.initialize(engine, engine.player2, engine.player1)
+    p1gui.setup(engine, engine.player1, engine.player2)    
+    p2gui.setup(engine, engine.player2, engine.player1)

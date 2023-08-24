@@ -17,10 +17,10 @@ func _ready():
         dice_gui.dice_entered.connect(on_dice_entered)
 
 # public functions
-func initialize(_dicepool):
+func setup(_dicepool):
     dicepool = _dicepool
     for i in len(dicepool):
-        dice_guis[i].initialize(dicepool[i])
+        dice_guis[i].setup(dicepool[i])
         
 # signals callbacks
 func on_dice_entered(dice_gui):
