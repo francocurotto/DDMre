@@ -22,7 +22,7 @@ texture = ExtResource("1_rrcdu")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Level" type="Label" parent="."]
+[node name="LevelLabel" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

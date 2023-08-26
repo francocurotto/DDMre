@@ -5,8 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://dd2xpeqythaiq" path="res://art/icons/ATTR_ATTACK.svg" id="2_jf4ms"]
 
 [node name="AttributeInfo" type="PanelContainer"]
-offset_right = 166.0
-offset_bottom = 80.0
+offset_right = 239.0
+offset_bottom = 54.0
+size_flags_horizontal = 3
 script = ExtResource("1_02wtm")
 
 [node name="HBox" type="HBoxContainer" parent="."]
@@ -14,11 +15,11 @@ layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="AttributeValue" type="Label" parent="HBox"]
+[node name="ValueLabel" type="Label" parent="HBox"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ilwg6")
-theme_override_font_sizes/font_size = 75
-text = "20"
+theme_override_font_sizes/font_size = 49
+text = "30"
 vertical_alignment = 2
 
 [node name="AttributeIcon" type="TextureRect" parent="HBox"]

@@ -1,19 +1,21 @@
 @tool
 extends MarginContainer
 
-# exports
+# export variables
 @export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM") 
 var type : String = "DRAGON" :
     set(_type):
         type = _type
-        $DiceIcon.modulate = COLORS[type]
+        dice_icon.modulate = COLORS[type]
 
 @export_range(1, 4) var level = 3 :
     set(_level):
         level = _level
-        $Level.text = str(level)
+        level_label.text = str(level)
 
 # variables
+var dice_icon
+var level_label
 var dice
 
 # constants
@@ -28,6 +30,10 @@ const COLORS = {
 # signals
 signal dice_entered(dice_gui)
 
+func _enter_tree():
+    dice_icon = $DiceIcon
+    level_label = $LevelLabel
+
 # public vatriables
 func setup(_dice):
     dice = _dice
@@ -37,8 +43,8 @@ func setup(_dice):
 # signals callbacks
 func _on_resized():
     var min_size = min(size.y, size.x)
-    $Level.add_theme_font_size_override("font_size", min_size/4)
-    $Level.add_theme_constant_override("outline_size", min_size/8)
+    level_label.add_theme_font_size_override("font_size", min_size/4)
+    level_label.add_theme_constant_override("outline_size", min_size/8)
 
 func _input(event):
     # check event type

@@ -1,73 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cu7yx6uyeae6n"]
+[gd_scene load_steps=2 format=3 uid="uid://cu7yx6uyeae6n"]
 
-[ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://fonts/Archimoto.otf" id="1_wgktu"]
-[ext_resource type="Texture2D" uid="uid://dd2xpeqythaiq" path="res://art/icons/ATTR_ATTACK.svg" id="2_hy1gq"]
-[ext_resource type="Texture2D" uid="uid://bc1tdftac2hc" path="res://art/icons/ATTR_DEFENSE.svg" id="3_svgkc"]
-[ext_resource type="Texture2D" uid="uid://easd3l0f4vrv" path="res://art/icons/ATTR_HEALTH.svg" id="4_p6qyi"]
+[ext_resource type="PackedScene" uid="uid://bxldkhfake5ab" path="res://interface/player_gui/common/attributes_info/attribute_info/attribute_info.tscn" id="1_g6rxt"]
 
 [node name="AttributesInfo" type="PanelContainer"]
-offset_right = 470.0
-offset_bottom = 64.0
+offset_right = 365.0
+offset_bottom = 40.0
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2
-
-[node name="AttackAttribute" type="HBoxContainer" parent="HBox"]
-layout_mode = 2
-size_flags_horizontal = 3
 alignment = 1
 
-[node name="AttackValue" type="Label" parent="HBox/AttackAttribute"]
+[node name="AttackInfo" parent="HBox" instance=ExtResource("1_g6rxt")]
 layout_mode = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("1_wgktu")
-theme_override_font_sizes/font_size = 55
-text = "30"
-vertical_alignment = 1
 
-[node name="AttackIcon" type="TextureRect" parent="HBox/AttackAttribute"]
-custom_minimum_size = Vector2(64, 64)
+[node name="DefenseInfo" parent="HBox" instance=ExtResource("1_g6rxt")]
 layout_mode = 2
-texture = ExtResource("2_hy1gq")
-expand_mode = 1
-stretch_mode = 5
 
-[node name="DefenseAttribute" type="HBoxContainer" parent="HBox"]
+[node name="HealthInfo" parent="HBox" instance=ExtResource("1_g6rxt")]
 layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="DefenseValue" type="Label" parent="HBox/DefenseAttribute"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("1_wgktu")
-theme_override_font_sizes/font_size = 55
-text = "30"
-vertical_alignment = 1
-
-[node name="DefenseIcon" type="TextureRect" parent="HBox/DefenseAttribute"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-texture = ExtResource("3_svgkc")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="HealthAttribute" type="HBoxContainer" parent="HBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="HealthValue" type="Label" parent="HBox/HealthAttribute"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("1_wgktu")
-theme_override_font_sizes/font_size = 55
-text = "30"
-vertical_alignment = 1
-
-[node name="HealthIcon" type="TextureRect" parent="HBox/HealthAttribute"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-texture = ExtResource("4_p6qyi")
-expand_mode = 1
-stretch_mode = 5
