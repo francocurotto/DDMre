@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgb0tnbjtbh3d"]
+
+[ext_resource type="Texture2D" uid="uid://dd2xpeqythaiq" path="res://art/icons/ATTR_ATTACK.svg" id="1_pcm73"]
+
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 157.0
+offset_bottom = 67.0
+texture = ExtResource("1_pcm73")
+expand_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 98.0
+offset_bottom = 82.0
