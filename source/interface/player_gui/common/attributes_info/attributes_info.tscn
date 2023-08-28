@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bxldkhfake5ab" path="res://interface/player_gui/common/attributes_info/attribute_info/attribute_info.tscn" id="1_g6rxt"]
 
 [node name="AttributesInfo" type="MarginContainer"]
-offset_right = 558.0
-offset_bottom = 74.0
+offset_right = 502.0
+offset_bottom = 70.0
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2

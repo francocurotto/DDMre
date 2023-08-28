@@ -6,17 +6,14 @@ extends MarginContainer
 var type : String = "DRAGON" :
     set(_type):
         type = _type
-        dice_icon.modulate = COLORS[type]
+        if has_node("DiceIcon"):
+            $DiceIcon.self_modulate = COLORS[type]
 
-@export_range(1, 4) var level = 3 :
+@export_range(1, 4) var level = 1 :
     set(_level):
         level = _level
-        level_label.text = str(level)
-
-# variables
-var dice_icon
-var level_label
-var dice
+        if has_node("LevelLabel"):
+            $LevelLabel.text = str(level)
 
 # constants
 const COLORS = {
@@ -27,12 +24,11 @@ const COLORS = {
     "WARRIOR"     : Color(0.3,0.3,1.0),
     "ITEM"        : Color(0.3,0.3,0.3)}
 
+# variables
+var dice
+
 # signals
 signal dice_entered(dice_gui)
-
-func _enter_tree():
-    dice_icon = $DiceIcon
-    level_label = $LevelLabel
 
 # public vatriables
 func setup(_dice):
@@ -43,8 +39,8 @@ func setup(_dice):
 # signals callbacks
 func _on_resized():
     var min_size = min(size.y, size.x)
-    level_label.add_theme_font_size_override("font_size", min_size/4)
-    level_label.add_theme_constant_override("outline_size", min_size/8)
+    $LevelLabel.add_theme_font_size_override("font_size", min_size/4)
+    $LevelLabel.add_theme_constant_override("outline_size", min_size/8)
 
 func _input(event):
     # check event type

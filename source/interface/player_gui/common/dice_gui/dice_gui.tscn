@@ -13,7 +13,7 @@ size_flags_vertical = 3
 script = ExtResource("2_vc5wr")
 
 [node name="DiceIcon" type="TextureRect" parent="."]
-modulate = Color(1, 0.3, 0.3, 1)
+self_modulate = Color(1, 0.3, 0.3, 1)
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -29,6 +29,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("2_wxenh")
 theme_override_font_sizes/font_size = 32
-text = "3"
+text = "1"
 
 [connection signal="resized" from="." to="." method="_on_resized"]

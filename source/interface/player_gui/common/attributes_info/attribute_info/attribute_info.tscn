@@ -2,31 +2,25 @@
 
 [ext_resource type="Script" path="res://interface/player_gui/common/attributes_info/attribute_info/attribute_info.gd" id="1_02wtm"]
 [ext_resource type="FontFile" uid="uid://w4jfejne7usc" path="res://fonts/WhiteRabbit.ttf" id="2_ilwg6"]
-[ext_resource type="Texture2D" uid="uid://dd2xpeqythaiq" path="res://art/icons/ATTR_ATTACK.svg" id="3_n4j1w"]
+[ext_resource type="Texture2D" uid="uid://dd2xpeqythaiq" path="res://art/icons/ATTR_ATTACK.svg" id="3_y7uqw"]
 
-[node name="AttributeInfo" type="MarginContainer"]
-offset_right = 335.0
-offset_bottom = 120.0
-size_flags_horizontal = 3
-script = ExtResource("1_02wtm")
-
-[node name="HBox" type="HBoxContainer" parent="."]
-layout_mode = 2
+[node name="AttributeInfo" type="HBoxContainer"]
+offset_right = 325.0
+offset_bottom = 85.0
 theme_override_constants/separation = 0
 alignment = 1
+script = ExtResource("1_02wtm")
 
-[node name="ValueLabel" type="Label" parent="HBox"]
-unique_name_in_owner = true
+[node name="ValueLabel" type="Label" parent="."]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ilwg6")
-theme_override_font_sizes/font_size = 115
-text = "30"
+theme_override_font_sizes/font_size = 82
+text = "10"
 vertical_alignment = 2
 
-[node name="AttributeIcon" type="TextureRect" parent="HBox"]
-unique_name_in_owner = true
+[node name="AttributeIcon" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("3_n4j1w")
+texture = ExtResource("3_y7uqw")
 expand_mode = 2
 stretch_mode = 4
 
