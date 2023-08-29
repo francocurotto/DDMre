@@ -5,8 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://dd2xpeqythaiq" path="res://art/icons/ATTR_ATTACK.svg" id="3_y7uqw"]
 
 [node name="AttributeInfo" type="HBoxContainer"]
-offset_right = 325.0
-offset_bottom = 85.0
+offset_right = 360.0
+offset_bottom = 87.0
+size_flags_vertical = 3
 theme_override_constants/separation = 0
 alignment = 1
 script = ExtResource("1_02wtm")

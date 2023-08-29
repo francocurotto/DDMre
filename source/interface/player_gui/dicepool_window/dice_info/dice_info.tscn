@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://cay70x47nn7u1" path="res://art/icons/SUMMON_DRAGON.svg" id="1_6emqv"]
 [ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://fonts/Archimoto.otf" id="2_d10qo"]
-[ext_resource type="PackedScene" uid="uid://cu7yx6uyeae6n" path="res://interface/player_gui/common/attributes_info/attributes_info.tscn" id="3_4ewo3"]
+[ext_resource type="PackedScene" uid="uid://cu7yx6uyeae6n" path="res://interface/player_gui/common/attributes_info/attributes_info.tscn" id="3_mvea6"]
 
 [node name="DiceInfo" type="PanelContainer"]
-offset_right = 718.0
-offset_bottom = 159.0
+offset_right = 694.0
+offset_bottom = 128.0
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -30,5 +30,5 @@ text = "Twin-headed Thunder Dragon"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="AttributesInfo" parent="HBox/VBox" instance=ExtResource("3_4ewo3")]
+[node name="AttributesInfo" parent="HBox/VBox" instance=ExtResource("3_mvea6")]
 layout_mode = 2

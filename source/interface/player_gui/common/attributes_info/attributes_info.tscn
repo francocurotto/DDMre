@@ -2,21 +2,19 @@
 
 [ext_resource type="PackedScene" uid="uid://bxldkhfake5ab" path="res://interface/player_gui/common/attributes_info/attribute_info/attribute_info.tscn" id="1_g6rxt"]
 
-[node name="AttributesInfo" type="MarginContainer"]
-offset_right = 502.0
-offset_bottom = 70.0
-
-[node name="HBox" type="HBoxContainer" parent="."]
-layout_mode = 2
+[node name="AttributesInfo" type="HBoxContainer"]
+offset_right = 539.0
+offset_bottom = 85.0
+size_flags_vertical = 3
 alignment = 1
 
-[node name="AttackInfo" parent="HBox" instance=ExtResource("1_g6rxt")]
+[node name="AttackInfo" parent="." instance=ExtResource("1_g6rxt")]
 layout_mode = 2
 
-[node name="DefenseInfo" parent="HBox" instance=ExtResource("1_g6rxt")]
+[node name="DefenseInfo" parent="." instance=ExtResource("1_g6rxt")]
 layout_mode = 2
 attribute = "DEFENSE"
 
-[node name="HealthInfo" parent="HBox" instance=ExtResource("1_g6rxt")]
+[node name="HealthInfo" parent="." instance=ExtResource("1_g6rxt")]
 layout_mode = 2
 attribute = "HEALTH"
