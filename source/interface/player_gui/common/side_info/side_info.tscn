@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://gwqkymkm3nmy"]
+
+[ext_resource type="Texture2D" uid="uid://cph5tgha7shdb" path="res://art/icons/SIDE.svg" id="1_rw6se"]
+[ext_resource type="Script" path="res://interface/player_gui/common/side_info/side_info.gd" id="1_xxlaj"]
+[ext_resource type="Texture2D" uid="uid://b2h80ttbd6xv3" path="res://art/icons/CREST_SUMMON.svg" id="3_20lqr"]
+
+[node name="SideInfo" type="MarginContainer"]
+offset_right = 183.0
+offset_bottom = 103.0
+script = ExtResource("1_xxlaj")
+
+[node name="SideIcon" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.3, 0.3, 1)
+layout_mode = 2
+texture = ExtResource("1_rw6se")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CrestIcon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_20lqr")
+expand_mode = 1
+stretch_mode = 5

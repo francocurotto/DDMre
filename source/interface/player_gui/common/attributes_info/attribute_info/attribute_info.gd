@@ -12,7 +12,7 @@ extends HBoxContainer
     set(_attribute):
         attribute = _attribute
         if has_node("AttributeIcon"):
-            var texture = load("res://art/icons/ATTR_%s.svg"%attribute)
+            var texture = load("res://art/icons/ATTR_%s.svg" % attribute)
             $AttributeIcon.texture = texture
 
 # signals callbacks
