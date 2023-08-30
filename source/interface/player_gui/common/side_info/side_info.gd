@@ -1,5 +1,5 @@
 @tool
-extends MarginContainer
+extends AspectRatioContainer
 
 # export variables
 @export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM") 
