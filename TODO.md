@@ -1,6 +1,5 @@
 ### NEW INTERFACE
 - dice_info
-    - create side_info
 
 ### GODOT4
 - correct GODOT4 notes
