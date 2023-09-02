@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://21lcctnkggef"]
+
+[ext_resource type="Script" path="res://interface/player_gui/common/abilities_info/ability_info/ability_info.gd" id="1_h2s83"]
+[ext_resource type="Texture2D" uid="uid://dynn1ybi3ie5y" path="res://art/icons/ABILITY_FLY.svg" id="2_rba3y"]
+[ext_resource type="FontFile" uid="uid://w4jfejne7usc" path="res://fonts/WhiteRabbit.ttf" id="2_xdawg"]
+
+[node name="AbilityInfo" type="MarginContainer"]
+offset_right = 300.0
+offset_bottom = 40.0
+script = ExtResource("1_h2s83")
+
+[node name="AbilityButton" type="Button" parent="."]
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="AbilityIcon" type="TextureRect" parent="HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_rba3y")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="AbilityName" type="Label" parent="HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xdawg")
+theme_override_font_sizes/font_size = 35
+text = "FLY"
+vertical_alignment = 2
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="pressed" from="AbilityButton" to="." method="_on_ability_button_pressed"]

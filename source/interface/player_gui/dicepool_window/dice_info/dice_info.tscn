@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd2kqojicflv2"]
+[gd_scene load_steps=5 format=3 uid="uid://dd2kqojicflv2"]
 
 [ext_resource type="Texture2D" uid="uid://cay70x47nn7u1" path="res://art/icons/SUMMON_DRAGON.svg" id="1_6emqv"]
 [ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://fonts/Archimoto.otf" id="2_d10qo"]
 [ext_resource type="PackedScene" uid="uid://cu7yx6uyeae6n" path="res://interface/player_gui/common/attributes_info/attributes_info.tscn" id="3_mvea6"]
+[ext_resource type="PackedScene" uid="uid://gwqkymkm3nmy" path="res://interface/player_gui/common/side_info/side_info.tscn" id="4_t03k4"]
 
 [node name="DiceInfo" type="PanelContainer"]
-offset_right = 694.0
-offset_bottom = 128.0
+offset_right = 720.0
+offset_bottom = 215.0
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -26,9 +27,41 @@ size_flags_horizontal = 3
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_d10qo")
 theme_override_font_sizes/font_size = 36
-text = "Twin-headed Thunder Dragon"
+text = "Winged Dragon #1"
 horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="AttributesInfo" parent="HBox/VBox" instance=ExtResource("3_mvea6")]
 layout_mode = 2
+
+[node name="SidesInfo" type="HBoxContainer" parent="HBox/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="SideInfo1" parent="HBox/VBox/SidesInfo" instance=ExtResource("4_t03k4")]
+layout_mode = 2
+mult = 2
+
+[node name="SideInfo2" parent="HBox/VBox/SidesInfo" instance=ExtResource("4_t03k4")]
+layout_mode = 2
+mult = 2
+
+[node name="SideInfo3" parent="HBox/VBox/SidesInfo" instance=ExtResource("4_t03k4")]
+layout_mode = 2
+mult = 2
+
+[node name="SideInfo4" parent="HBox/VBox/SidesInfo" instance=ExtResource("4_t03k4")]
+layout_mode = 2
+crest = "MOVEMENT"
+mult = 2
+
+[node name="SideInfo5" parent="HBox/VBox/SidesInfo" instance=ExtResource("4_t03k4")]
+layout_mode = 2
+crest = "MOVEMENT"
+mult = 3
+
+[node name="SideInfo6" parent="HBox/VBox/SidesInfo" instance=ExtResource("4_t03k4")]
+layout_mode = 2
+crest = "MAGIC"

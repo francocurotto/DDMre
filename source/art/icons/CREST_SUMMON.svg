@@ -5,7 +5,7 @@
    viewBox="0 0 24 24"
    version="1.1"
    id="svg4"
-   sodipodi:docname="CREST_SUMMON.svg"
+   sodipodi:docname="star.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -23,8 +23,8 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="0.5078125"
-     inkscape:cx="197.90769"
-     inkscape:cy="311.13846"
+     inkscape:cx="-54.153846"
+     inkscape:cy="391.87692"
      inkscape:window-width="1366"
      inkscape:window-height="696"
      inkscape:window-x="0"
@@ -33,7 +33,7 @@
      inkscape:current-layer="svg4" />
   <path
      fill="#000000"
-     d="m 12,5.7888 1.2936,3.4837 0.3817,1.0296 1.0967,0.0451 3.7114,0.1529 -2.9117,2.3012 -0.8624,0.682 0.297,1.0582 1.0021,3.5739 L 12.913,16.0573 12,15.449 11.087,16.0562 7.9916,18.1143 8.9937,14.5404 9.2907,13.4822 8.4283,12.8002 5.5155,10.499 9.2269,10.3461 10.3236,10.301 10.7053,9.2714 12,5.7888 M 12,1.05 9.1598,8.6983 1,9.0327 7.4042,14.0949 5.202,21.95 12,17.4301 18.798,21.95 16.5958,14.0949 23,9.0327 14.8402,8.6972 Z"
+     d="M 12,17.847 18.798,21.95 16.994,14.217 23,9.014 15.091,8.332 12,1.05 8.909,8.332 1,9.014 6.995,14.217 5.202,21.95 Z"
      id="path2"
      style="stroke-width:1.1" />
 </svg>

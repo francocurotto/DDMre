@@ -9,8 +9,8 @@ var type : String = "DRAGON" :
         if has_node("SideIcon"):
             $SideIcon.self_modulate = COLORS[type]
 
-@export_enum("SUMMON2", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP") 
-var crest : String = "SUMMON2" :
+@export_enum("SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP") 
+var crest : String = "SUMMON" :
     set(_crest):
         crest = _crest
         if has_node("CrestIcon"):
@@ -34,7 +34,11 @@ const COLORS = {
 # signals callbacks
 func _on_resized():
     var side_size = $SideIcon.size.y
-    %Mult.add_theme_font_size_override("font_size", side_size/3)
+    $MultContainer.add_theme_constant_override("margin_top", side_size/15)
+    $MultContainer.add_theme_constant_override("margin_bottom", side_size/15)
+    $MultContainer.add_theme_constant_override("margin_left", side_size/15)
+    $MultContainer.add_theme_constant_override("margin_right", side_size/15)
+    %Mult.add_theme_font_size_override("font_size", side_size/2)
     %Mult.add_theme_constant_override("outline_size", side_size/8)
 
 # private functions
@@ -44,7 +48,7 @@ func set_crest_and_mult():
     $CrestIcon.texture = texture
     %Mult.text = str(mult)
     # set mult
-    if crest == "SUMMON2":
+    if crest == "SUMMON":
         %Mult.size_flags_horizontal = SIZE_SHRINK_CENTER
         %Mult.size_flags_vertical   = SIZE_SHRINK_CENTER
         %Mult.visible = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnnofrwyipa48"
-path="res://.godot/imported/CREST_SUMMON.svg-c80c43b329aba3b09517a508d3e9d293.ctex"
+uid="uid://cphmbogupc057"
+path="res://.godot/imported/ABILITY_ARCHER.svg-91d54713e30ec86de5aa8c2ce271bff1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/CREST_SUMMON.svg"
-dest_files=["res://.godot/imported/CREST_SUMMON.svg-c80c43b329aba3b09517a508d3e9d293.ctex"]
+source_file="res://art/icons/ABILITY_ARCHER.svg"
+dest_files=["res://.godot/imported/ABILITY_ARCHER.svg-91d54713e30ec86de5aa8c2ce271bff1.ctex"]
 
 [params]
 

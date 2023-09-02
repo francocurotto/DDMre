@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by56ay5d1acl1"
-path="res://.godot/imported/CREST_SUMMON2.svg-5c20816259087982a76885d6fcc46efd.ctex"
+uid="uid://dmjx0d2s01eun"
+path="res://.godot/imported/ABILITY_NEUTRAL.svg-5430887515ddb172933d1a14482fbd54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/CREST_SUMMON2.svg"
-dest_files=["res://.godot/imported/CREST_SUMMON2.svg-5c20816259087982a76885d6fcc46efd.ctex"]
+source_file="res://art/icons/ABILITY_NEUTRAL.svg"
+dest_files=["res://.godot/imported/ABILITY_NEUTRAL.svg-5430887515ddb172933d1a14482fbd54.ctex"]
 
 [params]
 

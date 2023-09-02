@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnnofrwyipa48"
-path="res://.godot/imported/CREST_SUMMON.svg-c80c43b329aba3b09517a508d3e9d293.ctex"
+uid="uid://oemq3w4yjelx"
+path="res://.godot/imported/ABILITY_TUNNEL.svg-fdb5ac2c7b705b3e71464f6c3477bec7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/CREST_SUMMON.svg"
-dest_files=["res://.godot/imported/CREST_SUMMON.svg-c80c43b329aba3b09517a508d3e9d293.ctex"]
+source_file="res://art/icons/ABILITY_TUNNEL.svg"
+dest_files=["res://.godot/imported/ABILITY_TUNNEL.svg-fdb5ac2c7b705b3e71464f6c3477bec7.ctex"]
 
 [params]
 
