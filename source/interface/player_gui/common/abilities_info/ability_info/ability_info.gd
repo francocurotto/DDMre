@@ -13,7 +13,12 @@ extends MarginContainer
             file_suffix = "_" + ability_name
          # set ability icon
         var texture = load("res://art/icons/ABILITY%s.svg" % file_suffix)
-        %AbilityIcon.texture = texture
+        if ability_name.is_empty():
+            %AbilityIcon.texture = null
+            $AbilityButton.disabled = true
+        else:
+            %AbilityIcon.texture = texture
+            $AbilityButton.disabled = false
         
 # constants
 const COMMON_ABILITIES = ["FLY", "TUNNEL", "ARCHER", "NEUTRAL"]

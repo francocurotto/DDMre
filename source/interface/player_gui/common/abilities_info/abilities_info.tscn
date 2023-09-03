@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cctotlyoiagsc"]
+
+[ext_resource type="PackedScene" uid="uid://21lcctnkggef" path="res://interface/player_gui/common/abilities_info/ability_info/ability_info.tscn" id="1_1wgnp"]
+
+[node name="AbilitiesInfo" type="HBoxContainer"]
+offset_right = 667.0
+offset_bottom = 35.0
+size_flags_vertical = 3
+
+[node name="AbilityInfo1" parent="." instance=ExtResource("1_1wgnp")]
+layout_mode = 2
+
+[node name="AbilityInfo2" parent="." instance=ExtResource("1_1wgnp")]
+layout_mode = 2
+ability_name = "STOP TUNNEL"

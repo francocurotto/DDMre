@@ -30,7 +30,7 @@ var dice
 # signals
 signal dice_entered(dice_gui)
 
-# public vatriables
+# public functions
 func setup(_dice):
     dice = _dice
     type = dice.card.type
