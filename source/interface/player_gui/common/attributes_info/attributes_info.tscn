@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu7yx6uyeae6n"]
+[gd_scene load_steps=3 format=3 uid="uid://cu7yx6uyeae6n"]
 
 [ext_resource type="PackedScene" uid="uid://bxldkhfake5ab" path="res://interface/player_gui/common/attributes_info/attribute_info/attribute_info.tscn" id="1_g6rxt"]
+[ext_resource type="Script" path="res://interface/player_gui/common/attributes_info/attributes_info.gd" id="1_wyrcn"]
 
 [node name="AttributesInfo" type="HBoxContainer"]
 offset_right = 539.0
 offset_bottom = 85.0
 size_flags_vertical = 3
 alignment = 1
+script = ExtResource("1_wyrcn")
 
 [node name="AttackInfo" parent="." instance=ExtResource("1_g6rxt")]
 layout_mode = 2

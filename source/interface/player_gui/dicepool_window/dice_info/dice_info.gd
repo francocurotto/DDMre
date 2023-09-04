@@ -1,12 +1,9 @@
 extends PanelContainer
 
-# variables
-var dice
-
 # public functions
-func setup(_dice):
-    dice = _dice
+func setup(dice):
+    %SummonIcon.texture = load("res://art/icons/SUMMON_%s.svg" % dice.card.type)
     %Name.text = dice.card.name
     %AttributesInfo.setup(dice.card)
-    %SidesInfo.setup(dice.sides)
+    %SidesInfo.setup(dice)
     %AbilitiesInfo.setup(dice.card.abilities)

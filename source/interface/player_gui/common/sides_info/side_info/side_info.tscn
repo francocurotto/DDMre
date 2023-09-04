@@ -1,26 +1,26 @@
 [gd_scene load_steps=5 format=3 uid="uid://gwqkymkm3nmy"]
 
-[ext_resource type="Texture2D" uid="uid://cph5tgha7shdb" path="res://art/icons/SIDE.svg" id="1_rw6se"]
-[ext_resource type="Script" path="res://interface/player_gui/common/side_info/side_info.gd" id="1_xxlaj"]
-[ext_resource type="Texture2D" uid="uid://dnnofrwyipa48" path="res://art/icons/CREST_SUMMON.svg" id="3_42emv"]
-[ext_resource type="FontFile" uid="uid://w4jfejne7usc" path="res://fonts/WhiteRabbit.ttf" id="4_viuua"]
+[ext_resource type="Script" path="res://interface/player_gui/common/sides_info/side_info/side_info.gd" id="1_t6bte"]
+[ext_resource type="Texture2D" uid="uid://cph5tgha7shdb" path="res://art/icons/SIDE.svg" id="2_2vqfa"]
+[ext_resource type="Texture2D" uid="uid://dnnofrwyipa48" path="res://art/icons/CREST_SUMMON.svg" id="3_rm1cs"]
+[ext_resource type="FontFile" uid="uid://w4jfejne7usc" path="res://fonts/WhiteRabbit.ttf" id="4_yh8yc"]
 
 [node name="SideInfo" type="AspectRatioContainer"]
 offset_right = 118.0
 offset_bottom = 60.0
 size_flags_vertical = 3
 stretch_mode = 1
-script = ExtResource("1_xxlaj")
+script = ExtResource("1_t6bte")
 
 [node name="SideIcon" type="TextureRect" parent="."]
 self_modulate = Color(1, 0.3, 0.3, 1)
 layout_mode = 2
-texture = ExtResource("1_rw6se")
+texture = ExtResource("2_2vqfa")
 expand_mode = 2
 
 [node name="CrestIcon" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("3_42emv")
+texture = ExtResource("3_rm1cs")
 expand_mode = 1
 
 [node name="MultContainer" type="MarginContainer" parent="."]
@@ -36,7 +36,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("4_viuua")
+theme_override_fonts/font = ExtResource("4_yh8yc")
 theme_override_font_sizes/font_size = 30
 text = "1"
 vertical_alignment = 2

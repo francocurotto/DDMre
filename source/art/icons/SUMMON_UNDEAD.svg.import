@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c76c6wxodbbik"
-path="res://.godot/imported/SUMMON_ZOMBIE.svg-b50130c7f3b2f602505629c247233243.ctex"
+path="res://.godot/imported/SUMMON_UNDEAD.svg-66b2df1edd18fc52b41bf68ca5b4cf6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/SUMMON_ZOMBIE.svg"
-dest_files=["res://.godot/imported/SUMMON_ZOMBIE.svg-b50130c7f3b2f602505629c247233243.ctex"]
+source_file="res://art/icons/SUMMON_UNDEAD.svg"
+dest_files=["res://.godot/imported/SUMMON_UNDEAD.svg-66b2df1edd18fc52b41bf68ca5b4cf6f.ctex"]
 
 [params]
 

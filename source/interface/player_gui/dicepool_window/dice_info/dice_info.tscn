@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dice_info/dice_info.gd" id="1_dw1ar"]
 [ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://fonts/Archimoto.otf" id="2_d10qo"]
 [ext_resource type="PackedScene" uid="uid://cu7yx6uyeae6n" path="res://interface/player_gui/common/attributes_info/attributes_info.tscn" id="3_mvea6"]
-[ext_resource type="PackedScene" uid="uid://gwqkymkm3nmy" path="res://interface/player_gui/common/side_info/side_info.tscn" id="4_t03k4"]
+[ext_resource type="PackedScene" uid="uid://c36lt5po6nufo" path="res://interface/player_gui/common/sides_info/sides_info.tscn" id="5_0k1aq"]
 [ext_resource type="PackedScene" uid="uid://cctotlyoiagsc" path="res://interface/player_gui/common/abilities_info/abilities_info.tscn" id="5_kt6wx"]
 
 [node name="DiceInfo" type="PanelContainer"]
@@ -17,6 +17,7 @@ script = ExtResource("1_dw1ar")
 layout_mode = 2
 
 [node name="SummonIcon" type="TextureRect" parent="HBox"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = ExtResource("1_6emqv")
@@ -42,38 +43,9 @@ vertical_alignment = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="SidesInfo" type="HBoxContainer" parent="HBox/VBox"]
+[node name="SidesInfo" parent="HBox/VBox" instance=ExtResource("5_0k1aq")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 6
-alignment = 1
-
-[node name="SideInfo1" parent="HBox/VBox/SidesInfo" instance=ExtResource("4_t03k4")]
-layout_mode = 2
-mult = 2
-
-[node name="SideInfo2" parent="HBox/VBox/SidesInfo" instance=ExtResource("4_t03k4")]
-layout_mode = 2
-mult = 2
-
-[node name="SideInfo3" parent="HBox/VBox/SidesInfo" instance=ExtResource("4_t03k4")]
-layout_mode = 2
-mult = 2
-
-[node name="SideInfo4" parent="HBox/VBox/SidesInfo" instance=ExtResource("4_t03k4")]
-layout_mode = 2
-crest = "MOVEMENT"
-mult = 2
-
-[node name="SideInfo5" parent="HBox/VBox/SidesInfo" instance=ExtResource("4_t03k4")]
-layout_mode = 2
-crest = "MOVEMENT"
-mult = 3
-
-[node name="SideInfo6" parent="HBox/VBox/SidesInfo" instance=ExtResource("4_t03k4")]
-layout_mode = 2
-crest = "MAGIC"
 
 [node name="AbilitiesInfo" parent="HBox/VBox" instance=ExtResource("5_kt6wx")]
 unique_name_in_owner = true
