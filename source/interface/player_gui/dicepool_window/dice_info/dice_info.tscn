@@ -9,7 +9,7 @@
 
 [node name="DiceInfo" type="PanelContainer"]
 offset_right = 720.0
-offset_bottom = 311.0
+offset_bottom = 321.0
 size_flags_vertical = 3
 script = ExtResource("1_dw1ar")
 
