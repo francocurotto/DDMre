@@ -1,5 +1,6 @@
 ### NEW INTERFACE
 - dice_info
+    - limit dice info size
     - add ability button frame
     - add dice info frame
 
