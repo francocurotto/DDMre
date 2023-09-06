@@ -1,7 +1,7 @@
 ### NEW INTERFACE
 - dice_info
-    - better center summon icon
-    - change ability code for ability name
+    - add ability button frame
+    - add dice info frame
 
 ### GODOT4
 - correct GODOT4 notes

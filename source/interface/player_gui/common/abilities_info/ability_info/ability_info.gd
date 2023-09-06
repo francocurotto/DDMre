@@ -18,7 +18,7 @@ extends MarginContainer
             $AbilityButton.disabled = true
         else:
             %AbilityIcon.texture = texture
-            $AbilityButton.disabled = false
+            %AbilityButton.disabled = false
         
 # constants
 const COMMON_ABILITIES = ["FLY", "TUNNEL", "ARCHER", "NEUTRAL"]

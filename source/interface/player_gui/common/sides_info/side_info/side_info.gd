@@ -39,7 +39,7 @@ func _on_resized():
     $MultContainer.add_theme_constant_override("margin_left", side_size/15)
     $MultContainer.add_theme_constant_override("margin_right", side_size/15)
     %Mult.add_theme_font_size_override("font_size", side_size/2)
-    %Mult.add_theme_constant_override("outline_size", side_size/8)
+    %Mult.add_theme_constant_override("outline_size", side_size/7)
 
 # private functions
 func set_crest_and_mult():

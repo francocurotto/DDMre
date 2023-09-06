@@ -3,9 +3,12 @@ extends HBoxContainer
 # public functions
 func setup(abilities):
     # reset abilities
-    $AbilityInfo1.ability_name = ""
-    $AbilityInfo2.ability_name = ""
+    $AbilityInfo1.visible = false
+    $AbilityInfo2.visible = false
     # set new abilities
     for i in len(abilities):
-        get_child(i).ability_name = abilities[i].name
+        var ability_info = get_child(i)
+        var ability_entry = Globals.ABIDICT[abilities[i].name]
+        ability_info.ability_name = ability_entry["NAME"]
+        ability_info.visible = true
         
