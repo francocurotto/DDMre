@@ -7,6 +7,7 @@ extends HBoxContainer
         value = _value
         if has_node("ValueLabel"):
             $ValueLabel.text = "%2d" % value
+            _on_resized()
 
 @export_enum("ATTACK", "DEFENSE", "HEALTH") var attribute : String = "ATTACK" :
     set(_attribute):
@@ -18,4 +19,4 @@ extends HBoxContainer
 # signals callbacks
 func _on_resized():
     var icon_size = %AttributeIcon.size
-    $ValueLabel.add_theme_font_size_override("font_size", icon_size.y-5)
+    $ValueLabel.add_theme_font_size_override("font_size", icon_size.y-20)

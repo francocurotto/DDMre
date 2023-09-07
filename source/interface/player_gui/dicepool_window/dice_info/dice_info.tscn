@@ -9,7 +9,7 @@
 
 [node name="DiceInfo" type="PanelContainer"]
 offset_right = 720.0
-offset_bottom = 438.0
+offset_bottom = 391.0
 size_flags_vertical = 3
 script = ExtResource("1_dw1ar")
 
@@ -43,7 +43,6 @@ theme_override_constants/separation = 10
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.2
 theme_override_fonts/font = ExtResource("2_d10qo")
 theme_override_font_sizes/font_size = 45
 text = "Twin-headed Thunder Dragon"
@@ -54,15 +53,12 @@ autowrap_mode = 2
 [node name="AttributesInfo" parent="HBox/MarginContainer2/VBox" instance=ExtResource("3_mvea6")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_stretch_ratio = 0.7
 
 [node name="SidesInfo" parent="HBox/MarginContainer2/VBox" instance=ExtResource("5_0k1aq")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_stretch_ratio = 0.8
 
 [node name="AbilitiesInfo" parent="HBox/MarginContainer2/VBox" instance=ExtResource("5_kt6wx")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_stretch_ratio = 0.6
 font_size = 40

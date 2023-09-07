@@ -21,6 +21,7 @@ var crest : String = "SUMMON" :
         mult = _mult
         if has_node("%Mult"):
             set_crest_and_mult()
+            _on_resized()
 
 # constants
 const COLORS = {

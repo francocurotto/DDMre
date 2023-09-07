@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://interface/player_gui/common/attributes_info/attributes_info.gd" id="1_wyrcn"]
 
 [node name="AttributesInfo" type="HBoxContainer"]
-offset_right = 456.0
-offset_bottom = 81.0
+offset_right = 518.0
+offset_bottom = 98.0
 size_flags_vertical = 3
 alignment = 1
 script = ExtResource("1_wyrcn")
