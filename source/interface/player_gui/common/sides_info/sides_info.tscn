@@ -3,36 +3,41 @@
 [ext_resource type="Script" path="res://interface/player_gui/common/sides_info/sides_info.gd" id="1_568fr"]
 [ext_resource type="PackedScene" uid="uid://gwqkymkm3nmy" path="res://interface/player_gui/common/sides_info/side_info/side_info.tscn" id="1_ucchm"]
 
-[node name="SidesInfo" type="HBoxContainer"]
-offset_right = 395.0
-offset_bottom = 56.0
+[node name="SidesInfo" type="AspectRatioContainer"]
+offset_right = 484.0
+offset_bottom = 131.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 6
-alignment = 1
+ratio = 6.0
 script = ExtResource("1_568fr")
 
-[node name="SideInfo1" parent="." instance=ExtResource("1_ucchm")]
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="SideInfo1" parent="HBox" instance=ExtResource("1_ucchm")]
 layout_mode = 2
 mult = 2
 
-[node name="SideInfo2" parent="." instance=ExtResource("1_ucchm")]
+[node name="SideInfo2" parent="HBox" instance=ExtResource("1_ucchm")]
 layout_mode = 2
 mult = 2
 
-[node name="SideInfo3" parent="." instance=ExtResource("1_ucchm")]
+[node name="SideInfo3" parent="HBox" instance=ExtResource("1_ucchm")]
 layout_mode = 2
 mult = 2
 
-[node name="SideInfo4" parent="." instance=ExtResource("1_ucchm")]
+[node name="SideInfo4" parent="HBox" instance=ExtResource("1_ucchm")]
 layout_mode = 2
 crest = "MOVEMENT"
 mult = 2
 
-[node name="SideInfo5" parent="." instance=ExtResource("1_ucchm")]
+[node name="SideInfo5" parent="HBox" instance=ExtResource("1_ucchm")]
 layout_mode = 2
 crest = "MOVEMENT"
 mult = 3
 
-[node name="SideInfo6" parent="." instance=ExtResource("1_ucchm")]
+[node name="SideInfo6" parent="HBox" instance=ExtResource("1_ucchm")]
 layout_mode = 2
 crest = "MAGIC"

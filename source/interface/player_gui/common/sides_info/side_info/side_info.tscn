@@ -6,17 +6,17 @@
 [ext_resource type="FontFile" uid="uid://w4jfejne7usc" path="res://fonts/WhiteRabbit.ttf" id="4_yh8yc"]
 
 [node name="SideInfo" type="AspectRatioContainer"]
-offset_right = 118.0
-offset_bottom = 60.0
+offset_right = 291.0
+offset_bottom = 152.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
-stretch_mode = 1
 script = ExtResource("1_t6bte")
 
 [node name="SideIcon" type="TextureRect" parent="."]
 self_modulate = Color(1, 0.3, 0.3, 1)
 layout_mode = 2
 texture = ExtResource("2_2vqfa")
-expand_mode = 2
+expand_mode = 1
 
 [node name="CrestIcon" type="TextureRect" parent="."]
 layout_mode = 2
@@ -25,19 +25,19 @@ expand_mode = 1
 
 [node name="MultContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="Mult" type="Label" parent="MultContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 7
+theme_override_constants/outline_size = 21
 theme_override_fonts/font = ExtResource("4_yh8yc")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 76
 text = "1"
 vertical_alignment = 2
 

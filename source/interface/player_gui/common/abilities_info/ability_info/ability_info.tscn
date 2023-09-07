@@ -5,8 +5,8 @@
 [ext_resource type="FontFile" uid="uid://w4jfejne7usc" path="res://fonts/WhiteRabbit.ttf" id="2_xdawg"]
 
 [node name="AbilityInfo" type="MarginContainer"]
-offset_right = 313.0
-offset_bottom = 102.0
+offset_right = 288.0
+offset_bottom = 49.0
 size_flags_horizontal = 3
 script = ExtResource("1_h2s83")
 
@@ -37,9 +37,8 @@ stretch_mode = 4
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xdawg")
-theme_override_font_sizes/font_size = 97
+theme_override_font_sizes/font_size = 60
 text = "FLY"
 vertical_alignment = 2
 
-[connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="pressed" from="Margin/AbilityButton" to="." method="_on_ability_button_pressed"]

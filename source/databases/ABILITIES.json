@@ -228,7 +228,7 @@
     "DESCRIPTION": "Until the end of the turn, the maximum attack distance for this monster becomes {MAX}, and the attack crest cost becomes 0. NOTE: Distance attacks can go through monsters, items and monster lords, but not through empty tiles and blocks.\nCOST: {COST} X {CREST}"
   },
   "NEGATEATKABI": {
-    "NAME": "NEGATE ATTACK ABILITY",
+    "NAME": "NEGATE ATTACK/ABILITY",
     "TYPE": "STANDING",
     "PARAMETERS" : ["COST", "CREST"],
     "DESCRIPTION": "Select a monster. The selected monster cannot longer attack or activate its abilities, and its continuous abilities are negated.\nCOST: {COST} X {CREST}"

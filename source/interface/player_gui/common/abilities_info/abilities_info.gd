@@ -1,4 +1,12 @@
-extends HBoxContainer
+@tool
+extends VBoxContainer
+
+# export variables
+@export var font_size : int = 60 :
+    set(_font_size):
+        font_size = _font_size
+        $AbilityInfo1.font_size = font_size
+        $AbilityInfo2.font_size = font_size
 
 # public functions
 func setup(abilities):

@@ -20,12 +20,17 @@ extends MarginContainer
             %AbilityIcon.texture = texture
             %AbilityButton.disabled = false
         
+@export var font_size : int = 60 :
+    set(_font_size):
+        font_size = _font_size
+        %AbilityName.add_theme_font_size_override("font_size", font_size)
+        
 # constants
 const COMMON_ABILITIES = ["FLY", "TUNNEL", "ARCHER", "NEUTRAL"]
 
 # signals callbacks
-func _on_resized():
-    %AbilityName.add_theme_font_size_override("font_size", size.y-5)
+#func _on_resized():
+#    %AbilityName.add_theme_font_size_override("font_size", size.y-5)
 
 func _on_ability_button_pressed():
     print(ability_name + " ability pressed")
