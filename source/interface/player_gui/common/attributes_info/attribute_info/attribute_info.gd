@@ -19,4 +19,5 @@ extends HBoxContainer
 # signals callbacks
 func _on_resized():
     var icon_size = %AttributeIcon.size
+    print(icon_size)
     $ValueLabel.add_theme_font_size_override("font_size", icon_size.y-20)

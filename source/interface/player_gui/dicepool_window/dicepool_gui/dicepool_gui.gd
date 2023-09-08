@@ -5,10 +5,6 @@ var dicepool
 var dice_guis
 var selected_dice_gui
 
-# onready variables
-#@onready var grid =  $"5-3Ratio/Grid"
-#@onready var dice_selector = $"5-3Ratio/DiceSelector"
-
 func _ready():
     # define dice guis
     dice_guis = %Grid.get_children()
@@ -29,10 +25,7 @@ func on_dice_entered(dice_gui):
         %DiceSelector.global_position = dice_gui.global_position
         %DiceSelector.scale_to_size(dice_gui.size)
         %DiceSelector.show()
-    # case new selection
-    if dice_gui != selected_dice_gui:
-        selected_dice_gui = dice_gui
-        %DiceSelector.target = selected_dice_gui.global_position
-        %DiceInfo.setup(selected_dice_gui.dice)
-        
-            
+    # update selected dice gui
+    selected_dice_gui = dice_gui
+    %DiceSelector.target = selected_dice_gui.global_position
+    %DiceInfo.setup(selected_dice_gui.dice)    
