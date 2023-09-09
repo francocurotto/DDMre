@@ -26,6 +26,7 @@ func on_dice_entered(dice_gui):
         %DiceSelector.scale_to_size(dice_gui.size)
         %DiceSelector.show()
     # update selected dice gui
-    selected_dice_gui = dice_gui
-    %DiceSelector.target = selected_dice_gui.global_position
-    %DiceInfo.setup(selected_dice_gui.dice)    
+    if selected_dice_gui != dice_gui:
+        selected_dice_gui = dice_gui
+        %DiceSelector.target = selected_dice_gui.global_position
+        %DiceInfo.setup(selected_dice_gui.dice)    
