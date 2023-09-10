@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cucecdx5o0p50"
-path="res://.godot/imported/SUMMON_BEAST.svg-d739fffbae3dd63f730702bc7a48b394.ctex"
+uid="uid://brg5dayviasne"
+path="res://.godot/imported/DICE.svg-a67c00becb5fb4ce81f844e3e3afdfd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/SUMMON_BEAST.svg"
-dest_files=["res://.godot/imported/SUMMON_BEAST.svg-d739fffbae3dd63f730702bc7a48b394.ctex"]
+source_file="res://assets/icons/DICE.svg"
+dest_files=["res://.godot/imported/DICE.svg-a67c00becb5fb4ce81f844e3e3afdfd2.ctex"]
 
 [params]
 

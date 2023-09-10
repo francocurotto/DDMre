@@ -45,7 +45,7 @@ func _on_resized():
 # private functions
 func set_crest_and_mult():
     # set crest icon
-    var texture = load("res://art/icons/CREST_%s.svg" % crest)
+    var texture = load("res://assets/icons/CREST_%s.svg" % crest)
     $CrestIcon.texture = texture
     %Mult.text = str(mult)
     # set mult

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cljfeaxqxyvs5"
-path="res://.godot/imported/CREST_TRAP.svg-367879791836bb6d014dc04630432b3c.ctex"
+uid="uid://dnnofrwyipa48"
+path="res://.godot/imported/CREST_SUMMON.svg-f095d220d978008e1438bde2e1036314.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/CREST_TRAP.svg"
-dest_files=["res://.godot/imported/CREST_TRAP.svg-367879791836bb6d014dc04630432b3c.ctex"]
+source_file="res://assets/icons/CREST_SUMMON.svg"
+dest_files=["res://.godot/imported/CREST_SUMMON.svg-f095d220d978008e1438bde2e1036314.ctex"]
 
 [params]
 

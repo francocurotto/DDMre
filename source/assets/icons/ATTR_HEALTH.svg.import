@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cay70x47nn7u1"
-path="res://.godot/imported/SUMMON_DRAGON.svg-362bac1b472e0022588b75c755e48347.ctex"
+uid="uid://easd3l0f4vrv"
+path="res://.godot/imported/ATTR_HEALTH.svg-63ca5c6ead4db1e9bc6bb58502f2c762.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/SUMMON_DRAGON.svg"
-dest_files=["res://.godot/imported/SUMMON_DRAGON.svg-362bac1b472e0022588b75c755e48347.ctex"]
+source_file="res://assets/icons/ATTR_HEALTH.svg"
+dest_files=["res://.godot/imported/ATTR_HEALTH.svg-63ca5c6ead4db1e9bc6bb58502f2c762.ctex"]
 
 [params]
 

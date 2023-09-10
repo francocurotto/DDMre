@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cphmbogupc057"
-path="res://.godot/imported/ABILITY_ARCHER.svg-91d54713e30ec86de5aa8c2ce271bff1.ctex"
+uid="uid://cucecdx5o0p50"
+path="res://.godot/imported/SUMMON_BEAST.svg-728bffa68685cb569e69d5cf63ba427f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/ABILITY_ARCHER.svg"
-dest_files=["res://.godot/imported/ABILITY_ARCHER.svg-91d54713e30ec86de5aa8c2ce271bff1.ctex"]
+source_file="res://assets/icons/SUMMON_BEAST.svg"
+dest_files=["res://.godot/imported/SUMMON_BEAST.svg-728bffa68685cb569e69d5cf63ba427f.ctex"]
 
 [params]
 

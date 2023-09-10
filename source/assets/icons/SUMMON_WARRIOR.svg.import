@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x115e2l6f6lx"
-path="res://.godot/imported/SUMMON_SPELLCASTER.svg-8e5908eb10a7372714632c3ac40db89b.ctex"
+uid="uid://u1qrf4a7g2sd"
+path="res://.godot/imported/SUMMON_WARRIOR.svg-cdce643dc6424a8c0cc5451219a1c52a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/SUMMON_SPELLCASTER.svg"
-dest_files=["res://.godot/imported/SUMMON_SPELLCASTER.svg-8e5908eb10a7372714632c3ac40db89b.ctex"]
+source_file="res://assets/icons/SUMMON_WARRIOR.svg"
+dest_files=["res://.godot/imported/SUMMON_WARRIOR.svg-cdce643dc6424a8c0cc5451219a1c52a.ctex"]
 
 [params]
 

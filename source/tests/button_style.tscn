@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://blx4fth646bjp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d50et"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="ButtonStyle" type="Button"]
+offset_right = 78.0
+offset_bottom = 23.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_d50et")

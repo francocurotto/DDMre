@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c7lm1mnt7dido"
-path="res://.godot/imported/Archimoto.otf-a4b38054b881035f92bff80a234bb397.fontdata"
+uid="uid://w4jfejne7usc"
+path="res://.godot/imported/WhiteRabbit.ttf-36c5a7dbb48a2704739137c7d26c4333.fontdata"
 
 [deps]
 
-source_file="res://fonts/Archimoto.otf"
-dest_files=["res://.godot/imported/Archimoto.otf-a4b38054b881035f92bff80a234bb397.fontdata"]
+source_file="res://assets/fonts/WhiteRabbit.ttf"
+dest_files=["res://.godot/imported/WhiteRabbit.ttf-36c5a7dbb48a2704739137c7d26c4333.fontdata"]
 
 [params]
 

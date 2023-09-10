@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnnofrwyipa48"
-path="res://.godot/imported/CREST_SUMMON.svg-c80c43b329aba3b09517a508d3e9d293.ctex"
+uid="uid://c76c6wxodbbik"
+path="res://.godot/imported/SUMMON_UNDEAD.svg-03bdc3ab4db226314b7e17e358a25cb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/CREST_SUMMON.svg"
-dest_files=["res://.godot/imported/CREST_SUMMON.svg-c80c43b329aba3b09517a508d3e9d293.ctex"]
+source_file="res://assets/icons/SUMMON_UNDEAD.svg"
+dest_files=["res://.godot/imported/SUMMON_UNDEAD.svg-03bdc3ab4db226314b7e17e358a25cb2.ctex"]
 
 [params]
 

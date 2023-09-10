@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyia00mnny6c2"
-path="res://.godot/imported/SUMMON_ITEM.svg-fff5e1aab54a1f1406c86f6ba645ab46.ctex"
+uid="uid://dk413ryfn5tl5"
+path="res://.godot/imported/DICE_SELECTOR.svg-0e2b572c72936ef939fe433ca29681a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/SUMMON_ITEM.svg"
-dest_files=["res://.godot/imported/SUMMON_ITEM.svg-fff5e1aab54a1f1406c86f6ba645ab46.ctex"]
+source_file="res://assets/icons/DICE_SELECTOR.svg"
+dest_files=["res://.godot/imported/DICE_SELECTOR.svg-0e2b572c72936ef939fe433ca29681a7.ctex"]
 
 [params]
 

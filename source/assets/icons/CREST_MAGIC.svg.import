@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d34w5f8kydd84"
-path="res://.godot/imported/CREST_MOVEMENT.svg-7f278e4a5f9805a3349e985a15c01dae.ctex"
+uid="uid://3ya054kafrg2"
+path="res://.godot/imported/CREST_MAGIC.svg-86aceedad96cb3a32d5dcc17043f31db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/CREST_MOVEMENT.svg"
-dest_files=["res://.godot/imported/CREST_MOVEMENT.svg-7f278e4a5f9805a3349e985a15c01dae.ctex"]
+source_file="res://assets/icons/CREST_MAGIC.svg"
+dest_files=["res://.godot/imported/CREST_MAGIC.svg-86aceedad96cb3a32d5dcc17043f31db.ctex"]
 
 [params]
 

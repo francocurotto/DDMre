@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcn6sx8mo0acg"]
 
-[ext_resource type="Texture2D" uid="uid://brg5dayviasne" path="res://art/icons/DICE.svg" id="1_rrcdu"]
+[ext_resource type="Texture2D" uid="uid://brg5dayviasne" path="res://assets/icons/DICE.svg" id="1_rrcdu"]
 [ext_resource type="Script" path="res://interface/player_gui/common/dice_gui/dice_gui.gd" id="2_vc5wr"]
-[ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://fonts/Archimoto.otf" id="2_wxenh"]
+[ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://assets/fonts/Archimoto.otf" id="2_wxenh"]
 
 [node name="DiceGUI" type="MarginContainer"]
 self_modulate = Color(1, 0.2, 0.2, 1)

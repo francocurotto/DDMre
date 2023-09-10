@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brg5dayviasne"
-path="res://.godot/imported/DICE.svg-2879c79f530728fc42c8cb3fe332550d.ctex"
+uid="uid://cay70x47nn7u1"
+path="res://.godot/imported/SUMMON_DRAGON.svg-e4a3aa19a8a2724ccaaa5ef1c14a67b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/DICE.svg"
-dest_files=["res://.godot/imported/DICE.svg-2879c79f530728fc42c8cb3fe332550d.ctex"]
+source_file="res://assets/icons/SUMMON_DRAGON.svg"
+dest_files=["res://.godot/imported/SUMMON_DRAGON.svg-e4a3aa19a8a2724ccaaa5ef1c14a67b8.ctex"]
 
 [params]
 

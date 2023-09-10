@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://easd3l0f4vrv"
-path="res://.godot/imported/ATTR_HEALTH.svg-96c3121b609cceb40a8cfec0ee38f423.ctex"
+uid="uid://cyia00mnny6c2"
+path="res://.godot/imported/SUMMON_ITEM.svg-c0ea8c679be82d278044ea5c76dc4a76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/ATTR_HEALTH.svg"
-dest_files=["res://.godot/imported/ATTR_HEALTH.svg-96c3121b609cceb40a8cfec0ee38f423.ctex"]
+source_file="res://assets/icons/SUMMON_ITEM.svg"
+dest_files=["res://.godot/imported/SUMMON_ITEM.svg-c0ea8c679be82d278044ea5c76dc4a76.ctex"]
 
 [params]
 

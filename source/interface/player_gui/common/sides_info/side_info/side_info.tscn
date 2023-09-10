@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://gwqkymkm3nmy"]
 
 [ext_resource type="Script" path="res://interface/player_gui/common/sides_info/side_info/side_info.gd" id="1_t6bte"]
-[ext_resource type="Texture2D" uid="uid://cph5tgha7shdb" path="res://art/icons/SIDE.svg" id="2_2vqfa"]
-[ext_resource type="Texture2D" uid="uid://dnnofrwyipa48" path="res://art/icons/CREST_SUMMON.svg" id="3_rm1cs"]
-[ext_resource type="FontFile" uid="uid://w4jfejne7usc" path="res://fonts/WhiteRabbit.ttf" id="4_yh8yc"]
+[ext_resource type="Texture2D" uid="uid://cph5tgha7shdb" path="res://assets/icons/SIDE.svg" id="2_2vqfa"]
+[ext_resource type="Texture2D" uid="uid://dnnofrwyipa48" path="res://assets/icons/CREST_SUMMON.svg" id="3_rm1cs"]
+[ext_resource type="FontFile" uid="uid://w4jfejne7usc" path="res://assets/fonts/WhiteRabbit.ttf" id="4_yh8yc"]
 
 [node name="SideInfo" type="AspectRatioContainer"]
 offset_right = 291.0

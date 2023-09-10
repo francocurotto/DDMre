@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dynn1ybi3ie5y"
-path="res://.godot/imported/ABILITY_FLY.svg-f474eaf7628b1c2abb729d47ae481504.ctex"
+uid="uid://x115e2l6f6lx"
+path="res://.godot/imported/SUMMON_SPELLCASTER.svg-da32c715614dc5e3f454ec25191e5264.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/ABILITY_FLY.svg"
-dest_files=["res://.godot/imported/ABILITY_FLY.svg-f474eaf7628b1c2abb729d47ae481504.ctex"]
+source_file="res://assets/icons/SUMMON_SPELLCASTER.svg"
+dest_files=["res://.godot/imported/SUMMON_SPELLCASTER.svg-da32c715614dc5e3f454ec25191e5264.ctex"]
 
 [params]
 

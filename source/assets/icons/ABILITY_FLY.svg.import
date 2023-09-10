@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmjx0d2s01eun"
-path="res://.godot/imported/ABILITY_NEUTRAL.svg-5430887515ddb172933d1a14482fbd54.ctex"
+uid="uid://dynn1ybi3ie5y"
+path="res://.godot/imported/ABILITY_FLY.svg-63902deee8f8c2cfd48dcde743b0ec27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/ABILITY_NEUTRAL.svg"
-dest_files=["res://.godot/imported/ABILITY_NEUTRAL.svg-5430887515ddb172933d1a14482fbd54.ctex"]
+source_file="res://assets/icons/ABILITY_FLY.svg"
+dest_files=["res://.godot/imported/ABILITY_FLY.svg-63902deee8f8c2cfd48dcde743b0ec27.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxldkhfake5ab"]
 
 [ext_resource type="Script" path="res://interface/player_gui/common/attributes_info/attribute_info/attribute_info.gd" id="1_02wtm"]
-[ext_resource type="FontFile" uid="uid://w4jfejne7usc" path="res://fonts/WhiteRabbit.ttf" id="2_ilwg6"]
-[ext_resource type="Texture2D" uid="uid://dd2xpeqythaiq" path="res://art/icons/ATTR_ATTACK.svg" id="3_y7uqw"]
+[ext_resource type="FontFile" uid="uid://w4jfejne7usc" path="res://assets/fonts/WhiteRabbit.ttf" id="2_ilwg6"]
+[ext_resource type="Texture2D" uid="uid://dd2xpeqythaiq" path="res://assets/icons/ATTR_ATTACK.svg" id="3_y7uqw"]
 
 [node name="AttributeInfo" type="HBoxContainer"]
 offset_right = 342.0

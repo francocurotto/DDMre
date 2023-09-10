@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oemq3w4yjelx"
-path="res://.godot/imported/ABILITY_TUNNEL.svg-fdb5ac2c7b705b3e71464f6c3477bec7.ctex"
+uid="uid://cph5tgha7shdb"
+path="res://.godot/imported/SIDE.svg-bd56cae70a10fc00a2c8f84f04f169c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/ABILITY_TUNNEL.svg"
-dest_files=["res://.godot/imported/ABILITY_TUNNEL.svg-fdb5ac2c7b705b3e71464f6c3477bec7.ctex"]
+source_file="res://assets/icons/SIDE.svg"
+dest_files=["res://.godot/imported/SIDE.svg-bd56cae70a10fc00a2c8f84f04f169c3.ctex"]
 
 [params]
 

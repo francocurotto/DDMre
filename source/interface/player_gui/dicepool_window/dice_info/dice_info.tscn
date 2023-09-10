@@ -1,13 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://dd2kqojicflv2"]
 
-[ext_resource type="Texture2D" uid="uid://cay70x47nn7u1" path="res://art/icons/SUMMON_DRAGON.svg" id="1_6emqv"]
 [ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dice_info/dice_info.gd" id="1_dw1ar"]
-[ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://fonts/Archimoto.otf" id="2_d10qo"]
+[ext_resource type="Texture2D" uid="uid://cay70x47nn7u1" path="res://assets/icons/SUMMON_DRAGON.svg" id="2_mrywi"]
+[ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://assets/fonts/Archimoto.otf" id="3_bx5cn"]
 [ext_resource type="PackedScene" uid="uid://cu7yx6uyeae6n" path="res://interface/player_gui/common/attributes_info/attributes_info.tscn" id="3_mvea6"]
 [ext_resource type="PackedScene" uid="uid://c36lt5po6nufo" path="res://interface/player_gui/common/sides_info/sides_info.tscn" id="5_0k1aq"]
 [ext_resource type="PackedScene" uid="uid://cctotlyoiagsc" path="res://interface/player_gui/common/abilities_info/abilities_info.tscn" id="5_kt6wx"]
 
-[node name="DiceInfo" type="PanelContainer"]
+[node name="DiceInfo" type="MarginContainer"]
 offset_right = 720.0
 offset_bottom = 396.0
 size_flags_vertical = 3
@@ -25,7 +25,7 @@ theme_override_constants/margin_right = 20
 unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-texture = ExtResource("1_6emqv")
+texture = ExtResource("2_mrywi")
 expand_mode = 1
 stretch_mode = 5
 
@@ -43,7 +43,7 @@ theme_override_constants/separation = 10
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_d10qo")
+theme_override_fonts/font = ExtResource("3_bx5cn")
 theme_override_font_sizes/font_size = 45
 text = "Twin-headed Thunder Dragon"
 horizontal_alignment = 1

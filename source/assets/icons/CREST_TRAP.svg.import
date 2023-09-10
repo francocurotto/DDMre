@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd2xpeqythaiq"
-path="res://.godot/imported/ATTR_ATTACK.svg-d7cbd8984e8076cb6fa7db7807eb4fd6.ctex"
+uid="uid://cljfeaxqxyvs5"
+path="res://.godot/imported/CREST_TRAP.svg-53d9bf1d16a36553c13d9c149f3a27af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/ATTR_ATTACK.svg"
-dest_files=["res://.godot/imported/ATTR_ATTACK.svg-d7cbd8984e8076cb6fa7db7807eb4fd6.ctex"]
+source_file="res://assets/icons/CREST_TRAP.svg"
+dest_files=["res://.godot/imported/CREST_TRAP.svg-53d9bf1d16a36553c13d9c149f3a27af.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc1tdftac2hc"
-path="res://.godot/imported/ATTR_DEFENSE.svg-3ae1f1b25bf020d7546c77f88aff269b.ctex"
+uid="uid://bpwifxykg0ai5"
+path="res://.godot/imported/CREST_DEFENSE.svg-aa98acf0d1f6325e500af4c7b38e13ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/ATTR_DEFENSE.svg"
-dest_files=["res://.godot/imported/ATTR_DEFENSE.svg-3ae1f1b25bf020d7546c77f88aff269b.ctex"]
+source_file="res://assets/icons/CREST_DEFENSE.svg"
+dest_files=["res://.godot/imported/CREST_DEFENSE.svg-aa98acf0d1f6325e500af4c7b38e13ca.ctex"]
 
 [params]
 

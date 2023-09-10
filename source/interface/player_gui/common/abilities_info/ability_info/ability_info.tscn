@@ -1,44 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://21lcctnkggef"]
+[gd_scene load_steps=5 format=3 uid="uid://21lcctnkggef"]
 
 [ext_resource type="Script" path="res://interface/player_gui/common/abilities_info/ability_info/ability_info.gd" id="1_h2s83"]
-[ext_resource type="Texture2D" uid="uid://dynn1ybi3ie5y" path="res://art/icons/ABILITY_FLY.svg" id="2_rba3y"]
-[ext_resource type="FontFile" uid="uid://w4jfejne7usc" path="res://fonts/WhiteRabbit.ttf" id="2_xdawg"]
+[ext_resource type="Texture2D" uid="uid://dynn1ybi3ie5y" path="res://assets/icons/ABILITY_FLY.svg" id="2_f1pwt"]
+[ext_resource type="FontFile" uid="uid://w4jfejne7usc" path="res://assets/fonts/WhiteRabbit.ttf" id="3_gjhah"]
 
-[node name="AbilityInfo" type="MarginContainer"]
-offset_right = 288.0
-offset_bottom = 49.0
-size_flags_horizontal = 3
-script = ExtResource("1_h2s83")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g76wh"]
+bg_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
-[node name="Margin" type="MarginContainer" parent="."]
-layout_mode = 2
+[node name="AbilityInfo" type="PanelContainer"]
+offset_left = 61.0
+offset_right = 386.0
+offset_bottom = 81.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_g76wh")
+script = ExtResource("1_h2s83")
 
-[node name="AbilityButton" type="Button" parent="Margin"]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-flat = true
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
 
-[node name="HBox" type="HBoxContainer" parent="Margin"]
+[node name="HBox" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 alignment = 1
 
-[node name="AbilityIcon" type="TextureRect" parent="Margin/HBox"]
+[node name="AbilityIcon" type="TextureRect" parent="MarginContainer/HBox"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("2_rba3y")
+texture = ExtResource("2_f1pwt")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="AbilityName" type="Label" parent="Margin/HBox"]
+[node name="AbilityName" type="Label" parent="MarginContainer/HBox"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_xdawg")
+theme_override_fonts/font = ExtResource("3_gjhah")
 theme_override_font_sizes/font_size = 60
 text = "FLY"
 vertical_alignment = 2
 
-[connection signal="pressed" from="Margin/AbilityButton" to="." method="_on_ability_button_pressed"]
+[node name="AbilityButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="AbilityButton" to="." method="_on_ability_button_pressed"]

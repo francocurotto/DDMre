@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk413ryfn5tl5"
-path="res://.godot/imported/DICE_SELECTOR.svg-0a2a1be4d4c4c99c9df0f1dd250a5de5.ctex"
+uid="uid://d34w5f8kydd84"
+path="res://.godot/imported/CREST_MOVEMENT.svg-56d802e3783ce00297689f700d714431.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/DICE_SELECTOR.svg"
-dest_files=["res://.godot/imported/DICE_SELECTOR.svg-0a2a1be4d4c4c99c9df0f1dd250a5de5.ctex"]
+source_file="res://assets/icons/CREST_MOVEMENT.svg"
+dest_files=["res://.godot/imported/CREST_MOVEMENT.svg-56d802e3783ce00297689f700d714431.ctex"]
 
 [params]
 

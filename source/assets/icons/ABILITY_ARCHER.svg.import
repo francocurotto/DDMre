@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u1qrf4a7g2sd"
-path="res://.godot/imported/SUMMON_WARRIOR.svg-f0a12cff3949f001b8ca606a5c9fd471.ctex"
+uid="uid://cphmbogupc057"
+path="res://.godot/imported/ABILITY_ARCHER.svg-f14dfd6b7df392f4ba484f6f8e08380b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/SUMMON_WARRIOR.svg"
-dest_files=["res://.godot/imported/SUMMON_WARRIOR.svg-f0a12cff3949f001b8ca606a5c9fd471.ctex"]
+source_file="res://assets/icons/ABILITY_ARCHER.svg"
+dest_files=["res://.godot/imported/ABILITY_ARCHER.svg-f14dfd6b7df392f4ba484f6f8e08380b.ctex"]
 
 [params]
 

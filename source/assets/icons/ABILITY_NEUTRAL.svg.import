@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c76c6wxodbbik"
-path="res://.godot/imported/SUMMON_UNDEAD.svg-66b2df1edd18fc52b41bf68ca5b4cf6f.ctex"
+uid="uid://dmjx0d2s01eun"
+path="res://.godot/imported/ABILITY_NEUTRAL.svg-f292be050e402eeeb6b611d889df1e5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/SUMMON_UNDEAD.svg"
-dest_files=["res://.godot/imported/SUMMON_UNDEAD.svg-66b2df1edd18fc52b41bf68ca5b4cf6f.ctex"]
+source_file="res://assets/icons/ABILITY_NEUTRAL.svg"
+dest_files=["res://.godot/imported/ABILITY_NEUTRAL.svg-f292be050e402eeeb6b611d889df1e5d.ctex"]
 
 [params]
 
