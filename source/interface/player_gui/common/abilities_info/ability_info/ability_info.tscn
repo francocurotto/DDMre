@@ -52,4 +52,5 @@ vertical_alignment = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[connection signal="pressed" from="AbilityButton" to="." method="_on_ability_button_pressed"]
+[connection signal="button_down" from="AbilityButton" to="." method="_on_ability_button_button_down"]
+[connection signal="button_up" from="AbilityButton" to="." method="_on_ability_button_button_up"]

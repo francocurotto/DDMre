@@ -1,8 +1,5 @@
 ### NEW INTERFACE
-- dice_info
-    - limit dice info size
-    - add ability button frame
-    - add dice info frame
+- add dice sort buttons
 
 ### GODOT4
 - correct GODOT4 notes

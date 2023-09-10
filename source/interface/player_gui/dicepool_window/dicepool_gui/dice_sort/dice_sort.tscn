@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmot6wfixq5jr"]
+
+[ext_resource type="Texture2D" uid="uid://dnnofrwyipa48" path="res://assets/icons/CREST_SUMMON.svg" id="1_1qd3f"]
+[ext_resource type="StyleBox" uid="uid://bogfvhtcm1nbj" path="res://assets/styles/oval_button.tres" id="1_x62f8"]
+[ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_sort/dice_sort.gd" id="3_2apwc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbea2"]
+bg_color = Color(0.239216, 0.239216, 0.239216, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="DiceSort" type="Button"]
+offset_right = 187.0
+offset_bottom = 49.0
+theme_override_styles/normal = ExtResource("1_x62f8")
+theme_override_styles/hover = ExtResource("1_x62f8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sbea2")
+icon = ExtResource("1_1qd3f")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_2apwc")

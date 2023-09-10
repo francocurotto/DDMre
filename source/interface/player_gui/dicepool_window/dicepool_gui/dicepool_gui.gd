@@ -5,6 +5,9 @@ var dicepool
 var dice_guis
 var selected_dice_gui
 
+# segnals
+signal dice_gui_selected(dice)
+
 func _ready():
     # define dice guis
     dice_guis = %Grid.get_children()
@@ -29,4 +32,5 @@ func on_dice_entered(dice_gui):
     if selected_dice_gui != dice_gui:
         selected_dice_gui = dice_gui
         %DiceSelector.target = selected_dice_gui.global_position
-        %DiceInfo.setup(selected_dice_gui.dice)    
+        #%DiceInfo.setup(selected_dice_gui.dice)    
+        dice_gui_selected.emit(selected_dice_gui.dice)

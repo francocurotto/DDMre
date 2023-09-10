@@ -26,7 +26,11 @@ extends PanelContainer
         %AbilityName.add_theme_font_size_override("font_size", font_size)
         
 # constants
-const COMMON_ABILITIES = ["FLY", "TUNNEL", "ARCHER", "NEUTRAL"]
+const COMMON_ABILITIES = ["FLY", "TUNNEL", "ARCHER", "NEUTRAL"]    
 
-func _on_ability_button_pressed():
+func _on_ability_button_button_down():
+    modulate = Color(1,1,1,0.5)
+
+func _on_ability_button_button_up():
     print(ability_name + " ability pressed")
+    modulate = Color(1,1,1,1)

@@ -5,7 +5,7 @@
 
 [node name="AttributesInfo" type="HBoxContainer"]
 offset_right = 518.0
-offset_bottom = 98.0
+offset_bottom = 71.0
 size_flags_vertical = 3
 alignment = 1
 script = ExtResource("1_wyrcn")
