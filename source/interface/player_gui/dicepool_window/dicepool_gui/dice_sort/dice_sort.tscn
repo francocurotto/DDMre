@@ -1,23 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmot6wfixq5jr"]
+[gd_scene load_steps=7 format=3 uid="uid://bmtorjyps4i0w"]
 
-[ext_resource type="Texture2D" uid="uid://dnnofrwyipa48" path="res://assets/icons/CREST_SUMMON.svg" id="1_1qd3f"]
-[ext_resource type="StyleBox" uid="uid://bogfvhtcm1nbj" path="res://assets/styles/oval_button.tres" id="1_x62f8"]
-[ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_sort/dice_sort.gd" id="3_2apwc"]
+[ext_resource type="PackedScene" uid="uid://bmot6wfixq5jr" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_sort/dice_sort_button/dice_sort_button.tscn" id="1_a0nya"]
+[ext_resource type="Texture2D" uid="uid://d34w5f8kydd84" path="res://assets/icons/CREST_MOVEMENT.svg" id="2_0q14a"]
+[ext_resource type="Texture2D" uid="uid://1ao1m34aqnk1" path="res://assets/icons/CREST_ATTACK.svg" id="3_pyav5"]
+[ext_resource type="Texture2D" uid="uid://bpwifxykg0ai5" path="res://assets/icons/CREST_DEFENSE.svg" id="4_wvtfa"]
+[ext_resource type="Texture2D" uid="uid://3ya054kafrg2" path="res://assets/icons/CREST_MAGIC.svg" id="5_qieq4"]
+[ext_resource type="Texture2D" uid="uid://cljfeaxqxyvs5" path="res://assets/icons/CREST_TRAP.svg" id="6_l27dc"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbea2"]
-bg_color = Color(0.239216, 0.239216, 0.239216, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
+[node name="DiceSort" type="HBoxContainer"]
+offset_right = 632.0
+offset_bottom = 41.0
 
-[node name="DiceSort" type="Button"]
-offset_right = 187.0
-offset_bottom = 49.0
-theme_override_styles/normal = ExtResource("1_x62f8")
-theme_override_styles/hover = ExtResource("1_x62f8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_sbea2")
-icon = ExtResource("1_1qd3f")
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("3_2apwc")
+[node name="SortSummon" parent="." instance=ExtResource("1_a0nya")]
+layout_mode = 2
+
+[node name="SortMovement" parent="." instance=ExtResource("1_a0nya")]
+layout_mode = 2
+icon = ExtResource("2_0q14a")
+crest = "MOVEMENT"
+
+[node name="SortAttack" parent="." instance=ExtResource("1_a0nya")]
+layout_mode = 2
+icon = ExtResource("3_pyav5")
+crest = "ATTACK"
+
+[node name="SortDefense" parent="." instance=ExtResource("1_a0nya")]
+layout_mode = 2
+icon = ExtResource("4_wvtfa")
+crest = "DEFENSE"
+
+[node name="SortMagic" parent="." instance=ExtResource("1_a0nya")]
+layout_mode = 2
+icon = ExtResource("5_qieq4")
+crest = "MAGIC"
+
+[node name="SortTrap" parent="." instance=ExtResource("1_a0nya")]
+layout_mode = 2
+icon = ExtResource("6_l27dc")
+crest = "TRAP"

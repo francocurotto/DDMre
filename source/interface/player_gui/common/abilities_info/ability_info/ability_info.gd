@@ -1,5 +1,5 @@
 @tool
-extends PanelContainer
+extends MarginContainer
 
 # export variables
 @export var ability_name : String = "FLY" :
