@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bmot6wfixq5jr"]
 
-[ext_resource type="Theme" uid="uid://14nx05pk0ppv" path="res://assets/themes/ddmre_theme.tres" id="1_pdjuj"]
+[ext_resource type="Theme" uid="uid://14nx05pk0ppv" path="res://assets/themes/button_crest.tres" id="1_nlj8d"]
 [ext_resource type="Texture2D" uid="uid://dnnofrwyipa48" path="res://assets/icons/CREST_SUMMON.svg" id="2_4m7kd"]
 [ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_sort/dice_sort_button/dice_sort_button.gd" id="3_lh32d"]
 
@@ -9,7 +9,8 @@ offset_right = 187.0
 offset_bottom = 49.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("1_pdjuj")
+theme = ExtResource("1_nlj8d")
+toggle_mode = true
 icon = ExtResource("2_4m7kd")
 icon_alignment = 1
 expand_icon = true

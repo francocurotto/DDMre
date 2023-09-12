@@ -1,40 +1,53 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmtorjyps4i0w"]
+[gd_scene load_steps=8 format=3 uid="uid://bmtorjyps4i0w"]
 
 [ext_resource type="PackedScene" uid="uid://bmot6wfixq5jr" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_sort/dice_sort_button/dice_sort_button.tscn" id="1_a0nya"]
 [ext_resource type="Texture2D" uid="uid://d34w5f8kydd84" path="res://assets/icons/CREST_MOVEMENT.svg" id="2_0q14a"]
+[ext_resource type="ButtonGroup" uid="uid://jb1hr1rvoe4g" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_sort/dice_sort_group.tres" id="2_xv35f"]
 [ext_resource type="Texture2D" uid="uid://1ao1m34aqnk1" path="res://assets/icons/CREST_ATTACK.svg" id="3_pyav5"]
 [ext_resource type="Texture2D" uid="uid://bpwifxykg0ai5" path="res://assets/icons/CREST_DEFENSE.svg" id="4_wvtfa"]
 [ext_resource type="Texture2D" uid="uid://3ya054kafrg2" path="res://assets/icons/CREST_MAGIC.svg" id="5_qieq4"]
 [ext_resource type="Texture2D" uid="uid://cljfeaxqxyvs5" path="res://assets/icons/CREST_TRAP.svg" id="6_l27dc"]
 
-[node name="DiceSort" type="HBoxContainer"]
-offset_right = 632.0
+[node name="DiceSort" type="MarginContainer"]
+offset_right = 667.0
 offset_bottom = 41.0
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
 
-[node name="SortSummon" parent="." instance=ExtResource("1_a0nya")]
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="SortSummon" parent="HBox" instance=ExtResource("1_a0nya")]
 layout_mode = 2
 
-[node name="SortMovement" parent="." instance=ExtResource("1_a0nya")]
+[node name="SortMovement" parent="HBox" instance=ExtResource("1_a0nya")]
 layout_mode = 2
+button_group = ExtResource("2_xv35f")
 icon = ExtResource("2_0q14a")
 crest = "MOVEMENT"
 
-[node name="SortAttack" parent="." instance=ExtResource("1_a0nya")]
+[node name="SortAttack" parent="HBox" instance=ExtResource("1_a0nya")]
 layout_mode = 2
+button_group = ExtResource("2_xv35f")
 icon = ExtResource("3_pyav5")
 crest = "ATTACK"
 
-[node name="SortDefense" parent="." instance=ExtResource("1_a0nya")]
+[node name="SortDefense" parent="HBox" instance=ExtResource("1_a0nya")]
 layout_mode = 2
+button_group = ExtResource("2_xv35f")
 icon = ExtResource("4_wvtfa")
 crest = "DEFENSE"
 
-[node name="SortMagic" parent="." instance=ExtResource("1_a0nya")]
+[node name="SortMagic" parent="HBox" instance=ExtResource("1_a0nya")]
 layout_mode = 2
+button_group = ExtResource("2_xv35f")
 icon = ExtResource("5_qieq4")
 crest = "MAGIC"
 
-[node name="SortTrap" parent="." instance=ExtResource("1_a0nya")]
+[node name="SortTrap" parent="HBox" instance=ExtResource("1_a0nya")]
 layout_mode = 2
+button_group = ExtResource("2_xv35f")
 icon = ExtResource("6_l27dc")
 crest = "TRAP"

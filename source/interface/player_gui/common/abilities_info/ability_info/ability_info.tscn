@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://21lcctnkggef"]
 
 [ext_resource type="Script" path="res://interface/player_gui/common/abilities_info/ability_info/ability_info.gd" id="1_h2s83"]
-[ext_resource type="Theme" uid="uid://14nx05pk0ppv" path="res://assets/themes/ddmre_theme.tres" id="2_64m3l"]
 [ext_resource type="Texture2D" uid="uid://dynn1ybi3ie5y" path="res://assets/icons/ABILITY_FLY.svg" id="2_f1pwt"]
+[ext_resource type="Theme" uid="uid://drp0jc82xln3r" path="res://assets/themes/button_ability.tres" id="2_ivsgb"]
 [ext_resource type="FontFile" uid="uid://w4jfejne7usc" path="res://assets/fonts/WhiteRabbit.ttf" id="3_gjhah"]
 
 [node name="AbilityInfo" type="MarginContainer"]
@@ -16,7 +16,7 @@ script = ExtResource("1_h2s83")
 [node name="AbilityButton" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("2_64m3l")
+theme = ExtResource("2_ivsgb")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
