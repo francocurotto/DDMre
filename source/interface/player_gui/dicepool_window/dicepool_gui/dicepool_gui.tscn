@@ -74,4 +74,5 @@ unique_name_in_owner = true
 visible = false
 
 [node name="DiceSort" parent="VBoxContainer" instance=ExtResource("4_1nlfe")]
+unique_name_in_owner = true
 layout_mode = 2

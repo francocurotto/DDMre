@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmtorjyps4i0w"]
+[gd_scene load_steps=9 format=3 uid="uid://bmtorjyps4i0w"]
 
+[ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_sort/dice_sort.gd" id="1_8xxne"]
 [ext_resource type="PackedScene" uid="uid://bmot6wfixq5jr" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_sort/dice_sort_button/dice_sort_button.tscn" id="1_a0nya"]
 [ext_resource type="Texture2D" uid="uid://d34w5f8kydd84" path="res://assets/icons/CREST_MOVEMENT.svg" id="2_0q14a"]
 [ext_resource type="ButtonGroup" uid="uid://jb1hr1rvoe4g" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_sort/dice_sort_group.tres" id="2_xv35f"]
@@ -14,6 +15,7 @@ offset_bottom = 41.0
 size_flags_vertical = 3
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_right = 15
+script = ExtResource("1_8xxne")
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2

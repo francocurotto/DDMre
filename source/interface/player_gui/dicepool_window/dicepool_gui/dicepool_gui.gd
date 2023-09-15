@@ -14,6 +14,8 @@ func _ready():
     # connections
     for dice_gui in dice_guis:
         dice_gui.dice_entered.connect(on_dice_entered)
+        dice_gui.changed_position.connect(on_dice_changed_position)
+    %DiceSort.sort_button_pressed.connect(on_sort_button_pressed)
 
 # public functions
 func setup(_dicepool):
@@ -31,6 +33,20 @@ func on_dice_entered(dice_gui):
     # update selected dice gui
     if selected_dice_gui != dice_gui:
         selected_dice_gui = dice_gui
-        %DiceSelector.target = selected_dice_gui.global_position
-        #%DiceInfo.setup(selected_dice_gui.dice)    
+        %DiceSelector.target = selected_dice_gui.global_position    
         dice_gui_selected.emit(selected_dice_gui.dice)
+
+func on_sort_button_pressed():
+    # remove dice guis from grid
+    for dice_gui in %Grid.get_children():
+        %Grid.remove_child(dice_gui)
+    # sort
+    dice_guis.reverse()
+    # add dice guis with new order
+    for dice_gui in dice_guis:
+        %Grid.add_child(dice_gui)
+
+func on_dice_changed_position(dice_gui):
+    if dice_gui == selected_dice_gui:
+        print(selected_dice_gui.position)
+        %DiceSelector.target = selected_dice_gui.global_position
