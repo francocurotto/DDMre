@@ -27,6 +27,25 @@ func roll():
     var side = sides[randi() % sides.size()]
     return side
 
+func get_max_crests(crest_type):
+    var max_crests = 0
+    for side in sides:
+        if side.crest.TYPE == crest_type:
+            max_crests = max(max_crests, side.mult)
+    return max_crests
+
+# is functions
+func greater_level(dice):
+    return level > dice.level
+
+func greater_crest(dice, crest):
+    return get_max_crests(crest) > dice.get_max_crests(crest)
+
+func greater_level_crest(dice, crest):
+    if level != dice.level:
+        return greater_level(dice)
+    return greater_crest(dice, crest)
+
 # private functions
 func create_card(cardinfo):
     """

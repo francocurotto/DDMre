@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://clg2g2fqnsm0p"]
+[gd_scene load_steps=4 format=3 uid="uid://clg2g2fqnsm0p"]
 
 [ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dicepool_gui/dicepool_gui.gd" id="1_1jbbo"]
 [ext_resource type="PackedScene" uid="uid://bcn6sx8mo0acg" path="res://interface/player_gui/common/dice_gui/dice_gui.tscn" id="1_xouyd"]
-[ext_resource type="PackedScene" uid="uid://di3rgwqx285jb" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_selector/dice_selector.tscn" id="3_eagq2"]
 [ext_resource type="PackedScene" uid="uid://bmtorjyps4i0w" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_sort/dice_sort.tscn" id="4_1nlfe"]
 
 [node name="DicepoolGUI" type="PanelContainer"]
@@ -68,10 +67,6 @@ layout_mode = 2
 
 [node name="DiceGUI15" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
-
-[node name="DiceSelector" parent="VBoxContainer/5-3Ratio" instance=ExtResource("3_eagq2")]
-unique_name_in_owner = true
-visible = false
 
 [node name="DiceSort" parent="VBoxContainer" instance=ExtResource("4_1nlfe")]
 unique_name_in_owner = true

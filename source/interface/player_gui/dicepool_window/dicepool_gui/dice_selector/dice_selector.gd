@@ -1,18 +1,9 @@
-extends Sprite2D
+extends TextureRect
 
 # variables
-var speed = 20
-var target
+var move_time = 0.3
 
-func _ready():
-    target = global_position
-
-func _process(delta):
-    if global_position.distance_to(target) > 1:
-        global_position = global_position.lerp(target, delta*speed)
-    else:
-        global_position = target
-
-# public functions
-func scale_to_size(size):
-    scale = size / get_rect().size
+func move(pos):
+    var tween = create_tween()
+    tween.tween_property(self, "global_position", pos, move_time).\
+        set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)

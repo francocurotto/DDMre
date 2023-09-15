@@ -1,11 +1,15 @@
 extends PanelContainer
 
+# preload variables
+const DiceSelector = preload("res://interface/player_gui/dicepool_window/dicepool_gui/dice_selector/dice_selector.tscn")
+
 # variables
 var dicepool
 var dice_guis
 var selected_dice_gui
+var dice_selector
 
-# segnals
+# signals
 signal dice_gui_selected(dice)
 
 func _ready():
@@ -27,26 +31,49 @@ func setup(_dicepool):
 func on_dice_entered(dice_gui):
     # case first selection
     if selected_dice_gui == null:
-        %DiceSelector.global_position = dice_gui.global_position
-        %DiceSelector.scale_to_size(dice_gui.size)
-        %DiceSelector.show()
+        dice_selector = DiceSelector.instantiate()
+        dice_gui.add_child(dice_selector)
     # update selected dice gui
     if selected_dice_gui != dice_gui:
         selected_dice_gui = dice_gui
-        %DiceSelector.target = selected_dice_gui.global_position    
+        dice_selector.move(selected_dice_gui.global_position)
         dice_gui_selected.emit(selected_dice_gui.dice)
 
 func on_sort_button_pressed():
     # remove dice guis from grid
+    var old_pos = []
     for dice_gui in %Grid.get_children():
+        old_pos.append(dice_gui.global_position)
         %Grid.remove_child(dice_gui)
     # sort
-    dice_guis.reverse()
+    dice_guis.sort_custom(sort_dice_guis)
     # add dice guis with new order
     for dice_gui in dice_guis:
         %Grid.add_child(dice_gui)
+    # move dice animation
+    for i in len(dice_guis):
+        dice_guis[i].move(old_pos[i])
 
 func on_dice_changed_position(dice_gui):
     if dice_gui == selected_dice_gui:
-        print(selected_dice_gui.position)
-        %DiceSelector.target = selected_dice_gui.global_position
+        dice_selector.move(selected_dice_gui.global_position)
+
+# private functions
+func sort_dice_guis(dice_gui1, dice_gui2):
+    # get dice and crest
+    var dice1 = dice_gui1.dice
+    var dice2 = dice_gui2.dice
+    var sort_crest = %DiceSort.sort_crest
+    # choose sorting type
+    # sort first by level and then by crest
+    if %DiceSort.sort_level and sort_crest:
+        return dice1.greater_level_crest(dice2, sort_crest)
+    # sort by level
+    elif %DiceSort.sort_level:
+        return dice1.greater_level(dice2)
+    # sort by crest     
+    elif sort_crest:
+        return dice1.greater_crest(dice2, sort_crest)
+    # original sort
+    else:
+        return dicepool.find(dice1) < dicepool.find(dice2)

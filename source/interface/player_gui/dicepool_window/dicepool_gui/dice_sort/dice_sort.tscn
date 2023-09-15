@@ -22,9 +22,11 @@ layout_mode = 2
 theme_override_constants/separation = 15
 
 [node name="SortSummon" parent="HBox" instance=ExtResource("1_a0nya")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="SortMovement" parent="HBox" instance=ExtResource("1_a0nya")]
+unique_name_in_owner = true
 layout_mode = 2
 button_group = ExtResource("2_xv35f")
 icon = ExtResource("2_0q14a")

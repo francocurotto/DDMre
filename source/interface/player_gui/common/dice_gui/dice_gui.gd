@@ -12,8 +12,8 @@ var type : String = "DRAGON" :
 @export_range(1, 4) var level = 1 :
     set(_level):
         level = _level
-        if has_node("LevelLabel"):
-            $LevelLabel.text = str(level)
+        if has_node("%LevelLabel"):
+            %LevelLabel.text = str(level)
 
 # constants
 const COLORS = {
@@ -26,6 +26,7 @@ const COLORS = {
 
 # variables
 var dice
+var move_time = 1.0
 
 # signals
 signal dice_entered(dice_gui)
@@ -37,11 +38,17 @@ func setup(_dice):
     type = dice.card.type
     level = dice.level
 
+func move(init_pos):
+    var tween = create_tween()
+    tween.tween_property($DiceIcon, "global_position", init_pos, 
+        move_time).from(self.global_position).set_trans(Tween.TRANS_EXPO).\
+            set_ease(Tween.EASE_OUT)
+
 # signals callbacks
 func _on_resized():
     var min_size = min(size.y, size.x)
-    $LevelLabel.add_theme_font_size_override("font_size", min_size/4)
-    $LevelLabel.add_theme_constant_override("outline_size", min_size/8)
+    %LevelLabel.add_theme_font_size_override("font_size", min_size/4)
+    %LevelLabel.add_theme_constant_override("outline_size", min_size/8)
 
 func _on_item_rect_changed():
     changed_position.emit(self)
