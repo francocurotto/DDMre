@@ -1,7 +1,7 @@
 extends TextureRect
 
 # variables
-var move_time = 0.3
+var move_time = 1.0
 
 func move(pos):
     var tween = create_tween()

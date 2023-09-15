@@ -18,7 +18,6 @@ func _ready():
     # connections
     for dice_gui in dice_guis:
         dice_gui.dice_entered.connect(on_dice_entered)
-        dice_gui.changed_position.connect(on_dice_changed_position)
     %DiceSort.sort_button_pressed.connect(on_sort_button_pressed)
 
 # public functions
@@ -55,10 +54,8 @@ func on_sort_button_pressed():
     # move dice animation
     for i in len(dice_guis):
         dice_guis[i].move(positions[i])
-
-func on_dice_changed_position(dice_gui):
-    if dice_gui == selected_dice_gui:
-        dice_selector.move(selected_dice_gui.global_position)
+    # move dice selector
+    dice_selector.move(positions[selected_dice_gui.get_index()])
 
 # private functions
 func sort_dice_guis(dice_gui1, dice_gui2):

@@ -30,7 +30,6 @@ var move_time = 1.0
 
 # signals
 signal dice_entered(dice_gui)
-signal changed_position(dice_gui)
 
 # public functions
 func setup(_dice):
@@ -49,9 +48,6 @@ func _on_resized():
     var min_size = min(size.y, size.x)
     %LevelLabel.add_theme_font_size_override("font_size", min_size/4)
     %LevelLabel.add_theme_constant_override("outline_size", min_size/8)
-
-func _on_item_rect_changed():
-    changed_position.emit(self)
 
 func _input(event):
     # check event type

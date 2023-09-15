@@ -43,5 +43,4 @@ theme_override_fonts/font = ExtResource("2_wxenh")
 theme_override_font_sizes/font_size = 32
 text = "1"
 
-[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
 [connection signal="resized" from="." to="." method="_on_resized"]
