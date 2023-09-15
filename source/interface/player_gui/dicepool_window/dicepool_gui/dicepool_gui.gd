@@ -40,19 +40,21 @@ func on_dice_entered(dice_gui):
         dice_gui_selected.emit(selected_dice_gui.dice)
 
 func on_sort_button_pressed():
+    # get dice gui positions in order
+    var positions = []
+    for dice_gui in dice_guis:
+        positions.append(dice_gui.global_position)
     # remove dice guis from grid
-    var old_pos = []
-    for dice_gui in %Grid.get_children():
-        old_pos.append(dice_gui.global_position)
+    for dice_gui in dice_guis:
         %Grid.remove_child(dice_gui)
-    # sort
+    # requested sort
     dice_guis.sort_custom(sort_dice_guis)
     # add dice guis with new order
     for dice_gui in dice_guis:
         %Grid.add_child(dice_gui)
     # move dice animation
     for i in len(dice_guis):
-        dice_guis[i].move(old_pos[i])
+        dice_guis[i].move(positions[i])
 
 func on_dice_changed_position(dice_gui):
     if dice_gui == selected_dice_gui:

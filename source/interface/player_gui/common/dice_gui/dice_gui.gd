@@ -38,11 +38,11 @@ func setup(_dice):
     type = dice.card.type
     level = dice.level
 
-func move(init_pos):
+func move(pos):
     var tween = create_tween()
-    tween.tween_property($DiceIcon, "global_position", init_pos, 
-        move_time).from(self.global_position).set_trans(Tween.TRANS_EXPO).\
-            set_ease(Tween.EASE_OUT)
+    tween.tween_property($DiceIcon, "global_position", pos, move_time)\
+        .from(self.global_position).set_trans(Tween.TRANS_EXPO)\
+            .set_ease(Tween.EASE_OUT)
 
 # signals callbacks
 func _on_resized():
@@ -61,3 +61,4 @@ func _input(event):
         var rect = Rect2(global_position, size)
         if rect.has_point(event.position):
             dice_entered.emit(self)
+
