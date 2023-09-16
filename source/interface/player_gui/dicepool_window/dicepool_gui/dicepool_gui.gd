@@ -35,27 +35,56 @@ func on_dice_entered(dice_gui):
     # update selected dice gui
     if selected_dice_gui != dice_gui:
         selected_dice_gui = dice_gui
-        dice_selector.move(selected_dice_gui.global_position)
+        dice_selector.move(dice_selector.global_position, selected_dice_gui.global_position)
         dice_gui_selected.emit(selected_dice_gui.dice)
 
+#func on_sort_button_pressed():
+#    # get dice gui positions in order
+#    var positions = []
+#    for dice_gui in dice_guis:
+#        positions.append(dice_gui.global_position)
+#    # remove dice guis from grid
+#    for dice_gui in dice_guis:
+#        %Grid.remove_child(dice_gui)
+#    # requested sort
+#    dice_guis.sort_custom(sort_dice_guis)
+#    # add dice guis with new order
+#    for dice_gui in dice_guis:
+#        %Grid.add_child(dice_gui)
+#    # move dice animation
+#    for i in len(dice_guis):
+#        dice_guis[i].move(positions[i])
+#    # move dice selector
+#    if selected_dice_gui != null:
+#        dice_selector.move(positions[selected_dice_gui.get_index()])
+
 func on_sort_button_pressed():
-    # get dice gui positions in order
-    var positions = []
-    for dice_gui in dice_guis:
-        positions.append(dice_gui.global_position)
-    # remove dice guis from grid
-    for dice_gui in dice_guis:
+    # sort dice guis
+    var new_dice_guis = dice_guis.duplicate()
+    new_dice_guis.sort_custom(sort_dice_guis)
+    # get dice pos
+    var init_pos = []
+    var dest_pos = []
+    var init_selector_pos
+    var dest_selector_pos 
+    for i in len(dice_guis):
+        init_pos.append(new_dice_guis[i].global_position)
+        dest_pos.append(%Grid.get_child(i).global_position)
+    if selected_dice_gui:
+        init_selector_pos = selected_dice_gui.global_position
+        dest_selector_pos = dest_pos[new_dice_guis.find(selected_dice_gui)]
+    # remove dice from grid
+    for dice_gui in %Grid.get_children():
         %Grid.remove_child(dice_gui)
-    # requested sort
-    dice_guis.sort_custom(sort_dice_guis)
-    # add dice guis with new order
-    for dice_gui in dice_guis:
+    # add dice in new order
+    for dice_gui in new_dice_guis:
         %Grid.add_child(dice_gui)
     # move dice animation
-    for i in len(dice_guis):
-        dice_guis[i].move(positions[i])
-    # move dice selector
-    dice_selector.move(positions[selected_dice_gui.get_index()])
+    for i in len(new_dice_guis):
+        %Grid.get_child(i).move(init_pos[i], dest_pos[i])
+    # move selector animation
+    if selected_dice_gui:
+        dice_selector.move(init_selector_pos, dest_selector_pos)
 
 # private functions
 func sort_dice_guis(dice_gui1, dice_gui2):

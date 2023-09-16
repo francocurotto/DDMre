@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://c06ceutd23iqe"]
 
 [ext_resource type="Texture2D" uid="uid://dk413ryfn5tl5" path="res://assets/icons/DICE_SELECTOR.svg" id="1_7kn8w"]
-[ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_selector/dice_selector.gd" id="2_2abje"]
+[ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_selector/dice_selector.gd" id="2_b2low"]
 
 [node name="DiceSelector" type="TextureRect"]
 z_index = 1
-offset_right = 179.0
-offset_bottom = 121.0
+offset_right = 202.0
+offset_bottom = 77.0
 texture = ExtResource("1_7kn8w")
 expand_mode = 1
 stretch_mode = 5
-script = ExtResource("2_2abje")
+script = ExtResource("2_b2low")
