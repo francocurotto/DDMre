@@ -1,20 +1,32 @@
 extends "summon_card.gd"
+## Card of monster type.
+##
+## Summon card that represents a monster.
 
 # constants
 const TYPE = "MONSTER"
 
 # preloads
-const summon_dict = {
-    "DRAGON"      : preload("res://engine/dungobj/dragon.gd"),
-    "SPELLCASTER" : preload("res://engine/dungobj/spellcaster.gd"),
-    "UNDEAD"      : preload("res://engine/dungobj/undead.gd"),
-    "BEAST"       : preload("res://engine/dungobj/beast.gd"),
-    "WARRIOR"     : preload("res://engine/dungobj/warrior.gd")}
+const DRAGON       = preload("res://engine/dungobj/dragon.gd")
+const SPELLCASTER  = preload("res://engine/dungobj/spellcaster.gd")
+const UNDEAD       = preload("res://engine/dungobj/undead.gd")
+const BEAST        = preload("res://engine/dungobj/beast.gd")
+const WARRIOR      = preload("res://engine/dungobj/warrior.gd")
+
+# preloads
+## Dictionary relating a name to a monster type. Used to create a monster card
+## object from a string in the dice database.
+const SUMMONDICT = {
+    "DRAGON"      : DRAGON,
+    "SPELLCASTER" : SPELLCASTER,
+    "UNDEAD"      : UNDEAD,
+    "BEAST"       : BEAST,
+    "WARRIOR"     : WARRIOR}
 
 # variables
-var attack
-var defense
-var health
+var attack  ## Monster base attack
+var defense ## Monster base defense
+var health  ## Monster base health
 
 func _init(cardinfo):
     super(cardinfo)
@@ -23,10 +35,8 @@ func _init(cardinfo):
     health = cardinfo["HEALTH"]
 
 # public functions
+## Summon a monster for player [param player] from the monster card.
 func summon(player):
-    """
-    Return a summon monster from card.
-    """
-    var monster = summon_dict[type].new(self, player)
+    var monster = SUMMONDICT[type].new(self, player)
     player.monsters.append(monster)
     return monster

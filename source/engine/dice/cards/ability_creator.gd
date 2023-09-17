@@ -1,4 +1,5 @@
 extends RefCounted
+## Object to create ability objects from ability dictionaries.
 
 const ABILITY_DICT = {
     "TUNNEL"           : preload("res://engine/abilities/continuous_abilities/tunnel.gd"),
@@ -52,6 +53,7 @@ const ABILITY_DICT = {
 }
 
 # public functions
+## Create an ability object from a [param ability_info] dictionary.
 static func create_ability(ability_info):
     var ability_name = ability_info["NAME"]
     return ABILITY_DICT[ability_name].new(ability_info)

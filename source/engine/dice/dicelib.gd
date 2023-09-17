@@ -1,11 +1,15 @@
 extends RefCounted
+## Library holding all available dice for the game.
+##
+## The library is created reading the dice database, a json file. The library
+## can create a dicepool array from a file or chosen randomly.
 
 # preloads
 const Dice = preload("res://engine/dice/dice.gd")
 
 # variables
-var dicelib_dict
-var rng
+var dicelib_dict ## dice database read from the json file.
+var rng          ## RNG object.
 
 func _init():
     dicelib_dict = Globals.read_jsonfile(Globals.LIBPATH)
@@ -13,31 +17,26 @@ func _init():
     rng.randomize()
 
 # public functions
+## Create dicepool array from [param filepath] .json file. If [param filepath]
+## is null, create a dicepool from random dice in the dice library.
 func create_dicepool(filepath=null):
-    """
-    Create dice pool list from json file. If filepath is null, create a 
-    dicepool from random dice in the dice library.
-    """
-    # create index list
-    var diceidx_list
+    # create indeces array
+    var dice_indeces
     if filepath == null: # case no filepath, use random dice
-        diceidx_list = create_random_diceidx_list()
+        dice_indeces = create_random_dice_indeces()
     else: # case read dice from file in filepath
-        diceidx_list = Globals.read_jsonfile(filepath)
-    # create dice list
+        dice_indeces = Globals.read_jsonfile(filepath)
+    # create dicepool array
     var dicepool = []
-    #GODOT4: use array map
-    for diceidx in diceidx_list:
+    for diceidx in dice_indeces:
         var dice = Dice.new(dicelib_dict[str(diceidx)])
         dicepool.append(dice)
     return dicepool
     
-# private fuctions
-func create_random_diceidx_list():
-    """
-    Create a list of random dice index numbers from the dice library.
-    """
-    var diceidx_list = []
+# private functions
+## Create an array of random dice indeces from the dice library.
+func create_random_dice_indeces():
+    var dice_indeces = []
     for _i in range(Globals.DICEPOOL_SIZE):
-        diceidx_list.append(rng.randi_range(1,len(dicelib_dict)))
-    return diceidx_list
+        dice_indeces.append(rng.randi_range(1,len(dicelib_dict)))
+    return dice_indeces

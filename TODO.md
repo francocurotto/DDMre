@@ -1,10 +1,8 @@
 ### NEW INTERFACE
 - add dice sort buttons
+    - refactor dice sort/dicepool gui code
+    - add dice gui side texture when sorting
 
 ### GODOT4
 - correct GODOT4 notes
 - add proper godot4 documentation
-
-### FIXES
-- change diceidx to poolidx?
-- implement can_target in monster_lord?

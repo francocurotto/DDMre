@@ -1,24 +1,30 @@
 extends RefCounted
+## Side of a dice.
+##
+## A side consists in a crest and a multiplier. If the crest is of type SUMMON
+## the multiplier represents the dice level.
 
 # preloads
-const SummonCrest = preload("res://engine/dice/crests/summon_crest.gd")
-const MovementCrest = preload("res://engine/dice/crests/movement_crest.gd")
-const AttackCrest = preload("res://engine/dice/crests/attack_crest.gd")
-const DefenseCrest = preload("res://engine/dice/crests/defense_crest.gd")
-const MagicCrest = preload("res://engine/dice/crests/magic_crest.gd")
-const TrapCrest = preload("res://engine/dice/crests/trap_crest.gd")
+const SUMMON_CREST   = preload("res://engine/dice/crests/summon_crest.gd")
+const MOVEMENT_CREST = preload("res://engine/dice/crests/movement_crest.gd")
+const ATTACK_CREST   = preload("res://engine/dice/crests/attack_crest.gd")
+const DEFENSE_CREST  = preload("res://engine/dice/crests/defense_crest.gd")
+const MAGIC_CREST    = preload("res://engine/dice/crests/magic_crest.gd")
+const TRAP_CREST     = preload("res://engine/dice/crests/trap_crest.gd")
 
 # constants
-const CRESTDICT = {"S" : SummonCrest,
-                   "M" : MovementCrest,
-                   "A" : AttackCrest,
-                   "D" : DefenseCrest,
-                   "G" : MagicCrest,
-                   "T" : TrapCrest}
+## Dictionary relating a character to the crest class. Used to create a crest
+## object from a character in the dice database.
+const CRESTDICT = {"S" : SUMMON_CREST,
+                   "M" : MOVEMENT_CREST,
+                   "A" : ATTACK_CREST,
+                   "D" : DEFENSE_CREST,
+                   "G" : MAGIC_CREST,
+                   "T" : TRAP_CREST}
 
 # variables
-var crest
-var mult
+var crest ## Crest of the side
+var mult  ## Multiplier of the side
 
 func _init(side_string, level):
     # create crest
