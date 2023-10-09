@@ -41,21 +41,21 @@ func get_max_crests(crest_type):
     return max_crests
 
 # is functions
-## Return true if dice has greater dice level than [param dice].
-func greater_level(dice):
-    return level > dice.level
+## Return true if dice has lesser dice level than [param dice].
+func lesser_level(dice):
+    return level < dice.level
 
 ## Return true if dice has a greater maximum crest multiplier of type 
 ## [param crest] than [param dice].
 func greater_crest(dice, crest):
     return get_max_crests(crest) > dice.get_max_crests(crest)
 
-## Return true if dice has greater dice level than [param dice]. If dice levels
+## Return true if dice has lesser dice level than [param dice]. If dice levels
 ## are equals, return true if dice has a greater maximum crest multiplier of
 ## type [param crest].
-func greater_level_crest(dice, crest):
+func lesser_level_crest(dice, crest):
     if level != dice.level:
-        return greater_level(dice)
+        return lesser_level(dice)
     return greater_crest(dice, crest)
 
 # private functions

@@ -1,27 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd2kqojicflv2"]
+[gd_scene load_steps=6 format=3 uid="uid://dd2kqojicflv2"]
 
 [ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dice_info/dice_info.gd" id="1_dw1ar"]
 [ext_resource type="Texture2D" uid="uid://cay70x47nn7u1" path="res://assets/icons/SUMMON_DRAGON.svg" id="2_mrywi"]
-[ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://assets/fonts/Archimoto.otf" id="3_bx5cn"]
 [ext_resource type="PackedScene" uid="uid://cu7yx6uyeae6n" path="res://interface/player_gui/common/attributes_info/attributes_info.tscn" id="3_mvea6"]
 [ext_resource type="PackedScene" uid="uid://c36lt5po6nufo" path="res://interface/player_gui/common/sides_info/sides_info.tscn" id="5_0k1aq"]
 [ext_resource type="PackedScene" uid="uid://cctotlyoiagsc" path="res://interface/player_gui/common/abilities_info/abilities_info.tscn" id="5_kt6wx"]
 
 [node name="DiceInfo" type="PanelContainer"]
 offset_right = 720.0
-offset_bottom = 396.0
+offset_bottom = 320.0
 size_flags_vertical = 3
 script = ExtResource("1_dw1ar")
 
-[node name="HBox" type="HBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 9
 
-[node name="MarginContainer" type="MarginContainer" parent="HBox"]
+[node name="HBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Margin" type="MarginContainer" parent="VBox/HBox"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 20
 
-[node name="SummonIcon" type="TextureRect" parent="HBox/MarginContainer"]
+[node name="SummonIcon" type="TextureRect" parent="VBox/HBox/Margin"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
@@ -29,37 +32,32 @@ texture = ExtResource("2_mrywi")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBox"]
+[node name="Margin2" type="MarginContainer" parent="VBox/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_right = 20
 
-[node name="VBox" type="VBoxContainer" parent="HBox/MarginContainer2"]
+[node name="VBox" type="VBoxContainer" parent="VBox/HBox/Margin2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="Name" type="Label" parent="HBox/MarginContainer2/VBox"]
+[node name="Name" type="Label" parent="VBox/HBox/Margin2/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_bx5cn")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 38
 text = "Twin-headed Thunder Dragon"
 horizontal_alignment = 1
 vertical_alignment = 2
-autowrap_mode = 2
 
-[node name="AttributesInfo" parent="HBox/MarginContainer2/VBox" instance=ExtResource("3_mvea6")]
+[node name="AttributesInfo" parent="VBox/HBox/Margin2/VBox" instance=ExtResource("3_mvea6")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_stretch_ratio = 0.6
+size_flags_vertical = 1
 
-[node name="SidesInfo" parent="HBox/MarginContainer2/VBox" instance=ExtResource("5_0k1aq")]
+[node name="AbilitiesInfo" parent="VBox/HBox/Margin2/VBox" instance=ExtResource("5_kt6wx")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="AbilitiesInfo" parent="HBox/MarginContainer2/VBox" instance=ExtResource("5_kt6wx")]
+[node name="SidesInfo" parent="VBox" instance=ExtResource("5_0k1aq")]
 unique_name_in_owner = true
 layout_mode = 2
-font_size = 33

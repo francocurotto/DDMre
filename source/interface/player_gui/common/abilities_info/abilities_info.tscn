@@ -1,18 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://cctotlyoiagsc"]
 
-[ext_resource type="PackedScene" uid="uid://21lcctnkggef" path="res://interface/player_gui/common/abilities_info/ability_info/ability_info.tscn" id="1_1wgnp"]
 [ext_resource type="Script" path="res://interface/player_gui/common/abilities_info/abilities_info.gd" id="1_po4p1"]
+[ext_resource type="PackedScene" uid="uid://21lcctnkggef" path="res://interface/player_gui/common/abilities_info/ability_info/ability_info.tscn" id="2_gghoo"]
 
 [node name="AbilitiesInfo" type="VBoxContainer"]
-offset_right = 489.0
-offset_bottom = 102.0
+offset_right = 466.0
+offset_bottom = 35.0
 size_flags_vertical = 3
+theme_override_constants/separation = 10
 alignment = 1
 script = ExtResource("1_po4p1")
 
-[node name="AbilityInfo1" parent="." instance=ExtResource("1_1wgnp")]
+[node name="AbilityInfo1" parent="." instance=ExtResource("2_gghoo")]
 layout_mode = 2
 
-[node name="AbilityInfo2" parent="." instance=ExtResource("1_1wgnp")]
+[node name="AbilityInfo2" parent="." instance=ExtResource("2_gghoo")]
 layout_mode = 2
 ability_name = "STOP TUNNEL"

@@ -95,10 +95,10 @@ func sort_dice_guis(dice_gui1, dice_gui2):
     # choose sorting type
     # sort first by level and then by crest
     if %DiceSort.sort_level and sort_crest:
-        return dice1.greater_level_crest(dice2, sort_crest)
+        return dice1.lesser_level_crest(dice2, sort_crest)
     # sort by level
     elif %DiceSort.sort_level:
-        return dice1.greater_level(dice2)
+        return dice1.lesser_level(dice2)
     # sort by crest     
     elif sort_crest:
         return dice1.greater_crest(dice2, sort_crest)

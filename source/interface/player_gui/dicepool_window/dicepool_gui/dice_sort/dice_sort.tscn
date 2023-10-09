@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cljfeaxqxyvs5" path="res://assets/icons/CREST_TRAP.svg" id="6_l27dc"]
 
 [node name="DiceSort" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
 offset_right = 667.0
 offset_bottom = 41.0
 size_flags_vertical = 3
@@ -23,6 +24,7 @@ theme_override_constants/separation = 15
 
 [node name="SortSummon" parent="HBox" instance=ExtResource("1_a0nya")]
 unique_name_in_owner = true
+self_modulate = Color(1, 0.301961, 0.301961, 1)
 layout_mode = 2
 
 [node name="SortMovement" parent="HBox" instance=ExtResource("1_a0nya")]

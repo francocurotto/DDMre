@@ -1,7 +1,7 @@
 extends PanelContainer
 
 func _ready():
-    $HBox.modulate = Color(1,1,1,0)
+    $VBox.modulate = Color(1,1,1,0)
     
 # public functions
 func setup(dice):
@@ -11,4 +11,4 @@ func setup(dice):
     %AttributesInfo.setup(dice.card)
     %SidesInfo.setup(dice)
     %AbilitiesInfo.setup(dice.card.abilities)
-    $HBox.modulate = Color(1,1,1,1)
+    $VBox.modulate = Color(1,1,1,1)

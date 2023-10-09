@@ -13,7 +13,7 @@ script = ExtResource("1_568fr")
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="SideInfo1" parent="HBox" instance=ExtResource("1_ucchm")]
