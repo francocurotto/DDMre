@@ -1,6 +1,5 @@
 ### NEW INTERFACE
 - add dice sort buttons
-    - refactor dice sort/dicepool gui code
     - add dice gui side texture when sorting
 
 ### GODOT4
