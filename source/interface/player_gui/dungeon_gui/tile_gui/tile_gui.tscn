@@ -10,3 +10,8 @@ offset_bottom = 113.0
 texture = ExtResource("1_mnbda")
 stretch_mode = 5
 script = ExtResource("2_v0dfj")
+
+[node name="DungobjGui" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
