@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://6f72kp2qiget"]
+
+[ext_resource type="Texture2D" uid="uid://ckia6wjxm0v5a" path="res://assets/icons/TILE.svg" id="1_mnbda"]
+[ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/tile_gui/tile_gui.gd" id="2_v0dfj"]
+
+[node name="TileGui" type="TextureRect"]
+self_modulate = Color(0.3, 0.3, 0.3, 1)
+offset_right = 115.0
+offset_bottom = 113.0
+texture = ExtResource("1_mnbda")
+stretch_mode = 5
+script = ExtResource("2_v0dfj")

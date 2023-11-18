@@ -34,7 +34,8 @@ const COLORS = {
 
 # signals callbacks
 func _on_resized():
-    var side_size = $SideIcon.size.y
+    #var side_size = $SideIcon.size.y
+    var side_size = min(size.y, size.x)
     $MultContainer.add_theme_constant_override("margin_top", side_size/15)
     $MultContainer.add_theme_constant_override("margin_bottom", side_size/15)
     $MultContainer.add_theme_constant_override("margin_left", side_size/15)

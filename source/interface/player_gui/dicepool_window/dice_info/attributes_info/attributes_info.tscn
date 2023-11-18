@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cu7yx6uyeae6n"]
 
-[ext_resource type="PackedScene" uid="uid://bxldkhfake5ab" path="res://interface/player_gui/common/attributes_info/attribute_info/attribute_info.tscn" id="1_g6rxt"]
-[ext_resource type="Script" path="res://interface/player_gui/common/attributes_info/attributes_info.gd" id="1_wyrcn"]
+[ext_resource type="PackedScene" uid="uid://bxldkhfake5ab" path="res://interface/player_gui/dicepool_window/dice_info/attributes_info/attribute_info/attribute_info.tscn" id="1_g6rxt"]
+[ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dice_info/attributes_info/attributes_info.gd" id="1_wyrcn"]
 
 [node name="AttributesInfo" type="HBoxContainer"]
 offset_right = 556.0

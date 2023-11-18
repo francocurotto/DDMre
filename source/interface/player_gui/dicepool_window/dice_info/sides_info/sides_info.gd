@@ -1,3 +1,4 @@
+@tool
 extends AspectRatioContainer
 
 # public functions

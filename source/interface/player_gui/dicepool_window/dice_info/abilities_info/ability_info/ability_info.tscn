@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://21lcctnkggef"]
 
-[ext_resource type="Script" path="res://interface/player_gui/common/abilities_info/ability_info/ability_info.gd" id="1_h2s83"]
+[ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dice_info/abilities_info/ability_info/ability_info.gd" id="1_h2s83"]
 [ext_resource type="Texture2D" uid="uid://dynn1ybi3ie5y" path="res://assets/icons/ABILITY_FLY.svg" id="2_f1pwt"]
 [ext_resource type="Theme" uid="uid://drp0jc82xln3r" path="res://assets/themes/button_ability.tres" id="2_ivsgb"]
 [ext_resource type="FontFile" uid="uid://w4jfejne7usc" path="res://assets/fonts/WhiteRabbit.ttf" id="3_gjhah"]
