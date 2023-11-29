@@ -1,0 +1,845 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbmi486gqi604"]
+
+[ext_resource type="PackedScene" uid="uid://6f72kp2qiget" path="res://interface/player_gui/dungeon_gui/tile_gui/tile_gui.tscn" id="1_qdk6b"]
+
+[node name="DungeonGui" type="VBoxContainer"]
+offset_right = 720.0
+offset_bottom = 1045.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Row19" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row19" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row19" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row19" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row19" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row19" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row19" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row19" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row19" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row19" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row19" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row19" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row19" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row19" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row18" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row18" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row18" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row18" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row18" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row18" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row18" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row18" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row18" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row18" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row18" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row18" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row18" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row18" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row17" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row17" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row17" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row17" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row17" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row17" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row17" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row17" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row17" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row17" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row17" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row17" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row17" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row17" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row16" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row16" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row16" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row16" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row16" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row16" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row16" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row16" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row16" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row16" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row16" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row16" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row16" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row16" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row15" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row15" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row15" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row15" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row15" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row15" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row15" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row15" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row15" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row15" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row15" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row15" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row15" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row15" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row14" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row14" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row14" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row14" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row14" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row14" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row14" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row14" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row14" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row14" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row14" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row14" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row14" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row14" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row13" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row13" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row13" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row13" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row13" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row13" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row13" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row13" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row13" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row13" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row13" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row13" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row13" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row13" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row12" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row12" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row12" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row12" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row12" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row12" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row12" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row12" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row12" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row12" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row12" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row12" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row12" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row12" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row11" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row11" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row11" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row11" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row11" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row11" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row11" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row11" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row11" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row11" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row11" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row11" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row11" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row11" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row10" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row10" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row10" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row10" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row10" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row10" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row10" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row10" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row10" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row10" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row10" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row10" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row10" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row10" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row9" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row9" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row9" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row9" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row9" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row9" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row9" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row9" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row9" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row9" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row9" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row9" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row9" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row9" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row8" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row8" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row8" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row8" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row8" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row8" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row8" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row8" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row8" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row8" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row8" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row8" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row8" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row8" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row7" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row7" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row7" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row7" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row7" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row7" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row7" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row7" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row7" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row7" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row7" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row7" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row7" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row7" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row6" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row6" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row6" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row6" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row6" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row6" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row6" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row6" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row6" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row6" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row6" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row6" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row6" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row6" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row5" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row5" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row5" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row5" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row5" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row5" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row5" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row5" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row5" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row5" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row5" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row5" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row5" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row5" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row4" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row4" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row4" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row4" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row4" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row4" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row4" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row4" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row4" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row4" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row4" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row4" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row4" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row4" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row3" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row3" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row3" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row3" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row3" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row3" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row3" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row3" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row3" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row3" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row3" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row3" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row3" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row3" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row2" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row2" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row2" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row2" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row2" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row2" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row2" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row2" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row2" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row2" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row2" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row2" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row2" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row2" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="Row1" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TileGui1" parent="Row1" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui2" parent="Row1" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui3" parent="Row1" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui4" parent="Row1" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui5" parent="Row1" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui6" parent="Row1" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui7" parent="Row1" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui8" parent="Row1" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui9" parent="Row1" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui10" parent="Row1" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui11" parent="Row1" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui12" parent="Row1" instance=ExtResource("1_qdk6b")]
+layout_mode = 2
+
+[node name="TileGui13" parent="Row1" instance=ExtResource("1_qdk6b")]
+layout_mode = 2

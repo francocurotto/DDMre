@@ -1,5 +1,5 @@
 @tool
-extends TextureRect
+extends AspectRatioContainer
 
 # export variables
 @export_enum("OPEN", "BLOCK", "NEUTRAL", "PLAYER") 
@@ -15,9 +15,9 @@ var tile_type : String = "OPEN" :
 
 func set_tile_icon():
     if tile_type == "PLAYER":
-        self_modulate = COLORS[tile_type+str(tile_player)]
+        $TileIcon.self_modulate = COLORS[tile_type+str(tile_player)]
     else:
-        self_modulate = COLORS[tile_type]
+        $TileIcon.self_modulate = COLORS[tile_type]
 
 @export_enum("NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM")
 var dungobj_type : String = "NONE" :
@@ -32,12 +32,12 @@ var dungobj_type : String = "NONE" :
 
 func set_dungobj_icon():
     if dungobj_type == "NONE":
-        $DungobjGui.texture = null
+        %DungobjIcon.texture = null
     elif dungobj_type == "MONSTER_LORD":
-        $DungobjGui.texture = load("res://assets/icons/MONSTER_LORD.svg")
+        %DungobjIcon.texture = load("res://assets/icons/MONSTER_LORD.svg")
     else:
-        var dungobj_icon = "SUMMON_" + dungobj_type + "_" + str(dungobj_player)
-        $DungobjGui.texture = load("res://assets/icons/%s.svg" % dungobj_icon)
+        var dungobj_icon = "SUMMON_%s_P%d" % [dungobj_type, dungobj_player]
+        %DungobjIcon.texture = load("res://assets/icons/%s.svg" % dungobj_icon)
        
 # constants
 const COLORS = {
