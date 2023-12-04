@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://6f72kp2qiget"]
 
-[ext_resource type="Texture2D" uid="uid://ckia6wjxm0v5a" path="res://assets/icons/TILE.svg" id="1_mnbda"]
+[ext_resource type="Texture2D" uid="uid://bgnu02inrq1xk" path="res://assets/icons/TILE_OPEN.svg" id="2_begun"]
 [ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/tile_gui/tile_gui.gd" id="2_v0dfj"]
 
 [node name="TileGui" type="AspectRatioContainer"]
@@ -10,9 +10,8 @@ offset_bottom = 55.0
 script = ExtResource("2_v0dfj")
 
 [node name="TileIcon" type="TextureRect" parent="."]
-self_modulate = Color(0.3, 0.3, 0.3, 1)
 layout_mode = 2
-texture = ExtResource("1_mnbda")
+texture = ExtResource("2_begun")
 expand_mode = 1
 stretch_mode = 5
 
