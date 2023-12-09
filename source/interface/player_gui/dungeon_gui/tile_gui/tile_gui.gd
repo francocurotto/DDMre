@@ -15,9 +15,10 @@ var tile_type : String = "OPEN" :
 
 func set_tile_icon():
     if tile_type == "PLAYER":
-        $TileIcon.self_modulate = COLORS[tile_type+str(tile_player)]
+        var tile_icon = "TILE_PLAYER_P%d" % tile_player
+        $TileIcon.texture = load("res://assets/icons/%s.svg" % tile_icon)
     else:
-        $TileIcon.self_modulate = COLORS[tile_type]
+        $TileIcon.texture = load("res://assets/icons/TILE_%s.svg" % tile_type)
 
 @export_enum("NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM")
 var dungobj_type : String = "NONE" :
@@ -38,11 +39,14 @@ func set_dungobj_icon():
     else:
         var dungobj_icon = "SUMMON_%s_P%d" % [dungobj_type, dungobj_player]
         %DungobjIcon.texture = load("res://assets/icons/%s.svg" % dungobj_icon)
-       
-# constants
-const COLORS = {
-    "OPEN"    : Color(0.3,0.3,0.3),
-    "BLOCK"   : Color(0.9,0.9,0.9),
-    "NEUTRAL" : Color(0.5,0.3,0.1),
-    "PLAYER1" : Color(0.3,0.3,1.0),
-    "PLAYER2" : Color(1.0,0.3,0.3)}
+
+# variables
+var tile
+    
+# public functions
+func setup(_tile):
+    tile = _tile
+    tile_type = tile.TYPE
+    tile_player = tile.playerid
+    dungobj_type = tile.content.TYPE
+    dungobj_player = tile.content.playerid

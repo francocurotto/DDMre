@@ -70,7 +70,10 @@ static func check_diceidx_float(diceidx):
     if typeof(diceidx) != TYPE_FLOAT:
         return false
     # check correct range
-    if not diceidx in range(1,Globals.DICEPOOL_SIZE+1):
+    var float_range = []
+    for i in Globals.DICEPOOL_SIZE+1:
+        float_range.append(float(i))
+    if not diceidx in float_range:
         return false
     # all checks passed
     return true

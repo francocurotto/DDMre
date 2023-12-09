@@ -4,7 +4,7 @@ extends Node
 #const POOL1PATH = "res://databases/dicepools/long_abilities.json";
 
 # DUNGPATHS
-#const DUNGPATH = "res://databases/dungeons/ability_tests/pass.json";                const POOL1PATH = "res://databases/dicepools/ability_tests/pass.json";                const POOL2PATH = "res://databases/dicepools/ability_tests/pass.json"
+const DUNGPATH = "res://databases/dungeons/ability_tests/pass.json";                const POOL1PATH = "res://databases/dicepools/ability_tests/pass.json";                const POOL2PATH = "res://databases/dicepools/ability_tests/pass.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/target.json";              const POOL1PATH = "res://databases/dicepools/ability_tests/target.json";              const POOL2PATH = "res://databases/dicepools/ability_tests/target.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/power.json";               const POOL1PATH = "res://databases/dicepools/ability_tests/power.json";               const POOL2PATH = "res://databases/dicepools/ability_tests/power.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/move.json";                const POOL1PATH = "res://databases/dicepools/ability_tests/move.json";                const POOL2PATH = "res://databases/dicepools/ability_tests/move.json"

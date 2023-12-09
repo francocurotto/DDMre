@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="emoji"
+   viewBox="0 0 41.833199 41.833199"
+   version="1.1"
+   sodipodi:docname="TILE_NEUTRAL.svg"
+   width="41.833199"
+   height="41.833199"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs11">
+    <linearGradient
+       id="linearGradient3334"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop3332" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3310"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#666666;stop-opacity:1;"
+         offset="0"
+         id="stop3308" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3334"
+       id="linearGradient3336"
+       x1="15.083401"
+       y1="35.854099"
+       x2="56.916599"
+       y2="35.854099"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3334"
+       id="linearGradient3336-3"
+       x1="15.083401"
+       y1="35.854099"
+       x2="56.916599"
+       y2="35.854099"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3334"
+       id="linearGradient913"
+       gradientUnits="userSpaceOnUse"
+       x1="15.083401"
+       y1="35.854099"
+       x2="56.916599"
+       y2="35.854099"
+       gradientTransform="matrix(1.0499885,0,0,1.0501102,-18.474698,-18.331466)" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="4"
+     inkscape:cx="40.625"
+     inkscape:cy="22.25"
+     inkscape:window-width="1366"
+     inkscape:window-height="696"
+     inkscape:window-x="0"
+     inkscape:window-y="40"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="emoji" />
+  <g
+     id="line-7"
+     transform="translate(1.592309,1.599748)"
+     style="mix-blend-mode:normal;fill:#000000;fill-opacity:1;stroke:url(#linearGradient3336-3);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0">
+    <rect
+       x="-1.5873133"
+       y="-1.5953363"
+       width="41.824402"
+       height="41.829243"
+       fill="none"
+       stroke="#000000"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       stroke-width="2"
+       id="rect5-5"
+       style="fill:#000000;fill-opacity:1;stroke:url(#linearGradient913);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+  </g>
+  <g
+     id="color"
+     transform="translate(-15.083401,-14.9375)"
+     style="fill:#364f4d;fill-opacity:1.0">
+    <rect
+       x="16.083401"
+       y="15.9375"
+       width="39.833"
+       height="39.833199"
+       fill="#ffffff"
+       stroke="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       stroke-width="2"
+       id="rect2"
+       style="fill:#364f4d;fill-opacity:1.0" />
+  </g>
+  <g
+     id="line"
+     transform="translate(-15.083401,-14.9375)"
+     style="opacity:1;mix-blend-mode:normal;fill:#d5ab88;fill-opacity:1;stroke:url(#linearGradient3336);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0">
+    <rect
+       x="16.083401"
+       y="15.9375"
+       width="39.833199"
+       height="39.833199"
+       fill="none"
+       stroke="#000000"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       stroke-width="2"
+       id="rect5"
+       style="fill:#d5ab88;fill-opacity:1;stroke:url(#linearGradient3336);stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+  </g>
+</svg>
