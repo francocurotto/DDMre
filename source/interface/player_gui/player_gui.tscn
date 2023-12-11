@@ -20,22 +20,23 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="DungeonGUI" parent="VBoxContainer" instance=ExtResource("2_645da")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="ButtonsRow" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="LEftHalf" type="HBoxContainer" parent="VBoxContainer/ButtonsRow"]
+[node name="LeftHalf" type="HBoxContainer" parent="VBoxContainer/ButtonsRow"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MenuButton" type="Button" parent="VBoxContainer/ButtonsRow/LEftHalf"]
+[node name="MenuButton" type="Button" parent="VBoxContainer/ButtonsRow/LeftHalf"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "MENU"
 
-[node name="DicepoolButton" type="Button" parent="VBoxContainer/ButtonsRow/LEftHalf"]
+[node name="DicepoolButton" type="Button" parent="VBoxContainer/ButtonsRow/LeftHalf"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0

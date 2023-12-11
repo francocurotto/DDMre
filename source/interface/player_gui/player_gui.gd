@@ -11,4 +11,4 @@ func setup(_engine, _player, _opponent):
     player = _player
     opponent = _opponent
     #$DicepoolWindow.setup(player.dicepool)
-    $DungeonGUI.setup(player, engine.state.dungeon)
+    %DungeonGUI.setup(player, engine.state.dungeon)
