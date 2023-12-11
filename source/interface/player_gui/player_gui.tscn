@@ -7,10 +7,49 @@
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -235.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o5612")
 
-[node name="DungeonGUI" parent="." instance=ExtResource("2_645da")]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+
+[node name="DiceInfo" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DungeonGUI" parent="VBoxContainer" instance=ExtResource("2_645da")]
+layout_mode = 2
+
+[node name="ButtonsRow" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LEftHalf" type="HBoxContainer" parent="VBoxContainer/ButtonsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuButton" type="Button" parent="VBoxContainer/ButtonsRow/LEftHalf"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MENU"
+
+[node name="DicepoolButton" type="Button" parent="VBoxContainer/ButtonsRow/LEftHalf"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+text = "DICEPOOL"
+
+[node name="RightHalf" type="HBoxContainer" parent="VBoxContainer/ButtonsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EndTurnButton" type="Button" parent="VBoxContainer/ButtonsRow/RightHalf"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "END TURN"
+
+[node name="PlayerInfo" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3

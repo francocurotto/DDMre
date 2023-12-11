@@ -35,6 +35,9 @@ layout_mode = 2
 
 [node name="TileGui7" parent="Row19" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
+tile_type = "PLAYER"
+tile_player = 2
+dungobj_type = "MONSTER_LORD"
 
 [node name="TileGui8" parent="Row19" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
@@ -827,6 +830,8 @@ layout_mode = 2
 
 [node name="TileGui7" parent="Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
+tile_type = "PLAYER"
+dungobj_type = "MONSTER_LORD"
 
 [node name="TileGui8" parent="Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2

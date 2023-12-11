@@ -20,7 +20,8 @@ func set_tile_icon():
     else:
         $TileIcon.texture = load("res://assets/icons/TILE_%s.svg" % tile_type)
 
-@export_enum("NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM")
+@export_enum("NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", 
+    "ITEM", "MONSTER_LORD")
 var dungobj_type : String = "NONE" :
     set(_dungobj_type):
         dungobj_type = _dungobj_type
