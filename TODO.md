@@ -1,6 +1,6 @@
 ### NEW INTERFACE
-- add dice sort buttons
-    - add dice gui side texture when sorting
+- add crestpool_gui script
+- correct looks of player_gui
 
 ### GODOT4
 - correct GODOT4 notes

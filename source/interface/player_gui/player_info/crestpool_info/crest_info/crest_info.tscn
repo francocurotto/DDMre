@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce7fni6nnrrhm"]
+
+[ext_resource type="Script" path="res://interface/player_gui/player_info/crestpool_info/crest_info/crest_info.gd" id="1_o761r"]
+[ext_resource type="Texture2D" uid="uid://d34w5f8kydd84" path="res://assets/icons/CREST_MOVEMENT.svg" id="2_ygpnr"]
+
+[node name="CrestInfo" type="HBoxContainer"]
+offset_right = 42.0
+offset_bottom = 23.0
+theme_override_constants/separation = 0
+script = ExtResource("1_o761r")
+
+[node name="CrestType" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_ygpnr")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="CrestCount" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "00"

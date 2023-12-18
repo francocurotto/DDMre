@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://canxgd2tdw0bw"]
+
+[ext_resource type="PackedScene" uid="uid://ce7fni6nnrrhm" path="res://interface/player_gui/player_info/crestpool_info/crest_info/crest_info.tscn" id="1_yudee"]
+
+[node name="CrestpoolInfo" type="HBoxContainer"]
+offset_right = 720.0
+offset_bottom = 55.0
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="MovementInfo" parent="." instance=ExtResource("1_yudee")]
+layout_mode = 2
+
+[node name="AttackInfo" parent="." instance=ExtResource("1_yudee")]
+layout_mode = 2
+crest_type = "ATTACK"
+
+[node name="DefenseInfo" parent="." instance=ExtResource("1_yudee")]
+layout_mode = 2
+crest_type = "DEFENSE"
+
+[node name="MagicInfo" parent="." instance=ExtResource("1_yudee")]
+layout_mode = 2
+crest_type = "MAGIC"
+
+[node name="TrapInfo" parent="." instance=ExtResource("1_yudee")]
+layout_mode = 2
+crest_type = "TRAP"

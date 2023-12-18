@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5cr1ilo6bxek"]
+
+[ext_resource type="PackedScene" uid="uid://q8foasgw387t" path="res://interface/player_gui/player_info/hearts_info/hearts_info.tscn" id="1_3ij62"]
+[ext_resource type="PackedScene" uid="uid://canxgd2tdw0bw" path="res://interface/player_gui/player_info/crestpool_info/crestpool_info.tscn" id="2_u6rhl"]
+
+[node name="PlayerInfo" type="PanelContainer"]
+offset_right = 720.0
+offset_bottom = 63.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HeartsInfo" parent="HBoxContainer" instance=ExtResource("1_3ij62")]
+layout_mode = 2
+
+[node name="CrestpoolInfo" parent="HBoxContainer" instance=ExtResource("2_u6rhl")]
+layout_mode = 2

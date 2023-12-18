@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://q8foasgw387t"]
+
+[ext_resource type="Texture2D" uid="uid://ibjh26jha5qt" path="res://assets/icons/HEART_P1.svg" id="1_3sxal"]
+[ext_resource type="Script" path="res://interface/player_gui/player_info/hearts_info/hearts_info.gd" id="1_ybpbo"]
+
+[node name="HeartsInfo" type="HBoxContainer"]
+offset_right = 191.0
+offset_bottom = 62.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ybpbo")
+
+[node name="Hearts1" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_3sxal")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Hearts2" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_3sxal")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Hearts3" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_3sxal")
+expand_mode = 1
+stretch_mode = 5
