@@ -15,10 +15,10 @@ var tile_type : String = "OPEN" :
 
 func set_tile_icon():
     if tile_type == "PLAYER":
-        var tile_icon = "TILE_PLAYER_P%d" % tile_player
-        $TileIcon.texture = load("res://assets/icons/%s.svg" % tile_icon)
+        var tile_name = "TILE_PLAYER_P%d" % tile_player
+        $TileIcon.texture_normal = load("res://assets/icons/%s.svg" % tile_name)
     else:
-        $TileIcon.texture = load("res://assets/icons/TILE_%s.svg" % tile_type)
+        $TileIcon.texture_normal = load("res://assets/icons/TILE_%s.svg" % tile_type)
 
 @export_enum("NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", 
     "ITEM", "MONSTER_LORD")
@@ -44,6 +44,9 @@ func set_dungobj_icon():
 # variables
 var tile
 
+# onready variables
+@onready var tile_icon = $TileIcon
+
 # signals
 signal select_button_toggled
 
@@ -54,11 +57,3 @@ func setup(_tile):
     tile_player = tile.playerid
     dungobj_type = tile.content.TYPE
     dungobj_player = tile.content.playerid
-
-func select_tile(toggled_on):
-    $HighlightIcon.visible = toggled_on
-
-# signals callbacks
-func _on_button_toggled(toggled_on):
-    select_button_toggled.emit(self, toggled_on)
-    select_tile(toggled_on)

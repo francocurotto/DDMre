@@ -5,6 +5,10 @@ var player
 var dungeon
 var tile_guis = []
 var selected_tile_gui
+var tile_guis_button_group = ButtonGroup.new()
+
+func _ready():
+    tile_guis_button_group.allow_unpress = true
 
 # public functions
 func setup(_player, _dungeon):
@@ -20,14 +24,4 @@ func setup(_player, _dungeon):
             var tile = dungeon.grid[i][j]
             var tile_gui = row[j]
             tile_gui.setup(tile)
-            tile_gui.select_button_toggled.connect(on_select_button_toggled)
-
-# signals callbacks
-func on_select_button_toggled(tile_gui, toggled_on):
-    if toggled_on:
-        if selected_tile_gui != tile_gui:
-            if selected_tile_gui:
-                selected_tile_gui.select_tile(false)
-            selected_tile_gui = tile_gui
-    else:
-        selected_tile_gui = null
+            tile_gui.tile_icon.button_group = tile_guis_button_group
