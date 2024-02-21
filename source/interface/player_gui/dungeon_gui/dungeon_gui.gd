@@ -7,6 +7,9 @@ var tile_guis = []
 var selected_tile_gui
 var tile_guis_button_group = ButtonGroup.new()
 
+# signals
+signal tile_gui_toggled
+
 func _ready():
     tile_guis_button_group.allow_unpress = true
 
@@ -25,3 +28,8 @@ func setup(_player, _dungeon):
             var tile_gui = row[j]
             tile_gui.setup(tile)
             tile_gui.tile_icon.button_group = tile_guis_button_group
+            tile_gui.select_button_toggled.connect(on_tile_gui_toggled)
+
+# signals callbacks
+func on_tile_gui_toggled(tile_gui, toggled_on):
+    tile_gui_toggled.emit(tile_gui, toggled_on)

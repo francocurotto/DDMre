@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://q8m00bwgivip"]
+
+[ext_resource type="Script" path="res://interface/player_gui/summon_info/summon_info.gd" id="1_fpfuf"]
+[ext_resource type="Texture2D" uid="uid://cay70x47nn7u1" path="res://assets/icons/SUMMON_DRAGON.svg" id="2_hvnpa"]
+[ext_resource type="Texture2D" uid="uid://dynn1ybi3ie5y" path="res://assets/icons/ABILITY_FLY.svg" id="3_0r70p"]
+[ext_resource type="Texture2D" uid="uid://cphmbogupc057" path="res://assets/icons/ABILITY_ARCHER.svg" id="4_1noql"]
+[ext_resource type="PackedScene" uid="uid://b6wqpw0vif388" path="res://interface/player_gui/summon_info/attibute_info/attribute_info.tscn" id="5_r1fx1"]
+
+[node name="SummonInfo" type="PanelContainer"]
+offset_right = 720.0
+offset_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_fpfuf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+text = "Twin-headed Thunder Dragon"
+horizontal_alignment = 1
+
+[node name="AttibutesInfo" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LevelType" type="HBoxContainer" parent="VBoxContainer/AttibutesInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Level" type="Label" parent="VBoxContainer/AttibutesInfo/LevelType"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+text = "1"
+horizontal_alignment = 2
+
+[node name="TypeIcon" type="TextureRect" parent="VBoxContainer/AttibutesInfo/LevelType"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_hvnpa")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Abilities" type="AspectRatioContainer" parent="VBoxContainer/AttibutesInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 2.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/AttibutesInfo/Abilities"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AbilityIcon2" type="TextureRect" parent="VBoxContainer/AttibutesInfo/Abilities/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_0r70p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AbilityIcon1" type="TextureRect" parent="VBoxContainer/AttibutesInfo/Abilities/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_1noql")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BattleAttributes" type="HBoxContainer" parent="VBoxContainer/AttibutesInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AttackInfo" parent="VBoxContainer/AttibutesInfo/BattleAttributes" instance=ExtResource("5_r1fx1")]
+layout_mode = 2
+
+[node name="DefenseInfo" parent="VBoxContainer/AttibutesInfo/BattleAttributes" instance=ExtResource("5_r1fx1")]
+layout_mode = 2
+
+[node name="HealthInfo" parent="VBoxContainer/AttibutesInfo/BattleAttributes" instance=ExtResource("5_r1fx1")]
+layout_mode = 2

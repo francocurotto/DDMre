@@ -33,3 +33,5 @@ unique_name_in_owner = true
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
+
+[connection signal="toggled" from="TileIcon" to="." method="_on_tile_icon_toggled"]

@@ -19,6 +19,8 @@ func set_tile_icon():
         $TileIcon.texture_normal = load("res://assets/icons/%s.svg" % tile_name)
     else:
         $TileIcon.texture_normal = load("res://assets/icons/TILE_%s.svg" % tile_type)
+    # disable if tile is open
+    $TileIcon.disabled = tile_type == "OPEN"
 
 @export_enum("NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", 
     "ITEM", "MONSTER_LORD")
@@ -57,3 +59,7 @@ func setup(_tile):
     tile_player = tile.playerid
     dungobj_type = tile.content.TYPE
     dungobj_player = tile.content.playerid
+
+
+func _on_tile_icon_toggled(toggled_on):
+    select_button_toggled.emit(self, toggled_on)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv3h35fawxupw"]
+[gd_scene load_steps=5 format=3 uid="uid://bv3h35fawxupw"]
 
 [ext_resource type="Script" path="res://interface/player_gui/player_gui.gd" id="1_o5612"]
 [ext_resource type="PackedScene" uid="uid://dbmi486gqi604" path="res://interface/player_gui/dungeon_gui/dungeon_gui.tscn" id="2_645da"]
+[ext_resource type="PackedScene" uid="uid://q8m00bwgivip" path="res://interface/player_gui/summon_info/summon_info.tscn" id="2_wjdiv"]
 [ext_resource type="PackedScene" uid="uid://c5cr1ilo6bxek" path="res://interface/player_gui/player_info/player_info.tscn" id="3_putua"]
 
 [node name="PlayerGUI" type="PanelContainer"]
@@ -15,10 +16,9 @@ script = ExtResource("1_o5612")
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="DiceInfo" type="PanelContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+[node name="SummonInfo" parent="VBoxContainer" instance=ExtResource("2_wjdiv")]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="DungeonGUI" parent="VBoxContainer" instance=ExtResource("2_645da")]
 unique_name_in_owner = true

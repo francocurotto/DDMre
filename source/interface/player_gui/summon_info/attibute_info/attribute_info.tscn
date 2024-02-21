@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6wqpw0vif388"]
+
+[ext_resource type="Script" path="res://interface/player_gui/summon_info/attibute_info/attribute_info.gd" id="1_we2sc"]
+[ext_resource type="Texture2D" uid="uid://dd2xpeqythaiq" path="res://assets/icons/ATTR_ATTACK.svg" id="2_4pyaf"]
+
+[node name="AttributeInfo" type="HBoxContainer"]
+offset_right = 82.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+script = ExtResource("1_we2sc")
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 26
+text = "10"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_4pyaf")
+expand_mode = 1
+stretch_mode = 4
