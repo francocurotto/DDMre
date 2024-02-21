@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://interface/player_gui/player_info/hearts_info/hearts_info.gd" id="1_ybpbo"]
 
 [node name="HeartsInfo" type="HBoxContainer"]
-offset_right = 191.0
+offset_right = 192.0
 offset_bottom = 62.0
 size_flags_horizontal = 3
 size_flags_vertical = 3

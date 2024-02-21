@@ -6,7 +6,7 @@
 [node name="CrestInfo" type="HBoxContainer"]
 offset_right = 42.0
 offset_bottom = 23.0
-theme_override_constants/separation = 0
+theme_override_constants/separation = -4
 script = ExtResource("1_o761r")
 
 [node name="CrestType" type="TextureRect" parent="."]

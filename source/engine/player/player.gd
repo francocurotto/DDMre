@@ -14,7 +14,7 @@ var id       ## Player ID, either 1 or 2
 var opponent ## Refenrece to opponent
 var dicepool ## Array of dice to use in duel
 var crestpool = CrestPool.new() ## Pool of crest acquired during the duel
-var monsterlord = MonsterLord.new(self) ## Player representation in dungeon
+var monster_lord = MonsterLord.new(self) ## Player representation in dungeon
 var monsters = []  ## Array of player monsters in dungeon
 var graveyard = [] ## Array of destroyed player monsters
 
@@ -34,7 +34,7 @@ func create_tile(y, x):
 ## lord.
 func create_ml_tile(y, x):
     var tile = create_tile(y, x)
-    tile.content = monsterlord
+    tile.content = monster_lord
     return tile
 
 ## Summon the card from the dicepool at position [param diceidx], and mark the

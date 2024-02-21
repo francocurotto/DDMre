@@ -1,22 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://ugqabvau3s2v"]
+[gd_scene format=3 uid="uid://ugqabvau3s2v"]
 
-[ext_resource type="Texture2D" uid="uid://brg5dayviasne" path="res://assets/icons/DICE.svg" id="1_5lpbh"]
-[ext_resource type="Script" path="res://tests/test.gd" id="1_535c8"]
-[ext_resource type="Texture2D" uid="uid://dsjvum34mh6xe" path="res://assets/icons/ABILITY.svg" id="3_e83ob"]
-
-[node name="Test" type="MarginContainer"]
-offset_right = 151.0
-offset_bottom = 67.0
-script = ExtResource("1_535c8")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 2
-texture = ExtResource("1_5lpbh")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 2
-texture = ExtResource("3_e83ob")
-expand_mode = 1
-stretch_mode = 5
+[node name="TextureButton" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0

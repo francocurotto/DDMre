@@ -43,7 +43,10 @@ func set_dungobj_icon():
 
 # variables
 var tile
-    
+
+# signals
+signal select_button_toggled
+
 # public functions
 func setup(_tile):
     tile = _tile
@@ -51,3 +54,11 @@ func setup(_tile):
     tile_player = tile.playerid
     dungobj_type = tile.content.TYPE
     dungobj_player = tile.content.playerid
+
+func select_tile(toggled_on):
+    $HighlightIcon.visible = toggled_on
+
+# signals callbacks
+func _on_button_toggled(toggled_on):
+    select_button_toggled.emit(self, toggled_on)
+    select_tile(toggled_on)

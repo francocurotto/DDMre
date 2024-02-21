@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://6f72kp2qiget"]
+[gd_scene load_steps=4 format=3 uid="uid://6f72kp2qiget"]
 
 [ext_resource type="Texture2D" uid="uid://bgnu02inrq1xk" path="res://assets/icons/TILE_OPEN.svg" id="2_begun"]
 [ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/tile_gui/tile_gui.gd" id="2_v0dfj"]
+[ext_resource type="Texture2D" uid="uid://ktpwkfse3xso" path="res://assets/icons/TILE_HIGHLIGHT.svg" id="3_h72b4"]
 
 [node name="TileGUI" type="AspectRatioContainer"]
 custom_minimum_size = Vector2(55, 55)
@@ -12,6 +13,13 @@ script = ExtResource("2_v0dfj")
 [node name="TileIcon" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("2_begun")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HighlightIcon" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_h72b4")
 expand_mode = 1
 stretch_mode = 5
 
@@ -27,3 +35,11 @@ unique_name_in_owner = true
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
+
+[node name="SelectButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+
+[connection signal="toggled" from="SelectButton" to="." method="_on_button_toggled"]
