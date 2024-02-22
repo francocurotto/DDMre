@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d34w5f8kydd84" path="res://assets/icons/CREST_MOVEMENT.svg" id="2_ygpnr"]
 
 [node name="CrestInfo" type="HBoxContainer"]
-offset_right = 42.0
-offset_bottom = 23.0
+offset_right = 97.0
+offset_bottom = 55.0
 theme_override_constants/separation = -4
 script = ExtResource("1_o761r")
 

@@ -1,38 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ugqabvau3s2v"]
+[gd_scene load_steps=2 format=3 uid="uid://brgjkltf5waos"]
 
-[ext_resource type="Texture2D" uid="uid://bgnu02inrq1xk" path="res://assets/icons/TILE_OPEN.svg" id="1_aauee"]
-[ext_resource type="Texture2D" uid="uid://ktpwkfse3xso" path="res://assets/icons/TILE_HIGHLIGHT.svg" id="2_ynwgg"]
+[ext_resource type="Script" path="res://tests/test.gd" id="1_44niw"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_xp1yc"]
-allow_unpress = true
-
-[node name="HBoxContainer" type="HBoxContainer"]
-offset_right = 202.0
-offset_bottom = 92.0
-
-[node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 2
-size_flags_horizontal = 3
-toggle_mode = true
-action_mode = 0
-button_group = SubResource("ButtonGroup_xp1yc")
-texture_normal = ExtResource("1_aauee")
-texture_pressed = ExtResource("2_ynwgg")
-
-[node name="TextureButton2" type="TextureButton" parent="."]
-layout_mode = 2
-size_flags_horizontal = 3
-toggle_mode = true
-action_mode = 0
-button_group = SubResource("ButtonGroup_xp1yc")
-texture_normal = ExtResource("1_aauee")
-texture_pressed = ExtResource("2_ynwgg")
-
-[node name="TextureButton3" type="TextureButton" parent="."]
-layout_mode = 2
-size_flags_horizontal = 3
-toggle_mode = true
-action_mode = 0
-button_group = SubResource("ButtonGroup_xp1yc")
-texture_normal = ExtResource("1_aauee")
-texture_pressed = ExtResource("2_ynwgg")
+[node name="Test" type="Node2D"]
+script = ExtResource("1_44niw")

@@ -1,7 +1,9 @@
-extends MarginContainer
+extends Node2D
 
-func _input(event):
-    if event is InputEventMouseButton and event.pressed:
-        print("mouse pressed")
-        var tween = create_tween()
-        tween.tween_property($TextureRect, "position:x", 10, 1.0).as_relative()
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+    var a = [1,2,3]
+    print(a[0])
+    print(a[1])
+    print(a[-1])

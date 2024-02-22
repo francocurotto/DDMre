@@ -20,9 +20,9 @@ var attr_type : String = "ATTACK" :
 
 func set_value():
     $Value.text = str(value)
-    $Value.modulate = COLORDICT[sign(value-original_value)]
+    $Value.modulate = COLORARRAY[sign(value-original_value)]
 
 # constants
-const COLORDICT = { 0 : Color(1.0, 1.0, 1.0),
-                    1 : Color(0.0, 0.0, 1.0),
-                   -1 : Color(1.0, 0.0, 0.0)}
+const COLORARRAY = [Color(1.0, 1.0, 1.0), #  0: original-current is the same
+                    Color(0.0, 0.0, 1.0), #  1: current higher than original
+                    Color(1.0, 0.0, 0.0)] # -1: original higher than current

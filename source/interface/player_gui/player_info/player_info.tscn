@@ -9,7 +9,7 @@ bg_color = Color(0.254902, 0.254902, 0.254902, 1)
 
 [node name="PlayerInfo" type="PanelContainer"]
 offset_right = 720.0
-offset_bottom = 63.0
+offset_bottom = 61.0
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_8iy4o")
 script = ExtResource("1_ymgqd")
