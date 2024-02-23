@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://14nx05pk0ppv" path="res://assets/themes/button_crest.tres" id="1_nlj8d"]
 [ext_resource type="Texture2D" uid="uid://dnnofrwyipa48" path="res://assets/icons/CREST_SUMMON.svg" id="2_4m7kd"]
-[ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dicepool_gui/dice_sort/dice_sort_button/dice_sort_button.gd" id="3_lh32d"]
+[ext_resource type="Script" path="res://interface/player_gui/dicepool_gui/dice_sort/dice_sort_button/dice_sort_button.gd" id="3_lh32d"]
 
 [node name="DiceSortButton" type="Button"]
 offset_right = 187.0

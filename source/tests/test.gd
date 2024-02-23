@@ -1,9 +1,8 @@
-extends Node2D
+extends Button
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-    var a = [1,2,3]
-    print(a[0])
-    print(a[1])
-    print(a[-1])
+func _on_pressed():
+    print("asdf pressed")
+
+func _on_button_2_pressed():
+    print("qwer pressed")

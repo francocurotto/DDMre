@@ -49,11 +49,12 @@ func _on_resized():
     %LevelLabel.add_theme_constant_override("outline_size", min_size/8)
 
 func _input(event):
+    pass
     # check event type
-    if (event is InputEventScreenTouch and event.pressed or
-        event is InputEventScreenDrag):
-        # check event inside dice
-        var rect = Rect2(global_position, size)
-        if rect.has_point(event.position):
-            dice_entered.emit(self)
+#    if (event is InputEventScreenTouch and event.pressed or
+#        event is InputEventScreenDrag):
+#        # check event inside dice
+#        var rect = Rect2(global_position, size)
+#        if rect.has_point(event.position):
+#            dice_entered.emit(self)
 

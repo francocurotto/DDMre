@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://interface/player_gui/dicepool_window/dicepool_window.gd" id="1_a302r"]
 [ext_resource type="PackedScene" uid="uid://dd2kqojicflv2" path="res://interface/player_gui/dicepool_window/dice_info/dice_info.tscn" id="1_sivau"]
-[ext_resource type="PackedScene" uid="uid://clg2g2fqnsm0p" path="res://interface/player_gui/dicepool_window/dicepool_gui/dicepool_gui.tscn" id="2_g3nox"]
+[ext_resource type="PackedScene" uid="uid://clg2g2fqnsm0p" path="res://interface/player_gui/dicepool_gui/dicepool_gui.tscn" id="2_g3nox"]
 
 [node name="DicepoolWindow" type="MarginContainer"]
 offset_right = 720.0

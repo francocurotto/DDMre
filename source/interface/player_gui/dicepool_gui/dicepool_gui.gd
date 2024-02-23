@@ -1,7 +1,7 @@
 extends PanelContainer
 
 # preload variables
-const DiceSelector = preload("res://interface/player_gui/dicepool_window/dicepool_gui/dice_selector/dice_selector.tscn")
+const DiceSelector = preload("res://interface/player_gui/dicepool_gui/dice_selector/dice_selector.tscn")
 
 # variables
 var dicepool
