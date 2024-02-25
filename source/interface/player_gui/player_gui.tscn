@@ -18,6 +18,7 @@ grow_vertical = 2
 script = ExtResource("1_o5612")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 1
 layout_mode = 2
 
 [node name="SummonInfo" parent="VBoxContainer" instance=ExtResource("2_wjdiv")]
@@ -26,6 +27,7 @@ layout_mode = 2
 
 [node name="DungeonGUI" parent="VBoxContainer" instance=ExtResource("2_645da")]
 unique_name_in_owner = true
+z_index = -1
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
@@ -49,6 +51,7 @@ toggle_mode = true
 text = "DICEPOOL"
 
 [node name="DicepoolGUI" parent="VBoxContainer/PanelContainer/VBoxContainer/ButtonsRow/DicepoolButton" instance=ExtResource("4_se84o")]
+unique_name_in_owner = true
 z_index = -1
 layout_mode = 0
 mouse_filter = 2
@@ -64,3 +67,5 @@ text = "END TURN"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_stretch_ratio = 0.5
+
+[connection signal="toggled" from="VBoxContainer/PanelContainer/VBoxContainer/ButtonsRow/DicepoolButton" to="." method="_on_dicepool_button_toggled"]

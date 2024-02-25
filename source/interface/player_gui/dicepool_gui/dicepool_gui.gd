@@ -8,6 +8,7 @@ var dicepool
 var dice_guis
 var selected_dice_gui
 var dice_selector
+var move_time = 1.0
 
 # signals
 signal dice_gui_selected(dice)
@@ -25,7 +26,22 @@ func setup(_dicepool):
     dicepool = _dicepool
     for i in len(dicepool):
         dice_guis[i].setup(dicepool[i])
-        
+
+func tween_up():
+    var tween = create_tween()
+    var dest_pos = global_position - Vector2(0, size.y)
+    #tween.tween_property(self, "global_position", dest_pos, move_time)\
+    #.from(global_position).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+    tween.tween_property(self, "position", Vector2(0, -size.y), move_time)\
+    .set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+func tween_down():
+    var tween = create_tween()
+    var dest_pos = global_position + Vector2(0, size.y)
+    #tween.tween_property(self, "global_position", dest_pos, move_time)\
+    #.from(global_position).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+    tween.tween_property(self, "position", Vector2(0, 0), move_time)\
+    .set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+
 # signals callbacks
 func on_dice_entered(dice_gui):
     # case first selection
