@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://tests/test.gd" id="1_44niw"]
 
 [node name="Button" type="Button"]
-offset_right = 266.0
+offset_right = 625.0
 offset_bottom = 143.0
 text = "asdf"
 script = ExtResource("1_44niw")
@@ -11,7 +11,7 @@ script = ExtResource("1_44niw")
 [node name="Button2" type="Button" parent="."]
 show_behind_parent = true
 layout_mode = 2
-offset_right = 266.0
+offset_right = 458.0
 offset_bottom = 143.0
 text = "qwer"
 

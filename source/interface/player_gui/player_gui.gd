@@ -19,9 +19,10 @@ func setup(_engine, _player, _opponent):
     opponent = _opponent
     %DungeonGUI.setup(player, engine.state.dungeon)
     %PlayerInfo.setup(player)
+    %DicepoolGUI.setup(player.dicepool)
 
 func _on_dicepool_button_toggled(toggled_on):
     if toggled_on:
-        %DicepoolGUI.tween_up()
+        %DicepoolGUI.activate_dicepool()
     else:
-        %DicepoolGUI.tween_down()
+        %DicepoolGUI.deactivate_dicepool()

@@ -1,73 +1,81 @@
-[gd_scene load_steps=4 format=3 uid="uid://clg2g2fqnsm0p"]
+[gd_scene load_steps=5 format=3 uid="uid://clg2g2fqnsm0p"]
 
 [ext_resource type="Script" path="res://interface/player_gui/dicepool_gui/dicepool_gui.gd" id="1_1jbbo"]
 [ext_resource type="PackedScene" uid="uid://bcn6sx8mo0acg" path="res://interface/player_gui/dicepool_gui/dice_gui/dice_gui.tscn" id="1_xouyd"]
 [ext_resource type="PackedScene" uid="uid://bmtorjyps4i0w" path="res://interface/player_gui/dicepool_gui/dice_sort/dice_sort.tscn" id="4_1nlfe"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn0dc"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+
 [node name="DicepoolGUI" type="PanelContainer"]
 offset_right = 720.0
 offset_bottom = 461.0
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_rn0dc")
 script = ExtResource("1_1jbbo")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="5-3Ratio" type="AspectRatioContainer" parent="VBoxContainer"]
+[node name="5-3Ratio" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 ratio = 1.66
 
-[node name="Grid" type="GridContainer" parent="VBoxContainer/5-3Ratio"]
+[node name="Grid" type="GridContainer" parent="MarginContainer/VBoxContainer/5-3Ratio"]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 5
 
-[node name="DiceGUI1" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
+[node name="DiceGUI1" parent="MarginContainer/VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="DiceGUI2" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
+[node name="DiceGUI2" parent="MarginContainer/VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="DiceGUI3" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
+[node name="DiceGUI3" parent="MarginContainer/VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="DiceGUI4" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
+[node name="DiceGUI4" parent="MarginContainer/VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="DiceGUI5" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
+[node name="DiceGUI5" parent="MarginContainer/VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="DiceGUI6" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
+[node name="DiceGUI6" parent="MarginContainer/VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="DiceGUI7" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
+[node name="DiceGUI7" parent="MarginContainer/VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="DiceGUI8" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
+[node name="DiceGUI8" parent="MarginContainer/VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="DiceGUI9" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
+[node name="DiceGUI9" parent="MarginContainer/VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="DiceGUI10" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
+[node name="DiceGUI10" parent="MarginContainer/VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="DiceGUI11" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
+[node name="DiceGUI11" parent="MarginContainer/VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="DiceGUI12" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
+[node name="DiceGUI12" parent="MarginContainer/VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="DiceGUI13" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
+[node name="DiceGUI13" parent="MarginContainer/VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="DiceGUI14" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
+[node name="DiceGUI14" parent="MarginContainer/VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="DiceGUI15" parent="VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
+[node name="DiceGUI15" parent="MarginContainer/VBoxContainer/5-3Ratio/Grid" instance=ExtResource("1_xouyd")]
 layout_mode = 2
 
-[node name="DiceSort" parent="VBoxContainer" instance=ExtResource("4_1nlfe")]
+[node name="DiceSort" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_1nlfe")]
 unique_name_in_owner = true
 layout_mode = 2

@@ -8,7 +8,7 @@ var dicepool
 var dice_guis
 var selected_dice_gui
 var dice_selector
-var move_time = 1.0
+var move_time = 0.7
 
 # signals
 signal dice_gui_selected(dice)
@@ -27,20 +27,21 @@ func setup(_dicepool):
     for i in len(dicepool):
         dice_guis[i].setup(dicepool[i])
 
-func tween_up():
+func activate_dicepool():
     var tween = create_tween()
-    var dest_pos = global_position - Vector2(0, size.y)
-    #tween.tween_property(self, "global_position", dest_pos, move_time)\
-    #.from(global_position).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
     tween.tween_property(self, "position", Vector2(0, -size.y), move_time)\
     .set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-func tween_down():
+    enable_buttons()
+
+func deactivate_dicepool():
+    # destroy dice_selector if exists
+    if selected_dice_gui != null:
+        selected_dice_gui = null
+        dice_selector.queue_free()
     var tween = create_tween()
-    var dest_pos = global_position + Vector2(0, size.y)
-    #tween.tween_property(self, "global_position", dest_pos, move_time)\
-    #.from(global_position).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
     tween.tween_property(self, "position", Vector2(0, 0), move_time)\
     .set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+    disable_buttons()
 
 # signals callbacks
 func on_dice_entered(dice_gui):
@@ -86,6 +87,14 @@ func on_sort_button_pressed():
         dice_selector.move(init_selector_pos, dest_selector_pos)
 
 # private functions
+func enable_buttons():
+    for dice_gui in dice_guis:
+        dice_gui.enabled = true
+
+func disable_buttons():
+    for dice_gui in dice_guis:
+        dice_gui.enabled = false
+
 func sort_dice_guis(dice_gui1, dice_gui2):
     # get dice and crest
     var dice1 = dice_gui1.dice
