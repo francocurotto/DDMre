@@ -4,7 +4,6 @@ extends VBoxContainer
 var player
 var dungeon
 var tile_guis = []
-var selected_tile_gui
 var tile_guis_button_group = ButtonGroup.new()
 
 # signals
@@ -29,6 +28,11 @@ func setup(_player, _dungeon):
             tile_gui.setup(tile)
             tile_gui.tile_icon.button_group = tile_guis_button_group
             tile_gui.select_button_toggled.connect(on_tile_gui_toggled)
+
+func toggle_off_tile_gui():
+    var pressed_tile_button = tile_guis_button_group.get_pressed_button()
+    if pressed_tile_button != null:
+        pressed_tile_button.button_pressed = false
 
 # signals callbacks
 func on_tile_gui_toggled(tile_gui, toggled_on):

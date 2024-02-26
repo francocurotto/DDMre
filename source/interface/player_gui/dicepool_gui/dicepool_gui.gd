@@ -12,6 +12,8 @@ var move_time = 0.7
 
 # signals
 signal dice_gui_selected(dice)
+signal dice_sort_started
+signal dice_sort_finished
 
 func _ready():
     # define dice guis
@@ -19,6 +21,7 @@ func _ready():
     # connections
     for dice_gui in dice_guis:
         dice_gui.dice_entered.connect(on_dice_entered)
+    dice_guis[0].dice_move_finished.connect(func(): dice_sort_finished.emit())
     %DiceSort.sort_button_pressed.connect(on_sort_button_pressed)
 
 # public functions
@@ -34,6 +37,7 @@ func activate_dicepool():
     enable_buttons()
 
 func deactivate_dicepool():
+    disable_buttons()
     # destroy dice_selector if exists
     if selected_dice_gui != null:
         selected_dice_gui = null
@@ -41,7 +45,6 @@ func deactivate_dicepool():
     var tween = create_tween()
     tween.tween_property(self, "position", Vector2(0, 0), move_time)\
     .set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-    disable_buttons()
 
 # signals callbacks
 func on_dice_entered(dice_gui):
@@ -57,6 +60,7 @@ func on_dice_entered(dice_gui):
         dice_gui_selected.emit(selected_dice_gui.dice)
 
 func on_sort_button_pressed():
+    dice_sort_started.emit()
     # ceeate array of sorted dice guis
     var sorted_dice_guis = dice_guis.duplicate()
     sorted_dice_guis.sort_custom(sort_dice_guis)

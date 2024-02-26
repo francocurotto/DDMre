@@ -1,19 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://brgjkltf5waos"]
+[gd_scene load_steps=3 format=3 uid="uid://brgjkltf5waos"]
 
-[ext_resource type="Script" path="res://tests/test.gd" id="1_44niw"]
+[ext_resource type="ButtonGroup" uid="uid://dnimtsb2a3ubj" path="res://tests/new_button_group.tres" id="1_8507m"]
+[ext_resource type="Script" path="res://tests/test.gd" id="1_bmdbh"]
 
-[node name="Button" type="Button"]
-offset_right = 625.0
-offset_bottom = 143.0
-text = "asdf"
-script = ExtResource("1_44niw")
+[node name="HBoxContainer" type="GridContainer"]
+offset_right = 390.0
+offset_bottom = 329.0
+columns = 3
+script = ExtResource("1_bmdbh")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+button_group = ExtResource("1_8507m")
 
 [node name="Button2" type="Button" parent="."]
-show_behind_parent = true
 layout_mode = 2
-offset_right = 458.0
-offset_bottom = 143.0
-text = "qwer"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+button_group = ExtResource("1_8507m")
 
-[connection signal="pressed" from="." to="." method="_on_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]

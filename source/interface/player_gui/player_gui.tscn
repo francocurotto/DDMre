@@ -50,6 +50,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="DicepoolButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer/ButtonsRow"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32

@@ -1,8 +1,4 @@
-extends Button
+extends GridContainer
 
-
-func _on_pressed():
-    print("asdf pressed")
-
-func _on_button_2_pressed():
-    print("qwer pressed")
+func _on_button_mouse_entered():
+    print("mouse entered")

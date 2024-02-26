@@ -27,10 +27,11 @@ const COLORS = {
 # variables
 var dice
 var enabled = false
-var move_time = 1.0
+var move_time = 0.5
 
 # signals
 signal dice_entered(dice_gui)
+signal dice_move_finished
 
 # public functions
 func setup(_dice):
@@ -40,6 +41,7 @@ func setup(_dice):
 
 func move(init_pos, dest_pos):
     var tween = create_tween()
+    tween.finished.connect(func(): dice_move_finished.emit())
     tween.tween_property($DiceIcon, "global_position", dest_pos, move_time)\
         .from(init_pos).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 

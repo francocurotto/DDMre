@@ -4,6 +4,8 @@ extends MarginContainer
 signal sort_button_pressed
 
 # variables
+var dice_sort_button_group = ButtonGroup.new()
+
 var sort_level : 
     get: 
         return %SortSummon.button_pressed
@@ -16,6 +18,9 @@ var sort_crest :
         return null
 
 func _ready():
-    for button in $HBox.get_children():
+    dice_sort_button_group.allow_unpress = true
+    %SortSummon.pressed.connect(func(): sort_button_pressed.emit())
+    for button in %CrestsHBox.get_children():
         button.pressed.connect(func(): sort_button_pressed.emit())
+        button.button_group = dice_sort_button_group
         
