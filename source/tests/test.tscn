@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://tests/test.gd" id="1_bmdbh"]
 
 [node name="HBoxContainer" type="GridContainer"]
-offset_right = 390.0
+offset_right = 719.0
 offset_bottom = 329.0
 columns = 3
 script = ExtResource("1_bmdbh")
@@ -22,5 +22,15 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
 button_group = ExtResource("1_8507m")
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+button_group = ExtResource("1_8507m")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
