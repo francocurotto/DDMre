@@ -5,17 +5,13 @@ var engine
 var player
 var opponent
 
-# onready variables
-#@onready var summon_info = %SummonInfo
-#@onready var dungeon_gui = %DungeonGUI
-#@onready var dicepool_gui = %DicepoolGUI
-
 func _ready():
     %DungeonGUI.tile_gui_toggled.connect(%SummonInfo.on_tile_gui_toggled)
     %DicepoolGUI.dice_sort_started.connect(func(): 
         %DicepoolButton.disabled = true)
     %DicepoolGUI.dice_sort_finished.connect(func(): 
         %DicepoolButton.disabled = false)
+    %DicepoolGUI.dice_gui_selected.connect(%SummonInfo.on_dice_gui_selected)
 
 # public functions
 func setup(_engine, _player, _opponent):
@@ -33,3 +29,4 @@ func _on_dicepool_button_toggled(toggled_on):
         %DungeonGUI.toggle_off_tile_gui()
     else:
         %DicepoolGUI.deactivate_dicepool()
+        %SummonInfo.clear_info()

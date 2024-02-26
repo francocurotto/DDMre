@@ -6,7 +6,7 @@ const DiceSelector = preload("res://interface/player_gui/dicepool_gui/dice_selec
 # variables
 var dicepool
 var dice_guis
-var selected_dice_gui
+#var selected_dice_gui
 var dice_selector
 var move_time = 0.7
 
@@ -39,8 +39,7 @@ func activate_dicepool():
 func deactivate_dicepool():
     disable_buttons()
     # destroy dice_selector if exists
-    if selected_dice_gui != null:
-        selected_dice_gui = null
+    if is_instance_valid(dice_selector):
         dice_selector.queue_free()
     var tween = create_tween()
     tween.tween_property(self, "position", Vector2(0, 0), move_time)\
@@ -49,15 +48,15 @@ func deactivate_dicepool():
 # signals callbacks
 func on_dice_entered(dice_gui):
     # case first selection
-    if selected_dice_gui == null:
+    if not is_instance_valid(dice_selector):
         dice_selector = DiceSelector.instantiate()
         dice_gui.add_child(dice_selector)
     # update selected dice gui
-    if selected_dice_gui != dice_gui:
-        selected_dice_gui = dice_gui
+    else:
         dice_selector.move(dice_selector.global_position,
-            selected_dice_gui.global_position)
-        dice_gui_selected.emit(selected_dice_gui.dice)
+            dice_gui.global_position)
+        dice_selector.reparent(dice_gui)
+    dice_gui_selected.emit(dice_gui.dice)
 
 func on_sort_button_pressed():
     dice_sort_started.emit()
@@ -73,9 +72,10 @@ func on_sort_button_pressed():
     # get dice selector inital and destination positions
     var init_selector_pos
     var dest_selector_pos
-    if selected_dice_gui:
-        var selected_index = sorted_dice_guis.find(selected_dice_gui)
-        init_selector_pos = selected_dice_gui.global_position
+    if is_instance_valid(dice_selector):
+        pass
+        var selected_index = sorted_dice_guis.find(dice_selector.get_parent())
+        init_selector_pos = dice_selector.global_position
         dest_selector_pos = dest_pos[selected_index]
     # remove dice from grid
     for dice_gui in %Grid.get_children():
@@ -87,7 +87,7 @@ func on_sort_button_pressed():
     for i in len(sorted_dice_guis):
         sorted_dice_guis[i].move(init_pos[i], dest_pos[i])
     # move selector animation
-    if selected_dice_gui:
+    if is_instance_valid(dice_selector):
         dice_selector.move(init_selector_pos, dest_selector_pos)
 
 # private functions

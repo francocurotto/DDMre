@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://clg2g2fqnsm0p"]
+[gd_scene load_steps=6 format=3 uid="uid://clg2g2fqnsm0p"]
 
 [ext_resource type="Script" path="res://interface/player_gui/dicepool_gui/dicepool_gui.gd" id="1_1jbbo"]
 [ext_resource type="PackedScene" uid="uid://bcn6sx8mo0acg" path="res://interface/player_gui/dicepool_gui/dice_gui/dice_gui.tscn" id="1_xouyd"]
@@ -7,7 +7,11 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn0dc"]
 bg_color = Color(0.121569, 0.121569, 0.121569, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nf36j"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="DicepoolGUI" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0.901961)
 offset_right = 720.0
 offset_bottom = 461.0
 size_flags_vertical = 3
@@ -79,3 +83,14 @@ layout_mode = 2
 [node name="DiceSort" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_1nlfe")]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nf36j")
+
+[node name="RollButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "ROLL"
