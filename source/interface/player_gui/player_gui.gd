@@ -7,6 +7,7 @@ var opponent
 
 func _ready():
     %DungeonGUI.tile_gui_toggled.connect(%SummonInfo.on_tile_gui_toggled)
+    %DungeonGUI.tile_gui_toggled.connect(%PlayerInfo.on_tile_gui_toggled)
     %DicepoolGUI.dice_sort_started.connect(func(): 
         %DicepoolButton.disabled = true)
     %DicepoolGUI.dice_sort_finished.connect(func(): 

@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://c36lt5po6nufo"]
+
+[ext_resource type="Script" path="res://interface/player_gui/dicepool_gui/sides_info/sides_info.gd" id="1_c34l2"]
+[ext_resource type="PackedScene" uid="uid://gwqkymkm3nmy" path="res://interface/player_gui/dicepool_window/dice_info/sides_info/side_info/side_info.tscn" id="2_5wtte"]
+
+[node name="SidesInfo" type="AspectRatioContainer"]
+offset_right = 720.0
+offset_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 6.0
+script = ExtResource("1_c34l2")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="SideInfo1" parent="HBox" instance=ExtResource("2_5wtte")]
+layout_mode = 2
+mult = 2
+
+[node name="SideInfo2" parent="HBox" instance=ExtResource("2_5wtte")]
+layout_mode = 2
+mult = 2
+
+[node name="SideInfo3" parent="HBox" instance=ExtResource("2_5wtte")]
+layout_mode = 2
+mult = 2
+
+[node name="SideInfo4" parent="HBox" instance=ExtResource("2_5wtte")]
+layout_mode = 2
+crest = "MOVEMENT"
+mult = 2
+
+[node name="SideInfo5" parent="HBox" instance=ExtResource("2_5wtte")]
+layout_mode = 2
+crest = "MOVEMENT"
+mult = 3
+
+[node name="SideInfo6" parent="HBox" instance=ExtResource("2_5wtte")]
+layout_mode = 2
+crest = "MAGIC"

@@ -41,6 +41,8 @@ func deactivate_dicepool():
     # destroy dice_selector if exists
     if is_instance_valid(dice_selector):
         dice_selector.queue_free()
+    # hide sides info
+    %SidesInfo.modulate = Color(1,1,1,0)
     var tween = create_tween()
     tween.tween_property(self, "position", Vector2(0, 0), move_time)\
     .set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
@@ -49,13 +51,17 @@ func deactivate_dicepool():
 func on_dice_entered(dice_gui):
     # case first selection
     if not is_instance_valid(dice_selector):
+        # create dice selector and add to dice
         dice_selector = DiceSelector.instantiate()
         dice_gui.add_child(dice_selector)
+        # make sides info visible
+        %SidesInfo.modulate = Color(1,1,1,1)
     # update selected dice gui
     else:
         dice_selector.move(dice_selector.global_position,
             dice_gui.global_position)
         dice_selector.reparent(dice_gui)
+    %SidesInfo.setup(dice_gui.dice)
     dice_gui_selected.emit(dice_gui.dice)
 
 func on_sort_button_pressed():

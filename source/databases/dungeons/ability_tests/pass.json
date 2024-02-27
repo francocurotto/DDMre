@@ -35,11 +35,11 @@
     "MAGIC"   : 0,
     "TRAP"    : 10},
   "CRESTS2": {
-    "MOVEMENT": 20,
-    "ATTACK"  : 3,
-    "DEFENSE" : 0,
-    "MAGIC"   : 0,
-    "TRAP"    : 10},
+    "MOVEMENT": 21,
+    "ATTACK"  : 5,
+    "DEFENSE" : 2,
+    "MAGIC"   : 1,
+    "TRAP"    : 8},
   "HEARTS1": 3,
-  "HEARTS2": 3
+  "HEARTS2": 1
 }
