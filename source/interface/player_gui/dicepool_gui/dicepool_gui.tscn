@@ -96,6 +96,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nf36j")
 
 [node name="RollButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32

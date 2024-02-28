@@ -7,6 +7,7 @@
 z_index = 1
 offset_right = 202.0
 offset_bottom = 77.0
+mouse_filter = 2
 texture = ExtResource("1_t0c3p")
 expand_mode = 1
 stretch_mode = 5

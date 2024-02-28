@@ -15,6 +15,14 @@ var type : String = "DRAGON" :
         if has_node("%LevelLabel"):
             %LevelLabel.text = str(level)
 
+@export var roll_selectable: bool = true :
+    set(_roll_selectable):
+        roll_selectable = _roll_selectable
+        if roll_selectable:
+            $DiceIcon.modulate = Color(1,1,1,1)
+        else:
+            $DiceIcon.modulate = Color(1,1,1,0.5)
+
 # constants
 const COLORS = {
     "DRAGON"      : Color(1.0,0.3,0.3),
@@ -26,12 +34,17 @@ const COLORS = {
 
 # variables
 var dice
-var enabled = false
+#var enabled = true
 var move_time = 0.5
+
+# onready variables
+@onready var roll_button = $RollButton
 
 # signals
 signal dice_entered(dice_gui)
 signal dice_move_finished
+signal dice_roll_selected(dice_gui)
+signal dice_roll_unselected(dice_gui)
 
 # public functions
 func setup(_dice):
@@ -52,11 +65,22 @@ func _on_resized():
     %LevelLabel.add_theme_constant_override("outline_size", min_size/8)
 
 func _input(event):
-    if enabled:
-        # check event type
-        if (event is InputEventScreenTouch and event.pressed or
-            event is InputEventScreenDrag):
-            # check event inside dice
-            var rect = Rect2(global_position, size)
-            if rect.has_point(event.position):
-                dice_entered.emit(self)
+    var rect = Rect2(global_position, size)
+    # check event type
+    if (event is InputEventScreenTouch and event.pressed or
+        event is InputEventScreenDrag):
+        # check event inside dice
+        if rect.has_point(event.position):
+            dice_entered.emit(self)
+    elif event is InputEventScreenTouch and not event.pressed:
+        # check event inside dice
+        if rect.has_point(event.position) and roll_selectable:
+            roll_button.disabled = false
+
+func _on_roll_button_toggled(toggled_on):
+    if toggled_on:
+        $RollButton.icon = load("res://assets/icons/ROLL_SELECTOR.svg")
+        dice_roll_selected.emit(self)
+    else:
+        $RollButton.icon = null
+        dice_roll_unselected.emit(self)

@@ -6,9 +6,9 @@ const DiceSelector = preload("res://interface/player_gui/dicepool_gui/dice_selec
 # variables
 var dicepool
 var dice_guis
-#var selected_dice_gui
 var dice_selector
 var move_time = 0.7
+var roll_dice_guis = []
 
 # signals
 signal dice_gui_selected(dice)
@@ -21,6 +21,8 @@ func _ready():
     # connections
     for dice_gui in dice_guis:
         dice_gui.dice_entered.connect(on_dice_entered)
+        dice_gui.dice_roll_selected.connect(on_dice_roll_selected)
+        dice_gui.dice_roll_unselected.connect(on_dice_roll_unselected)
     dice_guis[0].dice_move_finished.connect(func(): dice_sort_finished.emit())
     %DiceSort.sort_button_pressed.connect(on_sort_button_pressed)
 
@@ -34,10 +36,8 @@ func activate_dicepool():
     var tween = create_tween()
     tween.tween_property(self, "position", Vector2(0, -size.y), move_time)\
     .set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-    enable_buttons()
 
 func deactivate_dicepool():
-    disable_buttons()
     # destroy dice_selector if exists
     if is_instance_valid(dice_selector):
         dice_selector.queue_free()
@@ -56,13 +56,39 @@ func on_dice_entered(dice_gui):
         dice_gui.add_child(dice_selector)
         # make sides info visible
         %SidesInfo.modulate = Color(1,1,1,1)
-    # update selected dice gui
+    # case second selection
     else:
+        # move dice selector to new dice
         dice_selector.move(dice_selector.global_position,
             dice_gui.global_position)
         dice_selector.reparent(dice_gui)
+    # disable all roll button
+    for _dice_gui in dice_guis:
+        if dice_gui != _dice_gui:
+            _dice_gui.roll_button.disabled = true
+    # update sides info
     %SidesInfo.setup(dice_gui.dice)
     dice_gui_selected.emit(dice_gui.dice)
+
+func on_dice_roll_selected(dice_gui):
+    # add dice to roll array
+    roll_dice_guis.append(dice_gui)
+    if len(roll_dice_guis) >= 3:
+        # disabled all other dice
+        for _dice_gui in dice_guis:
+            if _dice_gui not in roll_dice_guis:
+                _dice_gui.roll_selectable = false
+        # activate roll
+        %RollButton.disabled = false
+
+func on_dice_roll_unselected(dice_gui):
+    # remove dice from roll array
+    roll_dice_guis.erase(dice_gui)
+    # enable all dice
+    for _dice_gui in dice_guis:
+        _dice_gui.roll_selectable = true
+    # disable roll
+    %RollButton.disabled = true
 
 func on_sort_button_pressed():
     dice_sort_started.emit()
@@ -97,14 +123,6 @@ func on_sort_button_pressed():
         dice_selector.move(init_selector_pos, dest_selector_pos)
 
 # private functions
-func enable_buttons():
-    for dice_gui in dice_guis:
-        dice_gui.enabled = true
-
-func disable_buttons():
-    for dice_gui in dice_guis:
-        dice_gui.enabled = false
-
 func sort_dice_guis(dice_gui1, dice_gui2):
     # get dice and crest
     var dice1 = dice_gui1.dice

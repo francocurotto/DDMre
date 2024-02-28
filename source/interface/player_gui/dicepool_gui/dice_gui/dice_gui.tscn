@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcn6sx8mo0acg"]
+[gd_scene load_steps=5 format=3 uid="uid://bcn6sx8mo0acg"]
 
 [ext_resource type="Texture2D" uid="uid://brg5dayviasne" path="res://assets/icons/DICE.svg" id="1_rrcdu"]
 [ext_resource type="Script" path="res://interface/player_gui/dicepool_gui/dice_gui/dice_gui.gd" id="2_vc5wr"]
 [ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://assets/fonts/Archimoto.otf" id="2_wxenh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_84ftk"]
 
 [node name="DiceGUI" type="MarginContainer"]
 self_modulate = Color(1, 0.2, 0.2, 1)
@@ -43,4 +45,15 @@ theme_override_fonts/font = ExtResource("2_wxenh")
 theme_override_font_sizes/font_size = 32
 text = "1"
 
+[node name="RollButton" type="Button" parent="."]
+layout_mode = 2
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_84ftk")
+disabled = true
+toggle_mode = true
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="toggled" from="RollButton" to="." method="_on_roll_button_toggled"]
