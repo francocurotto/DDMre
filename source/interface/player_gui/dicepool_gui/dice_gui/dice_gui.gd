@@ -24,7 +24,6 @@ var type : String = "DRAGON" :
             $DiceIcon.modulate = Color(1,1,1,0.5)
 
 # constants
-const SideInfo = preload("res://interface/player_gui/dicepool_gui/sides_info/side_info/side_info.tscn")
 const COLORS = {
     "DRAGON"      : Color(1.0,0.3,0.3),
     "SPELLCASTER" : Color(0.8,0.8,0.8),
@@ -35,7 +34,6 @@ const COLORS = {
 
 # variables
 var dice
-#var enabled = true
 var move_time = 0.5
 
 # onready variables
@@ -52,7 +50,7 @@ func setup(_dice):
     dice = _dice
     type = dice.card.type
     level = dice.level
-    add_side_infos()
+    $SidesRoll.setup(dice)
 
 func move(init_pos, dest_pos):
     var tween = create_tween()
@@ -62,17 +60,8 @@ func move(init_pos, dest_pos):
 
 func roll(side, turns):
     $DiceIcon.visible = false
-    $SideMargin.visible = true
-    for _i in turns:
-        var i = randi() % $SideMargin.get_child_count()
-        $SideMargin.get_children().map(func(side_info): side_info.visible=false)
-        $SideMargin.get_child(i).visible = true
-        await get_tree().create_timer(0.03).timeout
-    $SideMargin.get_children().map(func(side_info): side_info.visible=false)
-    for side_info in $SideMargin.get_children():
-        if side_info.equal_to_side(side):
-            side_info.visible = true
-            break
+    $SidesRoll.visible = true
+    $SidesRoll.roll(side, turns)
 
 # signals callbacks
 func _on_resized():
@@ -100,19 +89,3 @@ func _on_roll_button_toggled(toggled_on):
     else:
         %RollButton.icon = null
         dice_roll_unselected.emit(self)
-
-# private functions
-func add_side_infos():
-    for side in dice.sides:
-        # check if side already in node
-        var not_in_node = true
-        for side_info in $SideMargin.get_children():
-            if side_info.equal_to_side(side):
-                not_in_node = false
-                break
-        if not_in_node:
-            var side_info = SideInfo.instantiate()
-            side_info.type = dice.card.type
-            side_info.crest = side.crest.TYPE
-            side_info.mult = side.mult
-            $SideMargin.add_child(side_info)

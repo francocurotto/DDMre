@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dssmsyeqe1o4a"]
+
+[ext_resource type="Script" path="res://interface/player_gui/dicepool_gui/dice_gui/sides_roll/sides_roll.gd" id="1_trfp7"]
+
+[node name="SidesRoll" type="MarginContainer"]
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_trfp7")

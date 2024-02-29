@@ -37,3 +37,17 @@ func _init(side_string, level):
         mult = int(side_string[1])
     else: # if no char, mult is 1
         mult = 1
+
+# public functions
+## Check if side with same parameters exists inside [param array].
+func in_array(array):
+    for side in array:
+        if self.is_equal(side):
+            return true
+    return false
+    
+# private functions
+## check if side has the same parameters as other side.
+func is_equal(side):
+    return crest.TYPE == side.crest.TYPE and mult == side.mult
+    

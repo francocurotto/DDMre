@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcn6sx8mo0acg"]
+[gd_scene load_steps=6 format=3 uid="uid://bcn6sx8mo0acg"]
 
 [ext_resource type="Texture2D" uid="uid://brg5dayviasne" path="res://assets/icons/DICE.svg" id="1_rrcdu"]
 [ext_resource type="Script" path="res://interface/player_gui/dicepool_gui/dice_gui/dice_gui.gd" id="2_vc5wr"]
 [ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://assets/fonts/Archimoto.otf" id="2_wxenh"]
+[ext_resource type="PackedScene" uid="uid://dssmsyeqe1o4a" path="res://interface/player_gui/dicepool_gui/dice_gui/sides_roll/sides_roll.tscn" id="4_whiai"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_84ftk"]
 
@@ -58,14 +59,9 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="SideMargin" type="MarginContainer" parent="."]
+[node name="SidesRoll" parent="." instance=ExtResource("4_whiai")]
 visible = false
 layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
 
 [connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="toggled" from="DiceIcon/RollButton" to="." method="_on_roll_button_toggled"]
