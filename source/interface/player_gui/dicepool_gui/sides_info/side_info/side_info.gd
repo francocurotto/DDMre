@@ -32,6 +32,10 @@ const COLORS = {
     "WARRIOR"     : Color(0.3,0.3,1.0),
     "ITEM"        : Color(0.3,0.3,0.3)}
 
+# public functions
+func equal_to_side(side):
+    return side.crest.TYPE == crest and side.mult == mult
+
 # signals callbacks
 func _on_resized():
     #var side_size = $SideIcon.size.y

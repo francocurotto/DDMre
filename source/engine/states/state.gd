@@ -23,9 +23,6 @@ func _init(_player, _opponent, _dungeon):
 ## interfaces, and the new state resulting from the command is returned (it
 ## could be the same state as [code]self[/code].
 func update(cmddict):
-    """
-    Update state given command dict cmddict.
-    """
     # run command
     var new_state = call(cmddict["cmd"], cmddict) # run command
     Events.duel_update.emit() # emit duel_update

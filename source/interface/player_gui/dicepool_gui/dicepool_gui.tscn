@@ -102,3 +102,5 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 disabled = true
 text = "ROLL"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/RollButton" to="." method="_on_roll_button_pressed"]

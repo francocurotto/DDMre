@@ -14,6 +14,7 @@ var roll_dice_guis = []
 signal dice_gui_selected(dice)
 signal dice_sort_started
 signal dice_sort_finished
+signal roll_button_pressed
 
 func _ready():
     # define dice guis
@@ -121,6 +122,18 @@ func on_sort_button_pressed():
     # move selector animation
     if is_instance_valid(dice_selector):
         dice_selector.move(init_selector_pos, dest_selector_pos)
+
+func on_dice_rolled(sides):
+    var turns = [30, 50, 70]
+    for i in len(roll_dice_guis):
+        roll_dice_guis[i].roll(sides[i], turns[i])
+
+func _on_roll_button_pressed():
+    %RollButton.disabled = true
+    var roll_indeces = []
+    for dice_gui in roll_dice_guis:
+        roll_indeces.append(dicepool.find(dice_gui.dice))
+    roll_button_pressed.emit(roll_indeces)
 
 # private functions
 func sort_dice_guis(dice_gui1, dice_gui2):

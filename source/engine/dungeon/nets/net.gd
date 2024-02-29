@@ -18,7 +18,7 @@ func get_centerpos():
 func create_poslist():
     pass
 
-func offset(offset):
+func add_offset(offset):
     for i in len(poslist):
         poslist[i] = poslist[i]+offset
 

@@ -45,8 +45,11 @@ theme_override_fonts/font = ExtResource("2_wxenh")
 theme_override_font_sizes/font_size = 32
 text = "1"
 
-[node name="RollButton" type="Button" parent="."]
+[node name="RollButton" type="Button" parent="DiceIcon"]
+unique_name_in_owner = true
 layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_84ftk")
 disabled = true
@@ -55,5 +58,14 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="SideMargin" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
 [connection signal="resized" from="." to="." method="_on_resized"]
-[connection signal="toggled" from="RollButton" to="." method="_on_roll_button_toggled"]
+[connection signal="toggled" from="DiceIcon/RollButton" to="." method="_on_roll_button_toggled"]
