@@ -17,3 +17,6 @@ func on_tile_gui_toggled(tile_gui, toggled_on):
         %CrestpoolInfo.setup(player.opponent.crestpool)
     else:
         setup(player)
+
+func on_roll_finished(roll_dice_guis):
+    %CrestpoolInfo.on_roll_finished(roll_dice_guis)

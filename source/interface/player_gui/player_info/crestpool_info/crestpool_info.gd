@@ -7,3 +7,7 @@ func setup(crestpool):
     $DefenseInfo.crest_count  = crestpool.defense
     $MagicInfo.crest_count    = crestpool.magic
     $TrapInfo.crest_count     = crestpool.trap
+
+# signals callbacks
+func on_roll_finished(roll_dice_guis):
+    pass

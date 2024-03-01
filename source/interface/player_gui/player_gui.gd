@@ -14,6 +14,7 @@ func _ready():
         %DicepoolButton.disabled = false)
     %DicepoolGUI.dice_gui_selected.connect(%SummonInfo.on_dice_gui_selected)
     %DicepoolGUI.roll_button_pressed.connect(input_roll_cmd)
+    %DicepoolGUI.roll_finished.connect(%PlayerInfo.on_roll_finished)
     Events.dice_rolled.connect(on_dice_rolled)
 
 # public functions
@@ -29,9 +30,10 @@ func setup(_engine, _player, _opponent):
 func _on_dicepool_button_toggled(toggled_on):
     if toggled_on:
         %DicepoolGUI.activate_dicepool()
-        %DungeonGUI.toggle_off_tile_gui()
+        %DungeonGUI.on_dicepool_button_activated()
     else:
         %DicepoolGUI.deactivate_dicepool()
+        %DungeonGUI.on_dicepool_button_deactivated()
         %SummonInfo.clear_info()
 
 func on_dice_rolled(sides):

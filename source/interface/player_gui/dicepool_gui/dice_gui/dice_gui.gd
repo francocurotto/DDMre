@@ -38,6 +38,7 @@ var move_time = 0.5
 
 # onready variables
 @onready var roll_button = %RollButton
+@onready var roll_sides = $RollSides
 
 # signals
 signal dice_entered(dice_gui)
@@ -50,7 +51,7 @@ func setup(_dice):
     dice = _dice
     type = dice.card.type
     level = dice.level
-    $SidesRoll.setup(dice)
+    $RollSides.setup(dice)
 
 func move(init_pos, dest_pos):
     var tween = create_tween()
@@ -60,8 +61,8 @@ func move(init_pos, dest_pos):
 
 func roll(side, turns):
     $DiceIcon.visible = false
-    $SidesRoll.visible = true
-    $SidesRoll.roll(side, turns)
+    $RollSides.visible = true
+    $RollSides.roll(side, turns)
 
 # signals callbacks
 func _on_resized():

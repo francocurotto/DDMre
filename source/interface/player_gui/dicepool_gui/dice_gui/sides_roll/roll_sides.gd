@@ -8,13 +8,16 @@ var type
 var sides
 var sides_set = []
 
+# signals
+signal roll_finished
+
+# public functions
 func setup(dice):
     type = dice.card.type
     sides = dice.sides
     fill_sides_set()
     add_side_infos()
 
-# public functions
 func roll(side, turns):
     # sides indeces
     var side_indeces = range(len(sides_set))
@@ -32,6 +35,7 @@ func roll(side, turns):
         if sides_set[i].is_equal(side):
             get_child(i).visible = true
             break
+    roll_finished.emit()
 
 # private functions
 func fill_sides_set():

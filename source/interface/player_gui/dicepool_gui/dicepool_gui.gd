@@ -15,6 +15,7 @@ signal dice_gui_selected(dice)
 signal dice_sort_started
 signal dice_sort_finished
 signal roll_button_pressed
+signal roll_finished
 
 func _ready():
     # define dice guis
@@ -124,9 +125,14 @@ func on_sort_button_pressed():
         dice_selector.move(init_selector_pos, dest_selector_pos)
 
 func on_dice_rolled(sides):
+    # dice roll time
     var turns = [30, 50, 70]
+    # roll each dice
     for i in len(roll_dice_guis):
         roll_dice_guis[i].roll(sides[i], turns[i])
+    # when dice roll finished, do post-roll actions
+    await roll_dice_guis[2].roll_sides.roll_finished
+    roll_finished.emit(roll_dice_guis)
 
 func _on_roll_button_pressed():
     %RollButton.disabled = true

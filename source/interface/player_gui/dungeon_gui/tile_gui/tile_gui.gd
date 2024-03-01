@@ -13,6 +13,11 @@ var tile_type : String = "OPEN" :
         tile_player = _tile_player
         set_tile_icon()
 
+@export var disabled : bool = false:
+    set(_disabled):
+        disabled = _disabled
+        $TileIcon.disabled = disabled
+
 func set_tile_icon():
     if tile_type == "PLAYER":
         var tile_name = "TILE_PLAYER_P%d" % tile_player
