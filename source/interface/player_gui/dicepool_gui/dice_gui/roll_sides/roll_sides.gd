@@ -6,7 +6,10 @@ const SideInfo = preload("res://interface/player_gui/dicepool_gui/sides_info/sid
 # variables
 var type
 var sides
+var rolled_side
 var sides_set = []
+var rolled_side_info
+var tween_side_info
 
 # signals
 signal roll_finished
@@ -18,7 +21,9 @@ func setup(dice):
     fill_sides_set()
     add_side_infos()
 
-func roll(side, turns):
+func roll(_rolled_side, turns):
+    # define rolled side
+    rolled_side = _rolled_side
     # sides indeces
     var side_indeces = range(len(sides_set))
     # perform rolls
@@ -32,8 +37,9 @@ func roll(side, turns):
     # last roll with final side
     hide_all_sides()
     for i in len(sides_set):
-        if sides_set[i].is_equal(side):
-            get_child(i).visible = true
+        if sides_set[i].is_equal(rolled_side):
+            rolled_side_info = get_child(i)
+            rolled_side_info.visible = true
             break
     roll_finished.emit()
 

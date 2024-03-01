@@ -1,5 +1,5 @@
 @tool
-extends HBoxContainer
+extends PanelContainer
 
 # export variables
 @export_enum("MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP") 
@@ -14,5 +14,9 @@ var crest_type : String = "MOVEMENT" :
         set_crest_info()
 
 func set_crest_info():
-    $CrestType.texture = load("res://assets/icons/CREST_%s.svg" % crest_type)
-    $CrestCount.text = "%02d" % crest_count
+    %CrestType.texture = load("res://assets/icons/CREST_%s.svg" % crest_type)
+    %CrestCount.text = "%02d" % crest_count
+
+# pubic functions
+func flash(tween, alpha):
+    tween.tween_property(self, "self_modulate", Color(1,1,1,alpha), 0.2)

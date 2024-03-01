@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://brg5dayviasne" path="res://assets/icons/DICE.svg" id="1_rrcdu"]
 [ext_resource type="Script" path="res://interface/player_gui/dicepool_gui/dice_gui/dice_gui.gd" id="2_vc5wr"]
 [ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://assets/fonts/Archimoto.otf" id="2_wxenh"]
-[ext_resource type="PackedScene" uid="uid://dssmsyeqe1o4a" path="res://interface/player_gui/dicepool_gui/dice_gui/sides_roll/roll_sides.tscn" id="4_whiai"]
+[ext_resource type="PackedScene" uid="uid://dssmsyeqe1o4a" path="res://interface/player_gui/dicepool_gui/dice_gui/roll_sides/roll_sides.tscn" id="4_whiai"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_84ftk"]
 

@@ -1,21 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce7fni6nnrrhm"]
+[gd_scene load_steps=4 format=3 uid="uid://ce7fni6nnrrhm"]
 
 [ext_resource type="Script" path="res://interface/player_gui/player_info/crestpool_info/crest_info/crest_info.gd" id="1_o761r"]
 [ext_resource type="Texture2D" uid="uid://d34w5f8kydd84" path="res://assets/icons/CREST_MOVEMENT.svg" id="2_ygpnr"]
 
-[node name="CrestInfo" type="HBoxContainer"]
-offset_right = 97.0
-offset_bottom = 55.0
-theme_override_constants/separation = -4
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybk1g"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="CrestInfo" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ybk1g")
 script = ExtResource("1_o761r")
 
-[node name="CrestType" type="TextureRect" parent="."]
+[node name="HBox" type="HBoxContainer" parent="."]
+show_behind_parent = true
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="CrestType" type="TextureRect" parent="HBox"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("2_ygpnr")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="CrestCount" type="Label" parent="."]
+[node name="CrestCount" type="Label" parent="HBox"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "00"
