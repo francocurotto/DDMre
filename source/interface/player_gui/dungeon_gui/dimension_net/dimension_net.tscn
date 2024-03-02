@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8olv68y8oh3t"]
+
+[ext_resource type="PackedScene" uid="uid://d5g7c1uibwc1" path="res://interface/player_gui/dungeon_gui/dimension_net/dimension_tile/dimension_tile.tscn" id="1_aptut"]
+[ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/dimension_net/dimension_net.gd" id="1_kqtt5"]
+[ext_resource type="Texture2D" uid="uid://cay70x47nn7u1" path="res://assets/icons/SUMMON_DRAGON.svg" id="3_nwq25"]
+
+[node name="DimensionNet" type="MarginContainer"]
+offset_right = 165.0
+offset_bottom = 275.0
+script = ExtResource("1_kqtt5")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="Control"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.184025)
+layout_mode = 2
+offset_right = 165.0
+offset_bottom = 275.0
+pivot_offset = Vector2(82.5, 137.5)
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="DimensionTile1" parent="Control/Grid" instance=ExtResource("1_aptut")]
+layout_mode = 2
+texture = null
+display = false
+
+[node name="DimensionTile2" parent="Control/Grid" instance=ExtResource("1_aptut")]
+layout_mode = 2
+texture = null
+display = false
+
+[node name="DimensionTile3" parent="Control/Grid" instance=ExtResource("1_aptut")]
+layout_mode = 2
+texture = null
+display = false
+
+[node name="DimensionTile4" parent="Control/Grid" instance=ExtResource("1_aptut")]
+layout_mode = 2
+texture = null
+display = false
+
+[node name="DimensionTile5" parent="Control/Grid" instance=ExtResource("1_aptut")]
+layout_mode = 2
+
+[node name="DimensionTile6" parent="Control/Grid" instance=ExtResource("1_aptut")]
+layout_mode = 2
+texture = null
+display = false
+
+[node name="DimensionTile7" parent="Control/Grid" instance=ExtResource("1_aptut")]
+layout_mode = 2
+
+[node name="DimensionTile8" parent="Control/Grid" instance=ExtResource("1_aptut")]
+layout_mode = 2
+
+[node name="DimensionTile9" parent="Control/Grid" instance=ExtResource("1_aptut")]
+layout_mode = 2
+
+[node name="DimensionTile10" parent="Control/Grid" instance=ExtResource("1_aptut")]
+layout_mode = 2
+texture = null
+display = false
+
+[node name="DimensionTile11" parent="Control/Grid" instance=ExtResource("1_aptut")]
+layout_mode = 2
+
+[node name="DimensionTile12" parent="Control/Grid" instance=ExtResource("1_aptut")]
+layout_mode = 2
+texture = null
+display = false
+
+[node name="DimensionTile13" parent="Control/Grid" instance=ExtResource("1_aptut")]
+layout_mode = 2
+texture = null
+display = false
+
+[node name="DimensionTile14" parent="Control/Grid" instance=ExtResource("1_aptut")]
+layout_mode = 2
+
+[node name="DimensionTile15" parent="Control/Grid" instance=ExtResource("1_aptut")]
+layout_mode = 2
+texture = null
+display = false
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 2
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("3_nwq25")
+expand_mode = 1
+stretch_mode = 3
