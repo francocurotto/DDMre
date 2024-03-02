@@ -33,7 +33,7 @@ const COLORS = {
     "ITEM"        : Color(0.3,0.3,0.3)}
 
 func setup(_type, side):
-    type = type
+    type = _type
     crest = side.crest.TYPE
     mult = side.mult
 

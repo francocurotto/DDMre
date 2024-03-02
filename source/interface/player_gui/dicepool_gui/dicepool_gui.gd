@@ -9,6 +9,7 @@ var dice_guis
 var dice_selector
 var move_time = 0.7
 var roll_dice_guis = []
+var dim_candidates = []
 
 # signals
 signal dice_gui_selected(dice)
@@ -16,6 +17,7 @@ signal dice_sort_started
 signal dice_sort_finished
 signal roll_button_pressed
 signal roll_finished
+signal summon_button_pressed
 
 func _ready():
     # define dice guis
@@ -38,8 +40,11 @@ func activate_dicepool():
     var tween = create_tween()
     tween.tween_property(self, "position", Vector2(0, -size.y), move_time)\
     .set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+    await tween.finished
+    enable_dice_guis()
 
 func deactivate_dicepool():
+    disable_dice_guis()
     # destroy dice_selector if exists
     if is_instance_valid(dice_selector):
         dice_selector.queue_free()
@@ -48,6 +53,13 @@ func deactivate_dicepool():
     var tween = create_tween()
     tween.tween_property(self, "position", Vector2(0, 0), move_time)\
     .set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+
+func switch_to_summon_buttons():
+    # used to activate summon button if on summon dice after roll
+    if is_instance_valid(dice_selector):
+        on_dice_entered(dice_selector.get_parent())
+    %RollButton.visible = false
+    %SummonButtons.visible = true
 
 # signals callbacks
 func on_dice_entered(dice_gui):
@@ -71,6 +83,8 @@ func on_dice_entered(dice_gui):
     # update sides info
     %SidesInfo.setup(dice_gui.dice)
     dice_gui_selected.emit(dice_gui.dice)
+    # if dice is dim candidate
+    %SummonButton.disabled = dicepool.find(dice_gui.dice) not in dim_candidates
 
 func on_dice_roll_selected(dice_gui):
     # add dice to roll array
@@ -141,7 +155,18 @@ func _on_roll_button_pressed():
         roll_indeces.append(dicepool.find(dice_gui.dice))
     roll_button_pressed.emit(roll_indeces)
 
+func _on_summon_button_pressed():
+    summon_button_pressed.emit()
+
 # private functions
+func enable_dice_guis():
+    for dice_gui in dice_guis:
+        dice_gui.disabled = false
+        
+func disable_dice_guis():
+    for dice_gui in dice_guis:
+        dice_gui.disabled = true
+
 func sort_dice_guis(dice_gui1, dice_gui2):
     # get dice and crest
     var dice1 = dice_gui1.dice

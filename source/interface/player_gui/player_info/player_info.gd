@@ -19,11 +19,8 @@ func on_tile_gui_toggled(tile_gui, toggled_on):
         setup(player)
 
 func on_roll_finished(roll_dice_guis):
-    var tween = create_tween()
-    tween.set_parallel(true)
-    %CrestpoolInfo.flash(tween, roll_dice_guis, 1.0)
-    await tween.finished
+    var tween = %CrestpoolInfo.flash(roll_dice_guis, 1.0)
+    if tween:
+        await tween.finished
     %CrestpoolInfo.setup(player.crestpool)
-    tween = create_tween()
-    tween.set_parallel(true)
-    %CrestpoolInfo.flash(tween, roll_dice_guis, 0.0)
+    %CrestpoolInfo.flash(roll_dice_guis, 0.0)

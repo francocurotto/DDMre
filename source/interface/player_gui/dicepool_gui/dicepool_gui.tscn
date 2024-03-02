@@ -103,4 +103,27 @@ theme_override_font_sizes/font_size = 32
 disabled = true
 text = "ROLL"
 
+[node name="SummonButtons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="SummonButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/SummonButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "SUMMON"
+
+[node name="SkipButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/SummonButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "SKIP"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/RollButton" to="." method="_on_roll_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/SummonButtons/SummonButton" to="." method="_on_summon_button_pressed"]

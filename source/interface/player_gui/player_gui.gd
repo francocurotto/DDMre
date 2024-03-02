@@ -14,7 +14,8 @@ func _ready():
         %DicepoolButton.disabled = false)
     %DicepoolGUI.dice_gui_selected.connect(%SummonInfo.on_dice_gui_selected)
     %DicepoolGUI.roll_button_pressed.connect(input_roll_cmd)
-    %DicepoolGUI.roll_finished.connect(%PlayerInfo.on_roll_finished)
+    %DicepoolGUI.roll_finished.connect(on_roll_finished)
+    %DicepoolGUI.summon_button_pressed.connect(on_summon_button_pressed)
     Events.dice_rolled.connect(on_dice_rolled)
 
 # public functions
@@ -39,6 +40,15 @@ func _on_dicepool_button_toggled(toggled_on):
 func on_dice_rolled(sides):
     if engine.state.player == player:
         %DicepoolGUI.on_dice_rolled(sides)
+
+func on_roll_finished(roll_dice_guis):
+    %PlayerInfo.on_roll_finished(roll_dice_guis)
+    if engine.state.NAME == "DIMENSION":
+        %DicepoolGUI.dim_candidates = engine.state.dim_candidates
+        %DicepoolGUI.switch_to_summon_buttons()
+
+func on_summon_button_pressed():
+    %DicepoolButton.button_pressed = false
 
 func input_roll_cmd(roll_indeces):
     engine.update({"cmd":"ROLL", "dice":roll_indeces})

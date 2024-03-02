@@ -17,9 +17,11 @@ func setup(crestpool):
     $TrapInfo.crest_count     = crestpool.trap
 
 # signals callbacks
-func flash(tween, roll_dice_guis, alpha):
+func flash(roll_dice_guis, alpha):
+    var tween
     for roll_dice_gui in roll_dice_guis:
         var crest_type = roll_dice_gui.roll_sides.rolled_side.crest.TYPE
         if crest_type != "SUMMON":
             var crest_slot = CRESTDICT[crest_type]
-            crest_slot.flash(tween, alpha)
+            tween = crest_slot.flash(alpha)
+    return tween

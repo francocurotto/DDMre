@@ -15,6 +15,10 @@ var type : String = "DRAGON" :
         if has_node("%LevelLabel"):
             %LevelLabel.text = str(level)
 
+@export var disabled : bool = true :
+    set(_disabled):
+        disabled = _disabled
+
 @export var roll_selectable: bool = true :
     set(_roll_selectable):
         roll_selectable = _roll_selectable
@@ -71,17 +75,18 @@ func _on_resized():
     %LevelLabel.add_theme_constant_override("outline_size", min_size/8)
 
 func _input(event):
-    var rect = Rect2(global_position, size)
-    # check event type
-    if (event is InputEventScreenTouch and event.pressed or
-        event is InputEventScreenDrag):
-        # check event inside dice
-        if rect.has_point(event.position):
-            dice_entered.emit(self)
-    elif event is InputEventScreenTouch and not event.pressed:
-        # check event inside dice
-        if rect.has_point(event.position) and roll_selectable:
-            roll_button.disabled = false
+    if not disabled:
+        var rect = Rect2(global_position, size)
+        # check event type
+        if (event is InputEventScreenTouch and event.pressed or
+            event is InputEventScreenDrag):
+            # check event inside dice
+            if rect.has_point(event.position):
+                dice_entered.emit(self)
+        elif event is InputEventScreenTouch and not event.pressed:
+            # check event inside dice
+            if rect.has_point(event.position) and roll_selectable:
+                roll_button.disabled = false
 
 func _on_roll_button_toggled(toggled_on):
     if toggled_on:

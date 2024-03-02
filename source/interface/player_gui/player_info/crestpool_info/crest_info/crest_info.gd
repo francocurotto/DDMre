@@ -18,5 +18,7 @@ func set_crest_info():
     %CrestCount.text = "%02d" % crest_count
 
 # pubic functions
-func flash(tween, alpha):
-    tween.tween_property(self, "self_modulate", Color(1,1,1,alpha), 0.2)
+func flash(alpha):
+    var tween = create_tween()
+    tween.tween_property(self, "self_modulate", Color(1,1,1,alpha), 0.3)
+    return tween
