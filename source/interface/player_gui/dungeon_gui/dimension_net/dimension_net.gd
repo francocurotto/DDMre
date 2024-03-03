@@ -1,5 +1,5 @@
 @tool
-extends MarginContainer
+extends Control
 
 @export_enum("X1", "X2", "T1", "T2", "Z1", "Z2", "M1", "M2", "S1", "S2", "L1")
 var net : String = "X1" :

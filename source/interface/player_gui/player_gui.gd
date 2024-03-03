@@ -47,8 +47,9 @@ func on_roll_finished(roll_dice_guis):
         %DicepoolGUI.dim_candidates = engine.state.dim_candidates
         %DicepoolGUI.switch_to_summon_buttons()
 
-func on_summon_button_pressed():
+func on_summon_button_pressed(dice_gui):
     %DicepoolButton.button_pressed = false
+    %DungeonGUI.on_summon_button_pressed(dice_gui)
 
 func input_roll_cmd(roll_indeces):
     engine.update({"cmd":"ROLL", "dice":roll_indeces})

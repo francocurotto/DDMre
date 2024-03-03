@@ -45,6 +45,7 @@ func activate_dicepool():
 
 func deactivate_dicepool():
     disable_dice_guis()
+    %SummonButton.disabled = true
     # destroy dice_selector if exists
     if is_instance_valid(dice_selector):
         dice_selector.queue_free()
@@ -156,7 +157,7 @@ func _on_roll_button_pressed():
     roll_button_pressed.emit(roll_indeces)
 
 func _on_summon_button_pressed():
-    summon_button_pressed.emit()
+    summon_button_pressed.emit(dice_selector.get_parent())
 
 # private functions
 func enable_dice_guis():

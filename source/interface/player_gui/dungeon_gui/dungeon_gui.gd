@@ -1,5 +1,8 @@
 extends VBoxContainer
 
+# constants
+const DimensionNet = preload("res://interface/player_gui/dungeon_gui/dimension_net/dimension_net.tscn")
+
 # variables
 var player
 var dungeon
@@ -26,7 +29,7 @@ func setup(_player, _dungeon):
             var tile = dungeon.grid[i][j]
             var tile_gui = row[j]
             tile_gui.setup(tile)
-            tile_gui.tile_icon.button_group = tile_guis_button_group
+            tile_gui.path_tile.button_group = tile_guis_button_group
             tile_gui.select_button_toggled.connect(on_tile_gui_toggled)
             tile_guis.append(tile_gui)
 
@@ -41,6 +44,15 @@ func on_dicepool_button_activated():
 func on_dicepool_button_deactivated():
     enable_tile_guis()
 
+func on_summon_button_pressed(dice_gui):
+    var dimension_net = DimensionNet.instantiate()
+    #var control_net = Control.new()
+    #add_child(control_net)
+    #control_net.add_child(dimension_net)
+    add_child(dimension_net)
+    dimension_net.global_position = $Row4/TileGui7.global_position
+    
+    
 # private functions
 func toggle_off_tile_gui():
     var pressed_tile_button = tile_guis_button_group.get_pressed_button()

@@ -16,16 +16,17 @@ var tile_type : String = "OPEN" :
 @export var disabled : bool = false:
     set(_disabled):
         disabled = _disabled
-        $TileIcon.disabled = disabled
+        $PathTile.disabled = disabled
 
 func set_tile_icon():
-    if tile_type == "PLAYER":
+    $PathTile.visible = true
+    if tile_type == "OPEN":
+        $PathTile.visible = false
+    elif tile_type == "PLAYER":
         var tile_name = "TILE_PLAYER_P%d" % tile_player
-        $TileIcon.texture_normal = load("res://assets/icons/%s.svg" % tile_name)
+        $PathTile.texture_normal = load("res://assets/icons/%s.svg" % tile_name)
     else:
-        $TileIcon.texture_normal = load("res://assets/icons/TILE_%s.svg" % tile_type)
-    # disable if tile is open
-    $TileIcon.disabled = tile_type == "OPEN"
+        $PaTile.texture_normal = load("res://assets/icons/TILE_%s.svg" % tile_type)
 
 @export_enum("NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", 
     "ITEM", "MONSTER_LORD")
@@ -52,7 +53,7 @@ func set_dungobj_icon():
 var tile
 
 # onready variables
-@onready var tile_icon = $TileIcon
+@onready var path_tile = $PathTile
 
 # signals
 signal select_button_toggled
