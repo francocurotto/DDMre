@@ -10,17 +10,15 @@ offset_right = 55.0
 offset_bottom = 55.0
 script = ExtResource("2_v0dfj")
 
-[node name="OpenTile" type="TextureButton" parent="."]
+[node name="OpenTile" type="TextureRect" parent="."]
 layout_mode = 2
-disabled = true
-toggle_mode = true
-action_mode = 0
-texture_normal = ExtResource("2_begun")
-ignore_texture_size = true
+texture = ExtResource("2_begun")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="PathTile" type="TextureButton" parent="."]
 layout_mode = 2
+disabled = true
 toggle_mode = true
 action_mode = 0
 texture_pressed = ExtResource("3_h72b4")

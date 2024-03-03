@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends MarginContainer
 
 # constants
 const DimensionNet = preload("res://interface/player_gui/dungeon_gui/dimension_net/dimension_net.tscn")
@@ -8,6 +8,9 @@ var player
 var dungeon
 var tile_guis = []
 var tile_guis_button_group = ButtonGroup.new()
+
+# onready variables
+@onready var dim_start = $Rows/Row4/TileGui7
 
 # signals
 signal tile_gui_toggled
@@ -20,7 +23,7 @@ func setup(_player, _dungeon):
     player = _player
     dungeon = _dungeon
     # get row guis
-    var rows = get_children()
+    var rows = $Rows.get_children()
     if player.id == 1: # reverse row orientation if player 1
         rows.reverse()
     for i in len(rows):
@@ -40,19 +43,18 @@ func on_tile_gui_toggled(tile_gui, toggled_on):
 func on_dicepool_button_activated():
     toggle_off_tile_gui()
     disable_tile_guis()
+    if $DimensionNode.get_child_count():
+        $DimensionNode.get_child(0).queue_free()
 
 func on_dicepool_button_deactivated():
     enable_tile_guis()
 
 func on_summon_button_pressed(dice_gui):
     var dimension_net = DimensionNet.instantiate()
-    #var control_net = Control.new()
-    #add_child(control_net)
-    #control_net.add_child(dimension_net)
-    add_child(dimension_net)
-    dimension_net.global_position = $Row4/TileGui7.global_position
-    
-    
+    dimension_net.summon_type = dice_gui.dice.card.type
+    $DimensionNode.add_child(dimension_net)
+    dimension_net.global_position = dim_start.global_position
+  
 # private functions
 func toggle_off_tile_gui():
     var pressed_tile_button = tile_guis_button_group.get_pressed_button()

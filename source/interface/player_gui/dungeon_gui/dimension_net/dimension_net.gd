@@ -6,7 +6,13 @@ var net : String = "X1" :
     set(_net):
         net = _net
         display_net(NETDICT[net]) 
-        
+
+@export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM")
+var summon_type : String = "DRAGON" :
+    set(_summon_type):
+        summon_type = _summon_type
+        $SummonIcon.texture = load("res://assets/icons/SUMMON_%s.svg" % summon_type)
+
 # constants
 const FREQ = 0.3
 const NETDICT = {

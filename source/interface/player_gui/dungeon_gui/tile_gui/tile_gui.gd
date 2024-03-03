@@ -13,7 +13,7 @@ var tile_type : String = "OPEN" :
         tile_player = _tile_player
         set_tile_icon()
 
-@export var disabled : bool = false:
+@export var disabled : bool = true :
     set(_disabled):
         disabled = _disabled
         $PathTile.disabled = disabled
@@ -65,7 +65,6 @@ func setup(_tile):
     tile_player = tile.playerid
     dungobj_type = tile.content.TYPE
     dungobj_player = tile.content.playerid
-
 
 func _on_tile_icon_toggled(toggled_on):
     select_button_toggled.emit(self, toggled_on)
