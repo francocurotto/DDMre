@@ -40,4 +40,11 @@ layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[connection signal="toggled" from="PathTile" to="." method="_on_tile_icon_toggled"]
+[node name="DimButton" type="TextureButton" parent="."]
+visible = false
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+
+[connection signal="toggled" from="PathTile" to="." method="_on_path_tile_toggled"]
+[connection signal="toggled" from="DimButton" to="." method="_on_dim_button_toggled"]

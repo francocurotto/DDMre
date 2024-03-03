@@ -54,9 +54,11 @@ var tile
 
 # onready variables
 @onready var path_tile = $PathTile
+@onready var dim_button = $DimButton
 
 # signals
 signal select_button_toggled
+signal dim_button_toggled
 
 # public functions
 func setup(_tile):
@@ -66,5 +68,8 @@ func setup(_tile):
     dungobj_type = tile.content.TYPE
     dungobj_player = tile.content.playerid
 
-func _on_tile_icon_toggled(toggled_on):
+func _on_path_tile_toggled(toggled_on):
     select_button_toggled.emit(self, toggled_on)
+
+func _on_dim_button_toggled(toggled_on):
+    dim_button_toggled.emit(self, toggled_on)

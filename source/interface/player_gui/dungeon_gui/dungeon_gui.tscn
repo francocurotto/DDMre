@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbmi486gqi604"]
+[gd_scene load_steps=4 format=3 uid="uid://dbmi486gqi604"]
 
 [ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/dungeon_gui.gd" id="1_jkgw4"]
 [ext_resource type="PackedScene" uid="uid://6f72kp2qiget" path="res://interface/player_gui/dungeon_gui/tile_gui/tile_gui.tscn" id="1_qdk6b"]
 
-[node name="DungeonGUI" type="MarginContainer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bv1a7"]
+
+[node name="DungeonGUI" type="PanelContainer"]
+clip_children = 1
 offset_right = 720.0
 offset_bottom = 1045.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bv1a7")
 script = ExtResource("1_jkgw4")
 
 [node name="Rows" type="VBoxContainer" parent="."]
@@ -1102,5 +1107,6 @@ layout_mode = 2
 disabled = false
 
 [node name="DimensionNode" type="Control" parent="."]
+clip_children = 1
 layout_mode = 2
 mouse_filter = 2

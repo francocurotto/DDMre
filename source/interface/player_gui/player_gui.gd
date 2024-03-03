@@ -32,6 +32,7 @@ func _on_dicepool_button_toggled(toggled_on):
     if toggled_on:
         %DicepoolGUI.activate_dicepool()
         %DungeonGUI.on_dicepool_button_activated()
+        switch_to_end_turn_button()
     else:
         %DicepoolGUI.deactivate_dicepool()
         %DungeonGUI.on_dicepool_button_deactivated()
@@ -50,6 +51,18 @@ func on_roll_finished(roll_dice_guis):
 func on_summon_button_pressed(dice_gui):
     %DicepoolButton.button_pressed = false
     %DungeonGUI.on_summon_button_pressed(dice_gui)
+    switch_to_dim_button()
 
 func input_roll_cmd(roll_indeces):
     engine.update({"cmd":"ROLL", "dice":roll_indeces})
+
+# private functions
+func switch_to_end_turn_button():
+    for button in %ActionButtons.get_children():
+        button.visible = false
+    %EndTurnButton.visible = true
+
+func switch_to_dim_button():
+    for button in %ActionButtons.get_children():
+        button.visible = false
+    %DimButton.visible = true

@@ -1,36 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://brgjkltf5waos"]
+[gd_scene load_steps=3 format=3 uid="uid://bogle1toorpql"]
 
-[ext_resource type="ButtonGroup" uid="uid://dnimtsb2a3ubj" path="res://tests/new_button_group.tres" id="1_8507m"]
-[ext_resource type="Script" path="res://tests/test.gd" id="1_bmdbh"]
+[ext_resource type="Texture2D" uid="uid://baeifuact8sh7" path="res://icon.svg" id="1_8kntm"]
 
-[node name="HBoxContainer" type="GridContainer"]
-offset_right = 719.0
-offset_bottom = 329.0
-columns = 3
-script = ExtResource("1_bmdbh")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igfid"]
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
-button_group = ExtResource("1_8507m")
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 234.0
+offset_bottom = 230.0
 
-[node name="Button2" type="Button" parent="."]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
-button_group = ExtResource("1_8507m")
+[node name="Icon" type="PanelContainer" parent="."]
+clip_children = 1
+layout_mode = 0
+offset_left = 195.0
+offset_top = 299.0
+offset_right = 245.0
+offset_bottom = 344.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_igfid")
 
-[node name="Button3" type="Button" parent="."]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
-button_group = ExtResource("1_8507m")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 2
-
-[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[node name="Icon2" type="Sprite2D" parent="Icon"]
+position = Vector2(39, 26)
+texture = ExtResource("1_8kntm")

@@ -1,4 +1,4 @@
-extends MarginContainer
+extends PanelContainer
 
 # constants
 const DimensionNet = preload("res://interface/player_gui/dungeon_gui/dimension_net/dimension_net.tscn")
@@ -7,7 +7,9 @@ const DimensionNet = preload("res://interface/player_gui/dungeon_gui/dimension_n
 var player
 var dungeon
 var tile_guis = []
+var dimension_net
 var tile_guis_button_group = ButtonGroup.new()
+var dim_button_group = ButtonGroup.new()
 
 # onready variables
 @onready var dim_start = $Rows/Row4/TileGui7
@@ -32,13 +34,21 @@ func setup(_player, _dungeon):
             var tile = dungeon.grid[i][j]
             var tile_gui = row[j]
             tile_gui.setup(tile)
+            # tile gui button group
             tile_gui.path_tile.button_group = tile_guis_button_group
             tile_gui.select_button_toggled.connect(on_tile_gui_toggled)
+            # tile gui dim button_group
+            tile_gui.dim_button.button_group = dim_button_group
+            tile_gui.dim_button_toggled.connect(on_tile_dim_button_toggled)
             tile_guis.append(tile_gui)
 
 # signals callbacks
 func on_tile_gui_toggled(tile_gui, toggled_on):
     tile_gui_toggled.emit(tile_gui, toggled_on)
+
+func on_tile_dim_button_toggled(tile_gui, toggled_on):
+    if toggled_on:
+        dimension_net.global_position = tile_gui.global_position
 
 func on_dicepool_button_activated():
     toggle_off_tile_gui()
@@ -50,11 +60,15 @@ func on_dicepool_button_deactivated():
     enable_tile_guis()
 
 func on_summon_button_pressed(dice_gui):
-    var dimension_net = DimensionNet.instantiate()
+    # create dimension net
+    dimension_net = DimensionNet.instantiate()
     dimension_net.summon_type = dice_gui.dice.card.type
     $DimensionNode.add_child(dimension_net)
+    # move to starting position
     dimension_net.global_position = dim_start.global_position
-  
+    # enable dim buttons
+    enable_dim_buttons()
+
 # private functions
 func toggle_off_tile_gui():
     var pressed_tile_button = tile_guis_button_group.get_pressed_button()
@@ -64,7 +78,12 @@ func toggle_off_tile_gui():
 func disable_tile_guis():
     for tile_gui in tile_guis:
         tile_gui.disabled = true
+        tile_gui.dim_button.visible = false
 
 func enable_tile_guis():
     for tile_gui in tile_guis:
         tile_gui.disabled = false
+
+func enable_dim_buttons():
+    for tile_gui in tile_guis:
+        tile_gui.dim_button.visible = true

@@ -57,13 +57,28 @@ theme_override_font_sizes/font_size = 32
 toggle_mode = true
 text = "DICEPOOL"
 
-[node name="EndturnButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer/ButtonsRow"]
+[node name="ActionButtons" type="MarginContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/ButtonsRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EndTurnButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer/ButtonsRow/ActionButtons"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 disabled = true
 text = "END TURN
 "
+
+[node name="DimButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer/ButtonsRow/ActionButtons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "DIMENSION"
 
 [node name="PlayerInfo" parent="VBoxContainer/PanelContainer/VBoxContainer" instance=ExtResource("3_putua")]
 unique_name_in_owner = true
