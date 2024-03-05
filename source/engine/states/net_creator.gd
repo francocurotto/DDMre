@@ -29,6 +29,6 @@ static func create_net(netname, pos, trans_list):
     create a net with the correct positions.
     """
     var net = NETS_DICT[netname].new()
-    net.offset(pos)
+    net.add_offset(pos)
     net.apply_trans_list(trans_list)
     return net

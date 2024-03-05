@@ -16,6 +16,7 @@ var dim_button_group = ButtonGroup.new()
 
 # signals
 signal tile_gui_toggled
+signal tile_dim_button_pressed
 
 func _ready():
     tile_guis_button_group.allow_unpress = true
@@ -49,6 +50,9 @@ func on_tile_gui_toggled(tile_gui, toggled_on):
 func on_tile_dim_button_toggled(tile_gui, toggled_on):
     if toggled_on:
         dimension_net.global_position = tile_gui.global_position
+        var net = dimension_net.get_net()
+        net.add_offset(get_tile_gui_position(tile_gui))
+        tile_dim_button_pressed.emit(dungeon.can_dimension(net, player))
 
 func on_dicepool_button_activated():
     toggle_off_tile_gui()
@@ -64,10 +68,10 @@ func on_summon_button_pressed(dice_gui):
     dimension_net = DimensionNet.instantiate()
     dimension_net.summon_type = dice_gui.dice.card.type
     $DimensionNode.add_child(dimension_net)
-    # move to starting position
-    dimension_net.global_position = dim_start.global_position
     # enable dim buttons
     enable_dim_buttons()
+    # move to starting position
+    on_tile_dim_button_toggled(dim_start, true)
 
 # private functions
 func toggle_off_tile_gui():
@@ -87,3 +91,10 @@ func enable_tile_guis():
 func enable_dim_buttons():
     for tile_gui in tile_guis:
         tile_gui.dim_button.visible = true
+
+func get_tile_gui_position(tile_gui):
+    var x = tile_gui.get_index()
+    var y = tile_gui.get_parent().get_index()
+    if player.id == 1:
+        y = $Rows.get_child_count() - y
+    return Vector2i(y,x)

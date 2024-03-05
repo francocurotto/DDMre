@@ -28,6 +28,7 @@ const NETDICT = {
     "S2" : [3, 6, 7, 10, 11, 13],
     "L1" : [1, 4, 7,  8, 11, 14]
 }
+const NetCreator = preload("res://engine/states/net_creator.gd")
 
 # variable
 var time = 0
@@ -36,6 +37,10 @@ func _process(delta):
         time += delta
         var alpha = abs(sin(2*PI*FREQ*time))/2 + 0.1
         %Grid.modulate = Color(1,1,1,alpha)
+
+# public functions
+func get_net():
+    return NetCreator.create_net(net, Vector2i(0,0), [])
 
 # private functions
 func display_net(net_indeces):
