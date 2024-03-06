@@ -71,7 +71,7 @@ func on_summon_button_pressed(dice_gui):
     # enable dim buttons
     enable_dim_buttons()
     # move to starting position
-    on_tile_dim_button_toggled(dim_start, true)
+    dim_start._on_dim_button_toggled(true)
 
 # private functions
 func toggle_off_tile_gui():

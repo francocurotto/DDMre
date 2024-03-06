@@ -73,3 +73,5 @@ func _on_path_tile_toggled(toggled_on):
 
 func _on_dim_button_toggled(toggled_on):
     dim_button_toggled.emit(self, toggled_on)
+    # press path tile
+    path_tile.button_pressed = not path_tile.button_pressed

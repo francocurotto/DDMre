@@ -33,11 +33,14 @@ func _on_dicepool_button_toggled(toggled_on):
     if toggled_on:
         %DicepoolGUI.activate_dicepool()
         %DungeonGUI.on_dicepool_button_activated()
+        %SummonInfo.reset_default()
+        %SummonInfo.display_clear()
         switch_to_end_turn_button()
     else:
         %DicepoolGUI.deactivate_dicepool()
         %DungeonGUI.on_dicepool_button_deactivated()
-        %SummonInfo.clear_info()
+        %SummonInfo.display_clear()
+        %SummonInfo.reset_default()
 
 func on_dice_rolled(sides):
     if engine.state.player == player:
@@ -51,6 +54,7 @@ func on_roll_finished(roll_dice_guis):
 
 func on_summon_button_pressed(dice_gui):
     %DicepoolButton.button_pressed = false
+    %SummonInfo.default = dice_gui.dice
     %DungeonGUI.on_summon_button_pressed(dice_gui)
     switch_to_dim_button()
 
