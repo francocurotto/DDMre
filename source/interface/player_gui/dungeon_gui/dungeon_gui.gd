@@ -96,5 +96,5 @@ func get_tile_gui_position(tile_gui):
     var x = tile_gui.get_index()
     var y = tile_gui.get_parent().get_index()
     if player.id == 1:
-        y = $Rows.get_child_count() - y
-    return Vector2i(y,x)
+        y = $Rows.get_child_count() - y - 1
+    return Vector2i(x,y)

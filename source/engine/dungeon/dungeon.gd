@@ -203,21 +203,13 @@ func net_inbound(net):
     """
     Return true if net is inbound of dungeon.
     """
-    #GODOT4: use array all
-    for pos in net.poslist:
-        if not pos_within_dungeon(pos):
-            return false
-    return true
+    return net.poslist.all(pos_within_dungeon)
 
 func net_overlaps(net):
     """
     Return true if net overlaps current path in dungeon.
     """
-    #GODOT4: use array all
-    for pos in net.poslist:
-        if not get_tile(pos).is_open():
-            return true
-    return false
+    return net.poslist.any(func(pos): return not get_tile(pos).is_open())
 
 func net_connects(net, player):
     """
