@@ -24,12 +24,14 @@ func setup(dice):
 func roll(_rolled_side, turns):
     # define rolled side
     rolled_side = _rolled_side
-    # sides indeces
-    var side_indeces = range(len(sides_set))
+    # sides indeces, use int Array for speed
+    var side_range = range(len(sides_set))
+    var side_indeces : Array[int] = []
+    side_indeces.assign(side_range)
     # perform rolls
     for _i in turns:
         # get a random index for a side taking care it does not repeat two times in a row
-        var i = side_indeces.pop_at(randi()%len(sides_set)-1)
+        var i : int = side_indeces.pop_at(randi()%len(sides_set)-1)
         side_indeces.push_back(i)
         hide_all_sides()
         get_child(i).visible = true

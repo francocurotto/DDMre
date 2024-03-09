@@ -5,7 +5,14 @@ extends Control
 var net : String = "X1" :
     set(_net):
         net = _net
-        display_net(NETDICT[net]) 
+        display_net(NETDICT[net])
+
+@export var net_rotation : int = 0 :
+    set(_net_rotation):
+        net_rotation = _net_rotation
+        var tween = create_tween()
+        tween.tween_property($Grid, "rotation", net_rotation*PI/2, 0.5)\
+        .set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 
 @export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM")
 var summon_type : String = "DRAGON" :
@@ -78,15 +85,11 @@ func on_rotation_drag(drag_pos):
     var base_rotation_pos = rotation_pos - net_center
     var base_drag_pos = drag_pos - net_center
     if base_rotation_pos.angle_to(base_drag_pos) > DRAG_THRESHOLD:
-        rotate_counter_clockwise()
+        net_rotation += 1
+        rotation_pos = drag_pos
     elif base_rotation_pos.angle_to(base_drag_pos) < -DRAG_THRESHOLD:
-        rotate_clockwise()
+        net_rotation -= 1
+        rotation_pos = drag_pos
 
 func on_selection_drag(_drag_pos):
     pass
-
-func rotate_counter_clockwise():
-    $Grid.rotation += PI/2
-
-func rotate_clockwise():
-    $Grid.rotation -= PI/2
