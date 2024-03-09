@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8olv68y8oh3t"]
+[gd_scene load_steps=5 format=3 uid="uid://c8olv68y8oh3t"]
 
 [ext_resource type="PackedScene" uid="uid://d5g7c1uibwc1" path="res://interface/player_gui/dungeon_gui/dimension_net/dimension_tile/dimension_tile.tscn" id="1_aptut"]
 [ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/dimension_net/dimension_net.gd" id="1_kqtt5"]
 [ext_resource type="Texture2D" uid="uid://cay70x47nn7u1" path="res://assets/icons/SUMMON_DRAGON.svg" id="3_nwq25"]
+[ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/dimension_net/draw_help.gd" id="4_v6kgq"]
 
 [node name="DimensionNet" type="Control"]
 layout_mode = 3
@@ -11,7 +12,7 @@ script = ExtResource("1_kqtt5")
 
 [node name="Grid" type="GridContainer" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.10453)
+modulate = Color(1, 1, 1, 0.252814)
 layout_mode = 2
 offset_left = -55.0
 offset_top = -110.0
@@ -97,3 +98,7 @@ scale = Vector2(0.09, 0.09)
 texture = ExtResource("3_nwq25")
 expand_mode = 1
 stretch_mode = 3
+
+[node name="DrawHelp" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("4_v6kgq")

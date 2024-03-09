@@ -22,7 +22,7 @@ var summon_type : String = "DRAGON" :
 
 # constants
 const FREQ = 0.3
-const DRAG_THRESHOLD = deg_to_rad(30)
+const DRAG_THRESHOLD = deg_to_rad(60)
 const NETDICT = {
     "X1" : [4, 6, 7,  8, 10, 13], 
     "X2" : [4, 6, 7, 10, 11, 13],
@@ -81,7 +81,8 @@ func display_net(net_indeces):
         %Grid.get_child(i).display = i in net_indeces
 
 func on_rotation_drag(drag_pos):
-    var net_center = center_tile.global_position + center_tile.size/2
+    var net_center = $SummonIcon.global_position
+    $DrawHelp.draw_rotation(net_center, rotation_pos, drag_pos)
     var base_rotation_pos = rotation_pos - net_center
     var base_drag_pos = drag_pos - net_center
     if base_rotation_pos.angle_to(base_drag_pos) > DRAG_THRESHOLD:
