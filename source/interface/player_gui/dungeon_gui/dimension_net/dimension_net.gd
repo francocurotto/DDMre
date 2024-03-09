@@ -15,6 +15,7 @@ var summon_type : String = "DRAGON" :
 
 # constants
 const FREQ = 0.3
+const DRAG_THRESHOLD = deg_to_rad(30)
 const NETDICT = {
     "X1" : [4, 6, 7,  8, 10, 13], 
     "X2" : [4, 6, 7, 10, 11, 13],
@@ -32,6 +33,16 @@ const NetCreator = preload("res://engine/states/net_creator.gd")
 
 # variable
 var time = 0
+var rotation_pos = false
+var selection_pos = false
+
+# onready variables
+@onready var center_tile = $Grid/DimensionTile8
+
+func _ready():
+    for dim_tile in $Grid.get_children():
+        dim_tile.pressed.connect(on_dim_tile_pressed)
+        dim_tile.dragged.connect(on_dim_tile_dragged)
 
 func _process(delta):
         time += delta
@@ -42,7 +53,40 @@ func _process(delta):
 func get_net():
     return NetCreator.create_net(net, Vector2i(0,0), [])
 
+# signals callbacks
+func on_dim_tile_pressed(dim_tile, press_pos):
+    if dim_tile == center_tile:
+        rotation_pos = null
+        selection_pos = press_pos
+    else:
+        rotation_pos = press_pos
+        selection_pos = null
+        
+func on_dim_tile_dragged(drag_pos):
+    if rotation_pos:
+        on_rotation_drag(drag_pos)
+    elif selection_pos:
+        on_selection_drag(drag_pos)
+
 # private functions
 func display_net(net_indeces):
     for i in %Grid.get_child_count():
         %Grid.get_child(i).display = i in net_indeces
+
+func on_rotation_drag(drag_pos):
+    var net_center = center_tile.global_position + center_tile.size/2
+    var base_rotation_pos = rotation_pos - net_center
+    var base_drag_pos = drag_pos - net_center
+    if base_rotation_pos.angle_to(base_drag_pos) > DRAG_THRESHOLD:
+        rotate_counter_clockwise()
+    elif base_rotation_pos.angle_to(base_drag_pos) < -DRAG_THRESHOLD:
+        rotate_clockwise()
+
+func on_selection_drag(_drag_pos):
+    pass
+
+func rotate_counter_clockwise():
+    $Grid.rotation += PI/2
+
+func rotate_clockwise():
+    $Grid.rotation -= PI/2
