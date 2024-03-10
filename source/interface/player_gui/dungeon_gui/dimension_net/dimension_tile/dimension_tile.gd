@@ -24,5 +24,5 @@ func _input(event):
             pressed.emit(self, event.position)
     elif event is InputEventScreenDrag:
         # check event inside dice
-        if rect.has_point(event.position):
-            dragged.emit(event.position)
+        #if rect.has_point(event.position):
+        dragged.emit(event.position)

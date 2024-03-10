@@ -12,7 +12,7 @@ script = ExtResource("1_kqtt5")
 
 [node name="Grid" type="GridContainer" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.252814)
+modulate = Color(1, 1, 1, 0.5872)
 layout_mode = 2
 offset_left = -55.0
 offset_top = -110.0
@@ -89,11 +89,11 @@ display = false
 
 [node name="SummonIcon" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.588235)
-layout_mode = 2
-offset_left = 27.0
-offset_top = 27.0
-offset_right = 27.0
-offset_bottom = 27.0
+layout_mode = 0
+offset_left = 27.5
+offset_top = 27.5
+offset_right = 27.5
+offset_bottom = 27.5
 scale = Vector2(0.09, 0.09)
 texture = ExtResource("3_nwq25")
 expand_mode = 1
@@ -101,4 +101,8 @@ stretch_mode = 3
 
 [node name="DrawHelp" type="Control" parent="."]
 anchors_preset = 0
+offset_left = 27.5
+offset_top = 27.5
+offset_right = 27.5
+offset_bottom = 27.5
 script = ExtResource("4_v6kgq")
