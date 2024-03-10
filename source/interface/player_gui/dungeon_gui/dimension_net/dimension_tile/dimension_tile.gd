@@ -12,7 +12,6 @@ extends TextureRect
 
 # signals
 signal pressed
-signal dragged
 
 # signals callbacks
 func _input(event):
@@ -22,7 +21,3 @@ func _input(event):
         # check event inside dice
         if rect.has_point(event.position):
             pressed.emit(self, event.position)
-    elif event is InputEventScreenDrag:
-        # check event inside dice
-        #if rect.has_point(event.position):
-        dragged.emit(event.position)

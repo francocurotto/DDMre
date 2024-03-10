@@ -49,7 +49,6 @@ var selection_pos = false
 func _ready():
     for dim_tile in $Grid.get_children():
         dim_tile.pressed.connect(on_dim_tile_pressed)
-        dim_tile.dragged.connect(on_dim_tile_dragged)
 
 func _process(delta):
         time += delta
@@ -69,11 +68,20 @@ func on_dim_tile_pressed(dim_tile, press_pos):
         rotation_pos = press_pos
         selection_pos = null
         
-func on_dim_tile_dragged(drag_pos):
+func on_net_dragged(drag_pos):
     if rotation_pos:
         on_rotation_drag(drag_pos)
     elif selection_pos:
         on_selection_drag(drag_pos)
+
+func _input(event):
+    if event is InputEventScreenDrag:
+        # check event inside dice
+        on_net_dragged(event.position)
+    elif event is InputEventScreenTouch and not event.pressed:
+        rotation_pos = null
+        selection_pos = null
+        $DrawHelp.clear_draw()
 
 # private functions
 func display_net(net_indeces):
