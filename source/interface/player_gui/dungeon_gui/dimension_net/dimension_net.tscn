@@ -12,7 +12,7 @@ script = ExtResource("1_kqtt5")
 
 [node name="Grid" type="GridContainer" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.328884)
+modulate = Color(1, 1, 1, 0.388124)
 layout_mode = 2
 offset_left = -55.0
 offset_top = -110.0
@@ -26,22 +26,18 @@ columns = 3
 
 [node name="DimensionTile1" parent="Grid" instance=ExtResource("1_aptut")]
 layout_mode = 2
-texture = null
 display = false
 
 [node name="DimensionTile2" parent="Grid" instance=ExtResource("1_aptut")]
 layout_mode = 2
-texture = null
 display = false
 
 [node name="DimensionTile3" parent="Grid" instance=ExtResource("1_aptut")]
 layout_mode = 2
-texture = null
 display = false
 
 [node name="DimensionTile4" parent="Grid" instance=ExtResource("1_aptut")]
 layout_mode = 2
-texture = null
 display = false
 
 [node name="DimensionTile5" parent="Grid" instance=ExtResource("1_aptut")]
@@ -49,7 +45,6 @@ layout_mode = 2
 
 [node name="DimensionTile6" parent="Grid" instance=ExtResource("1_aptut")]
 layout_mode = 2
-texture = null
 display = false
 
 [node name="DimensionTile7" parent="Grid" instance=ExtResource("1_aptut")]
@@ -63,7 +58,6 @@ layout_mode = 2
 
 [node name="DimensionTile10" parent="Grid" instance=ExtResource("1_aptut")]
 layout_mode = 2
-texture = null
 display = false
 
 [node name="DimensionTile11" parent="Grid" instance=ExtResource("1_aptut")]
@@ -71,12 +65,10 @@ layout_mode = 2
 
 [node name="DimensionTile12" parent="Grid" instance=ExtResource("1_aptut")]
 layout_mode = 2
-texture = null
 display = false
 
 [node name="DimensionTile13" parent="Grid" instance=ExtResource("1_aptut")]
 layout_mode = 2
-texture = null
 display = false
 
 [node name="DimensionTile14" parent="Grid" instance=ExtResource("1_aptut")]
@@ -84,7 +76,6 @@ layout_mode = 2
 
 [node name="DimensionTile15" parent="Grid" instance=ExtResource("1_aptut")]
 layout_mode = 2
-texture = null
 display = false
 
 [node name="SummonIcon" type="TextureRect" parent="."]

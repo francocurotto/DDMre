@@ -1,24 +1,19 @@
 @tool
-extends TextureRect
+extends MarginContainer
 
 # export variables
 @export var display : bool = true:
     set(_display):
         display = _display
         if display:
-            texture = load("res://assets/icons/TILE_HIGHLIGHT.svg")
+            $Icon.texture = load("res://assets/icons/TILE_HIGHLIGHT.svg")
         else:
-            texture = null
+            $Icon.texture = null
 
 # signals
 signal pressed
 
 # signals callbacks
-func _input(event):
-    var rect = Rect2(global_position, size)
-    # check event type
-    if event is InputEventScreenTouch and event.pressed:
-        # check event inside dice
-        if rect.has_point(event.position):
-            print(rect)
-            pressed.emit(self, event.position)
+func _on_button_button_down():
+    var pressed_pos = get_viewport().get_mouse_position()
+    pressed.emit(self, pressed_pos)
