@@ -20,4 +20,5 @@ func _input(event):
     if event is InputEventScreenTouch and event.pressed:
         # check event inside dice
         if rect.has_point(event.position):
+            print(rect)
             pressed.emit(self, event.position)

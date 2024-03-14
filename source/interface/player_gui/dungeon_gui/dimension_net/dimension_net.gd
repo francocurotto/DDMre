@@ -47,6 +47,7 @@ var selection_pos = false
 @onready var center_tile = $Grid/DimensionTile8
 
 func _ready():
+    print($Grid/DimensionTile9.get_rect())
     for dim_tile in $Grid.get_children():
         dim_tile.pressed.connect(on_dim_tile_pressed)
 
