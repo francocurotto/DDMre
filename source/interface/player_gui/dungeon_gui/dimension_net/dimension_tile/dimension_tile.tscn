@@ -18,7 +18,6 @@ expand_mode = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
-mouse_filter = 1
 theme_override_styles/focus = SubResource("StyleBoxEmpty_o0n2h")
 flat = true
 

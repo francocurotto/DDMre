@@ -48,7 +48,7 @@ var selection_pos = false
 
 func _ready():
     for dim_tile in $Grid.get_children():
-        dim_tile.pressed.connect(on_dim_tile_pressed)
+        dim_tile.button_down.connect(on_dim_tile_button_down)
 
 func _process(delta):
         time += delta
@@ -60,7 +60,7 @@ func get_net():
     return NetCreator.create_net(net, Vector2i(0,0), [])
 
 # signals callbacks
-func on_dim_tile_pressed(dim_tile, press_pos):
+func on_dim_tile_button_down(dim_tile, press_pos):
     if dim_tile == center_tile:
         rotation_pos = null
         selection_pos = press_pos

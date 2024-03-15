@@ -11,9 +11,9 @@ extends MarginContainer
             $Icon.texture = null
 
 # signals
-signal pressed
+signal button_down
 
 # signals callbacks
 func _on_button_button_down():
     var pressed_pos = get_viewport().get_mouse_position()
-    pressed.emit(self, pressed_pos)
+    button_down.emit(self, pressed_pos)
