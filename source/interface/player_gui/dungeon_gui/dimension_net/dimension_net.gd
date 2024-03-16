@@ -22,7 +22,7 @@ var summon_type : String = "DRAGON" :
 
 # constants
 const FREQ = 0.3
-const DRAG_THRESHOLD = deg_to_rad(90)
+const DRAG_THRESHOLD = deg_to_rad(30)
 const NETDICT = {
     "X1" : [4, 6, 7,  8, 10, 13], 
     "X2" : [4, 6, 7, 10, 11, 13],
@@ -46,10 +46,6 @@ var selection_pos = false
 # onready variables
 @onready var center_tile = $Grid/DimensionTile8
 
-func _ready():
-    for dim_tile in $Grid.get_children():
-        dim_tile.button_down.connect(on_dim_tile_button_down)
-
 func _process(delta):
         time += delta
         var alpha = abs(sin(2*PI*FREQ*time))/2 + 0.1
@@ -60,28 +56,35 @@ func get_net():
     return NetCreator.create_net(net, Vector2i(0,0), [])
 
 # signals callbacks
-func on_dim_tile_button_down(dim_tile, press_pos):
-    if dim_tile == center_tile:
+func _input(event):
+    if event is InputEventScreenTouch:
+        if event.pressed:
+            on_net_pressed(event.position)
+        else:
+            on_net_released()
+    elif event is InputEventScreenDrag:
+        on_net_dragged(event.position)
+
+func on_net_pressed(press_pos):
+    var center_rect = Rect2(global_position, center_tile.size)
+    if center_rect.has_point(press_pos):
         rotation_pos = null
         selection_pos = press_pos
-    else:
+    # get rect for rotate from parent (dungeon gui)
+    elif get_parent().get_global_rect().has_point(press_pos):
         rotation_pos = press_pos
         selection_pos = null
+
+func on_net_released():
+    rotation_pos = null
+    selection_pos = null
+    $DrawHelp.clear_draw()
         
 func on_net_dragged(drag_pos):
     if rotation_pos:
         on_rotation_drag(drag_pos)
     elif selection_pos:
         on_selection_drag(drag_pos)
-
-func _input(event):
-    if event is InputEventScreenDrag:
-        # check event inside dice
-        on_net_dragged(event.position)
-    elif event is InputEventScreenTouch and not event.pressed:
-        rotation_pos = null
-        selection_pos = null
-        $DrawHelp.clear_draw()
 
 # private functions
 func display_net(net_indeces):
