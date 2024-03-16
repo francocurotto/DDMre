@@ -13,6 +13,12 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_bv1a7")
 script = ExtResource("1_jkgw4")
 
+[node name="DimensionNode" type="Control" parent="."]
+clip_children = 1
+z_index = 1
+layout_mode = 2
+mouse_filter = 2
+
 [node name="Rows" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 0
@@ -1105,8 +1111,3 @@ disabled = false
 [node name="TileGui13" parent="Rows/Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
 disabled = false
-
-[node name="DimensionNode" type="Control" parent="."]
-clip_children = 1
-layout_mode = 2
-mouse_filter = 2
