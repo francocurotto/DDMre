@@ -12,7 +12,7 @@ script = ExtResource("1_kqtt5")
 
 [node name="Grid" type="GridContainer" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.500383)
+modulate = Color(1, 1, 1, 0.272465)
 layout_mode = 2
 offset_left = -55.0
 offset_top = -110.0
@@ -99,6 +99,7 @@ expand_mode = 1
 stretch_mode = 3
 
 [node name="DrawHelp" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 27.5
 offset_top = 27.5

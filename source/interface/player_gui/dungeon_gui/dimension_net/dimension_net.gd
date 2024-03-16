@@ -22,7 +22,7 @@ var summon_type : String = "DRAGON" :
 
 # constants
 const FREQ = 0.3
-const DRAG_THRESHOLD = deg_to_rad(30)
+const DRAG_THRESHOLD = deg_to_rad(45)
 const NETDICT = {
     "X1" : [4, 6, 7,  8, 10, 13], 
     "X2" : [4, 6, 7, 10, 11, 13],
