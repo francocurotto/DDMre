@@ -1,11 +1,14 @@
 @tool
 extends Control
 
-@export_enum("X1", "X2", "T1", "T2", "Z1", "Z2", "M1", "M2", "S1", "S2", "L1")
+# export variables
+@export_enum("X1", "X2", "X2F", "T1", "T2", "T2F", "Z1", "Z1F", "Z2", "Z2F", "M1", "M1F", "M2", 
+    "M2F", "S1", "S1F", "S2", "S2F", "L1", "L1F")
 var net : String = "X1" :
     set(_net):
         net = _net
         display_net(NETDICT[net])
+        net_changed.emit()
 
 @export var net_rotation : int = 0 :
     set(_net_rotation):
@@ -24,18 +27,28 @@ var summon_type : String = "DRAGON" :
 # constants
 const FREQ = 0.3
 const ROTATION_THRESHOLD = deg_to_rad(45)
+const SELECTION_LENGTH = 30
 const NETDICT = {
-    "X1" : [4, 6, 7,  8, 10, 13], 
-    "X2" : [4, 6, 7, 10, 11, 13],
-    "T1" : [3, 4, 5,  7, 10, 13],
-    "T2" : [3, 4, 7,  8, 10, 13],
-    "Z1" : [3, 4, 7, 10, 13, 14],
-    "Z2" : [3, 4, 7, 10, 11, 13],
-    "M1" : [3, 4, 7, 10, 11, 14],
-    "M2" : [3, 6, 7, 10 ,11, 14],
-    "S1" : [3, 6, 7,  8, 10, 13],
-    "S2" : [3, 6, 7, 10, 11, 13],
-    "L1" : [1, 4, 7,  8, 11, 14]
+    "X1"  : [4, 6, 7,  8, 10, 13], 
+    "X2"  : [4, 6, 7, 10, 11, 13],
+    "X2F" : [4, 7, 8,  9, 10, 13],
+    "T1"  : [3, 4, 5,  7, 10, 13],
+    "T2"  : [3, 4, 7,  8, 10, 13],
+    "T2F" : [4, 5, 6,  7, 10, 13],
+    "Z1"  : [3, 4, 7, 10, 13, 14],
+    "Z1F" : [4, 5, 7, 10, 12, 13],
+    "Z2"  : [3, 4, 7, 10, 11, 13],
+    "Z2F" : [4, 5, 7,  9, 10, 13],
+    "M1"  : [3, 4, 7, 10, 11, 14],
+    "M1F" : [4, 5, 7,  9, 10, 12],
+    "M2"  : [3, 6, 7, 10 ,11, 14],
+    "M2F" : [5, 7, 8,  9 ,10, 12],
+    "S1"  : [3, 6, 7,  8, 10, 13],
+    "S1F" : [5, 6, 7,  8, 10, 13],
+    "S2"  : [3, 6, 7, 10, 11, 13],
+    "S2F" : [5, 7, 8,  9, 10, 13],
+    "L1"  : [1, 4, 7,  8, 11, 14],
+    "L1F" : [1, 4, 6,  7,  9, 12]
 }
 const NetCreator = preload("res://engine/states/net_creator.gd")
 
@@ -43,6 +56,8 @@ const NetCreator = preload("res://engine/states/net_creator.gd")
 var time = 0
 var rotation_pos = false
 var selection_pos = false
+var net_index = 0
+
 
 # singals
 signal net_changed
@@ -54,13 +69,19 @@ func _process(delta):
 
 # public functions
 func get_net():
+    var net_name = net
     var trans = []
+    # add flip if necessary
+    if len(net) == 3:
+        net_name = net.substr(0,2)
+        trans.append("FLR")
+    # add rotations
     for i in range(abs(net_rotation)):
         if sign(net_rotation):
             trans.append("TCW")
         else:
             trans.append("TAW") 
-    return NetCreator.create_net(net, Vector2i(0,0), trans)
+    return NetCreator.create_net(net_name, Vector2i(0,0), trans)
 
 # signals callbacks
 func _input(event):
@@ -70,7 +91,7 @@ func _input(event):
         else:
             on_net_released()
     elif event is InputEventScreenDrag:
-        on_net_dragged(event.position)
+        on_net_dragged(event)
 
 func on_net_pressed(press_pos):
     var center_rect = Rect2(global_position, $Grid/DimensionTile1.size)
@@ -87,11 +108,11 @@ func on_net_released():
     selection_pos = null
     $DrawHelp.clear_draw()
         
-func on_net_dragged(drag_pos):
+func on_net_dragged(event):
     if rotation_pos:
-        on_rotation_drag(drag_pos)
+        on_rotation_drag(event.position)
     elif selection_pos:
-        on_selection_drag(drag_pos)
+        on_selection_drag(event)
 
 # private functions
 func display_net(net_indeces):
@@ -99,8 +120,8 @@ func display_net(net_indeces):
         %Grid.get_child(i).display = i in net_indeces
 
 func on_rotation_drag(drag_pos):
-    var net_center = $SummonIcon.global_position
     $DrawHelp.draw_rotation(rotation_pos, drag_pos)
+    var net_center = $SummonIcon.global_position
     var base_rotation_pos = rotation_pos - net_center
     var base_drag_pos = drag_pos - net_center
     if base_rotation_pos.angle_to(base_drag_pos) > ROTATION_THRESHOLD:
@@ -110,5 +131,8 @@ func on_rotation_drag(drag_pos):
         net_rotation -= 1
         rotation_pos = drag_pos
 
-func on_selection_drag(_drag_pos):
-    pass
+func on_selection_drag(event):
+    var pos1 = int(event.position.x/SELECTION_LENGTH)
+    var pos2 = int((event.position.x-event.relative.x)/SELECTION_LENGTH)
+    var index = (NETDICT.keys().find(net) + (pos1-pos2)) % NETDICT.size()
+    net = NETDICT.keys()[index]
