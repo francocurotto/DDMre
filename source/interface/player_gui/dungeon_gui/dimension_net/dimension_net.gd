@@ -13,6 +13,7 @@ var net : String = "X1" :
         var tween = create_tween()
         tween.tween_property($Grid, "rotation", net_rotation*PI/2, 0.5)\
         .set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+        net_changed.emit()
 
 @export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM")
 var summon_type : String = "DRAGON" :
@@ -22,7 +23,7 @@ var summon_type : String = "DRAGON" :
 
 # constants
 const FREQ = 0.3
-const DRAG_THRESHOLD = deg_to_rad(45)
+const ROTATION_THRESHOLD = deg_to_rad(45)
 const NETDICT = {
     "X1" : [4, 6, 7,  8, 10, 13], 
     "X2" : [4, 6, 7, 10, 11, 13],
@@ -43,8 +44,8 @@ var time = 0
 var rotation_pos = false
 var selection_pos = false
 
-# onready variables
-@onready var center_tile = $Grid/DimensionTile8
+# singals
+signal net_changed
 
 func _process(delta):
         time += delta
@@ -53,7 +54,13 @@ func _process(delta):
 
 # public functions
 func get_net():
-    return NetCreator.create_net(net, Vector2i(0,0), [])
+    var trans = []
+    for i in range(abs(net_rotation)):
+        if sign(net_rotation):
+            trans.append("TCW")
+        else:
+            trans.append("TAW") 
+    return NetCreator.create_net(net, Vector2i(0,0), trans)
 
 # signals callbacks
 func _input(event):
@@ -66,7 +73,7 @@ func _input(event):
         on_net_dragged(event.position)
 
 func on_net_pressed(press_pos):
-    var center_rect = Rect2(global_position, center_tile.size)
+    var center_rect = Rect2(global_position, $Grid/DimensionTile1.size)
     if center_rect.has_point(press_pos):
         rotation_pos = null
         selection_pos = press_pos
@@ -96,10 +103,10 @@ func on_rotation_drag(drag_pos):
     $DrawHelp.draw_rotation(rotation_pos, drag_pos)
     var base_rotation_pos = rotation_pos - net_center
     var base_drag_pos = drag_pos - net_center
-    if base_rotation_pos.angle_to(base_drag_pos) > DRAG_THRESHOLD:
+    if base_rotation_pos.angle_to(base_drag_pos) > ROTATION_THRESHOLD:
         net_rotation += 1
         rotation_pos = drag_pos
-    elif base_rotation_pos.angle_to(base_drag_pos) < -DRAG_THRESHOLD:
+    elif base_rotation_pos.angle_to(base_drag_pos) < -ROTATION_THRESHOLD:
         net_rotation -= 1
         rotation_pos = drag_pos
 
