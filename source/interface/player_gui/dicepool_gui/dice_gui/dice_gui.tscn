@@ -61,6 +61,7 @@ expand_icon = true
 
 [node name="RollSides" parent="." instance=ExtResource("4_whiai")]
 visible = false
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
 [connection signal="resized" from="." to="." method="_on_resized"]
