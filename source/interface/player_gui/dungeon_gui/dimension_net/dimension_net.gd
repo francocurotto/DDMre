@@ -70,7 +70,6 @@ func _process(delta):
 # public functions
 func get_net():
     var trans = get_trans_list()
-    print(trans)
     return NetCreator.create_net(net.substr(0,2), Vector2i(0,0), trans)
 
 func get_trans_list():

@@ -22,11 +22,12 @@ func set_tile_icon():
     $PathTile.visible = true
     if tile_type == "OPEN":
         $PathTile.visible = false
-    elif tile_type == "PLAYER":
+    elif tile_type in ["BLOCK", "NEUTRAL"]:
+        $PathTile.texture_normal = load("res://assets/icons/TILE_%s.svg" % tile_type)
+    elif tile_player in [1,2]:
         var tile_name = "TILE_PLAYER_P%d" % tile_player
         $PathTile.texture_normal = load("res://assets/icons/%s.svg" % tile_name)
-    else:
-        $PathTile.texture_normal = load("res://assets/icons/TILE_%s.svg" % tile_type)
+        
 
 @export_enum("NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", 
     "ITEM", "MONSTER_LORD")
@@ -45,7 +46,7 @@ func set_dungobj_icon():
         %DungobjIcon.texture = null
     elif dungobj_type == "MONSTER_LORD":
         %DungobjIcon.texture = load("res://assets/icons/MONSTER_LORD.svg")
-    else:
+    elif dungobj_player in [1,2]:
         var dungobj_icon = "SUMMON_%s_P%d" % [dungobj_type, dungobj_player]
         %DungobjIcon.texture = load("res://assets/icons/%s.svg" % dungobj_icon)
 
@@ -68,6 +69,10 @@ func setup(_tile):
     dungobj_type = tile.content.TYPE
     dungobj_player = tile.content.playerid
 
+func tween_dim_appear(tween):
+    tween.tween_property($PathTile, "modulate", Color(1,1,1,1), 1).from(Color(1,1,1,0))
+
+# signals callbacks
 func _on_path_tile_toggled(toggled_on):
     select_button_toggled.emit(self, toggled_on)
 

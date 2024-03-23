@@ -64,6 +64,15 @@ func on_dimension_net_changed(can_dimension):
 func input_roll_cmd(roll_indeces):
     engine.update({"cmd":"ROLL", "dice":roll_indeces})
 
+func _on_dim_button_pressed():
+    var dim_cmd = {"cmd" : "DIM"}
+    dim_cmd.merge({"dice" : %DicepoolGUI.get_dim_dice_index()})
+    dim_cmd.merge(%DungeonGUI.get_dim_params())
+    engine.update(dim_cmd)
+    %DungeonGUI.update()
+    %DimButton.disabled = true
+    %DungeonGUI.dimension_animation()
+
 # private functions
 func switch_to_end_turn_button():
     for button in %ActionButtons.get_children():
@@ -74,11 +83,3 @@ func switch_to_dim_button():
     for button in %ActionButtons.get_children():
         button.visible = false
     %DimButton.visible = true
-
-func _on_dim_button_pressed():
-    var dim_cmd = {"cmd" : "DIM"}
-    dim_cmd.merge({"dice" : %DicepoolGUI.get_dim_dice_index()})
-    dim_cmd.merge(%DungeonGUI.get_dim_params())
-    engine.update(dim_cmd)
-    %DungeonGUI.update()
-    #%DungeonGUI.on_dim_button_pressed()

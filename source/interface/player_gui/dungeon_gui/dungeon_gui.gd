@@ -51,6 +51,15 @@ func get_dim_params():
         "trans" : dimension_net.get_trans_list()}
     return dim_params
 
+func dimension_animation():
+    var net = dimension_net.get_net()
+    dimension_net.queue_free()
+    net.add_offset(get_tile_gui_position(dim_tile))
+    var tween = create_tween()
+    for net_pos in net.poslist:
+        var tile_gui = get_tile_gui(net_pos)
+        tile_gui.tween_dim_appear(tween)
+
 # signals callbacks
 func on_tile_gui_toggled(tile_gui, toggled_on):
     tile_gui_toggled.emit(tile_gui, toggled_on)
@@ -85,13 +94,6 @@ func on_summon_button_pressed(dice_gui):
     enable_dim_buttons()
     # move to starting position
     dim_tile._on_dim_button_toggled(true)
-
-func on_dim_button_pressed():
-    var net = dimension_net.get_net()
-    net.add_offset(get_tile_gui_position(dim_tile))
-    for net_pos in net:
-        var tile_gui = get_tile_gui(net_pos)
-        tile_gui.tween_appear()
 
 # private functions
 func toggle_off_tile_gui():

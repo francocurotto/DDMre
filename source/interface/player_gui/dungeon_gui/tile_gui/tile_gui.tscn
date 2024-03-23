@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bgnu02inrq1xk" path="res://assets/icons/TILE_OPEN.svg" id="2_begun"]
 [ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/tile_gui/tile_gui.gd" id="2_v0dfj"]
-[ext_resource type="Texture2D" uid="uid://cm8yjbanfcun6" path="res://assets/icons/TILE_BLOCK.svg" id="3_1kxwl"]
+[ext_resource type="Texture2D" uid="uid://k0u5wouapnjk" path="res://assets/icons/TILE_PLAYER_P1.svg" id="3_b1fyi"]
 [ext_resource type="Texture2D" uid="uid://ktpwkfse3xso" path="res://assets/icons/TILE_HIGHLIGHT.svg" id="3_h72b4"]
 
 [node name="TileGUI" type="AspectRatioContainer"]
@@ -23,7 +23,7 @@ layout_mode = 2
 disabled = true
 toggle_mode = true
 action_mode = 0
-texture_normal = ExtResource("3_1kxwl")
+texture_normal = ExtResource("3_b1fyi")
 texture_pressed = ExtResource("3_h72b4")
 ignore_texture_size = true
 stretch_mode = 5
