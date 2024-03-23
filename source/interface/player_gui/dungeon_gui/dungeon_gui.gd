@@ -114,9 +114,9 @@ func enable_dim_buttons():
 
 func get_tile_gui(pos):
     var y = pos.y
-    if player.id == 2: # correct for player 2 reflection
+    if player.id == 1: # correct for player 2 reflection
         y = $Rows.get_child_count() - pos.y - 1
-    var row = $Rows.get_child(pos.y)
+    var row = $Rows.get_child(y)
     var tile_gui = row.get_child(pos.x)
     return tile_gui
 

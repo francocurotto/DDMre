@@ -70,6 +70,7 @@ func _process(delta):
 # public functions
 func get_net():
     var trans = get_trans_list()
+    print(trans)
     return NetCreator.create_net(net.substr(0,2), Vector2i(0,0), trans)
 
 func get_trans_list():
@@ -79,7 +80,7 @@ func get_trans_list():
         trans.append("FLR")
     # add rotations
     for i in range(abs(net_rotation)):
-        if sign(net_rotation):
+        if net_rotation > 0:
             trans.append("TCW")
         else:
             trans.append("TAW") 
