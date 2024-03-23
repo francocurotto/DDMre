@@ -26,7 +26,7 @@ func set_tile_icon():
         var tile_name = "TILE_PLAYER_P%d" % tile_player
         $PathTile.texture_normal = load("res://assets/icons/%s.svg" % tile_name)
     else:
-        $PaTile.texture_normal = load("res://assets/icons/TILE_%s.svg" % tile_type)
+        $PathTile.texture_normal = load("res://assets/icons/TILE_%s.svg" % tile_type)
 
 @export_enum("NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", 
     "ITEM", "MONSTER_LORD")

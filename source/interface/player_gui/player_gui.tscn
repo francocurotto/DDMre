@@ -86,3 +86,4 @@ layout_mode = 2
 size_flags_stretch_ratio = 0.5
 
 [connection signal="toggled" from="VBoxContainer/PanelContainer/VBoxContainer/ButtonsRow/DicepoolButton" to="." method="_on_dicepool_button_toggled"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/ButtonsRow/ActionButtons/DimButton" to="." method="_on_dim_button_pressed"]

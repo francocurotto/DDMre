@@ -25,16 +25,8 @@ func _ready():
 func setup(_player, _dungeon):
     player = _player
     dungeon = _dungeon
-    # get row guis
-    var rows = $Rows.get_children()
-    if player.id == 1: # reverse row orientation if player 1
-        rows.reverse()
-    for i in len(rows):
-        var row = rows[i].get_children()
-        for j in len(row):
-            var tile = dungeon.grid[i][j]
-            var tile_gui = row[j]
-            tile_gui.setup(tile)
+    for rows in $Rows.get_children():
+        for tile_gui in rows.get_children():
             # tile gui button group
             tile_gui.path_tile.button_group = tile_guis_button_group
             tile_gui.select_button_toggled.connect(on_tile_gui_toggled)
@@ -42,6 +34,22 @@ func setup(_player, _dungeon):
             tile_gui.dim_button.button_group = dim_button_group
             tile_gui.dim_button_toggled.connect(on_tile_dim_button_toggled)
             tile_guis.append(tile_gui)
+    update()
+
+func update():
+    # get row guis
+    for i in $Rows.get_child_count():
+        for j in $Rows.get_child(0).get_child_count():
+            var tile = dungeon.grid[i][j]
+            var tile_gui = get_tile_gui(Vector2i(j,i))
+            tile_gui.setup(tile)
+
+func get_dim_params():
+    var dim_params = {
+        "net" : dimension_net.net.substr(0,2),
+        "pos" : get_tile_gui_position(dim_tile),
+        "trans" : dimension_net.get_trans_list()}
+    return dim_params
 
 # signals callbacks
 func on_tile_gui_toggled(tile_gui, toggled_on):
@@ -78,6 +86,13 @@ func on_summon_button_pressed(dice_gui):
     # move to starting position
     dim_tile._on_dim_button_toggled(true)
 
+func on_dim_button_pressed():
+    var net = dimension_net.get_net()
+    net.add_offset(get_tile_gui_position(dim_tile))
+    for net_pos in net:
+        var tile_gui = get_tile_gui(net_pos)
+        tile_gui.tween_appear()
+
 # private functions
 func toggle_off_tile_gui():
     var pressed_tile_button = tile_guis_button_group.get_pressed_button()
@@ -96,6 +111,14 @@ func enable_tile_guis():
 func enable_dim_buttons():
     for tile_gui in tile_guis:
         tile_gui.dim_button.visible = true
+
+func get_tile_gui(pos):
+    var y = pos.y
+    if player.id == 2: # correct for player 2 reflection
+        y = $Rows.get_child_count() - pos.y - 1
+    var row = $Rows.get_child(pos.y)
+    var tile_gui = row.get_child(pos.x)
+    return tile_gui
 
 func get_tile_gui_position(tile_gui):
     var x = tile_gui.get_index()

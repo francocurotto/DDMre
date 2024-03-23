@@ -10,6 +10,7 @@ var dice_selector
 var move_time = 0.7
 var roll_dice_guis = []
 var dim_candidates = []
+var dim_dice
 
 # signals
 signal dice_gui_selected(dice)
@@ -61,6 +62,9 @@ func switch_to_summon_buttons():
         on_dice_entered(dice_selector.get_parent())
     %RollButton.visible = false
     %SummonButtons.visible = true
+
+func get_dim_dice_index():
+    return dicepool.find(dim_dice.dice)
 
 # signals callbacks
 func on_dice_entered(dice_gui):
@@ -157,7 +161,8 @@ func _on_roll_button_pressed():
     roll_button_pressed.emit(roll_indeces)
 
 func _on_summon_button_pressed():
-    summon_button_pressed.emit(dice_selector.get_parent())
+    dim_dice = dice_selector.get_parent()
+    summon_button_pressed.emit(dim_dice)
 
 # private functions
 func enable_dice_guis():

@@ -74,3 +74,11 @@ func switch_to_dim_button():
     for button in %ActionButtons.get_children():
         button.visible = false
     %DimButton.visible = true
+
+func _on_dim_button_pressed():
+    var dim_cmd = {"cmd" : "DIM"}
+    dim_cmd.merge({"dice" : %DicepoolGUI.get_dim_dice_index()})
+    dim_cmd.merge(%DungeonGUI.get_dim_params())
+    engine.update(dim_cmd)
+    %DungeonGUI.update()
+    #%DungeonGUI.on_dim_button_pressed()

@@ -69,11 +69,13 @@ func _process(delta):
 
 # public functions
 func get_net():
-    var net_name = net
+    var trans = get_trans_list()
+    return NetCreator.create_net(net.substr(0,2), Vector2i(0,0), trans)
+
+func get_trans_list():
     var trans = []
     # add flip if necessary
     if len(net) == 3:
-        net_name = net.substr(0,2)
         trans.append("FLR")
     # add rotations
     for i in range(abs(net_rotation)):
@@ -81,7 +83,7 @@ func get_net():
             trans.append("TCW")
         else:
             trans.append("TAW") 
-    return NetCreator.create_net(net_name, Vector2i(0,0), trans)
+    return trans
 
 # signals callbacks
 func _input(event):
