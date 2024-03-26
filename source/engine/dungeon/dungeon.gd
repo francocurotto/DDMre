@@ -22,82 +22,63 @@ func _init():
         grid.append(row)
 
 # setget functions
+## Set the dungeon tiles given a [param layout] array. Uses [param player1],
+## and [param player2] for tile generation.
 func set_layout(player1, player2, layout):
-    """
-    Set the dungeon tiles given a layout array.
-    """
     layout.reverse() # correction for reverse order in json format
     for y in Globals.DUNGEON_HEIGHT:
         for x in Globals.DUNGEON_WIDTH:
             grid[y][x] = create_tile(player1, player2, layout[y][x], y, x)
 
+## Returns the tile at postion [param pos].
 func get_tile(pos):
-    """
-    Returns the tile at postion pos.
-    """
     return grid[pos.y][pos.x]
 
+## Get an 1D array of tiles.
 func get_tiles():
-    """
-    Get an 1D array of tiles.
-    """
     var tiles_array = []
     for row in grid:
         tiles_array += row
     return tiles_array
 
+## Get all monsters in dungeon.
 func get_monsters():
-    """
-    Get all monsters in dungeon.
-    """
-    #GODOT4: use array filter
-    #GODOT4: remove self
     var monsters_array = []
-    for tile in self.tiles:
+    for tile in tiles:
         if tile.content.is_monster():
             monsters_array.append(tile.content)
     return monsters_array
 
+## Get all summons in dungeon.
 func get_summons():
-    """
-    Get all summons in dungeon.
-    """
-    #GODOT4: use array filter
-    #GODOT4: remove self
     var summons_array = []
-    for tile in self.tiles:
+    for tile in tiles:
         if tile.content.is_summon():
             summons_array.append(tile.content)
     return summons_array
 
+## Computes the maximum number of tiles a [param monster] can move. 
+## It takes into account:
+## - number of move crests
+## - monster speed possibly modified by abilities
+## - monster maximum movement tiles possibly modified by abilities
+## - dungeon move cost possibly modified by item abilities
 func get_max_move_tiles(monster):
-    """
-    Computes the maximum number of tiles a monster can move. 
-    It takes into account:
-    - number of move crests
-    - monster speed possibly modified by abilities
-    - monster maximum movement tiles possibly modified by abilities
-    - dungeon move cost possibly modified by item abilities
-    """
     var move_crests = monster.player.crestpool.movement
     return min(floor(move_crests/move_cost*monster.speed), monster.max_move)
 
+## Get the movement cost of a [param monster] moving through a [param path]. 
+## It takes into account:
+## - path length
+## - monster speed possibly modified by abilities
+## - dungeon move cost possibly modified by item abilities
 func get_move_cost(path, monster):
-    """
-    Get movement cost of monster moving through path. It takes into account:
-    - path length
-    - monster speed possibly modified by abilities
-    - dungeon move cost possibly modified by item abilities
-    """
     var move_tiles = len(path)-1 
     return ceil(move_tiles/monster.speed*move_cost)
 
+## Get neighbours tiles of a [param tile].
 func get_neighbours_tiles(tile):
-    """
-    Get neighbours tiles to tile.
-    """
-    #GODOT4: change to vector2i
-    var deltas = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
+    var deltas = [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]
     var neighbours_tiles = []
     for delta in deltas:
         var new_pos = tile.pos + delta
@@ -117,63 +98,47 @@ func get_attack_tiles(monster):
     var attack_path_queue = AttackPathQueue.new(self, monster)
     return attack_path_queue.tiles
 
+## Get all tiles where a vortex is activated.
 func get_vortex_tiles():
-    """
-    Get all tiles where a vortex is activated.
-    """
-    #GODOT4: use array filter
-    var vortex_tiles = []
-    for tile in self.tiles:
-        if tile.vortex:
-            vortex_tiles.append(tile)
-    return vortex_tiles
-  
+    var vortex_tiles = tiles.filter(func(tile): return tile.vortex)
+    return vortex_tiles 
+ 
 # public functions
+## Place path tile for [param player] at postion [param pos].
 func place_path_tile(player, pos):
-    """
-    Place path tile for player at postion pos.
-    """
     grid[pos.y][pos.x] = player.create_tile(pos.y, pos.x)
 
+## Place empty tile at position [param pos].
 func place_open_tile(pos):
-    """
-    Place empty tile at position pos.
-    """
     grid[pos.y][pos.x] = OpenTile.new(pos.y, pos.x)
 
+## Summon card with index [param diceidx] of [param player] and place it in 
+## dungeon at position [param pos].
 func place_summon(player, pos, diceidx):
-    """
-    Summon card with index diceidx and place it in dungeon.
-    """
     var summon = player.summon_card(diceidx)
     get_tile(pos).content = summon
     summon.initialize_abilities(self)
-    Events.emit_signal("new_summon", summon)
     summon.activate_dim_abilities()
     return summon
 
+## Place a vortex in position [param pos].
 func place_vortex(pos):
-    """
-    Place a vortex in position pos.
-    """
     get_tile(pos).vortex = true
 
+## Dimension [param net] for [param player] and summon card in index 
+## [param diceidx] on center of net.
 func dimension(player, net, diceidx):
-    """
-    Dimension net for player and summon card on center of net.
-    """
     # place the net
     for pos in net.poslist:
         place_path_tile(player, pos)
     # place summon
     var summon = place_summon(player, net.centerpos, diceidx)
+    Events.new_dimension.emit_signal(summon, net)
     return summon
 
 # private functions
+## Create the appropiate tile given the character from the dungeon json.
 func create_tile(player1, player2, chr, y, x):
-    """
-    Create the appropiate tile given the character from the dungeon json.
-    """
     match chr:
         "O" : return OpenTile.new(y, x)
         "l" : return player1.create_ml_tile(y, x)
@@ -184,37 +149,27 @@ func create_tile(player1, player2, chr, y, x):
         "X" : return BlockTile.new(y, x)
 
 # is functions
+## Check if position [param pos] is within dungeon limits.
 func pos_within_dungeon(pos):
-    """
-    Check if position is within dungeon limits.
-    """
     var y_ok = 0 <= pos.y and pos.y <= Globals.DUNGEON_HEIGHT-1
     var x_ok = 0 <= pos.x and pos.x <= Globals.DUNGEON_WIDTH-1
     return y_ok and x_ok
 
+## Check if it is possible to dimension [param net] for [param player]. Return 
+## true if dimension is possible.
 func can_dimension(net, player):
-    """
-    Check if it is possible to dimension net. Return true if dimension
-    is possible.
-    """
     return net_inbound(net) and not net_overlaps(net) and net_connects(net, player)
 
+## Return true if [param net] is inbound of dungeon.
 func net_inbound(net):
-    """
-    Return true if net is inbound of dungeon.
-    """
     return net.poslist.all(pos_within_dungeon)
 
+## Return true if [param net] overlaps current path in dungeon.
 func net_overlaps(net):
-    """
-    Return true if net overlaps current path in dungeon.
-    """
     return net.poslist.any(func(pos): return not get_tile(pos).is_open())
 
+## Return true if [param net] connects player path.
 func net_connects(net, player):
-    """
-    Return true if net connects player path.
-    """
     for pos in net.poslist:
         for tile in get_neighbours_tiles(get_tile(pos)):
             if tile.is_player_path() and tile.player == player:

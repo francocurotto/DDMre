@@ -16,7 +16,11 @@ signal dice_rolled(sides)
 
 ## Emit when a card is summoned into the dungeon and send the summoned 
 ## [param summon]. Used to react to summons, such as in abilities effects.
-signal new_summon(summon)
+#signal new_summon(summon)
+
+## Emit when a dice is dimensioned on the dungeon, and [param summon] is being 
+## summoned, and [param net] is is placed.
+signal dice_dimensioned(summon, net)
 
 ## Emit when the engine state changes and send the new [param state_name]. Used 
 ## to make state dependent updates to the interface.

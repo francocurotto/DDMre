@@ -65,13 +65,11 @@ func input_roll_cmd(roll_indeces):
     engine.update({"cmd":"ROLL", "dice":roll_indeces})
 
 func _on_dim_button_pressed():
+    %DimButton.disabled = true
     var dim_cmd = {"cmd" : "DIM"}
     dim_cmd.merge({"dice" : %DicepoolGUI.get_dim_dice_index()})
     dim_cmd.merge(%DungeonGUI.get_dim_params())
     engine.update(dim_cmd)
-    %DungeonGUI.update()
-    %DimButton.disabled = true
-    %DungeonGUI.dimension_animation()
 
 # private functions
 func switch_to_end_turn_button():
