@@ -30,7 +30,7 @@ func on_next_turn(player, _turn):
                 else:
                     monster.max_move_behavior.remove_limit(0)
 
-func on_new_summon(_summon):
+func on_new_summon(_summon, _net):
     # add effect if effect flag is on
     if _summon.TYPE == type:
         if effect_flag:

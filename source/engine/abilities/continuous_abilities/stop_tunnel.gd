@@ -20,6 +20,6 @@ func deactivate():
             monster.get_ability("TUNNEL").remove_negate()
 
 # signals callbacks
-func on_new_summon(_summon):
+func on_new_summon(_summon, _net):
     if _summon.has_ability("TUNNEL"):
         _summon.get_ability("TUNNEL").negate()

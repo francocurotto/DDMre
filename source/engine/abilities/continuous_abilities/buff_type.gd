@@ -27,6 +27,6 @@ func deactivate():
             monster.debuff_attr(attr, amount)
 
 # signals callbacks
-func on_new_summon(_summon):
+func on_new_summon(_summon, _net):
     if _summon.TYPE == type:
         _summon.buff_attr(attr, amount)

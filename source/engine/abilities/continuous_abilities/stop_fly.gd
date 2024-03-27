@@ -20,6 +20,6 @@ func deactivate():
             monster.get_ability("FLY").remove_negate()
 
 # signals callbacks
-func on_new_summon(_summon):
+func on_new_summon(_summon, _net):
     if _summon.has_ability("FLY"):
         _summon.get_ability("FLY").negate()

@@ -9,8 +9,8 @@ func _init(ability_dict):
 
 # public functions
 func activate():
-    Events.connect("new_summon", Callable(self, "on_new_summon"))
-    Events.connect("next_turn", Callable(self, "on_next_turn"))
+    Events.new_dimension.connect(on_new_summon)
+    Events.new_dimension.connect(on_next_turn)
 
 func deactivate():
     # "if"s are not necessary for now, but are there for future proof.
@@ -18,10 +18,10 @@ func deactivate():
     # the disconnect will throw an error if not tested first, because the 
     # connections (on activate) are performed after the summon signal is 
     # triggered.
-    if Events.is_connected("new_summon", Callable(self, "on_new_summon")):
-        Events.disconnect("new_summon", Callable(self, "on_new_summon"))
-    if Events.is_connected("next_turn", Callable(self, "on_next_turn")):
-        Events.disconnect("next_turn", Callable(self, "on_next_turn"))
+    if Events.new_summon.is_connected(on_new_summon):
+        Events.new_summon.disconnect(on_new_summon)
+    if Events.next_turn.is_connected(on_next_turn):
+        Events.next_turn.disconnect(on_next_turn)
 
 func negate():
     super.negate()
@@ -34,7 +34,7 @@ func remove_negate():
         activate()
 
 # signals callbacks
-func on_new_summon(_summon):
+func on_new_summon(_summon, _net):
     pass
 
 func on_next_turn(_player, _turn):
