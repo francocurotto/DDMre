@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" path="res://tests/test.gd" id="1_fv52g"]
 
-[node name="Test" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Test" type="Button"]
 offset_right = 234.0
 offset_bottom = 230.0
 script = ExtResource("1_fv52g")

@@ -9,8 +9,8 @@ func _init(ability_dict):
 
 # public functions
 func activate():
-    Events.new_dimension.connect(on_new_summon)
-    Events.new_dimension.connect(on_next_turn)
+    Events.dice_dimensioned.connect(on_new_summon)
+    Events.next_turn.connect(on_next_turn)
 
 func deactivate():
     # "if"s are not necessary for now, but are there for future proof.

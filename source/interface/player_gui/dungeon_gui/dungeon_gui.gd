@@ -51,14 +51,25 @@ func get_dim_params():
         "trans" : dimension_net.get_trans_list()}
     return dim_params
 
-func dimension_animation():
-    var net = dimension_net.get_net()
-    dimension_net.queue_free()
-    net.add_offset(get_tile_gui_position(dim_tile))
+func on_dice_dimensioned(_summon, net):
+    # remove dimension net if exists
+    if is_instance_valid(dimension_net):
+        dimension_net.queue_free()
+    # make center tile appear
+    var tile_gui = get_tile_gui(net.centerpos)
+    var tile = dungeon.get_tile(net.centerpos)
     var tween = create_tween()
-    for net_pos in net.poslist:
-        var tile_gui = get_tile_gui(net_pos)
-        tile_gui.tween_dim_appear(tween)
+    tile_gui.tween_dim_appear(tween, tile)
+    await tween.finished
+    # make subsequent tiles fold
+    for i in range(len(net.poslist)-1):
+        tile_gui = get_tile_gui(net.poslist[i+1])
+        tile = dungeon.get_tile(net.poslist[i+1])
+        var _direction = net.poslist[i+1]-net.poslist[i]
+        tween = create_tween()
+        tile_gui.tween_dim_appear(tween, tile)
+        #tile_gui.tween_dim_fold(tween, tile, direction)
+        await tween.finished
 
 # signals callbacks
 func on_tile_gui_toggled(tile_gui, toggled_on):

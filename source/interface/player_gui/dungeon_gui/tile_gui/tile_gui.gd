@@ -69,7 +69,8 @@ func setup(_tile):
     dungobj_type = tile.content.TYPE
     dungobj_player = tile.content.playerid
 
-func tween_dim_appear(tween):
+func tween_dim_appear(tween, _tile):
+    setup(_tile)
     tween.tween_property($PathTile, "modulate", Color(1,1,1,1), 1).from(Color(1,1,1,0))
 
 # signals callbacks

@@ -133,7 +133,7 @@ func dimension(player, net, diceidx):
         place_path_tile(player, pos)
     # place summon
     var summon = place_summon(player, net.centerpos, diceidx)
-    Events.new_dimension.emit_signal(summon, net)
+    Events.dice_dimensioned.emit(summon, net)
     return summon
 
 # private functions
