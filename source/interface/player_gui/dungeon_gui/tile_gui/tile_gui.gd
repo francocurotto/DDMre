@@ -70,11 +70,14 @@ func setup(_tile):
 
 func tween_dim_appear(tween, _tile):
     setup(_tile)
-    tween.tween_property($PathTile, "modulate", Color(1,1,1,1), 1).from(Color(1,1,1,0))
+    tween.tween_property($PathTile, "modulate", Color(1,1,1,1), 1)
 
-func tween_dim_fold(tween, _tile, _direction):
+func tween_dim_fold(tween, _tile, unfold):
     setup(_tile)
-    tween.tween_property($PathTile, "scale", Vector2(1,1), 1).from(Vector2(0,0))
+    tween.tween_property($PathTile, "modulate", Color(1,1,1,1), 0)
+    #tween.tween_property($PathTile, "scale", Vector2(1,1), 1).from(Vector2(0,0))
+    tween.tween_property($PathTile, "scale", Vector2(1,1), 1).from(Vector2(unfold))
+    print(unfold)
 
 # signals callbacks
 func _on_path_tile_toggled(toggled_on):
