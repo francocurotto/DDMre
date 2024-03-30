@@ -59,16 +59,16 @@ func on_dice_dimensioned(_summon, net):
     var tile_gui = get_tile_gui(net.centerpos)
     var tile = dungeon.get_tile(net.centerpos)
     var tween = create_tween()
-    tile_gui.tween_dim_appear(tween, tile)
+    #tile_gui.tween_dim_appear(tween, tile)
+    tile_gui.tween_dim_fold(tween, tile, null)
     await tween.finished
     # make subsequent tiles fold
     for i in range(len(net.poslist)-1):
         tile_gui = get_tile_gui(net.poslist[i+1])
         tile = dungeon.get_tile(net.poslist[i+1])
-        var _direction = net.poslist[i+1]-net.poslist[i]
+        var direction = net.poslist[i+1]-net.poslist[i]
         tween = create_tween()
-        tile_gui.tween_dim_appear(tween, tile)
-        #tile_gui.tween_dim_fold(tween, tile, direction)
+        tile_gui.tween_dim_fold(tween, tile, direction)
         await tween.finished
 
 # signals callbacks
