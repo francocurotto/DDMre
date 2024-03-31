@@ -51,6 +51,11 @@ func set_dungobj_icon():
 
 # variables
 var tile
+var unfold_pivots = {
+    Vector2i(1, 0) : Vector2(0,0),
+    Vector2i(0,-1) : Vector2(0,0),
+    Vector2i(-1,0) : size,
+    Vector2i(0, 1) : size}
 
 # onready variables
 @onready var path_tile = $PathTile
@@ -73,11 +78,12 @@ func tween_dim_appear(tween, _tile):
     tween.tween_property($PathTile, "modulate", Color(1,1,1,1), 1)
 
 func tween_dim_fold(tween, _tile, unfold):
+    var init_scale = Vector2(abs(unfold.y), abs(unfold.x))
+    $PathTile.pivot_offset = unfold_pivots[unfold]
     setup(_tile)
     tween.tween_property($PathTile, "modulate", Color(1,1,1,1), 0)
-    #tween.tween_property($PathTile, "scale", Vector2(1,1), 1).from(Vector2(0,0))
-    tween.tween_property($PathTile, "scale", Vector2(1,1), 1).from(Vector2(unfold))
-    print(unfold)
+    tween.tween_property($PathTile, "scale", Vector2(1,1), 0.5)\
+    .from(init_scale).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 # signals callbacks
 func _on_path_tile_toggled(toggled_on):
