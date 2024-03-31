@@ -75,14 +75,14 @@ func setup(_tile):
 
 func tween_dim_appear(tween, _tile):
     setup(_tile)
-    tween.tween_property($PathTile, "modulate", Color(1,1,1,1), 1)
+    tween.tween_property($PathTile, "modulate", Color(1,1,1,1), 0.5)
 
 func tween_dim_fold(tween, _tile, unfold):
     var init_scale = Vector2(abs(unfold.y), abs(unfold.x))
     $PathTile.pivot_offset = unfold_pivots[unfold]
     setup(_tile)
     tween.tween_property($PathTile, "modulate", Color(1,1,1,1), 0)
-    tween.tween_property($PathTile, "scale", Vector2(1,1), 0.5)\
+    tween.tween_property($PathTile, "scale", Vector2(1,1), 0.4)\
     .from(init_scale).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 # signals callbacks

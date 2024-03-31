@@ -2,13 +2,21 @@ extends RefCounted
 
 # variables
 var poslist
-var unfolds = []
 var centeridx
 var centerpos : get = get_centerpos
+var unfolds : 
+    get:
+        var _unfolds = []
+        for i in range(1, len(poslist)):
+            var pos = poslist[i]
+            for prev_pos in poslist.slice(0, i):
+                var direction = pos - prev_pos
+                if direction.length() <= 1:
+                    _unfolds.append(direction)
+        return _unfolds
 
 func _init():
     create_poslist()
-    create_unfolds()
     centeridx = poslist.find(Vector2i(0,0))
 
 # setget functions
@@ -18,15 +26,6 @@ func get_centerpos():
 # public function
 func create_poslist():
     pass
-
-## get the directions the dice unfolds when dimensioned
-func create_unfolds():
-    for i in range(1, len(poslist)):
-        var pos = poslist[i]
-        for prev_pos in poslist.slice(0, i):
-            var direction = pos - prev_pos
-            if direction.length() <= 1:
-                unfolds.append(direction)
 
 func add_offset(offset):
     for i in len(poslist):
