@@ -5,8 +5,10 @@ extends RefCounted
 ## elements extracted from external sources, like JSON files for the 
 ## initialization of the DDMre engine. 
 
-# constants
+#region constants
 const CREST_TYPES = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
+#endregion
+
 
 ## Check if [param dungeon_layout] array has a valid format for dungeon 
 ## initialization.
@@ -70,9 +72,10 @@ static func check_diceidx_float(diceidx):
     if typeof(diceidx) != TYPE_FLOAT:
         return false
     # check correct range
-    var float_range = []
-    for i in Globals.DICEPOOL_SIZE+1:
-        float_range.append(float(i))
+    #var float_range = []
+    #for i in Globals.DICEPOOL_SIZE+1:
+    #    float_range.append(float(i))
+    var float_range[int] = range(1, Globals.DICEPOOL_SIZE+1)
     if not diceidx in float_range:
         return false
     # all checks passed

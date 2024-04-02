@@ -19,11 +19,9 @@ func _init(_player, _opponent, _dungeon):
 ## Run a player command defined in [param cmddict] dictionary. The command name
 ## is specified in the "cmd" key, and the current state must have a function 
 ## with the same name. The [param cmddict] must also have the corresponding
-## parameters to run the command. The "duel_update" signal is emmited to update
-## interfaces, and the new state resulting from the command is returned (it
-## could be the same state as [code]self[/code].
+## parameters to run the command. The the new state resulting from the command
+## is returned (it could be the same state as [code]self[/code]).
 func update(cmddict):
     # run command
     var new_state = call(cmddict["cmd"], cmddict) # run command
-    Events.duel_update.emit() # emit duel_update
     return new_state # return new state

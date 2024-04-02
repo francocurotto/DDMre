@@ -43,7 +43,6 @@ func _init(dungpath=null, pool1path=null, pool2path=null):
 func update(cmddict):
     # get new state info
     var new_state = state.update(cmddict)
-    var state_update = new_state != state
     var next_turn = state.NAME == "DUNGEON" and new_state.NAME == "ROLL"
     # perform the update
     state = new_state
@@ -51,8 +50,6 @@ func update(cmddict):
     if next_turn:
         turn += 1
         Events.next_turn.emit(state.player, turn)
-    if state_update:
-        Events.state_update.emit(state.NAME)
 #endregion
 
 #region private functions
