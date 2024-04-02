@@ -5,20 +5,23 @@ extends RefCounted
 ## state of the duel. It also initialize each players dicepools, and  
 ## optionally the dungeon layout.
 
-# preloads
+#region preloads
 const Dicelib = preload("res://engine/dice/dicelib.gd")
 const Player = preload("res://engine/player/player.gd")
 const Dungeon = preload("res://engine/dungeon/dungeon.gd")
 const RollState = preload("res://engine/states/roll_state.gd")
 const Checks = preload("res://engine/checks.gd")
+#endregion
 
-# variables
+#region variables
 var dicelib   ## Dice library object used to generate the players dicepools
 var player1   ## Object for Player 1
 var player2   ## Object for Player 2
 var state     ## Object that represent the current state of the engine
 var turn = 1  ## Turn count
+#endregion
 
+#region builtin functions
 func _init(dungpath=null, pool1path=null, pool2path=null):
     # create dicelib
     dicelib = Dicelib.new()
@@ -32,8 +35,9 @@ func _init(dungpath=null, pool1path=null, pool2path=null):
     state = RollState.new(player1, player2, dungeon)
     # set init state from file
     set_init_state(dungpath)
+#endregion
 
-# public functions
+#region public functions
 ## Update engine with given command [param cmddict]. The engine state is 
 ## updated and the turn count is increased if needeed.
 func update(cmddict):
@@ -43,13 +47,15 @@ func update(cmddict):
     var next_turn = state.NAME == "DUNGEON" and new_state.NAME == "ROLL"
     # perform the update
     state = new_state
+    # send state update signals
     if next_turn:
         turn += 1
         Events.next_turn.emit(state.player, turn)
     if state_update:
         Events.state_update.emit(state.NAME)
+#endregion
 
-# private functions
+#region private functions
 ## Set initial state of the engine as defined in the JSON file 
 ## [param dungpath]. It is mainly use to define the initial dungeon layout, but 
 ## it can also be used for debugging purposes like defining inital summons, 
@@ -108,3 +114,4 @@ func set_init_hearts(player, hearts):
 ## For example,"a1" is converted to (0,0)
 func str_to_pos(string):
     return Vector2i(string.unicode_at(0)-97, int(string.substr(1))-1)
+#endregion
