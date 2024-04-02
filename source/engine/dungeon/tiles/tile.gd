@@ -10,7 +10,6 @@ var content : get = get_content, set = set_content
 var playerid : get = get_playerid
 
 func _init(y, x):
-    # GODOT4: change to vector2i
     pos = Vector2i(x, y)
     content = Noneobj.new()
 

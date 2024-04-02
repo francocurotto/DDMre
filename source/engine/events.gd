@@ -5,6 +5,7 @@ extends Node
 ## internally by the DDMre engine for logic better suited for signals (e.g. 
 ## ability actions on summons).
 
+#region signals
 ## Emit when dice are rolled and send the result of the roll in the
 ## [param sides] parameter. Used to display the result of a roll in the 
 ## interface.
@@ -21,3 +22,4 @@ signal next_turn(player, turn)
 ## Emit when one of the players lose the game and send the loser 
 ## [param player]. Used to finish the duel after the lose.
 signal player_lost(player)
+#endregion

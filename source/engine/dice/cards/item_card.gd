@@ -3,16 +3,20 @@ extends "summon_card.gd"
 ##
 ## Summon card that represents an item.
 
-# constants
+#region constants
 const TYPE = "ITEM"
+#endregion
 
-# preloads
+#region preloads
 const Item = preload("res://engine/dungobj/item.gd")
+#endregion
 
+#region builtin function
 func _init(cardinfo):
     super(cardinfo)
+#endregion
 
-# public functions
+#region public functions
 ## Summon an item for player [param player] from the item card.
 func summon(player):
     var item = Item.new(self, player)
@@ -23,3 +27,4 @@ func summon(player):
 func activate(monster):
     for ability in abilities:
         ability.activate(monster)
+#endregion

@@ -4,19 +4,23 @@ extends RefCounted
 ## The library is created reading the dice database, a json file. The library
 ## can create a dicepool array from a file or chosen randomly.
 
-# preloads
+#region preloads
 const Dice = preload("res://engine/dice/dice.gd")
+#endregion
 
-# variables
+#region variables
 var dicelib_dict ## dice database read from the json file.
 var rng          ## RNG object.
+#endregion
 
+#region builtin functions
 func _init():
     dicelib_dict = Globals.read_jsonfile(Globals.LIBPATH)
     rng = RandomNumberGenerator.new()
     rng.randomize()
+#endregion
 
-# public functions
+#region public functions
 ## Create dicepool array from [param filepath] .json file. If [param filepath]
 ## is null, create a dicepool from random dice in the dice library.
 func create_dicepool(filepath=null):
@@ -32,11 +36,13 @@ func create_dicepool(filepath=null):
         var dice = Dice.new(dicelib_dict[str(diceidx)])
         dicepool.append(dice)
     return dicepool
-    
-# private functions
+#endregion
+
+#region private functions
 ## Create an array of random dice indeces from the dice library.
 func create_random_dice_indeces():
     var dice_indeces = []
     for _i in range(Globals.DICEPOOL_SIZE):
         dice_indeces.append(rng.randi_range(1,len(dicelib_dict)))
     return dice_indeces
+#endregion

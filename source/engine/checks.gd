@@ -9,7 +9,7 @@ extends RefCounted
 const CREST_TYPES = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
 #endregion
 
-
+#region functions
 ## Check if [param dungeon_layout] array has a valid format for dungeon 
 ## initialization.
 static func check_dungeon_layout(dungeon_layout):
@@ -72,16 +72,13 @@ static func check_diceidx_float(diceidx):
     if typeof(diceidx) != TYPE_FLOAT:
         return false
     # check correct range
-    #var float_range = []
-    #for i in Globals.DICEPOOL_SIZE+1:
-    #    float_range.append(float(i))
-    var float_range[int] = range(1, Globals.DICEPOOL_SIZE+1)
+    var float_range = range(1, Globals.DICEPOOL_SIZE+1).map(func(i): float(i))
     if not diceidx in float_range:
         return false
     # all checks passed
     return true
 
-## Check if [param crests_dict] dictictionary has a valid format for crests 
+## Check if [param crests_dict] dictionary has a valid format for crests 
 ## initializations.
 static func check_crests_dict(crests_dict):
     # check correct type
@@ -95,7 +92,8 @@ static func check_crests_dict(crests_dict):
         if typeof(crests_dict[crest]) != TYPE_FLOAT:
             return false
         # check crest count is int
-        if crests_dict[crest]-int(crests_dict[crest]) != 0:
+        var float_range = range(Globals.MAX_CRESTS+1).map(func(i): float(i))
+        if not crests_dict[crest] in float_range:
             return false
     # all checks passed
     return true
@@ -106,11 +104,10 @@ static func check_hearts_int(hearts_num):
     # check correct type
     if typeof(hearts_num) != TYPE_FLOAT:
         return false
-    # check number has an interger value
-    if hearts_num-int(hearts_num) != 0:
-        return false
     # check correct value
-    if hearts_num < 1 or hearts_num > 3:
+    var float_range = range(Globals.MAX_HEARTS+1).map(func(i): float(i))
+    if not hearts_num in float_range:
         return false
     # all checks passed
     return true
+#endregion

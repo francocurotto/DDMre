@@ -18,6 +18,8 @@ const DUNGPATH = "res://databases/dungeons/default.json"
 const DUNGEON_HEIGHT = 19 ## Number of verical tiles of dungeon. 
 const DUNGEON_WIDTH  = 13 ## Number of horizontal tiles of dungeon.
 const DICEPOOL_SIZE  = 15 ## Number of dice in player dicepool.
+const MAX_CRESTS     = 99 ## Maximum number of crests for each crest type
+const MAX_HEARTS     = 3  ## Maximum number of hearts per player
 #endregion
 
 #region variables

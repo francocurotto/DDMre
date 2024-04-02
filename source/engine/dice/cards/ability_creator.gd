@@ -1,6 +1,7 @@
 extends RefCounted
 ## Object to create ability objects from ability dictionaries.
 
+#region preloads
 const ABILITY_DICT = {
     "TUNNEL"           : preload("res://engine/abilities/continuous_abilities/tunnel.gd"),
     "FLY"              : preload("res://engine/abilities/continuous_abilities/fly.gd"),
@@ -49,11 +50,12 @@ const ABILITY_DICT = {
     "MONSTERREBORN"    : preload("res://engine/abilities/item_abilities/monster_reborn.gd"),
     "BLACKHOLE"        : preload("res://engine/abilities/item_abilities/black_hole.gd"),
     "GLUMINIZER"       : preload("res://engine/abilities/dimension_abilities/gluminizer.gd"),
-    "WARPVORTEX"       : preload("res://engine/abilities/dimension_abilities/warp_vortex.gd"),
-}
+    "WARPVORTEX"       : preload("res://engine/abilities/dimension_abilities/warp_vortex.gd")}
+#endregion
 
-# public functions
+#region public functions
 ## Create an ability object from a [param ability_info] dictionary.
 static func create_ability(ability_info):
     var ability_name = ability_info["NAME"]
     return ABILITY_DICT[ability_name].new(ability_info)
+#endregion
