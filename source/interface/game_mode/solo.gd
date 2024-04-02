@@ -1,16 +1,20 @@
 extends MarginContainer
 
-# preloads
+#region preloads
 const DDMreEngine = preload("res://engine/engine.gd")
 const Init = preload("init.gd")
+#endregion
 
-# variables
+#region variables
 var engine
+#endregion
 
-# onready variables
+#region onready variables
 @onready var p1gui = $P1GUI
 @onready var p2gui = $P2GUI
+#endregion
 
+#region built-in functions
 func _ready():
     randomize()
     # get initialization parameters
@@ -23,3 +27,4 @@ func _ready():
     # set player guis
     p1gui.setup(engine, engine.player1, engine.player2)    
     p2gui.setup(engine, engine.player2, engine.player1)
+#endregion

@@ -1,9 +1,10 @@
 extends Node
 
-#POOLPATHS
+#region POOLPATHS
 #const POOL1PATH = "res://databases/dicepools/long_abilities.json";
+#endregion
 
-# DUNGPATHS
+#region DUNGPATHS
 #const DUNGPATH = "res://databases/dungeons/ability_tests/pass.json";                const POOL1PATH = "res://databases/dicepools/ability_tests/pass.json";                const POOL2PATH = "res://databases/dicepools/ability_tests/pass.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/target.json";              const POOL1PATH = "res://databases/dicepools/ability_tests/target.json";              const POOL2PATH = "res://databases/dicepools/ability_tests/target.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/power.json";               const POOL1PATH = "res://databases/dicepools/ability_tests/power.json";               const POOL2PATH = "res://databases/dicepools/ability_tests/power.json"
@@ -38,3 +39,4 @@ extends Node
 #const DUNGPATH = "res://databases/dungeons/ability_tests/dim_cure.json";            const POOL1PATH = "res://databases/dicepools/ability_tests/dim_cure.json";            const POOL2PATH = "res://databases/dicepools/ability_tests/dim_cure.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/multi_attack.json";        const POOL1PATH = "res://databases/dicepools/ability_tests/multi_attack.json";        const POOL2PATH = "res://databases/dicepools/ability_tests/multi_attack.json"
 #const DUNGPATH = "res://databases/dungeons/ability_tests/negate_atk_abi.json";      const POOL1PATH = "res://databases/dicepools/ability_tests/negate_atk_abi.json";      const POOL2PATH = "res://databases/dicepools/ability_tests/negate_atk_abi.json"
+#endregion

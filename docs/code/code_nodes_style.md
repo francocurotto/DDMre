@@ -1,33 +1,27 @@
 # Code and Nodes Styles
+01. @tool
+02. class_name
+03. extends
+04. # docstring
 
-## Code Order Engine
-- extends
-- preloads
-- constants
-- variables
-- signals
-- functions:
-    - `_init`
-    - setget functions
-    - public functions
-    - signals callbacks
-    - is functions
-    - private functions
+05. signals
+06. enums
+07. constants
+08. preloads
+09. @export variables
+10. public variables
+11. private variables
+12. @onready variables
 
-## Code Order Interface
-- tool/extends
-- export variables
-- preloads
-- constants
-- variables
-- onready variables
-- signals
-- functions:
-    - `_ready`
-    - setget functions
-    - public functions
-    - signals callbacks
-    - private functions
+12. optional built-in virtual _init method
+13. optional built-in virtual _enter_tree() method
+14. built-in virtual _ready method
+15. remaining built-in virtual methods
+16. public methods
+17. signals callbacks
+18. "is" methods
+19. private methods
+20. subclasses
 
 ## Code Nameing Style
 - scripts: snake_case
@@ -35,3 +29,4 @@
 - nodes: PascalCase
 - functions: snake_case
 - variables: snake_case
+- constants: CONSTANT_CASE
