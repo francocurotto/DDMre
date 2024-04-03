@@ -1,27 +1,36 @@
 extends RefCounted
+## Dungeon where dice are dimensioned and summons interact.
+##
+## The dungeon is a grid of empty tiles, that is filled with path tiles when
+## the player dimension dice. Monsters move through the dungeon to advance the
+## game state.
 
-# preloads
+#region preloads
 const OpenTile = preload("res://engine/dungeon/tiles/open_tile.gd")
 const NeutralPathTile = preload("res://engine/dungeon/tiles/neutral_path_tile.gd")
 const BlockTile = preload("res://engine/dungeon/tiles/block_tile.gd")
 const MovePathQueue = preload("res://engine/dungeon/path_queue/move_path_queue.gd")
 const AttackPathQueue = preload("res://engine/dungeon/path_queue/attack_path_queue.gd")
+#endregion
 
-# variables
-var grid = []
-var move_cost = 1
-var tiles : get = get_tiles
-var monsters : get = get_monsters
-var summons : get = get_summons
+#region variables
+var grid = [] ## 2D array of tiles that compose the dungeon
+var move_cost = 1 ## Number of crests required for a monster to move one tile
+var tiles : get = get_tiles ## 1D array of all tiles
+var monsters : get = get_monsters ## Array of all monsters in dungeon
+var summons : get = get_summons ## Array of all summons in dungeon
+#endregion
 
+#region builtin functions
 func _init():
     for y in Globals.DUNGEON_HEIGHT:
         var row = []
         for x in Globals.DUNGEON_WIDTH:
             row.append(OpenTile.new(y, x))
         grid.append(row)
+#endregion
 
-# setget functions
+#region public functions
 ## Set the dungeon tiles given a [param layout] array. Uses [param player1],
 ## and [param player2] for tile generation.
 func set_layout(player1, player2, layout):
@@ -33,29 +42,6 @@ func set_layout(player1, player2, layout):
 ## Returns the tile at postion [param pos].
 func get_tile(pos):
     return grid[pos.y][pos.x]
-
-## Get an 1D array of tiles.
-func get_tiles():
-    var tiles_array = []
-    for row in grid:
-        tiles_array += row
-    return tiles_array
-
-## Get all monsters in dungeon.
-func get_monsters():
-    var monsters_array = []
-    for tile in tiles:
-        if tile.content.is_monster():
-            monsters_array.append(tile.content)
-    return monsters_array
-
-## Get all summons in dungeon.
-func get_summons():
-    var summons_array = []
-    for tile in tiles:
-        if tile.content.is_summon():
-            summons_array.append(tile.content)
-    return summons_array
 
 ## Computes the maximum number of tiles a [param monster] can move. 
 ## It takes into account:
@@ -103,7 +89,6 @@ func get_vortex_tiles():
     var vortex_tiles = tiles.filter(func(tile): return tile.vortex)
     return vortex_tiles 
  
-# public functions
 ## Place path tile for [param player] at postion [param pos].
 func place_path_tile(player, pos):
     grid[pos.y][pos.x] = player.create_tile(pos.y, pos.x)
@@ -137,6 +122,29 @@ func dimension(player, net, diceidx):
     return summon
 
 # private functions
+## Get an 1D array of tiles.
+func get_tiles():
+    var tiles_array = []
+    for row in grid:
+        tiles_array += row
+    return tiles_array
+
+## Get all monsters in dungeon.
+func get_monsters():
+    var monsters_array = []
+    for tile in tiles:
+        if tile.content.is_monster():
+            monsters_array.append(tile.content)
+    return monsters_array
+
+## Get all summons in dungeon.
+func get_summons():
+    var summons_array = []
+    for tile in tiles:
+        if tile.content.is_summon():
+            summons_array.append(tile.content)
+    return summons_array
+
 ## Create the appropiate tile given the character from the dungeon json.
 func create_tile(player1, player2, chr, y, x):
     match chr:
