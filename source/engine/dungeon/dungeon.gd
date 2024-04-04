@@ -118,10 +118,10 @@ func place_vortex(pos):
 ## [param diceidx] on center of net.
 func dimension(player, net, diceidx):
     # place the net
-    for pos in net.poslist:
+    for pos in net.positions:
         place_path_tile(player, pos)
     # place summon
-    var summon = place_summon(player, net.centerpos, diceidx)
+    var summon = place_summon(player, net.center, diceidx)
     Events.dice_dimensioned.emit(summon, net)
     return summon
 #endregion
@@ -140,15 +140,15 @@ func can_dimension(net, player):
 
 ## Return true if [param net] is inbound of dungeon.
 func net_inbound(net):
-    return net.poslist.all(pos_within_dungeon)
+    return net.positions.all(pos_within_dungeon)
 
 ## Return true if [param net] overlaps current path in dungeon.
 func net_overlaps(net):
-    return net.poslist.any(func(pos): return not get_tile(pos).is_open())
+    return net.positions.any(func(pos): return not get_tile(pos).is_open())
 
 ## Return true if [param net] connects player path.
 func net_connects(net, player):
-    for pos in net.poslist:
+    for pos in net.positions:
         for tile in get_neighbours_tiles(get_tile(pos)):
             if tile.is_player_path() and tile.player == player:
                 return true

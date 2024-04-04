@@ -16,7 +16,7 @@ func _init(ability_dict):
 # public functions
 func activate(activate_dict):
     pay_crests(crest, cost)
-    for pos in activate_dict["poslist"]:
+    for pos in activate_dict["positions"]:
         var monster = dungeon.get_tile(pos).content
         monster.restore_health(amount)
 

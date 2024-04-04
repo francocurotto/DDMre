@@ -56,17 +56,17 @@ func on_dice_dimensioned(_summon, net):
     if is_instance_valid(dimension_net):
         dimension_net.queue_free()
     # hide tile guis for proper animation
-    for pos in net.poslist:
+    for pos in net.positions:
         get_tile_gui(pos).path_tile.modulate = Color(1,1,1,0)
     # make center tile appear
-    var tile_gui = get_tile_gui(net.centerpos)
-    var tile = dungeon.get_tile(net.centerpos)
+    var tile_gui = get_tile_gui(net.center)
+    var tile = dungeon.get_tile(net.center)
     var tween = create_tween()
     tile_gui.tween_dim_appear(tween, tile)
     # make subsequent tiles fold
-    for i in range(len(net.poslist)-1):
-        tile_gui = get_tile_gui(net.poslist[i+1])
-        tile = dungeon.get_tile(net.poslist[i+1])
+    for i in range(len(net.positions)-1):
+        tile_gui = get_tile_gui(net.positions[i+1])
+        tile = dungeon.get_tile(net.positions[i+1])
         var unfold = net.unfolds[i]
         tile_gui.tween_dim_fold(tween, tile, unfold)
 

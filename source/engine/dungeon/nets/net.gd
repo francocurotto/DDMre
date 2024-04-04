@@ -16,7 +16,7 @@ var unfolds : get = get_unfolds ## unfold directions
 #region public function
 ## Add an [param offset] to all positions in net.
 func add_offset(offset):
-    positions = positions.map(func(pos): pos + offset)
+    positions = positions.map(func(pos): return pos + offset)
 
 ## Apply all transformations in array [param transformations] to net.
 func apply_trans_list(transformations):
@@ -36,7 +36,7 @@ func get_unfolds():
             if direction.length() <= 1:
                 _unfolds.append(direction)
                 break
-        return _unfolds
+    return _unfolds
 
 ## Apply transformation [param trans] to the net. It can be one of the
 ## following transformations:
@@ -51,20 +51,28 @@ func apply_trans(trans):
         "FUD" : positions = positions.map(apply_flip_up_down)
         "FLR" : positions = positions.map(apply_flip_left_right)
 
+## Turn a position [param pos] 90° in a clockwise direction around the net 
+## center position.
 func apply_turn_clockwise(pos):
     var x = center.x + (pos.y - center.y) # mathemagics
     var y = center.y - (pos.x - center.x) # mathemagics
     return Vector2i(x, y)
 
+## Turn a position [param pos] 90° in an anti clockwise direction around the 
+## net center position.
 func apply_turn_anti_clockwise(pos):
     var x = center.x - (pos.y - center.y) # mathemagics
     var y = center.y + (pos.x - center.x) # mathemagics
     return Vector2i(x, y)
 
+## Flip a position [param pos] vertical location around the net center 
+## position. 
 func apply_flip_up_down(pos):
     var y = 2*center.y - pos.y # mathemagics
     return Vector2i(pos.x, y)
 
+## Flip a position [param pos] horizontal location around the net center 
+## position. 
 func apply_flip_left_right(pos):
     var x = 2*center.x - pos.x # mathemagics
     return Vector2i(x, pos.y)
