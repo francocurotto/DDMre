@@ -72,14 +72,18 @@ func get_neighbours_tiles(tile):
             neighbours_tiles.append(get_tile(new_pos))
     return neighbours_tiles
 
+## Get all possible tiles a [param monster] can move in the dungeon.
 func get_move_tiles(monster):
     var move_path_queue = MovePathQueue.new(self, monster)
     return move_path_queue.tiles
 
+## Get an array of tiles corresponding the path a [param monster] can take to
+## reach tile [param dest].
 func get_move_path(monster, dest):
     var move_path_queue = MovePathQueue.new(self, monster)
     return move_path_queue.get_path(dest)
 
+## Get all possible tiles a [param monster] can attack in the dungeon.
 func get_attack_tiles(monster):
     var attack_path_queue = AttackPathQueue.new(self, monster)
     return attack_path_queue.tiles
@@ -93,7 +97,7 @@ func get_vortex_tiles():
 func place_path_tile(player, pos):
     grid[pos.y][pos.x] = player.create_tile(pos.y, pos.x)
 
-## Place empty tile at position [param pos].
+## Place open tile at position [param pos].
 func place_open_tile(pos):
     grid[pos.y][pos.x] = OpenTile.new(pos.y, pos.x)
 
@@ -120,8 +124,38 @@ func dimension(player, net, diceidx):
     var summon = place_summon(player, net.centerpos, diceidx)
     Events.dice_dimensioned.emit(summon, net)
     return summon
+#endregion
 
-# private functions
+#region is functions
+## Check if position [param pos] is within dungeon limits.
+func pos_within_dungeon(pos):
+    var y_ok = 0 <= pos.y and pos.y <= Globals.DUNGEON_HEIGHT-1
+    var x_ok = 0 <= pos.x and pos.x <= Globals.DUNGEON_WIDTH-1
+    return y_ok and x_ok
+
+## Check if it is possible to dimension [param net] for [param player]. Return 
+## true if dimension is possible.
+func can_dimension(net, player):
+    return net_inbound(net) and not net_overlaps(net) and net_connects(net, player)
+
+## Return true if [param net] is inbound of dungeon.
+func net_inbound(net):
+    return net.poslist.all(pos_within_dungeon)
+
+## Return true if [param net] overlaps current path in dungeon.
+func net_overlaps(net):
+    return net.poslist.any(func(pos): return not get_tile(pos).is_open())
+
+## Return true if [param net] connects player path.
+func net_connects(net, player):
+    for pos in net.poslist:
+        for tile in get_neighbours_tiles(get_tile(pos)):
+            if tile.is_player_path() and tile.player == player:
+                return true
+    return false
+#endregion
+
+#region private functions
 ## Get an 1D array of tiles.
 func get_tiles():
     var tiles_array = []
@@ -155,31 +189,4 @@ func create_tile(player1, player2, chr, y, x):
         "P" : return player2.create_tile(y, x)
         "N" : return NeutralPathTile.new(y, x)
         "X" : return BlockTile.new(y, x)
-
-# is functions
-## Check if position [param pos] is within dungeon limits.
-func pos_within_dungeon(pos):
-    var y_ok = 0 <= pos.y and pos.y <= Globals.DUNGEON_HEIGHT-1
-    var x_ok = 0 <= pos.x and pos.x <= Globals.DUNGEON_WIDTH-1
-    return y_ok and x_ok
-
-## Check if it is possible to dimension [param net] for [param player]. Return 
-## true if dimension is possible.
-func can_dimension(net, player):
-    return net_inbound(net) and not net_overlaps(net) and net_connects(net, player)
-
-## Return true if [param net] is inbound of dungeon.
-func net_inbound(net):
-    return net.poslist.all(pos_within_dungeon)
-
-## Return true if [param net] overlaps current path in dungeon.
-func net_overlaps(net):
-    return net.poslist.any(func(pos): return not get_tile(pos).is_open())
-
-## Return true if [param net] connects player path.
-func net_connects(net, player):
-    for pos in net.poslist:
-        for tile in get_neighbours_tiles(get_tile(pos)):
-            if tile.is_player_path() and tile.player == player:
-                return true
-    return false
+#endregion
