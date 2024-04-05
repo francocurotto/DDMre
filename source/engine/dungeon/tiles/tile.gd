@@ -22,7 +22,7 @@ func _init(y, x):
     content = Noneobj.new()
 #endregion
 
-# public functions
+#region public functions
 ## Compute the L1-distance between this tile and another tile. Tile type does
 ## not have an effect in the computation.
 func tile_range(tile):
@@ -30,6 +30,7 @@ func tile_range(tile):
     var y_range = abs(pos.y-tile.pos.y)
     var range_dist = x_range + y_range
     return range_dist
+#endregion
 
 #region is functions
 ## By default, tiles are not open
