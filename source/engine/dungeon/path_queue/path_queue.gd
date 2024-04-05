@@ -1,30 +1,47 @@
 extends RefCounted
+## Queue object used to compute possible path of tiles from an origin.
+##
+## The path queue uses a queue structure to compute all possible path of tiles
+## from a monster position. It is used to get path for monsters movements and
+## attacks.
 
-var dungeon
-var monster
-var paths
-var tiles
+#region variables
+var dungeon ## dungeon where the path is computed
+var monster ## monster whose position is used as the start of paths
+var paths   ## Array of computed paths
+var tiles   ## Array of all tiles that compose all the computed paths
+#endregion
 
+#region builtin functions
 func _init(_dungeon, _monster):
     dungeon = _dungeon
     monster = _monster
     paths = [[monster.tile]]
     tiles = [monster.tile]
     fill_paths()
+# endregion
 
-# setget functions
+#region public functions
+## Return a path between all computed paths that has a final tile equals to
+## tile [param dest]. If no such path is found, return an empty tile.
 func get_path(dest):
     for path in paths:
         if path[-1] == dest:
             return path
     return []
+#endregion
 
-# is functions
+#region is functions
+## Return true if [param _path] can be extended from its final tile to create
+## new path one tile longer. Must be implemented by child classes.
 func is_path_extendable(_path):
     pass
 
+## Return true if [param _tile] can be used to extend a path one tile longer.
+## Must be implemented by cgild classes.
 func is_extend_tile(_tile):
     pass
+#endregion
 
 # private functions
 func fill_paths():
