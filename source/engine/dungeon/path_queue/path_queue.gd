@@ -38,12 +38,15 @@ func is_path_extendable(_path):
     pass
 
 ## Return true if [param _tile] can be used to extend a path one tile longer.
-## Must be implemented by cgild classes.
+## Must be implemented by child classes.
 func is_extend_tile(_tile):
     pass
 #endregion
 
 # private functions
+## Using the array "paths" as a queue, compute all the possible paths using 
+## breadth-first search algorithm, to ensure getting the shortest paths to 
+## each destination tile.
 func fill_paths():
     for path in paths:
         for next_tile in get_next_tiles(path):
@@ -53,6 +56,9 @@ func fill_paths():
                 paths.append(new_path)
                 tiles.append(next_tile)
 
+## Get all possible adjacent tiles to extend a [param path]. Use 
+## "is_path_extendable" to check if path cam be extended, and 
+## "is_extended_tile" to check if a tile can be used to extend the path.
 func get_next_tiles(path):
     var next_tiles = []
     if is_path_extendable(path):
