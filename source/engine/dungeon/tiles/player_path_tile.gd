@@ -13,7 +13,7 @@ func _init(_y, _x, _player):
     player = _player
 
 # setget functions
-func get_playerid():
+func get_player_id():
     return player.id
 
 # is functions

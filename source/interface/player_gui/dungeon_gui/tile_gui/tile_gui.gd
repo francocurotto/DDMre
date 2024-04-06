@@ -69,9 +69,9 @@ signal dim_button_toggled
 func setup(_tile):
     tile = _tile
     tile_type = tile.TYPE
-    tile_player = tile.playerid
+    tile_player = tile.player_id
     dungobj_type = tile.content.TYPE
-    dungobj_player = tile.content.playerid
+    dungobj_player = tile.content.player_id
 
 func tween_dim_appear(tween, _tile):
     setup(_tile)

@@ -1,11 +1,11 @@
 extends RefCounted
 
 # variable
-var playerid : get = get_playerid
+var player_id : get = get_player_id
 var tile : set = set_tile
 
 # setget functions
-func get_playerid():
+func get_player_id():
     return 0
 
 func set_tile(_tile):
