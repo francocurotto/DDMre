@@ -1,12 +1,18 @@
 extends "tile.gd"
+## Tile that blocks dimension and movement from monsters.
+##
+## Block tiles are usually place at the start of a duel in custom dungeons.
 
-# constants
+#region constants
 const TYPE = "BLOCK"
+#endregion
 
-func _init(y, x):
-    super(y, x)
-    pass
+#TODO: test and remove
+#func _init(y, x):
+#    super(y, x)
+#    pass
 
-# is functions
+#region is functions
 func is_block():
     return true
+#endregion

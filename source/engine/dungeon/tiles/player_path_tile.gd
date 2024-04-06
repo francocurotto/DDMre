@@ -1,10 +1,12 @@
 extends "path_tile.gd"
 
-# constant
+#region constants
 const TYPE = "PLAYER"
+#endrefion
 
-# variables
-var player
+#region variables
+var player # Player owner of the path tile
+#endregion
 
 func _init(_y, _x, _player):
     super(_y, _x)
