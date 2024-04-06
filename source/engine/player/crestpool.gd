@@ -5,17 +5,19 @@ extends RefCounted
 ## during rolls and other methods. It also manages how crests are added and
 ## removed from the crestpool.
 
-# constants
+#region constants
 const LIMIT = 99 ## Maximum number of crests for each type.
+#endregion
 
-# variables
+#region variables
 var movement = 0 ## Movement crest counter.
 var attack   = 0 ## Attack crest counter.
 var defense  = 0 ## Defense crest counter.
 var magic    = 0 ## Magic crest counter.
 var trap     = 0 ## Trap crest counter.
+#endregion
 
-# setget functions
+#region public functions
 ## Set the crest number of type [param crest] to [param amount]. Clip the value
 ## if the amount if it goes off limit.
 func set_crest(crest, amount):
@@ -28,7 +30,6 @@ func set_crest(crest, amount):
 func get_crest(crest):
     return get(crest.to_lower())
 
-# public functions
 ## Add the rolled [param sides] list of sides to the crest pool. If a rolled 
 ## side is of type SUMMON, skip the addition.
 func add_rolled_sides(sides):
@@ -55,3 +56,4 @@ func remove_attack(amount):
 ## Remove [param amount] number of crests of type DEFENSE to crest pool.
 func remove_defense(amount):
     remove_crests("defense", amount)
+#endregion

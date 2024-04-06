@@ -4,25 +4,29 @@ extends RefCounted
 ## The player manages all the information available to one of the participant
 ## of the duel. It can also create tiles, monster lords and summons for itself.
 
-# preloads
+#region preloads
 const CrestPool = preload("res://engine/player/crestpool.gd")
 const MonsterLord = preload("res://engine/dungobj/monsterlord.gd")
 const PlayerPathTile = preload("res://engine/dungeon/tiles/player_path_tile.gd")
+#endregion
 
-# variables
+#region variables
 var id       ## Player ID, either 1 or 2
 var opponent ## Refenrece to opponent
 var dicepool ## Array of dice to use in duel
-var crestpool = CrestPool.new() ## Pool of crest acquired during the duel
+var crestpool = CrestPool.new() ## Pool of crests acquired during the duel
 var monster_lord = MonsterLord.new(self) ## Player representation in dungeon
 var monsters = []  ## Array of player monsters in dungeon
 var graveyard = [] ## Array of destroyed player monsters
+#endregion
 
+#region
 func _init(_id, _dicepool):
     id = _id
     dicepool = _dicepool
+#endregion
 
-# public functions
+#region public functions
 ## Create and return a player path tile expected to be located at position
 ## ([param y],[param x]).
 func create_tile(y, x):
@@ -44,6 +48,7 @@ func summon_card(diceidx):
     dice.dimensioned = true
     var summon = dice.card.summon(self)
     return summon
+#endregion
 
 # signals callbacks
 ### When [param monster] is destroyed, erase monster from monsters array, and
@@ -56,3 +61,4 @@ func on_monster_destroyed(monster):
 ## lost.
 func on_hearts_depleted():
     Events.emit_signal("player_lost", self)
+#endregion
