@@ -7,8 +7,3 @@ extends "path_tile.gd"
 #region constants
 const TYPE = "NEUTRAL"
 #endregion
-
-#TODO: test and delete
-#func _init(_y, _x):
-#    super(_y, _x)
-#    pass

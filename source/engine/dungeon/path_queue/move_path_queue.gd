@@ -1,9 +1,5 @@
 extends "path_queue.gd"
-
-#TODO: check and delete
-#func _init(_dungeon, _monster):
-#    super(_dungeon, _monster)
-#    pass
+## Path queue to determine movement paths.
 
 #region is functions 
 ## Return true if [param path] for a movement can be extended one tile longer.

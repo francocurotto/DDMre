@@ -7,11 +7,6 @@ extends "tile.gd"
 const TYPE = "BLOCK"
 #endregion
 
-#TODO: test and remove
-#func _init(y, x):
-#    super(y, x)
-#    pass
-
 #region is functions
 func is_block():
     return true

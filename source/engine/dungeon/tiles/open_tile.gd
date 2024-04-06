@@ -9,11 +9,6 @@ extends "tile.gd"
 const TYPE = "OPEN"
 #endregion
 
-#TODO: test and remove
-#func _init(y, x):
-#    super(y, x)
-#    pass
-
 #region is functions
 func is_open():
     return true

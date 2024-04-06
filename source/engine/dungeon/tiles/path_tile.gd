@@ -4,11 +4,6 @@ extends "tile.gd"
 ## Generic path tile are not used in dungeon, instead it must be extended by
 ## player_path_tile and neutral_path_tile.
 
-#TODO: test and delete
-#func _init(_y, _x):
-#    super(_y, _x)
-#    pass
-
 #region public functions
 ## Remove content from tile and replace it with Noneobj.
 func empty_tile():
