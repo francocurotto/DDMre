@@ -49,8 +49,8 @@ func set_vortex(_bool):
 func get_vortex():
     return vortex
 
-## Set [param dungobj] as content of tile, and set tile as location of the
-## dungobj.
+## Set [param dungobj] as content of tile, and set tile as location of
+## [param dungobj].
 func set_content(dungobj):
     content = dungobj
     content.tile = self

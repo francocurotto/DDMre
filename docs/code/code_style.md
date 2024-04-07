@@ -17,11 +17,12 @@
 13. optional built-in virtual _enter_tree() method
 14. built-in virtual _ready method
 15. remaining built-in virtual methods
-16. public methods
-17. signals callbacks
-18. "is" methods
-19. private methods
-20. subclasses
+16. static methods
+17. public methods
+18. signals callbacks
+19. "is" methods
+20. private methods
+21. subclasses
 
 ## Code Nameing Style
 - scripts: snake_case

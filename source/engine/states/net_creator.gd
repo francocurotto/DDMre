@@ -4,7 +4,7 @@ extends RefCounted
 ## Library to create a dice net from the net name, and apply offset and 
 ## transformation.
 
-# constants
+#region constants
 const NETS_DICT = { ## Dictionary that maps net names to scripts
     "T1" = preload("res://engine/dungeon/nets/net_t1.gd"),
     "T2" = preload("res://engine/dungeon/nets/net_t2.gd"),
@@ -18,17 +18,15 @@ const NETS_DICT = { ## Dictionary that maps net names to scripts
     "S2" = preload("res://engine/dungeon/nets/net_s2.gd"),
     "L1" = preload("res://engine/dungeon/nets/net_l1.gd"),
 }
+#endregion
 
-# static functions
+#region static functions
 ## Create the appropiate net object, given the [param netname] net name. Then
 ## apply the [param offset] translation and the [param trans_list] list of
 ## transformation to the created net.
-static func create_net(netname, pos, trans_list):
-    """
-    Given a net name, position in dungeon and a list of transformation,
-    create a net with the correct positions.
-    """
-    var net = NETS_DICT[netname].new()
+static func create_net(net_name, pos, trans_list):
+    var net = NETS_DICT[net_name].new()
     net.add_offset(pos)
     net.apply_trans_list(trans_list)
     return net
+#endregion

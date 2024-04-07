@@ -4,18 +4,17 @@ extends "state.gd"
 ## State where the player can control its monsters in the dungoen. This 
 ## includes moving, attacking, and casting abilities.
 
-# constants
+#region constants
 const NAME = "DUNGEON"
+#endregion
 
-# variables
+#region variables
 var RollState = load("engine/states/roll_state.gd")
 var ReplyState = load("engine/states/reply_state.gd")
 var ItemAbilityState = load("engine/states/item_ability_state.gd")
+#endregion
 
-func _init(_player, _opponent, _dungeon):
-    super(_player, _opponent, _dungeon)
-
-# public functions
+#region public functions
 ## Excecute the MOVE command. Move a player monster from one tile to another. 
 ## If an item that requires manual activation is reached, go to Item Ability
 ## State.
@@ -108,3 +107,4 @@ func ENDTURN(_cmddict):
     
     # return new opponent state
     return RollState.new(opponent, player, dungeon)
+#endregion

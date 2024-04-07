@@ -3,19 +3,24 @@ extends "state.gd"
 ##
 ## State to activate an item ability that requires manual input.
 
-# constants
+#region constants
 const NAME = "ITEMABILITY"
+#endregion
 
-# variables
+#region variables
 var DungeonState = load("engine/states/dungeon_state.gd")
 var item    ## Item with the ability to activate.
 var monster ## Monster that activated the item.
+#endregion
 
+#region builtin functions
 func _init(_player, _opponent, _dungeon, _item, _monster):
     super(_player, _opponent, _dungeon)
     item = _item
     monster = _monster
+#endregion
 
+#region public functions
 ## Execute the SKIP command. Skip the item ability activation.
 func SKIP(_cmddict):
     return DungeonState.new(player, opponent, dungeon)
@@ -31,3 +36,4 @@ func CAST(cmddict):
     
     # return dungeon state
     return DungeonState.new(player, opponent, dungeon)
+#endregion

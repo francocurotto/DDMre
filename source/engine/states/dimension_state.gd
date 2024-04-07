@@ -4,23 +4,27 @@ extends "state.gd"
 ## State where the player dimension dice in the dungeon and summon a monster or 
 ## item.
 
-# constants
+#region constants
 const NAME = "DIMENSION"
+#endregion
 
-# preloads
-const Checks = preload("res://engine/checks.gd")
+#region preload variables
+var NetCreator = preload("res://engine/states/net_creator.gd")
+#endregion
 
-# variables
+#region variables
 var DungeonState = load("engine/states/dungeon_state.gd")
 var DimAbilityState = load("engine/states/dim_ability_state.gd")
-var NetCreator = load("res://engine/states/net_creator.gd")
 var dim_candidates ## Array of dicepool indeces with the possible dimensions
+#endregion
 
+#region builtin functions
 func _init(_player, _opponent, _dungeon, _dim_candidates):
     super(_player, _opponent, _dungeon)
     dim_candidates = _dim_candidates
+#endregion
 
-# public functions
+#region public functions
 ## Excecute the SKIP command. Skip the dice dimension.
 func SKIP(_cmddict):
     return DungeonState.new(player, opponent, dungeon)
@@ -31,12 +35,12 @@ func SKIP(_cmddict):
 func DIM(cmddict):
     # get data
     var diceidx = cmddict["dice"]
-    var netname = cmddict["net"]
+    var net_name = cmddict["net"]
     var pos = cmddict["pos"]
     var trans_list = cmddict["trans"]
 
     # create net
-    var net = NetCreator.create_net(netname, pos, trans_list)
+    var net = NetCreator.create_net(net_name, pos, trans_list)
 
     # dimension
     var summon = dungeon.dimension(player, net, diceidx)
@@ -46,3 +50,4 @@ func DIM(cmddict):
         return DimAbilityState.new(player, opponent, dungeon, summon)
     else:
         return DungeonState.new(player, opponent, dungeon)
+#endregion

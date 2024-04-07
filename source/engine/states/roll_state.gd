@@ -4,21 +4,16 @@ extends "state.gd"
 ## State where the player rolls a group of three dice to try to get crests 
 ## and/or dimension a dice.
 
-# constants
+#region constants
 const NAME = "ROLL"
+#endregion
 
-# preloads
-const Checks = preload("res://engine/checks.gd")
-
-# variables
+#region variables
 var DungeonState = load("engine/states/dungeon_state.gd")
 var DimensionState = load("engine/states/dimension_state.gd")
+#endregion
 
-
-func _init(_player, _opponent, _dungeon):
-    super(_player, _opponent, _dungeon)
-
-# public functions
+#region public functions
 ## Excecute the ROLL command. Roll three dice and depending on the results, go
 ## to dimension state or dungeon state.
 func ROLL(cmddict):
@@ -36,13 +31,14 @@ func ROLL(cmddict):
         return DimensionState.new(player, opponent, dungeon, dim_candidates)
     else:
         return DungeonState.new(player, opponent, dungeon)
+#endregion
 
-# private functions
+#region private functions
 ## Roll dice from player dicepool given the [param dice_indeces] array of dice
 ## indeces. Return the resulted sides of the roll.
 func roll_dice(dice_indeces):
-    var dice_array = dice_indeces.map(func(i): return player.dicepool[i])
-    var sides = dice_array.map(func(dice): return dice.roll())
+    var dice_trio = dice_indeces.map(func(i): return player.dicepool[i])
+    var sides = dice_trio.map(func(dice): return dice.roll())
     return sides
 
 ## Given [param indeces] array of dice indeces and [param sides] array of sides
@@ -57,3 +53,4 @@ func get_dim_candidates(indeces, sides):
         if dim_candidates.size()>=2:
             return dim_candidates
     return []
+#endregion

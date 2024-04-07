@@ -53,7 +53,7 @@ const ABILITY_DICT = {
     "WARPVORTEX"       : preload("res://engine/abilities/dimension_abilities/warp_vortex.gd")}
 #endregion
 
-#region public functions
+#region static functions
 ## Create an ability object from a [param ability_info] dictionary.
 static func create_ability(ability_info):
     var ability_name = ability_info["NAME"]

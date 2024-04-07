@@ -9,7 +9,7 @@ extends RefCounted
 const CREST_TYPES = ["SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP"]
 #endregion
 
-#region functions
+#region static functions
 ## Check if [param dungeon_layout] array has a valid format for dungeon 
 ## initialization.
 static func check_dungeon_layout(dungeon_layout):
