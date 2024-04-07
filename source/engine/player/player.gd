@@ -6,7 +6,7 @@ extends RefCounted
 
 #region preloads
 const CrestPool = preload("res://engine/player/crestpool.gd")
-const MonsterLord = preload("res://engine/dungobj/monsterlord.gd")
+const MonsterLord = preload("res://engine/dungobj/monster_lord.gd")
 const PlayerPathTile = preload("res://engine/dungeon/tiles/player_path_tile.gd")
 #endregion
 
@@ -42,7 +42,7 @@ func create_ml_tile(y, x):
     return tile
 
 ## Summon the card from the dicepool at position [param diceidx], and mark the
-## dice corresponding dice as dimensioned. Return the resulting summon.
+## corresponding dice as dimensioned. Return the resulting summon.
 func summon_card(diceidx):
     var dice = dicepool[diceidx]
     dice.dimensioned = true
@@ -56,9 +56,4 @@ func summon_card(diceidx):
 func on_monster_destroyed(monster):
     monsters.erase(monster)
     graveyard.append(monster)
-
-## When player hearts are depleted, send signal indicating that player have 
-## lost.
-func on_hearts_depleted():
-    Events.emit_signal("player_lost", self)
 #endregion

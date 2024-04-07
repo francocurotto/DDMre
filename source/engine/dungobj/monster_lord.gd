@@ -22,7 +22,7 @@ func set_hearts(amount):
     hearts = amount
     # check for player lost
     if hearts <= 0:
-        player.on_hearts_depleted()
+        Events.player_lost.emit(player)
 
 # public functions
 func receive_damage():

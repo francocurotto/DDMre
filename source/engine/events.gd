@@ -20,6 +20,6 @@ signal dice_dimensioned(summon, net)
 signal next_turn(player, turn)
 
 ## Emit when one of the players lose the game and send the loser 
-## [param player]. Used to finish the duel after the lose.
+## [param player]. Used to finish the duel after the a player loses the game.
 signal player_lost(player)
 #endregion
