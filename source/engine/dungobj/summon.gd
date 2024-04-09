@@ -1,11 +1,18 @@
 extends "playerobj.gd"
+## Dungobj that gets summomed in a dice dimension. Either a monster or an item.
+##
+## A summon is created from a dice card during dimension. Summon must be
+## extended to be properly used in a duel.
 
-# variables
+#region variables
 var card
+#endregion
 
+#region builtin functions
 func _init(_card, _player):
     super(_player)
     card = _card
+#endregion
 
 # setget functions
 func get_ability(name):
