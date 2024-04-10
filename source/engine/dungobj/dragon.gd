@@ -3,10 +3,6 @@ extends "monster.gd"
 # constants
 const TYPE = "DRAGON"
 
-func _init(_card, _player):
-    super(_card, _player)
-    pass
-
 # is functions
 func has_adv(attacked):
     """

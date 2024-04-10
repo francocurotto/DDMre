@@ -69,7 +69,6 @@ func has_active_standing_ability():
     #TODO: implement is active standing ability
     #if ability.is_standing() and not ability.is_negated():
     return card.abilities.any(func(abi): return abi.is_active_standing_ability())
-    for ability in card.abilities:
 
 ## Return true if summon has a dimension manual ability.
 func has_dim_manual_ability():

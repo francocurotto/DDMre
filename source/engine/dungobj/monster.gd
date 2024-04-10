@@ -20,25 +20,27 @@ const AttackCooldownBehaviorBase = preload("res://engine/dungobj/behaviors/attac
 #endregion
 
 #region variables
-var attack    ## Current attack power of monster
-var defense   ## Current defense power of monster
-var health    ## Current health points of monster
+var attack ## Current attack power of monster
+var defense ## Current defense power of monster
+var health ## Current health points of monster
 var speed = 1 ## Number of tiles a monster can move per movement crest
-var attack_distance = 1 ## Maximum number of tiles a monster 
-var attack_cost = 1
-var ability_cooldown = false
-var max_move : get = get_max_move
-var previous_tile = null
-var pass_behavior
-var target_behavior
-var power_behavior
-var damage_behavior
-var max_move_behavior
-var attack_cooldown_behavior
+var attack_distance = 1 ## Max distance a monster can attack in # of tiles
+var attack_cost = 1 ## Attack crest that must be pay per attack
+var ability_cooldown = false ## Flag to track if monster has casted an ability in a turn
+var max_move : get = get_max_move ## Max number of tiles a monster can move per turn
+var previous_tile = null ## Tile where monster was before last movement
+var pass_behavior ## Behavior of monster when other monster pass thorugh it
+var target_behavior ## Behavior of monster when is targeted for an attack
+var power_behavior ## Behavior of monster when computing its attack power
+var damage_behavior ## Behavior of monster when receiving damage from an attack
+var max_move_behavior ## Behavior of a monster to track its max number of tiles to move
+var attack_cooldown_behavior ## Behavior of monster to track its attack cooldown
 #endregion
 
+#region builtin functions
 func _init(_card, _player):
     super(_card, _player)
+    # get initial stats from monster card
     attack = card.attack
     defense = card.defense
     health = card.health
@@ -49,6 +51,7 @@ func _init(_card, _player):
     damage_behavior = DamageBehaviorBase.new(self)
     max_move_behavior = MaxMoveBehaviorBase.new()
     attack_cooldown_behavior = AttackCooldownBehaviorBase.new()
+#endregion
 
 # setget functions
 func get_max_move():
