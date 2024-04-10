@@ -6,6 +6,8 @@ extends "state.gd"
 
 #region constants
 const NAME  = "REPLY"
+const REPLY_WAIT = false ## Flag to indicate an attack is replyed with guard
+const REPLY_GUARD = true ## Flag to indicate an attack is replyed with wait
 #endregion
 
 #region variables
@@ -30,7 +32,7 @@ func GUARD(cmddict):
 
     # guard attack
     player.crestpool.remove_defense(1)
-    attacker.attack_monster(attacked, true)
+    attacker.attack_monster(attacked, REPLY_GUARD)
     
     # return opponent dungeon state
     return DungeonState.new(opponent, player, dungeon)
@@ -42,7 +44,7 @@ func WAIT(cmddict):
     activate_reply_ability(cmddict)
    
     # wait attack
-    attacker.attack_monster(attacked, false)
+    attacker.attack_monster(attacked, REPLY_WAIT)
     
     # return opponent dungeon state
     return DungeonState.new(opponent, player, dungeon)

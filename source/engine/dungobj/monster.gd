@@ -1,33 +1,41 @@
 extends "summon.gd"
+## A monster is a dungobj that can move and attack.
+## 
+## The most fundamental dungobj, monsters move through the dungeon and attack
+## other monsters and the opponent monster lord, to try to win the game. When
+## a monster health point dereases to zero, the monster is destroyed. Some
+## monsters can also activate abilities, in manual or an automatic way.
 
-# preloads
+#region signals
+signal attack_ends
+#endregion
+
+#region preloads
 const PassBehaviorBase = preload("res://engine/dungobj/behaviors/pass_behavior_base.gd")
 const TargetBehaviorBase = preload("res://engine/dungobj/behaviors/target_behavior_base.gd")
 const PowerBehaviorBase = preload("res://engine/dungobj/behaviors/power_behavior_base.gd")
 const DamageBehaviorBase = preload("res://engine/dungobj/behaviors/damage_behavior_base.gd")
 const MaxMoveBehaviorBase = preload("res://engine/dungobj/behaviors/max_move_behavior_base.gd")
 const AttackCooldownBehaviorBase = preload("res://engine/dungobj/behaviors/attack_cooldown_behavior_base.gd")
+#endregion
 
-# variables
-var attack
-var defense
-var health
-var speed = 1
-var attack_distance = 1
+#region variables
+var attack    ## Current attack power of monster
+var defense   ## Current defense power of monster
+var health    ## Current health points of monster
+var speed = 1 ## Number of tiles a monster can move per movement crest
+var attack_distance = 1 ## Maximum number of tiles a monster 
 var attack_cost = 1
 var ability_cooldown = false
 var max_move : get = get_max_move
 var previous_tile = null
-# behaviors (automatic abilities)
 var pass_behavior
 var target_behavior
 var power_behavior
 var damage_behavior
 var max_move_behavior
 var attack_cooldown_behavior
-
-# signals
-signal attack_ends
+#endregion
 
 func _init(_card, _player):
     super(_card, _player)

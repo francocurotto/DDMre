@@ -1,8 +1,9 @@
 extends "playerobj.gd"
 ## Dungobj that gets summomed in a dice dimension. Either a monster or an item.
 ##
-## A summon is created from a dice card during dimension. Summon must be
-## extended to be properly used in a duel.
+## A summon is created from a dice card during dimension. Some summons have
+## abilities that have effects on itself, other dungobjs or the dungeon
+## itself. Summon must be extended to be properly used in a duel.
 
 #region variables
 var card
@@ -14,75 +15,67 @@ func _init(_card, _player):
     card = _card
 #endregion
 
-# setget functions
+#region public functions
+## Get ability with name [param name] from summon ability list. If summon does
+## not have an ability with that name, return an empty array.
 func get_ability(name):
-    """
-    Get ability from ability list.
-    """
-    #GODOT4: use array filter
-    for ability in card.abilities:
-        if ability.name == name:
-            return ability
+    return card.abilities.filter(func(abi): return abi.name == name)
 
-# public function
+## Remove summon from dungeon. During destruction, deactivate summon abilities
+## and empty summon tile.
 func destroy():
     deactivate_abilities()
     tile.empty_tile()
 
+## Initialize all abilities from summon in [param dungeon]. Usually used when
+## summon is summoned.
 func initialize_abilities(dungeon):
     for ability in card.abilities:
         ability.initialize(self, dungeon)
 
-#GODOT4: use array filter
+## Activate all dimension abilities from summon.
 func activate_dim_abilities():
     for ability in card.abilities:
         if ability.activates_on_dim() and not ability.is_negated():
             ability.activate()
 
+## Deactivate all abilities from summon.
 func deactivate_abilities():
     for ability in card.abilities:
         if not ability.is_negated():
             ability.deactivate()
 
+## Negate all abilities from summon.
 func negate_abilities():
     for ability in card.abilities:
         ability.negate()
 
-# is functions
+#region is functions
 func is_summon():
     return true
 
+## Return true if summon has ability with name [param name].
 func has_ability(name):
-    #GODOT4: use array any
-    for ability in card.abilities:
-        if ability.name == name:
-            return true
-    return false
+    return card.abilities.any(func(abi): return abi.name == name)
 
+## Return true if summon has active ability with name [param name].
 func has_active_ability(name):
-    #GODOT4: use array any
-    for ability in card.abilities:
-        if ability.name == name and not ability.is_negated():
-            return true
-    return false
+    #TODO: implement is active ability
+    #if ability.name == name and not ability.is_negated():
+    return card.abilities.any(func(abi): return abi.is_active_ability(name))
 
+## Return true if summon has active standing ability.
 func has_active_standing_ability():
-    #GODOT4: use array any
+    #TODO: implement is active standing ability
+    #if ability.is_standing() and not ability.is_negated():
+    return card.abilities.any(func(abi): return abi.is_active_standing_ability())
     for ability in card.abilities:
-        if ability.is_standing() and not ability.is_negated():
-            return true
-    return false 
 
+## Return true if summon has a dimension manual ability.
 func has_dim_manual_ability():
-    #GODOT4: use array any
-    for ability in card.abilities:
-        if ability.is_dim_manual():
-            return true
-    return false
+    return card.abilities.any(func(abi): return abi.is_dim_manual())
 
+## Return true if summon has an item manual ability.
 func has_item_manual_ability():
-    #GODOT4: use array any
-    for ability in card.abilities:
-        if ability.is_item_manual():
-            return true
-    return false
+    return card.abilities.any(func(abi): return abi.is_item_manual())
+#endregion
