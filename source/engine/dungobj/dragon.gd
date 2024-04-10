@@ -1,17 +1,16 @@
 extends "monster.gd"
+## Monster of type dragon.
 
-# constants
+#region constants
 const TYPE = "DRAGON"
+#endregion
 
-# is functions
+#region is functions
+## Return true if monster has advantage over monster [param attacked].
 func has_adv(attacked):
-    """
-    Return true if monster has advantage over attacked monster.
-    """
     return attacked.has_disadv_over_dragon()
 
+## Dragon monsters have disadvantage over warrior monsters.
 func has_disadv_over_warrior():
-    """
-    Return true if monster has advantage over warrior.
-    """
     return true
+#endregion

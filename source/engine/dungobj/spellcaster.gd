@@ -1,17 +1,16 @@
 extends "monster.gd"
+## Monster of spellcaster type.
 
-# constants
+#region constants
 const TYPE = "SPELLCASTER"
+#endregion
 
-# is functions
+#region is functions
+## Return true if monster has advantage over monster [param attacked].
 func has_adv(attacked):
-    """
-    Return true if monster has advantage over attacked monster.
-    """
     return attacked.has_disadv_over_spellcaster()
 
+## Spellcaster monsters have disadvantage over dragon.
 func has_disadv_over_dragon():
-    """
-    Return true if monster has advantage over dragon.
-    """
     return true
+#endregion

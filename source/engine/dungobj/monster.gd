@@ -3,8 +3,9 @@ extends "summon.gd"
 ## 
 ## The most fundamental dungobj, monsters move through the dungeon and attack
 ## other monsters and the opponent monster lord, to try to win the game. When
-## a monster health point dereases to zero, the monster is destroyed. Some
-## monsters can also activate abilities, in manual or an automatic way.
+## a monster health points reaches to zero, the monster is destroyed. Some
+## monsters can also activate abilities, in manual or an automatic way. This
+## class must be extended to add monster type attribute to monsters.
 
 #region signals
 signal attack_ends
@@ -26,14 +27,14 @@ var health ## Current health points of monster
 var speed = 1 ## Number of tiles a monster can move per movement crest
 var attack_distance = 1 ## Max distance a monster can attack in # of tiles
 var attack_cost = 1 ## Attack crest that must be pay per attack
-var ability_cooldown = false ## Flag to track if monster has casted an ability in a turn
-var max_move : get = get_max_move ## Max number of tiles a monster can move per turn
+var ability_cooldown = false ## Track if monster has casted an ability in a turn
+var max_move : get = get_max_move ## Max number of tiles monster can move per turn
 var previous_tile = null ## Tile where monster was before last movement
 var pass_behavior ## Behavior of monster when other monster pass thorugh it
 var target_behavior ## Behavior of monster when is targeted for an attack
 var power_behavior ## Behavior of monster when computing its attack power
 var damage_behavior ## Behavior of monster when receiving damage from an attack
-var max_move_behavior ## Behavior of a monster to track its max number of tiles to move
+var max_move_behavior ## Behavior to track its max number of tiles to move
 var attack_cooldown_behavior ## Behavior of monster to track its attack cooldown
 #endregion
 
@@ -53,39 +54,10 @@ func _init(_card, _player):
     attack_cooldown_behavior = AttackCooldownBehaviorBase.new()
 #endregion
 
-# setget functions
-func get_max_move():
-    """
-    Get max movement allowed by abilities.
-    """
-    return max_move_behavior.get_max_move()
-
-func get_player_other_monsters():
-    """
-    Return an array of player monster without this monster.
-    """
-    var other_monsters = player.monsters
-    other_monsters.erase(self)
-    return other_monsters
-
-func get_damage(monster, guard):
-    """
-    Get damage for an attack.
-    """
-    # "int(guard)*" accounts for attacking a guarding or not guarding monster
-    return get_power(monster) - int(guard)*monster.defense
-
-func get_power(attacked):
-    """
-    Get the power when monster attacks attacked.
-    """
-    return power_behavior.get_power(attack, attacked, has_adv(attacked), has_disadv(attacked))
-
-# public functions
+#region public functions
+## Attack an opponent [param monster]. If [param guard] is true, the attacked 
+## moster guards the attack.
 func attack_monster(monster, guard):
-    """
-    Attack an opponent monster.
-    """
     attack_cooldown_behavior.activate()
     var damage = get_damage(monster, guard)
     if damage > 0: # attacker deals damage
@@ -95,103 +67,105 @@ func attack_monster(monster, guard):
     emit_signal("attack_ends")
     monster.emit_signal("attack_ends")
 
-func attack_monster_lord(ml):
-    """
-    Attack the opponent monster lord.
-    """
+## Attack the opponent [param monster_lord].
+func attack_monster_lord(monster_lord):
     attack_cooldown_behavior.activate()
-    ml.receive_damage()
+    monster_lord.receive_damage()
 
+## Receive an amount of [param damage] from an attack or ability.
 func receive_damage(damage):
-    """
-    Receive damage from an attack or ability.
-    """
     damage_behavior.receive_damage(damage)
 
+## Remove monster from dungeon due to being destroyed by attack or ability.
 func destroy():
-    """
-    Remove monster from play due to being destroyed by attack or ability.
-    """
     super.destroy()
-    player.on_monster_destroyed(self)
+    player.remove_moster(self)
 
+## Buff monster attribute [param attr] by [param amount].
 func buff_attr(attr, amount):
-    """
-    Buff monster attribute attr by amount.
-    """
     attr = attr.to_lower()
     set(attr, get(attr) + amount)
 
+## Debuff monster attribute [param attr] by [param amount].
 func debuff_attr(attr, amount):
-    """
-    Debuff monster attribute attr by amount.
-    """
     attr = attr.to_lower()
     set(attr, max(get(attr) - amount, 0))
     
+## Restore monster health by [param amount], limited by the original amount of
+## monster card.
 func restore_health(amount):
-    """
-    Restore monster health by amount.
-    """
     health = min(health + amount, card.health)
 
+## Change monster player ownership to the opponent player.
 func switch_player():
-    """
-    Change monster player ownership to the opponent player.
-    """
     player.monsters.erase(self)
     player = player.opponent
     player.monsters.append(self)
 
-# is functions
+## Get max movement allowed by abilities.
+func get_max_move():
+    return max_move_behavior.get_max_move()
+
+## Return an array of player monsters without this monster.
+func get_player_other_monsters():
+    var other_monsters = player.monsters
+    other_monsters.erase(self)
+    return other_monsters
+
+## Get damage from an attack of a [param monster]. If [param guard] is true,
+## compute damage with this monster guarding the attack. Else compute damage
+## with this monster waiting the attack.
+func get_damage(monster, guard):
+    # "int(guard)*" accounts for attacking a guarding or not guarding monster
+    return get_power(monster) - int(guard)*monster.defense
+
+## Get the attack power for monster attacking [param attacked].
+func get_power(attacked):
+    return power_behavior.get_power(attack, attacked, has_adv(attacked),
+            has_disadv(attacked))
+#endregion
+
+#region is functions
 func is_monster():
     return true
 
+## Return true if [param monster], can pass through this monster during 
+## movement.
 func is_passable_by(monster):
     return monster == self or monster.pass_behavior.can_pass(self)
 
+## Return true if [param monster], can target this monster for an attack.
 func can_target(monster):
     return monster.player != player and target_behavior.can_target(monster)
 
+## By default, monsters have no advantage when attacking monster
+## [param _attacked].
 func has_adv(_attacked):
-    """
-    Return true if monster has advantage over attacked monster.
-    """
     return false
 
+## Return true if monster has disadvantage when attacking monster 
+## [param attacked]. Is computed by checking if monster [param attacked] has
+## advantage over this monster.
 func has_disadv(attacked):
-    """
-    Return true if monster has disadvantage over attacked monster. Computed by
-    checking if attacked monster has advantage over attatcker monster.
-    """
     return attacked.has_adv(self)
 
+## By default, monsters have no disadvantage over dragon type.
 func has_disadv_over_dragon():
-    """
-    Return true if monster has disadvantage over dragon.
-    """
     return false
 
+## By default, monsters have no disadvantage over spellcarter type.
 func has_disadv_over_spellcaster():
-    """
-    Return true if monster has disadvantage over spellcaster.
-    """
     return false
 
+## By default, monsters have no disadvantage over undead type.
 func has_disadv_over_undead():
-    """
-    Return true if monster has disadvantage over undead.
-    """
     return false
 
+## By default, monsters have no disadvantage over beast type.
 func has_disadv_over_beast():
-    """
-    Return true if monster has advantage over beast.
-    """
     return false
 
+## By default, monsters have no disadvantage over warrior type.
 func has_disadv_over_warrior():
-    """
-    Return true if monster has advantage over warrior.
-    """
     return false
+#endregion

@@ -48,12 +48,10 @@ func summon_card(diceidx):
     dice.dimensioned = true
     var summon = dice.card.summon(self)
     return summon
-#endregion
 
-# signals callbacks
-### When [param monster] is destroyed, erase monster from monsters array, and
-## add monster to graveyard array.
-func on_monster_destroyed(monster):
+## Remove monster from monsters array, and add monster to graveyard array.
+## Used when a monster is destroyed in dungeon.
+func remove_monster(monster):
     monsters.erase(monster)
     graveyard.append(monster)
 #endregion
