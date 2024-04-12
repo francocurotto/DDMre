@@ -1,8 +1,8 @@
 extends RefCounted
+## Default monster behavior when attempting to pass through other monsters.
 
-# public functions
+#region public functions
+## By default, monsters can only pass through other flying monsters.
 func can_pass(monster):
-    """
-    Return true if pass behavior allows to pass monster during movement.
-    """
     return monster.has_active_ability("FLY")
+#endregion

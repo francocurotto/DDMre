@@ -1,8 +1,8 @@
 extends RefCounted
+## Tunnel monster behavior when attempting to pass through other monsters.
 
-# public functions
+#region public functions
+## Tunnel monsters can pass through all other monsters.
 func can_pass(_monster):
-    """
-    Return true if pass behavior allows to pass monster during movement.
-    """
     return true
+#endregion
