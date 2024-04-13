@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ubo3vjujly0d"]
+
+[ext_resource type="StyleBox" uid="uid://pt11rc32dfot" path="res://assets/styles/player_gui_button_normal.tres" id="1_2n1i5"]
+[ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://assets/fonts/Archimoto.otf" id="1_31w2r"]
+[ext_resource type="StyleBox" uid="uid://6mcpqj4pkxqb" path="res://assets/styles/player_gui_button_disabled.tres" id="2_2jtg4"]
+[ext_resource type="StyleBox" uid="uid://gn6fghblgj5a" path="res://assets/styles/player_gui_button_pressed.tres" id="2_w0pyr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ys543"]
+
+[resource]
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_31w2r")
+Button/styles/disabled = ExtResource("2_2jtg4")
+Button/styles/focus = SubResource("StyleBoxEmpty_ys543")
+Button/styles/hover = ExtResource("1_2n1i5")
+Button/styles/normal = ExtResource("1_2n1i5")
+Button/styles/pressed = ExtResource("2_w0pyr")

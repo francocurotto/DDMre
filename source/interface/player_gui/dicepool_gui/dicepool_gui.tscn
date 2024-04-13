@@ -4,12 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bcn6sx8mo0acg" path="res://interface/player_gui/dicepool_gui/dice_gui/dice_gui.tscn" id="1_xouyd"]
 [ext_resource type="PackedScene" uid="uid://c36lt5po6nufo" path="res://interface/player_gui/dicepool_gui/sides_info/sides_info.tscn" id="2_innbh"]
 [ext_resource type="PackedScene" uid="uid://bmtorjyps4i0w" path="res://interface/player_gui/dicepool_gui/dice_sort/dice_sort.tscn" id="4_1nlfe"]
+[ext_resource type="Theme" uid="uid://ubo3vjujly0d" path="res://assets/themes/player_gui_button_theme.tres" id="5_g2iqv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn0dc"]
 bg_color = Color(0.121569, 0.121569, 0.121569, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nf36j"]
-bg_color = Color(0, 0, 0, 1)
 
 [node name="DicepoolGUI" type="PanelContainer"]
 self_modulate = Color(1, 1, 1, 0.901961)
@@ -91,39 +89,41 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nf36j")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 20
 
-[node name="RollButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer"]
+[node name="RollButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("5_g2iqv")
 disabled = true
 text = "ROLL"
 
-[node name="SummonButtons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+[node name="SummonButtons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+theme_override_constants/separation = 10
 
-[node name="SummonButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/SummonButtons"]
+[node name="SummonButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/SummonButtons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("5_g2iqv")
 disabled = true
 text = "SUMMON"
 
-[node name="SkipButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/SummonButtons"]
+[node name="SkipButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/SummonButtons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("5_g2iqv")
 text = "SKIP"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/RollButton" to="." method="_on_roll_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/SummonButtons/SummonButton" to="." method="_on_summon_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/RollButton" to="." method="_on_roll_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/SummonButtons/SummonButton" to="." method="_on_summon_button_pressed"]
