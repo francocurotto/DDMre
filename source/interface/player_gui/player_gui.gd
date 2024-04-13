@@ -1,10 +1,12 @@
 extends PanelContainer
 
-# variables
+#region variables
 var engine
 var player
 var opponent
+#endregion
 
+#region builtin functions
 func _ready():
     %DungeonGUI.tile_gui_toggled.connect(%SummonInfo.on_tile_gui_toggled)
     %DungeonGUI.tile_gui_toggled.connect(%PlayerInfo.on_tile_gui_toggled)
@@ -19,8 +21,9 @@ func _ready():
     %DicepoolGUI.summon_button_pressed.connect(on_summon_button_pressed)
     Events.dice_rolled.connect(on_dice_rolled)
     Events.dice_dimensioned.connect(on_dice_dimensioned)
+#endregion
 
-# public functions
+#region public functions
 func setup(_engine, _player, _opponent):
     engine = _engine
     player = _player
@@ -28,8 +31,9 @@ func setup(_engine, _player, _opponent):
     %DungeonGUI.setup(player, engine.state.dungeon)
     %PlayerInfo.setup(player)
     %DicepoolGUI.setup(player.dicepool)
+#endregion
 
-# signals callbacks
+#region signals callbacks
 func _on_dicepool_button_toggled(toggled_on):
     if toggled_on:
         %DicepoolGUI.activate_dicepool()
@@ -74,8 +78,9 @@ func _on_dim_button_pressed():
     dim_cmd.merge({"dice" : %DicepoolGUI.get_dim_dice_index()})
     dim_cmd.merge(%DungeonGUI.get_dim_params())
     engine.update(dim_cmd)
+#endregion
 
-# private functions
+#region private functions
 func switch_to_end_turn_button():
     for button in %ActionButtons.get_children():
         button.visible = false
@@ -85,3 +90,4 @@ func switch_to_dim_button():
     for button in %ActionButtons.get_children():
         button.visible = false
     %DimButton.visible = true
+#endregion

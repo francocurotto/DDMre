@@ -72,8 +72,8 @@ static func check_diceidx_float(diceidx):
     if typeof(diceidx) != TYPE_FLOAT:
         return false
     # check correct range
-    var float_range = range(1, Globals.DICEPOOL_SIZE+1).map(func(i): float(i))
-    if not diceidx in float_range:
+    var floats = range(1, Globals.DICEPOOL_SIZE+1).map(func(i): return float(i))
+    if not diceidx in floats:
         return false
     # all checks passed
     return true
@@ -92,8 +92,8 @@ static func check_crests_dict(crests_dict):
         if typeof(crests_dict[crest]) != TYPE_FLOAT:
             return false
         # check crest count is int
-        var float_range = range(Globals.MAX_CRESTS+1).map(func(i): float(i))
-        if not crests_dict[crest] in float_range:
+        var floats = range(Globals.MAX_CRESTS+1).map(func(i): return float(i))
+        if not crests_dict[crest] in floats:
             return false
     # all checks passed
     return true
@@ -105,8 +105,8 @@ static func check_hearts_int(hearts_num):
     if typeof(hearts_num) != TYPE_FLOAT:
         return false
     # check correct value
-    var float_range = range(Globals.MAX_HEARTS+1).map(func(i): float(i))
-    if not hearts_num in float_range:
+    var floats = range(Globals.MAX_HEARTS+1).map(func(i): return float(i))
+    if not hearts_num in floats:
         return false
     # all checks passed
     return true

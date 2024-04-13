@@ -1,17 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5cr1ilo6bxek"]
 
 [ext_resource type="PackedScene" uid="uid://q8foasgw387t" path="res://interface/player_gui/player_info/hearts_info/hearts_info.tscn" id="1_3ij62"]
+[ext_resource type="StyleBox" uid="uid://dw8rsn42t4aj" path="res://assets/styles/info_panel.tres" id="1_nbx84"]
 [ext_resource type="Script" path="res://interface/player_gui/player_info/player_info.gd" id="1_ymgqd"]
 [ext_resource type="PackedScene" uid="uid://canxgd2tdw0bw" path="res://interface/player_gui/player_info/crestpool_info/crestpool_info.tscn" id="2_u6rhl"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iy4o"]
-bg_color = Color(0.254902, 0.254902, 0.254902, 1)
-
 [node name="PlayerInfo" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 67)
 offset_right = 720.0
-offset_bottom = 61.0
+offset_bottom = 67.0
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_8iy4o")
+theme_override_styles/panel = ExtResource("1_nbx84")
 script = ExtResource("1_ymgqd")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

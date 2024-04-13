@@ -1,13 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://bv3h35fawxupw"]
+[gd_scene load_steps=9 format=3 uid="uid://bv3h35fawxupw"]
 
 [ext_resource type="Script" path="res://interface/player_gui/player_gui.gd" id="1_o5612"]
 [ext_resource type="PackedScene" uid="uid://dbmi486gqi604" path="res://interface/player_gui/dungeon_gui/dungeon_gui.tscn" id="2_645da"]
 [ext_resource type="PackedScene" uid="uid://q8m00bwgivip" path="res://interface/player_gui/summon_info/summon_info.tscn" id="2_wjdiv"]
 [ext_resource type="PackedScene" uid="uid://c5cr1ilo6bxek" path="res://interface/player_gui/player_info/player_info.tscn" id="3_putua"]
 [ext_resource type="PackedScene" uid="uid://clg2g2fqnsm0p" path="res://interface/player_gui/dicepool_gui/dicepool_gui.tscn" id="4_se84o"]
+[ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://assets/fonts/Archimoto.otf" id="5_y6jch"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rhg1"]
 bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vky8f"]
+bg_color = Color(0.215686, 0, 0.00392157, 1)
+border_width_bottom = 5
+corner_radius_top_left = 9
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="PlayerGUI" type="PanelContainer"]
 anchors_preset = 15
@@ -28,62 +37,66 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+[node name="LowerPanel" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.8
 theme_override_styles/panel = SubResource("StyleBoxFlat_3rhg1")
 
-[node name="Control" type="Control" parent="VBoxContainer/PanelContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/LowerPanel"]
 show_behind_parent = true
 layout_mode = 2
 
-[node name="DicepoolGUI" parent="VBoxContainer/PanelContainer/Control" instance=ExtResource("4_se84o")]
+[node name="DicepoolGUI" parent="VBoxContainer/LowerPanel/Control" instance=ExtResource("4_se84o")]
 unique_name_in_owner = true
 layout_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/LowerPanel"]
 layout_mode = 2
+theme_override_constants/separation = 3
 
-[node name="ButtonsRow" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+[node name="ButtonsRow" type="HBoxContainer" parent="VBoxContainer/LowerPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="DicepoolButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer/ButtonsRow"]
+[node name="DicepoolButton" type="Button" parent="VBoxContainer/LowerPanel/VBoxContainer/ButtonsRow"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("5_y6jch")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_vky8f")
 toggle_mode = true
 text = "DICEPOOL"
 
-[node name="ActionButtons" type="MarginContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/ButtonsRow"]
+[node name="ActionButtons" type="MarginContainer" parent="VBoxContainer/LowerPanel/VBoxContainer/ButtonsRow"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="EndTurnButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer/ButtonsRow/ActionButtons"]
+[node name="EndTurnButton" type="Button" parent="VBoxContainer/LowerPanel/VBoxContainer/ButtonsRow/ActionButtons"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("5_y6jch")
+theme_override_font_sizes/font_size = 45
 disabled = true
 text = "END TURN
 "
 
-[node name="DimButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer/ButtonsRow/ActionButtons"]
+[node name="DimButton" type="Button" parent="VBoxContainer/LowerPanel/VBoxContainer/ButtonsRow/ActionButtons"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("5_y6jch")
+theme_override_font_sizes/font_size = 45
 disabled = true
 text = "DIMENSION"
 
-[node name="PlayerInfo" parent="VBoxContainer/PanelContainer/VBoxContainer" instance=ExtResource("3_putua")]
+[node name="PlayerInfo" parent="VBoxContainer/LowerPanel/VBoxContainer" instance=ExtResource("3_putua")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_stretch_ratio = 0.5
 
-[connection signal="toggled" from="VBoxContainer/PanelContainer/VBoxContainer/ButtonsRow/DicepoolButton" to="." method="_on_dicepool_button_toggled"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/ButtonsRow/ActionButtons/DimButton" to="." method="_on_dim_button_pressed"]
+[connection signal="toggled" from="VBoxContainer/LowerPanel/VBoxContainer/ButtonsRow/DicepoolButton" to="." method="_on_dicepool_button_toggled"]
+[connection signal="pressed" from="VBoxContainer/LowerPanel/VBoxContainer/ButtonsRow/ActionButtons/DimButton" to="." method="_on_dim_button_pressed"]

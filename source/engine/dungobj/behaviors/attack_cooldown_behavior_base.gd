@@ -27,5 +27,5 @@ func reset():
 ## Check if monster can attack given the attack cooldown.
 func can_attack():
     return counter < max_attacks
-##endregion
+#endregion
 

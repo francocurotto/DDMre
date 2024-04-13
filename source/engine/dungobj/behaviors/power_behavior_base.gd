@@ -1,21 +1,40 @@
 extends RefCounted
+## Monster behavior to compute the attack power when attacking a monster.
+##
+## Normally, attack power is computed with the monster attack attribute, adding
+## monster types advantages between attacker and attacked. Some monsters have
+## abilities that can temporally buff attack power when attacking.
 
-var ability_buff = 0
+#region variables
+var monster ## attacking monster
+var ability_buff = 0 ## temporal ability buffs during attack
+#endregion
 
-# public functions
-func get_power(attack, attacked, has_adv, has_disadv):
-    """
-    Return the power of a monster attacking with attack value, and considering
-    if monster has advantage or disadvantage over attacked monster (if 
-    attacked monster has neutral ability, ignore advantages and disadvantages).
-    """
-    var power = attack + ability_buff
+#region builtin function
+func _init(_monster):
+    monster = _monster
+#endregion
+
+#region public functions
+## Get the attack power when attacking monster [param attacked]. Add ability
+## buffs to monster power. Additionaly, add monster type advantages, only if 
+## attacked monster does not have the active ability "NEUTRAL". 
+func get_power(attacked):
+    var power = monster.attack + ability_buff
     if not attacked.has_active_ability("NEUTRAL"):
-        power = apply_adv_disadv(power, has_adv, has_disadv)
+        power += get_adv_buff(attacked)
     return power
-        
-func apply_adv_disadv(power, has_adv, has_disadv):
-    """
-    Apply type advantges and disadvantages.
-    """
-    return power + int(has_adv)*10 - int(has_disadv)*10
+#endregion
+ 
+#region private functions
+## Compute buff or debuff from monster and [param attacked] type advantage or 
+## disadvantage. If attacker have advantage over [param attacked], the buff is 
+## 10, if attacker has disadvantage, the debuff is -10, in any other case, the 
+## buff is 0.
+func get_adv_buff(attacked):
+    if monster.has_adv(attacked):
+        return 10
+    elif monster.has_disav(attacked):
+        return -10
+    return 0
+#endregion

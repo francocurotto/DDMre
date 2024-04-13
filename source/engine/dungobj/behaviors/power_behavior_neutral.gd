@@ -1,8 +1,10 @@
 extends "power_behavior_base.gd"
+## Monster behavior to compute the attack power from a neutral monster.
+##
+## For neutral monsters, type advantages and disadvantages does not apply.
 
-# public functions
-func apply_adv_disadv(power, _has_adv, _has_disadv):
-    """
-    As neutral ability, do not apply advantages or disadvantages.
-    """
-    return power
+#region public functions
+## For monsters with neutral ability, advantage buff is 0.
+func get_adv_buff(_attacked):
+    return 0
+#endregion

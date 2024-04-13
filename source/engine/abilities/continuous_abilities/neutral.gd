@@ -10,7 +10,7 @@ func _init(ability_dict):
 
 # public functions
 func activate():
-    summon.power_behavior = PowerBehaviorNeutral.new()
+    summon.power_behavior = PowerBehaviorNeutral.new(summon)
 
 func deactivate():
-    summon.target_behavior = PowerBehaviorBase.new()
+    summon.target_behavior = PowerBehaviorBase.new(summon)

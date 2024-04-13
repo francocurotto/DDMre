@@ -1,8 +1,11 @@
 ### NEW INTERFACE
-- fix transition to dungeon state
+- implement transition to dungeon state
 
 ### BUGS
 
-### GODOT4
+### TODO
+- refactor engine abilities scripts
+    - add regions
+    - add documentation
 - correct GODOT4 notes
-- add proper godot4 documentation
+- implement TODO notes

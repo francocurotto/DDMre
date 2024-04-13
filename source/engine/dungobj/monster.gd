@@ -28,7 +28,7 @@ var speed = 1 ## Number of tiles a monster can move per movement crest
 var attack_distance = 1 ## Max distance a monster can attack in # of tiles
 var attack_cost = 1 ## Attack crest that must be pay per attack
 var ability_cooldown = false ## Track if monster has casted an ability in a turn
-var max_move : get = get_max_move ## Max number of tiles monster can move per turn
+var max_move : get = get_max_move ## Max tiles monster can move per turn
 var previous_tile = null ## Tile where monster was before last movement
 var pass_behavior ## Behavior of monster when other monster pass thorugh it
 var target_behavior ## Behavior of monster when is targeted for an attack
@@ -48,7 +48,7 @@ func _init(_card, _player):
     # initialize behaviors
     pass_behavior = PassBehaviorBase.new()
     target_behavior = TargetBehaviorBase.new()
-    power_behavior = PowerBehaviorBase.new()
+    power_behavior = PowerBehaviorBase.new(self)
     damage_behavior = DamageBehaviorBase.new(self)
     max_move_behavior = MaxMoveBehaviorBase.new()
     attack_cooldown_behavior = AttackCooldownBehaviorBase.new()
@@ -121,8 +121,7 @@ func get_damage(monster, guard):
 
 ## Get the attack power for monster attacking [param attacked].
 func get_power(attacked):
-    return power_behavior.get_power(attack, attacked, has_adv(attacked),
-            has_disadv(attacked))
+    return power_behavior.get_power(attacked)
 #endregion
 
 #region is functions

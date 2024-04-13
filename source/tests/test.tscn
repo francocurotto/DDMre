@@ -1,33 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bogle1toorpql"]
+[gd_scene format=3 uid="uid://7prw7uoxvhgq"]
 
-[ext_resource type="Script" path="res://tests/test.gd" id="1_fv52g"]
-
-[node name="Test" type="GridContainer"]
-offset_right = 234.0
-offset_bottom = 230.0
-columns = 2
-script = ExtResource("1_fv52g")
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 177.0
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="PanelContainer3" type="PanelContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="PanelContainer4" type="PanelContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+offset_left = 106.0
+offset_top = 73.0
+offset_right = 356.0
+offset_bottom = 250.0
