@@ -1,7 +1,28 @@
 @tool
 extends MarginContainer
 
-# export variables
+#region signals
+signal dice_entered(dice_gui)
+signal dice_move_finished
+signal dice_roll_selected(dice_gui)
+signal dice_roll_unselected(dice_gui)
+#endregion
+
+#region constants
+const COLORS = {
+    "DRAGON"      : Color(1.0,0.3,0.3),
+    "SPELLCASTER" : Color(0.8,0.8,0.8),
+    "UNDEAD"      : Color(1.0,1.0,0.3),
+    "BEAST"       : Color(0.3,1.0,0.3),
+    "WARRIOR"     : Color(0.3,0.3,1.0),
+    "ITEM"        : Color(0.3,0.3,0.3)}
+#endregion
+
+#region preloads
+const ROLL_SELECTOR_ICON = preload("res://assets/icons/ROLL_SELECTOR.svg")
+#endregion
+
+#region export variables
 @export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM") 
 var type : String = "DRAGON" :
     set(_type):
@@ -26,31 +47,19 @@ var type : String = "DRAGON" :
             $DiceIcon.modulate = Color(1,1,1,1)
         else:
             $DiceIcon.modulate = Color(1,1,1,0.5)
+#endregion
 
-# constants
-const COLORS = {
-    "DRAGON"      : Color(1.0,0.3,0.3),
-    "SPELLCASTER" : Color(0.8,0.8,0.8),
-    "UNDEAD"      : Color(1.0,1.0,0.3),
-    "BEAST"       : Color(0.3,1.0,0.3),
-    "WARRIOR"     : Color(0.3,0.3,1.0),
-    "ITEM"        : Color(0.3,0.3,0.3)}
-
-# variables
+#region variables
 var dice
 var move_time = 0.5
+#endregion
 
-# onready variables
+#region onready variables
 @onready var roll_button = %RollButton
 @onready var roll_sides = $RollSides
+#endregion
 
-# signals
-signal dice_entered(dice_gui)
-signal dice_move_finished
-signal dice_roll_selected(dice_gui)
-signal dice_roll_unselected(dice_gui)
-
-# public functions
+#region public functions
 func setup(_dice):
     dice = _dice
     type = dice.card.type
@@ -67,8 +76,9 @@ func roll(side, turns):
     $DiceIcon.visible = false
     $RollSides.visible = true
     $RollSides.roll(side, turns)
+#endregion
 
-# signals callbacks
+#region signals callbacks
 func _on_resized():
     var min_size = min(size.y, size.x)
     %LevelLabel.add_theme_font_size_override("font_size", min_size/4)
@@ -90,8 +100,9 @@ func _input(event):
 
 func _on_roll_button_toggled(toggled_on):
     if toggled_on:
-        %RollButton.icon = load("res://assets/icons/ROLL_SELECTOR.svg")
+        %RollButton.icon = ROLL_SELECTOR_ICON
         dice_roll_selected.emit(self)
     else:
         %RollButton.icon = null
         dice_roll_unselected.emit(self)
+#endregion

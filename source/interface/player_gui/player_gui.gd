@@ -12,9 +12,9 @@ func _ready():
     %DungeonGUI.tile_gui_toggled.connect(%PlayerInfo.on_tile_gui_toggled)
     %DungeonGUI.dimension_net_changed.connect(on_dimension_net_changed)
     %DicepoolGUI.dice_sort_started.connect(func(): 
-        %DicepoolButton.disabled = true)
-    %DicepoolGUI.dice_sort_finished.connect(func(): 
-        %DicepoolButton.disabled = false)
+        %DicepoolButton.mouse_filter = MOUSE_FILTER_IGNORE)
+    %DicepoolGUI.dice_sort_finished.connect(func():
+        %DicepoolButton.mouse_filter = MOUSE_FILTER_STOP)
     %DicepoolGUI.dice_gui_selected.connect(%SummonInfo.on_dice_gui_selected)
     %DicepoolGUI.roll_button_pressed.connect(input_roll_cmd)
     %DicepoolGUI.roll_finished.connect(on_roll_finished)

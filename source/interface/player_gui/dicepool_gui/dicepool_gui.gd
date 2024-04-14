@@ -1,9 +1,19 @@
 extends PanelContainer
 
-# preload variables
-const DiceSelector = preload("res://interface/player_gui/dicepool_gui/dice_selector/dice_selector.tscn")
+#region signals
+signal dice_gui_selected(dice)
+signal dice_sort_started
+signal dice_sort_finished
+signal roll_button_pressed
+signal roll_finished
+signal summon_button_pressed
+#endregion
 
-# variables
+#region preload variables
+const DiceSelector = preload("res://interface/player_gui/dicepool_gui/dice_selector/dice_selector.tscn")
+#endregion
+
+#region variables
 var dicepool
 var dice_guis
 var dice_selector
@@ -11,15 +21,9 @@ var move_time = 0.7
 var roll_dice_guis = []
 var dim_candidates = []
 var dim_dice
+#endregion
 
-# signals
-signal dice_gui_selected(dice)
-signal dice_sort_started
-signal dice_sort_finished
-signal roll_button_pressed
-signal roll_finished
-signal summon_button_pressed
-
+#region builtin functions
 func _ready():
     # define dice guis
     dice_guis = %Grid.get_children()
@@ -30,8 +34,9 @@ func _ready():
         dice_gui.dice_roll_unselected.connect(on_dice_roll_unselected)
     dice_guis[0].dice_move_finished.connect(func(): dice_sort_finished.emit())
     %DiceSort.sort_button_pressed.connect(on_sort_button_pressed)
+#endregion
 
-# public functions
+#region public functions
 func setup(_dicepool):
     dicepool = _dicepool
     for i in len(dicepool):
@@ -65,8 +70,9 @@ func switch_to_summon_buttons():
 
 func get_dim_dice_index():
     return dicepool.find(dim_dice.dice)
+#endregion
 
-# signals callbacks
+#region signals callbacks
 func on_dice_entered(dice_gui):
     # case first selection
     if not is_instance_valid(dice_selector):
@@ -163,8 +169,9 @@ func _on_roll_button_pressed():
 func _on_summon_button_pressed():
     dim_dice = dice_selector.get_parent()
     summon_button_pressed.emit(dim_dice)
+#endregions    
 
-# private functions
+#region private functions
 func enable_dice_guis():
     for dice_gui in dice_guis:
         dice_gui.disabled = false
@@ -191,3 +198,4 @@ func sort_dice_guis(dice_gui1, dice_gui2):
     # original sort
     else:
         return dicepool.find(dice1) < dicepool.find(dice2)
+#endregion

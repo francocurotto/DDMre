@@ -18,36 +18,36 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o5612")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="PanelsVBox" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="SummonInfo" parent="VBoxContainer" instance=ExtResource("2_wjdiv")]
+[node name="SummonInfo" parent="PanelsVBox" instance=ExtResource("2_wjdiv")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="DungeonGUI" parent="VBoxContainer" instance=ExtResource("2_645da")]
+[node name="DungeonGUI" parent="PanelsVBox" instance=ExtResource("2_645da")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="LowerPanel" type="PanelContainer" parent="VBoxContainer"]
+[node name="LowerPanel" type="PanelContainer" parent="PanelsVBox"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.8
 theme_override_styles/panel = SubResource("StyleBoxFlat_3rhg1")
 
-[node name="Control" type="Control" parent="VBoxContainer/LowerPanel"]
+[node name="DicepoolGUIHolder" type="Control" parent="PanelsVBox/LowerPanel"]
 show_behind_parent = true
 layout_mode = 2
 
-[node name="DicepoolGUI" parent="VBoxContainer/LowerPanel/Control" instance=ExtResource("4_se84o")]
+[node name="DicepoolGUI" parent="PanelsVBox/LowerPanel/DicepoolGUIHolder" instance=ExtResource("4_se84o")]
 unique_name_in_owner = true
 layout_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/LowerPanel"]
+[node name="LowerPanelVBox" type="VBoxContainer" parent="PanelsVBox/LowerPanel"]
 layout_mode = 2
 theme_override_constants/separation = 3
 
-[node name="Margins" type="MarginContainer" parent="VBoxContainer/LowerPanel/VBoxContainer"]
+[node name="ButtonsRowMargins" type="MarginContainer" parent="PanelsVBox/LowerPanel/LowerPanelVBox"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 8
@@ -55,12 +55,12 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
-[node name="ButtonsRow" type="HBoxContainer" parent="VBoxContainer/LowerPanel/VBoxContainer/Margins"]
+[node name="ButtonsRow" type="HBoxContainer" parent="PanelsVBox/LowerPanel/LowerPanelVBox/ButtonsRowMargins"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="DicepoolButton" type="Button" parent="VBoxContainer/LowerPanel/VBoxContainer/Margins/ButtonsRow"]
+[node name="DicepoolButton" type="Button" parent="PanelsVBox/LowerPanel/LowerPanelVBox/ButtonsRowMargins/ButtonsRow"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -68,12 +68,12 @@ theme = ExtResource("5_7i0g8")
 toggle_mode = true
 text = "DICEPOOL"
 
-[node name="ActionButtons" type="MarginContainer" parent="VBoxContainer/LowerPanel/VBoxContainer/Margins/ButtonsRow"]
+[node name="ActionButtons" type="MarginContainer" parent="PanelsVBox/LowerPanel/LowerPanelVBox/ButtonsRowMargins/ButtonsRow"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="EndTurnButton" type="Button" parent="VBoxContainer/LowerPanel/VBoxContainer/Margins/ButtonsRow/ActionButtons"]
+[node name="EndTurnButton" type="Button" parent="PanelsVBox/LowerPanel/LowerPanelVBox/ButtonsRowMargins/ButtonsRow/ActionButtons"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("5_7i0g8")
@@ -81,7 +81,7 @@ disabled = true
 text = "END TURN
 "
 
-[node name="DimButton" type="Button" parent="VBoxContainer/LowerPanel/VBoxContainer/Margins/ButtonsRow/ActionButtons"]
+[node name="DimButton" type="Button" parent="PanelsVBox/LowerPanel/LowerPanelVBox/ButtonsRowMargins/ButtonsRow/ActionButtons"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -90,10 +90,10 @@ theme = ExtResource("5_7i0g8")
 disabled = true
 text = "DIMENSION"
 
-[node name="PlayerInfo" parent="VBoxContainer/LowerPanel/VBoxContainer" instance=ExtResource("3_putua")]
+[node name="PlayerInfo" parent="PanelsVBox/LowerPanel/LowerPanelVBox" instance=ExtResource("3_putua")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_stretch_ratio = 0.5
 
-[connection signal="toggled" from="VBoxContainer/LowerPanel/VBoxContainer/Margins/ButtonsRow/DicepoolButton" to="." method="_on_dicepool_button_toggled"]
-[connection signal="pressed" from="VBoxContainer/LowerPanel/VBoxContainer/Margins/ButtonsRow/ActionButtons/DimButton" to="." method="_on_dim_button_pressed"]
+[connection signal="toggled" from="PanelsVBox/LowerPanel/LowerPanelVBox/ButtonsRowMargins/ButtonsRow/DicepoolButton" to="." method="_on_dicepool_button_toggled"]
+[connection signal="pressed" from="PanelsVBox/LowerPanel/LowerPanelVBox/ButtonsRowMargins/ButtonsRow/ActionButtons/DimButton" to="." method="_on_dim_button_pressed"]
