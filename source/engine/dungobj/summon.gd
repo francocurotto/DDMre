@@ -27,11 +27,11 @@ func destroy():
     deactivate_abilities()
     tile.empty_tile()
 
-## Initialize all abilities from summon in [param dungeon]. Usually used when
+## Setuo all abilities from summon in [param dungeon]. Usually used when
 ## summon is summoned.
-func initialize_abilities(dungeon):
+func setup_abilities(dungeon):
     for ability in card.abilities:
-        ability.initialize(self, dungeon)
+        ability.setup(self, dungeon)
 
 ## Activate all dimension abilities from summon.
 func activate_dim_abilities():

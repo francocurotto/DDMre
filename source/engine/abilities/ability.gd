@@ -1,23 +1,35 @@
 extends RefCounted
+## Special property of some summons that can affects entities in the dungeon.
+##
+## Abilities are special properties of some summons that have effect in its
+## summon, other summons or the dungeon itself. The way the ability is
+## manifested in the duel depends on the specific type of ability.
 
-# variables
-var ability_info
-var name
-var summon
-var dungeon
+#region variables
+var ability_info ## Dictionary with the infi to define and use the ability
+var name         ## Unique name of the ability
+var summon       ## Summon owner of the ability
+var dungeon      ## Reference of dungeon in the duel
+#endregion
 
+#region builtin functions
 func _init(_ability_info):
     ability_info = _ability_info
     name = ability_info["NAME"]
+#endregion
 
-# public functions
-func initialize(_summon, _dungeon):
+#region public functions
+## Setup abilities attributes [param _summon] and [param dungeon] once its
+## assigned summon is summoned.
+func setup(_summon, _dungeon):
     summon = _summon
     dungeon = _dungeon
 
+## By default, abilities cannot be deactivated.
 func deactivate():
     pass
 
+## By default, abilities cannot be negated.
 func negate():
     pass
 
@@ -26,6 +38,7 @@ func pay_crests(crest, amount):
 
 func gain_crests(crest, amount):
     summon.player.crestpool.add_crests(crest, amount)
+#endregion
 
 # is functions
 func activates_on_dim():
