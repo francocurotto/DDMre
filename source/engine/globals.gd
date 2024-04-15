@@ -31,9 +31,6 @@ var ABIDICT = read_jsonfile(ABIPATH)
 #region functions
 ## Read a JSON file and convert it to a dictionary.
 func read_jsonfile(filepath):
-    """
-    Read json file and return it as a dictionary.
-    """
     var jsonstr = FileAccess.get_file_as_string(filepath)
     var jsondict = JSON.parse_string(jsonstr)
     return jsondict
