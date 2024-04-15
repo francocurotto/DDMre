@@ -7,8 +7,6 @@
 - refactor engine abilities scripts
     - add regions
     - add documentation
-    - reorder abilities files
-- change net_ctreator.gd location
 - correct GODOT4 notes
 - implement TODO notes
 
