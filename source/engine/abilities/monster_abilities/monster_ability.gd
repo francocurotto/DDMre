@@ -1,4 +1,4 @@
-extends "ability.gd"
+extends "res://engine/abilities/ability.gd"
 
 # variables
 var negate_count = 0

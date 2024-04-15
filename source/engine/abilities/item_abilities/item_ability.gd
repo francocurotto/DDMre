@@ -1,4 +1,4 @@
-extends "ability.gd"
+extends "res://engine/abilities/ability.gd"
 
 # constants
 const TYPE = "ITEM"

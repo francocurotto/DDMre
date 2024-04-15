@@ -64,11 +64,11 @@ func has_active_ability(name):
     #if ability.name == name and not ability.is_negated():
     return card.abilities.any(func(abi): return abi.is_active_ability(name))
 
-## Return true if summon has active standing ability.
-func has_active_standing_ability():
-    #TODO: implement is active standing ability
-    #if ability.is_standing() and not ability.is_negated():
-    return card.abilities.any(func(abi): return abi.is_active_standing_ability())
+## Return true if summon has active cast ability.
+func has_active_cast_ability():
+    #TODO: implement is active cast ability
+    #if ability.is_cast() and not ability.is_negated():
+    return card.abilities.any(func(abi): return abi.is_active_cast_ability())
 
 ## Return true if summon has a dimension manual ability.
 func has_dim_manual_ability():

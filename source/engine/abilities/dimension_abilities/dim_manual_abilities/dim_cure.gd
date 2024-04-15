@@ -1,4 +1,4 @@
-extends "res://engine/abilities/dim_manual_ability.gd"
+extends "dim_manual_ability.gd"
 
 # variables
 var amount

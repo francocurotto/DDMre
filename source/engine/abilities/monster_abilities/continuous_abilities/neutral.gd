@@ -1,4 +1,4 @@
-extends "res://engine/abilities/continuous_ability.gd"
+extends "continuous_ability.gd"
 
 # preloads
 const PowerBehaviorNeutral = preload("res://engine/dungobj/behaviors/power_behavior_neutral.gd")

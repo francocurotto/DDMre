@@ -50,7 +50,7 @@ const NETDICT = {
     "L1"  : [1, 4, 7,  8, 11, 14],
     "L1F" : [1, 4, 6,  7,  9, 12]
 }
-const NetCreator = preload("res://engine/states/net_creator.gd")
+const NetCreator = preload("res://engine/dungeon/nets/net_creator.gd")
 
 # variable
 var time = 0

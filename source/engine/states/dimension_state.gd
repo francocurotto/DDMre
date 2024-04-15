@@ -9,7 +9,7 @@ const NAME = "DIMENSION"
 #endregion
 
 #region preload variables
-var NetCreator = preload("res://engine/states/net_creator.gd")
+var NetCreator = preload("res://engine/dungeon/nets/net_creator.gd")
 #endregion
 
 #region variables

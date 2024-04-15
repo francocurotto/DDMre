@@ -1,4 +1,4 @@
-extends "res://engine/abilities/linger_ability.gd"
+extends "res://engine/abilities/monster_abilities/monster_ability.gd"
 
 # constants
 const TYPE = "ATTACK"

@@ -1,4 +1,4 @@
-extends "res://engine/abilities/reply_ability.gd"
+extends "reply_ability.gd"
 
 func _init(ability_dict):
     super(ability_dict)

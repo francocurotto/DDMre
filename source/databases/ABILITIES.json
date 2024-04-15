@@ -169,67 +169,67 @@
   },
   "KILLBLOCK": {
     "NAME": "KILL BLOCK",
-    "TYPE": "STANDING",
+    "TYPE": "CAST",
     "PARAMETERS" : ["COST", "CREST"],
     "DESCRIPTION": "Replace a block tile with an empty tile.\nCOST: {COST} X {CREST}"
   },
   "BUFFDAMAGE": {
     "NAME": "BUFF DAMAGE",
-    "TYPE": "STANDING",
+    "TYPE": "CAST",
     "PARAMETERS" : ["ATTR", "COST", "CREST"],
     "DESCRIPTION": "Raise this monster {ATTR} by the total damage dealt to this monster (monster max. health minus current health).\nCOST: {COST} X {CREST}"
   },
   "BUFFSELF": {
     "NAME": "BUFF SELF",
-    "TYPE": "STANDING",
+    "TYPE": "CAST",
     "PARAMETERS" : ["ATTR", "AMOUNT", "COST", "CREST"],
     "DESCRIPTION": "Raise this monster {ATTR} by the {AMOUNT}.\nCOST: {COST} X {CREST}"
   },
   "TRADEHEALTH": {
     "NAME": "TRADE HEALTH",
-    "TYPE": "STANDING",
+    "TYPE": "CAST",
     "PARAMETERS" : ["AMOUNT", "COST", "CREST"],
     "DESCRIPTION": "Deal {AMOUNT} damage to this monster and an opponent monster.\nCOST: {COST} X {CREST}"
   },
   "STEALMONSTER": {
     "NAME": "STEAL MONSTER",
-    "TYPE": "STANDING",
+    "TYPE": "CAST",
     "PARAMETERS" : ["COST", "CREST"],
     "DESCRIPTION": "Destroy this monster. Gain control of one opponent monster for the rest of the duel.\nCOST: {COST} X {CREST}"
   },
   "MINDCONTROL": {
     "NAME": "MIND CONTROL",
-    "TYPE": "STANDING",
+    "TYPE": "CAST",
     "PARAMETERS" : ["COST", "CREST"],
     "DESCRIPTION": "Gain control of one opponent monster until the end of the turn.\nCOST: {COST} X {CREST}"
   },
   "ROLLLEVELKILL": {
     "NAME": "ROLL LEVEL KILL",
-    "TYPE": "STANDING",
+    "TYPE": "CAST",
     "PARAMETERS" : ["COST", "CREST"],
     "DESCRIPTION": "Choose a level (1 to 4). The ability cost is increased by the selected level x {CREST} crest. Choose a direction (left, right, up, down). Move the monster in the chosen direction. If it hits a flying monster, continue movement without affecting the hit monster. If it hits a non-flying monster/item whose level is lower or equal to the selected level, destroy that monster/item and continue movement (items abilities are not activated). If it hits a non-flying monster/item whose level is higher that the selected level, or a monster lord, or an empty tile, stop movement and locate the monster in the last visited unoccupied path tile.\nCOST: {COST}+[1..4] X {CREST}"
   },
   "RANGELEVELKILL": {
     "NAME": "RANGE LEVEL KILL",
-    "TYPE": "STANDING",
+    "TYPE": "CAST",
     "PARAMETERS" : ["RANGE", "COST", "CREST"],
     "DESCRIPTION": "Choose an opponent monster/item at range {RANGE}. The ability cost is increased by the level of the selected monster/item x {CREST} crest. Destroy the selected monster/item.\nCOST: {COST}+[1..4] X {CREST}"
   },
   "RANGEKILLALL": {
     "NAME": "RANGE KILL ALL",
-    "TYPE": "STANDING",
+    "TYPE": "CAST",
     "PARAMETERS" : ["RANGE", "COST", "CREST"],
     "DESCRIPTION": "Except for this monster, destroy all monster and items at range {RANGE}.\nCOST: {COST} X {CREST}"
   },
   "DISTANCEATTACK": {
     "NAME": "DISTANCE ATTACK",
-    "TYPE": "STANDING",
+    "TYPE": "CAST",
     "PARAMETERS" : ["MAX", "COST", "CREST"],
     "DESCRIPTION": "Until the end of the turn, the maximum attack distance for this monster becomes {MAX}, and the attack crest cost becomes 0. NOTE: Distance attacks can go through monsters, items and monster lords, but not through empty tiles and blocks.\nCOST: {COST} X {CREST}"
   },
   "NEGATEATKABI": {
     "NAME": "NEGATE ATTACK/ABILITY",
-    "TYPE": "STANDING",
+    "TYPE": "CAST",
     "PARAMETERS" : ["COST", "CREST"],
     "DESCRIPTION": "Select a monster. The selected monster cannot longer attack or activate its abilities, and its continuous abilities are negated.\nCOST: {COST} X {CREST}"
   },

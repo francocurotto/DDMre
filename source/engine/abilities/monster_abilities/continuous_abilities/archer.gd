@@ -1,4 +1,4 @@
-extends "res://engine/abilities/continuous_ability.gd"
+extends "continuous_ability.gd"
 
 # constants
 const TargetBehaviorFly = preload("res://engine/dungobj/behaviors/target_behavior_fly.gd")

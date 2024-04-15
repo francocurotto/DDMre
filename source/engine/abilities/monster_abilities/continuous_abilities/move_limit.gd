@@ -1,4 +1,4 @@
-extends "res://engine/abilities/continuous_ability.gd"
+extends "continuous_ability.gd"
 
 # variables
 var max_move

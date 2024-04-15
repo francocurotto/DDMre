@@ -5,7 +5,7 @@ extends RefCounted
 ## into the dungeon.
 
 #region preloads
-const AbilityCreator = preload("res://engine/dice/cards/ability_creator.gd")
+const AbilityCreator = preload("res://engine/abilities/ability_creator.gd")
 #endregion
 
 #region variables

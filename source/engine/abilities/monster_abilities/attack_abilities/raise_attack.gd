@@ -1,4 +1,4 @@
-extends "res://engine/abilities/attack_ability.gd"
+extends "attack_ability.gd"
 
 # variables
 var max_raise

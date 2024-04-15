@@ -70,7 +70,7 @@ func ATTACK(cmddict):
     # return same state
     return self
 
-## Excecute the CAST command. Cast the standing ability of a player monster.
+## Excecute the CAST command. Cast the cast ability of a player monster.
 func CAST(cmddict):
     # get data
     var monster = dungeon.get_tile(cmddict["pos"]).content

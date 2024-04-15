@@ -1,4 +1,4 @@
-extends "res://engine/abilities/item_ability.gd"
+extends "item_ability.gd"
 
 # variables
 var attr

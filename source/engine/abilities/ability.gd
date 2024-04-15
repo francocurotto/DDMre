@@ -31,7 +31,7 @@ func gain_crests(crest, amount):
 func activates_on_dim():
     return false
 
-func is_standing():
+func is_cast():
     return false
 
 func is_dim_manual():

@@ -1,4 +1,4 @@
-extends "res://engine/abilities/standing_ability.gd"
+extends "cast_ability.gd"
 
 # variables
 var max_distance
