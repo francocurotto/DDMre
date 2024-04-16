@@ -1,9 +1,7 @@
 extends "res://engine/abilities/dimension_abilities/dimension_ability.gd"
+## Dimension abilities that are automatically activated during dice dimension.
 
-func _init(ability_dict):
-    super(ability_dict)
-    pass
-
-# is functions
+#region is functions
 func activates_on_dim():
     return true
+#endregion
