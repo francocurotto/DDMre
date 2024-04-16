@@ -33,103 +33,119 @@ func deactivate():
 func negate():
     pass
 
+## Make player owner of summon that has ability to pay [param amount] number
+## of crests of type [param crest] from its crestpool. Used to pay for ability
+## activation.
 func pay_crests(crest, amount):
     summon.player.crestpool.remove_crests(crest, amount)
 
+## Make player ower of summon that has ability to gain [param amount] number
+## of crests of type [param crest] in its crestpool. Used as the effect of 
+## some abilities.
 func gain_crests(crest, amount):
     summon.player.crestpool.add_crests(crest, amount)
 #endregion
 
-# is functions
+#region is functions
+## By default, ability does not activates on dim.
 func activates_on_dim():
     return false
 
+## By default, ability is not a cast ability.
 func is_cast():
     return false
 
+## By default, ability is not a dim manual ability.
 func is_dim_manual():
     return false
 
+## By default, ability is not an item manual ability.
 func is_item_manual():
     return false
 
+## By default, ability is not negated.
 func is_negated():
     return false
 
+## Return true if ability name is [param _name] and ability is active (i.e.
+## not negated).
+func is_active_ability(_name):
+    return name == _name and not is_negated()
+
+## Return true if ability is an active cast ability.
+func is_active_cast_ability():
+    return is_cast() and not is_negated()
+#endregion
+
 # private functions
+## Get an array of tiles from dungeon where monsters are located.
 func get_monsters_tiles():
-    #GODOT4: use array map
-    var select_tiles = []
-    for monster in dungeon.monsters:
-        select_tiles.append(monster.tile)
-    return select_tiles
+    var tiles = dungeon.monsters.map(func(monster): return monster.tile)
+    return tiles
 
+## Get an array of tiles from dungeon where player monsters different from
+## ability monster are located.
 func get_player_other_monsters_tiles():
-    #GODOT4: use array filter
-    var select_tiles = []
-    for monster in summon.player.monsters:
-        if monster != summon:
-            select_tiles.append(monster.tile)
-    return select_tiles
+    # get tiles with player summons
+    var tiles = summon.player.monsters.map(func(monster): return monster.tile)
+    # filter tiles with summon different from ability summon
+    var tiles = tiles.filter(func(tile): return tile.content != summon)
+    return tiles
 
+## Get an array of tiles from dungeon where opponent monsters are located.
 func get_opponent_monsters_tiles():
-    #GODOT4: use array map
-    var select_tiles = []
-    for monster in summon.player.opponent.monsters:
-        select_tiles.append(monster.tile)
-    return select_tiles    
+    var opponent = summon.player.opponent
+    var tiles = opponent.monsters.map(func(monster): return monster.tile)
+    return tiles    
 
+## Get an array of tiles from dungeon where opponent summons are located.
 func get_opponent_summons_tiles():
-    #GODOT4: use array filter
-    var select_tiles = []
-    for _summon in dungeon.summons:
-        if _summon.player != summon.player:
-            select_tiles.append(_summon.tile)
-    return select_tiles   
+    var opponent = summon.player.opponent
+    var tiles = dungeon.summons.map(func(summon): return summon.tile)
+    var tiles = tiles.filter(func(tile): return tile.content.player == opponent)
+    return tiles   
 
+## Get an array of tiles from dungeon where block tiles are located.
 func get_block_tiles():
-    #GODOT4: use array filter
-    var select_tiles = []
-    for tile in dungeon.tiles:
-        if tile.is_block():
-            select_tiles.append(tile)
-    return select_tiles
+    var tiles = dungeon.tiles.map(func(tile): return tile.is_block())
+    return tiles
 
+## Get an array of tiles from dungeon where monsters with active ability with
+## name [param ability] is located.
 func get_active_ability_monsters_tiles(ability):
-    #GODOT4: use array filter
-    var select_tiles = []
-    for monster in dungeon.monsters:
-        if monster.has_active_ability(ability):
-            select_tiles.append(monster.tile)
-    return select_tiles
+    var tiles = dungeon.monsters.map(func(monster): return monster.tile)
+    var tiles = tiles.filter(func(tile): tile.content.has_active_ability(ability))
+    return tiles
 
+## Get an array of tiles from dungeon where the monsters with the lowest
+## attacks are located.
 func get_weakest_monsters_tiles():
-    var select_tiles = []
+    var tiles = []
     for monster in dungeon.monsters:
         if monster != summon:
-            if select_tiles.is_empty():
-                select_tiles.append(monster.tile)
-            elif select_tiles[0].content.attack == monster.attack:
-                select_tiles.append(monster.tile)
-            elif select_tiles[0].content.attack > monster.attack:
-                select_tiles = [monster.tile]
-    return select_tiles
+            if tiles.is_empty():
+                tiles.append(monster.tile)
+            elif tiles[0].content.attack == monster.attack:
+                tiles.append(monster.tile)
+            elif tiles[0].content.attack > monster.attack:
+                tiles = [monster.tile]
+    return tiles
 
+## Get an array of tiles from dungeon where opponent summons are located that
+## are at a range [param tile_range] from tile where summon with ability is
+## located.
 func get_range_opponent_summon_tiles(tile_range):
-    var select_tiles = []
+    var tiles = []
     for tile in get_opponent_summons_tiles():
         if tile.tile_range(summon.tile) <= tile_range:
-            select_tiles.append(tile)
-    return select_tiles
+            tiles.append(tile)
+    return tiles
 
+## Get an array of tiles that are at a range [param tile_range] from tile where
+## summon with ability is located.
 func get_tiles_in_range(tile_range):
-    """
-    Return a list of tiles at range tile_range from ability monster position
-    (excluding monster own position).
-    """
-    #GODOT4: use array filter
-    var range_tiles = []
+    var tiles = []
     for tile in dungeon.tiles:
         if tile.tile_range(summon.tile) <= tile_range:
-            range_tiles.append(tile)
-    return range_tiles
+            tiles.append(tile)
+    return tiles

@@ -60,14 +60,10 @@ func has_ability(name):
 
 ## Return true if summon has active ability with name [param name].
 func has_active_ability(name):
-    #TODO: implement is active ability
-    #if ability.name == name and not ability.is_negated():
     return card.abilities.any(func(abi): return abi.is_active_ability(name))
 
 ## Return true if summon has active cast ability.
 func has_active_cast_ability():
-    #TODO: implement is active cast ability
-    #if ability.is_cast() and not ability.is_negated():
     return card.abilities.any(func(abi): return abi.is_active_cast_ability())
 
 ## Return true if summon has a dimension manual ability.

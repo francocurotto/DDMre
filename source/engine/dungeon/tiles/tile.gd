@@ -26,8 +26,8 @@ func _init(y, x):
 ## Compute the L1-distance between this tile and another tile. Tile type does
 ## not have an effect in the computation.
 func tile_range(tile):
-    var x_range = abs(pos.x-tile.pos.x)
-    var y_range = abs(pos.y-tile.pos.y)
+    var x_range = abs(pos.x - tile.pos.x)
+    var y_range = abs(pos.y - tile.pos.y)
     var range_dist = x_range + y_range
     return range_dist
 #endregion

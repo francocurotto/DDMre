@@ -8,7 +8,6 @@
     - add regions
     - add documentation
 - correct GODOT4 notes
-- implement TODO notes
 
 - refactor interface themes
     - tile selection in dungeon
