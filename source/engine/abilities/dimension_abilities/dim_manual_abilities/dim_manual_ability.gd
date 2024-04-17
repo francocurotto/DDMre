@@ -1,9 +1,7 @@
 extends "res://engine/abilities/dimension_abilities/dimension_ability.gd"
+## Dimension ability that needs manual input to be activated after dimension.
 
-func _init(ability_dict):
-    super(ability_dict)
-    pass
-
-# is functions
+#region is functions
 func is_dim_manual():
     return true
+#endregion
