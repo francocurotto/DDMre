@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8olv68y8oh3t"]
 
-[ext_resource type="PackedScene" uid="uid://d5g7c1uibwc1" path="res://interface/player_gui/dungeon_gui/dimension_net/dimension_tile/dimension_tile.tscn" id="1_aptut"]
-[ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/dimension_net/dimension_net.gd" id="1_kqtt5"]
+[ext_resource type="PackedScene" uid="uid://d5g7c1uibwc1" path="res://interface/player_gui/dungeon_gui/net_gui/net_tile_gui/net_tile_gui.tscn" id="1_aptut"]
+[ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/net_gui/net_gui.gd" id="1_kqtt5"]
 [ext_resource type="Texture2D" uid="uid://cay70x47nn7u1" path="res://assets/icons/SUMMON_DRAGON.svg" id="3_nwq25"]
-[ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/dimension_net/draw_help.gd" id="4_v6kgq"]
+[ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/net_gui/draw_help.gd" id="4_v6kgq"]
 
 [node name="DimensionNet" type="Control"]
 layout_mode = 3

@@ -28,7 +28,7 @@ func setup(_engine, _player, _opponent):
     engine = _engine
     player = _player
     opponent = _opponent
-    %DungeonGUI.setup(player, engine.state.dungeon)
+    %DungeonGUI.setup(player, engine.state)
     %PlayerInfo.setup(player)
     %DicepoolGUI.setup(player.dicepool)
 #endregion

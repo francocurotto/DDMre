@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d5g7c1uibwc1"]
 
 [ext_resource type="Texture2D" uid="uid://ktpwkfse3xso" path="res://assets/icons/TILE_HIGHLIGHT.svg" id="1_dngg6"]
-[ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/dimension_net/dimension_tile/dimension_tile.gd" id="2_on8up"]
+[ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/net_gui/net_tile_gui/net_tile_gui.gd" id="2_on8up"]
 
 [node name="DimensionTile" type="TextureRect"]
 custom_minimum_size = Vector2(55, 55)

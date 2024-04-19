@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://6f72kp2qiget"]
+[gd_scene load_steps=4 format=3 uid="uid://6f72kp2qiget"]
 
 [ext_resource type="Texture2D" uid="uid://bgnu02inrq1xk" path="res://assets/icons/TILE_OPEN.svg" id="2_begun"]
 [ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/tile_gui/tile_gui.gd" id="2_v0dfj"]
 [ext_resource type="Texture2D" uid="uid://k0u5wouapnjk" path="res://assets/icons/TILE_PLAYER_P1.svg" id="3_574s8"]
-[ext_resource type="Texture2D" uid="uid://ktpwkfse3xso" path="res://assets/icons/TILE_HIGHLIGHT.svg" id="3_h72b4"]
 
 [node name="TileGUI" type="AspectRatioContainer"]
 custom_minimum_size = Vector2(55, 55)
@@ -17,15 +16,11 @@ texture = ExtResource("2_begun")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="PathTile" type="TextureButton" parent="."]
+[node name="PathTile" type="TextureRect" parent="."]
 visible = false
 layout_mode = 2
-disabled = true
-toggle_mode = true
-action_mode = 0
-texture_normal = ExtResource("3_574s8")
-texture_pressed = ExtResource("3_h72b4")
-ignore_texture_size = true
+texture = ExtResource("3_574s8")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Margins" type="MarginContainer" parent="PathTile"]
@@ -43,10 +38,6 @@ layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="DimButton" type="TextureButton" parent="."]
-visible = false
+[node name="SelectButton" type="TextureButton" parent="."]
 layout_mode = 2
 toggle_mode = true
-
-[connection signal="toggled" from="PathTile" to="." method="_on_path_tile_toggled"]
-[connection signal="toggled" from="DimButton" to="." method="_on_dim_button_toggled"]

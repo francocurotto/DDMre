@@ -89,7 +89,7 @@ func get_player_other_monsters_tiles():
     # get tiles with player summons
     var tiles = summon.player.monsters.map(func(monster): return monster.tile)
     # filter tiles with summon different from ability summon
-    var tiles = tiles.filter(func(tile): return tile.content != summon)
+    tiles = tiles.filter(func(tile): return tile.content != summon)
     return tiles
 
 ## Get an array of tiles from dungeon where opponent monsters are located.
@@ -102,7 +102,7 @@ func get_opponent_monsters_tiles():
 func get_opponent_summons_tiles():
     var opponent = summon.player.opponent
     var tiles = dungeon.summons.map(func(summon): return summon.tile)
-    var tiles = tiles.filter(func(tile): return tile.content.player == opponent)
+    tiles = tiles.filter(func(tile): return tile.content.player == opponent)
     return tiles   
 
 ## Get an array of tiles from dungeon where block tiles are located.
@@ -114,7 +114,7 @@ func get_block_tiles():
 ## name [param ability] is located.
 func get_active_ability_monsters_tiles(ability):
     var tiles = dungeon.monsters.map(func(monster): return monster.tile)
-    var tiles = tiles.filter(func(tile): tile.content.has_active_ability(ability))
+    tiles = tiles.filter(func(tile): tile.content.has_active_ability(ability))
     return tiles
 
 ## Get an array of tiles from dungeon where the monsters with the lowest

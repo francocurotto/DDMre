@@ -1,60 +1,85 @@
 extends PanelContainer
 
-# constants
-const DimensionNet = preload("res://interface/player_gui/dungeon_gui/dimension_net/dimension_net.tscn")
+#region signals
+signal tile_gui_pressed
+signal net_gui_changed
+#endregion
 
-# variables
+#region constants
+const NetGUI = preload("res://interface/player_gui/dungeon_gui/net_gui/net_gui.tscn")
+#endregion
+
+#region variables
 var player
 var dungeon
+var state
 var tile_guis = []
-var dimension_net
+var net_gui
 var tile_guis_button_group = ButtonGroup.new()
-var dim_button_group = ButtonGroup.new()
+#endregion
 
-# onready variables
+#region onready variables
 @onready var dim_tile = $Rows/Row4/TileGui7
+#endregion 
 
-# signals
-signal tile_gui_toggled
-signal dimension_net_changed
-
-func _ready():
-    tile_guis_button_group.allow_unpress = true
-
-# public functions
-func setup(_player, _dungeon):
+#region public functions
+func setup(_player, _state):
     player = _player
-    dungeon = _dungeon
-    for rows in $Rows.get_children():
-        for tile_gui in rows.get_children():
-            # tile gui button group
-            tile_gui.path_tile.button_group = tile_guis_button_group
-            tile_gui.select_button_toggled.connect(on_tile_gui_toggled)
-            # tile gui dim button_group
-            tile_gui.dim_button.button_group = dim_button_group
-            tile_gui.dim_button_toggled.connect(on_tile_dim_button_toggled)
-            tile_guis.append(tile_gui)
-    update()
-
-func update():
-    # get row guis
-    for i in $Rows.get_child_count():
-        for j in $Rows.get_child(0).get_child_count():
+    state = _state
+    dungeon = state.dungeon
+    for i in Globals.DUNGEON_HEIGHT:
+        for j in Globals.DUNGEON_WIDTH:
+            # get tile and tile gui
             var tile = dungeon.grid[i][j]
             var tile_gui = get_tile_gui(Vector2i(j,i))
+            # setup tile guis with tiles
             tile_gui.setup(tile)
+            # add tile guis to button group
+            tile_gui.select_button.button_group = tile_guis_button_group
+            tile_gui.select_button_pressed.connect(on_tile_gui_pressed)
 
 func get_dim_params():
     var dim_params = {
-        "net" : dimension_net.net.substr(0,2),
-        "pos" : get_tile_gui_position(dim_tile),
-        "trans" : dimension_net.get_trans_list()}
+        "net"   : net_gui.get_net_name(),
+        #TODO: implement get_net_name
+        #"net"   : net_gui.net.substr(0,2),
+        "pos"   : get_tile_gui_position(dim_tile),
+        "trans" : net_gui.get_trans_list()}
     return dim_params
+#endregion
+
+#region signals callbacks
+func on_dicepool_button_activated():
+    toggle_off_tile_gui()
+    disable_tile_guis()
+    remove_net_gui()
+
+func on_dicepool_button_deactivated():
+    enable_tile_guis()
+
+func on_tile_gui_pressed(tile_gui):
+    tile_gui_pressed.emit(tile_gui)
+    # case pressed during dimension
+    if state.NAME == "DIMENSION":
+        dim_tile = tile_gui
+        net_gui.global_position = tile_gui.global_position
+        on_net_gui_changed()
+
+func on_net_gui_changed():
+    var net = net_gui.get_net()
+    net.add_offset(get_tile_gui_position(dim_tile))
+    net_gui_changed.emit(dungeon.can_dimension(net, player))
+
+func on_summon_button_pressed(dice_gui):
+    # create dimension net
+    net_gui = NetGUI.instantiate()
+    net_gui.summon_type = dice_gui.dice.card.type
+    $NetNode.add_child(net_gui)
+    net_gui.net_changed.connect(on_net_gui_changed)
 
 func on_dice_dimensioned(_summon, net):
-    # remove dimension net if exists
-    if is_instance_valid(dimension_net):
-        dimension_net.queue_free()
+    # remove net gui
+    remove_net_gui()
     # hide tile guis for proper animation
     for pos in net.positions:
         get_tile_gui(pos).path_tile.modulate = Color(1,1,1,0)
@@ -69,43 +94,9 @@ func on_dice_dimensioned(_summon, net):
         tile = dungeon.get_tile(net.positions[i+1])
         var unfold = net.unfolds[i]
         tile_gui.tween_dim_fold(tween, tile, unfold)
+#endregion
 
-# signals callbacks
-func on_tile_gui_toggled(tile_gui, toggled_on):
-    tile_gui_toggled.emit(tile_gui, toggled_on)
-
-func on_tile_dim_button_toggled(tile_gui, toggled_on):
-    if toggled_on:
-        dim_tile = tile_gui
-        dimension_net.global_position = tile_gui.global_position
-        on_dimension_net_changed()
-
-func on_dimension_net_changed():
-    var net = dimension_net.get_net()
-    net.add_offset(get_tile_gui_position(dim_tile))
-    dimension_net_changed.emit(dungeon.can_dimension(net, player))
-
-func on_dicepool_button_activated():
-    toggle_off_tile_gui()
-    disable_tile_guis()
-    if $DimensionNode.get_child_count():
-        $DimensionNode.get_child(0).queue_free()
-
-func on_dicepool_button_deactivated():
-    enable_tile_guis()
-
-func on_summon_button_pressed(dice_gui):
-    # create dimension net
-    dimension_net = DimensionNet.instantiate()
-    dimension_net.summon_type = dice_gui.dice.card.type
-    $DimensionNode.add_child(dimension_net)
-    dimension_net.net_changed.connect(on_dimension_net_changed)
-    # enable dim buttons
-    enable_dim_buttons()
-    # move to starting position
-    dim_tile._on_dim_button_toggled(true)
-
-# private functions
+#region private functions
 func toggle_off_tile_gui():
     var pressed_tile_button = tile_guis_button_group.get_pressed_button()
     if pressed_tile_button != null:
@@ -114,19 +105,14 @@ func toggle_off_tile_gui():
 func disable_tile_guis():
     for tile_gui in tile_guis:
         tile_gui.disabled = true
-        tile_gui.dim_button.visible = false
 
 func enable_tile_guis():
     for tile_gui in tile_guis:
         tile_gui.disabled = false
 
-func enable_dim_buttons():
-    for tile_gui in tile_guis:
-        tile_gui.dim_button.visible = true
-
 func get_tile_gui(pos):
     var y = pos.y
-    if player.id == 1: # correct for player 2 reflection
+    if player.id == 1: # correct for player 1 reflection of dungeon rows
         y = $Rows.get_child_count() - pos.y - 1
     var row = $Rows.get_child(y)
     var tile_gui = row.get_child(pos.x)
@@ -135,6 +121,12 @@ func get_tile_gui(pos):
 func get_tile_gui_position(tile_gui):
     var x = tile_gui.get_index()
     var y = tile_gui.get_parent().get_index()
-    if player.id == 1:
+    if player.id == 1: # correct for player 1 reflection of dungeon rows
         y = $Rows.get_child_count() - y - 1
     return Vector2i(x,y)
+
+func remove_net_gui():
+    # remove net gui only if exists
+    if is_instance_valid(net_gui):
+        net_gui.queue_free()
+#endregion

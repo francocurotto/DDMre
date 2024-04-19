@@ -24,58 +24,45 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row19" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row19" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row19" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row19" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row19" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row19" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row19" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
 tile_type = "PLAYER"
 tile_player = 2
-disabled = false
 dungobj_type = "MONSTER_LORD"
 
 [node name="TileGui8" parent="Rows/Row19" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row19" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row19" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row19" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row19" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row19" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row18" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -84,55 +71,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row18" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row18" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row18" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row18" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row18" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row18" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row18" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row18" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row18" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row18" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row18" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row18" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row18" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row17" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -141,55 +115,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row17" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row17" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row17" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row17" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row17" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row17" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row17" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row17" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row17" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row17" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row17" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row17" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row17" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row16" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -198,55 +159,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row16" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row16" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row16" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row16" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row16" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row16" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row16" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row16" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row16" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row16" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row16" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row16" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row16" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row15" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -255,55 +203,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row15" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row15" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row15" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row15" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row15" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row15" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row15" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row15" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row15" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row15" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row15" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row15" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row15" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row14" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -312,55 +247,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row14" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row14" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row14" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row14" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row14" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row14" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row14" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row14" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row14" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row14" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row14" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row14" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row14" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row13" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -369,55 +291,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row13" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row13" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row13" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row13" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row13" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row13" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row13" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row13" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row13" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row13" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row13" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row13" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row13" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row12" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -426,55 +335,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row12" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row12" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row12" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row12" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row12" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row12" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row12" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row12" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row12" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row12" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row12" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row12" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row12" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row11" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -483,55 +379,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row11" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row11" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row11" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row11" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row11" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row11" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row11" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row11" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row11" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row11" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row11" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row11" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row11" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row10" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -540,55 +423,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row10" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row10" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row10" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row10" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row10" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row10" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row10" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row10" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row10" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row10" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row10" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row10" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row10" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row9" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -597,55 +467,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row9" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row9" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row9" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row9" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row9" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row9" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row9" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row9" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row9" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row9" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row9" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row9" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row9" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row8" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -654,55 +511,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row8" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row8" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row8" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row8" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row8" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row8" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row8" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row8" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row8" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row8" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row8" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row8" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row8" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row7" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -711,55 +555,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row7" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row7" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row7" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row7" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row7" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row7" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row7" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row7" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row7" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row7" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row7" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row7" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row7" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row6" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -768,55 +599,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row6" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row6" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row6" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row6" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row6" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row6" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row6" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row6" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row6" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row6" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row6" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row6" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row6" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row5" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -825,55 +643,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row5" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row5" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row5" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row5" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row5" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row5" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row5" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row5" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row5" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row5" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row5" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row5" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row5" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row4" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -882,55 +687,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row4" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row4" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row4" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row4" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row4" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row4" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row4" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row4" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row4" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row4" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row4" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row4" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row4" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row3" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -939,55 +731,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row3" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row3" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row3" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row3" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row3" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row3" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row3" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row3" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row3" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row3" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row3" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row3" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row3" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row2" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -996,55 +775,42 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row2" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row2" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row2" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row2" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row2" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row2" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row2" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui8" parent="Rows/Row2" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row2" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row2" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row2" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row2" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row2" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="Row1" type="HBoxContainer" parent="Rows"]
 layout_mode = 2
@@ -1053,58 +819,45 @@ alignment = 1
 
 [node name="TileGui1" parent="Rows/Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui2" parent="Rows/Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui3" parent="Rows/Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui4" parent="Rows/Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui5" parent="Rows/Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui6" parent="Rows/Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui7" parent="Rows/Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
 tile_type = "PLAYER"
-disabled = false
 dungobj_type = "MONSTER_LORD"
 
 [node name="TileGui8" parent="Rows/Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui9" parent="Rows/Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui10" parent="Rows/Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui11" parent="Rows/Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui12" parent="Rows/Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
 [node name="TileGui13" parent="Rows/Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-disabled = false
 
-[node name="DimensionNode" type="Control" parent="."]
+[node name="NetNode" type="Control" parent="."]
 layout_mode = 2
 mouse_filter = 2

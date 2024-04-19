@@ -2,8 +2,7 @@
 extends AspectRatioContainer
 
 #region signals
-signal select_button_toggled
-signal dim_button_toggled
+signal select_button_pressed
 #endregion
 
 #region export variables
@@ -18,11 +17,6 @@ var tile_type : String = "OPEN" :
         tile_player = _tile_player
         set_tile_icon()
 
-@export var disabled : bool = true :
-    set(_disabled):
-        disabled = _disabled
-        $PathTile.disabled = disabled
-
 @export_enum("NONE", "DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", 
     "ITEM", "MONSTER_LORD")
 var dungobj_type : String = "NONE" :
@@ -34,6 +28,11 @@ var dungobj_type : String = "NONE" :
     set(_dungobj_player):
         dungobj_player = _dungobj_player
         set_dungobj_icon()
+
+@export var disabled : bool = false :
+    set(_disabled):
+        disabled = _disabled
+        $SelectButton.disabled = disabled
 #endregion
 
 #region variables
@@ -46,8 +45,7 @@ var unfold_pivots = {
 #endregion
 
 #region onready variables
-@onready var path_tile = $PathTile
-@onready var dim_button = $DimButton
+@onready var select_button = $SelectButton
 #endregion
 
 #region public functions
@@ -72,13 +70,8 @@ func tween_dim_fold(tween, _tile, unfold):
 #endregion
 
 #region signals callbacks
-func _on_path_tile_toggled(toggled_on):
-    select_button_toggled.emit(self, toggled_on)
-
-func _on_dim_button_toggled(toggled_on):
-    dim_button_toggled.emit(self, toggled_on)
-    # press path tile
-    path_tile.button_pressed = not path_tile.button_pressed
+func _on_path_tile_toggled(_toggled_on):
+    select_button_pressed.emit(self)
 #endregion
 
 #region private functions
@@ -87,10 +80,10 @@ func set_tile_icon():
     if tile_type == "OPEN":
         $PathTile.visible = false
     elif tile_type in ["BLOCK", "NEUTRAL"]:
-        $PathTile.texture_normal = load("res://assets/icons/TILE_%s.svg" % tile_type)
+        $PathTile.texture = load("res://assets/icons/TILE_%s.svg" % tile_type)
     elif tile_player in [1,2]:
         var tile_name = "TILE_PLAYER_P%d" % tile_player
-        $PathTile.texture_normal = load("res://assets/icons/%s.svg" % tile_name)
+        $PathTile.texture = load("res://assets/icons/%s.svg" % tile_name)
 
 func set_dungobj_icon():
     if dungobj_type == "NONE":
