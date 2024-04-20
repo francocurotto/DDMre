@@ -13,9 +13,9 @@ func reset_default():
     default = null
 
 # signals callbacks
-func on_tile_gui_toggled(tile_gui, toggled_on):
+func on_tile_gui_pressed(tile_gui):
     var content = tile_gui.tile.content
-    if toggled_on and content.is_summon():
+    if content.is_summon():
         display_summon_info(content)
     else:
         display_default()

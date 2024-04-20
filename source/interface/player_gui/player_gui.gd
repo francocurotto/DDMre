@@ -8,9 +8,9 @@ var opponent
 
 #region builtin functions
 func _ready():
-    %DungeonGUI.tile_gui_toggled.connect(%SummonInfo.on_tile_gui_toggled)
-    %DungeonGUI.tile_gui_toggled.connect(%PlayerInfo.on_tile_gui_toggled)
-    %DungeonGUI.dimension_net_changed.connect(on_dimension_net_changed)
+    %DungeonGUI.tile_gui_pressed.connect(%SummonInfo.on_tile_gui_pressed)
+    %DungeonGUI.tile_gui_pressed.connect(%PlayerInfo.on_tile_gui_pressed)
+    %DungeonGUI.net_gui_changed.connect(on_net_gui_changed)
     %DicepoolGUI.dice_sort_started.connect(func(): 
         %DicepoolButton.mouse_filter = MOUSE_FILTER_IGNORE)
     %DicepoolGUI.dice_sort_finished.connect(func():
@@ -66,7 +66,7 @@ func on_summon_button_pressed(dice_gui):
     %DungeonGUI.on_summon_button_pressed(dice_gui)
     switch_to_dim_button()
 
-func on_dimension_net_changed(can_dimension):
+func on_net_gui_changed(can_dimension):
     %DimButton.disabled = not can_dimension
 
 func input_roll_cmd(roll_indeces):

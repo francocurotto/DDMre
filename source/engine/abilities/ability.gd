@@ -101,7 +101,7 @@ func get_opponent_monsters_tiles():
 ## Get an array of tiles from dungeon where opponent summons are located.
 func get_opponent_summons_tiles():
     var opponent = summon.player.opponent
-    var tiles = dungeon.summons.map(func(summon): return summon.tile)
+    var tiles = dungeon.summons.map(func(_summon): return _summon.tile)
     tiles = tiles.filter(func(tile): return tile.content.player == opponent)
     return tiles   
 
