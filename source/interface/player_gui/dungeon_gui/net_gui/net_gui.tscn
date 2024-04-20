@@ -5,14 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://cay70x47nn7u1" path="res://assets/icons/SUMMON_DRAGON.svg" id="3_nwq25"]
 [ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/net_gui/draw_help.gd" id="4_v6kgq"]
 
-[node name="DimensionNet" type="Control"]
+[node name="NetGUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_kqtt5")
 
 [node name="Grid" type="GridContainer" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.572479)
+modulate = Color(1, 1, 1, 0.385915)
 layout_mode = 2
 offset_left = -55.0
 offset_top = -110.0

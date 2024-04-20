@@ -10,9 +10,9 @@ const NetGUI = preload("res://interface/player_gui/dungeon_gui/net_gui/net_gui.t
 #endregion
 
 #region variables
+var engine
 var player
 var dungeon
-var state
 var tile_guis = []
 var net_gui
 var tile_guis_button_group = ButtonGroup.new()
@@ -23,10 +23,10 @@ var tile_guis_button_group = ButtonGroup.new()
 #endregion 
 
 #region public functions
-func setup(_player, _state):
+func setup(_engine, _player):
+    engine = _engine
     player = _player
-    state = _state
-    dungeon = state.dungeon
+    dungeon = engine.state.dungeon
     for i in Globals.DUNGEON_HEIGHT:
         for j in Globals.DUNGEON_WIDTH:
             # get tile and tile gui
@@ -41,8 +41,6 @@ func setup(_player, _state):
 func get_dim_params():
     var dim_params = {
         "net"   : net_gui.get_net_name(),
-        #TODO: implement get_net_name
-        #"net"   : net_gui.net.substr(0,2),
         "pos"   : get_tile_gui_position(dim_tile),
         "trans" : net_gui.get_trans_list()}
     return dim_params
@@ -60,7 +58,7 @@ func on_dicepool_button_deactivated():
 func on_tile_gui_pressed(tile_gui):
     tile_gui_pressed.emit(tile_gui)
     # case pressed during dimension
-    if state.NAME == "DIMENSION":
+    if engine.state.NAME == "DIMENSION":
         dim_tile = tile_gui
         net_gui.global_position = tile_gui.global_position
         on_net_gui_changed()
@@ -76,6 +74,7 @@ func on_summon_button_pressed(dice_gui):
     net_gui.summon_type = dice_gui.dice.card.type
     $NetNode.add_child(net_gui)
     net_gui.net_changed.connect(on_net_gui_changed)
+    on_tile_gui_pressed(dim_tile)
 
 func on_dice_dimensioned(_summon, net):
     # remove net gui

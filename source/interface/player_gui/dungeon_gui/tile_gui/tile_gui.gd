@@ -45,6 +45,7 @@ var unfold_pivots = {
 #endregion
 
 #region onready variables
+@onready var path_tile = $PathTile
 @onready var select_button = $SelectButton
 #endregion
 
@@ -70,7 +71,7 @@ func tween_dim_fold(tween, _tile, unfold):
 #endregion
 
 #region signals callbacks
-func _on_path_tile_toggled(_toggled_on):
+func _on_select_button_toggled(_toggled_on):
     select_button_pressed.emit(self)
 #endregion
 

@@ -41,3 +41,5 @@ stretch_mode = 5
 [node name="SelectButton" type="TextureButton" parent="."]
 layout_mode = 2
 toggle_mode = true
+
+[connection signal="toggled" from="SelectButton" to="." method="_on_select_button_toggled"]

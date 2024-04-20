@@ -13,4 +13,4 @@
     - tile selection in dungeon
     - net modifier helpers
     - dimension folds tweek
-    - change dimension_net name
+    - refactor double control node in net_gui (net_node->net_gui)
