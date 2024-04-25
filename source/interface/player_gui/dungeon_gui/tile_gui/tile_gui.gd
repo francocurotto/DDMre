@@ -5,6 +5,10 @@ extends AspectRatioContainer
 signal select_button_pressed
 #endregion
 
+#region preloads
+const TILE_SELECTOR = preload("res://assets/icons/TILE_SELECTOR.svg")
+#endregion
+
 #region export variables
 @export_enum("OPEN", "BLOCK", "NEUTRAL", "PLAYER") 
 var tile_type : String = "OPEN" :
@@ -80,11 +84,14 @@ func set_tile_icon():
     $PathTile.visible = true
     if tile_type == "OPEN":
         $PathTile.visible = false
+        $SelectButton.texture_pressed = null
     elif tile_type in ["BLOCK", "NEUTRAL"]:
         $PathTile.texture = load("res://assets/icons/TILE_%s.svg" % tile_type)
+        $SelectButton.texture_pressed = TILE_SELECTOR
     elif tile_player in [1,2]:
         var tile_name = "TILE_PLAYER_P%d" % tile_player
         $PathTile.texture = load("res://assets/icons/%s.svg" % tile_name)
+        $SelectButton.texture_pressed = TILE_SELECTOR
 
 func set_dungobj_icon():
     if dungobj_type == "NONE":

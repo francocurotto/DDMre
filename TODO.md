@@ -10,7 +10,6 @@
 - correct GODOT4 notes
 
 - refactor interface themes
-    - tile selection in dungeon
     - net modifier helpers
     - dimension folds tweek
     - refactor double control node in net_gui (net_node->net_gui)
