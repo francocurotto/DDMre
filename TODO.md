@@ -8,6 +8,7 @@
     - add regions
     - add documentation
 - correct GODOT4 notes
+- abilities: are TYPES uesd?
 
 - refactor interface themes
     - net modifier helpers

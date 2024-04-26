@@ -1,10 +1,12 @@
 extends "item_ability.gd"
+## BLACKHOKE ability.
+##
+## Destroy all summons in dungeon.
 
-func _init(ability_dict):
-    super(ability_dict)
-    pass
 
-# public functions
+#region public functions
+## Activate ability. Destroy all summons.
 func activate(_monster):
     for _summon in dungeon.summons:
         _summon.destroy()
+#endregion

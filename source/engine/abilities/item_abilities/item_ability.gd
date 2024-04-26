@@ -1,8 +1,9 @@
 extends "res://engine/abilities/ability.gd"
+## Ability that belongs to an item.
+##
+## Item abilities are activated when a monster moves into the position of the
+## item. Usually that monster is affected by the item's ability.
 
-# constants
+#region constants
 const TYPE = "ITEM"
-
-func _init(ability_dict):
-    super(ability_dict)
-    pass
+#endregion
