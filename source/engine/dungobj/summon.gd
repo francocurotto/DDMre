@@ -27,7 +27,7 @@ func destroy():
     deactivate_abilities()
     tile.empty_tile()
 
-## Setuo all abilities from summon in [param dungeon]. Usually used when
+## Setup all abilities from summon in [param dungeon]. Usually used when
 ## summon is summoned.
 func setup_abilities(dungeon):
     for ability in card.abilities:
