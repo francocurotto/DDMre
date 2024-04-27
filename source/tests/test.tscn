@@ -1,21 +1,19 @@
 [gd_scene format=3 uid="uid://7prw7uoxvhgq"]
 
-[node name="Test" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 287.0
+offset_bottom = 179.0
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_right = 250.0
-offset_bottom = 177.0
-
-[node name="PanelContainer2" type="PanelContainer" parent="."]
+[node name="Test" type="Control" parent="."]
 layout_mode = 2
-offset_left = 106.0
-offset_top = 73.0
-offset_right = 356.0
-offset_bottom = 250.0
+
+[node name="Control" type="Control" parent="Test"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 111.0
+offset_top = 83.0
+offset_right = 111.0
+offset_bottom = 83.0
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(90, 83)

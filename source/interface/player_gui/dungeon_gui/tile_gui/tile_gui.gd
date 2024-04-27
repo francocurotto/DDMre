@@ -70,8 +70,10 @@ func tween_dim_fold(tween, _tile, unfold):
     $PathTile.pivot_offset = unfold_pivots[unfold]
     setup(_tile)
     tween.tween_property($PathTile, "modulate", Color(1,1,1,1), 0)
-    tween.tween_property($PathTile, "scale", Vector2(1,1), 0.4)\
+    tween.tween_property($PathTile, "scale", Vector2(1,1), 0.5)\
         .from(init_scale).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+    tween.parallel().tween_property($PathTile, "modulate", Color(1,1,1), 0.5)\
+        .from(Color(0.2,0.2,0.2)).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 #endregion
 
 #region signals callbacks

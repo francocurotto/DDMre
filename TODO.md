@@ -12,5 +12,4 @@
 
 - refactor interface themes
     - net modifier helpers
-    - dimension folds tweek
     - refactor double control node in net_gui (net_node->net_gui)
