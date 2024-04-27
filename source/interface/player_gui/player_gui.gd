@@ -20,7 +20,7 @@ func _ready():
     %DicepoolGUI.roll_finished.connect(on_roll_finished)
     %DicepoolGUI.summon_button_pressed.connect(on_summon_button_pressed)
     Events.dice_rolled.connect(on_dice_rolled)
-    Events.dice_dimensioned.connect(on_dice_dimensioned)
+    Events.dice_dimensioned.connect(%DungeonGUI.on_dice_dimensioned)
 #endregion
 
 #region public functions
@@ -50,9 +50,6 @@ func _on_dicepool_button_toggled(toggled_on):
 func on_dice_rolled(sides):
     if engine.state.player == player:
         %DicepoolGUI.on_dice_rolled(sides)
-
-func on_dice_dimensioned(summon, net):
-    %DungeonGUI.on_dice_dimensioned(summon, net)
 
 func on_roll_finished(roll_dice_guis):
     %PlayerInfo.on_roll_finished(roll_dice_guis)

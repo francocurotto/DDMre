@@ -1,5 +1,5 @@
 @tool
-extends Control
+extends Node2D
 
 #region singals
 signal net_changed

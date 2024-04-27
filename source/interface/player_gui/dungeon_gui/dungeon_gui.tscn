@@ -857,7 +857,3 @@ layout_mode = 2
 
 [node name="TileGui13" parent="Rows/Row1" instance=ExtResource("1_qdk6b")]
 layout_mode = 2
-
-[node name="NetNode" type="Control" parent="."]
-layout_mode = 2
-mouse_filter = 2

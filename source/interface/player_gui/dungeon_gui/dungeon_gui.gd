@@ -72,7 +72,7 @@ func on_summon_button_pressed(dice_gui):
     # create dimension net
     net_gui = NetGUI.instantiate()
     net_gui.summon_type = dice_gui.dice.card.type
-    $NetNode.add_child(net_gui)
+    add_child(net_gui)
     net_gui.net_changed.connect(on_net_gui_changed)
     on_tile_gui_pressed(dim_tile)
 
