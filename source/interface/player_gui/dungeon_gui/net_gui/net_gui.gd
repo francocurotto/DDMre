@@ -111,15 +111,19 @@ func on_net_pressed(press_pos):
     if center_rect.has_point(press_pos):
         rotation_pos = null
         selection_pos = press_pos
+        $NetChangeHelpers.visible = true
     # get rect for rotate from parent (dungeon gui)
     elif get_parent().get_global_rect().has_point(press_pos):
         rotation_pos = press_pos
         selection_pos = null
+        $RotationHelpers.visible = true
 
 func on_net_released():
     rotation_pos = null
     selection_pos = null
     $DrawHelp.clear_draw()
+    $RotationHelpers.visible = false
+    $NetChangeHelpers.visible = false
         
 func on_net_dragged(event):
     if rotation_pos:

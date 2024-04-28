@@ -12,6 +12,3 @@
 - abilities: fix BUFFTYPE
 - abilities: change_activates_on_dim to activate_on_summon
 - abilities: refactor types and is functions
-
-- refactor interface themes
-    - net modifier helpers

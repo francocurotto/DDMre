@@ -1,16 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8olv68y8oh3t"]
+[gd_scene load_steps=7 format=3 uid="uid://c8olv68y8oh3t"]
 
 [ext_resource type="PackedScene" uid="uid://d5g7c1uibwc1" path="res://interface/player_gui/dungeon_gui/net_gui/net_tile_gui/net_tile_gui.tscn" id="1_aptut"]
 [ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/net_gui/net_gui.gd" id="1_kqtt5"]
 [ext_resource type="Texture2D" uid="uid://cay70x47nn7u1" path="res://assets/icons/SUMMON_DRAGON.svg" id="3_nwq25"]
 [ext_resource type="Script" path="res://interface/player_gui/dungeon_gui/net_gui/draw_help.gd" id="4_v6kgq"]
+[ext_resource type="Texture2D" uid="uid://g8qsjxhg4ufb" path="res://assets/icons/ROTATION_HELPER.svg" id="5_2uc3j"]
+[ext_resource type="Texture2D" uid="uid://dlly17psuchlc" path="res://assets/icons/NET_CHANGE_HELPER.svg" id="6_y4m6v"]
 
 [node name="NetGUI" type="Node2D"]
 script = ExtResource("1_kqtt5")
 
 [node name="Grid" type="GridContainer" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.574746)
+modulate = Color(1, 1, 1, 0.414507)
 offset_left = -55.0
 offset_top = -110.0
 offset_right = 110.0
@@ -104,3 +106,57 @@ offset_top = 27.5
 offset_right = 27.5
 offset_bottom = 27.5
 script = ExtResource("4_v6kgq")
+
+[node name="RotationHelpers" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.313726)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 27.5
+offset_top = 27.5
+offset_right = 27.5
+offset_bottom = 27.5
+
+[node name="RotationHelperUp" type="TextureRect" parent="RotationHelpers"]
+offset_left = -50.0
+offset_top = -110.0
+offset_right = 50.0
+offset_bottom = -10.0
+texture = ExtResource("5_2uc3j")
+expand_mode = 1
+
+[node name="RotationHelperDown" type="TextureRect" parent="RotationHelpers"]
+offset_left = -50.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 110.0
+texture = ExtResource("5_2uc3j")
+expand_mode = 1
+flip_v = true
+
+[node name="NetChangeHelpers" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.313726)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 27.5
+offset_top = 27.5
+offset_right = 27.5
+offset_bottom = 27.5
+
+[node name="NetChangeHelperRight" type="TextureRect" parent="NetChangeHelpers"]
+offset_left = 50.0
+offset_top = -40.0
+offset_right = 130.0
+offset_bottom = 40.0
+texture = ExtResource("6_y4m6v")
+expand_mode = 1
+
+[node name="NetChangeHelperRight2" type="TextureRect" parent="NetChangeHelpers"]
+offset_left = -130.0
+offset_top = -40.0
+offset_right = -50.0
+offset_bottom = 40.0
+texture = ExtResource("6_y4m6v")
+expand_mode = 1
+flip_h = true
