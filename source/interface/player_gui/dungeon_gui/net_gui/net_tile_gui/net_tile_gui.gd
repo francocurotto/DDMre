@@ -1,7 +1,7 @@
 @tool
 extends TextureRect
 
-# export variables
+#region export variables
 @export var display : bool = true:
     set(_display):
         display = _display
@@ -9,3 +9,4 @@ extends TextureRect
             texture = load("res://assets/icons/TILE_HIGHLIGHT.svg")
         else:
             texture = null
+#endregion

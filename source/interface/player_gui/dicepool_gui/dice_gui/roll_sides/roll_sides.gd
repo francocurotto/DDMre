@@ -1,20 +1,23 @@
 extends MarginContainer
 
-# constants
-const SideInfo = preload("res://interface/player_gui/dicepool_gui/sides_info/side_info/side_info.tscn")
+#region signals
+signal roll_finished
+#endregion
 
-# variables
+#region constants
+const SideInfo = preload("res://interface/player_gui/dicepool_gui/sides_info/side_info/side_info.tscn")
+#endregion
+
+#region variables
 var type
 var sides
 var rolled_side
 var sides_set = []
 var rolled_side_info
 var tween_side_info
+#endregion
 
-# signals
-signal roll_finished
-
-# public functions
+#region public functions
 func setup(dice):
     type = dice.card.type
     sides = dice.sides
@@ -44,8 +47,9 @@ func roll(_rolled_side, turns):
             rolled_side_info.visible = true
             break
     roll_finished.emit()
+#endregion
 
-# private functions
+#region private functions
 func fill_sides_set():
     for side in sides:
         if not side.in_array(sides_set):
@@ -60,3 +64,4 @@ func add_side_infos():
 func hide_all_sides():
     for side_info in get_children():
         side_info.visible = false
+#endregion

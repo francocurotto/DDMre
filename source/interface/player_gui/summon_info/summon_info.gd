@@ -1,18 +1,21 @@
 extends PanelContainer
 
-# constants
+#region constants
 const COMMON_ABILITIES = ["ARCHER", "FLY", "NEUTRAL", "TUNNEL"]
 const Summon = preload("res://engine/dungobj/summon.gd")
 const Dice = preload("res://engine/dice/dice.gd")
+#endregion
 
-# variables
+#region variables
 var default = null
+#endregion
 
-# public functions
+#region public functions
 func reset_default():
     default = null
+#endregion
 
-# signals callbacks
+#region signals callbacks
 func on_tile_gui_pressed(tile_gui):
     var content = tile_gui.tile.content
     if content.is_summon():
@@ -22,8 +25,9 @@ func on_tile_gui_pressed(tile_gui):
 
 func on_dice_gui_selected(dice):
     display_card_info(dice.card)
+#endregion
 
-# private  functions
+#region private functions
 func display_default():
     if default is Summon:
         display_summon_info(default)
@@ -84,3 +88,4 @@ func get_ability_icon(ability):
         return load("res://assets/icons/ABILITY_%s.svg" % ability.name)
     else:
         return load("res://assets/icons/ABILITY.svg")
+#endregion

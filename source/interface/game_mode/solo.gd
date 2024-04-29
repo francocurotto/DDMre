@@ -14,7 +14,7 @@ var engine
 @onready var p2gui = $P2GUI
 #endregion
 
-#region built-in functions
+#region builtin functions
 func _ready():
     randomize()
     # get initialization parameters

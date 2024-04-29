@@ -32,7 +32,7 @@ const NETDICT = {
     "L1F" : [1, 4, 6,  7,  9, 12]}
 #endregion
 
-#region preload
+#region preload variables
 const NetCreator = preload("res://engine/dungeon/nets/net_creator.gd")
 #endregion
 
