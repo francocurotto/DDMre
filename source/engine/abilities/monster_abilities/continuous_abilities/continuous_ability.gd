@@ -1,17 +1,22 @@
 extends "res://engine/abilities/monster_abilities/monster_ability.gd"
+## Ability that is continuously activated that during duel.
+##
+## Continuous ablilities are triggered without limits every time monsters are 
+## summoned, and when turn passes.
 
-# constants
+#region constants
 const TYPE = "CONTINUOUS"
+#endregion
 
-func _init(ability_dict):
-    super(ability_dict)
-    pass
-
-# public functions
+#region public functions
+## When ability is activated, connect ability with events that trigger the 
+## abilities effects.
 func activate():
     Events.dice_dimensioned.connect(on_new_summon)
     Events.next_turn.connect(on_next_turn)
+#endregion
 
+## When ability is deactivated, disconnect ability with trigger events.
 func deactivate():
     # "if"s are not necessary for now, but are there for future proof.
     # If a continuous ability that uses the signals is negated on summon,
@@ -23,23 +28,27 @@ func deactivate():
     if Events.next_turn.is_connected(on_next_turn):
         Events.next_turn.disconnect(on_next_turn)
 
+## When ability is negated for the first time, deactivate ability effect.
 func negate():
-    super.negate()
+    super()
     if negate_count == 1:
         deactivate()
 
+## When last negation on ability is removed, re-activate ability effects.
 func remove_negate():
     super.remove_negate()
     if negate_count == 0:
         activate()
 
-# signals callbacks
+#region signals callbacks
 func on_new_summon(_summon, _net):
     pass
 
 func on_next_turn(_player, _turn):
     pass
+#endregion
 
-# is functions
+#region is functions
 func activates_on_dim():
     return true
+#endregion

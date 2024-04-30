@@ -1,7 +1,8 @@
 extends "res://engine/abilities/ability.gd"
 ## Ability that is activated during dice dimension.
 ##
-## Is sub-divided in two types: dim auto abilities and dim manual abilities.
+## It can belong to a monster or an item. Dimension abilities are sub-divided 
+## in two types: dim auto abilities and dim manual abilities.
 
 #region constants
 const TYPE = "DIMENSION"
