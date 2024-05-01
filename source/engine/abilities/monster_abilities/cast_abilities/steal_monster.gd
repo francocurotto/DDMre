@@ -1,15 +1,24 @@
 extends "cast_ability.gd"
+## STEALMONSTER ability.
+##
+## Destroy this monster and change control of an opponent monster for the rest 
+## of the duel.
 
-# variables
-var cost
-var crest
+#region variables
+var cost  ## Cost to pay to activate abililty
+var crest ## Crest type to pay to activate ability
+#endregion
 
+#region builtin functions
 func _init(ability_dict):
     super(ability_dict)
     cost = ability_dict["COST"]
     crest = ability_dict["CREST"]
+#endregion
 
-# public functions
+#region public functions
+## Activate ability using parameters [param activate_dict]. Destroy monster and 
+## take control of an opponent monster.
 func activate(activate_dict):
     pay_crests(crest, cost)
     var pos = activate_dict["pos"]
@@ -19,5 +28,7 @@ func activate(activate_dict):
     summon.destroy()
     tile.move_content_from(monster.tile)
 
+## Get tiles where ability can be casted.
 func get_select_tiles():
     return get_opponent_monsters_tiles()
+#endregion
