@@ -7,8 +7,8 @@ extends "dim_manual_ability.gd"
 #region variables
 var amount ## Amount of heal points to cure
 var number ## Number of monsters to cure
-var cost   ## Amount of crests to pay as cost
-var crest  ## Crest type to pay as cost
+var cost   ## Cost to pay to activate abililty
+var crest  ## Crest type to pay to activate ability
 #endregion
 
 #region builtin functions

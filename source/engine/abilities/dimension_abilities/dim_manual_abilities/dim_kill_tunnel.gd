@@ -4,8 +4,8 @@ extends "dim_manual_ability.gd"
 ## Destroy a monster in dungeon with the ability TUNNEL.
 
 #region variables
-var cost  ## Amount of crests to pay as cost
-var crest ## Crest type to pay as cost
+var cost  ## Cost to pay to activate abililty
+var crest ## Crest type to pay to activate ability
 #endregion
 
 #region builtin functions
