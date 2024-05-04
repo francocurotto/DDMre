@@ -5,10 +5,6 @@
 ### BUGS
 
 ### TODO
-- refactor engine abilities scripts
-    - add regions
-    - add documentation
-- correct GODOT4 notes
 - abilities: fix BUFFTYPE
-- abilities: change_activates_on_dim to activate_on_summon
+- abilities: change_activates_on_dim to activate_on_summon (this needs to be checked after fixing BUFFTYPE)
 - abilities: refactor types and is functions
