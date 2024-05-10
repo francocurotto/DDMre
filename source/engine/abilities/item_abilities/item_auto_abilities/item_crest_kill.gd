@@ -1,4 +1,4 @@
-extends "item_ability.gd"
+extends "item_auto_ability.gd"
 ## ITEMCRESTKILL ability.
 ##
 ## Reduce in a specific amount the number of crests of certain type, of player 

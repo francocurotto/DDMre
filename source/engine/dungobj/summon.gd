@@ -33,10 +33,11 @@ func setup_abilities(dungeon):
     for ability in card.abilities:
         ability.setup(self, dungeon)
 
-## Activate all dimension abilities from summon.
+## Activate all abilities that triggers during summon (dimension abilities and 
+## continuous abilities).
 func activate_dim_abilities():
     for ability in card.abilities:
-        if ability.activates_on_dim() and not ability.is_negated():
+        if ability.TYPE in ["DIMAUTO", "CONTINUOUS"]:
             ability.activate()
 
 ## Deactivate all abilities from summon.
@@ -60,17 +61,17 @@ func has_ability(name):
 
 ## Return true if summon has active ability with name [param name].
 func has_active_ability(name):
-    return card.abilities.any(func(abi): return abi.is_active_ability(name))
+    return card.abilities.any(func(abi): return abi.name==name and not abi.negated)
 
 ## Return true if summon has active cast ability.
 func has_active_cast_ability():
-    return card.abilities.any(func(abi): return abi.is_active_cast_ability())
+    return card.abilities.any(func(abi): return abi.TYPE=="CAST" and not abi.negated)
 
 ## Return true if summon has a dimension manual ability.
 func has_dim_manual_ability():
-    return card.abilities.any(func(abi): return abi.is_dim_manual())
+    return card.abilities.any(func(abi): return abi.TYPE=="DIMMANUAL")
 
 ## Return true if summon has an item manual ability.
 func has_item_manual_ability():
-    return card.abilities.any(func(abi): return abi.is_item_manual())
+    return card.abilities.any(func(abi): return abi.TYPE=="ITEMMANUAL")
 #endregion

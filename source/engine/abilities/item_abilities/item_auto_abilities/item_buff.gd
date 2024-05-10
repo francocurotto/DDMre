@@ -1,4 +1,4 @@
-extends "item_ability.gd"
+extends "item_auto_ability.gd"
 ## ITEMBUFF ability.
 ##
 ## Buff an attribute of monster in certain amount.

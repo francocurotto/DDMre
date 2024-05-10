@@ -1,4 +1,4 @@
-extends "item_ability.gd"
+extends "item_auto_ability.gd"
 ## ITEMCURE ability.
 ##
 ## Increase a certain amount the heath points of monster.

@@ -1,8 +1,7 @@
-extends "item_ability.gd"
+extends "item_auto_ability.gd"
 ## BLACKHOKE ability.
 ##
 ## Destroy all summons in dungeon.
-
 
 #region public functions
 ## Activate ability. Destroy all summons.

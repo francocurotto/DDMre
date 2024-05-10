@@ -10,6 +10,7 @@ var ability_info ## Dictionary with the infi to define and use the ability
 var name         ## Unique name of the ability
 var summon       ## Summon owner of the ability
 var dungeon      ## Reference of dungeon in the duel
+var negated : get = is_negated ## True if ability is negated
 #endregion
 
 #region builtin functions
@@ -47,34 +48,9 @@ func gain_crests(crest, amount):
 #endregion
 
 #region is functions
-## By default, ability does not activates on dim.
-func activates_on_dim():
-    return false
-
-## By default, ability is not a cast ability.
-func is_cast():
-    return false
-
-## By default, ability is not a dim manual ability.
-func is_dim_manual():
-    return false
-
-## By default, ability is not an item manual ability.
-func is_item_manual():
-    return false
-
 ## By default, ability is not negated.
 func is_negated():
     return false
-
-## Return true if ability name is [param _name] and ability is active (i.e.
-## not negated).
-func is_active_ability(_name):
-    return name == _name and not is_negated()
-
-## Return true if ability is an active cast ability.
-func is_active_cast_ability():
-    return is_cast() and not is_negated()
 #endregion
 
 # private functions

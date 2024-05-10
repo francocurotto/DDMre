@@ -6,8 +6,3 @@ extends "res://engine/abilities/monster_abilities/monster_ability.gd"
 #region constants
 const TYPE = "CAST"
 #endregion
-
-#region is functions
-func is_cast():
-    return true
-#endregion

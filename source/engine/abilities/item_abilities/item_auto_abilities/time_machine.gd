@@ -1,8 +1,7 @@
-extends "item_ability.gd"
+extends "item_auto_ability.gd"
 ## TIMEMACHINE ability.
 ##
 ## Return monster to its previous position, before last movement.
-
 
 #region public functions
 ## Activate ability. Return [param monster] to its previous position.

@@ -1,4 +1,4 @@
-extends "item_ability.gd"
+extends "item_auto_ability.gd"
 ## ITEMDAMAGE ability.
 ##
 ## Decrease in a certain amount the health points of monster.
