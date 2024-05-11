@@ -59,6 +59,22 @@ var move_time = 0.5
 @onready var roll_sides = $RollSides
 #endregion
 
+#region builtin functions
+func _input(event):
+    if not disabled:
+        var rect = Rect2(global_position, size)
+        # check event type
+        if (event is InputEventScreenTouch and event.pressed or
+            event is InputEventScreenDrag):
+            # check event inside dice
+            if rect.has_point(event.position):
+                dice_entered.emit(self)
+        elif event is InputEventScreenTouch and not event.pressed:
+            # check event inside dice
+            if rect.has_point(event.position) and roll_selectable:
+                roll_button.disabled = false
+#endregion
+
 #region public functions
 func setup(_dice):
     dice = _dice
@@ -83,20 +99,6 @@ func _on_resized():
     var min_size = min(size.y, size.x)
     %LevelLabel.add_theme_font_size_override("font_size", min_size/4)
     %LevelLabel.add_theme_constant_override("outline_size", min_size/8)
-
-func _input(event):
-    if not disabled:
-        var rect = Rect2(global_position, size)
-        # check event type
-        if (event is InputEventScreenTouch and event.pressed or
-            event is InputEventScreenDrag):
-            # check event inside dice
-            if rect.has_point(event.position):
-                dice_entered.emit(self)
-        elif event is InputEventScreenTouch and not event.pressed:
-            # check event inside dice
-            if rect.has_point(event.position) and roll_selectable:
-                roll_button.disabled = false
 
 func _on_roll_button_toggled(toggled_on):
     if toggled_on:
