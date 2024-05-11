@@ -12,7 +12,7 @@ const TYPE = "CONTINUOUS"
 ## When ability is activated, connect ability with events that trigger the 
 ## abilities effects.
 func activate():
-    Events.dice_dimensioned.connect(on_new_summon)
+    Events.new_summon.connect(on_new_summon)
     Events.next_turn.connect(on_next_turn)
 #endregion
 
@@ -41,7 +41,7 @@ func remove_negate():
         activate()
 
 #region signals callbacks
-func on_new_summon(_summon, _net):
+func on_new_summon(_summon):
     pass
 
 func on_next_turn(_player, _turn):

@@ -11,9 +11,12 @@ extends Node
 ## interface.
 signal dice_rolled(sides)
 
-## Emit when a dice is dimensioned on the dungeon, and [param summon] is being 
-## summoned, and [param net] is is placed.
-signal dice_dimensioned(summon, net)
+## Emit when a new [param summon] is placed in the dungeon. It covers dice 
+## dimensions and summons placements during the dungeon initialization.
+signal new_summon(summon)
+
+## Emit when a dice is dimensioned on the dungeon, and [param net] is placed.
+signal dice_dimensioned(net)
 
 ## Emit when a new turn starts and send the turn [param player] and the 
 ## [param turn] number count.

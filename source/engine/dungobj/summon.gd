@@ -35,9 +35,9 @@ func setup_abilities(dungeon):
 
 ## Activate all abilities that triggers during summon (dimension abilities and 
 ## continuous abilities).
-func activate_dim_abilities():
+func activate_summon_abilities():
     for ability in card.abilities:
-        if ability.TYPE in ["DIMAUTO", "CONTINUOUS"]:
+        if ability.TYPE in ["DIMAUTO", "CONTINUOUS"] and not ability.negated:
             ability.activate()
 
 ## Deactivate all abilities from summon.

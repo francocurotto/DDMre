@@ -34,7 +34,7 @@ func deactivate():
 #region signals callbacks
 ## When a new summon occurs, add zero limit to damage behavior of monster if 
 ## is of defined type.
-func on_new_summon(_summon, _net):
+func on_new_summon(_summon):
     if _summon.TYPE == type:
         _summon.damage_behavior.add_limit(0)
 #endregion

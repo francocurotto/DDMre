@@ -35,7 +35,7 @@ func deactivate():
 
 #region signals callbacks
 ## When a new summon occurs, buff monster if is of defined type.
-func on_new_summon(_summon, _net):
+func on_new_summon(_summon):
     if _summon.TYPE == type:
         _summon.buff_attr(attr, amount)
 #endregion

@@ -5,4 +5,4 @@
 ### BUGS
 
 ### TODO
-- abilities: fix BUFFTYPE
+- add new animation: make summon appear (tween) after dice dimension

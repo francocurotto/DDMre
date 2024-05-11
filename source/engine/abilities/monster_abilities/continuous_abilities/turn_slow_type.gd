@@ -40,7 +40,7 @@ func on_next_turn(player, _turn):
 
 ## When new summon occurs, if in turn of movement disabling, and if monster is
 ## of defined type, disable monster movement.
-func on_new_summon(_summon, _net):
+func on_new_summon(_summon):
     if effect_flag:
         if _summon.TYPE == type:
             _summon.max_move_behavior.add_limit(0)

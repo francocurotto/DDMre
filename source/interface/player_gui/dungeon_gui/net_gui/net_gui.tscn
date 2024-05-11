@@ -12,7 +12,7 @@ script = ExtResource("1_kqtt5")
 
 [node name="Grid" type="GridContainer" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.414507)
+modulate = Color(1, 1, 1, 0.557296)
 offset_left = -55.0
 offset_top = -110.0
 offset_right = 110.0
@@ -118,18 +118,22 @@ offset_right = 27.5
 offset_bottom = 27.5
 
 [node name="RotationHelperUp" type="TextureRect" parent="RotationHelpers"]
+layout_mode = 0
 offset_left = -50.0
 offset_top = -110.0
 offset_right = 50.0
 offset_bottom = -10.0
+mouse_filter = 2
 texture = ExtResource("5_2uc3j")
 expand_mode = 1
 
 [node name="RotationHelperDown" type="TextureRect" parent="RotationHelpers"]
+layout_mode = 0
 offset_left = -50.0
 offset_top = 10.0
 offset_right = 50.0
 offset_bottom = 110.0
+mouse_filter = 2
 texture = ExtResource("5_2uc3j")
 expand_mode = 1
 flip_v = true
@@ -145,6 +149,7 @@ offset_right = 27.5
 offset_bottom = 27.5
 
 [node name="NetChangeHelperRight" type="TextureRect" parent="NetChangeHelpers"]
+layout_mode = 0
 offset_left = 50.0
 offset_top = -40.0
 offset_right = 130.0
@@ -153,6 +158,7 @@ texture = ExtResource("6_y4m6v")
 expand_mode = 1
 
 [node name="NetChangeHelperRight2" type="TextureRect" parent="NetChangeHelpers"]
+layout_mode = 0
 offset_left = -130.0
 offset_top = -40.0
 offset_right = -50.0

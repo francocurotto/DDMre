@@ -106,8 +106,10 @@ func place_open_tile(pos):
 func place_summon(player, pos, diceidx):
     var summon = player.summon_card(diceidx)
     get_tile(pos).content = summon
+    # new summon signal goes before abilities activations to avoid double activation
+    Events.new_summon.emit(summon)
     summon.setup_abilities(self)
-    summon.activate_dim_abilities()
+    summon.activate_summon_abilities()
     return summon
 
 ## Place a vortex in position [param pos].
@@ -122,7 +124,7 @@ func dimension(player, net, diceidx):
         place_path_tile(player, pos)
     # place summon
     var summon = place_summon(player, net.center, diceidx)
-    Events.dice_dimensioned.emit(summon, net)
+    Events.dice_dimensioned.emit(net)
     return summon
 #endregion
 

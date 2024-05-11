@@ -21,7 +21,7 @@ func deactivate():
 
 #region signals callbacks
 ## When a new summon occurs, if monster has FLY ability, negate ability.
-func on_new_summon(_summon, _net):
+func on_new_summon(_summon):
     if _summon.has_ability("FLY"):
         _summon.get_ability("FLY").negate()
 #endregion
