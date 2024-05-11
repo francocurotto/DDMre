@@ -1,8 +1,7 @@
-### NEW INTERFACE
+### TODO
+- new dimension implementation to allow tiles draw selection and tile button action pressed
 - implement transition to dungeon state
     - fix summon info display after dimension (currently is stuck on summon info)
-
+    
 ### BUGS
 
-### TODO
-- add new animation: make summon appear (tween) after dice dimension

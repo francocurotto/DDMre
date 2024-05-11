@@ -93,6 +93,8 @@ func on_dice_dimensioned(net):
         tile = dungeon.get_tile(net.positions[i+1])
         var unfold = net.unfolds[i]
         tile_gui.tween_dim_fold(tween, tile, unfold)
+    # make summon appear
+    get_tile_gui(net.center).tween_dim_summon_appear(tween)
 #endregion
 
 #region private functions
