@@ -5,3 +5,6 @@
     
 ### BUGS
 
+### IMPROVEMENTS
+- Different styles for normal gui buttons and command buttons
+
