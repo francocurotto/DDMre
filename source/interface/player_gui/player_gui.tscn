@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv3h35fawxupw"]
+[gd_scene load_steps=9 format=3 uid="uid://bv3h35fawxupw"]
 
 [ext_resource type="Script" path="res://interface/player_gui/player_gui.gd" id="1_o5612"]
 [ext_resource type="PackedScene" uid="uid://dbmi486gqi604" path="res://interface/player_gui/dungeon_gui/dungeon_gui.tscn" id="2_645da"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c5cr1ilo6bxek" path="res://interface/player_gui/player_info/player_info.tscn" id="3_putua"]
 [ext_resource type="PackedScene" uid="uid://clg2g2fqnsm0p" path="res://interface/player_gui/dicepool_gui/dicepool_gui.tscn" id="4_se84o"]
 [ext_resource type="Theme" uid="uid://ubo3vjujly0d" path="res://assets/themes/player_gui_button_theme.tres" id="5_7i0g8"]
+[ext_resource type="Theme" uid="uid://c7l7h8b8x6vpc" path="res://assets/themes/command_button_theme.tres" id="6_djx36"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rhg1"]
 bg_color = Color(0.180392, 0.180392, 0.180392, 1)
@@ -76,7 +77,7 @@ size_flags_horizontal = 3
 [node name="EndTurnButton" type="Button" parent="PanelsVBox/LowerPanel/LowerPanelVBox/ButtonsRowMargins/ButtonsRow/ActionButtons"]
 unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("5_7i0g8")
+theme = ExtResource("6_djx36")
 disabled = true
 text = "END TURN
 "
@@ -86,7 +87,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("5_7i0g8")
+theme = ExtResource("6_djx36")
 disabled = true
 text = "DIMENSION"
 

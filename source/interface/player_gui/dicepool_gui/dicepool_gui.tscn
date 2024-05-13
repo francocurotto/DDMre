@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://clg2g2fqnsm0p"]
+[gd_scene load_steps=8 format=3 uid="uid://clg2g2fqnsm0p"]
 
 [ext_resource type="Script" path="res://interface/player_gui/dicepool_gui/dicepool_gui.gd" id="1_1jbbo"]
 [ext_resource type="PackedScene" uid="uid://bcn6sx8mo0acg" path="res://interface/player_gui/dicepool_gui/dice_gui/dice_gui.tscn" id="1_xouyd"]
 [ext_resource type="PackedScene" uid="uid://c36lt5po6nufo" path="res://interface/player_gui/dicepool_gui/sides_info/sides_info.tscn" id="2_innbh"]
 [ext_resource type="PackedScene" uid="uid://bmtorjyps4i0w" path="res://interface/player_gui/dicepool_gui/dice_sort/dice_sort.tscn" id="4_1nlfe"]
+[ext_resource type="Theme" uid="uid://c7l7h8b8x6vpc" path="res://assets/themes/command_button_theme.tres" id="5_6pa2l"]
 [ext_resource type="Theme" uid="uid://ubo3vjujly0d" path="res://assets/themes/player_gui_button_theme.tres" id="5_g2iqv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn0dc"]
@@ -98,7 +99,7 @@ theme_override_constants/margin_right = 20
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-theme = ExtResource("5_g2iqv")
+theme = ExtResource("5_6pa2l")
 disabled = true
 text = "ROLL"
 
@@ -122,7 +123,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("5_g2iqv")
+theme = ExtResource("5_6pa2l")
 text = "SKIP"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/RollButton" to="." method="_on_roll_button_pressed"]

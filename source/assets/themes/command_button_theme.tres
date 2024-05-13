@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c7l7h8b8x6vpc"]
+
+[ext_resource type="FontFile" uid="uid://c7lm1mnt7dido" path="res://assets/fonts/Archimoto.otf" id="1_1py76"]
+[ext_resource type="StyleBox" uid="uid://bng4uqw1x25hl" path="res://assets/styles/command_button_disabled.tres" id="2_6ho0t"]
+[ext_resource type="StyleBox" uid="uid://ca7x7ah6qn0nl" path="res://assets/styles/command_button_normal.tres" id="3_q1rox"]
+[ext_resource type="StyleBox" uid="uid://hlpaoqra3qsf" path="res://assets/styles/command_button_pressed.tres" id="4_6bvoc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ys543"]
+
+[resource]
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_1py76")
+Button/styles/disabled = ExtResource("2_6ho0t")
+Button/styles/focus = SubResource("StyleBoxEmpty_ys543")
+Button/styles/hover = ExtResource("3_q1rox")
+Button/styles/normal = ExtResource("3_q1rox")
+Button/styles/pressed = ExtResource("4_6bvoc")
