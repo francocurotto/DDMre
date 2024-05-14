@@ -37,8 +37,8 @@ const NetCreator = preload("res://engine/dungeon/nets/net_creator.gd")
 #endregion
 
 #region export variables
-@export_enum("X1", "X2", "X2F", "T1", "T2", "T2F", "Z1", "Z1F", "Z2", "Z2F", "M1", "M1F", "M2", 
-    "M2F", "S1", "S1F", "S2", "S2F", "L1", "L1F")
+@export_enum("X1", "X2", "X2F", "T1", "T2", "T2F", "Z1", "Z1F", "Z2", "Z2F", 
+    "M1", "M1F", "M2", "M2F", "S1", "S1F", "S2", "S2F", "L1", "L1F")
 var net : String = "X1" :
     set(_net):
         net = _net
@@ -58,6 +58,14 @@ var summon_type : String = "DRAGON" :
     set(_summon_type):
         summon_type = _summon_type
         $SummonIcon.texture = load("res://assets/icons/SUMMON_%s.svg" % summon_type)
+
+@export var rotation_mode : bool = false :
+    set(_rotation_mode):
+        rotation_mode = _rotation_mode
+        for net_tile_tile in %Grid.get_children():
+            net_tile_tile.rotation_mode = rotation_mode
+        $NetChangeHelpers.visible = rotation_mode
+        $RotationHelpers.visible = rotation_mode  
 #endregion
 
 #region variables
@@ -111,19 +119,16 @@ func on_net_pressed(press_pos):
     if center_rect.has_point(press_pos):
         rotation_pos = null
         selection_pos = press_pos
-        $NetChangeHelpers.visible = true
     # get rect for rotate from parent (dungeon gui)
     elif get_parent().get_global_rect().has_point(press_pos):
         rotation_pos = press_pos
         selection_pos = null
-        $RotationHelpers.visible = true
+        
 
 func on_net_released():
     rotation_pos = null
     selection_pos = null
     $DrawHelp.clear_draw()
-    $RotationHelpers.visible = false
-    $NetChangeHelpers.visible = false
         
 func on_net_dragged(event):
     if rotation_pos:

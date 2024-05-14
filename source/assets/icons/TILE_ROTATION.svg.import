@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g4owcmw0dfla"
-path="res://.godot/imported/NET_CHANGE_HELPER.svg-1f887769b60872fc6d78e58d17f7f662.ctex"
+uid="uid://bx2mhwryrt7d8"
+path="res://.godot/imported/TILE_ROTATION.svg-edc51b3e5afc2766087977cd8a43fcdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/NET_CHANGE_HELPER.svg"
-dest_files=["res://.godot/imported/NET_CHANGE_HELPER.svg-1f887769b60872fc6d78e58d17f7f662.ctex"]
+source_file="res://assets/icons/TILE_ROTATION.svg"
+dest_files=["res://.godot/imported/TILE_ROTATION.svg-edc51b3e5afc2766087977cd8a43fcdb.ctex"]
 
 [params]
 
