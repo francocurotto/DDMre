@@ -124,7 +124,6 @@ func on_net_pressed(press_pos):
         rotation_pos = press_pos
         selection_pos = null
         
-
 func on_net_released():
     rotation_pos = null
     selection_pos = null
