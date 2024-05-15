@@ -73,6 +73,7 @@ var time = 0
 var rotation_pos = false
 var selection_pos = false
 var net_index = 0
+var dungeon_rect = Rect()
 #endregion
 
 #region builtin functions
@@ -82,13 +83,14 @@ func _process(delta):
     %Grid.modulate = Color(1,1,1,alpha)
 
 func _input(event):
-    if event is InputEventScreenTouch:
-        if event.pressed:
-            on_net_pressed(event.position)
-        else:
-            on_net_released()
-    elif event is InputEventScreenDrag:
-        on_net_dragged(event)
+    if rotation_mode;
+        if event is InputEventScreenTouch:
+            if event.pressed:
+                on_net_pressed(event.position)
+            else:
+                on_net_released()
+        elif event is InputEventScreenDrag:
+            on_net_dragged(event)
 #endregion
 
 #region public functions
@@ -120,7 +122,7 @@ func on_net_pressed(press_pos):
         rotation_pos = null
         selection_pos = press_pos
     # get rect for rotate from parent (dungeon gui)
-    elif get_parent().get_global_rect().has_point(press_pos):
+    elif dungeon_rect.has_point(press_pos):
         rotation_pos = press_pos
         selection_pos = null
         
