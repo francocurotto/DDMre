@@ -68,6 +68,12 @@ func on_net_gui_changed():
     net.add_offset(get_tile_gui_position(dim_tile))
     net_gui_changed.emit(dungeon.can_dimension(net, player))
 
+func on_net_gui_mode_changed(rotation_mode):
+    if rotation_mode:
+        disable_tile_guis()
+    else:
+        enable_tile_guis()
+
 func on_summon_button_pressed(dice_gui):
     # create dimension net
     net_gui = NetGUI.instantiate()
@@ -75,6 +81,7 @@ func on_summon_button_pressed(dice_gui):
     net_gui.dungeon_rect = get_global_rect()
     add_child(net_gui)
     net_gui.net_changed.connect(on_net_gui_changed)
+    net.gui.mode_changed.connect(on_net_gui_mode_changed)
     on_tile_gui_pressed(dim_tile)
 
 func on_dice_dimensioned(net):

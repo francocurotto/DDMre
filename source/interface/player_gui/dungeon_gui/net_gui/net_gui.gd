@@ -3,6 +3,7 @@ extends Node2D
 
 #region singals
 signal net_changed
+signal mode_changed
 #endregion
 
 #region constants
@@ -39,25 +40,25 @@ const NetCreator = preload("res://engine/dungeon/nets/net_creator.gd")
 #region export variables
 @export_enum("X1", "X2", "X2F", "T1", "T2", "T2F", "Z1", "Z1F", "Z2", "Z2F", 
     "M1", "M1F", "M2", "M2F", "S1", "S1F", "S2", "S2F", "L1", "L1F")
-var net : String = "X1" :
-    set(_net):
-        net = _net
-        display_net(NETDICT[net])
-        net_changed.emit()
+    var net : String = "X1" :
+        set(_net):
+            net = _net
+            display_net(NETDICT[net])
+            net_changed.emit()
 
 @export var net_rotation : int = 0 :
     set(_net_rotation):
         net_rotation = _net_rotation
         var tween = create_tween()
         tween.tween_property($Grid, "rotation", net_rotation*PI/2, 0.5)\
-        .set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+            .set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
         net_changed.emit()
-
+                                                                            
 @export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM")
-var summon_type : String = "DRAGON" :
-    set(_summon_type):
-        summon_type = _summon_type
-        $SummonIcon.texture = load("res://assets/icons/SUMMON_%s.svg" % summon_type)
+    var summon_type : String = "DRAGON" :
+        set(_summon_type):
+            summon_type = _summon_type
+            $SummonIcon.texture = load("res://assets/icons/SUMMON_%s.svg" % summon_type)
 
 @export var rotation_mode : bool = false :
     set(_rotation_mode):
@@ -73,7 +74,7 @@ var time = 0
 var rotation_pos = false
 var selection_pos = false
 var net_index = 0
-var dungeon_rect = Rect()
+var dungeon_rect = Rect2()
 #endregion
 
 #region builtin functions
@@ -83,7 +84,7 @@ func _process(delta):
     %Grid.modulate = Color(1,1,1,alpha)
 
 func _input(event):
-    if rotation_mode;
+    if rotation_mode:
         if event is InputEventScreenTouch:
             if event.pressed:
                 on_net_pressed(event.position)
@@ -118,6 +119,7 @@ func get_trans_list():
 #region signals callbacks
 func _on_net_tile_gui_8_pressed():
     rotation_mode = not rotation_mode
+    mode_changed.emit(rotation_mode)
 
 func on_net_pressed(press_pos):
     var center_rect = Rect2(global_position, $Grid/NetTileGUI1.size)

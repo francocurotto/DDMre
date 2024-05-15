@@ -9,10 +9,14 @@
 
 [node name="NetGUI" type="Node2D"]
 script = ExtResource("1_kqtt5")
+net = "X1"
+net_rotation = 0
+summon_type = "DRAGON"
+rotation_mode = false
 
 [node name="Grid" type="GridContainer" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.108261)
+modulate = Color(1, 1, 1, 0.310725)
 offset_left = -55.0
 offset_top = -110.0
 offset_right = 110.0
