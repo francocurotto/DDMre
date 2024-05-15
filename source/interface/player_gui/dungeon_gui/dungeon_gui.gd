@@ -81,7 +81,7 @@ func on_summon_button_pressed(dice_gui):
     net_gui.dungeon_rect = get_global_rect()
     add_child(net_gui)
     net_gui.net_changed.connect(on_net_gui_changed)
-    net.gui.mode_changed.connect(on_net_gui_mode_changed)
+    net_gui.mode_changed.connect(on_net_gui_mode_changed)
     on_tile_gui_pressed(dim_tile)
 
 func on_dice_dimensioned(net):

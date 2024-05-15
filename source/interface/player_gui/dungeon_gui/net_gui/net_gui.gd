@@ -40,7 +40,7 @@ const NetCreator = preload("res://engine/dungeon/nets/net_creator.gd")
 #region export variables
 @export_enum("X1", "X2", "X2F", "T1", "T2", "T2F", "Z1", "Z1F", "Z2", "Z2F", 
     "M1", "M1F", "M2", "M2F", "S1", "S1F", "S2", "S2F", "L1", "L1F")
-    var net : String = "X1" :
+var net : String = "X1" :
         set(_net):
             net = _net
             display_net(NETDICT[net])
@@ -55,7 +55,7 @@ const NetCreator = preload("res://engine/dungeon/nets/net_creator.gd")
         net_changed.emit()
                                                                             
 @export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM")
-    var summon_type : String = "DRAGON" :
+var summon_type : String = "DRAGON" :
         set(_summon_type):
             summon_type = _summon_type
             $SummonIcon.texture = load("res://assets/icons/SUMMON_%s.svg" % summon_type)
