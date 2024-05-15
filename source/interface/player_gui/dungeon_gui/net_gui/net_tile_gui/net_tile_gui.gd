@@ -1,5 +1,5 @@
 @tool
-extends TextureRect
+extends Button
 
 #region preloads
 const tile_highlight = preload("res://assets/icons/TILE_HIGHLIGHT.svg")
@@ -18,5 +18,5 @@ const tile_rotation = preload("res://assets/icons/TILE_ROTATION.svg")
 @export var rotation_mode : bool = false :
     set(_rotation_mode):
         rotation_mode = _rotation_mode
-        texture = tile_rotation if rotation_mode else tile_highlight
+        icon = tile_rotation if rotation_mode else tile_highlight
 #endregion

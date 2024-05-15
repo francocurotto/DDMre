@@ -116,8 +116,11 @@ func get_trans_list():
 #endregion
 
 #region signals callbacks
+func _on_net_tile_gui_8_pressed():
+    rotation_mode = not rotation_mode
+
 func on_net_pressed(press_pos):
-    var center_rect = Rect2(global_position, $Grid/DimensionTile1.size)
+    var center_rect = Rect2(global_position, $Grid/NetTileGUI1.size)
     if center_rect.has_point(press_pos):
         rotation_pos = null
         selection_pos = press_pos

@@ -12,7 +12,7 @@ script = ExtResource("1_kqtt5")
 
 [node name="Grid" type="GridContainer" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.519474)
+modulate = Color(1, 1, 1, 0.108261)
 offset_left = -55.0
 offset_top = -110.0
 offset_right = 110.0
@@ -56,6 +56,8 @@ layout_mode = 2
 
 [node name="NetTileGUI8" parent="Grid" instance=ExtResource("1_aptut")]
 layout_mode = 2
+mouse_filter = 0
+disabled = false
 
 [node name="NetTileGUI9" parent="Grid" instance=ExtResource("1_aptut")]
 layout_mode = 2
@@ -154,6 +156,8 @@ offset_left = 50.0
 offset_top = -40.0
 offset_right = 130.0
 offset_bottom = 40.0
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(40, 40)
 texture = ExtResource("6_y4m6v")
 expand_mode = 1
 
@@ -163,6 +167,10 @@ offset_left = -130.0
 offset_top = -40.0
 offset_right = -50.0
 offset_bottom = 40.0
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(40, 40)
 texture = ExtResource("6_y4m6v")
 expand_mode = 1
 flip_h = true
+
+[connection signal="pressed" from="Grid/NetTileGUI8" to="." method="_on_net_tile_gui_8_pressed"]
