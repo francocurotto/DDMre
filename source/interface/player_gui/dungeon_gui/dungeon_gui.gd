@@ -34,6 +34,8 @@ func setup(_engine, _player):
             var tile_gui = get_tile_gui(Vector2i(j,i))
             # setup tile guis with tiles
             tile_gui.setup(tile)
+            # add tile gui to array
+            tile_guis.append(tile_gui)
             # add tile guis to button group
             tile_gui.select_button.button_group = tile_guis_button_group
             tile_gui.select_button_pressed.connect(on_tile_gui_pressed)

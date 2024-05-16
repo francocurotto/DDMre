@@ -43,30 +43,34 @@ const NetCreator = preload("res://engine/dungeon/nets/net_creator.gd")
 var net : String = "X1" :
         set(_net):
             net = _net
-            display_net(NETDICT[net])
-            net_changed.emit()
+            if is_inside_tree():
+                display_net(NETDICT[net])
+                net_changed.emit()
 
 @export var net_rotation : int = 0 :
     set(_net_rotation):
         net_rotation = _net_rotation
-        var tween = create_tween()
-        tween.tween_property($Grid, "rotation", net_rotation*PI/2, 0.5)\
-            .set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-        net_changed.emit()
+        if is_inside_tree():
+            var tween = create_tween()
+            tween.tween_property($Grid, "rotation", net_rotation*PI/2, 0.5)\
+                .set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+            net_changed.emit()
                                                                             
 @export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM")
 var summon_type : String = "DRAGON" :
         set(_summon_type):
             summon_type = _summon_type
-            $SummonIcon.texture = load("res://assets/icons/SUMMON_%s.svg" % summon_type)
+            if is_inside_tree():
+                $SummonIcon.texture = load("res://assets/icons/SUMMON_%s.svg" % summon_type)
 
 @export var rotation_mode : bool = false :
     set(_rotation_mode):
         rotation_mode = _rotation_mode
-        for net_tile_tile in %Grid.get_children():
-            net_tile_tile.rotation_mode = rotation_mode
-        $NetChangeHelpers.visible = rotation_mode
-        $RotationHelpers.visible = rotation_mode  
+        if is_inside_tree():
+            for net_tile_tile in %Grid.get_children():
+                net_tile_tile.rotation_mode = rotation_mode
+            $NetChangeHelpers.visible = rotation_mode
+            $RotationHelpers.visible = rotation_mode  
 #endregion
 
 #region variables
@@ -145,7 +149,7 @@ func on_net_dragged(event):
 
 #region private functions
 func display_net(net_indeces):
-    for i in %Grid.get_child_count():
+    for i in $Grid.get_child_count():
         %Grid.get_child(i).display = i in net_indeces
 
 func on_rotation_drag(drag_pos):
