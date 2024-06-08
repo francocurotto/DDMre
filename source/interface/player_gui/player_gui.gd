@@ -19,6 +19,7 @@ func _ready():
     %DicepoolGUI.roll_button_pressed.connect(input_roll_cmd)
     %DicepoolGUI.roll_finished.connect(on_roll_finished)
     %DicepoolGUI.summon_button_pressed.connect(on_summon_button_pressed)
+    %DicepoolGUI.skip_button_pressed.connect(on_skip_button_pressed)
     Events.dice_rolled.connect(on_dice_rolled)
     Events.dice_dimensioned.connect(%DungeonGUI.on_dice_dimensioned)
 #endregion
@@ -62,6 +63,11 @@ func on_summon_button_pressed(dice_gui):
     %SummonInfo.default = dice_gui.dice
     %DungeonGUI.on_summon_button_pressed(dice_gui)
     switch_to_dim_button()
+
+func on_skip_button_pressed():
+    %DicepoolButton.button_pressed = false
+    %SummonInfo.reset_default()
+    engine.update({"cmd":"SKIP"})
 
 func on_net_gui_changed(can_dimension):
     %DimButton.disabled = not can_dimension

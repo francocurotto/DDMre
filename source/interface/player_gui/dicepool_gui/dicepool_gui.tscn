@@ -128,3 +128,4 @@ text = "SKIP"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/RollButton" to="." method="_on_roll_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/SummonButtons/SummonButton" to="." method="_on_summon_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/SummonButtons/SkipButton" to="." method="_on_skip_button_pressed"]

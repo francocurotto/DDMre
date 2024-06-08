@@ -7,6 +7,7 @@ signal dice_sort_finished
 signal roll_button_pressed
 signal roll_finished
 signal summon_button_pressed
+signal skip_button_pressed
 #endregion
 
 #region preload variables
@@ -169,6 +170,9 @@ func _on_roll_button_pressed():
 func _on_summon_button_pressed():
     dim_dice = dice_selector.get_parent()
     summon_button_pressed.emit(dim_dice)
+    
+func _on_skip_button_pressed():
+    skip_button_pressed.emit()
 #endregions    
 
 #region private functions

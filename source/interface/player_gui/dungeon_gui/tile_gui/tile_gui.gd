@@ -83,7 +83,6 @@ func tween_dim_summon_appear(tween):
 #region signals callbacks
 func _on_select_button_toggled(_toggled_on):
     select_button_pressed.emit(self)
-    print($SelectButton.disabled)
 #endregion
 
 #region private functions
