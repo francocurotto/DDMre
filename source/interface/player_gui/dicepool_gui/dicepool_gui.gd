@@ -172,6 +172,7 @@ func _on_summon_button_pressed():
     summon_button_pressed.emit(dim_dice)
     
 func _on_skip_button_pressed():
+    %SkipButton.disabled = true
     skip_button_pressed.emit()
 #endregions    
 
