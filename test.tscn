@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxmgqmkxvls2s"]
+
+[ext_resource type="PackedScene" uid="uid://b6qy0uoifxeby" path="res://dice/dice.tscn" id="1_37kl0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_37kl0"]
+size = Vector3(20, 0, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8uh7m"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37kl0"]
+
+[node name="Test" type="Node3D"]
+
+[node name="Die" parent="." instance=ExtResource("1_37kl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999945, -1.29083e-11, -0.0104543, 0.00909123, 0.493729, 0.869568, 0.0051616, -0.869616, 0.493702, 0.0296574, 15.0087, 13.6464)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_37kl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_8uh7m")
+surface_material_override/0 = SubResource("StandardMaterial3D_37kl0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.384919, -0.377372, 0.842275, 0.0431583, 0.918951, 0.392003, -0.921941, -0.114538, 0.370009, 9.05865, 8.08855, 6.50427)
