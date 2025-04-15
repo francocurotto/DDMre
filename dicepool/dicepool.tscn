@@ -1,55 +1,62 @@
-[gd_scene load_steps=2 format=3 uid="uid://du8wgt4awuk8d"]
+[gd_scene load_steps=3 format=3 uid="uid://du8wgt4awuk8d"]
 
 [ext_resource type="PackedScene" uid="uid://cl36s84e5ksr4" path="res://dicepool/dice_button/dice_button.tscn" id="1_deuju"]
 
-[node name="Dicepool" type="GridContainer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_deuju"]
+bg_color = Color(0.427493, 0.427493, 0.427493, 1)
+
+[node name="Dicepool" type="PanelContainer"]
 offset_right = 720.0
-offset_bottom = 360.0
+offset_bottom = 365.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_deuju")
+
+[node name="Grid" type="GridContainer" parent="."]
+layout_mode = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 5
 
-[node name="DiceButton" parent="." instance=ExtResource("1_deuju")]
+[node name="DiceButton" parent="Grid" instance=ExtResource("1_deuju")]
 layout_mode = 2
 
-[node name="DiceButton2" parent="." instance=ExtResource("1_deuju")]
+[node name="DiceButton2" parent="Grid" instance=ExtResource("1_deuju")]
 layout_mode = 2
 
-[node name="DiceButton3" parent="." instance=ExtResource("1_deuju")]
+[node name="DiceButton3" parent="Grid" instance=ExtResource("1_deuju")]
 layout_mode = 2
 
-[node name="DiceButton4" parent="." instance=ExtResource("1_deuju")]
+[node name="DiceButton4" parent="Grid" instance=ExtResource("1_deuju")]
 layout_mode = 2
 
-[node name="DiceButton5" parent="." instance=ExtResource("1_deuju")]
+[node name="DiceButton5" parent="Grid" instance=ExtResource("1_deuju")]
 layout_mode = 2
 
-[node name="DiceButton6" parent="." instance=ExtResource("1_deuju")]
+[node name="DiceButton6" parent="Grid" instance=ExtResource("1_deuju")]
 layout_mode = 2
 
-[node name="DiceButton7" parent="." instance=ExtResource("1_deuju")]
+[node name="DiceButton7" parent="Grid" instance=ExtResource("1_deuju")]
 layout_mode = 2
 
-[node name="DiceButton8" parent="." instance=ExtResource("1_deuju")]
+[node name="DiceButton8" parent="Grid" instance=ExtResource("1_deuju")]
 layout_mode = 2
 
-[node name="DiceButton9" parent="." instance=ExtResource("1_deuju")]
+[node name="DiceButton9" parent="Grid" instance=ExtResource("1_deuju")]
 layout_mode = 2
 
-[node name="DiceButton10" parent="." instance=ExtResource("1_deuju")]
+[node name="DiceButton10" parent="Grid" instance=ExtResource("1_deuju")]
 layout_mode = 2
 
-[node name="DiceButton11" parent="." instance=ExtResource("1_deuju")]
+[node name="DiceButton11" parent="Grid" instance=ExtResource("1_deuju")]
 layout_mode = 2
 
-[node name="DiceButton12" parent="." instance=ExtResource("1_deuju")]
+[node name="DiceButton12" parent="Grid" instance=ExtResource("1_deuju")]
 layout_mode = 2
 
-[node name="DiceButton13" parent="." instance=ExtResource("1_deuju")]
+[node name="DiceButton13" parent="Grid" instance=ExtResource("1_deuju")]
 layout_mode = 2
 
-[node name="DiceButton14" parent="." instance=ExtResource("1_deuju")]
+[node name="DiceButton14" parent="Grid" instance=ExtResource("1_deuju")]
 layout_mode = 2
 
-[node name="DiceButton15" parent="." instance=ExtResource("1_deuju")]
+[node name="DiceButton15" parent="Grid" instance=ExtResource("1_deuju")]
 layout_mode = 2
