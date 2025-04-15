@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://caju6siypu748"
-path.s3tc="res://.godot/imported/CREST_SUMMON.svg-774204512740470e33d9287761196f92.s3tc.ctex"
+path.etc2="res://.godot/imported/CREST_SUMMON.svg-774204512740470e33d9287761196f92.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/CREST_SUMMON.svg"
-dest_files=["res://.godot/imported/CREST_SUMMON.svg-774204512740470e33d9287761196f92.s3tc.ctex"]
+dest_files=["res://.godot/imported/CREST_SUMMON.svg-774204512740470e33d9287761196f92.etc2.ctex"]
 
 [params]
 
