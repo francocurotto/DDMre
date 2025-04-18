@@ -9,7 +9,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_lbo6s"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lbo6s"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ws0no"]
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fl3nv"]
@@ -20,7 +20,7 @@ script = ExtResource("1_ws0no")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_lbo6s")
-surface_material_override/0 = SubResource("StandardMaterial3D_lbo6s")
+surface_material_override/0 = SubResource("StandardMaterial3D_ws0no")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_fl3nv")

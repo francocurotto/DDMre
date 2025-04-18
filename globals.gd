@@ -1,5 +1,10 @@
 extends Node
 
+#region filepaths
+## Path to the JSON file that has the dice information.
+const LIBPATH  = "res://databases/LIBRARY.json"
+#endregion
+
 #region functions
 ## Read a JSON file and convert it to a dictionary.
 func read_jsonfile(filepath):

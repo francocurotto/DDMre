@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxmgqmkxvls2s"]
+[gd_scene load_steps=6 format=3 uid="uid://cxmgqmkxvls2s"]
 
+[ext_resource type="Script" uid="uid://dlse0i3denew8" path="res://test.gd" id="1_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://du8wgt4awuk8d" path="res://dicepool/dicepool.tscn" id="1_37kl0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_37kl0"]
@@ -11,6 +12,7 @@ size = Vector2(20, 20)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37kl0"]
 
 [node name="Test" type="Node3D"]
+script = ExtResource("1_8uh7m")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.999945, 1.48252e-08, -0.0104543, 0.0088859, 0.526822, 0.849929, 0.00550757, -0.849976, 0.526793, 0.0296574, 21.3555, 21.8378)
@@ -28,5 +30,14 @@ surface_material_override/0 = SubResource("StandardMaterial3D_37kl0")
 transform = Transform3D(0.384919, -0.377372, 0.842275, 0.0431583, 0.918951, 0.392003, -0.921941, -0.114538, 0.370009, 9.05865, 8.08855, 6.50427)
 
 [node name="Dicepool" parent="." instance=ExtResource("1_37kl0")]
-offset_top = 920.0
-offset_bottom = 1280.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -360.0
+offset_right = 360.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0

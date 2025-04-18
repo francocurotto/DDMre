@@ -9,48 +9,52 @@ size = Vector2(8, 8)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoqbp"]
 albedo_color = Color(0.157274, 0.157274, 0.157274, 1)
 
-[node name="DiceButton" type="MarginContainer"]
+[node name="DiceButton" type="AspectRatioContainer"]
+custom_minimum_size = Vector2(120, 120)
 offset_right = 120.0
 offset_bottom = 120.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_aem31")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
-script = ExtResource("1_aem31")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer"]
 layout_mode = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/SubViewportContainer"]
 own_world_3d = true
 handle_input_locally = false
-size = Vector2i(2, 2)
+size = Vector2i(116, 116)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="MarginContainer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.51935)
 
-[node name="Dice" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_3otug")]
+[node name="Dice" parent="MarginContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_3otug")]
 transform = Transform3D(0.788929, -0.211071, 0.577096, 0.577096, 0.577096, -0.577858, -0.211071, 0.788929, 0.577096, 0, 0, 0)
 gravity_scale = 0.0
 angular_velocity = Vector3(0, 1.74533, 0)
 angular_damp_mode = 1
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MarginContainer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.29682)
 light_energy = 0.5
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MarginContainer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -2)
 mesh = SubResource("PlaneMesh_aoqbp")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_aoqbp")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="MarginContainer"]
 layout_mode = 2
 flat = true
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
