@@ -15,7 +15,6 @@ const TYPECOLORS = {
 func set_dice(dice_dict):
 	var level = int(dice_dict["LEVEL"])
 	var type = dice_dict["TYPE"]
-	print(type)
 	# set type
 	set_dice_type(type)
 	# set sides

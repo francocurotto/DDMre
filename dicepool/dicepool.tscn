@@ -4,11 +4,12 @@
 [ext_resource type="Script" uid="uid://cghnyu3b7yv1s" path="res://dicepool/dicepool.gd" id="1_jyfec"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_deuju"]
-bg_color = Color(0.156863, 0.156863, 0.156863, 1)
+bg_color = Color(0.156863, 0.156863, 0.156863, 0.588235)
 
 [node name="Dicepool" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 450)
 offset_right = 720.0
-offset_bottom = 360.0
+offset_bottom = 450.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_deuju")
 script = ExtResource("1_jyfec")
 
