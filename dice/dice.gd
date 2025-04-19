@@ -3,11 +3,11 @@ extends RigidBody3D
 #region constants
 const TYPECOLORS = {
 	"DRAGON"      : Color(1.0, 0.0, 0.0),
-	"SPELLCASTER" : Color(0.7, 0.7, 0.7),
+	"SPELLCASTER" : Color(1.0, 1.0, 1.0),
 	"UNDEAD"      : Color(1.0, 1.0, 0.0),
 	"BEAST"       : Color(0.0, 1.0, 0.0),
 	"WARRIOR"     : Color(0.0, 0.0, 1.0),
-	"ITEM"        : Color(0.1, 0.1, 0.1)
+	"ITEM"        : Color(0.2, 0.2, 0.2)
 }
 #endregion
 
