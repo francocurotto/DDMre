@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cl36s84e5ksr4"]
 
 [ext_resource type="PackedScene" uid="uid://b6qy0uoifxeby" path="res://dice/dice.tscn" id="1_3otug"]
-[ext_resource type="Script" uid="uid://qbyah0c0tr8h" path="res://dicepool/dice_button/dice_button.gd" id="1_aem31"]
+[ext_resource type="Script" uid="uid://qbyah0c0tr8h" path="res://dicegui/dicepool/dice_button/dice_button.gd" id="1_aem31"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_aoqbp"]
 size = Vector2(8, 8)

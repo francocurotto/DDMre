@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://du8wgt4awuk8d"]
 
-[ext_resource type="PackedScene" uid="uid://cl36s84e5ksr4" path="res://dicepool/dice_button/dice_button.tscn" id="1_deuju"]
-[ext_resource type="Script" uid="uid://cghnyu3b7yv1s" path="res://dicepool/dicepool.gd" id="1_jyfec"]
+[ext_resource type="PackedScene" uid="uid://cl36s84e5ksr4" path="res://dicegui/dicepool/dice_button/dice_button.tscn" id="1_deuju"]
+[ext_resource type="Script" uid="uid://cghnyu3b7yv1s" path="res://dicegui/dicepool/dicepool.gd" id="1_jyfec"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_deuju"]
 bg_color = Color(0.156863, 0.156863, 0.156863, 0.588235)

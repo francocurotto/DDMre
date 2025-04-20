@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cxmgqmkxvls2s"]
 
 [ext_resource type="Script" uid="uid://dlse0i3denew8" path="res://test.gd" id="1_8uh7m"]
-[ext_resource type="PackedScene" uid="uid://du8wgt4awuk8d" path="res://dicepool/dicepool.tscn" id="1_37kl0"]
+[ext_resource type="PackedScene" uid="uid://c4thhg2j07f1s" path="res://dicegui/dice_gui.tscn" id="2_8uh7m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_37kl0"]
 size = Vector3(20, 0, 20)
@@ -29,20 +29,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_37kl0")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.384919, -0.377372, 0.842275, 0.0431583, 0.918951, 0.392003, -0.921941, -0.114538, 0.370009, 9.05865, 8.08855, 6.50427)
 
-[node name="TabContainer" type="TabContainer" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -360.0
-offset_top = -461.0
-offset_right = 360.0
-grow_horizontal = 2
-grow_vertical = 0
-current_tab = 0
-
-[node name="Dicepool" parent="TabContainer" instance=ExtResource("1_37kl0")]
+[node name="DiceGUI" parent="." instance=ExtResource("2_8uh7m")]
 unique_name_in_owner = true
-layout_mode = 2
-metadata/_tab_index = 0

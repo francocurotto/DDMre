@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4thhg2j07f1s"]
+
+[ext_resource type="PackedScene" uid="uid://du8wgt4awuk8d" path="res://dicegui/dicepool/dicepool.tscn" id="1_ahudt"]
+[ext_resource type="Script" uid="uid://c41m1e7l0l7a7" path="res://dicegui/dice_gui.gd" id="1_gm7by"]
+
+[node name="DiceGUI" type="TabContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -31.0
+offset_right = 360.0
+grow_horizontal = 2
+grow_vertical = 0
+current_tab = 1
+script = ExtResource("1_gm7by")
+
+[node name="▼" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Dicepool" parent="." instance=ExtResource("1_ahudt")]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Roll" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2

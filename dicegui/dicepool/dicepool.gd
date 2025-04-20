@@ -1,5 +1,9 @@
 extends PanelContainer
 
+#region signals
+signal roll_changed
+#endregion
+
 #region public variables
 var buttons = []
 var roll_dice_buttons = []
@@ -30,9 +34,11 @@ func on_dice_button_pressed(pressed_button):
 		for button in buttons:
 			if button not in roll_dice_buttons:
 				button.disabled = true
+	roll_changed.emit(roll_dice_buttons)
 
 func on_dice_button_released(released_button):
 	roll_dice_buttons.erase(released_button)
 	for button in buttons:
 		button.disabled = false
+	roll_changed.emit(roll_dice_buttons)
 #endregion

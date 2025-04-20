@@ -27,5 +27,5 @@ func _ready() -> void:
 		# get a random dice
 		var rand_dice = dicelib[str(rng.randi_range(1,len(dicelib)))]
 		# set dicepool dice
-		%Dicepool.set_dice(i, rand_dice)
+		%DiceGUI.set_dice(i, rand_dice)
 #endregion
