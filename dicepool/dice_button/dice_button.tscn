@@ -24,21 +24,27 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
+[node name="Background" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/SubViewportContainer"]
 own_world_3d = true
 transparent_bg = true
+handle_input_locally = false
 size = Vector2i(116, 116)
+render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="MarginContainer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.51935)
 
 [node name="Dice" parent="MarginContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_3otug")]
 unique_name_in_owner = true
-transform = Transform3D(0.788929, -0.211071, 0.577096, 0.577096, 0.577096, -0.577858, -0.211071, 0.788929, 0.577096, 0, 0, 0)
+transform = Transform3D(0.707107, -0.707107, 0, 0.577096, 0.577096, -0.577857, 0.408607, 0.408607, 0.816137, 0, 0, 0)
 gravity_scale = 0.0
 angular_velocity = Vector3(0, 1.74533, 0)
 angular_damp_mode = 1
