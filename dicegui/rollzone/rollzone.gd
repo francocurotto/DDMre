@@ -6,26 +6,26 @@ var DICEPOS = [Vector3(-2.5,0,0), Vector3(0,0,0), Vector3(2.5,0,0)]
 
 #region private variables
 var dragging = false
-var drag_position
+var throw_velocity = Vector2.ZERO
 #endregion
 
 #region builtin functions
 func _input(event):
+	var rollzone_selected = get_parent().current_tab == 2
 	if event is InputEventScreenTouch or event is InputEventScreenDrag:
-		var pos = event.position
 		# Check if the touch is inside the drag area
-		if get_global_rect().has_point(pos):
+		if get_global_rect().has_point(event.position) and rollzone_selected:
 			if event is InputEventScreenTouch and event.pressed:
 				dragging = true
-				drag_position = pos
 			elif event is InputEventScreenDrag and dragging:
-				drag_position = pos
-			if event is InputEventScreenTouch and not event.pressed:
+				throw_velocity = event.screen_velocity
+			elif event is InputEventScreenTouch and not event.pressed and dragging:
+				print("THROW!: " + str(throw_velocity))
 				dragging = false
-				print("pos1: " + str(pos))
-				print("pos2: " +str(pos))
+				throw_velocity = Vector2.ZERO
 		else:
 			dragging = false
+			throw_velocity = Vector2.ZERO
 
 #region public functions
 func update_dice(dice_buttons):
