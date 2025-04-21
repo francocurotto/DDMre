@@ -2,7 +2,7 @@ extends TabContainer
 
 #region builtin functions
 func _ready() -> void:
-	get_tab_bar().set_tab_title(2, "Roll (0/3)")
+	get_tab_bar().set_tab_title(2, "Rollzone (0/3)")
 	$Dicepool.roll_changed.connect(on_roll_changed)
 #endregion
 
@@ -13,5 +13,6 @@ func set_dice(i, dice):
 
 #region signals callback
 func on_roll_changed(roll_dice_buttons):
-	get_tab_bar().set_tab_title(2, "Roll (%d/3)" % len(roll_dice_buttons))
+	get_tab_bar().set_tab_title(2, "Rollzone (%d/3)" % len(roll_dice_buttons))
+	$Rollzone.update_dice(roll_dice_buttons)
 #endregion

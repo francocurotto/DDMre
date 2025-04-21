@@ -4,6 +4,10 @@ extends AspectRatioContainer
 signal button_toggled
 #endregion
 
+#region onready variables
+@onready var dice = %Dice
+#endregion
+
 #region public variables
 var disabled : bool = false :
 	set(_disabled):

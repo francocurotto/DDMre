@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4thhg2j07f1s"]
+[gd_scene load_steps=4 format=3 uid="uid://c4thhg2j07f1s"]
 
 [ext_resource type="PackedScene" uid="uid://du8wgt4awuk8d" path="res://dicegui/dicepool/dicepool.tscn" id="1_ahudt"]
 [ext_resource type="Script" uid="uid://c41m1e7l0l7a7" path="res://dicegui/dice_gui.gd" id="1_gm7by"]
+[ext_resource type="PackedScene" uid="uid://bo2erx6gn1vii" path="res://dicegui/rollzone/rollzone.tscn" id="3_hvuk2"]
 
 [node name="DiceGUI" type="TabContainer"]
 anchors_preset = 7
@@ -26,7 +27,6 @@ metadata/_tab_index = 0
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Roll" type="PanelContainer" parent="."]
+[node name="Rollzone" parent="." instance=ExtResource("3_hvuk2")]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 2
