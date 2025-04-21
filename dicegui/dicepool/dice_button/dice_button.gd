@@ -27,5 +27,4 @@ func _on_button_mouse_entered() -> void:
 
 func _on_button_toggled(toggled_on: bool) -> void:
 	button_toggled.emit(toggled_on, self)
-	print("Button toggled (%s)" % toggled_on)
 #endregion
