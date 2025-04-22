@@ -26,9 +26,7 @@ func _input(event):
 						roll_velocity = event.velocity
 					# if drag released, roll dice
 					elif event is InputEventScreenTouch and not event.pressed and dragging:
-						for dice in %DiceList.get_children():
-							dice.gravity_scale = 1
-						print("ROLL!: " + str(roll_velocity))
+						roll_dice(roll_velocity)
 						dragging = false
 						roll_velocity = Vector2.ZERO
 				# if outside the drag area, reset dragging
@@ -46,4 +44,14 @@ func update_dice(dice_buttons):
 		var dice = dice_buttons[i].dice.duplicate()
 		%DiceList.add_child(dice)
 		dice.position = DICEPOS[i]
+
+func roll_dice(velocity):
+	for dice in %DiceList.get_children():
+		# create force
+		var force = 0.01 * Vector3(velocity.x, 0, velocity.y)
+		var torque =  Vector3(randf_range(-5, 5), randf_range(-5, 5), randf_range(-5, 5))
+		# activate gravity
+		dice.gravity_scale = 1
+		dice.apply_central_impulse(force)
+		dice.apply_torque_impulse(torque)
 #endregion
