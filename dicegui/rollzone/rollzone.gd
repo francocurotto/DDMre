@@ -18,7 +18,8 @@ func _input(event):
 			if event is InputEventScreenTouch and event.pressed:
 				dragging = true
 			elif event is InputEventScreenDrag and dragging:
-				throw_velocity = event.screen_velocity
+				throw_velocity = event.velocity
+				print(str(throw_velocity))
 			elif event is InputEventScreenTouch and not event.pressed and dragging:
 				print("THROW!: " + str(throw_velocity))
 				dragging = false
