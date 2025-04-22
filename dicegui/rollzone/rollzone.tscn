@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo2erx6gn1vii"]
+[gd_scene load_steps=3 format=3 uid="uid://bo2erx6gn1vii"]
 
 [ext_resource type="Script" uid="uid://bxqvo6xk1aiyp" path="res://dicegui/rollzone/rollzone.gd" id="1_dac2p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dac2p"]
+size = Vector3(10, 0, 10)
 
 [node name="Rollzone" type="PanelContainer"]
 offset_right = 720.0
@@ -26,3 +29,10 @@ unique_name_in_owner = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/StaticBody3D"]
+shape = SubResource("BoxShape3D_dac2p")
+debug_fill = false
