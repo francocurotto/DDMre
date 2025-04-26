@@ -29,9 +29,10 @@ shape = SubResource("BoxShape3D_fl3nv")
 
 [node name="Side1" parent="Sides" instance=ExtResource("2_2tv1o")]
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0, 0.51)
+mult = 4
 
 [node name="Side2" parent="Sides" instance=ExtResource("2_2tv1o")]
-transform = Transform3D(0.18, 0, 0, 0, -7.86805e-09, 0.18, 0, -0.18, -7.86805e-09, 0, 0.51, 0)
+transform = Transform3D(-0.18, 1.57361e-08, 6.87847e-16, 0, -7.86805e-09, 0.18, 1.57361e-08, 0.18, 7.86805e-09, 0, 0.51, 0)
 texture = ExtResource("3_5157l")
 type = "MOVEMENT"
 
@@ -53,6 +54,6 @@ texture = ExtResource("5_65ktn")
 type = "DEFENSE"
 
 [node name="Side6" parent="Sides" instance=ExtResource("2_2tv1o")]
-transform = Transform3D(-7.86805e-09, 0.18, -7.86805e-09, 0, -7.86805e-09, -0.18, -0.18, -7.86805e-09, 3.43923e-16, 0, -0.51, 0)
+transform = Transform3D(-7.86805e-09, -0.18, 7.86805e-09, 0, -7.86805e-09, -0.18, 0.18, -7.86805e-09, 3.43923e-16, 0, -0.51, 0)
 texture = ExtResource("6_60uon")
 type = "MAGIC"

@@ -1,6 +1,14 @@
 extends RigidBody3D
 
 #region constants
+const THRES = 0.01
+#endregion
+
+#region signals
+signal roll_stopped
+#endregion
+
+#region constants
 const TYPECOLORS = {
 	"DRAGON"      : Color(1.0, 0.0, 0.0),
 	"SPELLCASTER" : Color(1.0, 1.0, 1.0),
@@ -9,6 +17,19 @@ const TYPECOLORS = {
 	"WARRIOR"     : Color(0.0, 0.0, 1.0),
 	"ITEM"        : Color(0.2, 0.2, 0.2)
 }
+#endregion
+
+#region public variables
+var rolling = false
+#endregion
+
+#region builtin functions
+func _physics_process(_delta: float) -> void:
+	# detect if dice stopped moving
+	if rolling:
+		if linear_velocity.length() <= THRES and angular_velocity.length() <= THRES:
+			rolling = false
+			roll_stopped.emit() 
 #endregion
 
 #region public functions
@@ -22,12 +43,13 @@ func set_dice(dice_dict):
 	for i in 6:
 		$Sides.get_child(i).set_side(level, side_strings[i])
 
-func roll_dice():
-	var random_force = Vector3(randf_range(-5, 5), randf_range(5, 10), randf_range(-5, 5))
-	var random_torque = Vector3(randf_range(-5, 5), randf_range(-5, 5), randf_range(-5, 5))
-
-	apply_central_impulse(random_force)  # Push the dice
-	apply_torque_impulse(random_torque)  # Add spin
+func roll(velocity):
+	rolling = true
+	var force = 0.01 * Vector3(velocity.x, 0, velocity.y)
+	var torque =  Vector3(randf_range(-5, 5), randf_range(-5, 5), randf_range(-5, 5))
+	gravity_scale = 1 # activate gravity
+	apply_central_impulse(force)
+	apply_torque_impulse(torque)
 #endregion
 
 #region private functions
