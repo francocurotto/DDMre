@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://braquap2tslen"]
+
+[ext_resource type="PackedScene" uid="uid://42saa5x3jrjr" path="res://dicegui/crestpool/crest_counter/crest_counter.tscn" id="1_dl867"]
+
+[node name="Crestpool" type="PanelContainer"]
+offset_right = 720.0
+offset_bottom = 69.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Movement" parent="HBoxContainer" instance=ExtResource("1_dl867")]
+layout_mode = 2
+
+[node name="Attack" parent="HBoxContainer" instance=ExtResource("1_dl867")]
+layout_mode = 2
+type = "ATTACK"
+
+[node name="Defense" parent="HBoxContainer" instance=ExtResource("1_dl867")]
+layout_mode = 2
+type = "DEFENSE"
+
+[node name="Magic" parent="HBoxContainer" instance=ExtResource("1_dl867")]
+layout_mode = 2
+type = "MAGIC"
+
+[node name="Trap" parent="HBoxContainer" instance=ExtResource("1_dl867")]
+layout_mode = 2
+type = "TRAP"

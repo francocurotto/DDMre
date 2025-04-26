@@ -1,32 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4thhg2j07f1s"]
+[gd_scene load_steps=5 format=3 uid="uid://c4thhg2j07f1s"]
 
 [ext_resource type="PackedScene" uid="uid://du8wgt4awuk8d" path="res://dicegui/dicepool/dicepool.tscn" id="1_ahudt"]
 [ext_resource type="Script" uid="uid://c41m1e7l0l7a7" path="res://dicegui/dice_gui.gd" id="1_gm7by"]
 [ext_resource type="PackedScene" uid="uid://bo2erx6gn1vii" path="res://dicegui/rollzone/rollzone.tscn" id="3_hvuk2"]
+[ext_resource type="PackedScene" uid="uid://braquap2tslen" path="res://dicegui/crestpool/crestpool.tscn" id="4_uljbj"]
 
-[node name="DiceGUI" type="TabContainer"]
+[node name="DiceGUI" type="VBoxContainer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -360.0
-offset_top = -31.0
+offset_top = -461.0
 offset_right = 360.0
 grow_horizontal = 2
 grow_vertical = 0
-current_tab = 1
+theme_override_constants/separation = 0
+alignment = 2
 script = ExtResource("1_gm7by")
 
-[node name="▼" type="PanelContainer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 2
+current_tab = 1
+
+[node name="▼" type="PanelContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Dicepool" parent="." instance=ExtResource("1_ahudt")]
+[node name="Dicepool" parent="TabContainer" instance=ExtResource("1_ahudt")]
+unique_name_in_owner = true
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Rollzone" parent="." instance=ExtResource("3_hvuk2")]
+[node name="Rollzone" parent="TabContainer" instance=ExtResource("3_hvuk2")]
+unique_name_in_owner = true
 visible = false
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="Crestpool" parent="." instance=ExtResource("4_uljbj")]
 layout_mode = 2

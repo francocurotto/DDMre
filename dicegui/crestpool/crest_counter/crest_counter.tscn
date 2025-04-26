@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://42saa5x3jrjr"]
+
+[ext_resource type="Texture2D" uid="uid://bytb1t811lcmu" path="res://assets/CREST_MOVEMENT.svg" id="1_30u4f"]
+[ext_resource type="Script" uid="uid://dxnx81f7f41qv" path="res://dicegui/crestpool/crest_counter/crest_counter.gd" id="1_nxkn2"]
+
+[node name="CrestCounter" type="HBoxContainer"]
+offset_right = 118.0
+offset_bottom = 69.0
+size_flags_horizontal = 3
+theme_override_constants/separation = -4
+alignment = 1
+script = ExtResource("1_nxkn2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "00"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+texture = ExtResource("1_30u4f")
+expand_mode = 1
+stretch_mode = 4
