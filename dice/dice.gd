@@ -29,7 +29,10 @@ func _physics_process(_delta: float) -> void:
 	if rolling:
 		if linear_velocity.length() <= THRES and angular_velocity.length() <= THRES:
 			rolling = false
-			roll_stopped.emit() 
+			roll_stopped.emit()
+			for side in $Sides.get_children():
+				if is_equal_approx(side.rotation.x, -PI/2):
+					print(side.type + ", " + str(side.mult))
 #endregion
 
 #region public functions
