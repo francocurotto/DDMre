@@ -25,7 +25,8 @@ func _ready() -> void:
 	# initialize dicepool
 	for i in DICEPOOL_SIZE:
 		# get a random dice
-		var rand_dice = dicelib[str(rng.randi_range(1,len(dicelib)))]
+		#var rand_dice = dicelib[str(rng.randi_range(1,len(dicelib)))]
+		var rand_dice = dicelib["3"]
 		# set dicepool dice
 		%DiceGUI.set_dice(i, rand_dice)
 #endregion
