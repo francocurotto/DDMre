@@ -24,6 +24,11 @@ var rolling = false
 #endregion
 
 #region builtin functions
+func _ready() -> void:
+	for side in $Sides.get_children():
+		var facing_direction = side.global_transform.basis.z
+		print(facing_direction)
+
 func _physics_process(_delta: float) -> void:
 	# detect if dice stopped moving
 	if rolling:
@@ -31,7 +36,9 @@ func _physics_process(_delta: float) -> void:
 			rolling = false
 			roll_stopped.emit()
 			for side in $Sides.get_children():
-				if is_equal_approx(side.rotation.x, -PI/2):
+				var facing_direction = -side.global_transform.basis.z
+				var dot = facing_direction.dot(Vector3.UP)
+				if dot > 0.7:
 					print(side.type + ", " + str(side.mult))
 #endregion
 

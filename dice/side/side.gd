@@ -38,7 +38,7 @@ func set_side(level, side_string):
 	# set crest side
 	else:
 		type = CRESTDICT[side_string[0]]
-		if len(side_string):
+		if len(side_string) == 1:
 			mult = 1
 		else:
 			mult = int(side_string[1])
