@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://bci3a5bnjlfkv" path="res://dice/side/side.gd" id="2_dg7nj"]
 
 [node name="Side" type="Sprite3D"]
-transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0, 0)
+pixel_size = 0.0018
 texture = ExtResource("1_81t1o")
 script = ExtResource("2_dg7nj")
 
 [node name="Mult" type="Label3D" parent="."]
 sorting_offset = 1.0
-pixel_size = 0.06
+pixel_size = 0.01
 text = "1"

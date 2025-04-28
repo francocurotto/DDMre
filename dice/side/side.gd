@@ -21,7 +21,7 @@ var type : String = "SUMMON" :
 		if type == "SUMMON":
 			$Mult.position = Vector3(0,0,0)
 		else:
-			$Mult.position = Vector3(1.5,-1.5,0)
+			$Mult.position = Vector3(0.27,-0.27,0)
 
 @export_range(1,9) var mult : int = 1 :
 	set(_mult):
