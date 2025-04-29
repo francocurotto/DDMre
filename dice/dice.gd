@@ -25,11 +25,6 @@ func _physics_process(_delta: float) -> void:
 	if rolling:
 		if linear_velocity.length() <= 0.001 and angular_velocity.length() <= 0.001:
 			rolling = false
-			for side in $Sides.get_children():
-				var facing_direction = side.global_transform.basis.z
-				var dot = facing_direction.dot(Vector3.UP)
-				if dot > 0.9:
-					print(side.type + ", " + str(side.mult))
 			roll_stopped.emit()
 #endregion
 
@@ -51,6 +46,13 @@ func roll(velocity):
 	gravity_scale = 1 # activate gravity
 	apply_central_impulse(force)
 	apply_torque_impulse(torque)
+
+func get_rolled_side():
+	for side in $Sides.get_children():
+		var facing_direction = side.global_transform.basis.z
+		var dot = facing_direction.dot(Vector3.UP)
+		if dot > 0.9:
+			return side
 #endregion
 
 #region private functions

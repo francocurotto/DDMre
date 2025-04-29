@@ -54,8 +54,21 @@ func update_dice(dice_buttons):
 #region signals callbacks
 func on_roll_stopped():
 	roll_counter += 1
+	# if all dice stop rolling, get rolled sides
 	if roll_counter >= 3:
-		print("ROLL FINISHED!")
+		roll_counter = 0
+		var rolled_sides = []
+		for dice in %DiceList.get_children():
+			var rolled_side = dice.get_rolled_side()
+			# append only if rolled side is not null
+			if rolled_side:
+				rolled_sides.append(rolled_side)
+		# if rolled sides is not 3, get got a bad roll, allow reroll
+		if len(rolled_sides) < 3:
+			roll_flag = true
+		# else finish roll
+		else:
+			finish_roll(rolled_sides)
 #endregion
 
 #region private functions
@@ -68,4 +81,8 @@ func roll_dice(velocity):
 	roll_flag = false
 	for dice in %DiceList.get_children():
 		dice.roll(velocity)
+
+func finish_roll(rolled_sides):
+	for side in rolled_sides:
+		print(side.type + ", " + str(side.mult))
 #endregion
