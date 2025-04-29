@@ -1,9 +1,5 @@
 extends RigidBody3D
 
-#region constants
-const THRES = 0.001
-#endregion
-
 #region signals
 signal roll_stopped
 #endregion
@@ -27,14 +23,14 @@ var rolling = false
 func _physics_process(_delta: float) -> void:
 	# detect if dice stopped moving
 	if rolling:
-		if linear_velocity.length() <= THRES and angular_velocity.length() <= THRES:
+		if linear_velocity.length() <= 0.001 and angular_velocity.length() <= 0.001:
 			rolling = false
-			roll_stopped.emit()
 			for side in $Sides.get_children():
 				var facing_direction = side.global_transform.basis.z
 				var dot = facing_direction.dot(Vector3.UP)
 				if dot > 0.9:
 					print(side.type + ", " + str(side.mult))
+			roll_stopped.emit()
 #endregion
 
 #region public functions

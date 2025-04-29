@@ -5,11 +5,11 @@ var DICEPOS = [Vector3(-2.5,0,0), Vector3(0,0,0), Vector3(2.5,0,0)]
 #endregion
 
 #region private variables
-var dragging = false
-var roll_velocity = Vector2.ZERO
-var roll_flag = true ## Controls activation of roll
-var roll_counter = 0 ## Counts how many rolls have stopped
-var roll_ready : bool = false :
+var dragging = false ## true when player is dragging for roll
+var roll_flag = true ## false to disable roll (e.g. right after the roll)
+var roll_counter = 0 ## Counts how many dice have stopped rolling
+var roll_velocity = Vector2.ZERO ## Initial velocity of roll
+var roll_ready : bool = false : ## true when player is allowed to roll
 	get():
 		var three_dice = len(%DiceList.get_children()) >= 3
 		var tab_selected = get_parent().current_tab == 2
@@ -33,9 +33,9 @@ func _input(event):
 				elif event is InputEventScreenTouch and not event.pressed and dragging:
 					roll_dice(roll_velocity)
 					reset_dragging()
-				# if outside the drag area, reset dragging
-				else:
-					reset_dragging()
+			# if outside the drag area, reset dragging
+			else:
+				reset_dragging()
 #endregion
 
 #region public functions
@@ -64,6 +64,7 @@ func reset_dragging():
 	roll_velocity = Vector2.ZERO
 
 func roll_dice(velocity):
+	# disable further rolling
 	roll_flag = false
 	for dice in %DiceList.get_children():
 		dice.roll(velocity)
