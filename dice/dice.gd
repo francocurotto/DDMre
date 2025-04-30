@@ -13,18 +13,33 @@ const TYPECOLORS = {
 	"WARRIOR"     : Color(0.0, 0.0, 1.0),
 	"ITEM"        : Color(0.2, 0.2, 0.2)
 }
+enum STATE {
+	DICEPOOL,
+	PREROLL,
+	ROLLING,
+	POSTROLL
+} 
 #endregion
 
 #region public variables
-var rolling = false
+var state = STATE.DICEPOOL
+#endregion
+
+#region private variables
+var moving : bool : 
+	get(): 
+		return linear_velocity.length() > 0.001
+var rotating : bool :
+	get(): 
+		return angular_velocity.length() > 0.001
 #endregion
 
 #region builtin functions
 func _physics_process(_delta: float) -> void:
 	# detect if dice stopped moving
-	if rolling:
-		if linear_velocity.length() <= 0.001 and angular_velocity.length() <= 0.001:
-			rolling = false
+	if state == STATE.ROLLING:
+		if not moving and not rotating:
+			state = STATE.POSTROLL
 			roll_stopped.emit()
 #endregion
 
@@ -40,9 +55,9 @@ func set_dice(dice_dict):
 		$Sides.get_child(i).set_side(level, side_strings[i])
 
 func roll(velocity):
-	rolling = true
+	state = STATE.ROLLING
 	var force = 0.01 * Vector3(velocity.x, 0, velocity.y)
-	var torque =  Vector3(randf_range(-5, 5), randf_range(-5, 5), randf_range(-5, 5))
+	var torque = Vector3(randf_range(-5, 5), randf_range(-5, 5), randf_range(-5, 5))
 	gravity_scale = 1 # activate gravity
 	apply_central_impulse(force)
 	apply_torque_impulse(torque)
@@ -60,7 +75,6 @@ func split_sides_string(sides_string):
 	# prepare regex for side string separation
 	var regex = RegEx.new()
 	regex.compile("S|[MADTG][1-9]?") # regex for side detection
-
 	# create list of side strings
 	var side_strings = []
 	for result in regex.search_all(sides_string):
