@@ -1,5 +1,9 @@
 extends PanelContainer
 
+#region signals
+signal crest_side_rolled
+#endregion
+
 #region constants
 const DICEPOS = [Vector3(-2.5,0,0), Vector3(0,0,0), Vector3(2.5,0,0)]
 enum STATE {
@@ -63,23 +67,7 @@ func on_dice_stopped():
 		if any_dice_cocked():
 			state = STATE.FULL
 		else:
-			state = STATE.ROLLED
-	#roll_counter += 1
-	## if all dice stop rolling, get rolled sides
-	#if roll_counter >= 3:
-		#roll_counter = 0
-		#var rolled_sides = []
-		#for dice in %DiceList.get_children():
-			#var rolled_side = dice.get_rolled_side()
-			## append only if rolled side is not null
-			#if rolled_side:
-				#rolled_sides.append(rolled_side)
-		## if rolled sides is not 3, get got a bad roll, allow reroll
-		#if len(rolled_sides) < 3:
-			#roll_flag = true
-		## else finish roll
-		#else:
-			#finish_roll(rolled_sides)
+			resolve_roll()
 #endregion
 
 #region private functions
@@ -89,7 +77,31 @@ func roll_dice(velocity):
 	for dice in %DiceList.get_children():
 		dice.roll(velocity)
 
-#func finish_roll(rolled_sides):
-	#for side in rolled_sides:
-		#print(side.type + ", " + str(side.mult))
+func all_dice_stopped():
+	return %DiceList.get_children().all(func(dice): return not dice.moving)
+
+func any_dice_cocked():
+	return %DiceList.get_children().any(func(dice): return dice.cocked)
+
+func resolve_roll():
+	var summon_dice = []
+	# resolve crest rolls
+	for dice in %DiceList.get_children():
+		var side = dice.get_rolled_side()
+		if side.type != "SUMMON":
+			crest_side_rolled.emit(side)
+			dice.remove()
+		else:
+			summon_dice.append(dice)
+	# resolve summon rolls
+	var dim_dice = []
+	for level in range(1,4):
+		dim_dice = []
+		for dice in summon_dice:
+			var side = dice.get_rolled_side()
+			if side.level == level:
+				dim_dice.append(dice)
+		if len(dim_dice) >= 2:
+			break
+	print(dim_dice)
 #endregion

@@ -14,7 +14,6 @@ const TYPECOLORS = {
 	"ITEM"        : Color(0.2, 0.2, 0.2)
 }
 enum STATE {
-	DICEPOOL,
 	PREROLL,
 	ROLLING,
 	POSTROLL
@@ -22,11 +21,17 @@ enum STATE {
 #endregion
 
 #region public variables
-var state = STATE.DICEPOOL
+var state = STATE.PREROLL
+var moving : bool :
+	get():
+		return translating and rotating
+var cocked : bool :
+	get():
+		return get_rolled_side() == null
 #endregion
 
 #region private variables
-var moving : bool : 
+var translating : bool : 
 	get(): 
 		return linear_velocity.length() > 0.001
 var rotating : bool :
@@ -38,7 +43,7 @@ var rotating : bool :
 func _physics_process(_delta: float) -> void:
 	# detect if dice stopped moving
 	if state == STATE.ROLLING:
-		if not moving and not rotating:
+		if not moving:
 			state = STATE.POSTROLL
 			roll_stopped.emit()
 #endregion
