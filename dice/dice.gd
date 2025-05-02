@@ -13,6 +13,12 @@ const TYPECOLORS = {
 	"WARRIOR"     : Color(0.0, 0.0, 1.0),
 	"ITEM"        : Color(0.2, 0.2, 0.2)
 }
+const DIM_ROTATIONS = [
+	Vector3(-PI/2,0,0),
+	Vector3(0,PI,0),
+	Vector3(0,-PI/2,PI/2),
+	Vector3(PI/2,PI,0)
+]
 enum STATE {
 	PREROLL,
 	ROLLING,
@@ -22,12 +28,10 @@ enum STATE {
 
 #region public variables
 var state = STATE.PREROLL
+var rolled_side = null # resulted side after roll, null before roll
 var moving : bool :
 	get():
 		return translating and rotating
-var cocked : bool :
-	get():
-		return get_rolled_side() == null
 #endregion
 
 #region private variables
@@ -45,6 +49,7 @@ func _physics_process(_delta: float) -> void:
 	if state == STATE.ROLLING:
 		if not moving:
 			state = STATE.POSTROLL
+			rolled_side = get_rolled_side()
 			roll_stopped.emit()
 #endregion
 
@@ -67,12 +72,18 @@ func roll(velocity):
 	apply_central_impulse(force)
 	apply_torque_impulse(torque)
 
-func get_rolled_side():
-	for side in $Sides.get_children():
-		var facing_direction = side.global_transform.basis.z
-		var dot = facing_direction.dot(Vector3.UP)
-		if dot > 0.9:
-			return side
+func remove():
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector3.ZERO, 1)
+	await tween.finished
+	queue_free()
+
+func setup_dim_select(new_position):
+	gravity_scale = 0 # disable gravity
+	var tween = create_tween()
+	tween.tween_property(self, "position", new_position, 1)
+	var index = rolled_side.get_index()
+	tween.parallel().tween_property(self, "rotation", DIM_ROTATIONS[index], 1)
 #endregion
 
 #region private functions
@@ -91,4 +102,11 @@ func set_dice_type(type):
 	material = material.duplicate()
 	$MeshInstance3D.set_surface_override_material(0, material)
 	material.albedo_color = TYPECOLORS[type]
+
+func get_rolled_side():
+	for side in $Sides.get_children():
+		var facing_direction = side.global_transform.basis.z
+		var dot = facing_direction.dot(Vector3.UP)
+		if dot > 0.9:
+			return side
 #endregion
