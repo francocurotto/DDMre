@@ -23,7 +23,7 @@ var type : String = "SUMMON" :
 		else:
 			$Mult.position = Vector3(0.27,-0.27,0)
 
-@export_range(1,9) var mult : int = 1 :
+@export_range(1,9,1) var mult : int = 1 :
 	set(_mult):
 		mult = _mult
 		$Mult.text = str(mult)

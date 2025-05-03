@@ -43,13 +43,13 @@ size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="MarginContainer/SubViewportContainer/SubViewport"]
-transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.5, 0)
 projection = 1
 size = 2.0
 
 [node name="Dice" parent="MarginContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_3otug")]
 unique_name_in_owner = true
-transform = Transform3D(0.833886, 0.390278, 0.390278, 0, 0.707107, -0.707107, -0.551937, 0.589646, 0.589646, 0, 0, 0)
+transform = Transform3D(0.833886, -0.390278, 0.390278, 0, 0.707107, 0.707107, -0.551937, -0.589646, 0.589646, 0, 0, 0)
 gravity_scale = 0.0
 angular_velocity = Vector3(0, 0, 1.74533)
 angular_damp_mode = 1

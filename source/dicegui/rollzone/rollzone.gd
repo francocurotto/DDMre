@@ -5,8 +5,11 @@ signal crest_side_rolled
 #endregion
 
 #region constants
-const DICEPOS = [Vector3(-2.5,0,0), Vector3(0,0,0), Vector3(2.5,0,0)]
-const DICEPOS2 = [Vector3(-1.5,0,0), Vector3(1.5,0,0)]
+const INITPOS = [Vector3(-2.5,0,0), Vector3(0,0,0), Vector3(2.5,0,0)]
+const DIMPOS = {
+	2: [Vector3(-1.5,0,0), Vector3(1.5,0,0)],
+	3: [Vector3(-2.5,0,0), Vector3(0,0,0), Vector3(2.5,0,0)]
+}
 enum STATE {
 	NOTFULL,
 	FULL,
@@ -48,11 +51,12 @@ func update_dice(dice_buttons):
 	# remove previous dice
 	for dice in %DiceList.get_children():
 		dice.queue_free()
+		%DiceList.remove_child(dice)
 	# add new dice
 	for i in len(dice_buttons):
 		var dice = dice_buttons[i].dice.duplicate()
 		%DiceList.add_child(dice)
-		dice.position = DICEPOS[i]
+		dice.position = INITPOS[i]
 		dice.state = dice.STATE.PREROLL
 		dice.roll_stopped.connect(on_dice_stopped)
 	# update state
@@ -89,19 +93,20 @@ func resolve_roll():
 	# resolve crest rolls
 	for dice in %DiceList.get_children():
 		var side = dice.rolled_side
+		print(side.type+","+str(side.mult))
 		if side.type != "SUMMON":
 			crest_side_rolled.emit(side)
 		else:
 			summon_dice.append(dice)
 	# resolve summon rolls
-	var dim_dice
+	var dim_dice = []
 	for level in range(1,4):
-		dim_dice = []
 		for dice in summon_dice:
 			if dice.rolled_side.mult == level:
 				dim_dice.append(dice)
 		if len(dim_dice) >= 2:
 			break
+		dim_dice = []
 	# remove dice not used for dimension
 	for dice in %DiceList.get_children():
 		if dice not in dim_dice:
@@ -111,13 +116,8 @@ func resolve_roll():
 		setup_dim(dim_dice)
 
 func setup_dim(dim_dice):
-	# set dim dice position
-	var dice_pos
-	if len(dim_dice) == 2:
-		dice_pos = DICEPOS2
-	else:
-		dice_pos = DICEPOS
 	# move dice
+	var ndice = len(dim_dice)
 	for i in len(dim_dice):
-		dim_dice[i].setup_dim_select(dice_pos[i])
+		dim_dice[i].setup_dim_select(DIMPOS[ndice][i])
 #endregion

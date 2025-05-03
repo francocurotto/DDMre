@@ -14,13 +14,14 @@ const TYPECOLORS = {
 	"ITEM"        : Color(0.2, 0.2, 0.2)
 }
 const DIM_ROTATIONS = [
-	Vector3(-PI/2,0,0),
-	Vector3(0,PI,0),
-	Vector3(0,-PI/2,PI/2),
-	Vector3(PI/2,PI,0)
+	Vector3(0,0,0),
+	Vector3(PI/2,PI,0),
+	Vector3(0,PI/2,-PI/2),
+	Vector3(0,-PI/2,PI/2)
 ]
 enum STATE {
 	PREROLL,
+	STARTROLL,
 	ROLLING,
 	POSTROLL
 } 
@@ -45,8 +46,12 @@ var rotating : bool :
 
 #region builtin functions
 func _physics_process(_delta: float) -> void:
+	# if roll started and move detected, switch to rolling
+	if state == STATE.STARTROLL:
+		if moving:
+			state = STATE.ROLLING
 	# detect if dice stopped moving
-	if state == STATE.ROLLING:
+	elif state == STATE.ROLLING:
 		if not moving:
 			state = STATE.POSTROLL
 			rolled_side = get_rolled_side()
@@ -65,7 +70,8 @@ func set_dice(dice_dict):
 		$Sides.get_child(i).set_side(level, side_strings[i])
 
 func roll(velocity):
-	state = STATE.ROLLING
+	state = STATE.STARTROLL
+	rolled_side = null
 	var force = 0.01 * Vector3(velocity.x, 0, velocity.y)
 	var torque = Vector3(randf_range(-5, 5), randf_range(-5, 5), randf_range(-5, 5))
 	gravity_scale = 1 # activate gravity

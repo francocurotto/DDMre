@@ -46,28 +46,28 @@ shape = SubResource("BoxShape3D_dac2p")
 debug_fill = false
 
 [node name="Wall1" type="StaticBody3D" parent="VBoxContainer/SubViewportContainer/SubViewport/Walls"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 3.5)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 2.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VBoxContainer/SubViewportContainer/SubViewport/Walls/Wall1"]
 shape = SubResource("BoxShape3D_dac2p")
 debug_fill = false
 
 [node name="Wall2" type="StaticBody3D" parent="VBoxContainer/SubViewportContainer/SubViewport/Walls"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -3.5)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -2.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VBoxContainer/SubViewportContainer/SubViewport/Walls/Wall2"]
 shape = SubResource("BoxShape3D_dac2p")
 debug_fill = false
 
 [node name="Wall3" type="StaticBody3D" parent="VBoxContainer/SubViewportContainer/SubViewport/Walls"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 7, 0, 0)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VBoxContainer/SubViewportContainer/SubViewport/Walls/Wall3"]
 shape = SubResource("BoxShape3D_dac2p")
 debug_fill = false
 
 [node name="Wall4" type="StaticBody3D" parent="VBoxContainer/SubViewportContainer/SubViewport/Walls"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -7, 0, 0)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -5, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VBoxContainer/SubViewportContainer/SubViewport/Walls/Wall4"]
 shape = SubResource("BoxShape3D_dac2p")
