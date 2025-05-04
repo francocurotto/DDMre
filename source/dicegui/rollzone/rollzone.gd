@@ -1,9 +1,5 @@
 extends PanelContainer
 
-#region signals
-signal crest_side_rolled
-#endregion
-
 #region constants
 const INITPOS = [Vector3(-2.5,0,0), Vector3(0,0,0), Vector3(2.5,0,0)]
 const DIMPOS = {
@@ -79,6 +75,7 @@ func on_dice_stopped():
 func roll_dice(velocity):
 	# disable further rolling
 	state = STATE.ROLLING
+	Events.roll_started.emit()
 	for dice in %DiceList.get_children():
 		dice.roll(velocity)
 
@@ -95,7 +92,7 @@ func resolve_roll():
 		var side = dice.rolled_side
 		print(side.type+","+str(side.mult))
 		if side.type != "SUMMON":
-			crest_side_rolled.emit(side)
+			Events.crest_side_rolled.emit(side)
 		else:
 			summon_dice.append(dice)
 	# resolve summon rolls

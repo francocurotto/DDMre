@@ -11,6 +11,7 @@ var roll_dice_buttons = []
 
 #region builtin functions
 func _ready() -> void:
+	Events.roll_started.connect(on_roll_started)
 	for button in $Grid.get_children():
 		buttons.append(button)
 		button.button_toggled.connect(on_dice_button_toggled)
@@ -41,4 +42,8 @@ func on_dice_button_released(released_button):
 	for button in buttons:
 		button.disabled = false
 	roll_changed.emit(roll_dice_buttons)
+
+func on_roll_started():
+	for button in buttons:
+		button.disabled = true
 #endregion
