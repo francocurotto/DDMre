@@ -22,7 +22,7 @@ var roll_velocity = Vector2.ZERO ## Initial velocity of roll
 
 #region builtin functions
 func _input(event):
-	if state == STATE.FULL:
+	if state == STATE.FULL and get_parent().get_tab_bar().current_tab == 2:
 		# check for touch or drag
 		if event is InputEventScreenTouch or event is InputEventScreenDrag:
 			# Check if the touch is inside the drag area
