@@ -30,12 +30,13 @@ func add_crest(increment):
 
 #region private functions
 func animate_update(string):
-	var tween = create_tween()
 	# in tween
+	var tween = create_tween()
 	tween.tween_property($ColorRect, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.5)
 	await tween.finished
 	# update label
 	%Label.text = string
 	# out tween
+	tween = create_tween()
 	tween.tween_property($ColorRect, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.5)
 #endregion
