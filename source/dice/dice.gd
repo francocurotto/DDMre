@@ -5,14 +5,6 @@ signal roll_stopped
 #endregion
 
 #region constants
-const TYPECOLORS = {
-	"DRAGON"      : Color(1.0, 0.0, 0.0),
-	"SPELLCASTER" : Color(1.0, 1.0, 1.0),
-	"UNDEAD"      : Color(1.0, 1.0, 0.0),
-	"BEAST"       : Color(0.0, 1.0, 0.0),
-	"WARRIOR"     : Color(0.0, 0.0, 1.0),
-	"ITEM"        : Color(0.2, 0.2, 0.2)
-}
 const DIM_ROTATIONS = [
 	Vector3(0,0,0),
 	Vector3(PI/2,PI,0),
@@ -107,7 +99,7 @@ func set_dice_type(type):
 	var material = $MeshInstance3D.get_surface_override_material(0)
 	material = material.duplicate()
 	$MeshInstance3D.set_surface_override_material(0, material)
-	material.albedo_color = TYPECOLORS[type]
+	material.albedo_color = Globals.TYPECOLORS[type]
 
 func get_rolled_side():
 	for side in $Sides.get_children():
