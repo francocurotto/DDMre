@@ -99,7 +99,7 @@ func set_dice_type(type):
 	var material = $MeshInstance3D.get_surface_override_material(0)
 	material = material.duplicate()
 	$MeshInstance3D.set_surface_override_material(0, material)
-	material.albedo_color = Globals.TYPECOLORS[type]
+	material.albedo_color = Globals.SUMMON_COLORS[type]
 
 func get_rolled_side():
 	for side in $Sides.get_children():

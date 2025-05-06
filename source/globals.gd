@@ -3,7 +3,7 @@ extends Node
 #region constants
 ## Path to the JSON file that has the dice information.
 const LIBPATH  = "res://databases/LIBRARY.json"
-const TYPECOLORS = {
+const SUMMON_COLORS = {
 	"DRAGON"      : Color(1.0, 0.0, 0.0),
 	"SPELLCASTER" : Color(1.0, 1.0, 1.0),
 	"UNDEAD"      : Color(1.0, 1.0, 0.0),

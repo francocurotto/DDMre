@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://caju6siypu748" path="res://assets/CREST_SUMMON.svg" id="1_lfwhf"]
 
 [node name="Side2D" type="AspectRatioContainer"]
-offset_right = 100.0
-offset_bottom = 100.0
-size_flags_horizontal = 3
+custom_minimum_size = Vector2(100, 100)
+offset_right = 17.0
+offset_bottom = 42.0
 script = ExtResource("1_1ean1")
 
 [node name="Background" type="ColorRect" parent="."]

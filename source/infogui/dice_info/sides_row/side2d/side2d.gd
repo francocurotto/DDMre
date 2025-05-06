@@ -4,7 +4,7 @@ extends AspectRatioContainer
 func set_side(side, type):
 	$Icon.texture = load("res://assets/CREST_%s.svg" % side.type)
 	$Mult.text = str(side.mult)
-	$Background.color = Globals.TYPECOLORS[type]
+	$Background.color = Globals.SUMMON_COLORS[type]
 	# adjust mult location
 	if side.type == "SUMMON":
 		$Mult.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
