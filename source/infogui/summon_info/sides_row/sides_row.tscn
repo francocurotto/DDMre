@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://chawlghgqva5o"]
 
-[ext_resource type="PackedScene" uid="uid://dnaay2esdb4va" path="res://infogui/dice_info/sides_row/side2d/side2d.tscn" id="1_mkcyy"]
+[ext_resource type="PackedScene" uid="uid://dnaay2esdb4va" path="res://infogui/summon_info/sides_row/side2d/side2d.tscn" id="1_mkcyy"]
 
 [node name="SidesRow" type="HBoxContainer"]
 offset_right = 720.0

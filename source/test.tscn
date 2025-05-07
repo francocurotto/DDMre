@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxmgqmkxvls2s"]
+[gd_scene load_steps=7 format=3 uid="uid://cxmgqmkxvls2s"]
 
 [ext_resource type="Script" uid="uid://dlse0i3denew8" path="res://test.gd" id="1_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://c4thhg2j07f1s" path="res://dicegui/dice_gui.tscn" id="2_8uh7m"]
+[ext_resource type="PackedScene" uid="uid://b4dd1nvrn8axq" path="res://infogui/info_gui.tscn" id="3_6uqi0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_37kl0"]
 size = Vector3(20, 0, 20)
@@ -31,3 +32,5 @@ transform = Transform3D(0.384919, -0.377372, 0.842275, 0.0431583, 0.918951, 0.39
 
 [node name="DiceGUI" parent="." instance=ExtResource("2_8uh7m")]
 unique_name_in_owner = true
+
+[node name="InfoGUI" parent="." instance=ExtResource("3_6uqi0")]

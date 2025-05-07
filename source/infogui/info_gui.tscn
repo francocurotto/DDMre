@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4dd1nvrn8axq"]
+
+[ext_resource type="PackedScene" uid="uid://dd0le7od3nqip" path="res://infogui/summon_info/summon_info.tscn" id="1_0uhxh"]
+
+[node name="InfoGUI" type="VBoxContainer"]
+offset_right = 720.0
+offset_bottom = 211.0
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 2
+current_tab = 1
+tabs_position = 1
+
+[node name="▲" type="PanelContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Summon Info" parent="TabContainer" instance=ExtResource("1_0uhxh")]
+layout_mode = 2
+metadata/_tab_index = 1
