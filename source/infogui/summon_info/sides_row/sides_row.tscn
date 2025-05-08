@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://chawlghgqva5o"]
+[gd_scene load_steps=3 format=3 uid="uid://chawlghgqva5o"]
 
+[ext_resource type="Script" uid="uid://cib1ac4gevims" path="res://infogui/summon_info/sides_row/sides_row.gd" id="1_fik4p"]
 [ext_resource type="PackedScene" uid="uid://dnaay2esdb4va" path="res://infogui/summon_info/sides_row/side2d/side2d.tscn" id="1_mkcyy"]
 
 [node name="SidesRow" type="HBoxContainer"]
@@ -7,6 +8,7 @@ offset_right = 720.0
 offset_bottom = 60.0
 theme_override_constants/separation = 20
 alignment = 1
+script = ExtResource("1_fik4p")
 
 [node name="Side2D1" parent="." instance=ExtResource("1_mkcyy")]
 layout_mode = 2

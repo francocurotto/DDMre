@@ -36,6 +36,11 @@ var rotating : bool :
 		return angular_velocity.length() > 0.001
 #endregion
 
+#region onready variables
+@onready var sides = $Sides
+@onready var summon = $Summon
+#endregion
+
 #region builtin functions
 func _physics_process(_delta: float) -> void:
 	# if roll started and move detected, switch to rolling
@@ -60,6 +65,8 @@ func set_dice(dice_dict):
 	var side_strings = split_sides_string(dice_dict["CRESTS"])
 	for i in 6:
 		$Sides.get_child(i).set_side(level, side_strings[i])
+	# set summon
+	$Summon.set_summon(dice_dict)
 
 func roll(velocity):
 	state = STATE.STARTROLL

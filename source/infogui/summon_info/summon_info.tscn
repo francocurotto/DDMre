@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dd0le7od3nqip"]
+[gd_scene load_steps=6 format=3 uid="uid://dd0le7od3nqip"]
 
+[ext_resource type="Script" uid="uid://dj300rw20lrew" path="res://infogui/summon_info/summon_info.gd" id="1_a1tbk"]
 [ext_resource type="PackedScene" uid="uid://chawlghgqva5o" path="res://infogui/summon_info/sides_row/sides_row.tscn" id="1_nbd76"]
 [ext_resource type="Texture2D" uid="uid://didfe015s6jye" path="res://assets/SUMMON_DRAGON.svg" id="2_ne7m4"]
 [ext_resource type="PackedScene" uid="uid://cmdfsqfsxoyqt" path="res://infogui/summon_info/summon_attr/summon_attr.tscn" id="3_wbsye"]
@@ -8,12 +9,14 @@
 [node name="SummonInfo" type="MarginContainer"]
 offset_right = 720.0
 offset_bottom = 100.0
+script = ExtResource("1_a1tbk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="SidesRow" parent="VBoxContainer" instance=ExtResource("1_nbd76")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -26,6 +29,7 @@ size_flags_horizontal = 3
 alignment_horizontal = 2
 
 [node name="SummonIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/AspectRatioContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture = ExtResource("2_ne7m4")
@@ -38,6 +42,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 
 [node name="Name" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "B.eye White Dragon"
@@ -47,23 +52,27 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Level" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_wbsye")]
+unique_name_in_owner = true
 layout_mode = 2
 value = 4
 original_value = 4
 
 [node name="Attack" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_wbsye")]
+unique_name_in_owner = true
 layout_mode = 2
 attr = "ATTACK"
 value = 40
 original_value = 40
 
 [node name="Defense" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_wbsye")]
+unique_name_in_owner = true
 layout_mode = 2
 attr = "DEFENSE"
 value = 30
 original_value = 30
 
 [node name="Hearts" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_jadcq")]
+unique_name_in_owner = true
 layout_mode = 2
 health = 50
 original_health = 50

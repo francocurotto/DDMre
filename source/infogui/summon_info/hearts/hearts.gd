@@ -9,6 +9,7 @@ extends HBoxContainer
 @export_range(0, 60, 10) var original_health : int = 10 :
 	set(_original_health):
 		original_health = _original_health
+		health = original_health
 		set_hearts_icons()
 #endregion
 
