@@ -8,11 +8,10 @@ offset_bottom = 211.0
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 2
-current_tab = 1
+current_tab = 0
 tabs_position = 1
 
 [node name="▲" type="PanelContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
