@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bc0c7qve05l23"]
 
-[ext_resource type="Texture2D" uid="uid://cp7a3g6njq7xv" path="res://assets/TILE_BASE.svg" id="1_qq1gj"]
+[ext_resource type="Texture2D" uid="uid://c56sob6q6x8gy" path="res://assets/TILE_BASE.svg" id="1_qq1gj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ww38m"]
 size = Vector3(1, 0.1, 1)
@@ -22,5 +22,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_4g31v")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.051, 0)
-pixel_size = 0.0078
+pixel_size = 0.0084
 texture = ExtResource("1_qq1gj")
