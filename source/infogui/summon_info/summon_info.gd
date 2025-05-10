@@ -1,12 +1,7 @@
 extends MarginContainer
 
-#region builtin functions
-func _ready() -> void:
-	Events.dice_focus_entered.connect(on_dice_focus_entered)
-#endregion
-
-#region signals callbacks
-func on_dice_focus_entered(dice):
+#region public functions
+func set_dice_info(dice):
 	%SidesRow.set_sides(dice.sides, dice.summon.type)
 	%SummonIcon.texture = load("res://assets/SUMMON_%s.svg" % dice.summon.type)
 	%Name.text = dice.summon.summon_name
@@ -19,5 +14,5 @@ func on_dice_focus_entered(dice):
 	%Attack.visible = not is_item
 	%Defense.visible = not is_item
 	%Hearts.visible = not is_item
-	visible = true
+	$VBoxContainer.visible = true
 #endregion
