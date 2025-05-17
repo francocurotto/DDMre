@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc0c7qve05l23"]
+[gd_scene load_steps=6 format=3 uid="uid://bc0c7qve05l23"]
 
+[ext_resource type="Script" uid="uid://dktqxgp4pn310" path="res://dungeon/tiles/base_tile/base_tile.gd" id="1_fpg30"]
 [ext_resource type="Texture2D" uid="uid://c56sob6q6x8gy" path="res://assets/TILE_BASE.svg" id="1_qq1gj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ww38m"]
@@ -12,6 +13,7 @@ size = Vector3(1, 0.1, 1)
 albedo_color = Color(0.0728426, 0.0728426, 0.0728426, 1)
 
 [node name="BaseTile" type="StaticBody3D"]
+script = ExtResource("1_fpg30")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ww38m")
@@ -24,3 +26,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_4g31v")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.051, 0)
 pixel_size = 0.0084
 texture = ExtResource("1_qq1gj")
+
+[node name="OverTile" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)

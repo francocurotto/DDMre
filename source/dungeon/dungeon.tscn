@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cqc1roopbg664"]
 
-[ext_resource type="PackedScene" uid="uid://bc0c7qve05l23" path="res://dungeon/base_tile/base_tile.tscn" id="1_mntb8"]
+[ext_resource type="PackedScene" uid="uid://bc0c7qve05l23" path="res://dungeon/tiles/base_tile/base_tile.tscn" id="1_mntb8"]
 
 [node name="Dungeon" type="Node3D"]
 
