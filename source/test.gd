@@ -34,5 +34,5 @@ func _input(event):
 		# Check if the touch is inside the drag area
 		if %CameraGUI.get_global_rect().has_point(event.position):
 			var movement = Vector3(event.velocity.x, 0, event.velocity.y)
-			$Camera3D.position += 0.0003 * movement
+			$Camera3D.position -= 0.0004 * movement
 #endregion

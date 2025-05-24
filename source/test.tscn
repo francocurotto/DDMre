@@ -17,8 +17,12 @@ transform = Transform3D(0.999945, 2.4555e-08, -0.0104543, 0.0082518, 0.613982, 0
 transform = Transform3D(1, 0, 0, 0, 0.330449, 0.943825, 0, -0.943823, 0.330448, 0, 8.089, 6.504)
 
 [node name="GUI" type="VBoxContainer" parent="."]
-offset_right = 720.0
-offset_bottom = 1280.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 0
 
 [node name="InfoGUI" parent="GUI" instance=ExtResource("3_6uqi0")]
@@ -32,3 +36,4 @@ size_flags_vertical = 3
 [node name="DiceGUI" parent="GUI" instance=ExtResource("2_8uh7m")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 8
