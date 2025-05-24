@@ -26,6 +26,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 
 [node name="BaseTile7" parent="Row1" instance=ExtResource("1_mntb8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+type = "PATH"
+monster_lord = true
 
 [node name="BaseTile8" parent="Row1" instance=ExtResource("1_mntb8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
@@ -764,6 +766,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 
 [node name="BaseTile7" parent="Row19" instance=ExtResource("1_mntb8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+type = "PATH"
+player = 2
+monster_lord = true
 
 [node name="BaseTile8" parent="Row19" instance=ExtResource("1_mntb8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)

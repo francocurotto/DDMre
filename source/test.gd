@@ -26,7 +26,13 @@ func _ready() -> void:
 	for i in DICEPOOL_SIZE:
 		# get a random dice
 		var rand_dice = dicelib[str(rng.randi_range(1,len(dicelib)))]
-		#var rand_dice = dicelib["3"]
 		# set dicepool dice
 		%DiceGUI.set_dice(i, rand_dice)
+
+func _input(event):
+	if event is InputEventScreenDrag:
+		# Check if the touch is inside the drag area
+		if %CameraGUI.get_global_rect().has_point(event.position):
+			var movement = Vector3(event.velocity.x, 0, event.velocity.y)
+			$Camera3D.position += 0.0003 * movement
 #endregion

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bj26qmxnebta" path="res://assets/CREST_ATTACK.svg" id="4_w0qrj"]
 [ext_resource type="Texture2D" uid="uid://r8b3kacabv2e" path="res://assets/CREST_DEFENSE.svg" id="5_65ktn"]
 [ext_resource type="Texture2D" uid="uid://dsl2unxii3mi7" path="res://assets/CREST_MAGIC.svg" id="6_60uon"]
-[ext_resource type="PackedScene" uid="uid://b1qptgwxay546" path="res://summon/summon.tscn" id="7_2tv1o"]
+[ext_resource type="PackedScene" uid="uid://b1qptgwxay546" path="res://dungobj/summon/summon.tscn" id="7_2tv1o"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lbo6s"]
 

@@ -5,7 +5,7 @@
 
 [node name="InfoGUI" type="VBoxContainer"]
 offset_right = 720.0
-offset_bottom = 211.0
+offset_bottom = 31.0
 script = ExtResource("1_uwko4")
 
 [node name="TabContainer" type="TabContainer" parent="."]

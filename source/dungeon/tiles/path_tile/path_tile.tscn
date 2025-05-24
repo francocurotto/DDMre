@@ -10,7 +10,8 @@ size = Vector3(1, 0.1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_qq1gj"]
 size = Vector3(1, 0.1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4g31v"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3egs"]
+resource_local_to_scene = true
 albedo_color = Color(0.2, 0.3, 1, 1)
 
 [node name="PathTile" type="StaticBody3D"]
@@ -21,7 +22,7 @@ shape = SubResource("BoxShape3D_ww38m")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_qq1gj")
-surface_material_override/0 = SubResource("StandardMaterial3D_4g31v")
+surface_material_override/0 = SubResource("StandardMaterial3D_u3egs")
 
 [node name="Icon" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051, 0)
@@ -31,8 +32,11 @@ axis = 1
 texture = ExtResource("1_kl27m")
 
 [node name="Vortex" type="Sprite3D" parent="."]
-transform = Transform3D(0.0584734, 0, -0.998289, 0, 1, 0, 0.998289, 0, 0.0584734, 0, 0.051, 0.00202537)
+transform = Transform3D(-0.619156, 0, 0.785268, 0, 1, 0, -0.785268, 0, -0.619156, 0, 0.051, 0.00202537)
 visible = false
 pixel_size = 0.0084
 axis = 1
 texture = ExtResource("3_u3egs")
+
+[node name="Dungobj" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)

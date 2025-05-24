@@ -26,9 +26,12 @@ const BlockTile = preload("res://dungeon/tiles/block_tile/block_tile.tscn")
 			var path_tile = $OverTile.get_child(0)
 			path_tile.player = player
 
-@export_range(0,2) var monster_lord : int :
+@export var monster_lord : bool :
 	set(_monster_lord):
 		monster_lord = _monster_lord
+		if type == "PATH":
+			var path_tile = $OverTile.get_child(0)
+			path_tile.monster_lord = monster_lord
 
 @export var vortex : bool = false :
 	set(_vortex):

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b1qptgwxay546"]
 
-[ext_resource type="Script" uid="uid://cjiaw6dgirjlg" path="res://summon/summon.gd" id="1_we0cr"]
+[ext_resource type="Script" uid="uid://cjiaw6dgirjlg" path="res://dungobj/summon/summon.gd" id="1_we0cr"]
 
 [node name="Summon" type="Node3D"]
 script = ExtResource("1_we0cr")
