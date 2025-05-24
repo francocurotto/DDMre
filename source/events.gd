@@ -1,8 +1,6 @@
 extends Node
 
-@warning_ignore("unused_signal")
-signal roll_started ## Emited when player starts a roll
-@warning_ignore("unused_signal")
-signal crest_side_rolled ## Emited when player starts a roll
-@warning_ignore("unused_signal")
-signal dice_button_focus_entered ## Emited when player focus dice button in dicepool
+signal roll_started ## Emitted when player starts a roll
+signal crest_side_rolled ## Emitted when player starts a roll
+signal dice_button_focus_entered ## Emitted when player focus dice button in dicepool
+signal dicegui_tab_changed ## Emitted when player changes tab in dicegui

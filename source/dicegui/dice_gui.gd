@@ -15,4 +15,7 @@ func set_dice(i, dice):
 func on_roll_changed(roll_dice_buttons):
 	$TabContainer.get_tab_bar().set_tab_title(2, "Rollzone (%d/3)" % len(roll_dice_buttons))
 	%Rollzone.update_dice(roll_dice_buttons)
+
+func _on_tab_container_tab_changed(_tab: int) -> void:
+	Events.dicegui_tab_changed.emit()
 #endregion

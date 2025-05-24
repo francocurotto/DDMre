@@ -44,3 +44,5 @@ layout_mode = 2
 
 [node name="Crestpool" parent="." instance=ExtResource("4_uljbj")]
 layout_mode = 2
+
+[connection signal="tab_changed" from="TabContainer" to="." method="_on_tab_container_tab_changed"]

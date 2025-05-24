@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://batr7m2cjphoy"
-path.etc2="res://.godot/imported/ATTR_LEVEL.svg-2d54700b5dd16babfbb3f6f608b255e7.etc2.ctex"
+path.s3tc="res://.godot/imported/ATTR_LEVEL.svg-2d54700b5dd16babfbb3f6f608b255e7.s3tc.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/ATTR_LEVEL.svg"
-dest_files=["res://.godot/imported/ATTR_LEVEL.svg-2d54700b5dd16babfbb3f6f608b255e7.etc2.ctex"]
+dest_files=["res://.godot/imported/ATTR_LEVEL.svg-2d54700b5dd16babfbb3f6f608b255e7.s3tc.ctex"]
 
 [params]
 

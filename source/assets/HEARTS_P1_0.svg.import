@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ix0vuliru4fn"
-path.etc2="res://.godot/imported/HEARTS_P1_0.svg-7e9d8656f537e1e739f4d3d774cb8b63.etc2.ctex"
+path.s3tc="res://.godot/imported/HEARTS_P1_0.svg-7e9d8656f537e1e739f4d3d774cb8b63.s3tc.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/HEARTS_P1_0.svg"
-dest_files=["res://.godot/imported/HEARTS_P1_0.svg-7e9d8656f537e1e739f4d3d774cb8b63.etc2.ctex"]
+dest_files=["res://.godot/imported/HEARTS_P1_0.svg-7e9d8656f537e1e739f4d3d774cb8b63.s3tc.ctex"]
 
 [params]
 
