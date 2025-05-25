@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxmgqmkxvls2s"]
+
+[ext_resource type="Script" uid="uid://dlse0i3denew8" path="res://scenes/test.gd" id="1_74lek"]
+[ext_resource type="PackedScene" uid="uid://cqc1roopbg664" path="res://scenes/dungeon/dungeon.tscn" id="2_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://b4dd1nvrn8axq" path="res://scenes/guis/infogui/info_gui.tscn" id="3_lpvoh"]
+[ext_resource type="PackedScene" uid="uid://c4thhg2j07f1s" path="res://scenes/guis/dicegui/dice_gui.tscn" id="4_at5dv"]
+
+[node name="Test" type="Node3D"]
+script = ExtResource("1_74lek")
+
+[node name="Dungeon" parent="." instance=ExtResource("2_j5jx5")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999945, 2.4555e-08, -0.0104543, 0.0082518, 0.613982, 0.789277, 0.00641879, -0.78932, 0.613948, 0, 8.00368, 5.05218)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.330449, 0.943825, 0, -0.943823, 0.330448, 0, 8.089, 6.504)
+
+[node name="GUI" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="InfoGUI" parent="GUI" instance=ExtResource("3_lpvoh")]
+layout_mode = 2
+
+[node name="CameraGUI" type="Control" parent="GUI"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DiceGUI" parent="GUI" instance=ExtResource("4_at5dv")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8

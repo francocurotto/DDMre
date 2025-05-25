@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://obk8wbbhgdaj"]
-
-[ext_resource type="Script" uid="uid://dl2ha5mxw1xwj" path="res://infogui/summon_info/hearts/hearts.gd" id="1_vl53t"]
-
-[node name="Hearts" type="HBoxContainer"]
-script = ExtResource("1_vl53t")

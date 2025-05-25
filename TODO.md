@@ -1,7 +1,9 @@
 ## FEATURE
-- Implement DiceInfo Scene
-    - change type icon
-    - for ITEM remove attack, defense, health
+- Dimension
+    - make summon rolled dice selectable
+    - copy selected dice to dungeon
+- Add ENDTURN button to dungeon gui
+    - change cameragui to dungeongui
 
 ## IMPROVEMENTS
 

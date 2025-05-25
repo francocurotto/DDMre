@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbwouu0vicqix"]
+
+[ext_resource type="Texture2D" uid="uid://caju6siypu748" path="res://assets/CREST_SUMMON.svg" id="1_81t1o"]
+[ext_resource type="Script" uid="uid://bci3a5bnjlfkv" path="res://scenes/dice/side/side.gd" id="2_dg7nj"]
+
+[node name="Side" type="Sprite3D"]
+pixel_size = 0.0018
+texture = ExtResource("1_81t1o")
+script = ExtResource("2_dg7nj")
+
+[node name="Mult" type="Label3D" parent="."]
+sorting_offset = 1.0
+pixel_size = 0.01
+text = "1"

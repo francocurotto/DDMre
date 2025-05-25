@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmdfsqfsxoyqt"]
+
+[ext_resource type="Script" uid="uid://2u1d1amap5ve" path="res://scenes/guis/infogui/summon_info/summon_attr/summon_attr.gd" id="1_4kh6i"]
+[ext_resource type="Texture2D" uid="uid://batr7m2cjphoy" path="res://assets/ATTR_LEVEL.svg" id="1_pj7fg"]
+
+[node name="SummonAttr" type="HBoxContainer"]
+theme_override_constants/separation = 0
+script = ExtResource("1_4kh6i")
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "1"
+
+[node name="Attr" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("1_pj7fg")
+expand_mode = 1
+stretch_mode = 5
