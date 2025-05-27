@@ -22,24 +22,12 @@ var roll_velocity = Vector2.ZERO ## Initial velocity of roll
 
 #region builtin functions
 func _input(event):
-	if state == STATE.FULL and get_parent().get_tab_bar().current_tab == 2:
-		# check for touch or drag
-		if event is InputEventScreenTouch or event is InputEventScreenDrag:
-			# Check if the touch is inside the drag area
-			if get_global_rect().has_point(event.position):
-				# if touch, dragging started
-				if event is InputEventScreenTouch and event.pressed:
-					dragging = true
-				# if drag, register velocity
-				elif event is InputEventScreenDrag and dragging:
-					roll_velocity = event.velocity
-				# if drag released, roll dice
-				elif event is InputEventScreenTouch and not event.pressed and dragging:
-					roll_dice(roll_velocity)
-					dragging = false
-			# if outside the drag area, reset dragging
-			else:
-				dragging = false
+	# check if rollzone tab selected
+	if get_parent().get_tab_bar().current_tab == 2:
+			if state == STATE.FULL:
+				input_roll(event)
+			elif state == STATE.ROLLED:
+				input_dim_select(event)
 #endregion
 
 #region public functions
@@ -55,6 +43,7 @@ func update_dice(dice_buttons):
 		dice.position = INITPOS[i]
 		dice.state = dice.STATE.PREROLL
 		dice.roll_stopped.connect(on_dice_stopped)
+		dice.dim_setup_finished.connect(func(): state = STATE.ROLLED)
 	# update state
 	if %DiceList.get_child_count() >= 3:
 		state = STATE.FULL
@@ -72,6 +61,29 @@ func on_dice_stopped():
 #endregion
 
 #region private functions
+func input_roll(event):
+	if get_global_rect().has_point(event.position):
+		# check for touch or drag
+		if event is InputEventScreenTouch or event is InputEventScreenDrag:
+			# if touch, dragging started
+			if event is InputEventScreenTouch and event.pressed:
+				dragging = true
+			# if drag, register velocity
+			elif event is InputEventScreenDrag and dragging:
+				roll_velocity = event.velocity
+			# if drag released, roll dice
+			elif event is InputEventScreenTouch and not event.pressed and dragging:
+				roll_dice(roll_velocity)
+				dragging = false
+	# if outside the drag area, reset dragging
+	else:
+		dragging = false
+
+func input_dim_select(event):
+	if event is InputEventScreenTouch and event.pressed:
+		# check if touching dice
+		print("asdf")
+
 func roll_dice(velocity):
 	# disable further rolling
 	state = STATE.ROLLING
@@ -90,7 +102,6 @@ func resolve_roll():
 	# resolve crest rolls
 	for dice in %DiceList.get_children():
 		var side = dice.rolled_side
-		print(side.type+","+str(side.mult))
 		if side.type != "SUMMON":
 			Events.crest_side_rolled.emit(side)
 		else:

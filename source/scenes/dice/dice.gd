@@ -2,6 +2,7 @@ extends RigidBody3D
 
 #region signals
 signal roll_stopped
+signal dim_setup_finished
 #endregion
 
 #region constants
@@ -89,6 +90,8 @@ func setup_dim_select(new_position):
 	tween.tween_property(self, "position", new_position, 1)
 	var index = rolled_side.get_index()
 	tween.parallel().tween_property(self, "rotation", DIM_ROTATIONS[index], 1)
+	await tween.finished
+	dim_setup_finished.emit()
 #endregion
 
 #region private functions
