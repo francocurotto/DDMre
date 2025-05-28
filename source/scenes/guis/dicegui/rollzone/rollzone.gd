@@ -80,9 +80,18 @@ func input_roll(event):
 		dragging = false
 
 func input_dim_select(event):
-	if event is InputEventScreenTouch and event.pressed:
-		# check if touching dice
-		print("asdf")
+	if get_global_rect().has_point(event.position):
+		if event is InputEventScreenTouch and event.pressed:
+			var touch_pos = event.position
+			var ray_origin = %Camera3D.project_ray_origin(touch_pos)
+			var ray_target = ray_origin + %Camera3D.project_ray_normal(touch_pos) * 1000
+			var space_state = %SubViewport.world_3d.direct_space_state
+			var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_target)
+			var result = space_state.intersect_ray(query)
+			print(result)
+			if result:
+				var selected_object = result["collider"]
+				print("Touched object: ", selected_object.name)
 
 func roll_dice(velocity):
 	# disable further rolling

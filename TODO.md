@@ -6,5 +6,8 @@
     - change cameragui to dungeongui
 
 ## IMPROVEMENTS
+- reduce rollozone dice size
+- reduce threshold to consider rolled dice non-crocked
 
 ## FIXES
+- fix dimdice selection
