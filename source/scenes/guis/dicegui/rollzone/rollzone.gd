@@ -80,15 +80,21 @@ func input_roll(event):
 		dragging = false
 
 func input_dim_select(event):
-	if get_global_rect().has_point(event.position):
+	#if get_global_rect().has_point(event.position):
 		if event is InputEventScreenTouch and event.pressed:
+			#var camera = %SubViewport.get_camera_3d()
+			var camera = get_viewport().get_camera_3d()
+			#var camera = %Camera3D
 			var touch_pos = event.position
 			print(touch_pos)
-			var ray_origin = %Camera3D.project_ray_origin(touch_pos)
+			var ray_origin = camera.project_ray_origin(touch_pos)
 			print(ray_origin)
-			var ray_target = ray_origin + %Camera3D.project_ray_normal(touch_pos) * 1000
+			var ray_target = ray_origin + camera.project_ray_normal(touch_pos) * 1000
+			print(ray_target)
 			var space_state = %SubViewport.world_3d.direct_space_state
+			print(space_state)
 			var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_target)
+			print(query)
 			var result = space_state.intersect_ray(query)
 			print(result)
 			if result:
