@@ -2,7 +2,7 @@
 extends StaticBody3D
 
 #region constants
-const COLORLIST = {1: Color(0.2,0.3,1), 2: Color(1,0.2,0.3)}
+const COLORLIST = {1: Color(0.0,0.0,0.7), 2: Color(0.7,0.0,0.0)}
 const ROTATIONS = {1: Vector3.ZERO, 2: Vector3(0,PI,0)}
 #endregion
 

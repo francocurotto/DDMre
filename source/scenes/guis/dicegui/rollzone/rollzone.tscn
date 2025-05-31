@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo2erx6gn1vii"]
+[gd_scene load_steps=3 format=3 uid="uid://bo2erx6gn1vii"]
 
 [ext_resource type="Script" uid="uid://bxqvo6xk1aiyp" path="res://scenes/guis/dicegui/rollzone/rollzone.gd" id="1_dac2p"]
-
-[sub_resource type="World3D" id="World3D_2wae3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dac2p"]
 size = Vector3(20, 0, 20)
@@ -19,7 +17,6 @@ layout_mode = 2
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 unique_name_in_owner = true
 own_world_3d = true
-world_3d = SubResource("World3D_2wae3")
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(720, 430)
@@ -29,7 +26,7 @@ render_target_update_mode = 4
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
 projection = 1
-size = 5.0
+size = 6.0
 
 [node name="DiceList" type="Node3D" parent="SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
@@ -47,28 +44,28 @@ shape = SubResource("BoxShape3D_dac2p")
 debug_fill = false
 
 [node name="Wall1" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Walls"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 2.5)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 3)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Walls/Wall1"]
 shape = SubResource("BoxShape3D_dac2p")
 debug_fill = false
 
 [node name="Wall2" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Walls"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -2.5)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -3)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Walls/Wall2"]
 shape = SubResource("BoxShape3D_dac2p")
 debug_fill = false
 
 [node name="Wall3" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Walls"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 4.3, 0, 0)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Walls/Wall3"]
 shape = SubResource("BoxShape3D_dac2p")
 debug_fill = false
 
 [node name="Wall4" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Walls"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -4.3, 0, 0)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -5, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Walls/Wall4"]
 shape = SubResource("BoxShape3D_dac2p")
