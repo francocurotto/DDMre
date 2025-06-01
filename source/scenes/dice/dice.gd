@@ -1,3 +1,4 @@
+@tool
 extends RigidBody3D
 
 #region signals
@@ -18,6 +19,14 @@ enum STATE {
 	ROLLING,
 	POSTROLL
 } 
+#endregion
+
+#region export variables
+@export var fade : bool = false :
+	set(_fade):
+		fade = _fade
+		for side in $Sides.get_children():
+			side.fade = fade
 #endregion
 
 #region public variables
@@ -60,12 +69,10 @@ func _physics_process(_delta: float) -> void:
 func set_dice(dice_dict):
 	var level = int(dice_dict["LEVEL"])
 	var type = dice_dict["TYPE"]
-	# set type
-	set_dice_type(type)
 	# set sides
 	var side_strings = split_sides_string(dice_dict["CRESTS"])
 	for i in 6:
-		$Sides.get_child(i).set_side(level, side_strings[i])
+		$Sides.get_child(i).set_side(type, level, side_strings[i])
 	# set summon
 	$Summon.set_summon(dice_dict)
 
@@ -104,12 +111,6 @@ func split_sides_string(sides_string):
 	for result in regex.search_all(sides_string):
 		side_strings.append(result.get_string())
 	return side_strings
-
-func set_dice_type(type):
-	var material = $MeshInstance3D.get_surface_override_material(0)
-	material = material.duplicate()
-	$MeshInstance3D.set_surface_override_material(0, material)
-	material.albedo_color = Globals.SUMMON_COLORS[type]
 
 func get_rolled_side():
 	for side in $Sides.get_children():

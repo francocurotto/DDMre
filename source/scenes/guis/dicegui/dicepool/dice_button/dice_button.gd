@@ -13,7 +13,7 @@ var disabled : bool = false :
 	set(_disabled):
 		disabled = _disabled
 		%Button.disabled = disabled
-		%SubViewportContainer.modulate = Color(1,1,1,1-0.7*int(disabled))
+		%SubViewportContainer.modulate.a = 1-0.7*int(disabled)
 #endregion
 
 #region public functions

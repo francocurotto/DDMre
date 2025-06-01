@@ -2,12 +2,11 @@
 - Dimension
     - make summon rolled dice selectable
     - copy selected dice to dungeon
+- Add SKIP button in rollzone
 - Add ENDTURN button to dungeon gui
     - change cameragui to dungeongui
 
 ## IMPROVEMENTS
-- reduce rollozone dice size
-- reduce threshold to consider rolled dice non-crocked
 
 ## FIXES
-- fix dimdice selection
+- When rolling and a dice almost stops but then keeps moving, the the roll detection fails and the game get stuck

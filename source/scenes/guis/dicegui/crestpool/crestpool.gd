@@ -14,10 +14,9 @@ func _ready() -> void:
 		"TRAP"     : $HBoxContainer/Trap,
 	}
 	Events.crest_side_rolled.connect(on_crest_side_rolled)
-	
 #endregion
 
 #region signals callbacks
 func on_crest_side_rolled(side):
-	sides_dict[side.type].add_crest(side.mult)
+	sides_dict[side.crest].add_crest(side.mult)
 #endregion

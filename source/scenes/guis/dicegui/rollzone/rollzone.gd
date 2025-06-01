@@ -91,6 +91,7 @@ func input_dim_select(event):
 			if result:
 				var selected_object = result["collider"]
 				print("Touched object: ", selected_object.name)
+				selected_object.fade = true
 				#var highlight_material := StandardMaterial3D.new()
 				#highlight_material.emission_enabled = true
 				#highlight_material.emission = Color.YELLOW
@@ -114,7 +115,7 @@ func resolve_roll():
 	# resolve crest rolls
 	for dice in %DiceList.get_children():
 		var side = dice.rolled_side
-		if side.type != "SUMMON":
+		if side.crest != "SUMMON":
 			Events.crest_side_rolled.emit(side)
 		else:
 			summon_dice.append(dice)
