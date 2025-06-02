@@ -1,12 +1,13 @@
 ## FEATURE
 - Dimension
-    - make summon rolled dice selectable
-    - copy selected dice to dungeon
+    - move dimdice when selecting tile
+    - make highlighted net
 - Add SKIP button in rollzone
 - Add ENDTURN button to dungeon gui
-    - change cameragui to dungeongui
 
 ## IMPROVEMENTS
+- add code style to project
+- add nats documentation to project (net names)
 
 ## FIXES
 - When rolling and a dice almost stops but then keeps moving, the the roll detection fails and the game get stuck

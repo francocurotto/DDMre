@@ -1,16 +1,19 @@
 extends PanelContainer
 
-#region constants
-const INITPOS = [Vector3(-2.5,0,0), Vector3(0,0,0), Vector3(2.5,0,0)]
-const DIMPOS = {
-	2: [Vector3(-1.5,0,0), Vector3(1.5,0,0)],
-	3: [Vector3(-2.5,0,0), Vector3(0,0,0), Vector3(2.5,0,0)]
-}
+#region enums
 enum STATE {
 	NOTFULL,
 	FULL,
 	ROLLING,
 	ROLLED
+}
+#endregion
+
+#region constants
+const INITPOS = [Vector3(-2.5,0,0), Vector3(0,0,0), Vector3(2.5,0,0)]
+const DIMPOS = {
+	2: [Vector3(-1.5,0,0), Vector3(1.5,0,0)],
+	3: [Vector3(-2.5,0,0), Vector3(0,0,0), Vector3(2.5,0,0)]
 }
 #endregion
 
@@ -90,12 +93,14 @@ func input_dim_select(event):
 			var result = space_state.intersect_ray(query)
 			if result:
 				var selected_object = result["collider"]
-				print("Touched object: ", selected_object.name)
-				selected_object.fade = true
-				#var highlight_material := StandardMaterial3D.new()
-				#highlight_material.emission_enabled = true
-				#highlight_material.emission = Color.YELLOW
-				#selected_object.get_child(0).set_surface_override_material(0, highlight_material)
+				if selected_object in %DiceList.get_children():
+					select_dimdice(selected_object)
+
+func select_dimdice(dimdice):
+	for dice in %DiceList.get_children():
+		dice.fade = false
+	Events.dimdice_selected.emit(dimdice.duplicate())
+	dimdice.fade = true
 
 func roll_dice(velocity):
 	# disable further rolling

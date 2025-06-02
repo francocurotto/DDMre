@@ -6,6 +6,15 @@ signal roll_stopped
 signal dim_setup_finished
 #endregion
 
+#region enums
+enum STATE {
+	PREROLL,
+	STARTROLL,
+	ROLLING,
+	POSTROLL
+} 
+#endregion
+
 #region constants
 const DIM_ROTATIONS = [
 	Vector3(0,0,0),
@@ -13,12 +22,6 @@ const DIM_ROTATIONS = [
 	Vector3(0,PI/2,-PI/2),
 	Vector3(0,-PI/2,PI/2)
 ]
-enum STATE {
-	PREROLL,
-	STARTROLL,
-	ROLLING,
-	POSTROLL
-} 
 #endregion
 
 #region export variables

@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqc1roopbg664"]
+[gd_scene load_steps=3 format=3 uid="uid://cqc1roopbg664"]
 
 [ext_resource type="PackedScene" uid="uid://bc0c7qve05l23" path="res://scenes/dungeon/tiles/base_tile/base_tile.tscn" id="1_mntb8"]
+[ext_resource type="Script" uid="uid://c3nd3n25i1t0j" path="res://scenes/dungeon/dungeon.gd" id="1_sub6p"]
 
 [node name="Dungeon" type="Node3D"]
+script = ExtResource("1_sub6p")
 
 [node name="Row1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
