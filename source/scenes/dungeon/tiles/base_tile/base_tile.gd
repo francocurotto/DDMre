@@ -2,6 +2,7 @@
 extends StaticBody3D
 
 #region constants
+const COLOR = Color(0.2,0.2,0.3)
 const PathTile = preload("res://scenes/dungeon/tiles/path_tile/path_tile.tscn")
 const BlockTile = preload("res://scenes/dungeon/tiles/block_tile/block_tile.tscn")
 #endregion
@@ -39,4 +40,21 @@ const BlockTile = preload("res://scenes/dungeon/tiles/block_tile/block_tile.tscn
 		if type == "PATH":
 			var path_tile = $OverTile.get_child(0)
 			path_tile.vortex = vortex
+
+@export var highlight : bool = false :
+	set(_highlight):
+		highlight = _highlight
+		if highlight:
+			highlight_tween = create_tween()
+			highlight_tween.set_loops()
+			highlight_tween.tween_property($Sprite3D, "modulate", Color.YELLOW, 1)
+			highlight_tween.tween_property($Sprite3D, "modulate", COLOR, 1)
+		else:
+			if highlight_tween:
+				highlight_tween.kill()
+			$Sprite3D.modulate = COLOR
+#endregion
+
+#region private variables
+var highlight_tween
 #endregion
