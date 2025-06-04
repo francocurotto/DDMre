@@ -43,10 +43,10 @@ var moving : bool :
 #region private variables
 var translating : bool : 
 	get(): 
-		return linear_velocity.length() > 0.001
+		return linear_velocity.length() > 0.0001
 var rotating : bool :
 	get(): 
-		return angular_velocity.length() > 0.001
+		return angular_velocity.length() > 0.0001
 #endregion
 
 #region onready variables
@@ -119,6 +119,6 @@ func get_rolled_side():
 	for side in $Sides.get_children():
 		var facing_direction = side.global_transform.basis.z
 		var dot = facing_direction.dot(Vector3.UP)
-		if dot > 0.9:
+		if dot > 0.95:
 			return side
 #endregion

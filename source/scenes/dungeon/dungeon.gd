@@ -72,5 +72,11 @@ func get_tilecoor(tile):
 	return Vector2i(tile.get_index(), tile.get_parent().get_index())
 
 func get_tile(coor):
-	return $Rows.get_child(coor.y).get_child(coor.x)
+	if coor_in_bound(coor):
+		return $Rows.get_child(coor.y).get_child(coor.x)
+
+func coor_in_bound(coor):
+	var in_bound_x = 0 <= coor.x and coor.x < Globals.DUNGEON_WIDTH
+	var in_bound_y = 0 <= coor.y and coor.y < Globals.DUNGEON_HEIGHT
+	return in_bound_x and in_bound_y
 #endregion

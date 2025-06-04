@@ -22,6 +22,22 @@ const MonsterLord = preload("res://scenes/dungobj/monster_lord/monster_lord.tscn
 	set(_vortex):
 		vortex = _vortex
 		$Vortex.visible = vortex
+
+@export var highlight : bool = false :
+	set(_highlight):
+		highlight = _highlight
+		$Icon.modulate = COLORLIST[player]
+		if highlight_tween:
+			highlight_tween.kill()
+		if highlight:
+			highlight_tween = create_tween()
+			highlight_tween.set_loops()
+			highlight_tween.tween_property($Icon, "modulate", Color.YELLOW, 1)
+			highlight_tween.tween_property($Icon, "modulate", COLORLIST[player], 1)
+#endregion
+
+#region private variables
+var highlight_tween
 #endregion
 
 #region builtin functions

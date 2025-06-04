@@ -7,11 +7,7 @@ var dragging = false
 #endregion
 
 #region constants
-const DUNGEON_HEIGHT = 19 ## Number of verical tiles of dungeon. 
-const DUNGEON_WIDTH  = 13 ## Number of horizontal tiles of dungeon.
-const DICEPOOL_SIZE  = 15 ## Number of dice in player dicepool.
-const MAX_CRESTS     = 99 ## Maximum number of crests for each crest type
-const MAX_HEARTS     = 3  ## Maximum number of hearts per player
+
 #endregion
 
 #region builtin functions
@@ -24,7 +20,7 @@ func _init() -> void:
 
 func _ready() -> void:
 	# initialize dicepool
-	for i in DICEPOOL_SIZE:
+	for i in Globals.DICEPOOL_SIZE:
 		# get a random dice
 		var rand_dice = dicelib[str(rng.randi_range(1,len(dicelib)))]
 		# set dicepool dice
