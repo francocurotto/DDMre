@@ -15,6 +15,7 @@ var dimtile
 #region builtin functions
 func _ready() -> void:
 	Events.dimdice_selected.connect(on_dimdice_selected)
+	dimtile = $Rows/Row4/BaseTile7
 	for row in $Rows.get_children():
 		tiles.append([])
 		for tile in row.get_children():
@@ -47,6 +48,7 @@ func on_dimdice_selected(new_dimdice):
 	dimdice = new_dimdice
 	add_child(dimdice)
 	dimdice.position = dimdice_pos
+	set_dimnet()
 #endregion
 
 #region private functions

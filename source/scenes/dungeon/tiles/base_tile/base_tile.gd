@@ -44,15 +44,14 @@ const BlockTile = preload("res://scenes/dungeon/tiles/block_tile/block_tile.tscn
 @export var highlight : bool = false :
 	set(_highlight):
 		highlight = _highlight
+		$Sprite3D.modulate = COLOR
+		if highlight_tween:
+			highlight_tween.kill()
 		if highlight:
 			highlight_tween = create_tween()
 			highlight_tween.set_loops()
 			highlight_tween.tween_property($Sprite3D, "modulate", Color.YELLOW, 1)
 			highlight_tween.tween_property($Sprite3D, "modulate", COLOR, 1)
-		else:
-			if highlight_tween:
-				highlight_tween.kill()
-			$Sprite3D.modulate = COLOR
 #endregion
 
 #region private variables
