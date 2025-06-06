@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://f20alyog44y4"]
+
+[ext_resource type="Script" uid="uid://byatxo5j7bca" path="res://scenes/player_gui/player_gui.gd" id="1_dqsj1"]
+[ext_resource type="PackedScene" uid="uid://b4dd1nvrn8axq" path="res://scenes/player_gui/info_gui/info_gui.tscn" id="1_loavl"]
+[ext_resource type="PackedScene" uid="uid://c4thhg2j07f1s" path="res://scenes/player_gui/dice_gui/dice_gui.tscn" id="2_dqsj1"]
+[ext_resource type="PackedScene" uid="uid://dh8dx5olkti0o" path="res://scenes/player_gui/dungeon_gui/dungeon_gui.tscn" id="3_3hp8r"]
+
+[node name="PlayerGUI" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dqsj1")
+
+[node name="InfoGUI" parent="." instance=ExtResource("1_loavl")]
+layout_mode = 2
+
+[node name="DungeonGUI" parent="." instance=ExtResource("3_3hp8r")]
+layout_mode = 2
+
+[node name="DiceGUI" parent="." instance=ExtResource("2_dqsj1")]
+layout_mode = 2

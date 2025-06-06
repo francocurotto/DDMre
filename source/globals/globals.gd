@@ -18,6 +18,11 @@ const SUMMON_COLORS = {
 }
 #endregion
 
+#region public variables
+var dungeon
+var duel_camera
+#endregion
+
 #region public functions
 ## Read a JSON file and convert it to a dictionary.
 func read_jsonfile(filepath):

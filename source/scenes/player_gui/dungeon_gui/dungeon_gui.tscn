@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh8dx5olkti0o"]
+
+[ext_resource type="Script" uid="uid://sak83cm7tdar" path="res://scenes/player_gui/dungeon_gui/dungeon_gui.gd" id="1_1st0o"]
+
+[node name="DungeonGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_vertical = 3
+script = ExtResource("1_1st0o")

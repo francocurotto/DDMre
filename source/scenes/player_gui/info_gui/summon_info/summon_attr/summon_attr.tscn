@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmdfsqfsxoyqt"]
 
-[ext_resource type="Script" uid="uid://2u1d1amap5ve" path="res://scenes/guis/infogui/summon_info/summon_attr/summon_attr.gd" id="1_4kh6i"]
+[ext_resource type="Script" uid="uid://2u1d1amap5ve" path="res://scenes/player_gui/info_gui/summon_info/summon_attr/summon_attr.gd" id="1_4kh6i"]
 [ext_resource type="Texture2D" uid="uid://batr7m2cjphoy" path="res://assets/ATTR_LEVEL.svg" id="1_pj7fg"]
 
 [node name="SummonAttr" type="HBoxContainer"]

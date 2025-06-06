@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://braquap2tslen"]
 
-[ext_resource type="Script" uid="uid://sy4jphgf3els" path="res://scenes/guis/dicegui/crestpool/crestpool.gd" id="1_axo3n"]
-[ext_resource type="PackedScene" uid="uid://42saa5x3jrjr" path="res://scenes/guis/dicegui/crestpool/crest_counter/crest_counter.tscn" id="1_dl867"]
+[ext_resource type="Script" uid="uid://sy4jphgf3els" path="res://scenes/player_gui/dice_gui/crestpool/crestpool.gd" id="1_axo3n"]
+[ext_resource type="PackedScene" uid="uid://42saa5x3jrjr" path="res://scenes/player_gui/dice_gui/crestpool/crest_counter/crest_counter.tscn" id="1_dl867"]
 
 [node name="Crestpool" type="PanelContainer"]
 offset_right = 720.0

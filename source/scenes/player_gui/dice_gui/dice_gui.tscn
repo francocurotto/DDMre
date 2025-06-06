@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4thhg2j07f1s"]
 
-[ext_resource type="PackedScene" uid="uid://du8wgt4awuk8d" path="res://scenes/guis/dicegui/dicepool/dicepool.tscn" id="1_ahudt"]
-[ext_resource type="Script" uid="uid://c41m1e7l0l7a7" path="res://scenes/guis/dicegui/dice_gui.gd" id="1_gm7by"]
-[ext_resource type="PackedScene" uid="uid://bo2erx6gn1vii" path="res://scenes/guis/dicegui/rollzone/rollzone.tscn" id="3_hvuk2"]
-[ext_resource type="PackedScene" uid="uid://braquap2tslen" path="res://scenes/guis/dicegui/crestpool/crestpool.tscn" id="4_uljbj"]
+[ext_resource type="PackedScene" uid="uid://du8wgt4awuk8d" path="res://scenes/player_gui/dice_gui/dicepool/dicepool.tscn" id="1_ahudt"]
+[ext_resource type="Script" uid="uid://c41m1e7l0l7a7" path="res://scenes/player_gui/dice_gui/dice_gui.gd" id="1_gm7by"]
+[ext_resource type="PackedScene" uid="uid://bo2erx6gn1vii" path="res://scenes/player_gui/dice_gui/rollzone/rollzone.tscn" id="3_hvuk2"]
+[ext_resource type="PackedScene" uid="uid://braquap2tslen" path="res://scenes/player_gui/dice_gui/crestpool/crestpool.tscn" id="4_uljbj"]
 
 [node name="DiceGUI" type="VBoxContainer"]
 anchors_preset = 7
