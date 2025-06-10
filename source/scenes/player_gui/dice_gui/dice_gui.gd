@@ -1,5 +1,12 @@
 extends VBoxContainer
 
+#region public variables
+var state : 
+	set(_state):
+		state = _state
+		%Rollzone.state = state
+#endregion
+
 #region builtin functions
 func _ready() -> void:
 	$TabContainer.get_tab_bar().set_tab_title(2, "Rollzone (0/3)")

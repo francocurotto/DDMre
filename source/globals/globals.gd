@@ -1,5 +1,13 @@
 extends Node
 
+#region enums
+enum GUISTATE {
+	ROLL,
+	DIMENSION,
+	DUNGEON
+}
+#endregion
+
 #region constants
 ## Path to the JSON file that has the dice information.
 const LIBPATH  = "res://databases/LIBRARY.json"

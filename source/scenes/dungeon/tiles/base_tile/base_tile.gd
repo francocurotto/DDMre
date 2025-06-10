@@ -52,9 +52,8 @@ const BlockTile = preload("res://scenes/dungeon/tiles/block_tile/block_tile.tscn
 			highlight_tween.set_loops()
 			highlight_tween.tween_property($Sprite3D, "modulate", Color.YELLOW, 1)
 			highlight_tween.tween_property($Sprite3D, "modulate", COLOR, 1)
-		var overtile = $OverTile.get_child(0)
-		if overtile:
-			overtile.highlight = highlight
+		if $OverTile.get_child_count() >= 1:
+			$OverTile.get_child(0).highlight = highlight
 #endregion
 
 #region private variables

@@ -1,14 +1,5 @@
 extends PanelContainer
 
-#region enums
-enum STATE {
-	NOTFULL,
-	FULL,
-	ROLLING,
-	ROLLED
-}
-#endregion
-
 #region constants
 const INITPOS = [Vector3(-2.5,0,0), Vector3(0,0,0), Vector3(2.5,0,0)]
 const DIMPOS = {
@@ -17,20 +8,25 @@ const DIMPOS = {
 }
 #endregion
 
+#region public variables
+var state
+#endregion
+
 #region private variables
-var state = STATE.NOTFULL
 var dragging = false ## true when player is dragging for roll
+var rolling = false ## true when dice are rolling
 var roll_velocity = Vector2.ZERO ## Initial velocity of roll
 #endregion
 
 #region builtin functions
 func _input(event):
-	# check if rollzone tab selected
-	if get_parent().get_tab_bar().current_tab == 2:
-			if state == STATE.FULL:
-				input_roll(event)
-			elif state == STATE.ROLLED:
-				input_dim_select(event)
+	if get_global_rect().has_point(event.position):
+		if get_parent().get_tab_bar().current_tab == 2:
+				if state.value == Globals.GUISTATE.ROLL:
+					if %DiceList.get_child_count() >= 3 and not rolling:
+						input_roll(event)
+				elif state.value == Globals.GUISTATE.DIMENSION:
+					input_dim_select(event)
 #endregion
 
 #region public functions
@@ -46,55 +42,41 @@ func update_dice(dice_buttons):
 		dice.position = INITPOS[i]
 		dice.state = dice.STATE.PREROLL
 		dice.roll_stopped.connect(on_dice_stopped)
-		dice.dim_setup_finished.connect(func(): state = STATE.ROLLED)
-	# update state
-	if %DiceList.get_child_count() >= 3:
-		state = STATE.FULL
-	else:
-		state = STATE.NOTFULL
+		dice.dim_setup_finished.connect(func(): state.value = Globals.GUISTATE.DIMENSION)
 #endregion
 
 #region signals callbacks
 func on_dice_stopped():
 	if all_dice_stopped():
-		if any_dice_cocked():
-			state = STATE.FULL
-		else:
+		rolling = false
+		if not any_dice_cocked():
 			resolve_roll()
 #endregion
 
 #region private functions
 func input_roll(event):
-	if get_global_rect().has_point(event.position):
-		# check for touch or drag
-		if event is InputEventScreenTouch or event is InputEventScreenDrag:
-			# if touch, dragging started
-			if event is InputEventScreenTouch and event.pressed:
-				dragging = true
-			# if drag, register velocity
-			elif event is InputEventScreenDrag and dragging:
-				roll_velocity = event.velocity
-			# if drag released, roll dice
-			elif event is InputEventScreenTouch and not event.pressed and dragging:
-				roll_dice(roll_velocity)
-				dragging = false
-	# if outside the drag area, reset dragging
-	else:
+	if event is InputEventScreenTouch and event.pressed:
+		dragging = true
+	# if drag, register velocity
+	elif event is InputEventScreenDrag and dragging:
+		roll_velocity = event.velocity
+	# if drag released, roll dice
+	elif event is InputEventScreenTouch and not event.pressed and dragging:
+		roll_dice(roll_velocity)
 		dragging = false
 
 func input_dim_select(event):
-	#if get_global_rect().has_point(event.position):
-		if event is InputEventScreenTouch and event.pressed:
-			var touch_pos = %SubViewport.get_mouse_position()
-			var ray_origin = %Camera3D.project_ray_origin(touch_pos)
-			var ray_target = ray_origin + %Camera3D.project_ray_normal(touch_pos) * 1000
-			var space_state = %Camera3D.get_world_3d().direct_space_state
-			var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_target)
-			var result = space_state.intersect_ray(query)
-			if result:
-				var selected_object = result["collider"]
-				if selected_object in %DiceList.get_children():
-					select_dimdice(selected_object)
+	if event is InputEventScreenTouch and event.pressed:
+		var touch_pos = %SubViewport.get_mouse_position()
+		var ray_origin = %Camera3D.project_ray_origin(touch_pos)
+		var ray_target = ray_origin + %Camera3D.project_ray_normal(touch_pos) * 1000
+		var space_state = %Camera3D.get_world_3d().direct_space_state
+		var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_target)
+		var result = space_state.intersect_ray(query)
+		if result:
+			var selected_object = result["collider"]
+			if selected_object in %DiceList.get_children():
+				select_dimdice(selected_object)
 
 func select_dimdice(dimdice):
 	for dice in %DiceList.get_children():
@@ -103,8 +85,7 @@ func select_dimdice(dimdice):
 	dimdice.fade = true
 
 func roll_dice(velocity):
-	# disable further rolling
-	state = STATE.ROLLING
+	rolling = true
 	Events.roll_started.emit()
 	for dice in %DiceList.get_children():
 		dice.roll(velocity)
