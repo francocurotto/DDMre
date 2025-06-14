@@ -7,6 +7,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_fl3nv"]
 
 [node name="Dice" type="RigidBody3D"]
+collision_layer = 3
 inertia = Vector3(0.17, 0.17, 0.17)
 script = ExtResource("1_ws0no")
 

@@ -1,5 +1,6 @@
 @tool
 extends RigidBody3D
+class_name Dice
 
 #region signals
 signal roll_stopped

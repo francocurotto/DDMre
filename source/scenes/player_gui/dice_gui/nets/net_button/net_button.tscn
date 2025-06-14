@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://4mlxmxnqgngo"]
+
+[ext_resource type="Texture2D" uid="uid://d4hqf36tbxwug" path="res://assets/NET_X.png" id="1_p516w"]
+[ext_resource type="Script" uid="uid://csrt0x0re0q86" path="res://scenes/player_gui/dice_gui/nets/net_button/net_button.gd" id="2_p516w"]
+
+[node name="NetButton" type="Button"]
+offset_right = 200.0
+offset_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+icon = ExtResource("1_p516w")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_p516w")

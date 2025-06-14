@@ -6,6 +6,12 @@ enum GUISTATE {
 	DIMENSION,
 	DUNGEON
 }
+
+enum LAYERS {
+	ALL = 1,
+	DICE = 2,
+	TILES = 4
+}
 #endregion
 
 #region constants

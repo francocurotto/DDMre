@@ -5,6 +5,14 @@ extends MarginContainer
 const MAXAMOUNT = 99
 #endregion
 
+#region export variables
+@export_enum("MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP")
+var type : String = "MOVEMENT" :
+	set(_type):
+		type = _type
+		%TextureRect.texture = load("res://assets/CREST_%s.svg" % type)
+#endregion
+
 #region public variables
 var amount : int = 0 :
 	set(_amount):
@@ -13,14 +21,6 @@ var amount : int = 0 :
 		if len(string) < 2:
 			string = "0" + string
 		animate_update(string)
-#endregion
-
-#region export variables
-@export_enum("MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP")
-var type : String = "MOVEMENT" :
-	set(_type):
-		type = _type
-		%TextureRect.texture = load("res://assets/CREST_%s.svg" % type)
 #endregion
 
 #region public functions

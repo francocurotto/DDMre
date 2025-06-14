@@ -6,9 +6,9 @@ const DimNet = preload("res://scenes/dungeon/dimnet.gd")
 #endregion
 
 #region private variables
-var dimdice = null
 var tiles = []
 var dimnet = DimNet.new()
+var dimdice
 var dimtile
 #endregion
 
@@ -23,16 +23,20 @@ func _ready() -> void:
 #endregion
 
 #region public functions
-func dungeon_touch(_event: InputEvent) -> void:
-	var touch_pos = get_viewport().get_mouse_position()
+func get_touched_object(event: InputEvent, layer):
+	var touch_pos = event.position
 	var camera = get_viewport().get_camera_3d()
 	var ray_origin = camera.project_ray_origin(touch_pos)
 	var ray_target = ray_origin + camera.project_ray_normal(touch_pos) * 1000
 	var space_state = get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_target, 2)
+	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_target, layer)
 	var result = space_state.intersect_ray(query)
-	if result and dimdice:
-		dimtile = result["collider"]
+	if result:
+		return result["collider"]
+
+func dungeon_touch(tile) -> void:
+	if dimdice:
+		dimtile = tile
 		dimdice.position = dimtile.global_position + Vector3(0,1,0)
 		set_dimnet()
 #endregion
