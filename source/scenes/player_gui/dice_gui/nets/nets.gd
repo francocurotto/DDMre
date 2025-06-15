@@ -1,5 +1,28 @@
 extends PanelContainer
 
+#region constants
+const NETCOORS = {
+	"T" = [Vector2i(-1,1),Vector2i(0,1), Vector2i(1,1), Vector2i(0,0),Vector2i(0,-1),Vector2i(0,-2)],
+	"Y" = [Vector2i(-1,1),Vector2i(0,1), Vector2i(0,0), Vector2i(0,1),Vector2i(0,-1),Vector2i(0,-2)],
+	"Z" = [Vector2i(-1,1),Vector2i(0,1), Vector2i(0,0), Vector2i(0,-1),Vector2i(0,-2),Vector2i(1,-2)],
+	"V" = [Vector2i(-1,1),Vector2i(0,1), Vector2i(0,0), Vector2i(0,-1),Vector2i(1,-1),Vector2i(0,-2)],
+	"X" = [Vector2i(0,1),Vector2i(-1,0), Vector2i(0,0), Vector2i(1,0),Vector2i(0,-1),Vector2i(0,-2)],
+	"N" = [Vector2i(0,1),Vector2i(-1,0), Vector2i(0,0), Vector2i(0,-1),Vector2i(1,-1),Vector2i(0,-2)],
+	"M" = [Vector2i(-1,1),Vector2i(0,1), Vector2i(0,0), Vector2i(0,-1),Vector2i(1,-1),Vector2i(1,-2)],
+	"E" = [Vector2i(-1,1),Vector2i(-1,0), Vector2i(0,0), Vector2i(0,-1),Vector2i(1,-1),Vector2i(1,-2)],
+	"P" = [Vector2i(-1,1),Vector2i(-1,0), Vector2i(0,0), Vector2i(1,0),Vector2i(0,-1),Vector2i(0,-2)],
+	"R" = [Vector2i(-1,1),Vector2i(-1,0), Vector2i(0,0), Vector2i(0,-1),Vector2i(1,-1),Vector2i(0,-2)],
+	"L" = [Vector2i(0,2),Vector2i(0,1), Vector2i(0,0), Vector2i(1,0),Vector2i(1,-1),Vector2i(1,-2)],
+}
+#endregion
+
+#region public variables
+var net:
+	get():
+		var netname = button_group.get_pressed_button().type
+		return NETCOORS[netname]
+#endregion
+
 #region private variables
 var button_group = ButtonGroup.new()
 #endregion

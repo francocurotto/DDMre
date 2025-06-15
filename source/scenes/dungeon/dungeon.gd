@@ -2,12 +2,10 @@ extends Node3D
 
 #region constants
 const DIMDICE_POS = Vector3(0, 1, -3)
-const DimNet = preload("res://scenes/dungeon/dimnet.gd")
 #endregion
 
 #region private variables
 var tiles = []
-var dimnet = DimNet.new()
 var dimdice
 var dimtile
 #endregion
