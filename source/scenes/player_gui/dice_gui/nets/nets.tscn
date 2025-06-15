@@ -14,64 +14,75 @@
 [ext_resource type="Texture2D" uid="uid://bomweggr115lm" path="res://assets/NET_L.png" id="11_gdqs2"]
 
 [node name="Nets" type="PanelContainer"]
+custom_minimum_size = Vector2(720, 430)
 offset_right = 720.0
 offset_bottom = 430.0
 script = ExtResource("1_kenb1")
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
 columns = 4
 
-[node name="NetButtonT" parent="GridContainer" instance=ExtResource("1_mpq33")]
+[node name="NetButtonT" parent="MarginContainer/GridContainer" instance=ExtResource("1_mpq33")]
 layout_mode = 2
 icon = ExtResource("2_brdv2")
 type = "T"
 
-[node name="NetButtonY" parent="GridContainer" instance=ExtResource("1_mpq33")]
+[node name="NetButtonY" parent="MarginContainer/GridContainer" instance=ExtResource("1_mpq33")]
 layout_mode = 2
 icon = ExtResource("3_kenb1")
 type = "Y"
 
-[node name="NetButtonZ" parent="GridContainer" instance=ExtResource("1_mpq33")]
+[node name="NetButtonZ" parent="MarginContainer/GridContainer" instance=ExtResource("1_mpq33")]
 layout_mode = 2
 icon = ExtResource("4_cp2yw")
 type = "Z"
 
-[node name="NetButtonV" parent="GridContainer" instance=ExtResource("1_mpq33")]
+[node name="NetButtonV" parent="MarginContainer/GridContainer" instance=ExtResource("1_mpq33")]
 layout_mode = 2
 icon = ExtResource("5_heryw")
 type = "V"
 
-[node name="NetButtonX" parent="GridContainer" instance=ExtResource("1_mpq33")]
+[node name="NetButtonX" parent="MarginContainer/GridContainer" instance=ExtResource("1_mpq33")]
 layout_mode = 2
 button_pressed = true
 
-[node name="NetButtonN" parent="GridContainer" instance=ExtResource("1_mpq33")]
+[node name="NetButtonN" parent="MarginContainer/GridContainer" instance=ExtResource("1_mpq33")]
 layout_mode = 2
 icon = ExtResource("6_geuoe")
 type = "N"
 
-[node name="NetButtonM" parent="GridContainer" instance=ExtResource("1_mpq33")]
+[node name="NetButtonM" parent="MarginContainer/GridContainer" instance=ExtResource("1_mpq33")]
 layout_mode = 2
 icon = ExtResource("7_opbqk")
 type = "M"
 
-[node name="NetButtonE" parent="GridContainer" instance=ExtResource("1_mpq33")]
+[node name="NetButtonE" parent="MarginContainer/GridContainer" instance=ExtResource("1_mpq33")]
 layout_mode = 2
 icon = ExtResource("8_dkatp")
 type = "E"
 
-[node name="NetButtonP" parent="GridContainer" instance=ExtResource("1_mpq33")]
+[node name="NetButtonP" parent="MarginContainer/GridContainer" instance=ExtResource("1_mpq33")]
 layout_mode = 2
 icon = ExtResource("9_2rqhi")
 type = "P"
 
-[node name="NetButtonR" parent="GridContainer" instance=ExtResource("1_mpq33")]
+[node name="NetButtonR" parent="MarginContainer/GridContainer" instance=ExtResource("1_mpq33")]
 layout_mode = 2
 icon = ExtResource("10_qfd4b")
 type = "R"
 
-[node name="NetButtonL" parent="GridContainer" instance=ExtResource("1_mpq33")]
+[node name="NetButtonL" parent="MarginContainer/GridContainer" instance=ExtResource("1_mpq33")]
 layout_mode = 2
 icon = ExtResource("11_gdqs2")
 type = "L"

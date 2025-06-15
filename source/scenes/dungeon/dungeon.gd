@@ -63,8 +63,8 @@ func set_dimnet():
 func get_nettiles():
 	var nettiles = []
 	var dimcoor = get_tilecoor(dimtile)
-	dimnet.offset = dimcoor
-	for coor in dimnet.coordinates:
+	Net.offset = dimcoor
+	for coor in Net.coordinates:
 		var tile = get_tile(coor)
 		if tile:
 			nettiles.append(tile)
