@@ -1,5 +1,9 @@
 extends PanelContainer
 
+#region public variables
+var guistate
+#endregion
+
 #region private variables
 var button_group = ButtonGroup.new()
 #endregion
@@ -15,4 +19,6 @@ func _ready() -> void:
 #region signals callbacks
 func on_button_pressed(button):
 	Net.type = button.type
+	if guistate.value == Globals.GUISTATE.DIMENSION:
+		Globals.dungeon.set_dimnet()
 #endregion

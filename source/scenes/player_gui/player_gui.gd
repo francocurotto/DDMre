@@ -1,7 +1,7 @@
 extends VBoxContainer
 
 #region public variables
-var state = State.new()
+var guistate = GuiState.new()
 #endregion
 
 #region private variables
@@ -11,8 +11,8 @@ var dicelib = Globals.read_jsonfile(Globals.LIBPATH)
 #region builtin functions
 func _ready() -> void:
 	# setup state
-	$DungeonGUI.state = state
-	$DiceGUI.state = state
+	$DungeonGUI.guistate = guistate
+	$DiceGUI.guistate = guistate
 	# initialize dicepool
 	for i in Globals.DICEPOOL_SIZE:
 		# get a random dice
@@ -22,6 +22,6 @@ func _ready() -> void:
 #endregion
 
 #region subclasses
-class State:
+class GuiState:
 	var value : int = Globals.GUISTATE.ROLL
 #endregion

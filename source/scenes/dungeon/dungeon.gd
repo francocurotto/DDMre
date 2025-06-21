@@ -37,6 +37,12 @@ func dungeon_touch(tile) -> void:
 		dimtile = tile
 		dimdice.position = dimtile.global_position + Vector3(0,1,0)
 		set_dimnet()
+
+func set_dimnet():
+	var nettiles = get_nettiles()
+	for row in tiles:
+		for tile in row:
+			tile.highlight = tile in nettiles
 #endregion
 
 #region signals callbacks
@@ -54,12 +60,6 @@ func on_dimdice_selected(new_dimdice):
 #endregion
 
 #region private functions
-func set_dimnet():
-	var nettiles = get_nettiles()
-	for row in tiles:
-		for tile in row:
-			tile.highlight = tile in nettiles
-
 func get_nettiles():
 	var nettiles = []
 	var dimcoor = get_tilecoor(dimtile)

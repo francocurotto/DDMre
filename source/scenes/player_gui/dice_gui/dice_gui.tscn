@@ -41,6 +41,7 @@ visible = false
 layout_mode = 2
 
 [node name="Nets" parent="TabContainer" instance=ExtResource("4_enn0o")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3

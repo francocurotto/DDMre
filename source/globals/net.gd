@@ -3,7 +3,7 @@ extends Node
 #region constants
 const NETCOORS = {
 	"T" = [Vector2i(-1,1),Vector2i(0,1), Vector2i(1,1), Vector2i(0,0),Vector2i(0,-1),Vector2i(0,-2)],
-	"Y" = [Vector2i(-1,1),Vector2i(0,1), Vector2i(0,0), Vector2i(0,1),Vector2i(0,-1),Vector2i(0,-2)],
+	"Y" = [Vector2i(-1,1),Vector2i(0,1), Vector2i(0,0), Vector2i(1,0),Vector2i(0,-1),Vector2i(0,-2)],
 	"Z" = [Vector2i(-1,1),Vector2i(0,1), Vector2i(0,0), Vector2i(0,-1),Vector2i(0,-2),Vector2i(1,-2)],
 	"V" = [Vector2i(-1,1),Vector2i(0,1), Vector2i(0,0), Vector2i(0,-1),Vector2i(1,-1),Vector2i(0,-2)],
 	"X" = [Vector2i(0,1),Vector2i(-1,0), Vector2i(0,0), Vector2i(1,0),Vector2i(0,-1),Vector2i(0,-2)],
@@ -17,8 +17,11 @@ const NETCOORS = {
 #endregion
 
 #region public variables
-var type
 var offset
+var type:
+	set(_type):
+		type = _type
+		Events.net_changed.emit()
 var coordinates:
 	get():
 		var coor = NETCOORS[type]

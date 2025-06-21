@@ -1,10 +1,11 @@
 extends VBoxContainer
 
 #region public variables
-var state : 
-	set(_state):
-		state = _state
-		%Rollzone.state = state
+var guistate : 
+	set(_guistate):
+		guistate = _guistate
+		%Rollzone.guistate = guistate
+		%Nets.guistate = guistate
 #endregion
 
 #region builtin functions

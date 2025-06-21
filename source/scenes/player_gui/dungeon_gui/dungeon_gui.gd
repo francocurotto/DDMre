@@ -5,7 +5,7 @@ const CAMERA_SPEED = 0.02
 #endregion
 
 #region public variables
-var state
+var guistate
 #endregion
 
 #region private variables
