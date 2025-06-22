@@ -31,7 +31,7 @@ func _input(event):
 #region private functions
 func input_drag(event):
 	if touched_dice: # dragging dice
-		drag_dice()
+		drag_dice(event)
 	else: # dragging everything else
 		move_camera(event)
 
@@ -40,8 +40,16 @@ func input_touch(event):
 	if tile:
 		Globals.dungeon.dungeon_touch(tile)
 
-func drag_dice():
-	pass
+func drag_dice(event):
+	var angle = event.velocity.angle()
+	if angle <= -3/4*PI or 3/4*PI < angle:
+		rotate_dimdice_clockwise()
+	elif -1/4*PI <= angle and angle < 1/4*PI:
+		rotate_dimdice_counter_clockwise()
+	elif 1/4*PI <= angle and angle < 3/4*PI:
+		flip_dimdice()
+	else:
+		move_dimdice()
 
 func move_camera(event):
 	var movement = Vector3(event.velocity.x, 0, event.velocity.y)
