@@ -10,6 +10,7 @@ var guistate
 
 #region private variables
 var touched_dice
+var first_drag = false
 var dragging = false
 #endregion
 
@@ -18,12 +19,15 @@ func _input(event):
 	if get_global_rect().has_point(event.position):
 		if event is InputEventScreenTouch and event.pressed:
 			touched_dice = Globals.dungeon.get_touched_object(event, Globals.LAYERS.DICE)
+			first_drag = true
 		if event is InputEventScreenDrag:
 			dragging = true
 			input_drag(event)
+			first_drag = false
 		elif event is InputEventScreenTouch and not event.pressed:
 			if not dragging: # check if it was not dragging input
 				input_touch(event)
+			first_drag = false
 			dragging = false
 			touched_dice = null
 #endregion
@@ -42,14 +46,32 @@ func input_touch(event):
 
 func drag_dice(event):
 	var angle = event.velocity.angle()
-	if angle <= -3/4*PI or 3/4*PI < angle:
-		rotate_dimdice_clockwise()
-	elif -1/4*PI <= angle and angle < 1/4*PI:
-		rotate_dimdice_counter_clockwise()
-	elif 1/4*PI <= angle and angle < 3/4*PI:
-		flip_dimdice()
+	if angle <= -0.75*PI or 0.75*PI < angle:
+		if first_drag:
+			rotate_dimdice_counter_clockwise()
+	elif -0.25*PI <= angle and angle < 0.25*PI:
+		if first_drag:
+			rotate_dimdice_clockwise()
+	elif 0.25*PI <= angle and angle < 0.75*PI:
+		if first_drag:
+			flip_dimdice()
 	else:
 		move_dimdice()
+
+func rotate_dimdice_clockwise():
+	Net.rotate_clockwise()
+	Globals.dungeon.set_dimnet()
+
+func rotate_dimdice_counter_clockwise():
+	Net.rotate_counter_clockwise()
+	Globals.dungeon.set_dimnet()
+
+func flip_dimdice():
+	Net.flip()
+	Globals.dungeon.set_dimnet()
+
+func move_dimdice():
+	pass
 
 func move_camera(event):
 	var movement = Vector3(event.velocity.x, 0, event.velocity.y)

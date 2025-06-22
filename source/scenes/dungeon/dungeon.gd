@@ -1,7 +1,7 @@
 extends Node3D
 
 #region constants
-const DIMDICE_POS = Vector3(0, 1, -3)
+const DIMDICE_POS = Vector3(0, 2, -3)
 #endregion
 
 #region private variables
@@ -35,7 +35,7 @@ func get_touched_object(event: InputEvent, layer):
 func dungeon_touch(tile) -> void:
 	if dimdice:
 		dimtile = tile
-		dimdice.position = dimtile.global_position + Vector3(0,1,0)
+		dimdice.position = dimtile.global_position + Vector3(0,2,0)
 		set_dimnet()
 
 func set_dimnet():

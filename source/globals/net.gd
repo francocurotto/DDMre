@@ -17,6 +17,8 @@ const NETCOORS = {
 #endregion
 
 #region public variables
+var rotation = 0
+var orientation = false
 var offset
 var type:
 	set(_type):
@@ -25,11 +27,34 @@ var type:
 var coordinates:
 	get():
 		var coor = NETCOORS[type]
-		coor = set_offset(coor)
+		coor = apply_rotation(coor)
+		coor = apply_orientation(coor)
+		coor = apply_offset(coor)
 		return coor
 #endregion
 
+#region public functions
+func rotate_clockwise():
+	rotation = posmod(rotation+1, 4)
+
+func rotate_counter_clockwise():
+	rotation = posmod(rotation-1, 4)
+
+func flip():
+	orientation = not orientation
+#endregion
+
 #region private functions
-func set_offset(coor):
-	return coor.map(func(x): return x+offset)
+func apply_offset(coor):
+	return coor.map(func(v): return v+offset)
+
+func apply_rotation(coor):
+	for i in rotation:
+		coor = coor.map(func(v): return Vector2i(v.y,-v.x))
+	return coor
+
+func apply_orientation(coor):
+	if orientation:
+		coor = coor.map(func(v): return Vector2i(v.x, -v.y))
+	return coor
 #endregion
