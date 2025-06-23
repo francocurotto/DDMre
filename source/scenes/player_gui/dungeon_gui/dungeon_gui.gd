@@ -47,7 +47,7 @@ func input_touch(event):
 		Globals.dungeon.dungeon_touch(tile, playergui.net)
 
 func drag_dice(event):
-	var angle = rad_to_deg(touched_pos.angle_to_point(event.position))
+	var angle = rad_to_deg(-touched_pos.angle_to_point(event.position))
 	if not drag_input_done:
 		if event.position.distance_to(touched_pos) > DRAG_LENGTH:
 			if angle <= -135 or 135 < angle:

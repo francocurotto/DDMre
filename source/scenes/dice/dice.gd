@@ -23,6 +23,7 @@ const DIM_ROTATIONS = [
 	Vector3(0,PI/2,-PI/2),
 	Vector3(0,-PI/2,PI/2)
 ]
+const NET_ROTATIONS = [0, PI/2, PI, -PI/2]
 #endregion
 
 #region export variables
