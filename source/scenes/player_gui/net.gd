@@ -1,4 +1,4 @@
-extends Node
+extends RefCounted
 
 #region constants
 const NETCOORS = {

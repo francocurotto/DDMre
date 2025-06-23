@@ -9,7 +9,7 @@ const DIMPOS = {
 #endregion
 
 #region public variables
-var guistate
+var playergui
 #endregion
 
 #region private variables
@@ -22,10 +22,10 @@ var roll_velocity = Vector2.ZERO ## Initial velocity of roll
 func _input(event):
 	if get_global_rect().has_point(event.position):
 		if get_parent().get_tab_bar().current_tab == 2:
-				if guistate.value == Globals.GUISTATE.ROLL:
+				if playergui.state == Globals.GUISTATE.ROLL:
 					if %DiceList.get_child_count() >= 3 and not rolling:
 						input_roll(event)
-				elif guistate.value == Globals.GUISTATE.DIMENSION:
+				elif playergui.state == Globals.GUISTATE.DIMENSION:
 					input_dim_select(event)
 #endregion
 
@@ -43,7 +43,7 @@ func update_dice(dice_buttons):
 		dice.state = dice.STATE.PREROLL
 		dice.roll_stopped.connect(on_dice_stopped)
 		dice.dim_setup_finished.connect(
-			func(): guistate.value = Globals.GUISTATE.DIMENSION)
+			func(): playergui.state = Globals.GUISTATE.DIMENSION)
 #endregion
 
 #region signals callbacks
@@ -82,7 +82,7 @@ func input_dim_select(event):
 func select_dimdice(dimdice):
 	for dice in %DiceList.get_children():
 		dice.fade = false
-	Events.dimdice_selected.emit(dimdice.duplicate())
+	Events.dimdice_selected.emit(dimdice.duplicate(), playergui.net)
 	dimdice.fade = true
 
 func roll_dice(velocity):

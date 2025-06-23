@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://diibkwabj6r20"]
+
+[ext_resource type="Script" uid="uid://dnuqr30sohtha" path="res://scenes/player_gui/dice_gui/net_buttons/net_buttons.gd" id="1_4p63l"]
+[ext_resource type="PackedScene" uid="uid://4mlxmxnqgngo" path="res://scenes/player_gui/dice_gui/net_buttons/net_button/net_button.tscn" id="2_y0p1r"]
+[ext_resource type="Texture2D" uid="uid://db4mlpqkpdskc" path="res://assets/NET_T.png" id="3_qsgto"]
+[ext_resource type="Texture2D" uid="uid://b27db0ccqv4c4" path="res://assets/NET_Y.png" id="4_fed8u"]
+[ext_resource type="Texture2D" uid="uid://ggiwpcvi8x8e" path="res://assets/NET_Z.png" id="5_xairn"]
+[ext_resource type="Texture2D" uid="uid://c5kh0yp5j2v2b" path="res://assets/NET_V.png" id="6_y8jkg"]
+[ext_resource type="Texture2D" uid="uid://dxx82rc13tw0r" path="res://assets/NET_N.png" id="7_hu0fn"]
+[ext_resource type="Texture2D" uid="uid://c2silndntm2b8" path="res://assets/NET_M.png" id="8_kilaj"]
+[ext_resource type="Texture2D" uid="uid://brft705uhtodf" path="res://assets/NET_E.png" id="9_vykko"]
+[ext_resource type="Texture2D" uid="uid://0r1ewuguiu57" path="res://assets/NET_P.png" id="10_87e1u"]
+[ext_resource type="Texture2D" uid="uid://dlsrpndif6vue" path="res://assets/NET_R.png" id="11_b0vad"]
+[ext_resource type="Texture2D" uid="uid://bomweggr115lm" path="res://assets/NET_L.png" id="12_8criv"]
+
+[node name="NetButtons" type="PanelContainer"]
+custom_minimum_size = Vector2(720, 430)
+offset_right = 720.0
+offset_bottom = 430.0
+script = ExtResource("1_4p63l")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="NetButtonT" parent="MarginContainer/GridContainer" instance=ExtResource("2_y0p1r")]
+layout_mode = 2
+icon = ExtResource("3_qsgto")
+type = "T"
+
+[node name="NetButtonY" parent="MarginContainer/GridContainer" instance=ExtResource("2_y0p1r")]
+layout_mode = 2
+icon = ExtResource("4_fed8u")
+type = "Y"
+
+[node name="NetButtonZ" parent="MarginContainer/GridContainer" instance=ExtResource("2_y0p1r")]
+layout_mode = 2
+icon = ExtResource("5_xairn")
+type = "Z"
+
+[node name="NetButtonV" parent="MarginContainer/GridContainer" instance=ExtResource("2_y0p1r")]
+layout_mode = 2
+icon = ExtResource("6_y8jkg")
+type = "V"
+
+[node name="NetButtonX" parent="MarginContainer/GridContainer" instance=ExtResource("2_y0p1r")]
+layout_mode = 2
+button_pressed = true
+
+[node name="NetButtonN" parent="MarginContainer/GridContainer" instance=ExtResource("2_y0p1r")]
+layout_mode = 2
+icon = ExtResource("7_hu0fn")
+type = "N"
+
+[node name="NetButtonM" parent="MarginContainer/GridContainer" instance=ExtResource("2_y0p1r")]
+layout_mode = 2
+icon = ExtResource("8_kilaj")
+type = "M"
+
+[node name="NetButtonE" parent="MarginContainer/GridContainer" instance=ExtResource("2_y0p1r")]
+layout_mode = 2
+icon = ExtResource("9_vykko")
+type = "E"
+
+[node name="NetButtonP" parent="MarginContainer/GridContainer" instance=ExtResource("2_y0p1r")]
+layout_mode = 2
+icon = ExtResource("10_87e1u")
+type = "P"
+
+[node name="NetButtonR" parent="MarginContainer/GridContainer" instance=ExtResource("2_y0p1r")]
+layout_mode = 2
+icon = ExtResource("11_b0vad")
+type = "R"
+
+[node name="NetButtonL" parent="MarginContainer/GridContainer" instance=ExtResource("2_y0p1r")]
+layout_mode = 2
+icon = ExtResource("12_8criv")
+type = "L"

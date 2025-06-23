@@ -32,21 +32,21 @@ func get_touched_object(event: InputEvent, layer):
 	if result:
 		return result["collider"]
 
-func dungeon_touch(tile) -> void:
+func dungeon_touch(tile, net) -> void:
 	if dimdice:
 		dimtile = tile
 		dimdice.position = dimtile.global_position + Vector3(0,2,0)
-		set_dimnet()
+		set_dimnet(net)
 
-func set_dimnet():
-	var nettiles = get_nettiles()
+func set_dimnet(net):
+	var nettiles = get_nettiles(net)
 	for row in tiles:
 		for tile in row:
 			tile.highlight = tile in nettiles
 #endregion
 
 #region signals callbacks
-func on_dimdice_selected(new_dimdice):
+func on_dimdice_selected(new_dimdice, net):
 	# remove previous dimdice
 	var dimdice_pos = DIMDICE_POS
 	if dimdice:
@@ -56,15 +56,15 @@ func on_dimdice_selected(new_dimdice):
 	dimdice = new_dimdice
 	add_child(dimdice)
 	dimdice.position = dimdice_pos
-	set_dimnet()
+	set_dimnet(net)
 #endregion
 
 #region private functions
-func get_nettiles():
+func get_nettiles(net):
 	var nettiles = []
 	var dimcoor = get_tilecoor(dimtile)
-	Net.offset = dimcoor
-	for coor in Net.coordinates:
+	net.offset = dimcoor
+	for coor in net.coordinates:
 		var tile = get_tile(coor)
 		if tile:
 			nettiles.append(tile)

@@ -1,11 +1,8 @@
 extends VBoxContainer
 
-#region public variables
-var guistate : 
-	set(_guistate):
-		guistate = _guistate
-		%Rollzone.guistate = guistate
-		%Nets.guistate = guistate
+#region onready variables
+@onready var rollzone = %Rollzone
+@onready var net_buttons = %Nets
 #endregion
 
 #region builtin functions
