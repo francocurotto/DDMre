@@ -23,7 +23,7 @@ const DIM_ROTATIONS = [
 	Vector3(0,PI/2,-PI/2),
 	Vector3(0,-PI/2,PI/2)
 ]
-const NET_ROTATIONS = [0, PI/2, PI, -PI/2]
+const ROTATION_ANGLES = [0, PI/2, PI, -PI/2]
 #endregion
 
 #region export variables
@@ -43,6 +43,8 @@ var moving : bool :
 #endregion
 
 #region private variables
+var rotation_index
+#var rotation_tween = create_tween()
 var translating : bool : 
 	get(): 
 		return linear_velocity.length() > 0.0001
@@ -104,6 +106,25 @@ func setup_dim_select(new_position):
 	tween.parallel().tween_property(self, "rotation", DIM_ROTATIONS[index], 1)
 	await tween.finished
 	dim_setup_finished.emit()
+
+func update_rotation_index():
+	rotation_index = ROTATION_ANGLES.find(rotation.y) #FIX
+	print(rotation.y)
+	print(rotation_index)
+
+func rotate_clockwise():
+	rotation_index = posmod(rotation_index-1, 4)
+	var new_angle = ROTATION_ANGLES[rotation_index]
+	var new_rotation = Vector3(rotation.x, new_angle, rotation.z)
+	var tween = create_tween()
+	tween.tween_property(self, "rotation", new_rotation, 0.1)
+
+func rotate_counter_clockwise():
+	rotation_index = posmod(rotation_index+1, 4)
+	var new_angle = ROTATION_ANGLES[rotation_index]
+	var new_rotation = Vector3(rotation.x, new_angle, rotation.z)
+	var tween = create_tween()
+	tween.tween_property(self, "rotation", new_rotation, 0.1)
 #endregion
 
 #region private functions

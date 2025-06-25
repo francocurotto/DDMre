@@ -67,10 +67,12 @@ func drag_dice(event):
 
 func rotate_dimdice_clockwise():
 	playergui.net.rotate_clockwise()
+	Globals.dungeon.dimdice.rotate_clockwise()
 	Globals.dungeon.set_dimnet(playergui.net)
 
 func rotate_dimdice_counter_clockwise():
 	playergui.net.rotate_counter_clockwise()
+	Globals.dungeon.dimdice.rotate_counter_clockwise()
 	Globals.dungeon.set_dimnet(playergui.net)
 
 func flip_dimdice():

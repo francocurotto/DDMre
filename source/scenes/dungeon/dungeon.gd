@@ -57,6 +57,7 @@ func on_dimdice_selected(new_dimdice, net):
 	add_child(dimdice)
 	dimdice.position = dimdice_pos
 	set_dimnet(net)
+	dimdice.update_rotation_index()
 #endregion
 
 #region private functions
