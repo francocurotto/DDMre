@@ -47,6 +47,7 @@ func set_dimnet(net):
 
 #region signals callbacks
 func on_dimdice_selected(new_dimdice, net):
+	print(new_dimdice.rotation_index)
 	# remove previous dimdice
 	var dimdice_pos = DIMDICE_POS
 	if dimdice:
@@ -57,7 +58,6 @@ func on_dimdice_selected(new_dimdice, net):
 	add_child(dimdice)
 	dimdice.position = dimdice_pos
 	set_dimnet(net)
-	dimdice.update_rotation_index()
 #endregion
 
 #region private functions

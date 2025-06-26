@@ -82,6 +82,7 @@ func input_dim_select(event):
 func select_dimdice(dimdice):
 	for dice in %DiceList.get_children():
 		dice.fade = false
+	print(dimdice.rotation_index)
 	Events.dimdice_selected.emit(dimdice.duplicate(), playergui.net)
 	dimdice.fade = true
 
