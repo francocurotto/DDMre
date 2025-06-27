@@ -51,15 +51,12 @@ func drag_dice(event):
 	if not drag_input_done:
 		if event.position.distance_to(touched_pos) > DRAG_LENGTH:
 			if angle <= -135 or 135 < angle:
-				print(angle)
 				rotate_dimdice_clockwise()
 				drag_input_done = true
 			elif -45 <= angle and angle < 45:
-				print(angle)
 				rotate_dimdice_counter_clockwise()
 				drag_input_done = true
 			elif 45 <= angle and angle < 135:
-				print(angle)
 				flip_dimdice()
 				drag_input_done = true
 		#if -135 < angle and angle < -45:
@@ -67,12 +64,12 @@ func drag_dice(event):
 
 func rotate_dimdice_clockwise():
 	playergui.net.rotate_clockwise()
-	Globals.dungeon.dimdice.rotate_clockwise()
+	Globals.dungeon.rotate_dimdice_clockwise()
 	Globals.dungeon.set_dimnet(playergui.net)
 
 func rotate_dimdice_counter_clockwise():
 	playergui.net.rotate_counter_clockwise()
-	Globals.dungeon.dimdice.rotate_counter_clockwise()
+	Globals.dungeon.rotate_dimdice_counter_clockwise()
 	Globals.dungeon.set_dimnet(playergui.net)
 
 func flip_dimdice():

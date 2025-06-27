@@ -2,12 +2,14 @@ extends Node3D
 
 #region constants
 const DIMDICE_POS = Vector3(0, 2, -3)
+const DIMDICE_ANGLES = [0, PI/2, PI , 3*PI/2]
 #endregion
 
 #region private variables
 var tiles = []
 var dimdice
 var dimtile
+var rotation_index = 0
 #endregion
 
 #region builtin functions
@@ -47,7 +49,6 @@ func set_dimnet(net):
 
 #region signals callbacks
 func on_dimdice_selected(new_dimdice, net):
-	print(new_dimdice.rotation_index)
 	# remove previous dimdice
 	var dimdice_pos = DIMDICE_POS
 	if dimdice:
@@ -57,7 +58,22 @@ func on_dimdice_selected(new_dimdice, net):
 	dimdice = new_dimdice
 	add_child(dimdice)
 	dimdice.position = dimdice_pos
+	dimdice.rotation = Vector3(0, DIMDICE_ANGLES[rotation_index], 0)
 	set_dimnet(net)
+
+func rotate_dimdice_clockwise():
+	rotation_index = posmod(rotation_index-1, 4)
+	var new_angle = DIMDICE_ANGLES[rotation_index]
+	var new_rotation = Vector3(rotation.x, new_angle, rotation.z)
+	var tween = create_tween()
+	tween.tween_property(dimdice, "rotation", new_rotation, 0.1)
+
+func rotate_dimdice_counter_clockwise():
+	rotation_index = posmod(rotation_index+1, 4)
+	var new_angle = DIMDICE_ANGLES[rotation_index]
+	var new_rotation = Vector3(rotation.x, new_angle, rotation.z)
+	var tween = create_tween()
+	tween.tween_property(dimdice, "rotation", new_rotation, 0.1)
 #endregion
 
 #region private functions
