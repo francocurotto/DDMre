@@ -18,7 +18,7 @@ const NETCOORS = {
 
 #region public variables
 var rotation = 0
-var orientation = false
+var orientation = 1
 var offset
 var type:
 	set(_type):
@@ -35,13 +35,13 @@ var coordinates:
 
 #region public functions
 func rotate_clockwise():
-	rotation = posmod(rotation+1, 4)
+	rotation = posmod(rotation+orientation, 4)
 
 func rotate_counter_clockwise():
-	rotation = posmod(rotation-1, 4)
+	rotation = posmod(rotation-orientation, 4)
 
 func flip():
-	orientation = not orientation
+	orientation *= -1
 #endregion
 
 #region private functions
@@ -54,7 +54,7 @@ func apply_rotation(coor):
 	return coor
 
 func apply_orientation(coor):
-	if orientation:
+	if orientation == -1:
 		coor = coor.map(func(v): return Vector2i(v.x, -v.y))
 	return coor
 #endregion
