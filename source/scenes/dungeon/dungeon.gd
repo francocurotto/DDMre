@@ -2,14 +2,14 @@ extends Node3D
 
 #region constants
 const DIMDICE_POS = Vector3(0, 2, -3)
-const DIMDICE_ANGLES = [0, PI/2, PI , 3*PI/2]
 #endregion
 
 #region private variables
 var tiles = []
 var dimdice
 var dimtile
-var rotation_index = 0
+var dimdice_rot_quat0 = Quaternion()
+var dimdice_rot_quat1 = Quaternion()
 #endregion
 
 #region builtin functions
@@ -58,22 +58,29 @@ func on_dimdice_selected(new_dimdice, net):
 	dimdice = new_dimdice
 	add_child(dimdice)
 	dimdice.position = dimdice_pos
-	dimdice.rotation = Vector3(0, DIMDICE_ANGLES[rotation_index], 0)
+	dimdice.rotation = Vector3(0, 0, 0)
 	set_dimnet(net)
 
 func rotate_dimdice_clockwise():
-	rotation_index = posmod(rotation_index-1, 4)
-	var new_angle = DIMDICE_ANGLES[rotation_index]
-	var new_rotation = Vector3(rotation.x, new_angle, rotation.z)
+	dimdice_rot_quat0 = dimdice.transform.basis.get_rotation_quaternion()
+	var axis = Vector3(0, 1, 0)
+	dimdice_rot_quat1 = dimdice.transform.basis.rotated(axis, -PI/2)
 	var tween = create_tween()
-	tween.tween_property(dimdice, "rotation", new_rotation, 0.1)
+	tween.tween_method(_apply_quat_rotation, 0.0, 1.0, 0.1)
 
 func rotate_dimdice_counter_clockwise():
-	rotation_index = posmod(rotation_index+1, 4)
-	var new_angle = DIMDICE_ANGLES[rotation_index]
-	var new_rotation = Vector3(rotation.x, new_angle, rotation.z)
+	dimdice_rot_quat0 = dimdice.transform.basis.get_rotation_quaternion()
+	var axis = Vector3(0, 1, 0)
+	dimdice_rot_quat1 = dimdice.transform.basis.rotated(axis, PI/2)
 	var tween = create_tween()
-	tween.tween_property(dimdice, "rotation", new_rotation, 0.1)
+	tween.tween_method(_apply_quat_rotation, 0.0, 1.0, 0.1)
+
+func flip_dimdice():
+	dimdice_rot_quat0 = dimdice.transform.basis.get_rotation_quaternion()
+	var axis = Vector3(1, 0, 0)
+	dimdice_rot_quat1 = dimdice.transform.basis.rotated(axis, PI)
+	var tween = create_tween()
+	tween.tween_method(_apply_quat_rotation, 0.0, 1.0, 0.1)
 #endregion
 
 #region private functions
@@ -98,4 +105,8 @@ func coor_in_bound(coor):
 	var in_bound_x = 0 <= coor.x and coor.x < Globals.DUNGEON_WIDTH
 	var in_bound_y = 0 <= coor.y and coor.y < Globals.DUNGEON_HEIGHT
 	return in_bound_x and in_bound_y
+
+func _apply_quat_rotation(t: float) -> void:
+	var q = dimdice_rot_quat0.slerp(dimdice_rot_quat1, t)
+	dimdice.basis = Basis(q)
 #endregion
