@@ -1,7 +1,7 @@
 extends PanelContainer
 
 #region public variables
-var playergui
+var player_gui
 #endregion
 
 #region private variables
@@ -17,7 +17,7 @@ func _ready() -> void:
 
 #region signals callbacks
 func on_button_pressed(button):
-	playergui.net.type = button.type
-	if playergui.state == Globals.GUISTATE.DIMENSION:
-		Globals.dungeon.set_dimnet(playergui.net)
+	player_gui.net.type = button.type
+	if player_gui.guistate == Globals.GUISTATE.DIMENSION:
+		Globals.dungeon.set_dimnet(player_gui.net)
 #endregion

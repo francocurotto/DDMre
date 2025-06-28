@@ -9,10 +9,11 @@ const DIMPOS = {
 #endregion
 
 #region public variables
-var playergui
+var player_gui
 #endregion
 
 #region private variables
+var rollzone_tab_selected = false ## true when rollzone tab is selected
 var dragging = false ## true when player is dragging for roll
 var rolling = false ## true when dice are rolling
 var roll_velocity = Vector2.ZERO ## Initial velocity of roll
@@ -20,13 +21,12 @@ var roll_velocity = Vector2.ZERO ## Initial velocity of roll
 
 #region builtin functions
 func _input(event):
-	if get_global_rect().has_point(event.position):
-		if get_parent().get_tab_bar().current_tab == 2:
-				if playergui.state == Globals.GUISTATE.ROLL:
-					if %DiceList.get_child_count() >= 3 and not rolling:
-						input_roll(event)
-				elif playergui.state == Globals.GUISTATE.DIMENSION:
-					input_dim_select(event)
+	if input_in_rollzone(event):
+		if player_gui.guistate == Globals.GUISTATE.ROLL:
+			if %DiceList.get_child_count() >= 3 and not rolling:
+				input_roll(event)
+		elif player_gui.guistate == Globals.GUISTATE.DIMENSION:
+			input_dim_select(event)
 #endregion
 
 #region public functions
@@ -43,7 +43,7 @@ func update_dice(dice_buttons):
 		dice.state = dice.STATE.PREROLL
 		dice.roll_stopped.connect(on_dice_stopped)
 		dice.dim_setup_finished.connect(
-			func(): playergui.state = Globals.GUISTATE.DIMENSION)
+			func(): player_gui.guistate = Globals.GUISTATE.DIMENSION)
 #endregion
 
 #region signals callbacks
@@ -55,6 +55,10 @@ func on_dice_stopped():
 #endregion
 
 #region private functions
+func input_in_rollzone(event):
+	var in_rect = get_global_rect().has_point(event.position)
+	return in_rect and rollzone_tab_selected
+
 func input_roll(event):
 	if event is InputEventScreenTouch and event.pressed:
 		dragging = true
@@ -82,7 +86,7 @@ func input_dim_select(event):
 func select_dimdice(dimdice):
 	for dice in %DiceList.get_children():
 		dice.fade = false
-	Events.dimdice_selected.emit(dimdice.duplicate(), playergui.net)
+	Events.dimdice_selected.emit(dimdice.duplicate(), player_gui.net)
 	dimdice.fade = true
 
 func roll_dice(velocity):

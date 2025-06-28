@@ -5,7 +5,7 @@ const Net = preload("res://scenes/player_gui/net.gd")
 #endregion
 
 #region public variables
-var state = Globals.GUISTATE.ROLL
+var guistate = Globals.GUISTATE.ROLL
 var net = Net.new()
 #endregion
 
@@ -13,18 +13,24 @@ var net = Net.new()
 var dicelib = Globals.read_jsonfile(Globals.LIBPATH)
 #endregion
 
+#region onready variables
+@onready var info_gui = $InfoGUI
+@onready var dice_gui = $DiceGUI
+#endregion
+
 #region builtin functions
 func _ready() -> void:
-	# setup playergui reference
-	$DungeonGUI.playergui = self
-	$DiceGUI.rollzone.playergui = self
-	$DiceGUI.net_buttons.playergui = self
+	# setup player_gui reference
+	$DungeonGUI.player_gui = self
+	$DiceGUI.dicepool.player_gui = self
+	$DiceGUI.rollzone.player_gui = self
+	$DiceGUI.net_buttons.player_gui = self
+	# setup gui signals connections
+	$DiceGUI.dicegui_tab_changed.connect($InfoGUI.on_dicegui_tab_changed)
 	# setup net
 	net.type = $DiceGUI.net_buttons.button_group.get_pressed_button().type
 	# initialize dicepool
 	for i in Globals.DICEPOOL_SIZE:
-		# get a random dice
 		var rand_dice = dicelib[str(randi_range(1,len(dicelib)))]
-		# set dicepool dice
 		$DiceGUI.set_dice(i, rand_dice)
 #endregion

@@ -15,7 +15,6 @@ script = ExtResource("1_jyfec")
 
 [node name="Grid" type="GridContainer" parent="."]
 layout_mode = 2
-theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 5
 

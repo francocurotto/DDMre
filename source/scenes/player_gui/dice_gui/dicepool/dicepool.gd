@@ -5,6 +5,7 @@ signal roll_changed
 #endregion
 
 #region public variables
+var player_gui
 var buttons = []
 var roll_dice_buttons = []
 #endregion
@@ -14,6 +15,7 @@ func _ready() -> void:
 	Events.roll_started.connect(on_roll_started)
 	for button in $Grid.get_children():
 		buttons.append(button)
+		button.button_focused.connect(on_dice_button_focused)
 		button.button_toggled.connect(on_dice_button_toggled)
 #endregion
 
@@ -23,12 +25,21 @@ func set_dice(i, dice_dict):
 #endregion
 
 #region signals callbacks
+func on_dice_button_focused(dice):
+	player_gui.info_gui.on_dice_button_focused(dice)
+
 func on_dice_button_toggled(toggled_on, button):
 	if toggled_on:
 		on_dice_button_pressed(button)
 	else:
 		on_dice_button_released(button)
 
+func on_roll_started():
+	for button in buttons:
+		button.disabled = true
+#endregion
+
+#region private functions
 func on_dice_button_pressed(pressed_button):
 	roll_dice_buttons.append(pressed_button)
 	if len(roll_dice_buttons) >= 3:
@@ -42,8 +53,4 @@ func on_dice_button_released(released_button):
 	for button in buttons:
 		button.disabled = false
 	roll_changed.emit(roll_dice_buttons)
-
-func on_roll_started():
-	for button in buttons:
-		button.disabled = true
 #endregion

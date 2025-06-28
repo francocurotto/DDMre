@@ -1,13 +1,23 @@
 extends VBoxContainer
 
+#region signals
+signal dicegui_tab_changed
+#endregion
+
+#region private variables
+var tab_bar
+#endregion
+
 #region onready variables
+@onready var dicepool = %Dicepool
 @onready var rollzone = %Rollzone
 @onready var net_buttons = %Nets
 #endregion
 
 #region builtin functions
 func _ready() -> void:
-	$TabContainer.get_tab_bar().set_tab_title(2, "Rollzone (0/3)")
+	tab_bar = $TabContainer.get_tab_bar() 
+	tab_bar.set_tab_title(1, "Rollzone (0/3)")
 	%Dicepool.roll_changed.connect(on_roll_changed)
 #endregion
 
@@ -18,9 +28,11 @@ func set_dice(i, dice):
 
 #region signals callback
 func on_roll_changed(roll_dice_buttons):
-	$TabContainer.get_tab_bar().set_tab_title(2, "Rollzone (%d/3)" % len(roll_dice_buttons))
+	tab_bar.set_tab_title(1, "Rollzone (%d/3)" % len(roll_dice_buttons))
 	%Rollzone.update_dice(roll_dice_buttons)
 
 func _on_tab_container_tab_changed(_tab: int) -> void:
-	Events.dicegui_tab_changed.emit()
+	dicegui_tab_changed.emit()
+	var current_control_tab = $TabContainer.get_current_tab_control()
+	%Rollzone.rollzone_tab_selected = current_control_tab == %Rollzone
 #endregion

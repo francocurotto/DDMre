@@ -1,6 +1,7 @@
 extends AspectRatioContainer
 
 #region signals
+signal button_focused
 signal button_toggled
 #endregion
 
@@ -29,5 +30,5 @@ func _on_button_toggled(toggled_on: bool) -> void:
 	button_toggled.emit(toggled_on, self)
 
 func _on_button_focus_entered() -> void:
-	Events.dice_button_focus_entered.emit(%Dice)
+	button_focused.emit(%Dice)
 #endregion

@@ -6,7 +6,7 @@ const DRAG_LENGTH = 10
 #endregion
 
 #region public functions
-var playergui
+var player_gui
 #endregion
 
 #region private variables
@@ -44,7 +44,7 @@ func input_drag(event):
 func input_touch(event):
 	var tile = Globals.dungeon.get_touched_object(event, Globals.LAYERS.TILES)
 	if tile:
-		Globals.dungeon.dungeon_touch(tile, playergui.net)
+		Globals.dungeon.dungeon_touch(tile, player_gui.net)
 
 func drag_dice(event):
 	var angle = rad_to_deg(-touched_pos.angle_to_point(event.position))
@@ -64,18 +64,18 @@ func drag_dice(event):
 
 func rotate_dimdice_clockwise():
 	Globals.dungeon.rotate_dimdice_clockwise()
-	playergui.net.rotate_clockwise()
-	Globals.dungeon.set_dimnet(playergui.net)
+	player_gui.net.rotate_clockwise()
+	Globals.dungeon.set_dimnet(player_gui.net)
 
 func rotate_dimdice_counter_clockwise():
 	Globals.dungeon.rotate_dimdice_counter_clockwise()
-	playergui.net.rotate_counter_clockwise()
-	Globals.dungeon.set_dimnet(playergui.net)
+	player_gui.net.rotate_counter_clockwise()
+	Globals.dungeon.set_dimnet(player_gui.net)
 
 func flip_dimdice():
 	Globals.dungeon.flip_dimdice()
-	playergui.net.flip()
-	Globals.dungeon.set_dimnet(playergui.net)
+	player_gui.net.flip()
+	Globals.dungeon.set_dimnet(player_gui.net)
 
 func move_dimdice():
 	pass

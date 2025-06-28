@@ -10,15 +10,11 @@ script = ExtResource("1_uwko4")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 2
-current_tab = 0
 tabs_position = 1
-
-[node name="▲" type="PanelContainer" parent="TabContainer"]
-layout_mode = 2
-metadata/_tab_index = 0
+deselect_enabled = true
 
 [node name="Summon Info" parent="TabContainer" instance=ExtResource("1_0uhxh")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-metadata/_tab_index = 1
+metadata/_tab_index = 0
