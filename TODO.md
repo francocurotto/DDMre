@@ -9,7 +9,9 @@
     - finished dicepool
     - will global signals work when playing with two players?
         - change all globals singals for signals controlled by player_gui
-- change dice nad dungobj colors
+- change dice and dungobj colors
+- when dimdice is selected, update diceinfo
+- make rollzone walls angled
 
 ## FIXES
 - rolls sometimes not working, locking the game
