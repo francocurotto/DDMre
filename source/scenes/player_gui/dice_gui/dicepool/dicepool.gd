@@ -12,7 +12,7 @@ var roll_dice_buttons = []
 
 #region builtin functions
 func _ready() -> void:
-	Events.roll_started.connect(on_roll_started)
+	%Rollzone.roll_started.connect(%Dicepool.on_roll_started)
 	for button in $Grid.get_children():
 		buttons.append(button)
 		button.button_focused.connect(on_dice_button_focused)

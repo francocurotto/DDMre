@@ -1,5 +1,9 @@
 extends PanelContainer
 
+#region signals
+signal roll_started
+#endregion
+
 #region constants
 const INITPOS = [Vector3(-2.5,0,0), Vector3(0,0,0), Vector3(2.5,0,0)]
 const DIMPOS = {
@@ -17,13 +21,16 @@ var rollzone_tab_selected = false ## true when rollzone tab is selected
 var dragging = false ## true when player is dragging for roll
 var rolling = false ## true when dice are rolling
 var roll_velocity = Vector2.ZERO ## Initial velocity of roll
+var dicelist :
+	get():
+		return %DiceList.get_children()
 #endregion
 
 #region builtin functions
 func _input(event):
 	if input_in_rollzone(event):
 		if player_gui.guistate == Globals.GUISTATE.ROLL:
-			if %DiceList.get_child_count() >= 3 and not rolling:
+			if len(dicelist) >= 3 and not rolling:
 				input_roll(event)
 		elif player_gui.guistate == Globals.GUISTATE.DIMENSION:
 			input_dim_select(event)
@@ -34,7 +41,7 @@ func _input(event):
 #region public functions
 func update_dice(dice_buttons):
 	# remove previous dice
-	for dice in %DiceList.get_children():
+	for dice in dicelist:
 		dice.queue_free()
 		%DiceList.remove_child(dice)
 	# add new dice
@@ -72,35 +79,35 @@ func input_roll(event):
 		roll_dice(roll_velocity)
 		dragging = false
 
+func roll_dice(velocity):
+	rolling = true
+	roll_started.emit()
+	for dice in dicelist:
+		dice.roll(velocity)
+
 func input_dim_select(event):
 	if event is InputEventScreenTouch and event.pressed:
 		var touch_pos = %SubViewport.get_mouse_position()
 		var object = Globals.get_node3d_on_touch(touch_pos, %Camera3D)
-		if object in %DiceList.get_children():
+		if object in dicelist:
 			select_dimdice(object)
 
 func select_dimdice(dimdice):
-	for dice in %DiceList.get_children():
+	for dice in dicelist:
 		dice.fade = false
 	Events.dimdice_selected.emit(dimdice.duplicate(), player_gui.net)
 	dimdice.fade = true
 
-func roll_dice(velocity):
-	rolling = true
-	Events.roll_started.emit()
-	for dice in %DiceList.get_children():
-		dice.roll(velocity)
-
 func all_dice_stopped():
-	return %DiceList.get_children().all(func(dice): return not dice.moving)
+	return dicelist.all(func(dice): return not dice.moving)
 
 func any_dice_cocked():
-	return %DiceList.get_children().any(func(dice): return dice.rolled_side == null)
+	return dicelist.any(func(dice): return dice.rolled_side == null)
 
 func resolve_roll():
 	var summon_dice = []
 	# resolve crest rolls
-	for dice in %DiceList.get_children():
+	for dice in dicelist:
 		var side = dice.rolled_side
 		if side.crest != "SUMMON":
 			Events.crest_side_rolled.emit(side)
@@ -116,7 +123,7 @@ func resolve_roll():
 			break
 		dim_dice = []
 	# remove dice not used for dimension
-	for dice in %DiceList.get_children():
+	for dice in dicelist:
 		if dice not in dim_dice:
 			dice.remove()
 	# if can dimension, setup dimension interface
