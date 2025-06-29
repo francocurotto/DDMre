@@ -10,6 +10,7 @@
     - will global signals work when playing with two players?
         - change all globals singals for signals controlled by player_gui
 - change dice nad dungobj colors
+- in dimension, keep dice orientation when changing dimdice
 
 ## FIXES
 - rolls sometimes not working, locking the game

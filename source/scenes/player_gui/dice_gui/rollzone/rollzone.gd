@@ -27,6 +27,8 @@ func _input(event):
 				input_roll(event)
 		elif player_gui.guistate == Globals.GUISTATE.DIMENSION:
 			input_dim_select(event)
+	else:
+		dragging = false
 #endregion
 
 #region public functions
@@ -73,15 +75,9 @@ func input_roll(event):
 func input_dim_select(event):
 	if event is InputEventScreenTouch and event.pressed:
 		var touch_pos = %SubViewport.get_mouse_position()
-		var ray_origin = %Camera3D.project_ray_origin(touch_pos)
-		var ray_target = ray_origin + %Camera3D.project_ray_normal(touch_pos) * 1000
-		var space_state = %Camera3D.get_world_3d().direct_space_state
-		var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_target)
-		var result = space_state.intersect_ray(query)
-		if result:
-			var selected_object = result["collider"]
-			if selected_object in %DiceList.get_children():
-				select_dimdice(selected_object)
+		var object = Globals.get_node3d_on_touch(touch_pos, %Camera3D)
+		if object in %DiceList.get_children():
+			select_dimdice(object)
 
 func select_dimdice(dimdice):
 	for dice in %DiceList.get_children():
