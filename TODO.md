@@ -6,13 +6,10 @@
 
 ## IMPROVEMENTS
 - code refactoring
-    - finished dicepool
-    - will global signals work when playing with two players?
-        - change all globals singals for signals controlled by player_gui
+    - finished dice_gui
 - change dice and dungobj colors
 - when dimdice is selected, update diceinfo
 - make rollzone walls angled
-- in dimension, keep dice orientation when changing dimdice
 
 ## FIXES
 - rolls sometimes not working, locking the game

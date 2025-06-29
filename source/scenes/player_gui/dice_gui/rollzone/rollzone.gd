@@ -2,6 +2,7 @@ extends PanelContainer
 
 #region signals
 signal roll_started
+signal crest_side_rolled
 #endregion
 
 #region constants
@@ -21,16 +22,16 @@ var rollzone_tab_selected = false ## true when rollzone tab is selected
 var dragging = false ## true when player is dragging for roll
 var rolling = false ## true when dice are rolling
 var roll_velocity = Vector2.ZERO ## Initial velocity of roll
-var dicelist :
+var triplet_size : int = 0 :
 	get():
-		return %DiceList.get_children()
+		return %Triplet.get_child_count()
 #endregion
 
 #region builtin functions
 func _input(event):
 	if input_in_rollzone(event):
 		if player_gui.guistate == Globals.GUISTATE.ROLL:
-			if len(dicelist) >= 3 and not rolling:
+			if triplet_size >= 3 and not rolling:
 				input_roll(event)
 		elif player_gui.guistate == Globals.GUISTATE.DIMENSION:
 			input_dim_select(event)
@@ -39,21 +40,19 @@ func _input(event):
 #endregion
 
 #region public functions
-func update_dice(dice_buttons):
-	# remove previous dice
-	for dice in dicelist:
+func add_dice(dicepool_dice):
+	var dice = dicepool_dice.duplicate()
+	%Triplet.add_child(dice)
+	dice.position = INITPOS[triplet_size-1]
+	dice.roll_stopped.connect(on_dice_stopped)
+	dice.dim_setup_finished.connect(on_dim_setup_finished)
+
+func remove_dice(selected_dice_list):
+	for dice in get_triplet():
 		dice.queue_free()
-		%DiceList.remove_child(dice)
-	# add new dice
-	for i in len(dice_buttons):
-		var dice = dice_buttons[i].dice.duplicate()
-		%DiceList.add_child(dice)
-		dice.position = INITPOS[i]
-		dice.state = dice.STATE.PREROLL
-		dice.roll_stopped.connect(on_dice_stopped)
-		dice.dim_setup_finished.connect(
-			func(): player_gui.guistate = Globals.GUISTATE.DIMENSION)
-#endregion
+		%Triplet.remove_child(dice)
+	for dice in selected_dice_list:
+		add_dice(dice)
 
 #region signals callbacks
 func on_dice_stopped():
@@ -61,9 +60,15 @@ func on_dice_stopped():
 		rolling = false
 		if not any_dice_cocked():
 			resolve_roll()
+
+func on_dim_setup_finished():
+	player_gui.guistate = Globals.GUISTATE.DIMENSION
 #endregion
 
 #region private functions
+func get_triplet():
+	return %Triplet.get_children()
+
 func input_in_rollzone(event):
 	var in_rect = get_global_rect().has_point(event.position)
 	return in_rect and rollzone_tab_selected
@@ -82,35 +87,35 @@ func input_roll(event):
 func roll_dice(velocity):
 	rolling = true
 	roll_started.emit()
-	for dice in dicelist:
+	for dice in get_triplet():
 		dice.roll(velocity)
 
 func input_dim_select(event):
 	if event is InputEventScreenTouch and event.pressed:
 		var touch_pos = %SubViewport.get_mouse_position()
 		var object = Globals.get_node3d_on_touch(touch_pos, %Camera3D)
-		if object in dicelist:
+		if object in get_triplet():
 			select_dimdice(object)
 
 func select_dimdice(dimdice):
-	for dice in dicelist:
+	for dice in get_triplet():
 		dice.fade = false
-	Events.dimdice_selected.emit(dimdice.duplicate(), player_gui.net)
+	Globals.dungeon.update_dimdice(dimdice.duplicate(), player_gui.net)
 	dimdice.fade = true
 
 func all_dice_stopped():
-	return dicelist.all(func(dice): return not dice.moving)
+	return get_triplet().all(func(dice): return not dice.moving)
 
 func any_dice_cocked():
-	return dicelist.any(func(dice): return dice.rolled_side == null)
+	return get_triplet().any(func(dice): return dice.rolled_side == null)
 
 func resolve_roll():
 	var summon_dice = []
 	# resolve crest rolls
-	for dice in dicelist:
+	for dice in get_triplet():
 		var side = dice.rolled_side
 		if side.crest != "SUMMON":
-			Events.crest_side_rolled.emit(side)
+			crest_side_rolled.emit(side)
 		else:
 			summon_dice.append(dice)
 	# resolve summon rolls
@@ -123,16 +128,16 @@ func resolve_roll():
 			break
 		dim_dice = []
 	# remove dice not used for dimension
-	for dice in dicelist:
+	for dice in get_triplet():
 		if dice not in dim_dice:
 			dice.remove()
 	# if can dimension, setup dimension interface
 	if not dim_dice.is_empty():
 		setup_dim(dim_dice)
 
-func setup_dim(dim_dice):
+func setup_dim(dimdice_list):
 	# move dice
-	var ndice = len(dim_dice)
-	for i in len(dim_dice):
-		dim_dice[i].setup_dim_select(DIMPOS[ndice][i])
+	var n_dice = len(dimdice_list)
+	for i in len(dimdice_list):
+		dimdice_list[i].setup_dim_select(DIMPOS[n_dice][i])
 #endregion

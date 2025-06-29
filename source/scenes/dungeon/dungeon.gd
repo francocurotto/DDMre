@@ -8,13 +8,12 @@ const DIMDICE_POS = Vector3(0, 2, -3)
 var tiles = []
 var dimdice
 var dimtile
-var dimdice_rot_quat0 = Quaternion()
-var dimdice_rot_quat1 = Quaternion()
+var dimdice_rot_quat_previous = Quaternion()
+var dimdice_rot_quat_current = Quaternion()
 #endregion
 
 #region builtin functions
 func _ready() -> void:
-	Events.dimdice_selected.connect(on_dimdice_selected)
 	dimtile = $Rows/Row4/BaseTile7
 	for row in $Rows.get_children():
 		tiles.append([])
@@ -48,7 +47,7 @@ func set_dimnet(net):
 #endregion
 
 #region signals callbacks
-func on_dimdice_selected(new_dimdice, net):
+func update_dimdice(new_dimdice, net):
 	# remove previous dimdice
 	var dimdice_pos = DIMDICE_POS
 	if dimdice:
@@ -58,27 +57,28 @@ func on_dimdice_selected(new_dimdice, net):
 	dimdice = new_dimdice
 	add_child(dimdice)
 	dimdice.position = dimdice_pos
-	dimdice.rotation = Vector3(0, 0, 0)
+	#dimdice.rotation = Vector3(0, 0, 0)
+	dimdice.basis = Basis(dimdice_rot_quat_current)
 	set_dimnet(net)
 
 func rotate_dimdice_clockwise():
-	dimdice_rot_quat0 = dimdice.transform.basis.get_rotation_quaternion()
+	dimdice_rot_quat_previous = dimdice.transform.basis.get_rotation_quaternion()
 	var axis = Vector3(0, 1, 0)
-	dimdice_rot_quat1 = dimdice.transform.basis.rotated(axis, -PI/2)
+	dimdice_rot_quat_current = dimdice.transform.basis.rotated(axis, -PI/2)
 	var tween = create_tween()
 	tween.tween_method(_apply_quat_rotation, 0.0, 1.0, 0.1)
 
 func rotate_dimdice_counter_clockwise():
-	dimdice_rot_quat0 = dimdice.transform.basis.get_rotation_quaternion()
+	dimdice_rot_quat_previous = dimdice.transform.basis.get_rotation_quaternion()
 	var axis = Vector3(0, 1, 0)
-	dimdice_rot_quat1 = dimdice.transform.basis.rotated(axis, PI/2)
+	dimdice_rot_quat_current = dimdice.transform.basis.rotated(axis, PI/2)
 	var tween = create_tween()
 	tween.tween_method(_apply_quat_rotation, 0.0, 1.0, 0.1)
 
 func flip_dimdice():
-	dimdice_rot_quat0 = dimdice.transform.basis.get_rotation_quaternion()
+	dimdice_rot_quat_previous = dimdice.transform.basis.get_rotation_quaternion()
 	var axis = Vector3(1, 0, 0)
-	dimdice_rot_quat1 = dimdice.transform.basis.rotated(axis, PI)
+	dimdice_rot_quat_current = dimdice.transform.basis.rotated(axis, PI)
 	var tween = create_tween()
 	tween.tween_method(_apply_quat_rotation, 0.0, 1.0, 0.1)
 #endregion
@@ -107,6 +107,6 @@ func coor_in_bound(coor):
 	return in_bound_x and in_bound_y
 
 func _apply_quat_rotation(t: float) -> void:
-	var q = dimdice_rot_quat0.slerp(dimdice_rot_quat1, t)
+	var q = dimdice_rot_quat_previous.slerp(dimdice_rot_quat_current, t)
 	dimdice.basis = Basis(q)
 #endregion

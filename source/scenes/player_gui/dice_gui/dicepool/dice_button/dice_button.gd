@@ -10,6 +10,9 @@ signal button_toggled
 #endregion
 
 #region public variables
+var pressed : bool = false :
+	get():
+		return %Button.button_pressed
 var disabled : bool = false :
 	set(_disabled):
 		disabled = _disabled

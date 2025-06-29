@@ -1,13 +1,20 @@
 extends PanelContainer
 
 #region signals
-signal roll_changed
+signal roll_dice_added
+signal roll_dice_removed
 #endregion
 
 #region public variables
 var player_gui
 var buttons = []
-var roll_dice_buttons = []
+var n_buttons_pressed : int = 0 :
+	get():
+		var counter = 0
+		for button in buttons:
+			if button.pressed:
+				counter += 1
+		return counter
 #endregion
 
 #region builtin functions
@@ -32,7 +39,7 @@ func on_dice_button_toggled(toggled_on, button):
 	if toggled_on:
 		on_dice_button_pressed(button)
 	else:
-		on_dice_button_released(button)
+		on_dice_button_released()
 
 func on_roll_started():
 	for button in buttons:
@@ -41,16 +48,17 @@ func on_roll_started():
 
 #region private functions
 func on_dice_button_pressed(pressed_button):
-	roll_dice_buttons.append(pressed_button)
-	if len(roll_dice_buttons) >= 3:
+	if n_buttons_pressed >= 3:
 		for button in buttons:
-			if button not in roll_dice_buttons:
+			if not button.pressed:
 				button.disabled = true
-	roll_changed.emit(roll_dice_buttons)
+	roll_dice_added.emit(n_buttons_pressed, pressed_button.dice)
 
-func on_dice_button_released(released_button):
-	roll_dice_buttons.erase(released_button)
+func on_dice_button_released():
+	var selected_dice_list = []
 	for button in buttons:
 		button.disabled = false
-	roll_changed.emit(roll_dice_buttons)
+		if button.pressed:
+			selected_dice_list.append(button.dice)
+	roll_dice_removed.emit(selected_dice_list)
 #endregion

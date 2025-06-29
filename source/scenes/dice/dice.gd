@@ -43,7 +43,6 @@ var moving : bool :
 
 #region private variables
 var rotation_index
-#var rotation_tween = create_tween()
 var translating : bool : 
 	get(): 
 		return linear_velocity.length() > 0.0001

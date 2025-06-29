@@ -13,7 +13,6 @@ func _ready() -> void:
 		"MAGIC"    : $HBoxContainer/Magic,
 		"TRAP"     : $HBoxContainer/Trap,
 	}
-	Events.crest_side_rolled.connect(on_crest_side_rolled)
 #endregion
 
 #region signals callbacks

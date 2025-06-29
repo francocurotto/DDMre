@@ -23,7 +23,6 @@ var offset
 var type:
 	set(_type):
 		type = _type
-		Events.net_changed.emit()
 var coordinates:
 	get():
 		var coor = NETCOORS[type]
