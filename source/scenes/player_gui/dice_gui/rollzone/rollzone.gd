@@ -41,15 +41,15 @@ func _input(event):
 #endregion
 
 #region public functions
-func add_dice(dicepool_dice):
-	print(dicepool_dice.get_node("Summon").type)
-	var dice = dicepool_dice.duplicate()
+func add_dice(dice):
 	print(dice.get_node("Summon").type)
-	%Triplet.add_child(dice)
-	print(dice.get_node("Summon").type)
-	dice.position = INITPOS[triplet_size-1]
-	dice.roll_stopped.connect(on_dice_stopped)
-	dice.dim_setup_finished.connect(on_dim_setup_finished)
+	var copy = dice.duplicate()
+	print(copy.get_node("Summon").type)
+	%Triplet.add_child(copy)
+	print(copy.get_node("Summon").type)
+	copy.position = INITPOS[triplet_size-1]
+	copy.roll_stopped.connect(on_dice_stopped)
+	copy.dim_setup_finished.connect(on_dim_setup_finished)
 
 func remove_dice(selected_dice_list):
 	for dice in get_triplet():
