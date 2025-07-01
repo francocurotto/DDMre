@@ -42,6 +42,7 @@ var moving : bool :
 #endregion
 
 #region private variables
+var dice_dict
 var rotation_index
 var translating : bool : 
 	get(): 
@@ -71,7 +72,8 @@ func _physics_process(_delta: float) -> void:
 #endregion
 
 #region public functions
-func set_dice(dice_dict):
+func set_dice(_dice_dict):
+	dice_dict = _dice_dict
 	var level = int(dice_dict["LEVEL"])
 	var type = dice_dict["TYPE"]
 	# set sides
@@ -80,6 +82,11 @@ func set_dice(dice_dict):
 		$Sides.get_child(i).set_side(type, level, side_strings[i])
 	# set summon
 	$Summon.set_summon(dice_dict)
+
+func clone():
+	var copy = duplicate()
+	copy.set_dice(dice_dict)
+	return copy
 
 func roll(velocity):
 	state = STATE.STARTROLL

@@ -29,6 +29,12 @@ var triplet_size : int = 0 :
 #endregion
 
 #region builtin functions
+func _physics_process(_delta: float) -> void:
+	if all_dice_stopped():
+		$Label.text = "[color=red]STOPPED[/color]" 
+	else:
+		$Label.text = "[color=green]MOVING[/color]"
+	
 func _input(event):
 	if input_in_rollzone(event):
 		if player_gui.guistate == Globals.GUISTATE.ROLL:
@@ -42,11 +48,8 @@ func _input(event):
 
 #region public functions
 func add_dice(dice):
-	print(dice.get_node("Summon").type)
-	var copy = dice.duplicate()
-	print(copy.get_node("Summon").type)
+	var copy = dice.clone()
 	%Triplet.add_child(copy)
-	print(copy.get_node("Summon").type)
 	copy.position = INITPOS[triplet_size-1]
 	copy.roll_stopped.connect(on_dice_stopped)
 	copy.dim_setup_finished.connect(on_dim_setup_finished)
@@ -105,7 +108,7 @@ func input_dim_select(event):
 func select_dimdice(dimdice):
 	for dice in get_triplet():
 		dice.fade = false
-	Globals.dungeon.update_dimdice(dimdice.duplicate(), player_gui.net)
+	Globals.dungeon.update_dimdice(dimdice.clone(), player_gui.net)
 	dimdice.fade = true
 	dimdice_selected.emit(dimdice)
 

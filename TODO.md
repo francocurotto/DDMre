@@ -8,8 +8,6 @@
 - code refactoring
     - finished dice_gui
 - change dice and dungobj colors
-- when dimdice is selected, update diceinfo
-    - fix duplication error in rollzone
 - make rollzone walls angled
 
 ## FIXES
