@@ -3,6 +3,7 @@ extends PanelContainer
 #region signals
 signal roll_started
 signal crest_side_rolled
+signal dimdice_selected
 #endregion
 
 #region constants
@@ -41,7 +42,9 @@ func _input(event):
 
 #region public functions
 func add_dice(dicepool_dice):
+	print(dicepool_dice.summon)
 	var dice = dicepool_dice.duplicate()
+	print(dice.summon)
 	%Triplet.add_child(dice)
 	dice.position = INITPOS[triplet_size-1]
 	dice.roll_stopped.connect(on_dice_stopped)
@@ -53,6 +56,7 @@ func remove_dice(selected_dice_list):
 		%Triplet.remove_child(dice)
 	for dice in selected_dice_list:
 		add_dice(dice)
+#endregion
 
 #region signals callbacks
 func on_dice_stopped():
@@ -102,6 +106,7 @@ func select_dimdice(dimdice):
 		dice.fade = false
 	Globals.dungeon.update_dimdice(dimdice.duplicate(), player_gui.net)
 	dimdice.fade = true
+	dimdice_selected.emit(dimdice)
 
 func all_dice_stopped():
 	return get_triplet().all(func(dice): return not dice.moving)

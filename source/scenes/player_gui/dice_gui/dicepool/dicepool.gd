@@ -3,6 +3,7 @@ extends PanelContainer
 #region signals
 signal roll_dice_added
 signal roll_dice_removed
+signal dice_button_focused
 #endregion
 
 #region public variables
@@ -33,7 +34,7 @@ func set_dice(i, dice_dict):
 
 #region signals callbacks
 func on_dice_button_focused(dice):
-	player_gui.info_gui.on_dice_button_focused(dice)
+	dice_button_focused.emit(dice)
 
 func on_dice_button_toggled(toggled_on, button):
 	if toggled_on:
