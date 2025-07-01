@@ -42,10 +42,11 @@ func _input(event):
 
 #region public functions
 func add_dice(dicepool_dice):
-	print(dicepool_dice.summon)
+	print(dicepool_dice.get_node("Summon").type)
 	var dice = dicepool_dice.duplicate()
-	print(dice.summon)
+	print(dice.get_node("Summon").type)
 	%Triplet.add_child(dice)
+	print(dice.get_node("Summon").type)
 	dice.position = INITPOS[triplet_size-1]
 	dice.roll_stopped.connect(on_dice_stopped)
 	dice.dim_setup_finished.connect(on_dim_setup_finished)
