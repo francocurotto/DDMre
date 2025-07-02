@@ -17,12 +17,10 @@ const NETCOORS = {
 #endregion
 
 #region public variables
+var type
 var rotation = 0
 var orientation = 1
 var offset
-var type:
-	set(_type):
-		type = _type
 var coordinates:
 	get():
 		var coor = NETCOORS[type]

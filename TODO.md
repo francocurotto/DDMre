@@ -7,6 +7,7 @@
 ## IMPROVEMENTS
 - code refactoring
     - finished dice_gui
+    - refactor touch controls into a control node
 - change dice and dungobj colors
 - make rollzone walls angled
 
