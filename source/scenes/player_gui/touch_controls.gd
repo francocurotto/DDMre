@@ -15,7 +15,7 @@ var touch_position : Vector2
 var touch_object = null
 var velocity : Vector2
 var camera3d : Camera3D
-var layer : int = 4294967295
+var mask : int = 4294967295
 #endregion
 
 #region private variables
@@ -42,12 +42,17 @@ func _input(event: InputEvent) -> void:
 		threshold_flag = false
 #endregion
 
-#region private variables
+#region public functions
+func set_raycast(_camera3d, _mask):
+    camera3d = _camera3d
+    mask = _mask
+
+#region private functions
 func get_touched_object():
 	var ray_origin = camera3d.project_ray_origin(touch_position)
 	var ray_target = ray_origin + camera3d.project_ray_normal(touch_position) * 1000
 	var space_state = camera3d.get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_target, layer)
+	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_target, mask)
 	var result = space_state.intersect_ray(query)
 	if result:
 		return result["collider"]
