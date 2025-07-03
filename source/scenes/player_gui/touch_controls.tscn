@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6mitq2hlr2wj"]
+
+[ext_resource type="Script" uid="uid://b85r0uxn805dv" path="res://scenes/player_gui/touch_controls.gd" id="1_k13a4"]
+
+[node name="TouchControls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k13a4")

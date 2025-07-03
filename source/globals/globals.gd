@@ -45,12 +45,12 @@ func read_jsonfile(filepath):
 	return jsondict
 
 ## Get 3D bject on touch
-func get_node3d_on_touch(position, camera, layer=4294967295):
-	var ray_origin = camera.project_ray_origin(position)
-	var ray_target = ray_origin + camera.project_ray_normal(position) * 1000
-	var space_state = camera.get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_target, layer)
-	var result = space_state.intersect_ray(query)
-	if result:
-		return result["collider"]
+#func get_node3d_on_touch(position, camera, layer=4294967295):
+	#var ray_origin = camera.project_ray_origin(position)
+	#var ray_target = ray_origin + camera.project_ray_normal(position) * 1000
+	#var space_state = camera.get_world_3d().direct_space_state
+	#var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_target, layer)
+	#var result = space_state.intersect_ray(query)
+	#if result:
+		#return result["collider"]
 #endregion

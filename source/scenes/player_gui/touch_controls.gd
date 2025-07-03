@@ -1,0 +1,60 @@
+extends Control
+
+#region signals
+signal touch_pressed
+signal dragging
+signal touch_released
+signal threshold_exceeded
+#region constants
+const DRAG_THRESHOLD = 10
+#endregion
+
+#region public variables
+var disabled : bool = false
+var touch_position : Vector2
+var touch_object = null
+var velocity : Vector2
+var camera3d : Camera3D
+var layer : int = 4294967295
+#endregion
+
+#region private variables
+var threshold_flag : bool = false ## true if threshold was exceeded
+#endregion
+
+#region builtin functions
+func _input(event: InputEvent) -> void:
+	if not disabled and get_global_rect().has_point(event.position):
+		if event is InputEventScreenTouch and event.pressed:
+			touch_position = event.position
+			touch_object = get_touched_object()
+			touch_pressed.emit(touch_position)
+		elif event is InputEventScreenDrag:
+			dragging.emit(event.velocity)
+			if not threshold_flag and is_threshold_exceeded(event):
+				threshold_flag = true
+				threshold_exceeded.emit(get_drag_angle(event))
+		elif event is InputEventScreenTouch and not event.pressed:
+			if not dragging:
+				touch_released.emit(event.position)
+			threshold_flag = false
+	else:
+		threshold_flag = false
+#endregion
+
+#region private variables
+func get_touched_object():
+	var ray_origin = camera3d.project_ray_origin(touch_position)
+	var ray_target = ray_origin + camera3d.project_ray_normal(touch_position) * 1000
+	var space_state = camera3d.get_world_3d().direct_space_state
+	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_target, layer)
+	var result = space_state.intersect_ray(query)
+	if result:
+		return result["collider"]
+
+func is_threshold_exceeded(event):
+	return event.position.distance_to(touch_position) > DRAG_THRESHOLD
+
+func get_drag_angle(event):
+	return rad_to_deg(-touch_position.angle_to_point(event.position))
+#endregion
