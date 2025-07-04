@@ -60,8 +60,9 @@ func on_drag_released():
 
 func on_touch_pressed():
 	if player_gui.guistate == Globals.GUISTATE.DIMENSION:
-		if controls.touch_object in get_triplet():
-			select_dimdice(controls.touch_object)
+		var touched_object = controls.get_touched_object()
+		if touched_object in get_triplet():
+			select_dimdice(touched_object)
 
 func on_dice_stopped():
 	if all_dice_stopped():
@@ -97,6 +98,13 @@ func any_dice_cocked():
 	return get_triplet().any(func(dice): return dice.rolled_side == null)
 
 func resolve_roll():
+	var summon_dice = resolve_crest_sides()
+	var dim_dice = resolve_summon_sides(summon_dice)
+	remove_not_dim_dice(dim_dice)
+	if not dim_dice.is_empty():
+		setup_dim(dim_dice)
+
+func resolve_crest_sides():
 	var summon_dice = []
 	# resolve crest rolls
 	for dice in get_triplet():
@@ -105,22 +113,23 @@ func resolve_roll():
 			crest_side_rolled.emit(side)
 		else:
 			summon_dice.append(dice)
-	# resolve summon rolls
+	return summon_dice
+
+func resolve_summon_sides(summon_dice):
 	var dim_dice = []
 	for level in range(1,4):
 		for dice in summon_dice:
 			if dice.rolled_side.mult == level:
 				dim_dice.append(dice)
 		if len(dim_dice) >= 2:
-			break
+			return dim_dice
 		dim_dice = []
-	# remove dice not used for dimension
+	return dim_dice
+
+func remove_not_dim_dice(dim_dice):
 	for dice in get_triplet():
 		if dice not in dim_dice:
 			dice.remove()
-	# if can dimension, setup dimension interface
-	if not dim_dice.is_empty():
-		setup_dim(dim_dice)
 
 func setup_dim(dimdice_list):
 	# move dice

@@ -18,11 +18,9 @@ const DRAG_THRESHOLD = 10
 
 #region public variables
 var touch_position : Vector2
-var touch_object = null
 var velocity : Vector2
 var viewport : Viewport
 var camera3d : Camera3D
-var mask : int
 #endregion
 
 #region private variables
@@ -36,10 +34,10 @@ func _input(event: InputEvent) -> void:
 		if event is InputEventScreenTouch and event.pressed:
 			#touch_position = event.position
 			touch_position = viewport.get_mouse_position()
-			touch_object = get_touched_object()
 			touch_pressed.emit()
 		elif event is InputEventScreenDrag:
 			drag_flag = true
+			velocity = event.velocity
 			dragging.emit()
 			if not threshold_flag and is_threshold_exceeded():
 				threshold_flag = true
@@ -55,10 +53,9 @@ func _input(event: InputEvent) -> void:
 #endregion
 
 #region public functions
-func set_raycast(_viewport, _mask = 4294967295):
+func set_raycast(_viewport):
 	viewport = _viewport
 	camera3d = viewport.get_camera_3d()
-	mask = _mask
 #endregion
 
 #region private functions
@@ -66,7 +63,7 @@ func reset_flags():
 	drag_flag = false
 	threshold_flag = false
 
-func get_touched_object():
+func get_touched_object(mask = 4294967295):
 	var ray_origin = camera3d.project_ray_origin(touch_position)
 	var ray_target = ray_origin + camera3d.project_ray_normal(touch_position) * 1000
 	var space_state = camera3d.get_world_3d().direct_space_state

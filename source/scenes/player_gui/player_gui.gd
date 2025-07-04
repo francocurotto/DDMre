@@ -1,7 +1,7 @@
 extends VBoxContainer
 
 #region constants
-const Net = preload("res://scenes/player_gui/net.gd")
+const Net = preload("res://scenes/player_gui/net/net.gd")
 #endregion
 
 #region public variables

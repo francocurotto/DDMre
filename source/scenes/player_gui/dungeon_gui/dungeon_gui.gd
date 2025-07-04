@@ -16,51 +16,43 @@ var dragging = false
 var drag_input_done = false
 #endregion
 
-#region builtin functions
-func _input(event):
-	if get_global_rect().has_point(event.position):
-		if event is InputEventScreenTouch and event.pressed:
-			touched_dice = Globals.dungeon.get_touched_object(event, Globals.LAYERS.DICE)
-			touched_pos = event.position
-		if event is InputEventScreenDrag:
-			dragging = true
-			input_drag(event)
-		elif event is InputEventScreenTouch and not event.pressed:
-			if not dragging: # check if it was not dragging input
-				input_touch(event)
-			dragging = false
-			drag_input_done = false
-			touched_pos = null
-			touched_dice = null
+#region onready variables
+@onready var controls = $TouchControls
 #endregion
 
-#region private functions
-func input_drag(event):
-	if touched_dice: # dragging dice
-		drag_dice(event)
-	else: # dragging everything else
-		move_camera(event)
+#region builtin functions
+func _ready() -> void:
+	controls.set_raycast(get_viewport())
+	controls.touch_released.connect(on_touch_released)
+	controls.dragging.connect(on_dragging)
+	controls.threshold_exceeded.connect(on_threshold_exceeded)
+#endregion
 
-func input_touch(event):
-	var tile = Globals.dungeon.get_touched_object(event, Globals.LAYERS.TILES)
+#region signals callbacks
+func on_touch_released():
+	var tile = controls.get_touched_object(Globals.LAYERS.TILES)
 	if tile:
 		Globals.dungeon.dungeon_touch(tile, player_gui.net)
 
-func drag_dice(event):
-	var angle = rad_to_deg(-touched_pos.angle_to_point(event.position))
-	if not drag_input_done:
-		if event.position.distance_to(touched_pos) > DRAG_LENGTH:
-			if angle <= -135 or 135 < angle:
-				rotate_dimdice_clockwise()
-				drag_input_done = true
-			elif -45 <= angle and angle < 45:
-				rotate_dimdice_counter_clockwise()
-				drag_input_done = true
-			elif 45 <= angle and angle < 135:
-				flip_dimdice()
-				drag_input_done = true
-		#if -135 < angle and angle < -45:
-		#	move_dimdice()
+func on_dragging():
+	if not controls.get_touched_object(Globals.LAYERS.DICE):
+		move_camera()
+
+func on_threshold_exceeded(angle):
+	if controls.get_touched_object(Globals.LAYERS.DICE):
+		drag_dice(angle)
+#endregion
+
+#region private functions
+func drag_dice(angle):
+	if angle <= -135 or 135 < angle:
+		rotate_dimdice_clockwise()
+	elif -45 <= angle and angle < 45:
+		rotate_dimdice_counter_clockwise()
+	elif 45 <= angle and angle < 135:
+		flip_dimdice()
+	elif -135 < angle and angle < -45:
+		move_dimdice()
 
 func rotate_dimdice_clockwise():
 	Globals.dungeon.rotate_dimdice_clockwise()
@@ -80,7 +72,8 @@ func flip_dimdice():
 func move_dimdice():
 	pass
 
-func move_camera(event):
-	var movement = Vector3(event.velocity.x, 0, event.velocity.y)
-	Globals.duel_camera.position -= CAMERA_SPEED * movement * get_process_delta_time()
+func move_camera():
+	var movement = Vector3(controls.velocity.x, 0, controls.velocity.y)
+	var delta_position = -1 * CAMERA_SPEED * movement * get_process_delta_time()
+	Globals.duel_camera.position += delta_position
 #endregion
