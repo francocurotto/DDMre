@@ -19,31 +19,21 @@ var player_gui
 #endregion
 
 #region private variables
-var rollzone_tab_selected = false ## true when rollzone tab is selected
-var dragging = false ## true when player is dragging for roll
 var rolling = false ## true when dice are rolling
-var roll_velocity = Vector2.ZERO ## Initial velocity of roll
 var triplet_size : int = 0 :
 	get():
 		return %Triplet.get_child_count()
 #endregion
 
+#region onready variables
+@onready var controls = $TouchControls
+#endregion
+
 #region builtin functions
-func _physics_process(_delta: float) -> void:
-	if all_dice_stopped():
-		$Label.text = "[color=red]STOPPED[/color]" 
-	else:
-		$Label.text = "[color=green]MOVING[/color]"
-	
-func _input(event):
-	if input_in_rollzone(event):
-		if player_gui.guistate == Globals.GUISTATE.ROLL:
-			if triplet_size >= 3 and not rolling:
-				input_roll(event)
-		elif player_gui.guistate == Globals.GUISTATE.DIMENSION:
-			input_dim_select(event)
-	else:
-		dragging = false
+func _ready() -> void:
+	controls.set_raycast(%SubViewport)
+	controls.touch_pressed.connect(on_touch_pressed)
+	controls.drag_released.connect(on_drag_released)
 #endregion
 
 #region public functions
@@ -63,6 +53,16 @@ func remove_dice(selected_dice_list):
 #endregion
 
 #region signals callbacks
+func on_drag_released():
+	if player_gui.guistate == Globals.GUISTATE.ROLL:
+		if triplet_size >= 3 and not rolling:
+			roll_dice(controls.velocity)
+
+func on_touch_pressed():
+	if player_gui.guistate == Globals.GUISTATE.DIMENSION:
+		if controls.touch_object in get_triplet():
+			select_dimdice(controls.touch_object)
+
 func on_dice_stopped():
 	if all_dice_stopped():
 		rolling = false
@@ -77,33 +77,11 @@ func on_dim_setup_finished():
 func get_triplet():
 	return %Triplet.get_children()
 
-func input_in_rollzone(event):
-	var in_rect = get_global_rect().has_point(event.position)
-	return in_rect and rollzone_tab_selected
-
-func input_roll(event):
-	if event is InputEventScreenTouch and event.pressed:
-		dragging = true
-	# if drag, register velocity
-	elif event is InputEventScreenDrag and dragging:
-		roll_velocity = event.velocity
-	# if drag released, roll dice
-	elif event is InputEventScreenTouch and not event.pressed and dragging:
-		roll_dice(roll_velocity)
-		dragging = false
-
 func roll_dice(velocity):
 	rolling = true
 	roll_started.emit()
 	for dice in get_triplet():
 		dice.roll(velocity)
-
-func input_dim_select(event):
-	if event is InputEventScreenTouch and event.pressed:
-		var touch_pos = %SubViewport.get_mouse_position()
-		var object = Globals.get_node3d_on_touch(touch_pos, %Camera3D)
-		if object in get_triplet():
-			select_dimdice(object)
 
 func select_dimdice(dimdice):
 	for dice in get_triplet():

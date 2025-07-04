@@ -4,21 +4,29 @@ extends Control
 signal touch_pressed
 signal dragging
 signal touch_released
+signal drag_released
 signal threshold_exceeded
+#endregion
+
 #region constants
 const DRAG_THRESHOLD = 10
 #endregion
 
+#region export variables
+@export var disabled : bool = false
+#endregion
+
 #region public variables
-var disabled : bool = false
 var touch_position : Vector2
 var touch_object = null
 var velocity : Vector2
+var viewport : Viewport
 var camera3d : Camera3D
-var mask : int = 4294967295
+var mask : int
 #endregion
 
 #region private variables
+var drag_flag : bool = false ## true if dragging
 var threshold_flag : bool = false ## true if threshold was exceeded
 #endregion
 
@@ -26,28 +34,38 @@ var threshold_flag : bool = false ## true if threshold was exceeded
 func _input(event: InputEvent) -> void:
 	if not disabled and get_global_rect().has_point(event.position):
 		if event is InputEventScreenTouch and event.pressed:
-			touch_position = event.position
+			#touch_position = event.position
+			touch_position = viewport.get_mouse_position()
 			touch_object = get_touched_object()
-			touch_pressed.emit(touch_position)
+			touch_pressed.emit()
 		elif event is InputEventScreenDrag:
-			dragging.emit(event.velocity)
-			if not threshold_flag and is_threshold_exceeded(event):
+			drag_flag = true
+			dragging.emit()
+			if not threshold_flag and is_threshold_exceeded():
 				threshold_flag = true
 				threshold_exceeded.emit(get_drag_angle(event))
 		elif event is InputEventScreenTouch and not event.pressed:
-			if not dragging:
-				touch_released.emit(event.position)
-			threshold_flag = false
+			if drag_flag:
+				drag_released.emit()
+			else:
+				touch_released.emit()
+			reset_flags()
 	else:
-		threshold_flag = false
+		reset_flags()
 #endregion
 
 #region public functions
-func set_raycast(_camera3d, _mask):
-    camera3d = _camera3d
-    mask = _mask
+func set_raycast(_viewport, _mask = 4294967295):
+	viewport = _viewport
+	camera3d = viewport.get_camera_3d()
+	mask = _mask
+#endregion
 
 #region private functions
+func reset_flags():
+	drag_flag = false
+	threshold_flag = false
+
 func get_touched_object():
 	var ray_origin = camera3d.project_ray_origin(touch_position)
 	var ray_target = ray_origin + camera3d.project_ray_normal(touch_position) * 1000
@@ -57,8 +75,9 @@ func get_touched_object():
 	if result:
 		return result["collider"]
 
-func is_threshold_exceeded(event):
-	return event.position.distance_to(touch_position) > DRAG_THRESHOLD
+func is_threshold_exceeded():
+	var current_position = viewport.get_mouse_position()
+	return current_position.distance_to(touch_position) > DRAG_THRESHOLD
 
 func get_drag_angle(event):
 	return rad_to_deg(-touch_position.angle_to_point(event.position))

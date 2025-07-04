@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c6mitq2hlr2wj"]
 
-[ext_resource type="Script" uid="uid://b85r0uxn805dv" path="res://scenes/player_gui/touch_controls.gd" id="1_k13a4"]
+[ext_resource type="Script" uid="uid://b85r0uxn805dv" path="res://scenes/player_gui/touch_controls/touch_controls.gd" id="1_k13a4"]
 
 [node name="TouchControls" type="Control"]
 layout_mode = 3

@@ -40,5 +40,5 @@ func on_roll_dice_removed(selected_dice_list):
 func _on_tab_container_tab_changed(_tab: int) -> void:
 	dicegui_tab_changed.emit()
 	var current_control_tab = $TabContainer.get_current_tab_control()
-	%Rollzone.rollzone_tab_selected = current_control_tab == %Rollzone
+	%Rollzone.controls.disabled = current_control_tab != %Rollzone
 #endregion

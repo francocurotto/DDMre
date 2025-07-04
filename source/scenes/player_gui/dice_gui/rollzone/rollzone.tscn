@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo2erx6gn1vii"]
+[gd_scene load_steps=4 format=3 uid="uid://bo2erx6gn1vii"]
 
 [ext_resource type="Script" uid="uid://bxqvo6xk1aiyp" path="res://scenes/player_gui/dice_gui/rollzone/rollzone.gd" id="1_dac2p"]
+[ext_resource type="PackedScene" uid="uid://c6mitq2hlr2wj" path="res://scenes/player_gui/touch_controls/touch_controls.tscn" id="2_r0is7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dac2p"]
 size = Vector3(20, 0, 20)
@@ -71,8 +72,6 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -5, 0,
 shape = SubResource("BoxShape3D_dac2p")
 debug_fill = false
 
-[node name="Label" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(0, 30)
+[node name="TouchControls" parent="." instance=ExtResource("2_r0is7")]
 layout_mode = 2
-size_flags_vertical = 0
-bbcode_enabled = true
+disabled = true
