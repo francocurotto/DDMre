@@ -14,6 +14,7 @@ var touched_dice
 var touched_pos
 var dragging = false
 var drag_input_done = false
+var dimdice_position = Vector3(0, 2, -3)
 #endregion
 
 #region onready variables
@@ -29,6 +30,22 @@ func _ready() -> void:
 #endregion
 
 #region signals callbacks
+func on_dimdice_selected(original_dimdice):
+	var dimdice = original_dimdice.clone()
+	dimdice.fade = false
+	# case previous dimdice existed
+	if Globals.dungeon.dimdice:
+		dimdice.position = Globals.dungeon.dimdice.position
+		dimdice.basis = Globals.dungeon.dimdice.basis
+		Globals.dungeon.dimdice.queue_free()
+	# case first dimdice
+	else:
+		dimdice.position = dimdice_position
+	# add dimdice and net
+	Globals.dungeon.add_child(dimdice)
+	Globals.dungeon.dimdice = dimdice
+	Globals.dungeon.set_dimnet(player_gui.net)
+
 func on_touch_released():
 	var tile = controls.get_touched_object(Globals.LAYERS.TILES)
 	if tile:

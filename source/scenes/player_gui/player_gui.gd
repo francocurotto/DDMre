@@ -29,6 +29,7 @@ func _ready() -> void:
 	$DiceGUI.dicegui_tab_changed.connect($InfoGUI.on_dicegui_tab_changed)
 	$DiceGUI.dicepool.dice_button_focused.connect($InfoGUI.on_dice_button_focused)
 	$DiceGUI.rollzone.dimdice_selected.connect($InfoGUI.on_dimdice_selected)
+	$DiceGUI.rollzone.dimdice_selected.connect($DungeonGUI.on_dimdice_selected)
 	# setup net
 	net.type = $DiceGUI.net_buttons.button_group.get_pressed_button().type
 	# initialize dicepool

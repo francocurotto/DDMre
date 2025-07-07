@@ -85,11 +85,12 @@ func roll_dice(velocity):
 		dice.roll(velocity)
 
 func select_dimdice(dimdice):
+	dimdice_selected.emit(dimdice)
 	for dice in get_triplet():
 		dice.fade = false
-	Globals.dungeon.update_dimdice(dimdice.clone(), player_gui.net)
 	dimdice.fade = true
 	dimdice_selected.emit(dimdice)
+	
 
 func all_dice_stopped():
 	return get_triplet().all(func(dice): return not dice.moving)

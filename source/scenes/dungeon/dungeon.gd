@@ -1,9 +1,5 @@
 extends Node3D
 
-#region constants
-const DIMDICE_POS = Vector3(0, 2, -3)
-#endregion
-
 #region private variables
 var tiles = []
 var dimdice
@@ -34,21 +30,6 @@ func set_dimnet(net):
 #endregion
 
 #region signals callbacks
-func update_dimdice(new_dimdice, net):
-	# remove previous dimdice
-	var dimdice_pos = DIMDICE_POS
-	var dimdice_basis = new_dimdice.basis
-	if dimdice:
-		dimdice_pos = dimdice.position
-		dimdice_basis = dimdice.basis
-		dimdice.queue_free()
-	# add dimdice to tree
-	dimdice = new_dimdice
-	add_child(dimdice)
-	dimdice.position = dimdice_pos
-	dimdice.basis = dimdice_basis
-	set_dimnet(net)
-
 func rotate_dimdice_clockwise():
 	var axis = Vector3(0, 1, 0)
 	var rotated_basis = dimdice.transform.basis.rotated(axis, -PI/2)
