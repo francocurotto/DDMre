@@ -8,8 +8,6 @@ const DIMDICE_POS = Vector3(0, 2, -3)
 var tiles = []
 var dimdice
 var dimtile
-var dimdice_rot_quat_previous = Quaternion()
-var dimdice_rot_quat_current = Quaternion()
 #endregion
 
 #region builtin functions
@@ -39,37 +37,32 @@ func set_dimnet(net):
 func update_dimdice(new_dimdice, net):
 	# remove previous dimdice
 	var dimdice_pos = DIMDICE_POS
+	var dimdice_basis = new_dimdice.basis
 	if dimdice:
 		dimdice_pos = dimdice.position
+		dimdice_basis = dimdice.basis
 		dimdice.queue_free()
 	# add dimdice to tree
 	dimdice = new_dimdice
 	add_child(dimdice)
 	dimdice.position = dimdice_pos
-	#dimdice.rotation = Vector3(0, 0, 0)
-	dimdice.basis = Basis(dimdice_rot_quat_current)
+	dimdice.basis = dimdice_basis
 	set_dimnet(net)
 
 func rotate_dimdice_clockwise():
-	dimdice_rot_quat_previous = dimdice.transform.basis.get_rotation_quaternion()
 	var axis = Vector3(0, 1, 0)
-	dimdice_rot_quat_current = dimdice.transform.basis.rotated(axis, -PI/2)
-	var tween = create_tween()
-	tween.tween_method(_apply_quat_rotation, 0.0, 1.0, 0.1)
+	var rotated_basis = dimdice.transform.basis.rotated(axis, -PI/2)
+	dimdice.tween_rotate(rotated_basis, 0.1)
 
 func rotate_dimdice_counter_clockwise():
-	dimdice_rot_quat_previous = dimdice.transform.basis.get_rotation_quaternion()
 	var axis = Vector3(0, 1, 0)
-	dimdice_rot_quat_current = dimdice.transform.basis.rotated(axis, PI/2)
-	var tween = create_tween()
-	tween.tween_method(_apply_quat_rotation, 0.0, 1.0, 0.1)
+	var rotated_basis = dimdice.transform.basis.rotated(axis, PI/2)
+	dimdice.tween_rotate(rotated_basis, 0.1)
 
 func flip_dimdice():
-	dimdice_rot_quat_previous = dimdice.transform.basis.get_rotation_quaternion()
 	var axis = Vector3(1, 0, 0)
-	dimdice_rot_quat_current = dimdice.transform.basis.rotated(axis, PI)
-	var tween = create_tween()
-	tween.tween_method(_apply_quat_rotation, 0.0, 1.0, 0.1)
+	var rotated_basis = dimdice.transform.basis.rotated(axis, PI)
+	dimdice.tween_rotate(rotated_basis, 0.1)
 #endregion
 
 #region private functions
@@ -94,8 +87,4 @@ func coor_in_bound(coor):
 	var in_bound_x = 0 <= coor.x and coor.x < Globals.DUNGEON_WIDTH
 	var in_bound_y = 0 <= coor.y and coor.y < Globals.DUNGEON_HEIGHT
 	return in_bound_x and in_bound_y
-
-func _apply_quat_rotation(t: float) -> void:
-	var q = dimdice_rot_quat_previous.slerp(dimdice_rot_quat_current, t)
-	dimdice.basis = Basis(q)
 #endregion

@@ -44,6 +44,8 @@ var moving : bool :
 #region private variables
 var dice_dict
 var rotation_index
+var basis_to
+var quaternion_from
 var translating : bool : 
 	get(): 
 		return linear_velocity.length() > 0.0001
@@ -107,9 +109,8 @@ func setup_dim_select(new_position):
 	gravity_scale = 0 # disable gravity
 	var tween = create_tween()
 	tween.tween_property(self, "position", new_position, 1)
-	var index = rolled_side.get_index()
-	var dim_rotation = DIM_ROTATIONS[index]
-	tween.parallel().tween_property(self, "rotation", dim_rotation, 1)
+	var index = rolled_side.get_index() 
+	tween_rotate(Basis.from_euler(DIM_ROTATIONS[index]), 1)
 	await tween.finished
 	dim_setup_finished.emit()
 #endregion
@@ -131,4 +132,14 @@ func get_rolled_side():
 		var dot = facing_direction.dot(Vector3.UP)
 		if dot > 0.95:
 			return side
+
+func tween_rotate(_basis_to, time):
+	var tween = create_tween()
+	quaternion_from = transform.basis.get_rotation_quaternion()
+	basis_to = _basis_to
+	tween.tween_method(_apply_quat_rotation, 0.0, 1.0, time)
+
+func _apply_quat_rotation(t: float) -> void:
+	var q = quaternion_from.slerp(basis_to, t)
+	basis = Basis(q)
 #endregion
