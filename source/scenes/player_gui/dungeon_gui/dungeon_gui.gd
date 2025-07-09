@@ -33,16 +33,9 @@ func _ready() -> void:
 func on_dimdice_selected(original_dimdice):
 	var dimdice = original_dimdice.clone()
 	dimdice.fade = false
-	# case previous dimdice existed
-	if Globals.dungeon.dimdice:
-		dimdice.position = Globals.dungeon.dimdice.position
-		dimdice.basis = Globals.dungeon.dimdice.basis
-		Globals.dungeon.dimdice.queue_free()
-	# case first dimdice
-	else:
-		dimdice.position = dimdice_position
+	dimdice.position = dimdice_position
+	dimdice.dice_rotation_finished.connect(func(): controls.disabled = false)
 	# add dimdice and net
-	Globals.dungeon.add_child(dimdice)
 	Globals.dungeon.dimdice = dimdice
 	Globals.dungeon.set_dimnet(player_gui.net)
 
@@ -62,14 +55,17 @@ func on_threshold_exceeded(angle):
 
 #region private functions
 func drag_dice(angle):
-	if angle <= -135 or 135 < angle:
-		rotate_dimdice_clockwise()
-	elif -45 <= angle and angle < 45:
-		rotate_dimdice_counter_clockwise()
-	elif 45 <= angle and angle < 135:
-		flip_dimdice()
-	elif -135 < angle and angle < -45:
+	if -135 < angle and angle < -45:
 		move_dimdice()
+	else:
+		controls.disabled = true
+		if angle <= -135 or 135 < angle:
+			rotate_dimdice_clockwise()
+		elif -45 <= angle and angle < 45:
+			rotate_dimdice_counter_clockwise()
+		elif 45 <= angle and angle < 135:
+			flip_dimdice()
+		
 
 func rotate_dimdice_clockwise():
 	Globals.dungeon.rotate_dimdice_clockwise()

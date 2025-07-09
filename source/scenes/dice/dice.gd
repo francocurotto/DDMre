@@ -5,6 +5,7 @@ class_name Dice
 #region signals
 signal roll_stopped
 signal dim_setup_finished
+signal dice_rotation_finished
 #endregion
 
 #region enums
@@ -138,6 +139,8 @@ func tween_rotate(_basis_to, time):
 	quaternion_from = transform.basis.get_rotation_quaternion()
 	basis_to = _basis_to
 	tween.tween_method(_apply_quat_rotation, 0.0, 1.0, time)
+	await tween.finished
+	dice_rotation_finished.emit()
 
 func _apply_quat_rotation(t: float) -> void:
 	var q = quaternion_from.slerp(basis_to, t)

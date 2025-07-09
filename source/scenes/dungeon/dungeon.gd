@@ -1,8 +1,23 @@
 extends Node3D
 
+#region constants
+const DIMDICE_ROTATION_TIME = 0.1
+#endregion
+
+#region public functions
+var dimdice :
+	set(_dimdice):
+		if dimdice: # get old dimdice info and remove
+			_dimdice.position = dimdice.position
+			_dimdice.basis = dimdice.basis
+			dimdice.queue_free()
+		# replace dimdice
+		dimdice = _dimdice
+		add_child(dimdice)
+#endregion
+
 #region private variables
 var tiles = []
-var dimdice
 var dimtile
 #endregion
 
@@ -33,17 +48,17 @@ func set_dimnet(net):
 func rotate_dimdice_clockwise():
 	var axis = Vector3(0, 1, 0)
 	var rotated_basis = dimdice.transform.basis.rotated(axis, -PI/2)
-	dimdice.tween_rotate(rotated_basis, 0.1)
+	dimdice.tween_rotate(rotated_basis, DIMDICE_ROTATION_TIME)
 
 func rotate_dimdice_counter_clockwise():
 	var axis = Vector3(0, 1, 0)
 	var rotated_basis = dimdice.transform.basis.rotated(axis, PI/2)
-	dimdice.tween_rotate(rotated_basis, 0.1)
+	dimdice.tween_rotate(rotated_basis, DIMDICE_ROTATION_TIME)
 
 func flip_dimdice():
 	var axis = Vector3(1, 0, 0)
 	var rotated_basis = dimdice.transform.basis.rotated(axis, PI)
-	dimdice.tween_rotate(rotated_basis, 0.1)
+	dimdice.tween_rotate(rotated_basis, DIMDICE_ROTATION_TIME)
 #endregion
 
 #region private functions

@@ -30,24 +30,24 @@ var threshold_flag : bool = false ## true if threshold was exceeded
 
 #region builtin functions
 func _input(event: InputEvent) -> void:
-	if not disabled and get_global_rect().has_point(event.position):
-		if event is InputEventScreenTouch and event.pressed:
-			#touch_position = event.position
-			touch_position = viewport.get_mouse_position()
-			touch_pressed.emit()
-		elif event is InputEventScreenDrag:
-			drag_flag = true
-			velocity = event.velocity
-			dragging.emit()
-			if not threshold_flag and is_threshold_exceeded():
-				threshold_flag = true
-				threshold_exceeded.emit(get_drag_angle(event))
-		elif event is InputEventScreenTouch and not event.pressed:
-			if drag_flag:
-				drag_released.emit()
-			else:
-				touch_released.emit()
-			reset_flags()
+	if get_global_rect().has_point(event.position):
+		if not disabled:
+			if event is InputEventScreenTouch and event.pressed:
+				touch_position = viewport.get_mouse_position()
+				touch_pressed.emit()
+			elif event is InputEventScreenDrag:
+				drag_flag = true
+				velocity = event.velocity
+				dragging.emit()
+				if not threshold_flag and is_threshold_exceeded():
+					threshold_flag = true
+					threshold_exceeded.emit(get_drag_angle(event))
+			elif event is InputEventScreenTouch and not event.pressed:
+				if drag_flag:
+					drag_released.emit()
+				else:
+					touch_released.emit()
+				reset_flags()
 	else:
 		reset_flags()
 #endregion
