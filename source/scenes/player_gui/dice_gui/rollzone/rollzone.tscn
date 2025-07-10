@@ -1,10 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo2erx6gn1vii"]
+[gd_scene load_steps=8 format=3 uid="uid://bo2erx6gn1vii"]
 
 [ext_resource type="Script" uid="uid://bxqvo6xk1aiyp" path="res://scenes/player_gui/dice_gui/rollzone/rollzone.gd" id="1_dac2p"]
 [ext_resource type="PackedScene" uid="uid://c6mitq2hlr2wj" path="res://scenes/player_gui/touch_controls/touch_controls.tscn" id="2_r0is7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dac2p"]
 size = Vector3(20, 0, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r0is7"]
+friction = 0.1
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tqc6c"]
+friction = 0.1
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f4pdc"]
+friction = 0.1
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oacuq"]
+friction = 0.1
 
 [node name="Rollzone" type="PanelContainer"]
 offset_right = 720.0
@@ -46,6 +58,7 @@ debug_fill = false
 
 [node name="Wall1" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 3)
+physics_material_override = SubResource("PhysicsMaterial_r0is7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Walls/Wall1"]
 shape = SubResource("BoxShape3D_dac2p")
@@ -53,6 +66,7 @@ debug_fill = false
 
 [node name="Wall2" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -3)
+physics_material_override = SubResource("PhysicsMaterial_tqc6c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Walls/Wall2"]
 shape = SubResource("BoxShape3D_dac2p")
@@ -60,6 +74,7 @@ debug_fill = false
 
 [node name="Wall3" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Walls"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_f4pdc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Walls/Wall3"]
 shape = SubResource("BoxShape3D_dac2p")
@@ -67,6 +82,7 @@ debug_fill = false
 
 [node name="Wall4" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Walls"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -5, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_oacuq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Walls/Wall4"]
 shape = SubResource("BoxShape3D_dac2p")

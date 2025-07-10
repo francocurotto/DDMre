@@ -7,12 +7,12 @@
 ## IMPROVEMENTS
 - code refactoring
     - finished dice_gui
-- make rollzone walls angled
 
 ## FIXES
 - rolls sometimes not working, locking the game
     - probably in case the game detect dice stopping but they keep moving
     - set code to monitor while tesitng
+- solve sides Label3D rendering on top of Sprite3D
 
 ## GRAPHICS
 - change dice and dungobj colors
