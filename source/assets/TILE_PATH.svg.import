@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcgdgs20ssn60"
-path.s3tc="res://.godot/imported/TILE_PATH.svg-9dfdee8522d5820ea5accb9d483070d3.s3tc.ctex"
+path.etc2="res://.godot/imported/TILE_PATH.svg-9dfdee8522d5820ea5accb9d483070d3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/TILE_PATH.svg"
-dest_files=["res://.godot/imported/TILE_PATH.svg-9dfdee8522d5820ea5accb9d483070d3.s3tc.ctex"]
+dest_files=["res://.godot/imported/TILE_PATH.svg-9dfdee8522d5820ea5accb9d483070d3.etc2.ctex"]
 
 [params]
 

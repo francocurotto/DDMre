@@ -10,10 +10,6 @@ var player_gui
 #endregion
 
 #region private variables
-var touched_dice
-var touched_pos
-var dragging = false
-var drag_input_done = false
 var dimdice_position = Vector3(0, 2, -3)
 #endregion
 
