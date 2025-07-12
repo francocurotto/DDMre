@@ -6,7 +6,7 @@
 
 ## IMPROVEMENTS
 - code refactoring
-    - finished dungeon_gui
+    - refactor dice.gd
 
 ## FIXES
 - rolls sometimes not working, locking the game

@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7gayl216h2r0"
-path.etc2="res://.godot/imported/SIDE.svg-c63c4445ba91db1f0b18400f653f9515.etc2.ctex"
+path.s3tc="res://.godot/imported/SIDE.svg-c63c4445ba91db1f0b18400f653f9515.s3tc.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/SIDE.svg"
-dest_files=["res://.godot/imported/SIDE.svg-c63c4445ba91db1f0b18400f653f9515.etc2.ctex"]
+dest_files=["res://.godot/imported/SIDE.svg-c63c4445ba91db1f0b18400f653f9515.s3tc.ctex"]
 
 [params]
 

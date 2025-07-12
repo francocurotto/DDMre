@@ -32,7 +32,7 @@ axis = 1
 texture = ExtResource("1_kl27m")
 
 [node name="Vortex" type="Sprite3D" parent="."]
-transform = Transform3D(-0.619156, 0, 0.785268, 0, 1, 0, -0.785268, 0, -0.619156, 0, 0.051, 0.00202537)
+transform = Transform3D(0.107224, 0, -0.994235, 0, 1, 0, 0.994235, 0, 0.107224, 0, 0.051, 0.00202537)
 visible = false
 pixel_size = 0.0084
 axis = 1
