@@ -12,9 +12,8 @@
 - rolls sometimes not working, locking the game
     - probably in case the game detect dice stopping but they keep moving
     - set code to monitor while tesitng
-    - also, dice can be rerolled during dimdice setup
+- solve sides Label3D rendering on top of Sprite3D
 
 ## GRAPHICS
 - change dice and dungobj colors
 - make dice_button more distiguishible from pressed and not pressed
-- make dice fade (dim selection) nicer
