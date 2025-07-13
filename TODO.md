@@ -9,10 +9,10 @@
     - refactor dice.gd
 
 ## FIXES
-- rolls sometimes not working, locking the game
-    - probably in case the game detect dice stopping but they keep moving
-    - set code to monitor while tesitng
-    - also, dice can be rerolled during dimdice setup
+- I have the following bug:
+    - while resolving roll the dice_stopped signal is emitted multiple times
+        - problable because the dice is considered to move and stop again suring removing
+        - if I remove the reset of the static_flag while moving I cannot reroll after cocked
 
 ## GRAPHICS
 - change dice and dungobj colors

@@ -2,19 +2,19 @@
 extends RigidBody3D
 class_name Dice
 
-#region signals
-signal roll_stopped
-signal dim_setup_finished
-signal dice_rotation_finished
+#region constants
+const STATIC_LINEAR_VELOCITY_THRESHOLD = 0.0001
+const STATIC_ANGULAR_VELOCITY_THRESHOLD = 0.001
+const STATIC_TIME_THRESHOLD = 0.2
+const ROLLED_SIDE_THRESHOLD = 0.99
+const ROLL_FORCE_SCALER = 0.01
+const ROLL_TORQUE_LIMIT = 5
 #endregion
 
-#region enums
-enum STATE {
-	PREROLL,
-	STARTROLL,
-	ROLLING,
-	POSTROLL
-} 
+#region signals
+signal dice_stopped
+signal dim_setup_finished
+signal dice_rotation_finished
 #endregion
 
 #region constants
@@ -35,43 +35,51 @@ const DIM_ROTATIONS = [
 #endregion
 
 #region public variables
-var state = STATE.PREROLL
-var rolled_side = null # resulted side after roll, null before roll
+var sides = []
+var rolled_side :
+	get():
+		for side in sides:
+			var facing_direction = side.global_transform.basis.z
+			if facing_direction.dot(Vector3.UP) > ROLLED_SIDE_THRESHOLD:
+				return side
 var moving : bool :
 	get():
-		return translating and rotating
+		return translating or rotating
 #endregion
 
 #region private variables
-var dice_dict
-var rotation_index
-var basis_to
-var quaternion_from
+var dice_dict # copy of dice data needed when duplicating
+var static_flag = false # used to control the emission of the fully_sttoped signal
+var static_time = 0.0
+var quaternion_from # origin quaternion for rotation tween
+var basis_to # end basis for roation tween
 var translating : bool : 
 	get(): 
-		return linear_velocity.length() > 0.0001
+		return linear_velocity.length() > STATIC_LINEAR_VELOCITY_THRESHOLD
 var rotating : bool :
 	get(): 
-		return angular_velocity.length() > 0.0001
+		return angular_velocity.length() > STATIC_ANGULAR_VELOCITY_THRESHOLD
 #endregion
 
 #region onready variables
-@onready var sides = $Sides
 @onready var summon = $Summon
 #endregion
 
 #region builtin functions
-func _physics_process(_delta: float) -> void:
-	# if roll started and move detected, switch to rolling
-	if state == STATE.STARTROLL:
-		if moving:
-			state = STATE.ROLLING
-	# detect if dice stopped moving
-	elif state == STATE.ROLLING:
-		if not moving:
-			state = STATE.POSTROLL
-			rolled_side = get_rolled_side()
-			roll_stopped.emit()
+func _ready() -> void:
+	for side in $Sides.get_children():
+		sides.append(side)
+
+func _physics_process(delta: float) -> void:
+	if not moving:
+		static_time += delta
+		if static_time > STATIC_TIME_THRESHOLD and not static_flag:
+			static_flag = true
+			dice_stopped.emit()
+	else:
+		static_time = 0.0
+		#TODO: problems here
+		#static_flag = false
 #endregion
 
 #region public functions
@@ -92,10 +100,8 @@ func clone():
 	return copy
 
 func roll(velocity):
-	state = STATE.STARTROLL
-	rolled_side = null
-	var force = 0.01 * Vector3(velocity.x, 0, velocity.y)
-	var torque = Vector3(randf_range(-5, 5), randf_range(-5, 5), randf_range(-5, 5))
+	var force = ROLL_FORCE_SCALER * Vector3(velocity.x, 0, velocity.y)
+	var torque = get_random_torque()
 	gravity_scale = 1 # activate gravity
 	apply_central_impulse(force)
 	apply_torque_impulse(torque)
@@ -127,17 +133,16 @@ func split_sides_string(sides_string):
 		side_strings.append(result.get_string())
 	return side_strings
 
-func get_rolled_side():
-	for side in $Sides.get_children():
-		var facing_direction = side.global_transform.basis.z
-		var dot = facing_direction.dot(Vector3.UP)
-		if dot > 0.95:
-			return side
+func get_random_torque():
+	var x_value = randf_range(-ROLL_TORQUE_LIMIT, ROLL_TORQUE_LIMIT)
+	var y_value = randf_range(-ROLL_TORQUE_LIMIT, ROLL_TORQUE_LIMIT)
+	var z_value = randf_range(-ROLL_TORQUE_LIMIT, ROLL_TORQUE_LIMIT)
+	return Vector3(x_value, y_value, z_value)
 
 func tween_rotate(_basis_to, time):
-	var tween = create_tween()
-	quaternion_from = transform.basis.get_rotation_quaternion()
 	basis_to = _basis_to
+	quaternion_from = transform.basis.get_rotation_quaternion()
+	var tween = create_tween()
 	tween.tween_method(_apply_quat_rotation, 0.0, 1.0, time)
 	await tween.finished
 	dice_rotation_finished.emit()

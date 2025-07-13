@@ -41,7 +41,7 @@ func add_dice(dice):
 	var copy = dice.clone()
 	%Triplet.add_child(copy)
 	copy.position = INITPOS[triplet_size-1]
-	copy.roll_stopped.connect(on_dice_stopped)
+	copy.dice_stopped.connect(on_dice_stopped)
 	copy.dim_setup_finished.connect(on_dim_setup_finished)
 
 func remove_dice(selected_dice_list):
@@ -66,8 +66,9 @@ func on_touch_pressed():
 
 func on_dice_stopped():
 	if all_dice_stopped():
-		rolling = false
-		if not any_dice_cocked():
+		if any_dice_cocked():
+			rolling = false
+		else:
 			resolve_roll()
 
 func on_dim_setup_finished():
@@ -90,7 +91,6 @@ func select_dimdice(dimdice):
 		dice.fade = false
 	dimdice.fade = true
 	dimdice_selected.emit(dimdice)
-	
 
 func all_dice_stopped():
 	return get_triplet().all(func(dice): return not dice.moving)
