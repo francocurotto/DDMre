@@ -9,7 +9,7 @@ const CRESTDICT = {
 	"G" : "MAGIC",
 	"T" : "TRAP"
 }
-const FADE = 0.7
+const HIGHLIGHT_ALPHA = 0.7
 #endregion
 
 #region export variables
@@ -35,10 +35,10 @@ var crest : String = "SUMMON" :
 		mult = _mult
 		%Mult.text = str(mult)
 
-@export var fade : bool = false :
-	set(_fade):
-		fade = _fade
-		var alpha = 1.0 - int(fade)*FADE
+@export var highlight : bool = false :
+	set(_highlight):
+		highlight = _highlight
+		var alpha = 1.0 - int(highlight) + int(highlight)*HIGHLIGHT_ALPHA
 		modulate.a = alpha
 		$Crest.modulate.a = alpha
 		%Mult.modulate.a = alpha

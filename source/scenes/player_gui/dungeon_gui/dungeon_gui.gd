@@ -28,7 +28,7 @@ func _ready() -> void:
 #region signals callbacks
 func on_dimdice_selected(original_dimdice):
 	var dimdice = original_dimdice.clone()
-	dimdice.fade = false
+	dimdice.highlight = false
 	dimdice.position = dimdice_position
 	dimdice.dice_rotation_finished.connect(func(): controls.disabled = false)
 	# add dimdice and net

@@ -79,8 +79,13 @@ func on_dim_setup_finished():
 func get_triplet():
 	return %Triplet.get_children()
 
+func set_triplet_rollable(rollable):
+	for dice in get_triplet():
+		dice.rollable = rollable
+
 func roll_dice(velocity):
 	rolling = true
+	set_triplet_rollable(true)
 	roll_started.emit()
 	for dice in get_triplet():
 		dice.roll(velocity)
@@ -88,8 +93,8 @@ func roll_dice(velocity):
 func select_dimdice(dimdice):
 	dimdice_selected.emit(dimdice)
 	for dice in get_triplet():
-		dice.fade = false
-	dimdice.fade = true
+		dice.highlight = false
+	dimdice.highlight = true
 	dimdice_selected.emit(dimdice)
 
 func all_dice_stopped():
@@ -99,6 +104,7 @@ func any_dice_cocked():
 	return get_triplet().any(func(dice): return dice.rolled_side == null)
 
 func resolve_roll():
+	set_triplet_rollable(false)
 	var summon_dice = resolve_crest_sides()
 	var dim_dice = resolve_summon_sides(summon_dice)
 	remove_not_dim_dice(dim_dice)

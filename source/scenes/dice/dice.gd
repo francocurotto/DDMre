@@ -3,9 +3,9 @@ extends RigidBody3D
 class_name Dice
 
 #region constants
-const STATIC_LINEAR_VELOCITY_THRESHOLD = 0.0001
-const STATIC_ANGULAR_VELOCITY_THRESHOLD = 0.001
-const STATIC_TIME_THRESHOLD = 0.2
+const STATIC_LINEAR_VELOCITY_THRESHOLD = 0.001
+const STATIC_ANGULAR_VELOCITY_THRESHOLD = 0.01
+const STATIC_TIME_THRESHOLD = 0.5
 const ROLLED_SIDE_THRESHOLD = 0.99
 const ROLL_FORCE_SCALER = 0.01
 const ROLL_TORQUE_LIMIT = 5
@@ -27,11 +27,11 @@ const DIM_ROTATIONS = [
 #endregion
 
 #region export variables
-@export var fade : bool = false :
-	set(_fade):
-		fade = _fade
+@export var highlight : bool = false :
+	set(_highlight):
+		highlight = _highlight
 		for side in $Sides.get_children():
-			side.fade = fade
+			side.highlight = highlight
 #endregion
 
 #region public variables
@@ -49,7 +49,7 @@ var moving : bool :
 
 #region private variables
 var dice_dict # copy of dice data needed when duplicating
-var static_flag = false # used to control the emission of the fully_sttoped signal
+var rollable = false
 var static_time = 0.0
 var quaternion_from # origin quaternion for rotation tween
 var basis_to # end basis for roation tween
@@ -71,15 +71,12 @@ func _ready() -> void:
 		sides.append(side)
 
 func _physics_process(delta: float) -> void:
-	if not moving:
+	if not moving and rollable:
 		static_time += delta
-		if static_time > STATIC_TIME_THRESHOLD and not static_flag:
-			static_flag = true
+		if static_time > STATIC_TIME_THRESHOLD:
 			dice_stopped.emit()
 	else:
 		static_time = 0.0
-		#TODO: problems here
-		#static_flag = false
 #endregion
 
 #region public functions
@@ -119,6 +116,8 @@ func setup_dim_select(new_position):
 	var index = rolled_side.get_index() 
 	tween_rotate(Basis.from_euler(DIM_ROTATIONS[index]), 1)
 	await tween.finished
+	linear_velocity = Vector3.ZERO
+	angular_velocity = Vector3.ZERO
 	dim_setup_finished.emit()
 #endregion
 
