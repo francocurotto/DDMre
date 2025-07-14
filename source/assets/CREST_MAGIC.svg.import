@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsl2unxii3mi7"
 path.s3tc="res://.godot/imported/CREST_MAGIC.svg-2aa7f64d8537c9f6a57766dd34ca0886.s3tc.ctex"
+path.etc2="res://.godot/imported/CREST_MAGIC.svg-2aa7f64d8537c9f6a57766dd34ca0886.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/CREST_MAGIC.svg"
-dest_files=["res://.godot/imported/CREST_MAGIC.svg-2aa7f64d8537c9f6a57766dd34ca0886.s3tc.ctex"]
+dest_files=["res://.godot/imported/CREST_MAGIC.svg-2aa7f64d8537c9f6a57766dd34ca0886.s3tc.ctex", "res://.godot/imported/CREST_MAGIC.svg-2aa7f64d8537c9f6a57766dd34ca0886.etc2.ctex"]
 
 [params]
 
