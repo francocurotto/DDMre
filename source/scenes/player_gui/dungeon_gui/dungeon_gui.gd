@@ -11,6 +11,7 @@ var player_gui
 
 #region private variables
 var dimdice_position = Vector3(0, 2, -3)
+var dim_dragging = false
 #endregion
 
 #region onready variables
@@ -23,6 +24,7 @@ func _ready() -> void:
 	controls.touch_released.connect(on_touch_released)
 	controls.dragging.connect(on_dragging)
 	controls.threshold_exceeded.connect(on_threshold_exceeded)
+	controls.drag_released.connect(on_drag_released)
 #endregion
 
 #region signals callbacks
@@ -41,18 +43,23 @@ func on_touch_released():
 		Globals.dungeon.dungeon_touch(tile, player_gui.net)
 
 func on_dragging():
-	if not controls.get_touched_object(Globals.LAYERS.DICE):
+	if dim_dragging:
+		move_dimdice()
+	elif not controls.get_touched_object(Globals.LAYERS.DICE):
 		move_camera()
 
 func on_threshold_exceeded(angle):
 	if controls.get_touched_object(Globals.LAYERS.DICE):
 		drag_dice(angle)
+
+func on_drag_released():
+	dim_dragging = false
 #endregion
 
 #region private functions
 func drag_dice(angle):
 	if -135 < angle and angle < -45:
-		move_dimdice()
+		dim_dragging = true
 	else:
 		controls.disabled = true
 		if angle <= -135 or 135 < angle:
@@ -61,7 +68,6 @@ func drag_dice(angle):
 			rotate_dimdice_counter_clockwise()
 		elif 45 <= angle and angle < 135:
 			flip_dimdice()
-		
 
 func rotate_dimdice_clockwise():
 	Globals.dungeon.rotate_dimdice_clockwise()
