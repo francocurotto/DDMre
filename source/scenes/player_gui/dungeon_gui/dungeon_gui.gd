@@ -51,8 +51,9 @@ func on_dragging():
 		move_camera()
 
 func on_drag_released():
-	dimdice_dragging = false
-	Globals.dungeon.return_dimdice(dimdice_position)
+	if dimdice_dragging:
+		dimdice_dragging = false
+		Globals.dungeon.return_dimdice(dimdice_position)
 
 func on_threshold_exceeded(angle):
 	if controls.get_touched_object(Globals.LAYERS.DICE):
