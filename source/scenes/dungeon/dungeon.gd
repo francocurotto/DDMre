@@ -2,6 +2,7 @@ extends Node3D
 
 #region constants
 const DIMDICE_ROTATION_TIME = 0.1
+const DIMDICE_DRAG_SPEED = 0.0002
 #endregion
 
 #region public variables
@@ -44,7 +45,7 @@ func set_dimnet(net):
 			tile.highlight = tile in nettiles
 
 func move_dimdice(velocity):
-	dimdice.position.y -= 0.001 * velocity.y
+	dimdice.position.y -= DIMDICE_DRAG_SPEED * velocity.y
 
 func return_dimdice(return_position):
 	var tween = create_tween()

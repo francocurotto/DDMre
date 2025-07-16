@@ -7,7 +7,6 @@
 ## IMPROVEMENTS
 
 ## FIXES
-- fix dimdice sometimes not moving when changing tile
 
 ## GRAPHICS
 - change dice and dungobj colors
