@@ -3,6 +3,7 @@ extends Control
 #region constants
 const CAMERA_SPEED = 0.02
 const DRAG_LENGTH = 10
+const DIMDICE_HEIGHT = 2
 #endregion
 
 #region public functions
@@ -10,6 +11,7 @@ var player_gui
 #endregion
 
 #region private variables
+var dimdice_dragging = false
 var dimdice_position = Vector3(0, 2, -3)
 #endregion
 
@@ -22,6 +24,7 @@ func _ready() -> void:
 	controls.set_raycast(get_viewport())
 	controls.touch_released.connect(on_touch_released)
 	controls.dragging.connect(on_dragging)
+	controls.drag_released.connect(on_drag_released)
 	controls.threshold_exceeded.connect(on_threshold_exceeded)
 #endregion
 
@@ -38,11 +41,18 @@ func on_dimdice_selected(original_dimdice):
 func on_touch_released():
 	var tile = controls.get_touched_object(Globals.LAYERS.TILES)
 	if tile:
-		Globals.dungeon.dungeon_touch(tile, player_gui.net)
+		dimdice_position = tile.global_position + Vector3(0,DIMDICE_HEIGHT,0)
+		Globals.dungeon.dungeon_touch(tile, dimdice_position, player_gui.net)
 
 func on_dragging():
-	if not controls.get_touched_object(Globals.LAYERS.DICE):
+	if dimdice_dragging:
+		move_dimdice()
+	elif not controls.get_touched_object(Globals.LAYERS.DICE):
 		move_camera()
+
+func on_drag_released():
+	dimdice_dragging = false
+	Globals.dungeon.return_dimdice(dimdice_position)
 
 func on_threshold_exceeded(angle):
 	if controls.get_touched_object(Globals.LAYERS.DICE):
@@ -52,7 +62,7 @@ func on_threshold_exceeded(angle):
 #region private functions
 func drag_dice(angle):
 	if -135 < angle and angle < -45:
-		move_dimdice()
+		dimdice_dragging = true
 	else:
 		controls.disabled = true
 		if angle <= -135 or 135 < angle:
@@ -61,7 +71,6 @@ func drag_dice(angle):
 			rotate_dimdice_counter_clockwise()
 		elif 45 <= angle and angle < 135:
 			flip_dimdice()
-		
 
 func rotate_dimdice_clockwise():
 	Globals.dungeon.rotate_dimdice_clockwise()
@@ -79,7 +88,7 @@ func flip_dimdice():
 	Globals.dungeon.set_dimnet(player_gui.net)
 
 func move_dimdice():
-	pass
+	Globals.dungeon.move_dimdice(controls.velocity)
 
 func move_camera():
 	var movement = Vector3(controls.velocity.x, 0, controls.velocity.y)

@@ -49,6 +49,8 @@ func _input(event: InputEvent) -> void:
 					touch_released.emit()
 				reset_flags()
 	else:
+		if drag_flag:
+			drag_released.emit()
 		reset_flags()
 #endregion
 

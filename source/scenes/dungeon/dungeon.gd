@@ -4,7 +4,7 @@ extends Node3D
 const DIMDICE_ROTATION_TIME = 0.1
 #endregion
 
-#region public functions
+#region public variables
 var dimdice :
 	set(_dimdice):
 		if dimdice: # get old dimdice info and remove
@@ -31,10 +31,10 @@ func _ready() -> void:
 #endregion
 
 #region public functions
-func dungeon_touch(tile, net) -> void:
+func dungeon_touch(tile, dimdice_position, net) -> void:
 	if dimdice:
 		dimtile = tile
-		dimdice.position = dimtile.global_position + Vector3(0,2,0)
+		dimdice.position = dimdice_position
 		set_dimnet(net)
 
 func set_dimnet(net):
@@ -42,6 +42,14 @@ func set_dimnet(net):
 	for row in tiles:
 		for tile in row:
 			tile.highlight = tile in nettiles
+
+func move_dimdice(velocity):
+	dimdice.position.y -= 0.001 * velocity.y
+
+func return_dimdice(return_position):
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(dimdice, "position", return_position, 0.5)
 #endregion
 
 #region signals callbacks
