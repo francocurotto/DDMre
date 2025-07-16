@@ -26,7 +26,6 @@ func _ready() -> void:
 	controls.dragging.connect(on_dragging)
 	controls.drag_released.connect(on_drag_released)
 	controls.threshold_exceeded.connect(on_threshold_exceeded)
-	controls.drag_released.connect(on_drag_released)
 #endregion
 
 #region signals callbacks
@@ -58,9 +57,6 @@ func on_drag_released():
 func on_threshold_exceeded(angle):
 	if controls.get_touched_object(Globals.LAYERS.DICE):
 		drag_dice(angle)
-
-func on_drag_released():
-	dim_dragging = false
 #endregion
 
 #region private functions
