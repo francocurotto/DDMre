@@ -14,6 +14,8 @@ var dimdice :
 			dimdice.queue_free()
 		# replace dimdice
 		dimdice = _dimdice
+		dimdice.contact_monitor = true
+		dimdice.max_contacts_reported = 1
 		add_child(dimdice)
 #endregion
 
@@ -32,7 +34,7 @@ func _ready() -> void:
 #endregion
 
 #region public functions
-func dungeon_touch(tile, dimdice_position, net) -> void:
+func on_tile_touched(tile, dimdice_position, net) -> void:
 	if dimdice:
 		dimtile = tile
 		dimdice.position = dimdice_position
@@ -68,6 +70,12 @@ func flip_dimdice():
 	var axis = Vector3(1, 0, 0)
 	var rotated_basis = dimdice.transform.basis.rotated(axis, PI)
 	dimdice.tween_rotate(rotated_basis, DIMDICE_ROTATION_TIME)
+
+func on_dimdice_collided(player, net, return_position):
+	if can_dimension(player, net):
+		dimension_the_dice()
+	else:
+		reject_dimension(return_position)
 #endregion
 
 #region private functions
@@ -92,4 +100,17 @@ func coor_in_bound(coor):
 	var in_bound_x = 0 <= coor.x and coor.x < Globals.DUNGEON_WIDTH
 	var in_bound_y = 0 <= coor.y and coor.y < Globals.DUNGEON_HEIGHT
 	return in_bound_x and in_bound_y
+
+func can_dimension(_player, _net):
+	#TODO
+	return false
+
+func dimension_the_dice():
+	#TODO 
+	pass
+
+func reject_dimension(return_position):
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(dimdice, "position", return_position, 0.5)
 #endregion

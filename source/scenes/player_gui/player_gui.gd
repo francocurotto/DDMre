@@ -4,6 +4,10 @@ extends VBoxContainer
 const Net = preload("res://scenes/player_gui/net/net.gd")
 #endregion
 
+#region export vatriables
+@export_range(1,2,1) var player : int = 1
+#endregion
+
 #region public variables
 var guistate = Globals.GUISTATE.ROLL
 var net = Net.new()

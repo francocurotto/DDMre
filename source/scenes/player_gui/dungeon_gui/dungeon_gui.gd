@@ -34,6 +34,7 @@ func on_dimdice_selected(original_dimdice):
 	dimdice.highlight = false
 	dimdice.position = dimdice_position
 	dimdice.dice_rotation_finished.connect(func(): controls.disabled = false)
+	dimdice.body_entered.connect(on_dimdice_collided)
 	# add dimdice and net
 	Globals.dungeon.dimdice = dimdice
 	Globals.dungeon.set_dimnet(player_gui.net)
@@ -42,7 +43,7 @@ func on_touch_released():
 	var tile = controls.get_touched_object(Globals.LAYERS.TILES)
 	if tile:
 		dimdice_position = tile.global_position + Vector3(0,DIMDICE_HEIGHT,0)
-		Globals.dungeon.dungeon_touch(tile, dimdice_position, player_gui.net)
+		Globals.dungeon.on_tile_touched(tile, dimdice_position, player_gui.net)
 
 func on_dragging():
 	if dimdice_dragging:
@@ -58,6 +59,11 @@ func on_drag_released():
 func on_threshold_exceeded(angle):
 	if controls.get_touched_object(Globals.LAYERS.DICE):
 		drag_dice(angle)
+
+func on_dimdice_collided(_node):
+	var player = player_gui.player
+	var net = player_gui.net
+	Globals.dungeon.on_dimdice_collided(player, net, dimdice_position)
 #endregion
 
 #region private functions
