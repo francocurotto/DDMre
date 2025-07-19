@@ -30,8 +30,8 @@ var threshold_flag : bool = false ## true if threshold was exceeded
 
 #region builtin functions
 func _input(event: InputEvent) -> void:
-	if get_global_rect().has_point(event.position):
-		if not disabled:
+	if not disabled:
+		if get_global_rect().has_point(event.position):
 			if event is InputEventScreenTouch and event.pressed:
 				touch_position = viewport.get_mouse_position()
 				touch_pressed.emit()
@@ -48,10 +48,10 @@ func _input(event: InputEvent) -> void:
 				else:
 					touch_released.emit()
 				reset_flags()
-	else:
-		if drag_flag:
-			drag_released.emit()
-		reset_flags()
+		else:
+			if drag_flag:
+				drag_released.emit()
+			reset_flags()
 #endregion
 
 #region public functions

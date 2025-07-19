@@ -15,6 +15,12 @@ func _ready() -> void:
 	button_group.pressed.connect(on_button_pressed)
 #endregion
 
+#region public functions
+func disable_buttons():
+	for button in %GridContainer.get_children():
+		button.disabled = true
+#endregion
+
 #region signals callbacks
 func on_button_pressed(button):
 	player_gui.net.type = button.type

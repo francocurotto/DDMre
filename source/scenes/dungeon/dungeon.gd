@@ -1,5 +1,9 @@
 extends Node3D
 
+#region signals
+signal dimension_started
+#endregion
+
 #region constants
 const DIMDICE_ROTATION_TIME = 0.1
 const DIMDICE_DRAG_SPEED = 0.0002
@@ -25,6 +29,9 @@ var dimtile
 #endregion
 
 #region builtin functions
+func _enter_tree() -> void:
+	Globals.dungeon = self
+
 func _ready() -> void:
 	dimtile = $Rows/Row4/BaseTile7
 	for row in $Rows.get_children():
@@ -105,23 +112,38 @@ func coor_in_bound(coor):
 
 func can_dimension(player, net):
 	# first check if net is inbound to not get null later at get_tile
-	if not net.all(coor_in_bound):
+	if not net.coordinates.all(coor_in_bound):
 		return false
 	return not net_overlaps(net) and net_connects_with_path(player, net)
 
 func net_overlaps(net):
-	for coor in net:
+	for coor in net.coordinates:
 		if get_tile(coor).type != "EMPTY":
 			return true
 	return false
 
-func net_connects_with_path(_player, _net):
-	#TODO
+func net_connects_with_path(player, net):
+	for coor in net.coordinates:
+		var neighbor_tiles = get_neighbor_tiles(coor)
+		for tile in neighbor_tiles:
+			if tile.type == "PATH" and tile.player == player:
+				return true
 	return false
 
+func get_neighbor_tiles(coor):
+	var directions = [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]
+	var neighbor_tiles = []
+	for direction in directions:
+		var neighbor_coor = coor + direction
+		var neighbor_tile = get_tile(neighbor_coor)
+		if neighbor_tile: # check not null
+			neighbor_tiles.append(neighbor_tile)
+	return neighbor_tiles
+
 func dimension_the_dice():
-	#TODO 
-	pass
+	dimension_started.emit()
+	dimdice.position.y = 0.5
+	#TODO finish
 
 func apply_dimdice_shake(t: float) -> void:
 	var angle = 0.2*sin(10*2*PI*t)

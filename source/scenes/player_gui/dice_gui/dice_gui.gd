@@ -21,6 +21,7 @@ func _ready() -> void:
 	%Dicepool.roll_dice_added.connect(on_roll_dice_added)
 	%Dicepool.roll_dice_removed.connect(on_roll_dice_removed)
 	%Rollzone.crest_side_rolled.connect($Crestpool.on_crest_side_rolled)
+	Globals.dungeon.dimension_started.connect(on_dimension_started)
 #endregion
 
 #region public functions
@@ -41,4 +42,8 @@ func _on_tab_container_tab_changed(_tab: int) -> void:
 	dicegui_tab_changed.emit()
 	var current_control_tab = $TabContainer.get_current_tab_control()
 	%Rollzone.controls.disabled = current_control_tab != %Rollzone
+
+func on_dimension_started(): 
+	%Rollzone.controls.disabled = true
+	%Nets.disable_buttons()
 #endregion

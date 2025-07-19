@@ -26,6 +26,7 @@ func _ready() -> void:
 	controls.dragging.connect(on_dragging)
 	controls.drag_released.connect(on_drag_released)
 	controls.threshold_exceeded.connect(on_threshold_exceeded)
+	Globals.dungeon.dimension_started.connect(func(): controls.disabled = true)
 #endregion
 
 #region signals callbacks
