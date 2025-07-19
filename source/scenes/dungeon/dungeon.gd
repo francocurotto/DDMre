@@ -49,10 +49,12 @@ func set_dimnet(net):
 func move_dimdice(velocity):
 	dimdice.position.y -= DIMDICE_DRAG_SPEED * velocity.y
 
-func return_dimdice(return_position):
+func return_dimdice(return_position, shake=false):
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tween.tween_property(dimdice, "position", return_position, 0.5)
+	if shake:
+		tween.parallel().tween_method(apply_dimdice_shake, 0.0, 1.0, 0.5)
 #endregion
 
 #region signals callbacks
@@ -75,7 +77,7 @@ func on_dimdice_collided(player, net, return_position):
 	if can_dimension(player, net):
 		dimension_the_dice()
 	else:
-		reject_dimension(return_position)
+		return_dimdice(return_position, true)
 #endregion
 
 #region private functions
@@ -101,7 +103,19 @@ func coor_in_bound(coor):
 	var in_bound_y = 0 <= coor.y and coor.y < Globals.DUNGEON_HEIGHT
 	return in_bound_x and in_bound_y
 
-func can_dimension(_player, _net):
+func can_dimension(player, net):
+	# first check if net is inbound to not get null later at get_tile
+	if not net.all(coor_in_bound):
+		return false
+	return not net_overlaps(net) and net_connects_with_path(player, net)
+
+func net_overlaps(net):
+	for coor in net:
+		if get_tile(coor).type != "EMPTY":
+			return true
+	return false
+
+func net_connects_with_path(_player, _net):
 	#TODO
 	return false
 
@@ -109,8 +123,8 @@ func dimension_the_dice():
 	#TODO 
 	pass
 
-func reject_dimension(return_position):
-	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	tween.tween_property(dimdice, "position", return_position, 0.5)
+func apply_dimdice_shake(t: float) -> void:
+	var angle = 0.2*sin(10*2*PI*t)
+	var shaked_basis = dimdice.basis_to.rotated(Vector3.BACK, angle)
+	dimdice.basis = shaked_basis
 #endregion

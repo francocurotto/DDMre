@@ -1,6 +1,7 @@
 ## FEATURES
 - Dimension
-    - Add dice dimension controls
+    - implement can_dimension
+    - implement dimension_the_dice
 - Add SKIP button in rollzone
 - Add ENDTURN button to dungeon gui
 

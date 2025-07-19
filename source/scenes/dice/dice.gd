@@ -52,7 +52,7 @@ var dice_dict # copy of dice data needed when duplicating
 var rollable = false
 var static_time = 0.0
 var quaternion_from # origin quaternion for rotation tween
-var basis_to # end basis for roation tween
+var basis_to = basis # end basis for roation tween
 var translating : bool : 
 	get(): 
 		return linear_velocity.length() > STATIC_LINEAR_VELOCITY_THRESHOLD
@@ -142,11 +142,11 @@ func tween_rotate(_basis_to, time):
 	basis_to = _basis_to
 	quaternion_from = transform.basis.get_rotation_quaternion()
 	var tween = create_tween()
-	tween.tween_method(_apply_quat_rotation, 0.0, 1.0, time)
+	tween.tween_method(apply_quat_rotation, 0.0, 1.0, time)
 	await tween.finished
 	dice_rotation_finished.emit()
 
-func _apply_quat_rotation(t: float) -> void:
+func apply_quat_rotation(t: float) -> void:
 	var q = quaternion_from.slerp(basis_to, t)
 	basis = Basis(q)
 #endregion
