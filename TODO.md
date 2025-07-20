@@ -8,7 +8,6 @@
 ## IMPROVEMENTS
 
 ## FIXES
-- fix rolled dice selectable in rollzone after dimension by switching out and in to rollzone tab
 - roll sometimes get stuck when one dice is cocked
 
 ## GRAPHICS
