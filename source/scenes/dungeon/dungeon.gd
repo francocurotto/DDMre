@@ -143,6 +143,7 @@ func get_neighbor_tiles(coor):
 func dimension_the_dice():
 	dimension_started.emit()
 	dimdice.position.y = 0.5
+	pass
 	#TODO finish
 
 func apply_dimdice_shake(t: float) -> void:

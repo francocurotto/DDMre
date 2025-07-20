@@ -24,6 +24,7 @@ var camera3d : Camera3D
 #endregion
 
 #region private variables
+var touch_flag : bool = false ## true if touched
 var drag_flag : bool = false ## true if dragging
 var threshold_flag : bool = false ## true if threshold was exceeded
 #endregion
@@ -33,9 +34,10 @@ func _input(event: InputEvent) -> void:
 	if not disabled:
 		if get_global_rect().has_point(event.position):
 			if event is InputEventScreenTouch and event.pressed:
+				touch_flag = true
 				touch_position = viewport.get_mouse_position()
 				touch_pressed.emit()
-			elif event is InputEventScreenDrag:
+			elif event is InputEventScreenDrag and touch_flag:
 				drag_flag = true
 				velocity = event.velocity
 				dragging.emit()
@@ -62,6 +64,7 @@ func set_raycast(_viewport):
 
 #region private functions
 func reset_flags():
+	touch_flag = false
 	drag_flag = false
 	threshold_flag = false
 

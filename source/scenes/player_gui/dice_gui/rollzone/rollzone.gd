@@ -34,6 +34,7 @@ func _ready() -> void:
 	controls.set_raycast(%SubViewport)
 	controls.touch_pressed.connect(on_touch_pressed)
 	controls.drag_released.connect(on_drag_released)
+	Globals.dungeon.dimension_started.connect(remove_triplet)
 #endregion
 
 #region public functions
@@ -82,6 +83,10 @@ func get_triplet():
 func set_triplet_rollable(rollable):
 	for dice in get_triplet():
 		dice.rollable = rollable
+
+func remove_triplet():
+	for dice in %Triplet.get_children():
+		dice.queue_free()
 
 func roll_dice(velocity):
 	rolling = true
