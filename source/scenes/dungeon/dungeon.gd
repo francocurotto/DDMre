@@ -142,6 +142,7 @@ func get_neighbor_tiles(coor):
 
 func dimension_the_dice():
 	dimension_started.emit()
+	# repostion to dice to dimension position
 	dimdice.position.y = 0.5
 	dimdice.basis = dimdice.basis_to
 	pass
