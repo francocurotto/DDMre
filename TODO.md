@@ -9,6 +9,7 @@
 
 ## FIXES
 - roll sometimes get stuck when one dice is cocked
+- dimdice may misbehave if dragged to fast
 
 ## GRAPHICS
 - change dice and dungobj colors
