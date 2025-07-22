@@ -82,7 +82,7 @@ func flip_dimdice():
 
 func on_dimdice_collided(player, net, return_position):
 	if can_dimension(player, net):
-		dimension_the_dice()
+		dimension_the_dice(net)
 	else:
 		return_dimdice(return_position, true)
 #endregion
@@ -140,13 +140,12 @@ func get_neighbor_tiles(coor):
 			neighbor_tiles.append(neighbor_tile)
 	return neighbor_tiles
 
-func dimension_the_dice():
+func dimension_the_dice(net):
 	dimension_started.emit()
 	# repostion to dice to dimension position
 	dimdice.position.y = 0.5
 	dimdice.basis = dimdice.basis_to
-	pass
-	#TODO finish
+	dimdice.unfold(net)
 
 func apply_dimdice_shake(t: float) -> void:
 	var angle = 0.2*sin(10*2*PI*t)

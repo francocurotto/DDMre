@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpdeuxhgpomqs"]
+
+[ext_resource type="Script" uid="uid://mmflckp5adps" path="res://scenes/dice/side/pivot/pivot.gd" id="1_lr0vf"]
+
+[node name="Pivot" type="Node3D"]
+script = ExtResource("1_lr0vf")

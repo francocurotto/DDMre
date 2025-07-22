@@ -45,6 +45,12 @@ var crest : String = "SUMMON" :
 		%Mult.outline_modulate.a = alpha
 #endregion
 
+#region onready variables
+@onready var pivot_up = $Pivots/PivotUp
+@onready var pivot_left = $Pivots/PivotLeft
+@onready var pivot_right = $Pivots/PivotRight
+@onready var pivot_down = $Pivots/PivotDown
+
 #region public functions
 func set_side(_type, level, side_string):
 	# set type

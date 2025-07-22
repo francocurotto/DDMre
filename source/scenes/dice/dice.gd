@@ -62,6 +62,12 @@ var rotating : bool :
 #endregion
 
 #region onready variables
+@onready var side1 = $Sides/Side1
+@onready var side2 = $Sides/Side2
+@onready var side3 = $Sides/Side3
+@onready var side4 = $Sides/Side4
+@onready var side5 = $Sides/Side5
+@onready var side6 = $Sides/Side6
 @onready var summon = $Summon
 #endregion
 
@@ -119,6 +125,12 @@ func setup_dim_select(new_position):
 	linear_velocity = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
 	dim_setup_finished.emit()
+
+func unfold(_net):
+	var tween = create_tween()
+	var pivots = set_unfold_x()
+	for pivot in pivots:
+		pivot.unfold(tween)
 #endregion
 
 #region private functions
@@ -149,4 +161,12 @@ func tween_rotate(_basis_to, time):
 func apply_quat_rotation(t: float) -> void:
 	var q = quaternion_from.slerp(basis_to, t)
 	basis = Basis(q)
+
+func set_unfold_x():
+	side5.repartent(side6.pivot_down)
+	side3.reparent(side6.pivot_right)
+	side4.reparent(side6.pivot_left)
+	side2.reparent(side6.pivot_up)
+	side1.reparent(side5.pivot_up)
+	return [side6.pivot_down, side6.pivot_right, side6.pivot_left, side6.pivot_up, side5.pivot_up]
 #endregion
