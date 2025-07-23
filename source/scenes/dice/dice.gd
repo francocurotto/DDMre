@@ -163,7 +163,7 @@ func apply_quat_rotation(t: float) -> void:
 	basis = Basis(q)
 
 func set_unfold_x():
-	side5.repartent(side6.pivot_down)
+	side5.reparent(side6.pivot_down)
 	side3.reparent(side6.pivot_right)
 	side4.reparent(side6.pivot_left)
 	side2.reparent(side6.pivot_up)

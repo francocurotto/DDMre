@@ -34,6 +34,7 @@ func on_dimdice_selected(original_dimdice):
 	var dimdice = original_dimdice.clone()
 	dimdice.highlight = false
 	dimdice.position = dimdice_position
+	dimdice.rotation = Vector3.ZERO
 	dimdice.basis_to = dimdice.basis
 	dimdice.dice_rotation_finished.connect(func(): controls.disabled = false)
 	dimdice.body_entered.connect(on_dimdice_collided)

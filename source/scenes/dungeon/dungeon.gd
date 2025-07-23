@@ -143,7 +143,7 @@ func get_neighbor_tiles(coor):
 func dimension_the_dice(net):
 	dimension_started.emit()
 	# repostion to dice to dimension position
-	dimdice.position.y = 0.5
+	dimdice.position.y = 0.552 # this value allows sides to be over tiles
 	dimdice.basis = dimdice.basis_to
 	dimdice.unfold(net)
 
