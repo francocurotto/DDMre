@@ -66,4 +66,9 @@ func set_side(_type, level, side_string):
 			mult = 1
 		else:
 			mult = int(side_string[1])
+
+func set_pivot(pivot, array, parallel=false):
+	reparent(pivot)
+	pivot.parallel = parallel
+	array.append(pivot)
 #endregion

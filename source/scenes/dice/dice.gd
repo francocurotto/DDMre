@@ -53,6 +53,7 @@ var rollable = false
 var static_time = 0.0
 var quaternion_from # origin quaternion for rotation tween
 var basis_to = basis # end basis for roation tween
+var pivots = [] # array of pivots for dimensioning
 var translating : bool : 
 	get(): 
 		return linear_velocity.length() > STATIC_LINEAR_VELOCITY_THRESHOLD
@@ -128,7 +129,8 @@ func setup_dim_select(new_position):
 
 func unfold(_net):
 	var tween = create_tween()
-	var pivots = set_unfold_x()
+	tween.set_trans(Tween.TRANS_SINE)
+	set_unfold_x()
 	for pivot in pivots:
 		pivot.unfold(tween)
 #endregion
@@ -163,10 +165,9 @@ func apply_quat_rotation(t: float) -> void:
 	basis = Basis(q)
 
 func set_unfold_x():
-	side5.reparent(side6.pivot_down)
-	side3.reparent(side6.pivot_right)
-	side4.reparent(side6.pivot_left)
-	side2.reparent(side6.pivot_up)
-	side1.reparent(side5.pivot_up)
-	return [side6.pivot_down, side6.pivot_right, side6.pivot_left, side6.pivot_up, side5.pivot_up]
+	side1.set_pivot(side5.pivot_up, pivots)
+	side5.set_pivot(side6.pivot_down, pivots, true)
+	side3.set_pivot(side6.pivot_right, pivots, true)
+	side4.set_pivot(side6.pivot_left, pivots, true)
+	side2.set_pivot(side6.pivot_up, pivots, true)
 #endregion
