@@ -54,6 +54,7 @@ var static_time = 0.0
 var quaternion_from # origin quaternion for rotation tween
 var basis_to = basis # end basis for roation tween
 var pivots = [] # array of pivots for dimensioning
+var pivot_sequence = 1 # current pivot sequence to define parallel unfolding
 var translating : bool : 
 	get(): 
 		return linear_velocity.length() > STATIC_LINEAR_VELOCITY_THRESHOLD
@@ -127,12 +128,16 @@ func setup_dim_select(new_position):
 	angular_velocity = Vector3.ZERO
 	dim_setup_finished.emit()
 
-func unfold(_net):
+func unfold(net):
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
-	set_unfold_x()
+	if net.orientation == 1:
+		set_unfold_x()
+	else:
+		set_unfold_x_fliped()
 	for pivot in pivots:
-		pivot.unfold(tween)
+		pivot.unfold(tween, pivot.sequence==pivot_sequence)
+		pivot_sequence = pivot.sequence
 #endregion
 
 #region private functions
@@ -165,9 +170,16 @@ func apply_quat_rotation(t: float) -> void:
 	basis = Basis(q)
 
 func set_unfold_x():
-	side1.set_pivot(side5.pivot_up, pivots)
-	side5.set_pivot(side6.pivot_down, pivots, true)
-	side3.set_pivot(side6.pivot_right, pivots, true)
-	side4.set_pivot(side6.pivot_left, pivots, true)
-	side2.set_pivot(side6.pivot_up, pivots, true)
+	side1.set_pivot(side5.pivot_up, pivots, 1)
+	side5.set_pivot(side6.pivot_down, pivots, 2)
+	side3.set_pivot(side6.pivot_right, pivots, 2)
+	side4.set_pivot(side6.pivot_left, pivots, 2)
+	side2.set_pivot(side6.pivot_up, pivots, 2)
+
+func set_unfold_x_fliped():
+	side6.set_pivot(side5.pivot_down, pivots, 1)
+	side2.set_pivot(side1.pivot_up, pivots, 2)
+	side3.set_pivot(side1.pivot_left, pivots, 2)
+	side4.set_pivot(side1.pivot_right, pivots, 2)
+	side5.set_pivot(side1.pivot_down, pivots, 2)
 #endregion

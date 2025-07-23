@@ -21,11 +21,11 @@ const ANGLES = {
 #endregion
 
 #region public variables
-var parallel = false
+var sequence = 1 # sequence number for parallel tween during unfolding
 #endregion
 
 #region public functions
-func unfold(tween):
-	tween.tween_property(self, AXES[location], ANGLES[location], UNFOLD_TIME)
+func unfold(tween, parallel):
 	tween.set_parallel(parallel)
+	tween.tween_property(self, AXES[location], ANGLES[location], UNFOLD_TIME)
 #endregion
