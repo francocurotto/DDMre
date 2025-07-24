@@ -132,9 +132,9 @@ func unfold(net):
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
 	if net.orientation == 1:
-		set_unfold_x()
+		call("set_unfold_%s" % net.type)
 	else:
-		set_unfold_x_fliped()
+		call("set_unfold_%s_fliped" % net.type)
 	for pivot in pivots:
 		pivot.unfold(tween, pivot.sequence==pivot_sequence)
 		pivot_sequence = pivot.sequence
@@ -169,17 +169,43 @@ func apply_quat_rotation(t: float) -> void:
 	var q = quaternion_from.slerp(basis_to, t)
 	basis = Basis(q)
 
-func set_unfold_x():
-	side5.set_pivot(side6.pivot_down, pivots, 1)
-	side3.set_pivot(side6.pivot_right, pivots, 1)
-	side4.set_pivot(side6.pivot_left, pivots, 1)
-	side2.set_pivot(side6.pivot_up, pivots, 1)
-	side1.set_pivot(side5.pivot_up, pivots, 2)
+func set_unfold_X():
+	set_pivot(side2, side6.pivot_up, 1)
+	set_pivot(side3, side6.pivot_right, 1)
+	set_pivot(side4, side6.pivot_left, 1)
+	set_pivot(side5, side6.pivot_down, 1)
+	set_pivot(side1, side5.pivot_up, 2)
 
-func set_unfold_x_fliped():
-	side2.set_pivot(side1.pivot_up, pivots, 1)
-	side3.set_pivot(side1.pivot_left, pivots, 1)
-	side4.set_pivot(side1.pivot_right, pivots, 1)
-	side5.set_pivot(side1.pivot_down, pivots, 1)
-	side6.set_pivot(side5.pivot_down, pivots, 2)
+func set_unfold_T():
+	set_pivot(side2, side6.pivot_up, 1)
+	set_pivot(side5, side6.pivot_down, 1)
+	set_pivot(side3, side2.pivot_right, 2)
+	set_pivot(side4, side2.pivot_left, 2)
+	set_pivot(side1, side5.pivot_up, 2)
+
+func set_unfold_Y():
+	set_pivot(side2, side6.pivot_up, 1)
+	set_pivot(side5, side6.pivot_down, 1)
+	set_pivot(side4, side6.pivot_left, 1)
+	set_pivot(side3, side2.pivot_right, 2)
+	set_pivot(side1, side5.pivot_up, 2)
+
+func set_unfold_Z():
+	set_pivot(side2, side6.pivot_up, 1)
+	set_pivot(side5, side6.pivot_down, 1)
+	set_pivot(side3, side2.pivot_right, 2)
+	set_pivot(side1, side5.pivot_up, 2)
+	set_pivot(side4, side1.pivot_right, 3)
+
+func set_unfold_X_fliped():
+	set_pivot(side2, side1.pivot_up, 1)
+	set_pivot(side3, side1.pivot_left, 1)
+	set_pivot(side4, side1.pivot_right, 1)
+	set_pivot(side5, side1.pivot_down, 1)
+	set_pivot(side6, side5.pivot_down, 2)
+
+func set_pivot(side, pivot, sequence):
+	side.reparent(pivot)
+	pivot.sequence = sequence
+	pivots.append(pivot)
 #endregion

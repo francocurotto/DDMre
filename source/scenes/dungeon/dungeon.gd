@@ -35,9 +35,8 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	dimtile = $Rows/Row4/BaseTile7
 	for row in $Rows.get_children():
-		tiles.append([])
 		for tile in row.get_children():
-			tiles[-1].append(tile)
+			tiles.append(tile)
 #endregion
 
 #region public functions
@@ -48,10 +47,9 @@ func on_tile_touched(tile, dimdice_position, net) -> void:
 		set_dimnet(net)
 
 func set_dimnet(net):
-	var nettiles = get_nettiles(net)
-	for row in tiles:
-		for tile in row:
-			tile.highlight = tile in nettiles
+	var net_tiles = get_net_tiles(net)
+	for tile in tiles:
+		tile.highlight = tile in net_tiles
 
 func move_dimdice(velocity):
 	dimdice.position.y -= DIMDICE_DRAG_SPEED * velocity.y
@@ -88,15 +86,15 @@ func on_dimdice_collided(player, net, return_position):
 #endregion
 
 #region private functions
-func get_nettiles(net):
-	var nettiles = []
+func get_net_tiles(net):
+	var net_tiles = []
 	var dimcoor = get_tilecoor(dimtile)
 	net.offset = dimcoor
 	for coor in net.coordinates:
 		var tile = get_tile(coor)
 		if tile:
-			nettiles.append(tile)
-	return nettiles
+			net_tiles.append(tile)
+	return net_tiles
 
 func get_tilecoor(tile):
 	return Vector2i(tile.get_index(), tile.get_parent().get_index())
@@ -145,6 +143,8 @@ func dimension_the_dice(net):
 	# repostion to dice to dimension position
 	dimdice.position.y = 0.552 # this value allows sides to be over tiles
 	dimdice.basis = dimdice.basis_to
+	for tile in tiles:
+		tile.highlight = false
 	dimdice.unfold(net)
 
 func apply_dimdice_shake(t: float) -> void:
