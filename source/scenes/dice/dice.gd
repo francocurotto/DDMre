@@ -170,16 +170,16 @@ func apply_quat_rotation(t: float) -> void:
 	basis = Basis(q)
 
 func set_unfold_x():
-	side1.set_pivot(side5.pivot_up, pivots, 1)
-	side5.set_pivot(side6.pivot_down, pivots, 2)
-	side3.set_pivot(side6.pivot_right, pivots, 2)
-	side4.set_pivot(side6.pivot_left, pivots, 2)
-	side2.set_pivot(side6.pivot_up, pivots, 2)
+	side5.set_pivot(side6.pivot_down, pivots, 1)
+	side3.set_pivot(side6.pivot_right, pivots, 1)
+	side4.set_pivot(side6.pivot_left, pivots, 1)
+	side2.set_pivot(side6.pivot_up, pivots, 1)
+	side1.set_pivot(side5.pivot_up, pivots, 2)
 
 func set_unfold_x_fliped():
-	side6.set_pivot(side5.pivot_down, pivots, 1)
-	side2.set_pivot(side1.pivot_up, pivots, 2)
-	side3.set_pivot(side1.pivot_left, pivots, 2)
-	side4.set_pivot(side1.pivot_right, pivots, 2)
-	side5.set_pivot(side1.pivot_down, pivots, 2)
+	side2.set_pivot(side1.pivot_up, pivots, 1)
+	side3.set_pivot(side1.pivot_left, pivots, 1)
+	side4.set_pivot(side1.pivot_right, pivots, 1)
+	side5.set_pivot(side1.pivot_down, pivots, 1)
+	side6.set_pivot(side5.pivot_down, pivots, 2)
 #endregion
