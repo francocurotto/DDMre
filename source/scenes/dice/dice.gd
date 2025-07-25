@@ -197,6 +197,13 @@ func set_unfold_Z():
 	set_pivot(side2, side6.pivot_up, 3)
 	set_pivot(side5, side6.pivot_down, 3)
 
+func set_unfold_V():
+	set_pivot(side4, side5.pivot_right, 1)
+	set_pivot(side1, side5.pivot_up, 1)
+	set_pivot(side3, side2.pivot_right, 1)
+	set_pivot(side2, side6.pivot_up, 2)
+	set_pivot(side5, side6.pivot_down, 2)
+
 func set_unfold_X_fliped():
 	set_pivot(side6, side5.pivot_down, 1)
 	set_pivot(side2, side1.pivot_up, 2)
