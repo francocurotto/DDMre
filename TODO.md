@@ -11,6 +11,7 @@
 ## FIXES
 - roll sometimes get stuck when one dice is cocked
 - dimdice may misbehave if dragged to fast
+    -also if timing it correctly, dimdice may unfold and return to original position
 - sometimes I can translate dimnet but dimdice get stuck in original position
     - probably has to do with touching tile before dimdice animation if finished
 
