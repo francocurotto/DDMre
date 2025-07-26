@@ -267,6 +267,62 @@ func set_unfold_Y_fliped():
 	set_pivot(side5, side1.pivot_down, 2)
 	set_pivot(side4, side1.pivot_right, 2)
 
+func set_unfold_Z_fliped():
+	set_pivot(side4, side6.pivot_left, 1)
+	set_pivot(side3, side2.pivot_right, 2)
+	set_pivot(side6, side5.pivot_down, 2)
+	set_pivot(side2, side1.pivot_up, 3)
+	set_pivot(side5, side1.pivot_down, 3)
+
+func set_unfold_V_fliped():
+	set_pivot(side4, side5.pivot_right, 1)
+	set_pivot(side6, side5.pivot_down, 1)
+	set_pivot(side3, side2.pivot_right, 1)
+	set_pivot(side2, side1.pivot_up, 2)
+	set_pivot(side5, side1.pivot_down, 2)
+
+func set_unfold_N_fliped():
+	set_pivot(side4, side5.pivot_right, 1)
+	set_pivot(side6, side5.pivot_down, 1)
+	set_pivot(side3, side1.pivot_left, 2)
+	set_pivot(side2, side1.pivot_up, 2)
+	set_pivot(side5, side1.pivot_down, 2)
+
+func set_unfold_M_fliped():
+	set_pivot(side6, side4.pivot_down, 1)
+	set_pivot(side4, side5.pivot_right, 2)
+	set_pivot(side3, side2.pivot_right, 2)
+	set_pivot(side2, side1.pivot_up, 3)
+	set_pivot(side5, side1.pivot_down, 3)
+
+func set_unfold_E_fliped():
+	set_pivot(side6, side4.pivot_down, 1)
+	set_pivot(side4, side5.pivot_right, 2)
+	set_pivot(side2, side3.pivot_left, 2)
+	set_pivot(side3, side1.pivot_left, 3)
+	set_pivot(side5, side1.pivot_down, 3)
+
+func set_unfold_P_fliped():
+	set_pivot(side6, side5.pivot_down, 1)
+	set_pivot(side2, side3.pivot_left, 1)
+	set_pivot(side4, side1.pivot_right, 2)
+	set_pivot(side3, side1.pivot_left, 2)
+	set_pivot(side5, side1.pivot_down, 2)
+
+func set_unfold_R_fliped():
+	set_pivot(side6, side5.pivot_down, 1)
+	set_pivot(side4, side5.pivot_right, 1)
+	set_pivot(side2, side3.pivot_left, 1)
+	set_pivot(side3, side1.pivot_left, 2)
+	set_pivot(side5, side1.pivot_down, 2)
+
+func set_unfold_L_fliped():
+	set_pivot(side3, side5.pivot_left, 1)
+	set_pivot(side5, side4.pivot_left, 2)
+	set_pivot(side6, side2.pivot_down, 2)
+	set_pivot(side4, side1.pivot_right, 3)
+	set_pivot(side2, side1.pivot_up, 3)
+
 func set_pivot(side, pivot, sequence):
 	side.reparent(pivot)
 	pivot.sequence = sequence

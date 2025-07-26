@@ -1,12 +1,12 @@
 ## FEATURES
 - Dimension
     - implement dimension_the_dice
-        - implement all nets
         - make that side back is path tile
 - Add SKIP button in rollzone
 - Add ENDTURN button to dungeon gui
 
 ## IMPROVEMENTS
+- change project name and add README.md
 
 ## FIXES
 - roll sometimes get stuck when one dice is cocked
