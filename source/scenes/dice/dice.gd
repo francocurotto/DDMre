@@ -14,7 +14,7 @@ const ROLL_TORQUE_LIMIT = 5
 #region signals
 signal dice_stopped
 signal dim_setup_finished
-signal dice_rotation_finished
+signal dimdice_movement_finished
 #endregion
 
 #region constants
@@ -163,7 +163,7 @@ func tween_rotate(_basis_to, time):
 	var tween = create_tween()
 	tween.tween_method(apply_quat_rotation, 0.0, 1.0, time)
 	await tween.finished
-	dice_rotation_finished.emit()
+	dimdice_movement_finished.emit()
 
 func apply_quat_rotation(t: float) -> void:
 	var q = quaternion_from.slerp(basis_to, t)

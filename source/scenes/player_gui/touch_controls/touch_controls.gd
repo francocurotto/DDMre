@@ -13,7 +13,11 @@ const DRAG_THRESHOLD = 10
 #endregion
 
 #region export variables
-@export var disabled : bool = false
+@export var disabled : bool = false : 
+	set(_disabled):
+		disabled = _disabled
+		if disabled:
+			reset_flags()
 #endregion
 
 #region public variables
@@ -47,7 +51,7 @@ func _input(event: InputEvent) -> void:
 			elif event is InputEventScreenTouch and not event.pressed:
 				if drag_flag:
 					drag_released.emit()
-				else:
+				elif touch_flag:
 					touch_released.emit()
 				reset_flags()
 		else:

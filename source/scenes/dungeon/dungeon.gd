@@ -6,7 +6,8 @@ signal dimension_started
 
 #region constants
 const DIMDICE_ROTATION_TIME = 0.1
-const DIMDICE_DRAG_SPEED = 0.0002
+#const DIMDICE_DRAG_SPEED = 0.0002
+const DIMDICE_DRAG_SPEED = 0.002
 #endregion
 
 #region public variables
@@ -60,6 +61,8 @@ func return_dimdice(return_position, shake=false):
 	tween.tween_property(dimdice, "position", return_position, 0.5)
 	if shake:
 		tween.parallel().tween_method(apply_dimdice_shake, 0.0, 1.0, 0.5)
+	await tween.finished
+	dimdice.dimdice_movement_finished.emit()
 #endregion
 
 #region signals callbacks
