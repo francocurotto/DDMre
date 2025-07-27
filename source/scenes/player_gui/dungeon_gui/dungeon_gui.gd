@@ -37,7 +37,7 @@ func on_dimdice_selected(original_dimdice):
 	dimdice.rotation = Vector3.ZERO
 	dimdice.basis_to = dimdice.basis
 	dimdice.dimdice_movement_finished.connect(func(): controls.disabled = false)
-	dimdice.body_entered.connect(on_dimdice_collided)
+	#dimdice.body_entered.connect(on_dimdice_collided)
 	# add dimdice and net
 	Globals.dungeon.dimdice = dimdice
 	Globals.dungeon.set_dimnet(player_gui.net)
@@ -66,10 +66,10 @@ func on_threshold_exceeded(angle):
 	if controls.get_touched_object(Globals.LAYERS.DICE):
 		drag_dice(angle)
 
-func on_dimdice_collided(_node):
-	var player = player_gui.player
-	var net = player_gui.net
-	Globals.dungeon.on_dimdice_collided(player, net, dimdice_position)
+#func on_dimdice_collided(_node):
+	#var player = player_gui.player
+	#var net = player_gui.net
+	#Globals.dungeon.on_dimdice_collided(player, net, dimdice_position)
 #endregion
 
 #region private functions
@@ -101,7 +101,10 @@ func flip_dimdice():
 	Globals.dungeon.set_dimnet(player_gui.net)
 
 func move_dimdice():
-	Globals.dungeon.move_dimdice(controls.velocity)
+	var velocity = controls.velocity
+	var player = player_gui.player
+	var net = player_gui.net
+	Globals.dungeon.move_dimdice(velocity, player, net, dimdice_position)
 
 func move_camera():
 	var movement = Vector3(controls.velocity.x, 0, controls.velocity.y)

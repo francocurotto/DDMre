@@ -9,8 +9,8 @@
 
 ## FIXES
 - roll sometimes get stuck when one dice is cocked
-- dimdice may misbehave if dragged to fast
-    -also if timing it correctly, dimdice may unfold and return to original position
+    - also if you can reroll a cocked dice you can excecute roll twice during movement
+- fix dice dimensioning at different heights depending of dragging speed
 
 ## GRAPHICS
 - change dice and dungobj colors

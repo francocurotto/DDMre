@@ -6,8 +6,7 @@ signal dimension_started
 
 #region constants
 const DIMDICE_ROTATION_TIME = 0.1
-#const DIMDICE_DRAG_SPEED = 0.0002
-const DIMDICE_DRAG_SPEED = 0.002
+const DIMDICE_DRAG_SPEED = 0.0002
 #endregion
 
 #region public variables
@@ -27,6 +26,7 @@ var dimdice :
 #region private variables
 var tiles = []
 var dimtile
+var dimdice_height_threshold = Globals.PATH_TILE_HEIGHT + Globals.DICE_SIZE/2
 #endregion
 
 #region builtin functions
@@ -52,8 +52,13 @@ func set_dimnet(net):
 	for tile in tiles:
 		tile.highlight = tile in net_tiles
 
-func move_dimdice(velocity):
+func move_dimdice(velocity, player, net, return_position):
 	dimdice.position.y -= DIMDICE_DRAG_SPEED * velocity.y
+	if dimdice.position.y < dimdice_height_threshold:
+		if can_dimension(player, net):
+			dimension_the_dice(net)
+		else:
+			return_dimdice(return_position, true)
 
 func return_dimdice(return_position, shake=false):
 	var tween = create_tween()
@@ -80,12 +85,6 @@ func flip_dimdice():
 	var axis = Vector3(1, 0, 0)
 	var rotated_basis = dimdice.transform.basis.rotated(axis, PI)
 	dimdice.tween_rotate(rotated_basis, DIMDICE_ROTATION_TIME)
-
-func on_dimdice_collided(player, net, return_position):
-	if can_dimension(player, net):
-		dimension_the_dice(net)
-	else:
-		return_dimdice(return_position, true)
 #endregion
 
 #region private functions
@@ -144,7 +143,8 @@ func get_neighbor_tiles(coor):
 func dimension_the_dice(net):
 	dimension_started.emit()
 	# repostion to dice to dimension position
-	dimdice.position.y = 0.552 # this value allows sides to be over tiles
+	#dimdice.position.y = 0.552 # this value allows sides to be over tiles
+	dimdice.position.y = dimdice_height_threshold
 	dimdice.basis = dimdice.basis_to
 	for tile in tiles:
 		tile.highlight = false
