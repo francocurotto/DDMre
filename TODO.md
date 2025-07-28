@@ -8,6 +8,7 @@
 - change project name and add README.md
 
 ## FIXES
+- fix camera not movable after dimension
 
 ## GRAPHICS
 - change dice and dungobj colors
