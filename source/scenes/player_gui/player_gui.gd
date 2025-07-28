@@ -41,3 +41,9 @@ func _ready() -> void:
 		var rand_dice = dicelib[str(randi_range(1,len(dicelib)))]
 		$DiceGUI.set_dice(i, rand_dice)
 #endregion
+
+#region public functions
+func on_dimension_started():
+	$InfoGUI.on_dimension_started()
+	$DiceGUI.on_dimension_started()
+#endregion

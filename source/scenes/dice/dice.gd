@@ -3,8 +3,8 @@ extends RigidBody3D
 class_name Dice
 
 #region constants
-const STATIC_LINEAR_VELOCITY_THRESHOLD = 0.001
-const STATIC_ANGULAR_VELOCITY_THRESHOLD = 0.01
+const STATIC_LINEAR_VELOCITY_THRESHOLD = 0.02
+const STATIC_ANGULAR_VELOCITY_THRESHOLD = 0.05
 const STATIC_TIME_THRESHOLD = 0.5
 const ROLLED_SIDE_THRESHOLD = 0.99
 const ROLL_FORCE_SCALER = 0.01
@@ -14,7 +14,9 @@ const ROLL_TORQUE_LIMIT = 5
 #region signals
 signal dice_stopped
 signal dim_setup_finished
+signal dimdice_movement_started
 signal dimdice_movement_finished
+signal dimension_started
 #endregion
 
 #region constants
@@ -128,8 +130,10 @@ func setup_dim_select(new_position):
 	angular_velocity = Vector3.ZERO
 	dim_setup_finished.emit()
 
-func unfold(net):
+func unfold(net, dim_height_threshold):
+	dimension_started.emit()
 	var tween = create_tween()
+	tween.tween_property(self, "position:y", dim_height_threshold, 0.1)
 	tween.set_trans(Tween.TRANS_SINE)
 	if net.orientation == 1:
 		call("set_unfold_%s" % net.type)
@@ -158,6 +162,7 @@ func get_random_torque():
 	return Vector3(x_value, y_value, z_value)
 
 func tween_rotate(_basis_to, time):
+	dimdice_movement_started.emit()
 	basis_to = _basis_to
 	quaternion_from = transform.basis.get_rotation_quaternion()
 	var tween = create_tween()

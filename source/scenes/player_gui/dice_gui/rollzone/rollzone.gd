@@ -34,7 +34,6 @@ func _ready() -> void:
 	controls.set_raycast(%SubViewport)
 	controls.touch_pressed.connect(on_touch_pressed)
 	controls.drag_released.connect(on_drag_released)
-	Globals.dungeon.dimension_started.connect(remove_triplet)
 #endregion
 
 #region public functions
@@ -74,6 +73,10 @@ func on_dice_stopped():
 
 func on_dim_setup_finished():
 	player_gui.guistate = Globals.GUISTATE.DIMENSION
+
+func on_dimension_started():
+	controls.disabled = true
+	remove_triplet()
 #endregion
 
 #region private functions

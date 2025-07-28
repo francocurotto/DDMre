@@ -26,7 +26,6 @@ func _ready() -> void:
 	controls.dragging.connect(on_dragging)
 	controls.drag_released.connect(on_drag_released)
 	controls.threshold_exceeded.connect(on_threshold_exceeded)
-	Globals.dungeon.dimension_started.connect(func(): controls.disabled = true)
 #endregion
 
 #region signals callbacks
@@ -36,8 +35,9 @@ func on_dimdice_selected(original_dimdice):
 	dimdice.position = dimdice_position
 	dimdice.rotation = Vector3.ZERO
 	dimdice.basis_to = dimdice.basis
+	dimdice.dimdice_movement_started.connect(on_dimdice_movement_started)
 	dimdice.dimdice_movement_finished.connect(func(): controls.disabled = false)
-	#dimdice.body_entered.connect(on_dimdice_collided)
+	dimdice.dimension_started.connect(on_dimension_started)
 	# add dimdice and net
 	Globals.dungeon.dimdice = dimdice
 	Globals.dungeon.set_dimnet(player_gui.net)
@@ -45,8 +45,6 @@ func on_dimdice_selected(original_dimdice):
 func on_touch_released():
 	var tile = controls.get_touched_object(Globals.LAYERS.TILES)
 	if tile:
-		print(controls.touch_position)
-		print(Globals.dungeon.get_tilecoor(tile))
 		dimdice_position = tile.global_position + Vector3(0,DIMDICE_HEIGHT,0)
 		Globals.dungeon.on_tile_touched(tile, dimdice_position, player_gui.net)
 
@@ -59,17 +57,19 @@ func on_dragging():
 func on_drag_released():
 	if dimdice_dragging:
 		dimdice_dragging = false
-		controls.disabled = true
 		Globals.dungeon.return_dimdice(dimdice_position)
 
 func on_threshold_exceeded(angle):
 	if controls.get_touched_object(Globals.LAYERS.DICE):
 		drag_dice(angle)
 
-#func on_dimdice_collided(_node):
-	#var player = player_gui.player
-	#var net = player_gui.net
-	#Globals.dungeon.on_dimdice_collided(player, net, dimdice_position)
+func on_dimdice_movement_started():
+	dimdice_dragging = false
+	controls.disabled = true
+
+func on_dimension_started():
+	controls.disabled = true
+	player_gui.on_dimension_started()
 #endregion
 
 #region private functions
@@ -77,7 +77,6 @@ func drag_dice(angle):
 	if -135 < angle and angle < -45:
 		dimdice_dragging = true
 	else:
-		controls.disabled = true
 		if angle <= -135 or 135 < angle:
 			rotate_dimdice_clockwise()
 		elif -45 <= angle and angle < 45:

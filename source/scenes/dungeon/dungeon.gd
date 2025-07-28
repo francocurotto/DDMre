@@ -1,11 +1,8 @@
 extends Node3D
 
-#region signals
-signal dimension_started
-#endregion
-
 #region constants
 const DIMDICE_ROTATION_TIME = 0.1
+const DIMDICE_RETURN_TIME = 0.5
 const DIMDICE_DRAG_SPEED = 0.0002
 #endregion
 
@@ -26,7 +23,7 @@ var dimdice :
 #region private variables
 var tiles = []
 var dimtile
-var dimdice_height_threshold = Globals.PATH_TILE_HEIGHT + Globals.DICE_SIZE/2
+var dim_height_threshold = Globals.PATH_TILE_HEIGHT + Globals.DICE_SIZE/2
 #endregion
 
 #region builtin functions
@@ -54,18 +51,19 @@ func set_dimnet(net):
 
 func move_dimdice(velocity, player, net, return_position):
 	dimdice.position.y -= DIMDICE_DRAG_SPEED * velocity.y
-	if dimdice.position.y < dimdice_height_threshold:
+	if dimdice.position.y < dim_height_threshold:
 		if can_dimension(player, net):
 			dimension_the_dice(net)
 		else:
 			return_dimdice(return_position, true)
 
 func return_dimdice(return_position, shake=false):
+	dimdice.dimdice_movement_started.emit()
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	tween.tween_property(dimdice, "position", return_position, 0.5)
+	tween.tween_property(dimdice, "position", return_position, DIMDICE_RETURN_TIME)
 	if shake:
-		tween.parallel().tween_method(apply_dimdice_shake, 0.0, 1.0, 0.5)
+		tween.parallel().tween_method(apply_dimdice_shake, 0.0, 1.0, DIMDICE_RETURN_TIME)
 	await tween.finished
 	dimdice.dimdice_movement_finished.emit()
 #endregion
@@ -141,14 +139,9 @@ func get_neighbor_tiles(coor):
 	return neighbor_tiles
 
 func dimension_the_dice(net):
-	dimension_started.emit()
-	# repostion to dice to dimension position
-	#dimdice.position.y = 0.552 # this value allows sides to be over tiles
-	dimdice.position.y = dimdice_height_threshold
-	dimdice.basis = dimdice.basis_to
+	dimdice.unfold(net, dim_height_threshold)
 	for tile in tiles:
 		tile.highlight = false
-	dimdice.unfold(net)
 
 func apply_dimdice_shake(t: float) -> void:
 	var angle = 0.2*sin(10*2*PI*t)
