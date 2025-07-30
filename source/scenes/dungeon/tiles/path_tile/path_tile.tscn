@@ -8,13 +8,15 @@
 size = Vector3(1, 0.1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qq1gj"]
-size = Vector3(1, 0.1, 1)
+size = Vector3(0.99, 0.1, 0.99)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3egs"]
 resource_local_to_scene = true
 albedo_color = Color(0.2, 0.3, 1, 1)
 
 [node name="PathTile" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_3wfqi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -27,7 +29,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_u3egs")
 [node name="Icon" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051, 0)
 modulate = Color(0.2, 0.3, 1, 1)
-pixel_size = 0.0084
+pixel_size = 0.0083
 axis = 1
 texture = ExtResource("1_kl27m")
 

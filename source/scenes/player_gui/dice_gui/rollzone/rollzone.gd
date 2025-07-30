@@ -144,7 +144,7 @@ func resolve_summon_sides(summon_dice):
 func remove_not_dim_dice(dim_dice):
 	for dice in get_triplet():
 		if dice not in dim_dice:
-			dice.remove()
+			dice.tween_remove()
 
 func setup_dim(dimdice_list):
 	# move dice

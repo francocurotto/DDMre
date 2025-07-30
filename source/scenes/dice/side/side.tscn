@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbwouu0vicqix"]
+[gd_scene load_steps=7 format=3 uid="uid://cbwouu0vicqix"]
 
 [ext_resource type="Script" uid="uid://bci3a5bnjlfkv" path="res://scenes/dice/side/side.gd" id="1_27crt"]
 [ext_resource type="Texture2D" uid="uid://caju6siypu748" path="res://assets/CREST_SUMMON.svg" id="1_81t1o"]
 [ext_resource type="Texture2D" uid="uid://b7gayl216h2r0" path="res://assets/SIDE.svg" id="2_e6b40"]
 [ext_resource type="PackedScene" uid="uid://bpdeuxhgpomqs" path="res://scenes/dice/side/pivot/pivot.tscn" id="4_e6b40"]
+[ext_resource type="PackedScene" uid="uid://bdw14yfe4pipb" path="res://scenes/dungeon/tiles/path_tile/path_tile.tscn" id="5_y5tqh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_27crt"]
 size = Vector2(1, 1)
@@ -31,6 +32,7 @@ text = "1"
 
 [node name="BackSide" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
 mesh = SubResource("PlaneMesh_27crt")
 
 [node name="Pivots" type="Node3D" parent="."]
@@ -49,3 +51,6 @@ location = "RIGHT"
 [node name="PivotDown" parent="Pivots" instance=ExtResource("4_e6b40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 location = "DOWN"
+
+[node name="PathTile" parent="." instance=ExtResource("5_y5tqh")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.051)

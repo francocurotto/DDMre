@@ -113,9 +113,10 @@ func roll(velocity):
 	apply_central_impulse(force)
 	apply_torque_impulse(torque)
 
-func remove():
+func tween_remove():
 	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector3.ZERO, 1)
+	# Vector3 is not ZERO cause it produces det==0 error
+	tween.tween_property(self, "scale", Vector3(0.01,0.01,0.01), 1)
 	await tween.finished
 	queue_free()
 
