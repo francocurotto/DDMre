@@ -38,6 +38,7 @@ func on_dimdice_selected(original_dimdice):
 	dimdice.dimdice_movement_started.connect(on_dimdice_movement_started)
 	dimdice.dimdice_movement_finished.connect(func(): controls.disabled = false)
 	dimdice.dimension_started.connect(on_dimension_started)
+	dimdice.dimension_finished.connect(on_dimension_finished)
 	# add dimdice and net
 	Globals.dungeon.dimdice = dimdice
 	Globals.dungeon.set_dimnet(player_gui.net)
@@ -70,6 +71,10 @@ func on_dimdice_movement_started():
 func on_dimension_started():
 	controls.disabled = true
 	player_gui.on_dimension_started()
+
+func on_dimension_finished():
+	dimdice_dragging = false
+	controls.disabled = false
 #endregion
 
 #region private functions

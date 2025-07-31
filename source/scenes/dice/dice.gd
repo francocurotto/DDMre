@@ -17,6 +17,7 @@ signal dim_setup_finished
 signal dimdice_movement_started
 signal dimdice_movement_finished
 signal dimension_started
+signal dimension_finished
 #endregion
 
 #region constants
@@ -38,6 +39,11 @@ const DIM_ROTATIONS = [
 
 #region public variables
 var sides = []
+var player : int :
+	set(_player):
+		player = _player
+		for side in sides:
+			side.player = player
 var rolled_side :
 	get():
 		for side in sides:
@@ -143,6 +149,11 @@ func unfold(net, dim_height_threshold):
 	for pivot in pivots:
 		pivot.unfold(tween, pivot.sequence==pivot_sequence)
 		pivot_sequence = pivot.sequence
+	await tween.finished
+	dimension_finished.emit()
+	for side in sides:
+		side.reparent_path_tile()
+	queue_free()
 #endregion
 
 #region private functions

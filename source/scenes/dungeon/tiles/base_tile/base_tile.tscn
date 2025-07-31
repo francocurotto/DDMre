@@ -29,5 +29,5 @@ modulate = Color(0.2, 0.2, 0.3, 1)
 pixel_size = 0.0084
 texture = ExtResource("2_iljxd")
 
-[node name="OverTile" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+[node name="TileContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

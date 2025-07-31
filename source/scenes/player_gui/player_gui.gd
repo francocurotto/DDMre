@@ -39,6 +39,7 @@ func _ready() -> void:
 	# initialize dicepool
 	for i in Globals.DICEPOOL_SIZE:
 		var rand_dice = dicelib[str(randi_range(1,len(dicelib)))]
+		rand_dice.player = player
 		$DiceGUI.set_dice(i, rand_dice)
 #endregion
 

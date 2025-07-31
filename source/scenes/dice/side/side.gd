@@ -35,6 +35,11 @@ var crest : String = "SUMMON" :
 		mult = _mult
 		%Mult.text = str(mult)
 
+@export_range(1,2,1) var player : int = 1 :
+	set(_player):
+		player = _player
+		$PathTile.player = player
+
 @export var highlight : bool = false :
 	set(_highlight):
 		highlight = _highlight
@@ -66,4 +71,7 @@ func set_side(_type, level, side_string):
 			mult = 1
 		else:
 			mult = int(side_string[1])
+
+func reparent_path_tile():
+	$PathTile.move_to_dungeon()
 #endregion
