@@ -13,7 +13,6 @@
 
 ## FIXES
 - dice can be rolled twice after a reroll due to cocked
-    - cannot reproduce
 - sometimes diceroll stucked when one dice cocked
     - seems to be when not the last dice to stop is cocked
 
