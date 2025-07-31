@@ -38,6 +38,7 @@ const DIM_ROTATIONS = [
 #endregion
 
 #region public variables
+var rollable = false
 var sides = []
 var player : int :
 	set(_player):
@@ -57,7 +58,6 @@ var moving : bool :
 
 #region private variables
 var dice_dict # copy of dice data needed when duplicating
-var rollable = false
 var static_time = 0.0
 var quaternion_from # origin quaternion for rotation tween
 var basis_to = basis # end basis for roation tween
