@@ -6,15 +6,15 @@
 - Add ENDTURN button to dungeon gui
 
 ## IMPROVEMENTS
-- when reparenting dice path tiles reposition to be directly above base tile
-- during set dimdice, make the rotation a quaternion tween
 - change project name and add README.md
 
 ## FIXES
 - dice can be rolled twice after a reroll due to cocked
+    - on some rolls there seems to be no delay when detecting the roll
 - sometimes diceroll stucked when one dice cocked
     - seems to be when not the last dice to stop is cocked
 
 ## GRAPHICS
 - change dice and dungobj colors
+- change monster lord graphics
 - make dice_button more distiguishible from pressed and not pressed

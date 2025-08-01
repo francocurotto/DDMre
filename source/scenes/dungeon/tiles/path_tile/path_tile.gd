@@ -38,8 +38,8 @@ var highlight_tween
 func move_to_dungeon():
 	var base_tile = $RayCast3D.get_collider()
 	reparent(base_tile)
-	print(position)
-	print(base_tile.position)
+	# adjust to excpected position
+	position = Vector3(0, Globals.PATH_TILE_HEIGHT, 0)
 #endregion
 
 #region private functions

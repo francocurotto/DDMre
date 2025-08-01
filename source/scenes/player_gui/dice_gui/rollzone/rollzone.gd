@@ -148,7 +148,7 @@ func remove_not_dim_dice(dim_dice):
 
 func setup_dim(dimdice_list):
 	# move dice
-	var n_dice = len(dimdice_list)
+	var dimdice_positions = DIMPOS[len(dimdice_list)]
 	for i in len(dimdice_list):
-		dimdice_list[i].setup_dim_select(DIMPOS[n_dice][i])
+		dimdice_list[i].setup_dim_select(dimdice_positions[i])
 #endregion

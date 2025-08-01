@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnstwc06ol2cs"]
+
+[ext_resource type="Texture2D" uid="uid://dho2ok8ktf2tv" path="res://assets/ATTR_ATTACK.svg" id="1_liaia"]
+[ext_resource type="Texture2D" uid="uid://c3wqx4vyfp7x6" path="res://assets/ATTR_DEFENSE.svg" id="2_oipcs"]
+[ext_resource type="Texture2D" uid="uid://b0dlaw5w7hlpq" path="res://assets/ATTR_HEALTH.svg" id="3_oipcs"]
+
+[node name="SummonOverhead" type="Node3D"]
+
+[node name="Attack" type="Node3D" parent="."]
+
+[node name="AttackIcon" type="Sprite3D" parent="Attack"]
+pixel_size = 0.0004
+double_sided = false
+texture = ExtResource("1_liaia")
+
+[node name="AttackValue" type="Label3D" parent="Attack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+double_sided = false
+text = "40"
+
+[node name="Defense" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0)
+
+[node name="DefenseIcon" type="Sprite3D" parent="Defense"]
+pixel_size = 0.0004
+double_sided = false
+texture = ExtResource("2_oipcs")
+
+[node name="DefenseValue" type="Label3D" parent="Defense"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+double_sided = false
+text = "30
+"
+
+[node name="Health" type="Node3D" parent="."]
+
+[node name="Heart1" type="Sprite3D" parent="Health"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+pixel_size = 0.0004
+double_sided = false
+texture = ExtResource("3_oipcs")
+
+[node name="Heart2" type="Sprite3D" parent="Health"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.2, 0)
+pixel_size = 0.0004
+double_sided = false
+texture = ExtResource("3_oipcs")
+
+[node name="Heart3" type="Sprite3D" parent="Health"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.2, 0)
+pixel_size = 0.0004
+double_sided = false
+texture = ExtResource("3_oipcs")
+
+[node name="Heart4" type="Sprite3D" parent="Health"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.2, 0)
+pixel_size = 0.0004
+double_sided = false
+texture = ExtResource("3_oipcs")
