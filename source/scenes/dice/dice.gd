@@ -137,10 +137,10 @@ func setup_dim_select(new_position):
 	angular_velocity = Vector3.ZERO
 	dim_setup_finished.emit()
 
-func unfold(net, dim_height_threshold):
+func unfold(net):
 	dimension_started.emit()
 	var tween = create_tween()
-	tween.tween_property(self, "position:y", dim_height_threshold, 0.1)
+	tween.tween_property(self, "position:y", Globals.DIMDICE_HEIGHT, 0.1)
 	tween.set_trans(Tween.TRANS_SINE)
 	if net.orientation == 1:
 		call("set_unfold_%s" % net.type)

@@ -23,7 +23,6 @@ var dimdice :
 #region private variables
 var tiles = []
 var dimtile
-var dim_height_threshold = Globals.PATH_TILE_HEIGHT + Globals.DICE_SIZE/2
 #endregion
 
 #region builtin functions
@@ -51,7 +50,7 @@ func set_dimnet(net):
 
 func move_dimdice(velocity, player, net, return_position):
 	dimdice.position.y -= DIMDICE_DRAG_SPEED * velocity.y
-	if dimdice.position.y < dim_height_threshold:
+	if dimdice.position.y < Globals.DIMDICE_HEIGHT:
 		if can_dimension(player, net):
 			dimension_the_dice(net)
 		else:
@@ -63,7 +62,8 @@ func return_dimdice(return_position, shake=false):
 	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tween.tween_property(dimdice, "position", return_position, DIMDICE_RETURN_TIME)
 	if shake:
-		tween.parallel().tween_method(apply_dimdice_shake, 0.0, 1.0, DIMDICE_RETURN_TIME)
+		tween.set_parallel()
+		tween.tween_method(apply_dimdice_shake, 0.0, 1.0, DIMDICE_RETURN_TIME)
 	await tween.finished
 	dimdice.dimdice_movement_finished.emit()
 #endregion
@@ -139,7 +139,7 @@ func get_neighbor_tiles(coor):
 	return neighbor_tiles
 
 func dimension_the_dice(net):
-	dimdice.unfold(net, dim_height_threshold)
+	dimdice.unfold(net)
 	for tile in tiles:
 		tile.highlight = false
 

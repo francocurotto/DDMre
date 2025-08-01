@@ -6,7 +6,6 @@
 - Add ENDTURN button to dungeon gui
 
 ## IMPROVEMENTS
-- change dimdice height threshold now that dice hase path tiles
 - when reparenting dice path tiles reposition to be directly above base tile
 - during set dimdice, make the rotation a quaternion tween
 - change project name and add README.md
