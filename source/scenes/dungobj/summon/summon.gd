@@ -18,4 +18,5 @@ func set_summon(dice_dict):
 		attack = dice_dict["ATTACK"]
 		defense = dice_dict["DEFENSE"]
 		health = dice_dict["HEALTH"]
+	$Overheads/SummonOverhead.alpha = 0.0
 #endregion

@@ -1,8 +1,8 @@
 ## FEATURES
 - make summon model
+    - set summon to have the correct information in dungeon
 - Dimension
     - add summon creation
-        - correctly position summon before unfold
 - Add SKIP button in rollzone
 - Add ENDTURN button to dungeon gui
 

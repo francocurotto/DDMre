@@ -35,6 +35,11 @@ var highlight_tween
 #endregion
 
 #region public functions
+func add_summon(summon):
+	summon.reparent($DungobjContainer, false)
+	summon.global_rotation = Vector3.ZERO
+	summon.position = Vector3.ZERO
+
 func move_to_dungeon():
 	var base_tile = $RayCast3D.get_collider()
 	reparent(base_tile)

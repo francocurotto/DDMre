@@ -72,6 +72,9 @@ func set_side(_type, level, side_string):
 		else:
 			mult = int(side_string[1])
 
+func reparent_summon(summon):
+	$PathTile.add_summon(summon)
+
 func reparent_path_tile():
 	$PathTile.move_to_dungeon()
 #endregion

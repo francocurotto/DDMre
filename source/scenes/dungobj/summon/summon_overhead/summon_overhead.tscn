@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnstwc06ol2cs"]
+[gd_scene load_steps=5 format=3 uid="uid://cnstwc06ol2cs"]
 
+[ext_resource type="Script" uid="uid://dc6s0nnqwueup" path="res://scenes/dungobj/summon/summon_overhead/summon_overhead.gd" id="1_dbjac"]
 [ext_resource type="Texture2D" uid="uid://dho2ok8ktf2tv" path="res://assets/ATTR_ATTACK.svg" id="1_liaia"]
 [ext_resource type="Texture2D" uid="uid://c3wqx4vyfp7x6" path="res://assets/ATTR_DEFENSE.svg" id="2_oipcs"]
 [ext_resource type="Texture2D" uid="uid://b0dlaw5w7hlpq" path="res://assets/ATTR_HEALTH.svg" id="3_oipcs"]
 
 [node name="SummonOverhead" type="Node3D"]
+script = ExtResource("1_dbjac")
 
 [node name="Attack" type="Node3D" parent="."]
 
