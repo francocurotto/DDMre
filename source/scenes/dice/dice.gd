@@ -146,6 +146,9 @@ func unfold(net):
 		call("set_unfold_%s" % net.type)
 	else:
 		call("set_unfold_%s_fliped" % net.type)
+	summon.reparent($Sides.get_child(0), false)
+	summon.rotation = Vector3.ZERO
+	summon.position.z = 1
 	for pivot in pivots:
 		pivot.unfold(tween, pivot.sequence==pivot_sequence)
 		pivot_sequence = pivot.sequence

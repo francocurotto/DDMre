@@ -2,6 +2,7 @@
 - make summon model
 - Dimension
     - add summon creation
+        - correctly position summon before unfold
 - Add SKIP button in rollzone
 - Add ENDTURN button to dungeon gui
 

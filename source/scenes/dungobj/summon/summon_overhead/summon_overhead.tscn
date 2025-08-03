@@ -10,12 +10,10 @@
 
 [node name="AttackIcon" type="Sprite3D" parent="Attack"]
 pixel_size = 0.0004
-double_sided = false
 texture = ExtResource("1_liaia")
 
 [node name="AttackValue" type="Label3D" parent="Attack"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
-double_sided = false
 text = "40"
 
 [node name="Defense" type="Node3D" parent="."]
@@ -23,12 +21,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0)
 
 [node name="DefenseIcon" type="Sprite3D" parent="Defense"]
 pixel_size = 0.0004
-double_sided = false
 texture = ExtResource("2_oipcs")
 
 [node name="DefenseValue" type="Label3D" parent="Defense"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
-double_sided = false
 text = "30
 "
 
@@ -37,23 +33,19 @@ text = "30
 [node name="Heart1" type="Sprite3D" parent="Health"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 pixel_size = 0.0004
-double_sided = false
 texture = ExtResource("3_oipcs")
 
 [node name="Heart2" type="Sprite3D" parent="Health"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.2, 0)
 pixel_size = 0.0004
-double_sided = false
 texture = ExtResource("3_oipcs")
 
 [node name="Heart3" type="Sprite3D" parent="Health"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.2, 0)
 pixel_size = 0.0004
-double_sided = false
 texture = ExtResource("3_oipcs")
 
 [node name="Heart4" type="Sprite3D" parent="Health"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.2, 0)
 pixel_size = 0.0004
-double_sided = false
 texture = ExtResource("3_oipcs")
