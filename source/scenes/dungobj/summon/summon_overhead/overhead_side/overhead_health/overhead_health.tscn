@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvlppx1lylo27"]
+
+[ext_resource type="Script" uid="uid://hbusmvyb5bqh" path="res://scenes/dungobj/summon/summon_overhead/overhead_side/overhead_health/overhead_health.gd" id="1_arv4e"]
+
+[node name="OverheadHealth" type="Node3D"]
+script = ExtResource("1_arv4e")

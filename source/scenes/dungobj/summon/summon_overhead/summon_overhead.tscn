@@ -1,53 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnstwc06ol2cs"]
+[gd_scene load_steps=3 format=3 uid="uid://cnstwc06ol2cs"]
 
 [ext_resource type="Script" uid="uid://dc6s0nnqwueup" path="res://scenes/dungobj/summon/summon_overhead/summon_overhead.gd" id="1_dbjac"]
-[ext_resource type="Texture2D" uid="uid://dho2ok8ktf2tv" path="res://assets/ATTR_ATTACK.svg" id="1_liaia"]
-[ext_resource type="Texture2D" uid="uid://c3wqx4vyfp7x6" path="res://assets/ATTR_DEFENSE.svg" id="2_oipcs"]
-[ext_resource type="Texture2D" uid="uid://b0dlaw5w7hlpq" path="res://assets/ATTR_HEALTH.svg" id="3_oipcs"]
+[ext_resource type="PackedScene" uid="uid://b36vbybb8y43w" path="res://scenes/dungobj/summon/summon_overhead/overhead_side/overhead_side.tscn" id="2_liaia"]
 
 [node name="SummonOverhead" type="Node3D"]
 script = ExtResource("1_dbjac")
 
-[node name="Attack" type="Node3D" parent="."]
-
-[node name="AttackIcon" type="Sprite3D" parent="Attack"]
-pixel_size = 0.0004
-texture = ExtResource("1_liaia")
-
-[node name="AttackValue" type="Label3D" parent="Attack"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
-text = "40"
-
-[node name="Defense" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0)
-
-[node name="DefenseIcon" type="Sprite3D" parent="Defense"]
-pixel_size = 0.0004
-texture = ExtResource("2_oipcs")
-
-[node name="DefenseValue" type="Label3D" parent="Defense"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
-text = "30
-"
-
-[node name="Health" type="Node3D" parent="."]
-
-[node name="Heart1" type="Sprite3D" parent="Health"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
-pixel_size = 0.0004
-texture = ExtResource("3_oipcs")
-
-[node name="Heart2" type="Sprite3D" parent="Health"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.2, 0)
-pixel_size = 0.0004
-texture = ExtResource("3_oipcs")
-
-[node name="Heart3" type="Sprite3D" parent="Health"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.2, 0)
-pixel_size = 0.0004
-texture = ExtResource("3_oipcs")
-
-[node name="Heart4" type="Sprite3D" parent="Health"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.2, 0)
-pixel_size = 0.0004
-texture = ExtResource("3_oipcs")
+[node name="OverheadSide1" parent="." instance=ExtResource("2_liaia")]
