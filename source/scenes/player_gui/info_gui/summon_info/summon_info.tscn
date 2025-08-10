@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd0le7od3nqip"]
+[gd_scene load_steps=5 format=3 uid="uid://dd0le7od3nqip"]
 
 [ext_resource type="Script" uid="uid://dj300rw20lrew" path="res://scenes/player_gui/info_gui/summon_info/summon_info.gd" id="1_a1tbk"]
 [ext_resource type="PackedScene" uid="uid://chawlghgqva5o" path="res://scenes/player_gui/info_gui/summon_info/sides_row/sides_row.tscn" id="1_nbd76"]
 [ext_resource type="Texture2D" uid="uid://didfe015s6jye" path="res://assets/SUMMON_DRAGON.svg" id="2_ne7m4"]
 [ext_resource type="PackedScene" uid="uid://cmdfsqfsxoyqt" path="res://scenes/player_gui/info_gui/summon_info/summon_attr/summon_attr.tscn" id="3_wbsye"]
-[ext_resource type="PackedScene" uid="uid://obk8wbbhgdaj" path="res://scenes/player_gui/info_gui/summon_info/hearts/hearts.tscn" id="4_jadcq"]
 
 [node name="SummonInfo" type="MarginContainer"]
 offset_right = 720.0
@@ -57,24 +56,21 @@ theme_override_constants/separation = 10
 unique_name_in_owner = true
 layout_mode = 2
 value = 4
-original_value = 4
 
 [node name="Attack" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_wbsye")]
 unique_name_in_owner = true
 layout_mode = 2
 attr = "ATTACK"
 value = 40
-original_value = 40
 
 [node name="Defense" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_wbsye")]
 unique_name_in_owner = true
 layout_mode = 2
 attr = "DEFENSE"
 value = 30
-original_value = 30
 
-[node name="Hearts" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_jadcq")]
+[node name="Health" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_wbsye")]
 unique_name_in_owner = true
 layout_mode = 2
-health = 50
-original_health = 50
+attr = "HEALTH"
+value = 50

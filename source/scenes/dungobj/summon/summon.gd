@@ -17,35 +17,35 @@ var type : String = "DRAGON" :
 		$Body/Icon2.texture = load("res://assets/SUMMON_%s.svg" % type)
 		$SummonOverhead.visible = type != "ITEM"
 
-@export_range(0, 50, 10) var original_attack : int = 0 :
+@export_range(0, 50, 10) var original_attack : int = 10 :
 	set(_original_attack):
 		original_attack = _original_attack
 		attack = original_attack
 		$SummonOverhead.set_attack(original_attack, attack)
 
-@export_range(0, 50, 10) var original_defense : int = 0 :
+@export_range(0, 50, 10) var original_defense : int = 10 :
 	set(_original_defense):
 		original_defense = _original_defense
 		defense = original_defense
 		$SummonOverhead.set_defense(original_defense, defense)
 
-@export_range(0, 60, 10) var original_health : int = 0 :
+@export_range(0, 60, 10) var original_health : int = 10 :
 	set(_original_health):
 		original_health = _original_health
 		health = original_health
 		$SummonOverhead.set_health(original_health, health)
 
-@export_range(0, 90, 10) var attack : int = 0 :
+@export_range(0, 90, 10) var attack : int = 10 :
 	set(_attack):
 		attack = _attack
 		$SummonOverhead.set_attack(original_attack, attack)
 
-@export_range(0, 90, 10) var defense : int = 0 :
+@export_range(0, 90, 10) var defense : int = 10 :
 	set(_defense):
 		defense = _defense
 		$SummonOverhead.set_defense(original_defense, defense)
 
-@export_range(0, 60, 10) var health : int = 0 :
+@export_range(0, 60, 10) var health : int = 10 :
 	set(_health):
 		health = _health
 		$SummonOverhead.set_health(original_health, health)

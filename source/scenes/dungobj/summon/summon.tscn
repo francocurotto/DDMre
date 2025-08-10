@@ -37,4 +37,4 @@ axis = 1
 texture = ExtResource("2_05ifw")
 
 [node name="SummonOverhead" parent="." instance=ExtResource("3_fwims")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.099, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86, 0)

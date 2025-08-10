@@ -2,7 +2,7 @@
 extends Node3D
 
 #region export variables
-@export_enum("ATTACK", "DEFENSE")
+@export_enum("ATTACK", "DEFENSE", "HEALTH")
 var attr : String = "ATTACK" :
 	set(_attr):
 		attr = _attr

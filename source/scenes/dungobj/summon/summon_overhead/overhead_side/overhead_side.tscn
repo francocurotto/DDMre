@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b36vbybb8y43w"]
+[gd_scene load_steps=3 format=3 uid="uid://b36vbybb8y43w"]
 
 [ext_resource type="Script" uid="uid://b2njvlh622whd" path="res://scenes/dungobj/summon/summon_overhead/overhead_side/overhead_side.gd" id="1_8o1ho"]
 [ext_resource type="PackedScene" uid="uid://b6yse5bixoxr" path="res://scenes/dungobj/summon/summon_overhead/overhead_side/overhead_attr/overhead_attr.tscn" id="1_483au"]
-[ext_resource type="PackedScene" uid="uid://bvlppx1lylo27" path="res://scenes/dungobj/summon/summon_overhead/overhead_side/overhead_health/overhead_health.tscn" id="2_me84a"]
 
 [node name="OverheadSide" type="Node3D"]
 script = ExtResource("1_8o1ho")
 
 [node name="Attack" parent="." instance=ExtResource("1_483au")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21, 0, 0)
 
 [node name="Defense" parent="." instance=ExtResource("1_483au")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
 attr = "DEFENSE"
 
-[node name="Health" parent="." instance=ExtResource("2_me84a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+[node name="Health" parent="." instance=ExtResource("1_483au")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21, 0, 0)
+attr = "HEALTH"

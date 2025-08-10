@@ -2,7 +2,7 @@
 extends HBoxContainer
 
 #region export variables
-@export_enum("LEVEL", "ATTACK", "DEFENSE")
+@export_enum("LEVEL", "ATTACK", "DEFENSE", "HEALTH")
 var attr : String = "LEVEL" :
 	set(_attr):
 		attr = _attr

@@ -7,7 +7,6 @@
 script = ExtResource("1_dbjac")
 
 [node name="OverheadSide1" parent="." instance=ExtResource("2_liaia")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
 
 [node name="OverheadSide2" parent="." instance=ExtResource("2_liaia")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.3, 0, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
