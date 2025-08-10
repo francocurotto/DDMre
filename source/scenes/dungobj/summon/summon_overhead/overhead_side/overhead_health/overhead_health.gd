@@ -5,21 +5,16 @@ extends Node3D
 const PIXEL_SIZE = 0.0004
 #endregion
 
-#region export variables
-@export_range(0, 60, 10) var health : int = 10 :
-	set(_health):
-		health = _health
-		set_hearts_icons()
-
-@export_range(0, 60, 10) var original_health : int = 10 :
-	set(_original_health):
-		original_health = _original_health
-		health = original_health
-		set_hearts_icons()
+#region public variables
+var alpha : float = 1.0 :
+	set(_alpha):
+		alpha = _alpha
+		for heart in get_children():
+			heart.modulate.a = alpha
 #endregion
 
 #region private functions
-func set_hearts_icons():
+func set_value(original_health, health):
 	# remove previous hearts
 	for icon in get_children():
 		icon.queue_free()
@@ -37,5 +32,6 @@ func set_hearts_icons():
 func create_icon():
 	var icon = Sprite3D.new()
 	icon.pixel_size = PIXEL_SIZE
+	icon.double_sided = false
 	return icon
 #endregion

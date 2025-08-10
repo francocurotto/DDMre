@@ -4,3 +4,4 @@
 
 [node name="OverheadHealth" type="Node3D"]
 script = ExtResource("1_arv4e")
+alpha = null

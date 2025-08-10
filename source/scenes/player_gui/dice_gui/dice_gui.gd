@@ -24,8 +24,8 @@ func _ready() -> void:
 #endregion
 
 #region public functions
-func set_dice(i, dice):
-	%Dicepool.set_dice(i, dice)
+func set_dice(i, dice, player):
+	%Dicepool.set_dice(i, dice, player)
 #endregion
 
 #region signals callback

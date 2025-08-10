@@ -10,7 +10,8 @@ const ROTATIONS = {1: Vector3.ZERO, 2: Vector3(0,PI,0)}
 	set(_player):
 		player = _player
 		set_icon()
-		$MeshInstance3D.set_surface_override_material(0, Globals.PLAYER_MATERIALS[player])
+		var player_material = Globals.PLAYER_MATERIALS[player]
+		$MeshInstance3D.set_surface_override_material(0, player_material)
 		rotation = ROTATIONS[player]
 
 @export_range(0,3) var hearts : int = 3 :

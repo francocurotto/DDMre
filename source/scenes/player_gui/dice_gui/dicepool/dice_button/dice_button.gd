@@ -21,8 +21,8 @@ var disabled : bool = false :
 #endregion
 
 #region public functions
-func set_dice(dice_dict):
-	%Dice.set_dice(dice_dict)
+func set_dice(dice_dict, player):
+	%Dice.set_dice(dice_dict, player)
 #endregion
 
 #region signals callbacks

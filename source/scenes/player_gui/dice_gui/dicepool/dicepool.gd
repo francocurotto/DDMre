@@ -28,8 +28,8 @@ func _ready() -> void:
 #endregion
 
 #region public functions
-func set_dice(i, dice_dict):
-	$Grid.get_child(i).set_dice(dice_dict)
+func set_dice(i, dice_dict, player):
+	$Grid.get_child(i).set_dice(dice_dict, player)
 #endregion
 
 #region signals callbacks

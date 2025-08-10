@@ -96,7 +96,8 @@ func _physics_process(delta: float) -> void:
 #endregion
 
 #region public functions
-func set_dice(_dice_dict):
+func set_dice(_dice_dict, _player):
+	player = _player
 	dice_dict = _dice_dict
 	var level = int(dice_dict["LEVEL"])
 	var type = dice_dict["TYPE"]
@@ -105,11 +106,11 @@ func set_dice(_dice_dict):
 	for i in 6:
 		$Sides.get_child(i).set_side(type, level, side_strings[i])
 	# set summon
-	$Summon.set_summon(dice_dict)
+	$Summon.set_summon(dice_dict, player)
 
 func clone():
 	var copy = duplicate()
-	copy.set_dice(dice_dict)
+	copy.set_dice(dice_dict, player)
 	return copy
 
 func roll(velocity):

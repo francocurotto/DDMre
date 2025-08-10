@@ -1,12 +1,13 @@
 ## FEATURES
-- make summon model
-    - set summon to have the correct information in dungeon
 - Dimension
     - add summon creation
+        - add summon bright state
+        - make overhead appear
 - Add SKIP button in rollzone
 - Add ENDTURN button to dungeon gui
 
 ## IMPROVEMENTS
+- make path tile to have player material
 - change project name and add README.md
 
 ## FIXES
