@@ -7,8 +7,8 @@
 - Add ENDTURN button to dungeon gui
 
 ## IMPROVEMENTS
+- change player material to make summon nicer
 - make path tile to have player material
-- make summons 3d extruted meshs
 - make summon_info vboxcontainer visible on editor, but invisible on startup
 - change project name and add README.md
 
