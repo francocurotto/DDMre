@@ -5,9 +5,9 @@ extends Node3D
 @export_range(1, 2, 1) var player : int = 1 :
 	set(_player):
 		player = _player
-		var player_material = Globals.PLAYER_MATERIALS[player]
-		$Base.set_surface_override_material(0, player_material)
-		$Body.set_surface_override_material(0, player_material)
+		material = Globals.PLAYER_MATERIALS[player].duplicate()
+		$Base.set_surface_override_material(0, material)
+		$Body.set_surface_override_material(0, material)
 
 @export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR")
 var type : String = "DRAGON" :
@@ -56,6 +56,10 @@ var summon_name : String = ""
 var level : int = 0
 #endregion
 
+#region private variables
+var material = Globals.PLAYER_MATERIALS[player].duplicate()
+#endregion
+
 #region public functions
 func set_summon(dice_dict, _player):
 	summon_name = dice_dict["NAME"]
@@ -66,5 +70,19 @@ func set_summon(dice_dict, _player):
 		original_defense = dice_dict["DEFENSE"]
 		original_health = dice_dict["HEALTH"]
 	player = _player
+	set_pre_dimension()
+
+func tween_dimension(tween):
+	tween.tween_property(material, "emission_energy_multiplier", 0.0, 0.5)
+	tween.tween_property($SummonOverhead, "alpha", 1.0, 0.5)
+	tween.tween_property($Body/Icon1, "modulate:a", 1.0, 0.5)
+	tween.tween_property($Body/Icon2, "modulate:a", 1.0, 0.5)
+#endregion
+
+#region private functions
+func set_pre_dimension():
+	material.emission_energy_multiplier = 2.0
 	$SummonOverhead.alpha = 0.0
+	$Body/Icon1.modulate.a = 0.0
+	$Body/Icon2.modulate.a = 0.0
 #endregion

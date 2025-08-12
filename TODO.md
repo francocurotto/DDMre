@@ -1,8 +1,9 @@
 ## FEATURES
 - Dimension
+    - make overhead bigger
     - add summon creation
-        - add summon bright state
-        - make overhead appear
+        - make summon tween after unfold is finished
+        - make tween slower
 - Add SKIP button in rollzone
 - Add ENDTURN button to dungeon gui
 

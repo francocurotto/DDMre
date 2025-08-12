@@ -152,6 +152,7 @@ func unfold(net):
 	for pivot in pivots:
 		pivot.unfold(tween, pivot.sequence==pivot_sequence)
 		pivot_sequence = pivot.sequence
+	summon.tween_dimension(tween)
 	await tween.finished
 	dimension_finished.emit()
 	for side in sides:
