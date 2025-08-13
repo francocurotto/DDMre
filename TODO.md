@@ -1,15 +1,8 @@
 ## FEATURES
-- Dimension
-    - make overhead bigger
-    - add summon creation
-        - make summon tween after unfold is finished
-        - make tween slower
 - Add SKIP button in rollzone
 - Add ENDTURN button to dungeon gui
 
 ## IMPROVEMENTS
-- change player material to make summon nicer
-- make path tile to have player material
 - make summon_info vboxcontainer visible on editor, but invisible on startup
 - change project name and add README.md
 
@@ -20,6 +13,5 @@
     - seems to be when not the last dice to stop is cocked
 
 ## GRAPHICS
-- change dice and dungobj colors
 - change monster lord graphics
 - make dice_button more distiguishible from pressed and not pressed

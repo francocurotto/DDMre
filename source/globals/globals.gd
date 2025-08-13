@@ -33,9 +33,11 @@ const SUMMON_COLORS = {
 	"WARRIOR"     : Color(0.0, 0.0, 1.0),
 	"ITEM"        : Color(0.2, 0.2, 0.2)
 }
-const MATERIAL_P1 = preload("res://assets/MATERIAL_P1.tres")
-const MATERIAL_P2 = preload("res://assets/MATERIAL_P2.tres")
-const PLAYER_MATERIALS = {1: MATERIAL_P1, 2: MATERIAL_P2}
+const PLAYER_MATERIALS = [
+	preload("res://assets/MATERIAL_P0.tres"), 
+	preload("res://assets/MATERIAL_P1.tres"), 
+	preload("res://assets/MATERIAL_P2.tres"), 
+]
 #endregion
 
 #region public variables

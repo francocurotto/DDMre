@@ -140,6 +140,7 @@ func setup_dim_select(new_position):
 
 func unfold(net):
 	dimension_started.emit()
+	$Summon.visible = true
 	var tween = create_tween()
 	tween.tween_property(self, "position:y", Globals.DIMDICE_HEIGHT, 0.1)
 	tween.set_trans(Tween.TRANS_SINE)
@@ -152,6 +153,7 @@ func unfold(net):
 	for pivot in pivots:
 		pivot.unfold(tween, pivot.sequence==pivot_sequence)
 		pivot_sequence = pivot.sequence
+	tween.set_parallel(false)
 	summon.tween_dimension(tween)
 	await tween.finished
 	dimension_finished.emit()

@@ -9,9 +9,11 @@ size = Vector3(1, 0.1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_qq1gj"]
 size = Vector3(0.99, 0.1, 0.99)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3egs"]
-resource_local_to_scene = true
-albedo_color = Color(0.2, 0.3, 1, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rpk2"]
+albedo_color = Color(0.138696, 0.216369, 0.612762, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
 
 [node name="PathTile" type="StaticBody3D"]
 collision_layer = 4
@@ -25,7 +27,7 @@ shape = SubResource("BoxShape3D_ww38m")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 mesh = SubResource("BoxMesh_qq1gj")
-surface_material_override/0 = SubResource("StandardMaterial3D_u3egs")
+surface_material_override/0 = SubResource("StandardMaterial3D_0rpk2")
 
 [node name="Icon" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.101, 0)

@@ -51,8 +51,8 @@ func move_to_dungeon():
 func set_player():
 	# set player color
 	$Icon.modulate = COLORLIST[player]
-	var material = $MeshInstance3D.get_surface_override_material(0)
-	material.albedo_color = COLORLIST[player]
+	var material = Globals.PLAYER_MATERIALS[player].duplicate()
+	$MeshInstance3D.set_surface_override_material(0, material)
 	# set mpnster lord
 	if $DungobjContainer.get_child_count() >= 1:
 		$DungobjContainer.get_child(0).queue_free()

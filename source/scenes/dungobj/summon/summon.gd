@@ -1,6 +1,10 @@
 @tool
 extends Node3D
 
+#region constants
+const SUMMON_TIME = 1.0
+#endregion
+
 #region export variables
 @export_range(1, 2, 1) var player : int = 1 :
 	set(_player):
@@ -73,10 +77,11 @@ func set_summon(dice_dict, _player):
 	set_pre_dimension()
 
 func tween_dimension(tween):
-	tween.tween_property(material, "emission_energy_multiplier", 0.0, 0.5)
-	tween.tween_property($SummonOverhead, "alpha", 1.0, 0.5)
-	tween.tween_property($Body/Icon1, "modulate:a", 1.0, 0.5)
-	tween.tween_property($Body/Icon2, "modulate:a", 1.0, 0.5)
+	tween.tween_property(material, "emission_energy_multiplier", 0.0, SUMMON_TIME)
+	tween.set_parallel(true)
+	tween.tween_property($SummonOverhead, "alpha", 1.0, SUMMON_TIME)
+	tween.tween_property($Body/Icon1, "modulate:a", 1.0, SUMMON_TIME)
+	tween.tween_property($Body/Icon2, "modulate:a", 1.0, SUMMON_TIME)
 #endregion
 
 #region private functions
