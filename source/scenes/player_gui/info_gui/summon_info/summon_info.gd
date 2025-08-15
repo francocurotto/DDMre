@@ -14,5 +14,4 @@ func set_dice_info(dice):
 	%Attack.visible = not is_item
 	%Defense.visible = not is_item
 	%Health.visible = not is_item
-	$VBoxContainer.visible = true
 #endregion

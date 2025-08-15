@@ -3,7 +3,6 @@
 - Add ENDTURN button to dungeon gui
 
 ## IMPROVEMENTS
-- make summon_info vboxcontainer visible on editor, but invisible on startup
 - change project name and add README.md
 
 ## FIXES
