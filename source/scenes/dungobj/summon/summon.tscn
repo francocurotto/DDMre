@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cjiaw6dgirjlg" path="res://scenes/dungobj/summon/summon.gd" id="1_we0cr"]
 [ext_resource type="Texture2D" uid="uid://didfe015s6jye" path="res://assets/SUMMON_DRAGON.svg" id="2_05ifw"]
-[ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/MATERIAL_P1.tres" id="2_7sf84"]
+[ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_7sf84"]
 [ext_resource type="PackedScene" uid="uid://cnstwc06ol2cs" path="res://scenes/dungobj/summon/summon_overhead/summon_overhead.tscn" id="3_fwims"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_fwims"]

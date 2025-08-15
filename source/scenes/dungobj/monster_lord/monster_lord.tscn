@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://psjsnyqimdrd"]
 
 [ext_resource type="Script" uid="uid://xq4oaifpysxf" path="res://scenes/dungobj/monster_lord/monster_lord.gd" id="1_30uxh"]
-[ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/MATERIAL_P1.tres" id="2_hjuai"]
+[ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_hjuai"]
 [ext_resource type="Texture2D" uid="uid://dtyr3yq5phnf6" path="res://assets/HEARTS_P1_3.svg" id="2_m7l1t"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7sfyc"]

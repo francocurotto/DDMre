@@ -3,6 +3,7 @@
 - Add ENDTURN button to dungeon gui
 
 ## IMPROVEMENTS
+- change all icons to icon folder in assets
 - change project name and add README.md
 
 ## FIXES
@@ -13,4 +14,4 @@
 
 ## GRAPHICS
 - change monster lord graphics
-- make dice_button more distiguishible from pressed and not pressed
+    - add rainbow shader

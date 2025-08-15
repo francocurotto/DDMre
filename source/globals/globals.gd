@@ -34,9 +34,9 @@ const SUMMON_COLORS = {
 	"ITEM"        : Color(0.2, 0.2, 0.2)
 }
 const PLAYER_MATERIALS = [
-	preload("res://assets/MATERIAL_P0.tres"), 
-	preload("res://assets/MATERIAL_P1.tres"), 
-	preload("res://assets/MATERIAL_P2.tres"), 
+	preload("res://assets/materials/MATERIAL_P0.tres"), 
+	preload("res://assets/materials/MATERIAL_P1.tres"), 
+	preload("res://assets/materials/MATERIAL_P2.tres"), 
 ]
 #endregion
 
