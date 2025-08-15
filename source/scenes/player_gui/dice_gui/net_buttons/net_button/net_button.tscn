@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://4mlxmxnqgngo"]
 
-[ext_resource type="Texture2D" uid="uid://d4hqf36tbxwug" path="res://assets/NET_X.png" id="1_p516w"]
+[ext_resource type="Texture2D" uid="uid://d4hqf36tbxwug" path="res://assets/icons/NET_X.png" id="1_p516w"]
 [ext_resource type="Script" uid="uid://csrt0x0re0q86" path="res://scenes/player_gui/dice_gui/net_buttons/net_button/net_button.gd" id="2_p516w"]
 
 [node name="NetButton" type="Button"]

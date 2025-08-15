@@ -3,7 +3,6 @@
 - Add ENDTURN button to dungeon gui
 
 ## IMPROVEMENTS
-- change all icons to icon folder in assets
 - change project name and add README.md
 
 ## FIXES
@@ -13,5 +12,4 @@
     - seems to be when not the last dice to stop is cocked
 
 ## GRAPHICS
-- change monster lord graphics
-    - add rainbow shader
+- add rainbow shader to monster lord

@@ -6,7 +6,7 @@ extends HBoxContainer
 var attr : String = "LEVEL" :
 	set(_attr):
 		attr = _attr
-		$Attr.texture = load("res://assets/ATTR_%s.svg" % attr)
+		$Attr.texture = load("res://assets/icons/ATTR_%s.svg" % attr)
 
 @export var value : int = 1 :
 	set(_value):

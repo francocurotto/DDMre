@@ -17,8 +17,8 @@ const SUMMON_TIME = 1.0
 var type : String = "DRAGON" :
 	set(_type):
 		type = _type
-		$Body/Icon1.texture = load("res://assets/SUMMON_%s.svg" % type)
-		$Body/Icon2.texture = load("res://assets/SUMMON_%s.svg" % type)
+		$Body/Icon1.texture = load("res://assets/icons/SUMMON_%s.svg" % type)
+		$Body/Icon2.texture = load("res://assets/icons/SUMMON_%s.svg" % type)
 		$SummonOverhead.visible = type != "ITEM"
 
 @export_range(0, 50, 10) var original_attack : int = 10 :

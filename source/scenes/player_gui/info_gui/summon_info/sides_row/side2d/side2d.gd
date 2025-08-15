@@ -2,7 +2,7 @@ extends AspectRatioContainer
 
 #region public functions
 func set_side(side, type):
-	$Icon.texture = load("res://assets/CREST_%s.svg" % side.crest)
+	$Icon.texture = load("res://assets/icons/CREST_%s.svg" % side.crest)
 	$Mult.text = str(side.mult)
 	$Background.color = Globals.SUMMON_COLORS[type]
 	# adjust mult location

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dj300rw20lrew" path="res://scenes/player_gui/info_gui/summon_info/summon_info.gd" id="1_a1tbk"]
 [ext_resource type="PackedScene" uid="uid://chawlghgqva5o" path="res://scenes/player_gui/info_gui/summon_info/sides_row/sides_row.tscn" id="1_nbd76"]
-[ext_resource type="Texture2D" uid="uid://didfe015s6jye" path="res://assets/SUMMON_DRAGON.svg" id="2_ne7m4"]
+[ext_resource type="Texture2D" uid="uid://didfe015s6jye" path="res://assets/icons/SUMMON_DRAGON.svg" id="2_ne7m4"]
 [ext_resource type="PackedScene" uid="uid://cmdfsqfsxoyqt" path="res://scenes/player_gui/info_gui/summon_info/summon_attr/summon_attr.tscn" id="3_wbsye"]
 
 [node name="SummonInfo" type="MarginContainer"]

@@ -6,7 +6,7 @@ extends Node3D
 var attr : String = "ATTACK" :
 	set(_attr):
 		attr = _attr
-		$AttrIcon.texture = load("res://assets/ATTR_%s.svg" % attr)
+		$AttrIcon.texture = load("res://assets/icons/ATTR_%s.svg" % attr)
 
 @export var alpha : float = 1.0 :
 	set(_alpha):

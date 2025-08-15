@@ -10,7 +10,7 @@ const MAXAMOUNT = 99
 var type : String = "MOVEMENT" :
 	set(_type):
 		type = _type
-		%TextureRect.texture = load("res://assets/CREST_%s.svg" % type)
+		%TextureRect.texture = load("res://assets/icons/CREST_%s.svg" % type)
 #endregion
 
 #region public variables

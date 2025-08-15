@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbwouu0vicqix"]
 
 [ext_resource type="Script" uid="uid://bci3a5bnjlfkv" path="res://scenes/dice/side/side.gd" id="1_27crt"]
-[ext_resource type="Texture2D" uid="uid://caju6siypu748" path="res://assets/CREST_SUMMON.svg" id="1_81t1o"]
-[ext_resource type="Texture2D" uid="uid://b7gayl216h2r0" path="res://assets/SIDE.svg" id="2_e6b40"]
+[ext_resource type="Texture2D" uid="uid://caju6siypu748" path="res://assets/icons/CREST_SUMMON.svg" id="1_81t1o"]
+[ext_resource type="Texture2D" uid="uid://b7gayl216h2r0" path="res://assets/icons/SIDE.svg" id="2_e6b40"]
 [ext_resource type="PackedScene" uid="uid://bpdeuxhgpomqs" path="res://scenes/dice/side/pivot/pivot.tscn" id="4_e6b40"]
 [ext_resource type="PackedScene" uid="uid://bdw14yfe4pipb" path="res://scenes/dungeon/tiles/path_tile/path_tile.tscn" id="5_y5tqh"]
 

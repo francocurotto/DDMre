@@ -6,5 +6,5 @@ extends Button
 var type : String = "X" :
 	set(_type):
 		type = _type
-		icon = load("res://assets/NET_%s.png" % type)
+		icon = load("res://assets/icons/NET_%s.png" % type)
 #endregion

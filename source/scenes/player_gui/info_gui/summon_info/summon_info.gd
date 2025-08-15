@@ -3,7 +3,7 @@ extends MarginContainer
 #region public functions
 func set_dice_info(dice):
 	%SidesRow.set_sides(dice.sides, dice.summon.type)
-	%SummonIcon.texture = load("res://assets/SUMMON_%s.svg" % dice.summon.type)
+	%SummonIcon.texture = load("res://assets/icons/SUMMON_%s.svg" % dice.summon.type)
 	%Name.text = dice.summon.summon_name
 	%Level.value = dice.summon.level
 	%Attack.value = dice.summon.attack

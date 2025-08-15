@@ -23,7 +23,7 @@ var type : String = "DRAGON" :
 var crest : String = "SUMMON" :
 	set(_crest):
 		crest = _crest
-		$Crest.texture = load("res://assets/CREST_%s.svg" % crest)
+		$Crest.texture = load("res://assets/icons/CREST_%s.svg" % crest)
 		# reposition mult if summon and not summon
 		if crest == "SUMMON":
 			%Mult.position = Vector3(0,0,0)

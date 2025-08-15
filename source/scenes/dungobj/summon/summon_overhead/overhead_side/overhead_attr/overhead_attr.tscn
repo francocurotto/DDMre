@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6yse5bixoxr"]
 
 [ext_resource type="Script" uid="uid://xgm2avd2rns1" path="res://scenes/dungobj/summon/summon_overhead/overhead_side/overhead_attr/overhead_attr.gd" id="1_fmxq2"]
-[ext_resource type="Texture2D" uid="uid://dho2ok8ktf2tv" path="res://assets/ATTR_ATTACK.svg" id="1_q1fgw"]
+[ext_resource type="Texture2D" uid="uid://dho2ok8ktf2tv" path="res://assets/icons/ATTR_ATTACK.svg" id="1_q1fgw"]
 
 [node name="OverheadAttr" type="Node3D"]
 script = ExtResource("1_fmxq2")

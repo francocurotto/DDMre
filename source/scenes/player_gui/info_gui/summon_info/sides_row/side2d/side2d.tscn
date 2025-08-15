@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dnaay2esdb4va"]
 
 [ext_resource type="Script" uid="uid://c5sm0ljl1q2da" path="res://scenes/player_gui/info_gui/summon_info/sides_row/side2d/side2d.gd" id="1_1ean1"]
-[ext_resource type="Texture2D" uid="uid://caju6siypu748" path="res://assets/CREST_SUMMON.svg" id="1_lfwhf"]
+[ext_resource type="Texture2D" uid="uid://caju6siypu748" path="res://assets/icons/CREST_SUMMON.svg" id="1_lfwhf"]
 
 [node name="Side2D" type="AspectRatioContainer"]
 custom_minimum_size = Vector2(70, 70)

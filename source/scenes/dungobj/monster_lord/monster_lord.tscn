@@ -1,32 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://psjsnyqimdrd"]
+[gd_scene load_steps=5 format=3 uid="uid://t8ht0ta0nff6"]
 
-[ext_resource type="Script" uid="uid://xq4oaifpysxf" path="res://scenes/dungobj/monster_lord/monster_lord.gd" id="1_30uxh"]
+[ext_resource type="PackedScene" uid="uid://igdrcvp6icxm" path="res://assets/models/HEART/HEART.glb" id="1_6juce"]
+[ext_resource type="Script" uid="uid://bqcir7h7lace4" path="res://scenes/dungobj/monster_lord/monster_lord.gd" id="2_cv5c2"]
 [ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_hjuai"]
-[ext_resource type="Texture2D" uid="uid://dtyr3yq5phnf6" path="res://assets/HEARTS_P1_3.svg" id="2_m7l1t"]
+[ext_resource type="Texture2D" uid="uid://dtyr3yq5phnf6" path="res://assets/icons/HEARTS_P1_3.svg" id="2_m7l1t"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_7sfyc"]
-height = 0.1
-radius = 0.45
+[node name="MonsterLord" instance=ExtResource("1_6juce")]
+script = ExtResource("2_cv5c2")
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_f7xwi"]
-top_radius = 0.45
-bottom_radius = 0.45
-height = 0.1
-
-[node name="MonsterLord" type="StaticBody3D"]
-script = ExtResource("1_30uxh")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
-shape = SubResource("CylinderShape3D_7sfyc")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
-mesh = SubResource("CylinderMesh_f7xwi")
+[node name="HEART" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.45, -0.05)
 surface_material_override/0 = ExtResource("2_hjuai")
 
-[node name="Icon" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.101, 0.05)
-pixel_size = 0.001
-axis = 1
+[node name="Icon1" type="Sprite3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0.051)
+pixel_size = 0.0013
+double_sided = false
+texture = ExtResource("2_m7l1t")
+
+[node name="Icon2" type="Sprite3D" parent="." index="2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.45, -0.051)
+pixel_size = 0.0013
+double_sided = false
 texture = ExtResource("2_m7l1t")
