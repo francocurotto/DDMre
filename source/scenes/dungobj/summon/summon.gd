@@ -10,7 +10,7 @@ const SUMMON_TIME = 1.0
 	set(_player):
 		player = _player
 		material = Globals.PLAYER_MATERIALS[player].duplicate()
-		$Base.set_surface_override_material(0, material)
+		#$Base.set_surface_override_material(0, material)
 		$Body.set_surface_override_material(0, material)
 
 @export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR")
