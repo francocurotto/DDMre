@@ -12,4 +12,3 @@
     - seems to be when not the last dice to stop is cocked
 
 ## GRAPHICS
-- add rainbow shader to monster lord
