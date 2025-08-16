@@ -1,8 +1,10 @@
 ## FEATURES
+- add zoom, rotate and tilt to camera
 - Add SKIP button in rollzone
 - Add ENDTURN button to dungeon gui
 
 ## IMPROVEMENTS
+- make drags extend over control area
 - change project name and add README.md
 
 ## FIXES
