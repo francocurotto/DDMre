@@ -31,6 +31,7 @@ var camera3d : Camera3D
 var touch_flag : bool = false ## true if touched
 var drag_flag : bool = false ## true if dragging
 var threshold_flag : bool = false ## true if threshold was exceeded
+var multitouch_flag : bool = false ## true if multitouch in process
 #endregion
 
 #region builtin functions
@@ -42,8 +43,10 @@ func _input(event: InputEvent) -> void:
 					touch_flag = true
 					touch_position = viewport.get_mouse_position()
 					touch_pressed.emit()
+				elif event.index == 1 and touch_flag:
+					multitouch_flag = true
 		elif event is InputEventScreenDrag and touch_flag:
-			if event.index == 0:
+			if event.index == 0 and not multitouch_flag:
 				drag_flag = true
 				velocity = event.velocity
 				if not threshold_flag and is_threshold_exceeded():
@@ -51,15 +54,18 @@ func _input(event: InputEvent) -> void:
 					threshold_exceeded.emit(get_drag_angle(event))
 				else:
 					dragging.emit()
-			elif event.index == 1:
+			elif multitouch_flag:
 				print("multitouch drag")
 		elif event is InputEventScreenTouch and not event.pressed and touch_flag:
 			if event.index == 0:
-				if drag_flag:
-					drag_released.emit()
-				elif touch_flag:
-					touch_released.emit()
+				if not multitouch_flag:
+					if drag_flag:
+						drag_released.emit()
+					elif touch_flag:
+						touch_released.emit()
 				reset_flags()
+			if event.index == 1:
+				multitouch_flag = false
 #endregion
 
 #region public functions
@@ -73,6 +79,7 @@ func reset_flags():
 	touch_flag = false
 	drag_flag = false
 	threshold_flag = false
+	multitouch_flag = false
 
 func get_touched_object(mask = 4294967295):
 	var ray_origin = camera3d.project_ray_origin(touch_position)
