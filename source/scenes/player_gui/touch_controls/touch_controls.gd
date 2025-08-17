@@ -38,22 +38,28 @@ func _input(event: InputEvent) -> void:
 	if not disabled:
 		if event is InputEventScreenTouch and event.pressed:
 			if get_global_rect().has_point(event.position):
-				touch_flag = true
-				touch_position = viewport.get_mouse_position()
-				touch_pressed.emit()
+				if event.index == 0:
+					touch_flag = true
+					touch_position = viewport.get_mouse_position()
+					touch_pressed.emit()
 		elif event is InputEventScreenDrag and touch_flag:
-			drag_flag = true
-			velocity = event.velocity
-			dragging.emit()
-			if not threshold_flag and is_threshold_exceeded():
-				threshold_flag = true
-				threshold_exceeded.emit(get_drag_angle(event))
+			if event.index == 0:
+				drag_flag = true
+				velocity = event.velocity
+				if not threshold_flag and is_threshold_exceeded():
+					threshold_flag = true
+					threshold_exceeded.emit(get_drag_angle(event))
+				else:
+					dragging.emit()
+			elif event.index == 1:
+				print("multitouch drag")
 		elif event is InputEventScreenTouch and not event.pressed and touch_flag:
-			if drag_flag:
-				drag_released.emit()
-			elif touch_flag:
-				touch_released.emit()
-			reset_flags()
+			if event.index == 0:
+				if drag_flag:
+					drag_released.emit()
+				elif touch_flag:
+					touch_released.emit()
+				reset_flags()
 #endregion
 
 #region public functions
