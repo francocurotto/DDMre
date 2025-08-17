@@ -4,7 +4,6 @@
 - Add ENDTURN button to dungeon gui
 
 ## IMPROVEMENTS
-- make drags extend over control area
 - change project name and add README.md
 
 ## FIXES
