@@ -11,6 +11,7 @@
 - drag get stuck when dimdice present
     - if touch_position collides with dimdice drag stops
 - when dimdice is positioned in moster_lord the dimnet goes to wrong position
+- touching dungeon before roll translate dimdice
 - dice can be rolled twice after a reroll due to cocked
     - on some rolls there seems to be no delay when detecting the roll
 - sometimes diceroll stucked when one dice cocked
