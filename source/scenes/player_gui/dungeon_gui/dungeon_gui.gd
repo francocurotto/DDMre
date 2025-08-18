@@ -52,7 +52,7 @@ func on_touch_released():
 func on_dragging():
 	if dimdice_dragging:
 		move_dimdice()
-	elif not controls.get_touched_object(Globals.LAYERS.DICE):
+	else:
 		move_camera()
 
 func on_drag_released():
