@@ -25,6 +25,7 @@ var touch_position : Vector2
 var velocity : Vector2
 var viewport : Viewport
 var camera3d : Camera3D
+var positions : Dictionary [int, Vector2]
 #endregion
 
 #region private variables
@@ -45,8 +46,9 @@ func _input(event: InputEvent) -> void:
 					touch_pressed.emit()
 				elif event.index == 1 and touch_flag:
 					multitouch_flag = true
+				positions[event.index] = event.position
 		elif event is InputEventScreenDrag and touch_flag:
-			if event.index == 0 and not multitouch_flag:
+			if len(positions) == 1:
 				drag_flag = true
 				velocity = event.velocity
 				if not threshold_flag and is_threshold_exceeded():
@@ -54,18 +56,17 @@ func _input(event: InputEvent) -> void:
 					threshold_exceeded.emit(get_drag_angle(event))
 				else:
 					dragging.emit()
-			elif multitouch_flag:
+			elif len(positions) == 2:
 				print("multitouch drag")
 		elif event is InputEventScreenTouch and not event.pressed and touch_flag:
-			if event.index == 0:
-				if not multitouch_flag:
-					if drag_flag:
-						drag_released.emit()
-					elif touch_flag:
-						touch_released.emit()
+			positions.erase(event.index)
+			if not multitouch_flag:
+				if drag_flag:
+					drag_released.emit()
+				elif touch_flag:
+					touch_released.emit()
+			if len(positions) == 0:
 				reset_flags()
-			if event.index == 1:
-				multitouch_flag = false
 #endregion
 
 #region public functions
