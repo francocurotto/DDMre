@@ -37,12 +37,6 @@ func _ready() -> void:
 #endregion
 
 #region public functions
-func on_tile_touched(tile, dimdice_position, net) -> void:
-	if dimdice:
-		dimtile = tile
-		dimdice.position = dimdice_position
-		set_dimnet(net)
-
 func set_dimnet(net):
 	var net_tiles = get_net_tiles(net)
 	for tile in tiles:
@@ -69,6 +63,12 @@ func return_dimdice(return_position, shake=false):
 #endregion
 
 #region signals callbacks
+func on_tile_touched(tile, dimdice_position, net) -> void:
+	if dimdice:
+		dimtile = tile
+		dimdice.position = dimdice_position
+		set_dimnet(net)
+
 func rotate_dimdice_clockwise():
 	var axis = Vector3(0, 1, 0)
 	var rotated_basis = dimdice.transform.basis.rotated(axis, -PI/2)

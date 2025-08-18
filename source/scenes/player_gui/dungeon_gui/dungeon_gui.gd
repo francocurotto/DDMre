@@ -45,7 +45,7 @@ func on_dimdice_selected(original_dimdice):
 
 func on_touch_released():
 	var tile = controls.get_touched_object(Globals.LAYERS.TILES)
-	if tile:
+	if Globals.dungeon.dimdice and tile:
 		dimdice_position = tile.global_position + Vector3(0,DIMDICE_HEIGHT,0)
 		Globals.dungeon.on_tile_touched(tile, dimdice_position, player_gui.net)
 
