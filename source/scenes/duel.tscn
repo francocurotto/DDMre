@@ -1,15 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxmgqmkxvls2s"]
+[gd_scene load_steps=5 format=3 uid="uid://cxmgqmkxvls2s"]
 
 [ext_resource type="Script" uid="uid://b3btppwiqa738" path="res://scenes/duel.gd" id="1_74lek"]
 [ext_resource type="PackedScene" uid="uid://cqc1roopbg664" path="res://scenes/dungeon/dungeon.tscn" id="2_j5jx5"]
 [ext_resource type="PackedScene" uid="uid://f20alyog44y4" path="res://scenes/player_gui/player_gui.tscn" id="3_iyx0m"]
+[ext_resource type="PackedScene" uid="uid://c5hg35ltlxe5h" path="res://scenes/duel_camera/duel_camera.tscn" id="3_mgajk"]
 
 [node name="Duel" type="Node3D"]
 script = ExtResource("1_74lek")
 
 [node name="Dungeon" parent="." instance=ExtResource("2_j5jx5")]
 
-[node name="DuelCamera" type="Camera3D" parent="."]
+[node name="DuelCamera" parent="." instance=ExtResource("3_mgajk")]
 transform = Transform3D(1, 0, 0, 0, 0.647202, 0.762318, 0, -0.762318, 0.647202, 0, 5.86023, 4.42432)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

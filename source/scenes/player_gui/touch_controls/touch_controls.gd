@@ -6,6 +6,7 @@ signal dragging
 signal touch_released
 signal drag_released
 signal threshold_exceeded
+signal multidrag_zoom
 #endregion
 
 #region constants
@@ -57,7 +58,14 @@ func _input(event: InputEvent) -> void:
 				else:
 					dragging.emit()
 			elif len(positions) == 2:
-				print("multitouch drag")
+				var prev_pos = positions[event.index]
+				var curr_pos = event.position
+				var other_pos = positions[(event.index+1)%2]
+				var prev_dist = prev_pos.distance_to(other_pos)
+				var curr_dist = curr_pos.distance_to(other_pos)
+				var dist_diff = curr_dist - prev_dist
+				multidrag_zoom.emit(dist_diff)
+			positions[event.index] = event.position
 		elif event is InputEventScreenTouch and not event.pressed and touch_flag:
 			positions.erase(event.index)
 			if not multitouch_flag:

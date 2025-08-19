@@ -1,7 +1,6 @@
 extends Control
 
 #region constants
-const CAMERA_SPEED = 0.02
 const DRAG_LENGTH = 10
 const DIMDICE_HEIGHT = 2
 #endregion
@@ -26,6 +25,7 @@ func _ready() -> void:
 	controls.dragging.connect(on_dragging)
 	controls.drag_released.connect(on_drag_released)
 	controls.threshold_exceeded.connect(on_threshold_exceeded)
+	controls.multidrag_zoom.connect(on_multidrag_zoom)
 #endregion
 
 #region signals callbacks
@@ -111,7 +111,8 @@ func move_dimdice():
 	Globals.dungeon.move_dimdice(velocity, player, net, dimdice_position)
 
 func move_camera():
-	var movement = Vector3(controls.velocity.x, 0, controls.velocity.y)
-	var delta_position = -1 * CAMERA_SPEED * movement * get_process_delta_time()
-	Globals.duel_camera.position += delta_position
+	Globals.duel_camera.pan(controls.velocity)
+
+func on_multidrag_zoom(zoom_force):
+	Globals.duel_camera.zoom(zoom_force)
 #endregion
