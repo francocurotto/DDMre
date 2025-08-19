@@ -3,5 +3,5 @@
 [ext_resource type="Script" uid="uid://cxgff3x4a2nm3" path="res://scenes/duel_camera/duel_camera.gd" id="1_1x3el"]
 
 [node name="DuelCamera" type="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766044, 0, -0.766044, 0.642787, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 0, 0)
 script = ExtResource("1_1x3el")

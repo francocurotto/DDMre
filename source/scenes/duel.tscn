@@ -11,7 +11,7 @@ script = ExtResource("1_74lek")
 [node name="Dungeon" parent="." instance=ExtResource("2_j5jx5")]
 
 [node name="DuelCamera" parent="." instance=ExtResource("3_mgajk")]
-transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766044, 0, -0.766044, 0.642787, 0, 5.86023, 4.42432)
+transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 5, 4)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.684331, 0.729172, 0, -0.729171, 0.684332, 0, 8.089, 6.504)

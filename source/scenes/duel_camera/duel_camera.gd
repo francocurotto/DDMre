@@ -17,6 +17,5 @@ func pan(velocity):
 
 func zoom(zoom_force):
 	var delta = get_process_delta_time()
-	print(transform.basis.z * ZOOM_SPEED * zoom_force * delta)
-	translate(transform.basis.z * ZOOM_SPEED * zoom_force * delta)
+	position += transform.basis.z * ZOOM_SPEED * zoom_force * delta
 #endregion
