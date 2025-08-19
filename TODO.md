@@ -1,5 +1,7 @@
 ## FEATURES
 - add zoom to camera
+    - add mouse wheel scroll
+        - debug zoom only moving z axis
     - add camera reset button
 - Add SKIP button in rollzone
 - Add ENDTURN button to dungeon gui
