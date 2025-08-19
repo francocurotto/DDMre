@@ -5,9 +5,6 @@ const PAN_SPEED = 0.02
 const ZOOM_SPEED = 0.2
 #endregion
 
-func _ready() -> void:
-	print(transform.basis.z)
-
 #region public functions
 func pan(velocity):
 	var delta = get_process_delta_time()

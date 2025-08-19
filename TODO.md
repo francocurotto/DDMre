@@ -1,5 +1,6 @@
 ## FEATURES
 - add camera reset button
+- add mouse wheel scroll
 - Add SKIP button in rollzone
 - Add ENDTURN button to dungeon gui
 
