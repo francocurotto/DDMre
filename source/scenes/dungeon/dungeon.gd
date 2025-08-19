@@ -15,8 +15,6 @@ var dimdice :
 			dimdice.queue_free()
 		# replace dimdice
 		dimdice = _dimdice
-		dimdice.contact_monitor = true
-		dimdice.max_contacts_reported = 1
 		add_child(dimdice)
 #endregion
 

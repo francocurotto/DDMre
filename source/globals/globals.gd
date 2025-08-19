@@ -10,7 +10,7 @@ enum GUISTATE {
 enum LAYERS {
 	ALL = 1,
 	DICE = 2,
-	TILES = 4
+	BASE_TILES = 4
 }
 #endregion
 
