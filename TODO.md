@@ -5,6 +5,7 @@
 - Add ENDTURN button to dungeon gui
 
 ## IMPROVEMENTS
+- remove custom implementation of zoom
 - change project name and add README.md
 
 ## FIXES

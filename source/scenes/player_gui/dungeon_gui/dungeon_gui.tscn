@@ -11,9 +11,3 @@ script = ExtResource("1_1st0o")
 
 [node name="TouchControls" parent="." instance=ExtResource("2_dk4qo")]
 layout_mode = 1
-
-[node name="Label" type="Label" parent="TouchControls"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 55.0
-theme_override_font_sizes/font_size = 40
