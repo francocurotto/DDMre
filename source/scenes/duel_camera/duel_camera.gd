@@ -2,7 +2,7 @@ extends Camera3D
 
 #region constants
 const PAN_SPEED = 0.02
-const ZOOM_SPEED = 0.2
+const ZOOM_SPEED = 40
 #endregion
 
 #region public functions
