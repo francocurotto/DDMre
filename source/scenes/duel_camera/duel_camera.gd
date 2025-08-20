@@ -12,7 +12,7 @@ func pan(velocity):
 	var delta_position = -1 * PAN_SPEED * movement * delta
 	Globals.duel_camera.position += delta_position
 
-func zoom(zoom_force):
+func zoom(factor):
 	var delta = get_process_delta_time()
-	position += transform.basis.z * ZOOM_SPEED * zoom_force * delta
+	position += transform.basis.z * ZOOM_SPEED * factor * delta
 #endregion

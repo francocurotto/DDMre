@@ -76,7 +76,7 @@ func _input(event: InputEvent) -> void:
 			if len(positions) == 0:
 				reset_flags()
 		elif event is InputEventMagnifyGesture:
-			multidrag_zoom.emit(event.factor)
+			multidrag_zoom.emit(log(event.factor))
 #endregion
 
 #region public functions
