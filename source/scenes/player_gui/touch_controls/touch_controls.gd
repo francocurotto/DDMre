@@ -64,7 +64,7 @@ func _input(event: InputEvent) -> void:
 				var prev_dist = prev_pos.distance_to(other_pos)
 				var curr_dist = curr_pos.distance_to(other_pos)
 				var dist_diff = curr_dist - prev_dist
-				multidrag_zoom.emit(dist_diff)
+				#multidrag_zoom.emit(dist_diff)
 			positions[event.index] = event.position
 		elif event is InputEventScreenTouch and not event.pressed and touch_flag:
 			positions.erase(event.index)
@@ -75,6 +75,8 @@ func _input(event: InputEvent) -> void:
 					touch_released.emit()
 			if len(positions) == 0:
 				reset_flags()
+		elif event is InputEventMagnifyGesture:
+			multidrag_zoom.emit(event.factor)
 #endregion
 
 #region public functions
