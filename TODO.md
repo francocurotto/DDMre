@@ -1,12 +1,14 @@
 ## FEATURES
-- add camera reset button
-- add mouse wheel scroll
+- camera control
+    - add mouse wheel scroll
+    - add camera reset button
 - Add SKIP button in rollzone
 - Add ENDTURN button to dungeon gui
 
 ## IMPROVEMENTS
-- remove custom implementation of zoom
 - change project name and add README.md
+- make camera pan smoother
+- move drag_threshold_exceeded from touch_controls to dungeon_gui
 
 ## FIXES
 - dice can be rolled twice after a reroll due to cocked

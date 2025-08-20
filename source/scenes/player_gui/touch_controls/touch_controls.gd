@@ -6,7 +6,7 @@ signal dragging
 signal touch_released
 signal drag_released
 signal threshold_exceeded
-signal multidrag_zoom
+signal pinching
 #endregion
 
 #region constants
@@ -26,14 +26,12 @@ var touch_position : Vector2
 var velocity : Vector2
 var viewport : Viewport
 var camera3d : Camera3D
-var positions : Dictionary [int, Vector2]
 #endregion
 
 #region private variables
 var touch_flag : bool = false ## true if touched
 var drag_flag : bool = false ## true if dragging
 var threshold_flag : bool = false ## true if threshold was exceeded
-var multitouch_flag : bool = false ## true if multitouch in process
 #endregion
 
 #region builtin functions
@@ -41,42 +39,25 @@ func _input(event: InputEvent) -> void:
 	if not disabled:
 		if event is InputEventScreenTouch and event.pressed:
 			if get_global_rect().has_point(event.position):
-				if event.index == 0:
-					touch_flag = true
-					touch_position = viewport.get_mouse_position()
-					touch_pressed.emit()
-				elif event.index == 1 and touch_flag:
-					multitouch_flag = true
-				positions[event.index] = event.position
+				touch_flag = true
+				touch_position = viewport.get_mouse_position()
+				touch_pressed.emit()
 		elif event is InputEventScreenDrag and touch_flag:
-			if len(positions) == 1:
-				drag_flag = true
-				velocity = event.velocity
-				if not threshold_flag and is_threshold_exceeded():
-					threshold_flag = true
-					threshold_exceeded.emit(get_drag_angle(event))
-				else:
-					dragging.emit()
-			elif len(positions) == 2:
-				var prev_pos = positions[event.index]
-				var curr_pos = event.position
-				var other_pos = positions[(event.index+1)%2]
-				var prev_dist = prev_pos.distance_to(other_pos)
-				var curr_dist = curr_pos.distance_to(other_pos)
-				var dist_diff = curr_dist - prev_dist
-				#multidrag_zoom.emit(dist_diff)
-			positions[event.index] = event.position
+			drag_flag = true
+			velocity = event.velocity
+			if not threshold_flag and is_threshold_exceeded():
+				threshold_flag = true
+				threshold_exceeded.emit(get_drag_angle(event))
+			else:
+				dragging.emit()
 		elif event is InputEventScreenTouch and not event.pressed and touch_flag:
-			positions.erase(event.index)
-			if not multitouch_flag:
-				if drag_flag:
-					drag_released.emit()
-				elif touch_flag:
-					touch_released.emit()
-			if len(positions) == 0:
-				reset_flags()
+			if drag_flag:
+				drag_released.emit()
+			elif touch_flag:
+				touch_released.emit()
+			reset_flags()
 		elif event is InputEventMagnifyGesture:
-			multidrag_zoom.emit(log(event.factor))
+			pinching.emit(log(event.factor))
 #endregion
 
 #region public functions
@@ -90,7 +71,6 @@ func reset_flags():
 	touch_flag = false
 	drag_flag = false
 	threshold_flag = false
-	multitouch_flag = false
 
 func get_touched_object(mask = 4294967295):
 	var ray_origin = camera3d.project_ray_origin(touch_position)

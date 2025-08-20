@@ -25,7 +25,7 @@ func _ready() -> void:
 	controls.dragging.connect(on_dragging)
 	controls.drag_released.connect(on_drag_released)
 	controls.threshold_exceeded.connect(on_threshold_exceeded)
-	controls.multidrag_zoom.connect(on_multidrag_zoom)
+	controls.pinching.connect(on_pinching)
 #endregion
 
 #region signals callbacks
@@ -113,6 +113,6 @@ func move_dimdice():
 func move_camera():
 	Globals.duel_camera.pan(controls.velocity)
 
-func on_multidrag_zoom(zoom_force):
-	Globals.duel_camera.zoom(zoom_force)
+func on_pinching(factor):
+	Globals.duel_camera.zoom(factor)
 #endregion
