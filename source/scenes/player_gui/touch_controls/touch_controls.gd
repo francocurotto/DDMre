@@ -58,6 +58,13 @@ func _input(event: InputEvent) -> void:
 			reset_flags()
 		elif event is InputEventMagnifyGesture:
 			pinching.emit(log(event.factor))
+		elif event is InputEventMouseButton:
+			if event.pressed:
+				match event.button_index:
+					MOUSE_BUTTON_WHEEL_UP:
+						pinching.emit(-1)
+					MOUSE_BUTTON_WHEEL_DOWN:
+						pinching.emit(1)
 #endregion
 
 #region public functions

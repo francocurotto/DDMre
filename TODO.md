@@ -1,13 +1,11 @@
 ## FEATURES
 - camera control
-    - add mouse wheel scroll
     - add camera reset button
 - Add SKIP button in rollzone
 - Add ENDTURN button to dungeon gui
 
 ## IMPROVEMENTS
 - change project name and add README.md
-- make camera pan smoother
 - move drag_threshold_exceeded from touch_controls to dungeon_gui
 
 ## FIXES
