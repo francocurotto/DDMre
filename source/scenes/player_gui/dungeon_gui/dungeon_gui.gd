@@ -26,6 +26,7 @@ func _ready() -> void:
 	controls.drag_released.connect(on_drag_released)
 	controls.threshold_exceeded.connect(on_threshold_exceeded)
 	controls.pinching.connect(on_pinching)
+	Globals.duel_camera.camera_moved.connect(func(): $CameraReset.visible=true)
 #endregion
 
 #region signals callbacks
@@ -75,6 +76,10 @@ func on_dimension_started():
 func on_dimension_finished():
 	dimdice_dragging = false
 	controls.disabled = false
+
+func _on_camera_reset_pressed() -> void:
+	$CameraReset.visible = false
+	Globals.duel_camera.on_camera_reset_pressed()
 #endregion
 
 #region private functions

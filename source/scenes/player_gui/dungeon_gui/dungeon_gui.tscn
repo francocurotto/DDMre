@@ -11,3 +11,12 @@ script = ExtResource("1_1st0o")
 
 [node name="TouchControls" parent="." instance=ExtResource("2_dk4qo")]
 layout_mode = 1
+
+[node name="CameraReset" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 630.0
+offset_right = 710.0
+offset_bottom = 80.0
+
+[connection signal="pressed" from="CameraReset" to="." method="_on_camera_reset_pressed"]
