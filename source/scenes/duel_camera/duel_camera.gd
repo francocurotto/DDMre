@@ -11,13 +11,11 @@ func pan(velocity):
 	var movement = Vector3(velocity.x, 0, velocity.y)
 	var delta_position = -1 * PAN_SPEED * movement * delta
 	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "position", position + delta_position, 0.1)
 
 func zoom(factor):
 	var delta = get_process_delta_time()
 	var delta_position = transform.basis.z * ZOOM_SPEED * factor * delta
 	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "position", position + delta_position, 0.1)
 #endregion
