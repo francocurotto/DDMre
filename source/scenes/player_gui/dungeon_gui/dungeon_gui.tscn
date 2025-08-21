@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dh8dx5olkti0o"]
+[gd_scene load_steps=4 format=3 uid="uid://dh8dx5olkti0o"]
 
 [ext_resource type="Script" uid="uid://sak83cm7tdar" path="res://scenes/player_gui/dungeon_gui/dungeon_gui.gd" id="1_1st0o"]
 [ext_resource type="PackedScene" uid="uid://c6mitq2hlr2wj" path="res://scenes/player_gui/touch_controls/touch_controls.tscn" id="2_dk4qo"]
+[ext_resource type="Texture2D" uid="uid://blc6rks53n7u2" path="res://assets/icons/CAMERA_RESET.png" id="3_gjjas"]
 
 [node name="DungeonGUI" type="Control"]
 layout_mode = 3
@@ -15,8 +16,11 @@ layout_mode = 1
 [node name="CameraReset" type="Button" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 630.0
-offset_right = 710.0
-offset_bottom = 80.0
+offset_left = 640.0
+offset_right = 700.0
+offset_bottom = 50.0
+icon = ExtResource("3_gjjas")
+flat = true
+expand_icon = true
 
 [connection signal="pressed" from="CameraReset" to="." method="_on_camera_reset_pressed"]

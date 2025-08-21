@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+
+<svg
+   width="533.34131"
+   height="366.67465"
+   viewBox="0 0 16.000239 11.00024"
+   fill="none"
+   stroke="#9a9996"
+   stroke-width="0.00024"
+   version="1.1"
+   id="svg7"
+   sodipodi:docname="camera-svgrepo-com.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs11" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.0775"
+     inkscape:cx="266.35731"
+     inkscape:cy="167.05336"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="1920"
+     inkscape:window-y="40"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg7" />
+  <g
+     id="SVGRepo_bgCarrier"
+     stroke-width="0"
+     transform="translate(-3.99988,-6.99988)" />
+  <g
+     id="SVGRepo_tracerCarrier"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     transform="translate(-3.99988,-6.99988)" />
+  <g
+     id="SVGRepo_iconCarrier"
+     clip-path="none"
+     transform="translate(-3.99988,-6.99988)">
+    <path
+       fill-rule="evenodd"
+       clip-rule="evenodd"
+       d="m 5.5,7 h 10 C 16.3284,7 17,7.67157 17,8.5 v 2 L 19.2764,9.3618 C 19.6088,9.19558 20,9.43733 20,9.80902 v 5.46948 c 0,0.3491 -0.3487,0.5907 -0.6756,0.4682 L 17,14.875 V 16.5 C 17,17.3284 16.3284,18 15.5,18 H 5.5 C 4.67157,18 4,17.3284 4,16.5 v -8 C 4,7.67157 4.67157,7 5.5,7 Z"
+       fill="#9a9996"
+       id="path4" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ececec;stroke-width:7.2e-06"
+     x="4.0605745"
+     y="7.7831926"
+     id="text171"><tspan
+       sodipodi:role="line"
+       id="tspan169"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ececec;stroke-width:7.2e-06"
+       x="4.0605745"
+       y="7.7831926">R</tspan></text>
+</svg>
