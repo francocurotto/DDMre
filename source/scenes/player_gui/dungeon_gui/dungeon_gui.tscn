@@ -23,4 +23,5 @@ icon = ExtResource("3_gjjas")
 flat = true
 expand_icon = true
 
+[connection signal="button_down" from="CameraReset" to="." method="_on_camera_reset_button_down"]
 [connection signal="pressed" from="CameraReset" to="." method="_on_camera_reset_pressed"]

@@ -39,9 +39,12 @@ func _input(event: InputEvent) -> void:
 	if not disabled:
 		if event is InputEventScreenTouch and event.pressed:
 			if get_global_rect().has_point(event.position):
-				touch_flag = true
-				touch_position = viewport.get_mouse_position()
-				touch_pressed.emit()
+				if event.index == 0:
+					touch_flag = true
+					touch_position = viewport.get_mouse_position()
+					touch_pressed.emit()
+				else:
+					reset_flags()
 		elif event is InputEventScreenDrag and touch_flag:
 			drag_flag = true
 			velocity = event.velocity

@@ -7,7 +7,6 @@
 - change project name and add README.md
 
 ## FIXES
-- avoid dimdice repositioning when pinching
 - dice can be rolled twice after a reroll due to cocked
     - on some rolls there seems to be no delay when detecting the roll
 - sometimes diceroll stucked when one dice cocked

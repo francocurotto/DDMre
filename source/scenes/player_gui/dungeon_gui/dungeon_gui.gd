@@ -77,9 +77,13 @@ func on_dimension_finished():
 	dimdice_dragging = false
 	controls.disabled = false
 
+func _on_camera_reset_button_down() -> void:
+	controls.disabled = true
+
 func _on_camera_reset_pressed() -> void:
 	$CameraReset.visible = false
 	Globals.duel_camera.on_camera_reset_pressed()
+	controls.disabled = false
 #endregion
 
 #region private functions
