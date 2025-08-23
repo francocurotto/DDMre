@@ -60,7 +60,7 @@ func on_drag_released():
 
 func on_touch_pressed():
 	if player_gui.guistate == Globals.GUISTATE.DIMENSION:
-		var touched_object = controls.get_touched_object()
+		var touched_object = controls.touched_object
 		if touched_object in get_triplet():
 			select_dimdice(touched_object)
 

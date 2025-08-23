@@ -3,7 +3,6 @@
 - Add ENDTURN button to dungeon gui
 
 ## IMPROVEMENTS
-- move drag_threshold_exceeded from touch_controls to dungeon_gui
 - change project name and add README.md
 
 ## FIXES

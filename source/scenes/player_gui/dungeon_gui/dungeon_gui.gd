@@ -1,8 +1,8 @@
 extends Control
 
 #region constants
-const DRAG_LENGTH = 10
 const DIMDICE_HEIGHT = 2
+const DIMDICE_DRAG_THRESHOLD = 10
 #endregion
 
 #region public functions
@@ -20,11 +20,11 @@ var dimdice_position = Vector3(0, 2, -3)
 
 #region builtin functions
 func _ready() -> void:
+	controls.mask = Globals.LAYERS.DICE + Globals.LAYERS.BASE_TILES
 	controls.set_raycast(get_viewport())
 	controls.touch_released.connect(on_touch_released)
 	controls.dragging.connect(on_dragging)
 	controls.drag_released.connect(on_drag_released)
-	controls.threshold_exceeded.connect(on_threshold_exceeded)
 	controls.pinching.connect(on_pinching)
 	Globals.duel_camera.camera_moved.connect(func(): $CameraReset.visible=true)
 #endregion
@@ -45,14 +45,18 @@ func on_dimdice_selected(original_dimdice):
 	Globals.dungeon.set_dimnet(player_gui.net)
 
 func on_touch_released():
-	var tile = controls.get_touched_object(Globals.LAYERS.BASE_TILES)
-	if Globals.dungeon.dimdice and tile:
+	var object = controls.touched_object
+	if Globals.dungeon.dimdice and object in Globals.dungeon.tiles:
+		var tile = object
 		dimdice_position = tile.global_position + Vector3(0,DIMDICE_HEIGHT,0)
 		Globals.dungeon.on_tile_touched(tile, dimdice_position, player_gui.net)
 
-func on_dragging():
-	if dimdice_dragging:
-		move_dimdice()
+func on_dragging(length, angle):
+	if controls.touched_object == Globals.dungeon.dimdice:
+		if dimdice_dragging:
+			move_dimdice()
+		elif length > DIMDICE_DRAG_THRESHOLD:
+			drag_dice(angle)
 	else:
 		move_camera()
 
@@ -60,10 +64,6 @@ func on_drag_released():
 	if dimdice_dragging:
 		dimdice_dragging = false
 		Globals.dungeon.return_dimdice(dimdice_position)
-
-func on_threshold_exceeded(angle):
-	if controls.get_touched_object(Globals.LAYERS.DICE):
-		drag_dice(angle)
 
 func on_dimdice_movement_started():
 	dimdice_dragging = false

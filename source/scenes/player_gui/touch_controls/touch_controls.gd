@@ -5,12 +5,7 @@ signal touch_pressed
 signal dragging
 signal touch_released
 signal drag_released
-signal threshold_exceeded
 signal pinching
-#endregion
-
-#region constants
-const DRAG_THRESHOLD = 10
 #endregion
 
 #region export variables
@@ -26,6 +21,8 @@ var touch_position : Vector2
 var velocity : Vector2
 var viewport : Viewport
 var camera3d : Camera3D
+var mask : int = 4294967295
+var touched_object : Object
 #endregion
 
 #region private variables
@@ -42,17 +39,14 @@ func _input(event: InputEvent) -> void:
 				if event.index == 0:
 					touch_flag = true
 					touch_position = viewport.get_mouse_position()
+					touched_object = get_touched_object()
 					touch_pressed.emit()
 				else:
 					reset_flags()
 		elif event is InputEventScreenDrag and touch_flag:
 			drag_flag = true
 			velocity = event.velocity
-			if not threshold_flag and is_threshold_exceeded():
-				threshold_flag = true
-				threshold_exceeded.emit(get_drag_angle(event))
-			else:
-				dragging.emit()
+			dragging.emit(get_drag_length(), get_drag_angle(event))
 		elif event is InputEventScreenTouch and not event.pressed and touch_flag:
 			if drag_flag:
 				drag_released.emit()
@@ -82,7 +76,7 @@ func reset_flags():
 	drag_flag = false
 	threshold_flag = false
 
-func get_touched_object(mask = 4294967295):
+func get_touched_object():
 	var ray_origin = camera3d.project_ray_origin(touch_position)
 	var ray_target = ray_origin + camera3d.project_ray_normal(touch_position) * 1000
 	var space_state = camera3d.get_world_3d().direct_space_state
@@ -91,9 +85,8 @@ func get_touched_object(mask = 4294967295):
 	if result:
 		return result["collider"]
 
-func is_threshold_exceeded():
-	var current_position = viewport.get_mouse_position()
-	return current_position.distance_to(touch_position) > DRAG_THRESHOLD
+func get_drag_length():
+	return  viewport.get_mouse_position().distance_to(touch_position)
 
 func get_drag_angle(event):
 	return rad_to_deg(-touch_position.angle_to_point(event.position))
