@@ -38,7 +38,7 @@ const DIM_ROTATIONS = [
 #endregion
 
 #region public variables
-var rollable = false
+var roll_flag = false
 var sides = []
 var player : int :
 	set(_player):
@@ -87,9 +87,10 @@ func _ready() -> void:
 		sides.append(side)
 
 func _physics_process(delta: float) -> void:
-	if not moving and rollable:
+	if not moving and roll_flag:
 		static_time += delta
 		if static_time > STATIC_TIME_THRESHOLD:
+			roll_flag = false
 			dice_stopped.emit()
 	else:
 		static_time = 0.0
@@ -114,6 +115,7 @@ func clone():
 	return copy
 
 func roll(velocity):
+	roll_flag = true
 	var force = ROLL_FORCE_SCALER * Vector3(velocity.x, 0, velocity.y)
 	var torque = get_random_torque()
 	gravity_scale = 1 # activate gravity

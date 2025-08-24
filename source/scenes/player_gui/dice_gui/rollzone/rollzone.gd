@@ -14,12 +14,16 @@ const DIMPOS = {
 }
 #endregion
 
+#region export variables
+@export var debug_roll : bool = true
+#endregion
+
 #region public variables
 var player_gui
 #endregion
 
 #region private variables
-var rolling = false ## true when dice are rolling
+var rollable : bool = true
 var triplet_size : int = 0 :
 	get():
 		return %Triplet.get_child_count()
@@ -34,6 +38,13 @@ func _ready() -> void:
 	controls.set_raycast(%SubViewport)
 	controls.touch_pressed.connect(on_touch_pressed)
 	controls.drag_released.connect(on_drag_released)
+
+func _process(_delta: float) -> void:
+	if debug_roll:
+		var text = "rollable: " + str(rollable) +"\n"
+		text += "moving: " + ", ".join(get_triplet().map(func(d):return d.moving)) + "\n"
+		text += "roll_flag: "+ ", ".join(get_triplet().map(func(d):return d.roll_flag))
+		$DebugLabel.text = text
 #endregion
 
 #region public functions
@@ -43,6 +54,7 @@ func add_dice(dice):
 	copy.position = INITPOS[triplet_size-1]
 	copy.dice_stopped.connect(on_dice_stopped)
 	copy.dim_setup_finished.connect(on_dim_setup_finished)
+	rollable = triplet_size == 3
 
 func remove_dice(selected_dice_list):
 	for dice in get_triplet():
@@ -50,13 +62,13 @@ func remove_dice(selected_dice_list):
 		%Triplet.remove_child(dice)
 	for dice in selected_dice_list:
 		add_dice(dice)
+	rollable = false
 #endregion
 
 #region signals callbacks
 func on_drag_released():
-	if player_gui.guistate == Globals.GUISTATE.ROLL:
-		if triplet_size >= 3 and not rolling:
-			roll_dice(controls.velocity)
+	if rollable:
+		roll_dice(controls.velocity)
 
 func on_touch_pressed():
 	if player_gui.guistate == Globals.GUISTATE.DIMENSION:
@@ -65,9 +77,9 @@ func on_touch_pressed():
 			select_dimdice(touched_object)
 
 func on_dice_stopped():
-	if all_dice_stopped():
+	if not any_dice_rolling():
 		if any_dice_cocked():
-			rolling = false
+			rollable = true
 		else:
 			resolve_roll()
 
@@ -83,17 +95,12 @@ func on_dimension_started():
 func get_triplet():
 	return %Triplet.get_children()
 
-func set_triplet_rollable(rollable):
-	for dice in get_triplet():
-		dice.rollable = rollable
-
 func remove_triplet():
 	for dice in %Triplet.get_children():
 		dice.queue_free()
 
 func roll_dice(velocity):
-	rolling = true
-	set_triplet_rollable(true)
+	rollable = false
 	roll_started.emit()
 	for dice in get_triplet():
 		dice.roll(velocity)
@@ -105,14 +112,13 @@ func select_dimdice(dimdice):
 	dimdice.highlight = true
 	dimdice_selected.emit(dimdice)
 
-func all_dice_stopped():
-	return get_triplet().all(func(dice): return not dice.moving)
+func any_dice_rolling():
+	return get_triplet().any(func(dice): return dice.roll_flag)
 
 func any_dice_cocked():
 	return get_triplet().any(func(dice): return dice.rolled_side == null)
 
 func resolve_roll():
-	set_triplet_rollable(false)
 	var summon_dice = resolve_crest_sides()
 	var dim_dice = resolve_summon_sides(summon_dice)
 	remove_not_dim_dice(dim_dice)
