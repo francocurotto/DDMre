@@ -1,6 +1,9 @@
 # DDMre (Dungeon Dice Monsters remake)
 
 ![Demo](gallery/demo1_short.gif)
+<p align="center">
+  <img src="gallery/demo1_short.gif" width="200"/>
+</p>
 
 # What is this?
 **DDMre** is a remake of the GBA game [Yu-Gi-Oh! Dungeon Dice Monsters](https://en.wikipedia.org/wiki/Yu-Gi-Oh!_Dungeon_Dice_Monsters) in the [Godot game engine](https://godotengine.org/) for mobile devices. The idea is to recreate the core game mechanics from the original, taking only a few liberties, while adding some modern features like a decent AI, and possibly online multiplayer. 
