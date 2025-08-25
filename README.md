@@ -1,6 +1,4 @@
 # DDMre (Dungeon Dice Monsters remake)
-
-![Demo](gallery/demo1_short.gif)
 <p align="center">
   <img src="gallery/demo1_short.gif" width="200"/>
 </p>
