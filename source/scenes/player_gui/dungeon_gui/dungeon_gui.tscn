@@ -1,27 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://dh8dx5olkti0o"]
+[gd_scene load_steps=6 format=3 uid="uid://dh8dx5olkti0o"]
 
 [ext_resource type="Script" uid="uid://sak83cm7tdar" path="res://scenes/player_gui/dungeon_gui/dungeon_gui.gd" id="1_1st0o"]
 [ext_resource type="PackedScene" uid="uid://c6mitq2hlr2wj" path="res://scenes/player_gui/touch_controls/touch_controls.tscn" id="2_dk4qo"]
 [ext_resource type="Texture2D" uid="uid://blc6rks53n7u2" path="res://assets/icons/CAMERA_RESET.png" id="3_gjjas"]
+[ext_resource type="Texture2D" uid="uid://cri2lnbag5evh" path="res://assets/icons/END_TURN.svg" id="4_bxgal"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxgal"]
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [node name="DungeonGUI" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 script = ExtResource("1_1st0o")
 
 [node name="TouchControls" parent="." instance=ExtResource("2_dk4qo")]
 layout_mode = 1
 
-[node name="CameraReset" type="Button" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 20
+
+[node name="CameraReset" type="Button" parent="MarginContainer"]
+unique_name_in_owner = true
 visible = false
-layout_mode = 0
-offset_left = 640.0
-offset_right = 700.0
-offset_bottom = 50.0
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 icon = ExtResource("3_gjjas")
 flat = true
 expand_icon = true
 
-[connection signal="button_down" from="CameraReset" to="." method="_on_camera_reset_button_down"]
-[connection signal="pressed" from="CameraReset" to="." method="_on_camera_reset_pressed"]
+[node name="EndTurn" type="Button" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_bxgal")
+icon = ExtResource("4_bxgal")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="button_down" from="MarginContainer/CameraReset" to="." method="_on_camera_reset_button_down"]
+[connection signal="mouse_exited" from="MarginContainer/CameraReset" to="." method="_on_camera_reset_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/CameraReset" to="." method="_on_camera_reset_pressed"]

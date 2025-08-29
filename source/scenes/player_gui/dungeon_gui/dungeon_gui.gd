@@ -5,7 +5,7 @@ const DIMDICE_HEIGHT = 2
 const DIMDICE_DRAG_THRESHOLD = 10
 #endregion
 
-#region public functions
+#region public variables
 var player_gui
 #endregion
 
@@ -16,6 +16,7 @@ var dimdice_position = Vector3(0, 2, -3)
 
 #region onready variables
 @onready var controls = $TouchControls
+@onready var camera_reset = %CameraReset
 #endregion
 
 #region builtin functions
@@ -26,7 +27,6 @@ func _ready() -> void:
 	controls.dragging.connect(on_dragging)
 	controls.drag_released.connect(on_drag_released)
 	controls.pinching.connect(on_pinching)
-	Globals.duel_camera.camera_moved.connect(func(): $CameraReset.visible=true)
 #endregion
 
 #region signals callbacks
@@ -52,7 +52,8 @@ func on_touch_released():
 		Globals.dungeon.on_tile_touched(tile, dimdice_position, player_gui.net)
 
 func on_dragging(length, angle):
-	if controls.touched_object == Globals.dungeon.dimdice:
+	var dimdice = Globals.dungeon.dimdice
+	if dimdice and controls.touched_object == dimdice:
 		if dimdice_dragging:
 			move_dimdice()
 		elif length > DIMDICE_DRAG_THRESHOLD:
@@ -80,8 +81,11 @@ func on_dimension_finished():
 func _on_camera_reset_button_down() -> void:
 	controls.disabled = true
 
+func _on_camera_reset_mouse_exited() -> void:
+	controls.disabled = false
+
 func _on_camera_reset_pressed() -> void:
-	$CameraReset.visible = false
+	%CameraReset.visible = false
 	Globals.duel_camera.on_camera_reset_pressed()
 	controls.disabled = false
 #endregion

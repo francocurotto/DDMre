@@ -20,6 +20,8 @@ var dicelib = Globals.read_jsonfile(Globals.LIBPATH)
 #region onready variables
 @onready var info_gui = $InfoGUI
 @onready var dice_gui = $DiceGUI
+@onready var dungeon_gui = $DungeonGUI
+@onready var duel_camera = $DuelCamera
 #endregion
 
 #region builtin functions
@@ -34,6 +36,7 @@ func _ready() -> void:
 	$DiceGUI.dicepool.dice_button_focused.connect($InfoGUI.on_dice_button_focused)
 	$DiceGUI.rollzone.dimdice_selected.connect($InfoGUI.on_dimdice_selected)
 	$DiceGUI.rollzone.dimdice_selected.connect($DungeonGUI.on_dimdice_selected)
+	$DuelCamera.camera_moved.connect(func(): dungeon_gui.camera_reset.visible=true)
 	# setup net
 	net.type = $DiceGUI.net_buttons.button_group.get_pressed_button().type
 	# initialize dicepool
