@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cri2lnbag5evh"
-path="res://.godot/imported/END_TURN.svg-e8bf843647bbbe30431ee5ba3f7ddf53.ctex"
+uid="uid://dne4yuef0wmyh"
+path="res://.godot/imported/CANCEL.svg-5bbaa5a6de4de9a464994de70c288c3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/END_TURN.svg"
-dest_files=["res://.godot/imported/END_TURN.svg-e8bf843647bbbe30431ee5ba3f7ddf53.ctex"]
+source_file="res://assets/icons/CANCEL.svg"
+dest_files=["res://.godot/imported/CANCEL.svg-5bbaa5a6de4de9a464994de70c288c3a.ctex"]
 
 [params]
 

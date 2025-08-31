@@ -1,19 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dh8dx5olkti0o"]
+[gd_scene load_steps=5 format=3 uid="uid://dh8dx5olkti0o"]
 
 [ext_resource type="Script" uid="uid://sak83cm7tdar" path="res://scenes/player_gui/dungeon_gui/dungeon_gui.gd" id="1_1st0o"]
 [ext_resource type="PackedScene" uid="uid://c6mitq2hlr2wj" path="res://scenes/player_gui/touch_controls/touch_controls.tscn" id="2_dk4qo"]
 [ext_resource type="Texture2D" uid="uid://blc6rks53n7u2" path="res://assets/icons/CAMERA_RESET.png" id="3_gjjas"]
-[ext_resource type="Texture2D" uid="uid://cri2lnbag5evh" path="res://assets/icons/END_TURN.svg" id="4_bxgal"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxgal"]
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
+[ext_resource type="PackedScene" uid="uid://baq5yryu6nux1" path="res://scenes/player_gui/action_button/action_button.tscn" id="4_bxgal"]
 
 [node name="DungeonGUI" type="Control"]
 layout_mode = 3
@@ -48,15 +38,11 @@ icon = ExtResource("3_gjjas")
 flat = true
 expand_icon = true
 
-[node name="EndTurn" type="Button" parent="MarginContainer"]
-custom_minimum_size = Vector2(100, 100)
+[node name="EndTurn" parent="MarginContainer" instance=ExtResource("4_bxgal")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_bxgal")
-icon = ExtResource("4_bxgal")
-icon_alignment = 1
-expand_icon = true
 
 [connection signal="button_down" from="MarginContainer/CameraReset" to="." method="_on_camera_reset_button_down"]
 [connection signal="mouse_exited" from="MarginContainer/CameraReset" to="." method="_on_camera_reset_mouse_exited"]

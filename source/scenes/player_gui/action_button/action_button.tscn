@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://baq5yryu6nux1"]
+
+[ext_resource type="Texture2D" uid="uid://cri2lnbag5evh" path="res://assets/icons/ENDTURN.svg" id="2_aiwmg"]
+[ext_resource type="Script" uid="uid://dh5jylny8odw4" path="res://scenes/player_gui/action_button/action_button.gd" id="2_virli"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aiwmg"]
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_virli"]
+bg_color = Color(0.3, 0.3, 0.3, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qt54"]
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="ActionButton" type="Button"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_constants/icon_max_width = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_aiwmg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_virli")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4qt54")
+icon = ExtResource("2_aiwmg")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_virli")
