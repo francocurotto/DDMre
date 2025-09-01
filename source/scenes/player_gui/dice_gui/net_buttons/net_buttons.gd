@@ -24,6 +24,6 @@ func disable_buttons():
 #region signals callbacks
 func on_button_pressed(button):
 	player_gui.net.type = button.type
-	if player_gui.guistate == Globals.GUISTATE.DIMENSION:
+	if player_gui.state == Globals.GUI_STATE.DIMENSION:
 		Globals.dungeon.set_dimnet(player_gui.net)
 #endregion

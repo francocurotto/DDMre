@@ -39,11 +39,10 @@ flat = true
 expand_icon = true
 
 [node name="EndTurn" parent="MarginContainer" instance=ExtResource("4_bxgal")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[connection signal="button_down" from="MarginContainer/CameraReset" to="." method="_on_camera_reset_button_down"]
-[connection signal="mouse_exited" from="MarginContainer/CameraReset" to="." method="_on_camera_reset_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/CameraReset" to="." method="_on_camera_reset_pressed"]

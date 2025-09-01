@@ -77,12 +77,10 @@ func on_dimension_started():
 func on_dimension_finished():
 	dimdice_dragging = false
 	controls.disabled = false
+	player_gui.state = Globals.GUI_STATE.DUNGEON
 
-func _on_camera_reset_button_down() -> void:
-	controls.disabled = true
-
-func _on_camera_reset_mouse_exited() -> void:
-	controls.disabled = false
+func on_switched_to_dungeon_state():
+	%EndTurn.visible = true
 
 func _on_camera_reset_pressed() -> void:
 	%CameraReset.visible = false

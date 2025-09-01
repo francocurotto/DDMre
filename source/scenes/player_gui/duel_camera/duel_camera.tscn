@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c5hg35ltlxe5h"]
 
-[ext_resource type="Script" uid="uid://cxgff3x4a2nm3" path="res://scenes/duel_camera/duel_camera.gd" id="1_1x3el"]
+[ext_resource type="Script" uid="uid://cxgff3x4a2nm3" path="res://scenes/player_gui/duel_camera/duel_camera.gd" id="1_1x3el"]
 
 [node name="DuelCamera" type="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 0, 0)

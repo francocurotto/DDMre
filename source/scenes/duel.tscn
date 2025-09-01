@@ -7,7 +7,4 @@
 
 [node name="Dungeon" parent="." instance=ExtResource("2_j5jx5")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.684331, 0.729172, 0, -0.729171, 0.684332, 0, 8.089, 6.504)
-
 [node name="PlayerGUI" parent="." instance=ExtResource("3_iyx0m")]

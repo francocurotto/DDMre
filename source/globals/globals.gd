@@ -1,7 +1,7 @@
 extends Node
 
 #region enums
-enum GUISTATE {
+enum GUI_STATE {
 	ROLL,
 	DIMENSION,
 	DUNGEON

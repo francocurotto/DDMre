@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b4dd1nvrn8axq" path="res://scenes/player_gui/info_gui/info_gui.tscn" id="1_loavl"]
 [ext_resource type="PackedScene" uid="uid://c4thhg2j07f1s" path="res://scenes/player_gui/dice_gui/dice_gui.tscn" id="2_dqsj1"]
 [ext_resource type="PackedScene" uid="uid://dh8dx5olkti0o" path="res://scenes/player_gui/dungeon_gui/dungeon_gui.tscn" id="3_3hp8r"]
-[ext_resource type="PackedScene" uid="uid://c5hg35ltlxe5h" path="res://scenes/duel_camera/duel_camera.tscn" id="5_dyw2j"]
+[ext_resource type="PackedScene" uid="uid://c5hg35ltlxe5h" path="res://scenes/player_gui/duel_camera/duel_camera.tscn" id="5_dyw2j"]
 
 [node name="PlayerGUI" type="VBoxContainer"]
 anchors_preset = 15
@@ -26,3 +26,6 @@ layout_mode = 2
 [node name="DuelCamera" parent="." instance=ExtResource("5_dyw2j")]
 transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 5, 4)
 current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 8, 7)

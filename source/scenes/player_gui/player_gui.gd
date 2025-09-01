@@ -1,15 +1,31 @@
 extends VBoxContainer
 
 #region constants
+const CAMERA_POSITION = {1: Vector3(0, 5, 4), 2: Vector3(0, 5, -22)}
+const CAMERA_ROTATION = {1: Vector3(-PI/4, 0, 0), 2: Vector3(-3*PI/4, 0, PI)}
+const LIGHT_POSITION = {1: Vector3(0, 8, 7), 2: Vector3(0, 8, -25)}
+const LIGHT_ROTATION = {1: Vector3(-PI/4, 0, 0), 2: Vector3(-3*PI/4, 0, PI)}
 const Net = preload("res://scenes/player_gui/net/net.gd")
 #endregion
 
 #region export vatriables
-@export_range(1,2,1) var player : int = 1
+@export_range(1,2,1) var player : int = 1 :
+	set(_player):
+		player = _player
+		pass
+		$DuelCamera.position = CAMERA_POSITION[player]
+		$DuelCamera.rotation = CAMERA_ROTATION[player]
+		$DirectionalLight3D.position = LIGHT_POSITION[player]
+		$DirectionalLight3D.rotation = LIGHT_ROTATION[player]
 #endregion
 
 #region public variables
-var guistate = Globals.GUISTATE.ROLL
+var state : int = Globals.GUI_STATE.ROLL :
+	set(_state):
+		if state != _state:
+			state = _state
+			match state :
+				Globals.GUI_STATE.DUNGEON: on_switched_to_dungeon_state()
 var net = Net.new()
 #endregion
 
@@ -49,4 +65,9 @@ func _ready() -> void:
 func on_dimension_started():
 	$InfoGUI.on_dimension_started()
 	$DiceGUI.on_dimension_started()
+#endregion
+
+#region signals callbacks
+func on_switched_to_dungeon_state():
+	$DungeonGUI.on_switched_to_dungeon_state()
 #endregion

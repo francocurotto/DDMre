@@ -71,7 +71,7 @@ func on_drag_released():
 		roll_dice(controls.velocity)
 
 func on_touch_pressed():
-	if player_gui.guistate == Globals.GUISTATE.DIMENSION:
+	if player_gui.state == Globals.GUI_STATE.DIMENSION:
 		var touched_object = controls.touched_object
 		if touched_object in get_triplet():
 			select_dimdice(touched_object)
@@ -84,7 +84,7 @@ func on_dice_stopped():
 			resolve_roll()
 
 func on_dim_setup_finished():
-	player_gui.guistate = Globals.GUISTATE.DIMENSION
+	player_gui.state = Globals.GUI_STATE.DIMENSION
 
 func on_dimension_started():
 	controls.disabled = true
@@ -121,9 +121,13 @@ func any_dice_cocked():
 func resolve_roll():
 	var summon_dice = resolve_crest_sides()
 	var dim_dice = resolve_summon_sides(summon_dice)
-	remove_not_dim_dice(dim_dice)
+	var tween = create_tween().set_parallel()
+	remove_not_dim_dice(tween, dim_dice)
 	if not dim_dice.is_empty():
 		setup_dim(dim_dice)
+	else:
+		await tween.finished
+		player_gui.state = Globals.GUI_STATE.DUNGEON
 
 func resolve_crest_sides():
 	var summon_dice = []
@@ -147,10 +151,10 @@ func resolve_summon_sides(summon_dice):
 		dim_dice = []
 	return dim_dice
 
-func remove_not_dim_dice(dim_dice):
+func remove_not_dim_dice(tween, dim_dice):
 	for dice in get_triplet():
 		if dice not in dim_dice:
-			dice.tween_remove()
+			dice.tween_remove(tween)
 
 func setup_dim(dimdice_list):
 	# move dice
