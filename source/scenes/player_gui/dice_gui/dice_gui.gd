@@ -20,6 +20,8 @@ func _ready() -> void:
 	tab_bar.set_tab_title(1, "Rollzone (0/3)")
 	%Dicepool.roll_dice_added.connect(on_roll_dice_added)
 	%Dicepool.roll_dice_removed.connect(on_roll_dice_removed)
+	#%Rollzone.roll_started.connect(%Dicepool.on_roll_started)
+	%Rollzone.roll_started.connect(on_roll_started)
 	%Rollzone.crest_side_rolled.connect($Crestpool.on_crest_side_rolled)
 #endregion
 
@@ -36,6 +38,10 @@ func on_roll_dice_added(n_buttons_pressed, dice):
 func on_roll_dice_removed(selected_dice_list):
 	tab_bar.set_tab_title(1, "Rollzone (%d/3)" % len(selected_dice_list))
 	%Rollzone.remove_dice(selected_dice_list)
+
+func on_roll_started():
+	tab_bar.set_tab_title(1, "Rollzone (0/3)")
+	%Dicepool.on_roll_started()
 
 func _on_tab_container_tab_changed(_tab: int) -> void:
 	dicegui_tab_changed.emit()

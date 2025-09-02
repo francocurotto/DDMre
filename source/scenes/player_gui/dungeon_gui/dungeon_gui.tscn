@@ -46,3 +46,4 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 
 [connection signal="pressed" from="MarginContainer/CameraReset" to="." method="_on_camera_reset_pressed"]
+[connection signal="pressed" from="MarginContainer/EndTurn" to="." method="_on_end_turn_pressed"]

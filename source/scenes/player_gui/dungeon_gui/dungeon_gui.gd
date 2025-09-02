@@ -86,6 +86,9 @@ func _on_camera_reset_pressed() -> void:
 	%CameraReset.visible = false
 	Globals.duel_camera.on_camera_reset_pressed()
 	controls.disabled = false
+
+func _on_end_turn_pressed() -> void:
+	player_gui.endturn_pressed.emit(player_gui.player)
 #endregion
 
 #region private functions

@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxmgqmkxvls2s"]
+[gd_scene load_steps=4 format=3 uid="uid://cxmgqmkxvls2s"]
 
+[ext_resource type="Script" uid="uid://vu5vhcvas2sw" path="res://scenes/duel.gd" id="1_b72to"]
 [ext_resource type="PackedScene" uid="uid://cqc1roopbg664" path="res://scenes/dungeon/dungeon.tscn" id="2_j5jx5"]
 [ext_resource type="PackedScene" uid="uid://f20alyog44y4" path="res://scenes/player_gui/player_gui.tscn" id="3_iyx0m"]
 
 [node name="Duel" type="Node3D"]
+script = ExtResource("1_b72to")
 
 [node name="Dungeon" parent="." instance=ExtResource("2_j5jx5")]
 

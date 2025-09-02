@@ -43,7 +43,11 @@ func _process(_delta: float) -> void:
 	if debug_roll:
 		var text = "rollable: " + str(rollable) +"\n"
 		text += "moving: " + ", ".join(get_triplet().map(func(d):return d.moving)) + "\n"
-		text += "roll_flag: "+ ", ".join(get_triplet().map(func(d):return d.roll_flag))
+		text += "roll_flag: "+ ", ".join(get_triplet().map(func(d):return d.roll_flag)) + "\n"
+		text += "translating: "+ ", ".join(get_triplet().map(func(d):return d.translating)) + "\n"
+		text += "rotating: "+ ", ".join(get_triplet().map(func(d):return d.rotating)) + "\n"
+		text += "lvelocity: " + ", ".join(get_triplet().map(func(d):return "%.2f" % d.linear_velocity.length())) + "\n"
+		text += "avelocity: " + ", ".join(get_triplet().map(func(d):return "%.2f" % d.angular_velocity.length()))
 		$DebugLabel.text = text
 #endregion
 

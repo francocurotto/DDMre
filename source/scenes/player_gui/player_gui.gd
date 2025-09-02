@@ -1,8 +1,10 @@
 extends VBoxContainer
 
+#region signals
+signal endturn_pressed
+#endregion
+
 #region constants
-const CAMERA_POSITION = {1: Vector3(0, 5, 4), 2: Vector3(0, 5, -22)}
-const CAMERA_ROTATION = {1: Vector3(-PI/4, 0, 0), 2: Vector3(-3*PI/4, 0, PI)}
 const LIGHT_POSITION = {1: Vector3(0, 8, 7), 2: Vector3(0, 8, -25)}
 const LIGHT_ROTATION = {1: Vector3(-PI/4, 0, 0), 2: Vector3(-3*PI/4, 0, PI)}
 const Net = preload("res://scenes/player_gui/net/net.gd")
@@ -12,9 +14,7 @@ const Net = preload("res://scenes/player_gui/net/net.gd")
 @export_range(1,2,1) var player : int = 1 :
 	set(_player):
 		player = _player
-		pass
-		$DuelCamera.position = CAMERA_POSITION[player]
-		$DuelCamera.rotation = CAMERA_ROTATION[player]
+		$DuelCamera.player = player
 		$DirectionalLight3D.position = LIGHT_POSITION[player]
 		$DirectionalLight3D.rotation = LIGHT_ROTATION[player]
 #endregion

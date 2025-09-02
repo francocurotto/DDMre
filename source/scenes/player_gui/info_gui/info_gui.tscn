@@ -10,6 +10,7 @@ script = ExtResource("1_uwko4")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 current_tab = 0
 tabs_position = 1
 deselect_enabled = true
