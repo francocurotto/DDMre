@@ -20,7 +20,6 @@ var dimdice :
 
 #region private variables
 var tiles = []
-var dimtile
 #endregion
 
 #region builtin functions
@@ -28,15 +27,15 @@ func _enter_tree() -> void:
 	Globals.dungeon = self
 
 func _ready() -> void:
-	dimtile = $Rows/Row4/BaseTile7
+	#dimtile = $Rows/Row4/BaseTile7
 	for row in $Rows.get_children():
 		for tile in row.get_children():
 			tiles.append(tile)
 #endregion
 
 #region public functions
-func set_dimnet(net):
-	var net_tiles = get_net_tiles(net)
+func set_dimnet(net, dimcoor):
+	var net_tiles = get_net_tiles(net, dimcoor)
 	for tile in tiles:
 		tile.highlight = tile in net_tiles
 
@@ -62,10 +61,10 @@ func return_dimdice(return_position, shake=false):
 
 #region signals callbacks
 func on_tile_touched(tile, dimdice_position, net) -> void:
+	#TODO: would this allow for opponent player to move dimdice?
 	if dimdice:
-		dimtile = tile
 		dimdice.position = dimdice_position
-		set_dimnet(net)
+		set_dimnet(net, get_tilecoor(tile))
 
 func rotate_dimdice_clockwise():
 	var axis = Vector3(0, 1, 0)
@@ -84,9 +83,8 @@ func flip_dimdice():
 #endregion
 
 #region private functions
-func get_net_tiles(net):
+func get_net_tiles(net, dimcoor):
 	var net_tiles = []
-	var dimcoor = get_tilecoor(dimtile)
 	net.offset = dimcoor
 	for coor in net.coordinates:
 		var tile = get_tile(coor)

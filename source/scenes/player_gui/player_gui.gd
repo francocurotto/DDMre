@@ -5,9 +5,11 @@ signal endturn_pressed
 #endregion
 
 #region constants
+const Net = preload("res://scenes/player_gui/net/net.gd")
 const LIGHT_POSITION = {1: Vector3(0, 8, 7), 2: Vector3(0, 8, -25)}
 const LIGHT_ROTATION = {1: Vector3(-PI/4, 0, 0), 2: Vector3(-3*PI/4, 0, PI)}
-const Net = preload("res://scenes/player_gui/net/net.gd")
+const DIMDICE_INIT_POSITION = {1: Vector3(0, 2, -3), 2: Vector3(0, 2, -15)}
+const DIMCOOR = {1: Vector2i(6, 3), 2: Vector2i(6, 15)}
 #endregion
 
 #region export vatriables
@@ -53,8 +55,12 @@ func _ready() -> void:
 	$DiceGUI.rollzone.dimdice_selected.connect($InfoGUI.on_dimdice_selected)
 	$DiceGUI.rollzone.dimdice_selected.connect($DungeonGUI.on_dimdice_selected)
 	$DuelCamera.camera_moved.connect(func(): dungeon_gui.camera_reset.visible=true)
+	# setup dungeon_gui
+	dungeon_gui.dimdice_position = DIMDICE_INIT_POSITION[player]
+	dungeon_gui.dimcoor = DIMCOOR[player]
 	# setup net
 	net.type = $DiceGUI.net_buttons.button_group.get_pressed_button().type
+	net.orientation = 3 - 2*player
 	# initialize dicepool
 	for i in Globals.DICEPOOL_SIZE:
 		var rand_dice = dicelib[str(randi_range(1,len(dicelib)))]

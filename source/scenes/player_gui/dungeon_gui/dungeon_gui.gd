@@ -11,7 +11,8 @@ var player_gui
 
 #region private variables
 var dimdice_dragging = false
-var dimdice_position = Vector3(0, 2, -3)
+var dimdice_position : Vector3
+var dimcoor : Vector2i
 #endregion
 
 #region onready variables
@@ -42,7 +43,7 @@ func on_dimdice_selected(original_dimdice):
 	dimdice.dimension_finished.connect(on_dimension_finished)
 	# add dimdice and net
 	Globals.dungeon.dimdice = dimdice
-	Globals.dungeon.set_dimnet(player_gui.net)
+	Globals.dungeon.set_dimnet(player_gui.net, dimcoor)
 
 func on_touch_released():
 	var object = controls.touched_object
