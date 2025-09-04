@@ -123,7 +123,8 @@ func move_dimdice():
 	var velocity = controls.velocity
 	var player = player_gui.player
 	var net = player_gui.net
-	Globals.dungeon.move_dimdice(velocity, player, net, dimdice_position)
+	var flipped = (player+net.orientation)%3 == 0
+	Globals.dungeon.move_dimdice(velocity, player, net, flipped, dimdice_position)
 
 func move_camera():
 	Globals.duel_camera.pan(controls.velocity)

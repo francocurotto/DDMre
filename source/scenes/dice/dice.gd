@@ -139,16 +139,16 @@ func setup_dim_select(new_position):
 	angular_velocity = Vector3.ZERO
 	dim_setup_finished.emit()
 
-func unfold(net):
+func unfold(net, flipped):
 	dimension_started.emit()
 	$Summon.visible = true
 	var tween = create_tween()
 	tween.tween_property(self, "position:y", Globals.DIMDICE_HEIGHT, 0.1)
 	tween.set_trans(Tween.TRANS_SINE)
-	if net.orientation == 1:
+	if not flipped:
 		call("set_unfold_%s" % net.type)
 	else:
-		call("set_unfold_%s_fliped" % net.type)
+		call("set_unfold_%s_flipped" % net.type)
 	var base_side = $Sides.get_child(0)
 	base_side.reparent_summon(summon)
 	for pivot in pivots:
@@ -270,77 +270,77 @@ func set_unfold_L():
 	set_pivot(side2, side6.pivot_up, 3)
 	set_pivot(side4, side6.pivot_left, 3)
 
-func set_unfold_X_fliped():
+func set_unfold_X_flipped():
 	set_pivot(side6, side5.pivot_down, 1)
 	set_pivot(side2, side1.pivot_up, 2)
 	set_pivot(side3, side1.pivot_left, 2)
 	set_pivot(side4, side1.pivot_right, 2)
 	set_pivot(side5, side1.pivot_down, 2)
 
-func set_unfold_T_fliped():
+func set_unfold_T_flipped():
 	set_pivot(side3, side2.pivot_right, 1)
 	set_pivot(side4, side2.pivot_left, 1)
 	set_pivot(side6, side5.pivot_down, 1)
 	set_pivot(side2, side1.pivot_up, 2)
 	set_pivot(side5, side1.pivot_down, 2)
 
-func set_unfold_Y_fliped():
+func set_unfold_Y_flipped():
 	set_pivot(side3, side2.pivot_right, 1)
 	set_pivot(side6, side5.pivot_down, 1)
 	set_pivot(side2, side1.pivot_up, 2)
 	set_pivot(side5, side1.pivot_down, 2)
 	set_pivot(side4, side1.pivot_right, 2)
 
-func set_unfold_Z_fliped():
+func set_unfold_Z_flipped():
 	set_pivot(side4, side6.pivot_left, 1)
 	set_pivot(side3, side2.pivot_right, 2)
 	set_pivot(side6, side5.pivot_down, 2)
 	set_pivot(side2, side1.pivot_up, 3)
 	set_pivot(side5, side1.pivot_down, 3)
 
-func set_unfold_V_fliped():
+func set_unfold_V_flipped():
 	set_pivot(side4, side5.pivot_right, 1)
 	set_pivot(side6, side5.pivot_down, 1)
 	set_pivot(side3, side2.pivot_right, 1)
 	set_pivot(side2, side1.pivot_up, 2)
 	set_pivot(side5, side1.pivot_down, 2)
 
-func set_unfold_N_fliped():
+func set_unfold_N_flipped():
 	set_pivot(side4, side5.pivot_right, 1)
 	set_pivot(side6, side5.pivot_down, 1)
 	set_pivot(side3, side1.pivot_left, 2)
 	set_pivot(side2, side1.pivot_up, 2)
 	set_pivot(side5, side1.pivot_down, 2)
 
-func set_unfold_M_fliped():
+func set_unfold_M_flipped():
 	set_pivot(side6, side4.pivot_down, 1)
 	set_pivot(side4, side5.pivot_right, 2)
 	set_pivot(side3, side2.pivot_right, 2)
 	set_pivot(side2, side1.pivot_up, 3)
 	set_pivot(side5, side1.pivot_down, 3)
 
-func set_unfold_E_fliped():
+func set_unfold_E_flipped():
 	set_pivot(side6, side4.pivot_down, 1)
 	set_pivot(side4, side5.pivot_right, 2)
 	set_pivot(side2, side3.pivot_left, 2)
 	set_pivot(side3, side1.pivot_left, 3)
 	set_pivot(side5, side1.pivot_down, 3)
 
-func set_unfold_P_fliped():
+func set_unfold_P_flipped():
 	set_pivot(side6, side5.pivot_down, 1)
 	set_pivot(side2, side3.pivot_left, 1)
 	set_pivot(side4, side1.pivot_right, 2)
 	set_pivot(side3, side1.pivot_left, 2)
 	set_pivot(side5, side1.pivot_down, 2)
 
-func set_unfold_R_fliped():
+func set_unfold_R_flipped():
 	set_pivot(side6, side5.pivot_down, 1)
 	set_pivot(side4, side5.pivot_right, 1)
 	set_pivot(side2, side3.pivot_left, 1)
 	set_pivot(side3, side1.pivot_left, 2)
 	set_pivot(side5, side1.pivot_down, 2)
 
-func set_unfold_L_fliped():
+func set_unfold_L_flipped():
 	set_pivot(side3, side5.pivot_left, 1)
 	set_pivot(side5, side4.pivot_left, 2)
 	set_pivot(side6, side2.pivot_down, 2)

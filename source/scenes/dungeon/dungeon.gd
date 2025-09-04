@@ -39,11 +39,11 @@ func set_dimnet(net, dimcoor):
 	for tile in tiles:
 		tile.highlight = tile in net_tiles
 
-func move_dimdice(velocity, player, net, return_position):
+func move_dimdice(velocity, player, net, flipped, return_position):
 	dimdice.position.y -= DIMDICE_DRAG_SPEED * velocity.y
 	if dimdice.position.y < Globals.DIMDICE_HEIGHT:
 		if can_dimension(player, net):
-			dimension_the_dice(net)
+			dimension_the_dice(net, flipped)
 		else:
 			return_dimdice(return_position, true)
 
@@ -134,8 +134,8 @@ func get_neighbor_tiles(coor):
 			neighbor_tiles.append(neighbor_tile)
 	return neighbor_tiles
 
-func dimension_the_dice(net):
-	dimdice.unfold(net)
+func dimension_the_dice(net, flipped):
+	dimdice.unfold(net, flipped)
 	for tile in tiles:
 		tile.highlight = false
 
