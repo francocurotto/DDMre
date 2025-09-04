@@ -107,17 +107,17 @@ func drag_dice(angle):
 func rotate_dimdice_clockwise():
 	Globals.dungeon.rotate_dimdice_clockwise()
 	player_gui.net.rotate_clockwise()
-	Globals.dungeon.set_dimnet(player_gui.net)
+	Globals.dungeon.set_dimnet(player_gui.net, dimcoor)
 
 func rotate_dimdice_counter_clockwise():
 	Globals.dungeon.rotate_dimdice_counter_clockwise()
 	player_gui.net.rotate_counter_clockwise()
-	Globals.dungeon.set_dimnet(player_gui.net)
+	Globals.dungeon.set_dimnet(player_gui.net, dimcoor)
 
 func flip_dimdice():
 	Globals.dungeon.flip_dimdice()
 	player_gui.net.flip()
-	Globals.dungeon.set_dimnet(player_gui.net)
+	Globals.dungeon.set_dimnet(player_gui.net, dimcoor)
 
 func move_dimdice():
 	var velocity = controls.velocity

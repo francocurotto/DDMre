@@ -128,9 +128,9 @@ func tween_remove(tween):
 	await tween.finished
 	queue_free()
 
-func setup_dim_select(new_position):
+func setup_dim_select(tween, new_position):
 	gravity_scale = 0 # disable gravity
-	var tween = create_tween()
+	#var tween = create_tween()
 	tween.tween_property(self, "position", new_position, 1)
 	var index = rolled_side.get_index() 
 	tween_rotate(Basis.from_euler(DIM_ROTATIONS[index]), 1)

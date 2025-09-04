@@ -128,7 +128,7 @@ func resolve_roll():
 	var tween = create_tween().set_parallel()
 	remove_not_dim_dice(tween, dim_dice)
 	if not dim_dice.is_empty():
-		setup_dim(dim_dice)
+		setup_dim(tween, dim_dice)
 	else:
 		await tween.finished
 		player_gui.state = Globals.GUI_STATE.DUNGEON
@@ -160,9 +160,9 @@ func remove_not_dim_dice(tween, dim_dice):
 		if dice not in dim_dice:
 			dice.tween_remove(tween)
 
-func setup_dim(dimdice_list):
+func setup_dim(tween, dimdice_list):
 	# move dice
 	var dimdice_positions = DIMPOS[len(dimdice_list)]
 	for i in len(dimdice_list):
-		dimdice_list[i].setup_dim_select(dimdice_positions[i])
+		dimdice_list[i].setup_dim_select(tween, dimdice_positions[i])
 #endregion
