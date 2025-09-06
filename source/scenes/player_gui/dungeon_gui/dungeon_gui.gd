@@ -37,7 +37,7 @@ func on_dimdice_selected(original_dimdice):
 	dimdice.highlight = false
 	dimdice.position = dimdice_position
 	dimdice.rotation = DIMDICE_INIT_ROTATION[player_gui.player]
-	dimdice.basis_to = dimdice.basis
+	dimdice.tween_quat1 = dimdice.quaternion
 	dimdice.dimdice_movement_started.connect(on_dimdice_movement_started)
 	dimdice.dimdice_movement_finished.connect(func(): controls.disabled = false)
 	dimdice.dimension_started.connect(on_dimension_started)
@@ -117,7 +117,7 @@ func rotate_dimdice_counter_clockwise():
 	Globals.dungeon.set_dimnet(player_gui.net, dimcoor)
 
 func flip_dimdice():
-	Globals.dungeon.flip_dimdice()
+	Globals.dungeon.flip_dimdice(player_gui.player)
 	player_gui.net.flip()
 	Globals.dungeon.set_dimnet(player_gui.net, dimcoor)
 

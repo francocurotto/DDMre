@@ -68,16 +68,17 @@ func on_tile_touched(tile, dimdice_position, net) -> void:
 
 func rotate_dimdice_clockwise():
 	var axis = Vector3(0, 1, 0)
-	var rotated_basis = dimdice.transform.basis.rotated(axis, -PI/2)
-	dimdice.tween_rotate(rotated_basis, DIMDICE_ROTATION_TIME)
+	var rotated_quat = Quaternion(dimdice.basis.rotated(axis, -PI/2))
+	dimdice.tween_rotate(rotated_quat, DIMDICE_ROTATION_TIME)
 
 func rotate_dimdice_counter_clockwise():
 	var axis = Vector3(0, 1, 0)
-	var rotated_basis = dimdice.transform.basis.rotated(axis, PI/2)
-	dimdice.tween_rotate(rotated_basis, DIMDICE_ROTATION_TIME)
+	var rotated_quat = Quaternion(dimdice.basis.rotated(axis, PI/2))
+	dimdice.tween_rotate(rotated_quat, DIMDICE_ROTATION_TIME)
 
-func flip_dimdice():
-	var axis = Vector3(1, 0, 0)
+func flip_dimdice(player):
+	var orientation = 3-2*player
+	var axis = Vector3(orientation, 0, 0)
 	var rotated_basis = dimdice.transform.basis.rotated(axis, PI)
 	dimdice.tween_rotate(rotated_basis, DIMDICE_ROTATION_TIME)
 #endregion
@@ -141,6 +142,6 @@ func dimension_the_dice(net):
 
 func apply_dimdice_shake(t: float) -> void:
 	var angle = 0.2*sin(10*2*PI*t)
-	var shaked_basis = dimdice.basis_to.rotated(Vector3.BACK, angle)
+	var shaked_basis = Basis(dimdice.tween_quat1).rotated(Vector3.BACK, angle)
 	dimdice.basis = shaked_basis
 #endregion

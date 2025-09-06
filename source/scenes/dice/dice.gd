@@ -59,8 +59,8 @@ var moving : bool :
 #region private variables
 var dice_dict # copy of dice data needed when duplicating
 var static_time = 0.0
-var quaternion_from # origin quaternion for rotation tween
-var basis_to = basis # end basis for roation tween
+var tween_quat0 # origin quaternion for rotation tween
+var tween_quat1 = quaternion # end quaternion for rotation tween
 var pivots = [] # array of pivots for dimensioning
 var pivot_sequence = 1 # current pivot sequence to define parallel unfolding
 var translating : bool : 
@@ -180,17 +180,17 @@ func get_random_torque():
 	var z_value = randf_range(-ROLL_TORQUE_LIMIT, ROLL_TORQUE_LIMIT)
 	return Vector3(x_value, y_value, z_value)
 
-func tween_rotate(_basis_to, time):
+func tween_rotate(_tween_quat1, time):
 	dimdice_movement_started.emit()
-	basis_to = _basis_to
-	quaternion_from = transform.basis.get_rotation_quaternion()
+	tween_quat1 = _tween_quat1
+	tween_quat0 = transform.basis.get_rotation_quaternion()
 	var tween = create_tween()
 	tween.tween_method(apply_quat_rotation, 0.0, 1.0, time)
 	await tween.finished
 	dimdice_movement_finished.emit()
 
 func apply_quat_rotation(t: float) -> void:
-	var q = quaternion_from.slerp(basis_to, t)
+	var q = tween_quat0.slerp(tween_quat1, t)
 	basis = Basis(q)
 
 func set_unfold_X():

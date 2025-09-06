@@ -7,8 +7,6 @@
 ## IMPROVEMENTS
 
 ## FIXES
-- make dimdice flip tween correctly for player 2
-    - change basis_to to quaternion_to and select -PI or PI in flip dimdice
 - summon on player 2 are flipped making items having icon "?" horizontally rotated
     - summons should be correctly orientated for the owner player
     - item shound change icon as opponent player will always see a reverse "?"
