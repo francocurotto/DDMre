@@ -8,6 +8,7 @@
 
 ## FIXES
 - make dimdice flip tween correctly for player 2
+    simply change flip_dimdice axis from 1 to -1
     - change basis_to to quaternion_to and select -PI or PI in flip dimdice
 - summon on player 2 are flipped making items having icon "?" horizontally rotated
     - summons should be correctly orientated for the owner player
