@@ -60,7 +60,7 @@ func _ready() -> void:
 	dungeon_gui.dimcoor = DIMCOOR[player]
 	# setup net
 	net.type = $DiceGUI.net_buttons.button_group.get_pressed_button().type
-	net.orientation = 3 - 2*player
+	net.rotation = 2*player - 2
 	# initialize dicepool
 	for i in Globals.DICEPOOL_SIZE:
 		var rand_dice = dicelib[str(randi_range(1,len(dicelib)))]

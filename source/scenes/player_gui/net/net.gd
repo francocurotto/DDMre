@@ -18,8 +18,8 @@ const NETCOORS = {
 
 #region public variables
 var type
-var rotation = 0
-var orientation
+var rotation
+var orientation = 1
 var offset
 var coordinates:
 	get():

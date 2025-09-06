@@ -3,6 +3,7 @@ extends Control
 #region constants
 const DIMDICE_HEIGHT = 2
 const DIMDICE_DRAG_THRESHOLD = 10
+const DIMDICE_INIT_ROTATION = {1: Vector3(0,0,0), 2: Vector3(0, PI, 0)}
 #endregion
 
 #region public variables
@@ -35,7 +36,7 @@ func on_dimdice_selected(original_dimdice):
 	var dimdice = original_dimdice.clone()
 	dimdice.highlight = false
 	dimdice.position = dimdice_position
-	dimdice.rotation = Vector3.ZERO
+	dimdice.rotation = DIMDICE_INIT_ROTATION[player_gui.player]
 	dimdice.basis_to = dimdice.basis
 	dimdice.dimdice_movement_started.connect(on_dimdice_movement_started)
 	dimdice.dimdice_movement_finished.connect(func(): controls.disabled = false)
@@ -50,6 +51,7 @@ func on_touch_released():
 	if Globals.dungeon.dimdice and object in Globals.dungeon.tiles:
 		var tile = object
 		dimdice_position = tile.global_position + Vector3(0,DIMDICE_HEIGHT,0)
+		dimcoor = Globals.dungeon.get_tilecoor(tile)
 		Globals.dungeon.on_tile_touched(tile, dimdice_position, player_gui.net)
 
 func on_dragging(length, angle):
@@ -123,8 +125,7 @@ func move_dimdice():
 	var velocity = controls.velocity
 	var player = player_gui.player
 	var net = player_gui.net
-	var flipped = (player+net.orientation)%3 == 0
-	Globals.dungeon.move_dimdice(velocity, player, net, flipped, dimdice_position)
+	Globals.dungeon.move_dimdice(velocity, player, net, dimdice_position)
 
 func move_camera():
 	Globals.duel_camera.pan(controls.velocity)

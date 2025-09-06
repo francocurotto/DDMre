@@ -139,13 +139,13 @@ func setup_dim_select(tween, new_position):
 	angular_velocity = Vector3.ZERO
 	dim_setup_finished.emit()
 
-func unfold(net, flipped):
+func unfold(net):
 	dimension_started.emit()
 	$Summon.visible = true
 	var tween = create_tween()
 	tween.tween_property(self, "position:y", Globals.DIMDICE_HEIGHT, 0.1)
 	tween.set_trans(Tween.TRANS_SINE)
-	if not flipped:
+	if net.orientation == 1:
 		call("set_unfold_%s" % net.type)
 	else:
 		call("set_unfold_%s_flipped" % net.type)
