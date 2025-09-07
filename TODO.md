@@ -7,11 +7,8 @@
 ## IMPROVEMENTS
 
 ## FIXES
-- summon on player 2 are flipped making items having icon "?" horizontally rotated
-    - summons should be correctly orientated for the owner player
-    - item shound change icon as opponent player will always see a reverse "?"
-        - unless icons are reversed in on the back icon
-            - but it won't work if summons change 3D model
 
 ## GRAPHICS
+- change ITEM to chest icon
 - change summons 3d models to be a real cuttoff of the summon icon
+- TEST: change action icons to not have borders
