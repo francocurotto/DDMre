@@ -1,7 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b1qptgwxay546"]
 
 [ext_resource type="Script" uid="uid://cjiaw6dgirjlg" path="res://scenes/dungobj/summon/summon.gd" id="1_we0cr"]
-[ext_resource type="Texture2D" uid="uid://didfe015s6jye" path="res://assets/icons/SUMMON_DRAGON.svg" id="2_05ifw"]
 [ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_7sf84"]
 [ext_resource type="PackedScene" uid="uid://cnstwc06ol2cs" path="res://scenes/dungobj/summon/summon_overhead/summon_overhead.tscn" id="3_fwims"]
 
@@ -11,25 +10,23 @@ top_radius = 0.4
 bottom_radius = 0.4
 height = 0.1
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwims"]
+albedo_color = Color(0.138696, 0.216369, 0.612762, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
 [node name="Summon" type="Node3D"]
 script = ExtResource("1_we0cr")
 
-[node name="Body" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.4, 0)
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 mesh = SubResource("CylinderMesh_fwims")
-surface_material_override/0 = ExtResource("2_7sf84")
+surface_material_override/0 = SubResource("StandardMaterial3D_fwims")
 
-[node name="Icon1" type="Sprite3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051, -0.051)
-pixel_size = 0.0011
-axis = 1
-texture = ExtResource("2_05ifw")
-
-[node name="Icon2" type="Sprite3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.051, -0.051)
-pixel_size = 0.0011
-axis = 1
-texture = ExtResource("2_05ifw")
+[node name="Body" type="Node3D" parent="Base"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 
 [node name="SummonOverhead" parent="." instance=ExtResource("3_fwims")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)

@@ -3,6 +3,13 @@ extends Node3D
 
 #region constants
 const SUMMON_TIME = 1.0
+const SUMMON_BODY = {
+	"DRAGON" : preload("res://scenes/dungobj/summon/dragon.tscn"),
+	"SPELLCASTER" : preload("res://scenes/dungobj/summon/spellcaster.tscn"),
+	"UNDEAD" : preload("res://scenes/dungobj/summon/undead.tscn"),
+	"BEAST" : preload("res://scenes/dungobj/summon/beast.tscn"),
+	"WARRIOR" : preload("res://scenes/dungobj/summon/warrior.tscn"),
+}
 #endregion
 
 #region export variables
@@ -10,15 +17,17 @@ const SUMMON_TIME = 1.0
 	set(_player):
 		player = _player
 		material = Globals.PLAYER_MATERIALS[player].duplicate()
-		#$Base.set_surface_override_material(0, material)
-		$Body.set_surface_override_material(0, material)
+		$Base.set_surface_override_material(0, material)
+		var body_mesh = %Body.get_child(0).get_child(0)
+		body_mesh.set_surface_override_material(0, material)
 
 @export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR")
 var type : String = "DRAGON" :
 	set(_type):
 		type = _type
-		$Body/Icon1.texture = load("res://assets/icons/SUMMON_%s.svg" % type)
-		$Body/Icon2.texture = load("res://assets/icons/SUMMON_%s.svg" % type)
+		if %Body.get_child_count() > 0:
+			%Body.get_child(0).queue_free()
+		%Body.add_child(SUMMON_BODY[type].instantiate())
 		$SummonOverhead.visible = type != "ITEM"
 
 @export_range(0, 50, 10) var original_attack : int = 10 :

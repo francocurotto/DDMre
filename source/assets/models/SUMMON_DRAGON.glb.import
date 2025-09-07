@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://igdrcvp6icxm"
-path="res://.godot/imported/HEART.glb-89e58e811ea19e28e61c16f2cae89b81.scn"
+uid="uid://brqa1adxaqp8v"
+path="res://.godot/imported/SUMMON_DRAGON.glb-23cf14db9b07d8ad71b201ebc4fb61ff.scn"
 
 [deps]
 
-source_file="res://assets/models/HEART/HEART.glb"
-dest_files=["res://.godot/imported/HEART.glb-89e58e811ea19e28e61c16f2cae89b81.scn"]
+source_file="res://assets/models/SUMMON_DRAGON.glb"
+dest_files=["res://.godot/imported/SUMMON_DRAGON.glb-23cf14db9b07d8ad71b201ebc4fb61ff.scn"]
 
 [params]
 

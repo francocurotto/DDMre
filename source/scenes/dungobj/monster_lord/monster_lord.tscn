@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://t8ht0ta0nff6"]
 
-[ext_resource type="PackedScene" uid="uid://igdrcvp6icxm" path="res://assets/models/HEART/HEART.glb" id="1_6juce"]
+[ext_resource type="PackedScene" uid="uid://bevv1xnt2dfhr" path="res://assets/models/HEART.glb" id="1_6juce"]
 [ext_resource type="Script" uid="uid://bqcir7h7lace4" path="res://scenes/dungobj/monster_lord/monster_lord.gd" id="2_cv5c2"]
 [ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_hjuai"]
 [ext_resource type="Texture2D" uid="uid://dtyr3yq5phnf6" path="res://assets/icons/HEARTS_P1_3.svg" id="2_m7l1t"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://byx3uees21w4o"]
+
+[ext_resource type="PackedScene" uid="uid://ceo38e4hdoist" path="res://assets/models/SUMMON_BEAST.glb" id="1_myewc"]
+[ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_ejqjh"]
+
+[node name="Beast" instance=ExtResource("1_myewc")]
+
+[node name="SUMMON_BEAST" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.4, -0.05)
+surface_material_override/0 = ExtResource("2_ejqjh")

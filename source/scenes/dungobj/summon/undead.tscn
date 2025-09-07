@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6blhvh3a3y2r"]
+
+[ext_resource type="PackedScene" uid="uid://by4taek7u5lrj" path="res://assets/models/SUMMON_UNDEAD.glb" id="1_kbyp1"]
+[ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_y1ipp"]
+
+[node name="Undead" instance=ExtResource("1_kbyp1")]
+
+[node name="SUMMON_UNDEAD" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.4, -0.05)
+surface_material_override/0 = ExtResource("2_y1ipp")

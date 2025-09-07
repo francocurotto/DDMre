@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7j4c2dn6okqj"]
+
+[ext_resource type="PackedScene" uid="uid://brqa1adxaqp8v" path="res://assets/models/SUMMON_DRAGON.glb" id="1_sd6fm"]
+[ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_d0a3h"]
+
+[node name="Dragon" instance=ExtResource("1_sd6fm")]
+
+[node name="SUMMON_DRAGON" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.44, -0.05)
+surface_material_override/0 = ExtResource("2_d0a3h")

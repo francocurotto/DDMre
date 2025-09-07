@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr2pht02p823a"]
+
+[ext_resource type="PackedScene" uid="uid://c21en6fmo5g0u" path="res://assets/models/SUMMON_WARRIOR.glb" id="1_lpuj5"]
+[ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_k0tso"]
+
+[node name="Warrior" instance=ExtResource("1_lpuj5")]
+
+[node name="SUMMON_WARRIOR" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.38, -0.05)
+surface_material_override/0 = ExtResource("2_k0tso")
