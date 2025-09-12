@@ -6,7 +6,8 @@ scale_to_mm = 0.005;
 //icon = "../icons/SUMMON_DRAGON.svg";
 //icon = "../icons/SUMMON_SPELLCASTER.svg";
 //icon = "../icons/SUMMON_UNDEAD.svg";
-icon = "../icons/SUMMON_WARRIOR.svg";
+//icon = "../icons/SUMMON_WARRIOR.svg";
+icon = "../icons/SUMMON_ITEM.svg";
 
 // If your SVG was authored in mm and imports at correct scale,
 // you can set scale_to_mm = 1 instead.

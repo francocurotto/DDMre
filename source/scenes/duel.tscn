@@ -10,4 +10,3 @@ script = ExtResource("1_b72to")
 [node name="Dungeon" parent="." instance=ExtResource("2_j5jx5")]
 
 [node name="PlayerGUI" parent="." instance=ExtResource("3_iyx0m")]
-player = 2

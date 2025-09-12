@@ -1,10 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6blhvh3a3y2r"]
+[gd_scene load_steps=4 format=3 uid="uid://b6blhvh3a3y2r"]
 
 [ext_resource type="PackedScene" uid="uid://by4taek7u5lrj" path="res://assets/models/SUMMON_UNDEAD.glb" id="1_kbyp1"]
 [ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_y1ipp"]
+[ext_resource type="Texture2D" uid="uid://3w8n0pvyf7kt" path="res://assets/icons/SUMMON_UNDEAD.svg" id="3_y1ipp"]
 
 [node name="Undead" instance=ExtResource("1_kbyp1")]
 
 [node name="SUMMON_UNDEAD" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.4, -0.05)
 surface_material_override/0 = ExtResource("2_y1ipp")
+
+[node name="Icons" type="Node3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.435, 0)
+
+[node name="Icon1" type="Sprite3D" parent="Icons" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.051)
+pixel_size = 0.0017
+texture = ExtResource("3_y1ipp")
+
+[node name="Icon2" type="Sprite3D" parent="Icons" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.051)
+pixel_size = 0.0017
+texture = ExtResource("3_y1ipp")

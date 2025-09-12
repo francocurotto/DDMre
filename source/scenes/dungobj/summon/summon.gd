@@ -9,6 +9,7 @@ const SUMMON_BODY = {
 	"UNDEAD" : preload("res://scenes/dungobj/summon/undead.tscn"),
 	"BEAST" : preload("res://scenes/dungobj/summon/beast.tscn"),
 	"WARRIOR" : preload("res://scenes/dungobj/summon/warrior.tscn"),
+	"ITEM" : preload("res://scenes/dungobj/summon/item.tscn"),
 }
 #endregion
 
@@ -18,17 +19,21 @@ const SUMMON_BODY = {
 		player = _player
 		material = Globals.PLAYER_MATERIALS[player].duplicate()
 		$Base.set_surface_override_material(0, material)
-		var body_mesh = %Body.get_child(0).get_child(0)
-		body_mesh.set_surface_override_material(0, material)
+		if %Body.get_child_count() > 0:
+			var body_mesh = %Body.get_child(0).get_child(0)
+			body_mesh.set_surface_override_material(0, material)
 
-@export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR")
+@export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM")
 var type : String = "DRAGON" :
 	set(_type):
 		type = _type
 		if %Body.get_child_count() > 0:
-			%Body.get_child(0).queue_free()
+			var body_model = %Body.get_child(0)
+			%Body.remove_child(body_model)
+			body_model.queue_free()
 		%Body.add_child(SUMMON_BODY[type].instantiate())
 		$SummonOverhead.visible = type != "ITEM"
+		player = player # used to update the player body color
 
 @export_range(0, 50, 10) var original_attack : int = 10 :
 	set(_original_attack):
@@ -97,6 +102,6 @@ func tween_dimension(tween):
 func set_pre_dimension():
 	material.emission_energy_multiplier = 2.0
 	$SummonOverhead.alpha = 0.0
-	$Body/Icon1.modulate.a = 0.0
-	$Body/Icon2.modulate.a = 0.0
+	#%Body/Icon1.modulate.a = 0.0
+	#%Body/Icon2.modulate.a = 0.0
 #endregion
