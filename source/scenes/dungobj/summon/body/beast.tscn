@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://byx3uees21w4o"]
+[gd_scene load_steps=5 format=3 uid="uid://byx3uees21w4o"]
 
 [ext_resource type="PackedScene" uid="uid://ceo38e4hdoist" path="res://assets/models/SUMMON_BEAST.glb" id="1_myewc"]
+[ext_resource type="Script" uid="uid://cthhdu3xeve82" path="res://scenes/dungobj/summon/body/body.gd" id="2_e215n"]
 [ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_ejqjh"]
 [ext_resource type="Texture2D" uid="uid://csipwepki45i5" path="res://assets/icons/SUMMON_BEAST.svg" id="3_4wjgg"]
 
 [node name="Beast" instance=ExtResource("1_myewc")]
+script = ExtResource("2_e215n")
 
 [node name="SUMMON_BEAST" parent="." index="0"]
 transform = Transform3D(0.9, 0, 0, 0, -4.37114e-08, -0.9, 0, 1, -3.93403e-08, 0, 0.36, -0.05)
@@ -14,11 +16,13 @@ surface_material_override/0 = ExtResource("2_ejqjh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 
 [node name="Icon1" type="Sprite3D" parent="SUMMON_BEAST/Icons" index="0"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.051, 0)
 pixel_size = 0.0017
 texture = ExtResource("3_4wjgg")
 
 [node name="Icon2" type="Sprite3D" parent="SUMMON_BEAST/Icons" index="1"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.051, 0)
 pixel_size = 0.0017
 texture = ExtResource("3_4wjgg")

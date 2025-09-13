@@ -5,7 +5,6 @@
     - make action buttons appear when selecting a monster in dungeon state
 
 ## IMPROVEMENTS
-- add flash to icons in summon dimension
 
 ## FIXES
 

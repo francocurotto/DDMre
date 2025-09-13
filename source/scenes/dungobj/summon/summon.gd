@@ -20,8 +20,7 @@ const SUMMON_BODY = {
 		material = Globals.PLAYER_MATERIALS[player].duplicate()
 		$Base.set_surface_override_material(0, material)
 		if %BodyContainer.get_child_count() > 0:
-			var body = %BodyContainer.get_child(0).get_child(0)
-			body.set_surface_override_material(0, material)
+			%BodyContainer.get_child(0).set_material(material)
 
 @export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM")
 var type : String = "DRAGON" :
@@ -94,14 +93,12 @@ func tween_dimension(tween):
 	tween.tween_property(material, "emission_energy_multiplier", 0.0, SUMMON_TIME)
 	tween.set_parallel(true)
 	tween.tween_property($SummonOverhead, "alpha", 1.0, SUMMON_TIME)
-	#tween.tween_property($Body/Icon1, "modulate:a", 1.0, SUMMON_TIME)
-	#tween.tween_property($Body/Icon2, "modulate:a", 1.0, SUMMON_TIME)
+	%BodyContainer.get_child(0).tween_dimension(tween, SUMMON_TIME)
 #endregion
 
 #region private functions
 func set_pre_dimension():
 	material.emission_energy_multiplier = 2.0
 	$SummonOverhead.alpha = 0.0
-	#%Body/Icon1.modulate.a = 0.0
-	#%Body/Icon2.modulate.a = 0.0
+	%BodyContainer.get_child(0).set_pre_dimension()
 #endregion
