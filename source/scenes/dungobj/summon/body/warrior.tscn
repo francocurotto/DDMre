@@ -7,18 +7,21 @@
 [node name="Warrior" instance=ExtResource("1_lpuj5")]
 
 [node name="SUMMON_WARRIOR" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.38, -0.05)
+transform = Transform3D(0.9, 0, 0, 0, -4.37114e-08, -0.9, 0, 1, -3.93403e-08, 0, 0.345, -0.05)
 surface_material_override/0 = ExtResource("2_k0tso")
 
-[node name="Icons" type="Node3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038, 0.435, 0)
+[node name="Icons" type="Node3D" parent="SUMMON_WARRIOR" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.042, 0.05, -0.05)
 
-[node name="Icon1" type="Sprite3D" parent="Icons" index="0"]
+[node name="Icon1" type="Sprite3D" parent="SUMMON_WARRIOR/Icons" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.051)
 pixel_size = 0.0017
 texture = ExtResource("3_k0tso")
 
-[node name="Icon2" type="Sprite3D" parent="Icons" index="1"]
+[node name="Icon2" type="Sprite3D" parent="SUMMON_WARRIOR/Icons" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.051)
 pixel_size = 0.0017
 texture = ExtResource("3_k0tso")
+
+[node name="Node3D" type="Node3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76, 0)

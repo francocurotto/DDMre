@@ -24,9 +24,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 mesh = SubResource("CylinderMesh_fwims")
 surface_material_override/0 = SubResource("StandardMaterial3D_fwims")
 
-[node name="Body" type="Node3D" parent="Base"]
+[node name="BodyContainer" type="Node3D" parent="Base"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 
 [node name="SummonOverhead" parent="." instance=ExtResource("3_fwims")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93, 0)

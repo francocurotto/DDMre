@@ -11,21 +11,21 @@ const icons = {
 	"WAIT"    : preload("res://assets/icons/WAIT.svg"),
 }
 const COLORS_NORMAL = {
-	"ENDTURN" : [Color(0.6, 0.6, 0.6), Color(0.8, 0.8, 0.8)],
-	"CANCEL"  : [Color(0.4, 0.4, 0.4), Color(0.6, 0.6, 0.6)],
-	"MOVE"    : [Color(0.3, 0.3, 0.7), Color(0.8, 0.8, 1.0)],
-	"ATTACK"  : [Color(0.7, 0.3, 0.3), Color(1.0, 0.8, 0.8)],
-	"GUARD"   : [Color(0.3, 0.7, 0.3), Color(0.8, 1.0, 0.8)],
-	"WAIT"    : [Color(0.7, 0.7, 0.3), Color(1.0, 1.0, 0.8)],
+	"ENDTURN" : Color(0.6, 0.6, 0.6),
+	"CANCEL"  : Color(0.4, 0.4, 0.4),
+	"MOVE"    : Color(0.3, 0.3, 0.7),
+	"ATTACK"  : Color(0.7, 0.3, 0.3),
+	"GUARD"   : Color(0.3, 0.7, 0.3),
+	"WAIT"    : Color(0.8, 0.8, 0.2),
 }
 
 const COLORS_PRESSED = {
-	"ENDTURN" : [Color(0.3, 0.3, 0.3), Color(0.6, 0.6, 0.6)],
-	"CANCEL"  : [Color(0.1, 0.1, 0.1), Color(0.4, 0.4, 0.4)],
-	"MOVE"    : [Color(0.1, 0.1, 0.5), Color(0.6, 0.6, 1.0)],
-	"ATTACK"  : [Color(0.5, 0.1, 0.1), Color(1.0, 0.6, 0.6)],
-	"GUARD"   : [Color(0.1, 0.5, 0.1), Color(0.6, 1.0, 0.6)],
-	"WAIT"    : [Color(0.5, 0.5, 0.1), Color(1.0, 1.0, 0.6)],
+	"ENDTURN" : Color(0.3, 0.3, 0.3),
+	"CANCEL"  : Color(0.1, 0.1, 0.1),
+	"MOVE"    : Color(0.1, 0.1, 0.5),
+	"ATTACK"  : Color(0.5, 0.1, 0.1),
+	"GUARD"   : Color(0.1, 0.5, 0.1),
+	"WAIT"    : Color(0.6, 0.6, 0.1),
 }
 #endregion
 
@@ -43,6 +43,5 @@ var type : String = "ENDTURN" :
 #region private functions
 func change_theme(style_name, colors):
 	var style = get_theme_stylebox(style_name)
-	style.bg_color = colors[type][0]
-	style.border_color = colors[type][1]
+	style.bg_color = colors[type]
 #endregion

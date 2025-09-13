@@ -4,12 +4,12 @@ extends Node3D
 #region constants
 const SUMMON_TIME = 1.0
 const SUMMON_BODY = {
-	"DRAGON" : preload("res://scenes/dungobj/summon/dragon.tscn"),
-	"SPELLCASTER" : preload("res://scenes/dungobj/summon/spellcaster.tscn"),
-	"UNDEAD" : preload("res://scenes/dungobj/summon/undead.tscn"),
-	"BEAST" : preload("res://scenes/dungobj/summon/beast.tscn"),
-	"WARRIOR" : preload("res://scenes/dungobj/summon/warrior.tscn"),
-	"ITEM" : preload("res://scenes/dungobj/summon/item.tscn"),
+	"DRAGON" : preload("res://scenes/dungobj/summon/body/dragon.tscn"),
+	"SPELLCASTER" : preload("res://scenes/dungobj/summon/body/spellcaster.tscn"),
+	"UNDEAD" : preload("res://scenes/dungobj/summon/body/undead.tscn"),
+	"BEAST" : preload("res://scenes/dungobj/summon/body/beast.tscn"),
+	"WARRIOR" : preload("res://scenes/dungobj/summon/body/warrior.tscn"),
+	"ITEM" : preload("res://scenes/dungobj/summon/body/item.tscn"),
 }
 #endregion
 
@@ -19,19 +19,19 @@ const SUMMON_BODY = {
 		player = _player
 		material = Globals.PLAYER_MATERIALS[player].duplicate()
 		$Base.set_surface_override_material(0, material)
-		if %Body.get_child_count() > 0:
-			var body_mesh = %Body.get_child(0).get_child(0)
-			body_mesh.set_surface_override_material(0, material)
+		if %BodyContainer.get_child_count() > 0:
+			var body = %BodyContainer.get_child(0).get_child(0)
+			body.set_surface_override_material(0, material)
 
 @export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM")
 var type : String = "DRAGON" :
 	set(_type):
 		type = _type
-		if %Body.get_child_count() > 0:
-			var body_model = %Body.get_child(0)
-			%Body.remove_child(body_model)
-			body_model.queue_free()
-		%Body.add_child(SUMMON_BODY[type].instantiate())
+		if %BodyContainer.get_child_count() > 0:
+			var body = %BodyContainer.get_child(0)
+			%BodyContainer.remove_child(body)
+			body.queue_free()
+		%BodyContainer.add_child(SUMMON_BODY[type].instantiate())
 		$SummonOverhead.visible = type != "ITEM"
 		player = player # used to update the player body color
 
@@ -94,8 +94,8 @@ func tween_dimension(tween):
 	tween.tween_property(material, "emission_energy_multiplier", 0.0, SUMMON_TIME)
 	tween.set_parallel(true)
 	tween.tween_property($SummonOverhead, "alpha", 1.0, SUMMON_TIME)
-	tween.tween_property($Body/Icon1, "modulate:a", 1.0, SUMMON_TIME)
-	tween.tween_property($Body/Icon2, "modulate:a", 1.0, SUMMON_TIME)
+	#tween.tween_property($Body/Icon1, "modulate:a", 1.0, SUMMON_TIME)
+	#tween.tween_property($Body/Icon2, "modulate:a", 1.0, SUMMON_TIME)
 #endregion
 
 #region private functions
