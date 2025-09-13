@@ -1,6 +1,7 @@
 // --- Settings ---
 thickness = 0.1;              // mm – your extrusion height
-scale_to_mm = 0.005;
+//scale_to_mm = 0.005;
+scale_to_mm = 0.001;
 //icon = "../icons/HEART.svg";
 //icon = "../icons/SUMMON_BEAST.svg";
 //icon = "../icons/SUMMON_DRAGON.svg";

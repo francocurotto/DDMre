@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpx40dweo1fm3"]
 
 [ext_resource type="PackedScene" uid="uid://1wmuxtuccoy1" path="res://assets/models/SUMMON_ITEM.glb" id="1_nmuub"]
-[ext_resource type="Texture2D" uid="uid://dugj0rk14eev1" path="res://assets/icons/SUMMON_ITEM.svg" id="2_6au63"]
+[ext_resource type="Texture2D" uid="uid://btkufav7l2fbj" path="res://assets/icons/SUMMON_ITEM.svg" id="2_6au63"]
 [ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_8i5wx"]
 [ext_resource type="Script" uid="uid://cthhdu3xeve82" path="res://scenes/dungobj/summon/body/body.gd" id="2_d4kaw"]
 
@@ -9,20 +9,20 @@
 script = ExtResource("2_d4kaw")
 
 [node name="SUMMON_ITEM" parent="." index="0"]
-transform = Transform3D(0.9, 0, 0, 0, -4.37114e-08, -0.9, 0, 1, -3.93403e-08, 0, 0.37, -0.05)
+transform = Transform3D(0.8, 0, 0, 0, -4.37114e-08, -0.8, 0, 1, -3.49691e-08, 0, 0.285, -0.05)
 surface_material_override/0 = ExtResource("2_8i5wx")
 
 [node name="Icons" type="Node3D" parent="SUMMON_ITEM" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014, 0.05, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -0.01)
 
 [node name="Icon1" type="Sprite3D" parent="SUMMON_ITEM/Icons" index="0"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.051, 0)
-pixel_size = 0.0017
+pixel_size = 0.001
 texture = ExtResource("2_6au63")
 
 [node name="Icon2" type="Sprite3D" parent="SUMMON_ITEM/Icons" index="1"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.051, 0)
-pixel_size = 0.0017
+pixel_size = 0.001
 texture = ExtResource("2_6au63")
