@@ -17,6 +17,7 @@ script = ExtResource("1_1st0o")
 
 [node name="TouchControls" parent="." instance=ExtResource("2_dk4qo")]
 layout_mode = 1
+disabled = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

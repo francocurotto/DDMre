@@ -46,6 +46,7 @@ var dicelib = Globals.read_jsonfile(Globals.LIBPATH)
 func _ready() -> void:
 	# setup player_gui reference
 	$DungeonGUI.player_gui = self
+	$DungeonGUI.duel_camera = duel_camera
 	$DiceGUI.dicepool.player_gui = self
 	$DiceGUI.rollzone.player_gui = self
 	$DiceGUI.net_buttons.player_gui = self
@@ -68,6 +69,16 @@ func _ready() -> void:
 #endregion
 
 #region public functions
+func enable():
+	visible = true
+	duel_camera.current = true
+	$DungeonGUI.enable()
+
+func disable():
+	visible = false
+	duel_camera.current = false
+	$DungeonGUI.disable()
+
 func on_dimension_started():
 	$InfoGUI.on_dimension_started()
 	$DiceGUI.on_dimension_started()

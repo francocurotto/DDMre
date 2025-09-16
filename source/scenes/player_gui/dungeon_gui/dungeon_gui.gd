@@ -8,6 +8,7 @@ const DIMDICE_INIT_ROTATION = {1: Vector3(0,0,0), 2: Vector3(0, PI, 0)}
 
 #region public variables
 var player_gui
+var duel_camera
 #endregion
 
 #region private variables
@@ -29,6 +30,14 @@ func _ready() -> void:
 	controls.dragging.connect(on_dragging)
 	controls.drag_released.connect(on_drag_released)
 	controls.pinching.connect(on_pinching)
+#endregion
+
+#region public functions
+func enable():
+	controls.disabled = false
+
+func disable():
+	controls.disabled = true
 #endregion
 
 #region signals callbacks
@@ -87,7 +96,7 @@ func on_switched_to_dungeon_state():
 
 func _on_camera_reset_pressed() -> void:
 	%CameraReset.visible = false
-	Globals.duel_camera.on_camera_reset_pressed()
+	duel_camera.on_camera_reset_pressed()
 	controls.disabled = false
 
 func _on_end_turn_pressed() -> void:
@@ -128,8 +137,8 @@ func move_dimdice():
 	Globals.dungeon.move_dimdice(velocity, player, net, dimdice_position)
 
 func move_camera():
-	Globals.duel_camera.pan(controls.velocity)
+	duel_camera.pan(controls.velocity)
 
 func on_pinching(factor):
-	Globals.duel_camera.zoom(factor)
+	duel_camera.zoom(factor)
 #endregion

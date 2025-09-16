@@ -1,10 +1,17 @@
 extends Node3D
 
+#region private variables
+var player_guis = {}
+#endregion
+
 #region builtin functions
 func _ready() -> void:
-	$PlayerGUI.endturn_pressed.connect(on_endturn_pressed)
-	#$PlayerGUI1.endturn_pressed.connect(on_endturn_pressed)
-	#$PlayerGUI2.endturn_pressed.connect(on_endturn_pressed)
+	player_guis[1] = $PlayerGUI1
+	player_guis[2] = $PlayerGUI2
+	$PlayerGUI1.endturn_pressed.connect(on_endturn_pressed)
+	$PlayerGUI2.endturn_pressed.connect(on_endturn_pressed)
+	$PlayerGUI1.enable()
+	$PlayerGUI2.disable()
 #endregion
 
 #region signals callbacks
@@ -12,6 +19,6 @@ func on_endturn_pressed(player):
 	var new_player = player%2 + 1
 	print("player: " + str(player))
 	print("new player: " + str(new_player))
-	#PLAYER_GUIS[player].disable()
-	#PLAYER_GUIS[player].enable()
+	player_guis[player].disable()
+	player_guis[new_player].enable()
 #endregion

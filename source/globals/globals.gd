@@ -42,7 +42,6 @@ const PLAYER_MATERIALS = [
 
 #region public variables
 var dungeon
-var duel_camera
 #endregion
 
 #region public functions

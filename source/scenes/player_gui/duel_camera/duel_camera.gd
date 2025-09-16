@@ -25,7 +25,6 @@ var init_position
 
 #region builtin functions
 func _ready() -> void:
-	Globals.duel_camera = self
 	init_position = position
 #endregion
 
