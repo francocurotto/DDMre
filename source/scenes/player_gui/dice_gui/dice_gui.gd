@@ -20,7 +20,6 @@ func _ready() -> void:
 	tab_bar.set_tab_title(1, "Rollzone (0/3)")
 	%Dicepool.roll_dice_added.connect(on_roll_dice_added)
 	%Dicepool.roll_dice_removed.connect(on_roll_dice_removed)
-	#%Rollzone.roll_started.connect(%Dicepool.on_roll_started)
 	%Rollzone.roll_started.connect(on_roll_started)
 	%Rollzone.crest_side_rolled.connect($Crestpool.on_crest_side_rolled)
 #endregion
@@ -44,9 +43,10 @@ func on_roll_started():
 	%Dicepool.on_roll_started()
 
 func _on_tab_container_tab_changed(_tab: int) -> void:
-	dicegui_tab_changed.emit()
-	var current_control_tab = $TabContainer.get_current_tab_control()
-	%Rollzone.controls.disabled = current_control_tab != %Rollzone
+	if is_node_ready(): # needed to avoid godot 4.5 error
+		dicegui_tab_changed.emit()
+		var current_control_tab = $TabContainer.get_current_tab_control()
+		%Rollzone.controls.disabled = current_control_tab != %Rollzone
 
 func on_dimension_started(): 
 	%Rollzone.on_dimension_started()
