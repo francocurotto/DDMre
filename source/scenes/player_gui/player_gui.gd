@@ -59,6 +59,7 @@ func _ready() -> void:
 	# setup dungeon_gui
 	dungeon_gui.dimdice_position = DIMDICE_INIT_POSITION[player]
 	dungeon_gui.dimcoor = DIMCOOR[player]
+	dungeon_gui.set_raycast(get_viewport(), duel_camera)
 	# setup net
 	net.type = $DiceGUI.net_buttons.button_group.get_pressed_button().type
 	net.rotation = 2*player - 2

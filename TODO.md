@@ -7,8 +7,6 @@
 ## IMPROVEMENTS
 
 ## FIXES
-- DIMENSION: player1 dimdice location when touching tiles is all wrong
-    - and is not detected by touch
 - DIMENSION: player2 net and dimension are rotated in 180
     - also start location is of player1
     - and tilepath are of player1

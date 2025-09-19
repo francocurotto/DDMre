@@ -54,7 +54,7 @@ func _input(event: InputEvent) -> void:
 				touch_released.emit()
 			reset_flags()
 		elif event is InputEventMagnifyGesture:
-			pinching.emit(log(event.factor))
+			pinching.emit(-log(event.factor))
 		elif event is InputEventMouseButton:
 			if event.pressed:
 				match event.button_index:
@@ -65,9 +65,9 @@ func _input(event: InputEvent) -> void:
 #endregion
 
 #region public functions
-func set_raycast(_viewport):
+func set_raycast(_viewport, _camera3d):
 	viewport = _viewport
-	camera3d = viewport.get_camera_3d()
+	camera3d = _camera3d
 #endregion
 
 #region private functions

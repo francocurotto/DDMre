@@ -25,7 +25,7 @@ var dimcoor : Vector2i
 #region builtin functions
 func _ready() -> void:
 	controls.mask = Globals.LAYERS.DICE + Globals.LAYERS.BASE_TILES
-	controls.set_raycast(get_viewport())
+	controls.set_raycast(get_viewport(), duel_camera)
 	controls.touch_released.connect(on_touch_released)
 	controls.dragging.connect(on_dragging)
 	controls.drag_released.connect(on_drag_released)
@@ -38,6 +38,9 @@ func enable():
 
 func disable():
 	controls.disabled = true
+
+func set_raycast(viewport, camera3d):
+	controls.set_raycast(viewport, camera3d)
 #endregion
 
 #region signals callbacks

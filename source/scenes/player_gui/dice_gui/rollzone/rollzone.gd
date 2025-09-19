@@ -35,7 +35,7 @@ var triplet_size : int = 0 :
 
 #region builtin functions
 func _ready() -> void:
-	controls.set_raycast(%SubViewport)
+	controls.set_raycast(%SubViewport, %Camera3D)
 	controls.touch_pressed.connect(on_touch_pressed)
 	controls.drag_released.connect(on_drag_released)
 
