@@ -17,7 +17,6 @@ var player : int = 1 :
 		player = _player
 		position = CAMERA_POSITION[player]
 		rotation = CAMERA_ROTATION[player]
-		print(position)
 #endregion
 
 #region private variables

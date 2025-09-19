@@ -7,9 +7,6 @@
 ## IMPROVEMENTS
 
 ## FIXES
-- DIMENSION: player2 net and dimension are rotated in 180
-    - also start location is of player1
-    - and tilepath are of player1
 - STATES: dice_gui and dungeon_gui after opponent endturn
 
 ## GRAPHICS
