@@ -48,7 +48,13 @@ func _on_tab_container_tab_changed(_tab: int) -> void:
 		var current_control_tab = $TabContainer.get_current_tab_control()
 		%Rollzone.controls.disabled = current_control_tab != %Rollzone
 
-func on_dimension_started(): 
+func on_dimension_started(dimdice):
+	%Dicepool.on_dimension_started(dimdice)
 	%Rollzone.on_dimension_started()
 	%Nets.disable_buttons()
+
+func on_switched_to_roll_state():
+	$TabContainer.current_tab = 0
+	%Dicepool.on_switched_to_roll_state()
+	%Nets.enable_buttons()
 #endregion

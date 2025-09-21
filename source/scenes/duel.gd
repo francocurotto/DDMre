@@ -21,4 +21,5 @@ func on_endturn_pressed(player):
 	var new_player = player%2 + 1
 	player_guis[player].disable()
 	player_guis[new_player].enable()
+	player_guis[new_player].state = Globals.GUI_STATE.ROLL
 #endregion

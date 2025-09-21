@@ -36,6 +36,7 @@ var state : int = Globals.GUI_STATE.ROLL :
 		if state != _state:
 			state = _state
 			match state :
+				Globals.GUI_STATE.ROLL: on_switched_to_roll_state()
 				Globals.GUI_STATE.DUNGEON: on_switched_to_dungeon_state()
 var net = Net.new()
 #endregion
@@ -83,12 +84,15 @@ func disable():
 	duel_camera.current = false
 	$DungeonGUI.disable()
 
-func on_dimension_started():
+func on_dimension_started(dimdice):
 	$InfoGUI.on_dimension_started()
-	$DiceGUI.on_dimension_started()
+	$DiceGUI.on_dimension_started(dimdice)
 #endregion
 
 #region signals callbacks
+func on_switched_to_roll_state():
+	$DiceGUI.on_switched_to_roll_state()
+
 func on_switched_to_dungeon_state():
 	$DungeonGUI.on_switched_to_dungeon_state()
 #endregion

@@ -17,7 +17,7 @@ const HIGHLIGHT_ALPHA = 0.7
 var type : String = "DRAGON" :
 	set(_type):
 		type = _type
-		modulate = Globals.SUMMON_COLORS[type]
+		set_side_color()
 
 @export_enum("SUMMON", "MOVEMENT", "ATTACK", "DEFENSE", "MAGIC", "TRAP")
 var crest : String = "SUMMON" :
@@ -48,6 +48,11 @@ var crest : String = "SUMMON" :
 		$Crest.modulate.a = alpha
 		%Mult.modulate.a = alpha
 		%Mult.outline_modulate.a = alpha
+
+@export var dimensioned : bool = false :
+	set(_dimensioned):
+		dimensioned = _dimensioned
+		set_side_color()
 #endregion
 
 #region onready variables
@@ -77,4 +82,14 @@ func reparent_summon(summon):
 
 func reparent_path_tile():
 	$PathTile.move_to_dungeon()
+#endregion
+
+#region private functions
+func set_side_color():
+	if not dimensioned:
+		modulate = Globals.SUMMON_COLORS[type]
+		%Mult.modulate = Color(1,1,1)
+	else:
+		modulate = Color(0,0,0)
+		%Mult.modulate = Color(0,0,0)
 #endregion

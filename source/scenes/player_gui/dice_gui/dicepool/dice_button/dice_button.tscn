@@ -54,7 +54,6 @@ size = 2.0
 unique_name_in_owner = true
 transform = Transform3D(0.833886, -0.390278, 0.390278, 0, 0.707107, 0.707107, -0.551937, -0.589646, 0.589646, 0, 0, 0)
 gravity_scale = 0.0
-angular_velocity = Vector3(0, 0, 1.74533)
 angular_damp_mode = 1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="MarginContainer/SubViewportContainer/SubViewport"]

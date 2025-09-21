@@ -19,10 +19,13 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.042,
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.051)
 pixel_size = 0.0017
+double_sided = false
 texture = ExtResource("3_k0tso")
 
 [node name="Icon2" type="Sprite3D" parent="SUMMON_WARRIOR/Icons" index="1"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.051)
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, -0.051)
+flip_v = true
 pixel_size = 0.0017
+double_sided = false
 texture = ExtResource("3_k0tso")

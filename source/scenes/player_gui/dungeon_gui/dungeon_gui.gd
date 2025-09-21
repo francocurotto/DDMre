@@ -87,7 +87,7 @@ func on_dimdice_movement_started():
 
 func on_dimension_started():
 	controls.disabled = true
-	player_gui.on_dimension_started()
+	player_gui.on_dimension_started(Globals.dungeon.dimdice)
 
 func on_dimension_finished():
 	dimdice_dragging = false

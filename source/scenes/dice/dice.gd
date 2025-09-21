@@ -35,6 +35,12 @@ const DIM_ROTATIONS = [
 		highlight = _highlight
 		for side in $Sides.get_children():
 			side.highlight = highlight
+
+@export var dimensioned : bool = false :
+	set(_dimensioned):
+		dimensioned = _dimensioned
+		for side in $Sides.get_children():
+			side.dimensioned = dimensioned
 #endregion
 
 #region public variables
@@ -57,6 +63,7 @@ var moving : bool :
 #endregion
 
 #region private variables
+var index # number representing the dice position in the dicepool
 var dice_dict # copy of dice data needed when duplicating
 var static_time = 0.0
 var tween_quat0 # origin quaternion for rotation tween
@@ -97,7 +104,8 @@ func _physics_process(delta: float) -> void:
 #endregion
 
 #region public functions
-func set_dice(_dice_dict, _player):
+func set_dice(_index, _dice_dict, _player):
+	index = _index
 	player = _player
 	dice_dict = _dice_dict
 	var level = int(dice_dict["LEVEL"])
@@ -111,7 +119,7 @@ func set_dice(_dice_dict, _player):
 
 func clone():
 	var copy = duplicate()
-	copy.set_dice(dice_dict, player)
+	copy.set_dice(index, dice_dict, player)
 	return copy
 
 func roll(velocity):
@@ -130,10 +138,9 @@ func tween_remove(tween):
 
 func setup_dim_select(tween, new_position):
 	gravity_scale = 0 # disable gravity
-	#var tween = create_tween()
 	tween.tween_property(self, "position", new_position, 1)
-	var index = rolled_side.get_index() 
-	tween_rotate(Basis.from_euler(DIM_ROTATIONS[index]), 1)
+	var roll_index = rolled_side.get_index() 
+	tween_rotate(Basis.from_euler(DIM_ROTATIONS[roll_index]), 1)
 	await tween.finished
 	linear_velocity = Vector3.ZERO
 	angular_velocity = Vector3.ZERO

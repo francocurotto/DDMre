@@ -27,7 +27,11 @@ func _enter_tree() -> void:
 	Globals.dungeon = self
 
 func _ready() -> void:
-	#dimtile = $Rows/Row4/BaseTile7
+	# initail conditions for dungeon
+	$Rows/Row1/BaseTile7.add_path_tile(1)
+	$Rows/Row1/BaseTile7.overtile.monster_lord = true
+	$Rows/Row19/BaseTile7.add_path_tile(2)
+	$Rows/Row19/BaseTile7.overtile.monster_lord = true
 	for row in $Rows.get_children():
 		for tile in row.get_children():
 			tiles.append(tile)
@@ -109,11 +113,12 @@ func can_dimension(player, net):
 	# first check if net is inbound to not get null later at get_tile
 	if not net.coordinates.all(coor_in_bound):
 		return false
+	print(net_overlaps(net))
 	return not net_overlaps(net) and net_connects_with_path(player, net)
 
 func net_overlaps(net):
 	for coor in net.coordinates:
-		if get_tile(coor).type != "EMPTY":
+		if not get_tile(coor).is_empty():
 			return true
 	return false
 
@@ -121,7 +126,7 @@ func net_connects_with_path(player, net):
 	for coor in net.coordinates:
 		var neighbor_tiles = get_neighbor_tiles(coor)
 		for tile in neighbor_tiles:
-			if tile.type == "PATH" and tile.player == player:
+			if tile.has_path() and tile.overtile.player == player:
 				return true
 	return false
 

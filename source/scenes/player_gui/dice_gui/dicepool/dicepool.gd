@@ -28,7 +28,12 @@ func _ready() -> void:
 
 #region public functions
 func set_dice(i, dice_dict, player):
-	$Grid.get_child(i).set_dice(dice_dict, player)
+	$Grid.get_child(i).set_dice(i, dice_dict, player)
+
+func enable_dice_buttons():
+	for button in buttons:
+		if button.available:
+			button.disabled = false
 #endregion
 
 #region signals callbacks
@@ -42,8 +47,26 @@ func on_dice_button_toggled(toggled_on, button):
 		on_dice_button_released()
 
 func on_roll_started():
+	pass
 	for button in buttons:
 		button.disabled = true
+
+func on_dimension_started(dimdice):
+	for button in buttons:
+		button.pressed = false
+		if button.dice.index == dimdice.index:
+			button.available = false
+
+func on_switched_to_roll_state():
+	# case there was a dimension in previous turn
+	if buttons.any(func(button): return button.pressed):
+		for button in buttons:
+			if button.pressed:
+				button.disabled = false
+				button._on_button_toggled(true)
+	# case there was no dimension in previous turn
+	else:
+		enable_dice_buttons()
 #endregion
 
 #region private functions
@@ -57,7 +80,8 @@ func on_dice_button_pressed(pressed_button):
 func on_dice_button_released():
 	var selected_dice_list = []
 	for button in buttons:
-		button.disabled = false
+		if button.available:
+			button.disabled = false
 		if button.pressed:
 			selected_dice_list.append(button.dice)
 	roll_dice_removed.emit(selected_dice_list)

@@ -35,6 +35,9 @@ var highlight_tween
 #endregion
 
 #region public functions
+func is_path():
+	return true
+
 func add_summon(summon):
 	summon.reparent($DungobjContainer, false)
 	summon.global_rotation = Vector3.ZERO
@@ -42,9 +45,7 @@ func add_summon(summon):
 
 func move_to_dungeon():
 	var base_tile = $RayCast3D.get_collider()
-	reparent(base_tile)
-	# adjust to excpected position
-	position = Vector3(0, Globals.PATH_TILE_HEIGHT, 0)
+	base_tile.stack_path_tile(self)
 #endregion
 
 #region private functions
