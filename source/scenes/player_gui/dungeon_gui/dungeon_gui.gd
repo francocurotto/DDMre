@@ -103,6 +103,7 @@ func _on_camera_reset_pressed() -> void:
 	controls.disabled = false
 
 func _on_end_turn_pressed() -> void:
+	%EndTurn.visible = false
 	player_gui.endturn_pressed.emit(player_gui.player)
 #endregion
 
