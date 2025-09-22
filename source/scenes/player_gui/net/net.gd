@@ -39,6 +39,10 @@ func rotate_counter_clockwise():
 
 func flip():
 	orientation *= -1
+
+func reset_rotation_orientation(player):
+	rotation = 2*player - 2
+	orientation = 1
 #endregion
 
 #region private functions

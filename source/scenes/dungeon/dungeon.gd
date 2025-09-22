@@ -113,7 +113,6 @@ func can_dimension(player, net):
 	# first check if net is inbound to not get null later at get_tile
 	if not net.coordinates.all(coor_in_bound):
 		return false
-	print(net_overlaps(net))
 	return not net_overlaps(net) and net_connects_with_path(player, net)
 
 func net_overlaps(net):

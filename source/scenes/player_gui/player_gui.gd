@@ -19,8 +19,8 @@ const DIMCOOR = {1: Vector2i(6, 3), 2: Vector2i(6, 15)}
 		$DuelCamera.player = player
 		$DirectionalLight3D.position = LIGHT_POSITION[player]
 		$DirectionalLight3D.rotation = LIGHT_ROTATION[player]
-		# set net rotation
-		net.rotation = 2*player - 2
+		# set net rotation orientation
+		net.reset_rotation_orientation(player)
 		# set dimdice
 		dungeon_gui.dimdice_position = DIMDICE_INIT_POSITION[player]
 		dungeon_gui.dimcoor = DIMCOOR[player]
@@ -67,10 +67,10 @@ func _ready() -> void:
 	$DiceGUI.rollzone.dimdice_selected.connect($DungeonGUI.on_dimdice_selected)
 	$DuelCamera.camera_moved.connect(func(): dungeon_gui.camera_reset.visible=true)
 	# setup dungeon_gui
-
 	dungeon_gui.set_raycast(get_viewport(), duel_camera)
 	# setup net
 	net.type = $DiceGUI.net_buttons.button_group.get_pressed_button().type
+	net.reset_rotation_orientation(player)
 #endregion
 
 #region public functions
@@ -92,6 +92,7 @@ func on_dimension_started(dimdice):
 #region signals callbacks
 func on_switched_to_roll_state():
 	$DiceGUI.on_switched_to_roll_state()
+	net.reset_rotation_orientation(player)
 
 func on_switched_to_dungeon_state():
 	$DungeonGUI.on_switched_to_dungeon_state()
