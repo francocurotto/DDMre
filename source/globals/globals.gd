@@ -22,9 +22,9 @@ const DUNGEON_WIDTH  = 13 ## Number of horizontal tiles of dungeon.
 const DICEPOOL_SIZE  = 15 ## Number of dice in player dicepool.
 const MAX_CRESTS     = 99 ## Maximum number of crests for each crest type
 const MAX_HEARTS     = 3  ## Maximum number of hearts per player
-const PATH_TILE_HEIGHT = 0.05 ## Height where path tile is located in dungeon
+const PATHTILE_HEIGHT = 0.1 ## Height of a path tile
 const DICE_SIZE = 1.0 ## Dice size in every direction
-const DIMDICE_HEIGHT = PATH_TILE_HEIGHT + DICE_SIZE/2
+const DIMENSION_HEIGHT = PATHTILE_HEIGHT/2 + DICE_SIZE/2
 const SUMMON_COLORS = {
 	"DRAGON"      : Color(1.0, 0.0, 0.0),
 	"SPELLCASTER" : Color(1.0, 1.0, 1.0),

@@ -45,7 +45,7 @@ func set_dimnet(net, dimcoor):
 
 func move_dimdice(velocity, player, net, return_position):
 	dimdice.position.y -= DIMDICE_DRAG_SPEED * velocity.y
-	if dimdice.position.y < Globals.DIMDICE_HEIGHT:
+	if dimdice.position.y < Globals.DIMENSION_HEIGHT:
 		if can_dimension(player, net):
 			dimension_the_dice(net)
 		else:

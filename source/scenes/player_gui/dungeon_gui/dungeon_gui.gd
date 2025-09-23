@@ -1,7 +1,7 @@
 extends Control
 
 #region constants
-const DIMDICE_HEIGHT = 2
+const DIMDICE_Y_POSITION = 2
 const DIMDICE_DRAG_THRESHOLD = 10
 const DIMDICE_INIT_ROTATION = {1: Vector3(0,0,0), 2: Vector3(0, PI, 0)}
 #endregion
@@ -62,7 +62,8 @@ func on_touch_released():
 	var object = controls.touched_object
 	if Globals.dungeon.dimdice and object in Globals.dungeon.tiles:
 		var tile = object
-		dimdice_position = tile.global_position + Vector3(0,DIMDICE_HEIGHT,0)
+		dimdice_position = tile.global_position
+		dimdice_position.y += DIMDICE_Y_POSITION
 		dimcoor = Globals.dungeon.get_tilecoor(tile)
 		Globals.dungeon.on_tile_touched(tile, dimdice_position, player_gui.net)
 

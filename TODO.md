@@ -6,7 +6,6 @@
 ## IMPROVEMENTS
 
 ## FIXES
-- when highlighting a path tile, it may be more aesthetic to not highlight the base tile
-- on dimension, path tile seems to reajust too much after dimension animation
 
 ## GRAPHICS
+- Maybe darken more players materials

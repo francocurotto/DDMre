@@ -77,7 +77,7 @@ func stack_path_tile(path_tile):
 	if not overtile:
 		path_tile.reparent($TileContainer)
 		# adjust to excpected position
-		path_tile.position = Vector3(0, Globals.PATH_TILE_HEIGHT, 0)
+		path_tile.position = Vector3(0, 0, 0)
 
 func is_empty():
 	return overtile == null
