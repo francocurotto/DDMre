@@ -7,11 +7,11 @@
 script = ExtResource("1_8o1ho")
 
 [node name="Attack" parent="." instance=ExtResource("1_483au")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
 
 [node name="Defense" parent="." instance=ExtResource("1_483au")]
 attr = "DEFENSE"
 
 [node name="Health" parent="." instance=ExtResource("1_483au")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
 attr = "HEALTH"

@@ -7,13 +7,13 @@
 script = ExtResource("1_fmxq2")
 
 [node name="AttrIcon" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
-pixel_size = 0.0004
+pixel_size = 0.0005
 double_sided = false
 texture = ExtResource("1_q1fgw")
 region_rect = Rect2(0, 96.61, 0, 0)
 
 [node name="AttrValue" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
 double_sided = false
+render_priority = 2
+outline_render_priority = 1
 text = "10"
