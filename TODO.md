@@ -6,5 +6,6 @@
 ## IMPROVEMENTS
 
 ## FIXES
+- fix camera reset for player 2
 
 ## GRAPHICS
