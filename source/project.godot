@@ -38,7 +38,8 @@ pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
-3d_physics/layer_2="Dice"
+3d_physics/layer_1="Dice"
+3d_physics/layer_2="Base Tile"
 
 [rendering]
 

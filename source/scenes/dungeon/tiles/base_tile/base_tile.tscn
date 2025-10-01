@@ -13,7 +13,8 @@ size = Vector3(1, 0.1, 1)
 albedo_color = Color(0.0728426, 0.0728426, 0.0728426, 1)
 
 [node name="BaseTile" type="StaticBody3D"]
-collision_layer = 5
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_fpg30")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -19,15 +19,6 @@ var player : int = 1 :
 		rotation = CAMERA_ROTATION[player]
 #endregion
 
-#region private variables
-var init_position
-#endregion
-
-#region builtin functions
-func _ready() -> void:
-	init_position = position
-#endregion
-
 #region public functions
 func pan(velocity):
 	var delta = get_process_delta_time()
@@ -50,5 +41,5 @@ func zoom(factor):
 func on_camera_reset_pressed():
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "position", init_position, 1)
+	tween.tween_property(self, "position", CAMERA_POSITION[player], 1)
 #endregion
