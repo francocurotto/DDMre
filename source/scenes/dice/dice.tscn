@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://sgb13e0g6d4h" path="res://scenes/dice/dice.gd" id="1_ws0no"]
 [ext_resource type="PackedScene" uid="uid://cbwouu0vicqix" path="res://scenes/dice/side/side.tscn" id="2_2tv1o"]
-[ext_resource type="PackedScene" uid="uid://b1qptgwxay546" path="res://scenes/dungobj/summon/summon.tscn" id="7_2tv1o"]
+[ext_resource type="PackedScene" uid="uid://b1qptgwxay546" path="res://scenes/dungobj/summon/summon_old.tscn" id="7_2tv1o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fl3nv"]
 

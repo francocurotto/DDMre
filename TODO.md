@@ -4,6 +4,8 @@
     - make action buttons appear when selecting a monster in dungeon state
 
 ## IMPROVEMENTS
+- change summon scene implementation
+    - add mesh instance 3d to each summon
 
 ## FIXES
 

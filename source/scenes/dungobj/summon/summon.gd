@@ -1,38 +1,17 @@
 @tool
-extends Node3D
+extends StaticBody3D
 
 #region constants
 const SUMMON_TIME = 1.0
-const SUMMON_BODY = {
-	"DRAGON" : preload("res://scenes/dungobj/summon/body/dragon.tscn"),
-	"SPELLCASTER" : preload("res://scenes/dungobj/summon/body/spellcaster.tscn"),
-	"UNDEAD" : preload("res://scenes/dungobj/summon/body/undead.tscn"),
-	"BEAST" : preload("res://scenes/dungobj/summon/body/beast.tscn"),
-	"WARRIOR" : preload("res://scenes/dungobj/summon/body/warrior.tscn"),
-	"ITEM" : preload("res://scenes/dungobj/summon/body/item.tscn"),
-}
 #endregion
 
 #region export variables
 @export_range(1, 2, 1) var player : int = 1 :
 	set(_player):
 		player = _player
-		material = Globals.PLAYER_MATERIALS[player].duplicate()
-		$Base.set_surface_override_material(0, material)
-		if %BodyContainer.get_child_count() > 0:
-			%BodyContainer.get_child(0).set_material(material)
-
-@export_enum("DRAGON", "SPELLCASTER", "UNDEAD", "BEAST", "WARRIOR", "ITEM")
-var type : String = "DRAGON" :
-	set(_type):
-		type = _type
-		if %BodyContainer.get_child_count() > 0:
-			var body = %BodyContainer.get_child(0)
-			%BodyContainer.remove_child(body)
-			body.queue_free()
-		%BodyContainer.add_child(SUMMON_BODY[type].instantiate())
-		$SummonOverhead.visible = type != "ITEM"
-		player = player # used to update the player body color
+		var material = Globals.PLAYER_MATERIALS[player].duplicate()
+		$BaseMesh.set_surface_override_material(0, material)
+		$BodyMesh.set_material(material)
 
 @export_range(0, 50, 10) var original_attack : int = 10 :
 	set(_original_attack):
@@ -73,32 +52,19 @@ var summon_name : String = ""
 var level : int = 0
 #endregion
 
-#region private variables
-var material = Globals.PLAYER_MATERIALS[player].duplicate()
-#endregion
-
-#region public functions
-func set_summon(dice_dict, _player):
-	summon_name = dice_dict["NAME"]
-	type = dice_dict["TYPE"]
-	level = dice_dict["LEVEL"]
-	if type != "ITEM":
-		original_attack = dice_dict["ATTACK"]
-		original_defense = dice_dict["DEFENSE"]
-		original_health = dice_dict["HEALTH"]
-	player = _player
-	set_pre_dimension()
-
+#region public variables
 func tween_dimension(tween):
+	var material = $BaseMesh.get_surface_override_material(0)
 	tween.tween_property(material, "emission_energy_multiplier", 0.0, SUMMON_TIME)
 	tween.set_parallel(true)
 	tween.tween_property($SummonOverhead, "alpha", 1.0, SUMMON_TIME)
-	%BodyContainer.get_child(0).tween_dimension(tween, SUMMON_TIME)
+	%BodyMesh.tween_dimension(tween, SUMMON_TIME)
 #endregion
 
 #region private functions
 func set_pre_dimension():
+	var material = $BaseMesh.get_surface_override_material(0)
 	material.emission_energy_multiplier = 2.0
 	$SummonOverhead.alpha = 0.0
-	%BodyContainer.get_child(0).set_pre_dimension()
+	$BodyMesh.set_pre_dimension()
 #endregion

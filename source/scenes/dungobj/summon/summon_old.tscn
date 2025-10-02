@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b1qptgwxay546"]
 
-[ext_resource type="Script" uid="uid://cjiaw6dgirjlg" path="res://scenes/dungobj/summon/summon.gd" id="1_we0cr"]
+[ext_resource type="Script" uid="uid://cjiaw6dgirjlg" path="res://scenes/dungobj/summon/summon_old.gd" id="1_we0cr"]
 [ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_7sf84"]
 [ext_resource type="PackedScene" uid="uid://cnstwc06ol2cs" path="res://scenes/dungobj/summon/summon_overhead/summon_overhead.tscn" id="3_fwims"]
 
