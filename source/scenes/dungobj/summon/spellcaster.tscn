@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://di8g503q2bn2t"]
+[gd_scene load_steps=11 format=3 uid="uid://di8g503q2bn2t"]
 
 [ext_resource type="Script" uid="uid://b68ye61tjj3xs" path="res://scenes/dungobj/summon/spellcaster.gd" id="1_8dmqj"]
 [ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_u5c14"]
@@ -23,7 +23,14 @@ radius = 0.4
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_i8q05"]
 height = 0.1
-radius = 0.28
+radius = 0.19
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8dmqj"]
+height = 0.1
+radius = 0.115
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u5c14"]
+size = Vector3(0.06, 0.1, 0.645)
 
 [node name="Spellcaster" type="StaticBody3D"]
 script = ExtResource("1_8dmqj")
@@ -41,8 +48,20 @@ shape = SubResource("CylinderShape3D_ejqjh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
 [node name="BodyShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.305, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.02, 0.425, 0)
 shape = SubResource("CylinderShape3D_i8q05")
+
+[node name="BodyShape2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.02, 0.6, 0)
+shape = SubResource("CylinderShape3D_8dmqj")
+
+[node name="BodyShape3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.015, 0.175, 0)
+shape = SubResource("BoxShape3D_u5c14")
+
+[node name="BodyShape4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.255, 0.425, 0)
+shape = SubResource("BoxShape3D_u5c14")
 
 [node name="SummonOverhead" parent="." instance=ExtResource("4_1b7gp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93, 0)

@@ -20,9 +20,8 @@ emission_energy_multiplier = 0.0
 height = 0.1
 radius = 0.4
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_i8q05"]
-height = 0.1
-radius = 0.28
+[sub_resource type="BoxShape3D" id="BoxShape3D_8i5wx"]
+size = Vector3(0.7, 0.1, 0.56)
 
 [node name="Item" type="StaticBody3D"]
 script = ExtResource("1_8i5wx")
@@ -40,5 +39,5 @@ shape = SubResource("CylinderShape3D_ejqjh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
 [node name="BodyShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.305, 0)
-shape = SubResource("CylinderShape3D_i8q05")
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.376, 0)
+shape = SubResource("BoxShape3D_8i5wx")

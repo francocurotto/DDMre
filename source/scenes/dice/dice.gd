@@ -9,6 +9,14 @@ const STATIC_TIME_THRESHOLD = 0.5
 const ROLLED_SIDE_THRESHOLD = 0.99
 const ROLL_FORCE_SCALER = 0.01
 const ROLL_TORQUE_LIMIT = 5
+const Item = preload("res://scenes/dungobj/summon/item.tscn")
+const MONSTER_DICT = {
+	"DRAGON" :  preload("res://scenes/dungobj/summon/dragon.tscn"),
+	"SPELLCASTER" : preload("res://scenes/dungobj/summon/spellcaster.tscn"),
+	"UNDEAD" : preload("res://scenes/dungobj/summon/undead.tscn"),
+	"BEAST" : preload("res://scenes/dungobj/summon/beast.tscn"),
+	"WARRIOR" : preload("res://scenes/dungobj/summon/warrior.tscn")
+}
 #endregion
 
 #region signals
@@ -46,6 +54,7 @@ const DIM_ROTATIONS = [
 #region public variables
 var roll_flag = false
 var sides = []
+var summon
 var player : int :
 	set(_player):
 		player = _player
@@ -85,7 +94,6 @@ var rotating : bool :
 @onready var side4 = $Sides/Side4
 @onready var side5 = $Sides/Side5
 @onready var side6 = $Sides/Side6
-@onready var summon = $Summon
 #endregion
 
 #region builtin functions
@@ -115,7 +123,11 @@ func set_dice(_index, _dice_dict, _player):
 	for i in 6:
 		$Sides.get_child(i).set_side(type, level, side_strings[i])
 	# set summon
-	$Summon.set_summon(dice_dict, player)
+	if type == "ITEM":
+		summon = Item.instantiate()
+	else:
+		summon = MONSTER_DICT[type].instantiate()
+	summon.set_summon(dice_dict, player)
 
 func clone():
 	var copy = duplicate()

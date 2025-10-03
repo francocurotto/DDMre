@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://8k2p48b3cxdl"]
+[gd_scene load_steps=11 format=3 uid="uid://8k2p48b3cxdl"]
 
 [ext_resource type="Script" uid="uid://hwiq3gww8c60" path="res://scenes/dungobj/summon/dragon.gd" id="1_isp4i"]
 [ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_i8q05"]
@@ -21,9 +21,15 @@ emission_energy_multiplier = 0.0
 height = 0.1
 radius = 0.4
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_i8q05"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_isp4i"]
+size = Vector3(0.255, 0.1, 0.59)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i8q05"]
+size = Vector3(0.255, 0.1, 0.59)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7r7xh"]
 height = 0.1
-radius = 0.32
+radius = 0.23
 
 [node name="Dragon" type="StaticBody3D"]
 script = ExtResource("1_isp4i")
@@ -41,8 +47,16 @@ shape = SubResource("CylinderShape3D_ejqjh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
 [node name="BodyShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.04386264, 0.4, 0)
-shape = SubResource("CylinderShape3D_i8q05")
+transform = Transform3D(0.52408993, -3.722737e-08, -0.85166293, -0.85166293, -2.2908699e-08, -0.52408993, 0, 1, -4.371139e-08, 0, 0.52, 0)
+shape = SubResource("BoxShape3D_isp4i")
+
+[node name="BodyShape2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.97497505, -9.71767e-09, -0.22231436, -0.22231436, -4.2617515e-08, -0.97497505, 0, 1, -4.371139e-08, 0.16213588, 0.36, 0)
+shape = SubResource("BoxShape3D_i8q05")
+
+[node name="BodyShape3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.97497505, -9.71767e-09, -0.22231436, -0.22231436, -4.2617515e-08, -0.97497505, 0, 1, -4.371139e-08, 0.117, 0.515, 0)
+shape = SubResource("CylinderShape3D_7r7xh")
 
 [node name="SummonOverhead" parent="." instance=ExtResource("4_bl4oj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93, 0)
