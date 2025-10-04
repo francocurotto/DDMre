@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqnywtxmfls7e"]
+[gd_scene load_steps=9 format=3 uid="uid://cqnywtxmfls7e"]
 
 [ext_resource type="Script" uid="uid://g3w83qaetppi" path="res://scenes/dungobj/summon/item.gd" id="1_8i5wx"]
 [ext_resource type="Material" uid="uid://bpkw4mbdw5sv5" path="res://assets/materials/MATERIAL_P1.tres" id="2_dhm2l"]
 [ext_resource type="PackedScene" uid="uid://dpx40dweo1fm3" path="res://scenes/dungobj/summon/body/item_body.tscn" id="3_8i5wx"]
+[ext_resource type="PackedScene" uid="uid://cnstwc06ol2cs" path="res://scenes/dungobj/summon/summon_overhead/summon_overhead.tscn" id="4_5keap"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_fwims"]
 material = ExtResource("2_dhm2l")
@@ -24,6 +25,8 @@ radius = 0.4
 size = Vector3(0.7, 0.1, 0.56)
 
 [node name="Item" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_8i5wx")
 
 [node name="BaseMesh" type="MeshInstance3D" parent="."]
@@ -41,3 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 [node name="BodyShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.376, 0)
 shape = SubResource("BoxShape3D_8i5wx")
+
+[node name="SummonOverhead" parent="." instance=ExtResource("4_5keap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93, 0)
+visible = false

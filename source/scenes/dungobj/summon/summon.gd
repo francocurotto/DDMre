@@ -58,7 +58,7 @@ func tween_dimension(tween):
 	tween.tween_property(material, "emission_energy_multiplier", 0.0, SUMMON_TIME)
 	tween.set_parallel(true)
 	tween.tween_property($SummonOverhead, "alpha", 1.0, SUMMON_TIME)
-	%BodyMesh.tween_dimension(tween, SUMMON_TIME)
+	$BodyMesh.tween_dimension(tween, SUMMON_TIME)
 #endregion
 
 #region private functions

@@ -128,6 +128,8 @@ func set_dice(_index, _dice_dict, _player):
 	else:
 		summon = MONSTER_DICT[type].instantiate()
 	summon.set_summon(dice_dict, player)
+	#summon.visible = false
+	add_child(summon)
 
 func clone():
 	var copy = duplicate()
@@ -160,7 +162,7 @@ func setup_dim_select(tween, new_position):
 
 func unfold(net):
 	dimension_started.emit()
-	$Summon.visible = true
+	summon.visible = true
 	var tween = create_tween()
 	tween.tween_property(self, "position:y", Globals.DIMENSION_HEIGHT, 0.1)
 	tween.set_trans(Tween.TRANS_SINE)

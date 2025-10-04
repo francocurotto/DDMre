@@ -4,9 +4,9 @@
     - make action buttons appear when selecting a monster in dungeon state
 
 ## IMPROVEMENTS
-- change summon scene implementation
-    - add mesh instance 3d to each summon
 
 ## FIXES
+- Fix player 2 summon not white while summoning
+    - seems two summons exists in dice before summon
 
 ## GRAPHICS
