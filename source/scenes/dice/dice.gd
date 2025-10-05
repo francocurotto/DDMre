@@ -128,7 +128,7 @@ func set_dice(_index, _dice_dict, _player):
 	else:
 		summon = MONSTER_DICT[type].instantiate()
 	summon.set_summon(dice_dict, player)
-	#summon.visible = false
+	summon.visible = false
 	add_child(summon)
 
 func clone():
@@ -162,7 +162,6 @@ func setup_dim_select(tween, new_position):
 
 func unfold(net):
 	dimension_started.emit()
-	summon.visible = true
 	var tween = create_tween()
 	tween.tween_property(self, "position:y", Globals.DIMENSION_HEIGHT, 0.1)
 	tween.set_trans(Tween.TRANS_SINE)
@@ -172,6 +171,7 @@ func unfold(net):
 		call("set_unfold_%s_flipped" % net.type)
 	var base_side = $Sides.get_child(0)
 	base_side.reparent_summon(summon)
+	summon.visible = true
 	for pivot in pivots:
 		pivot.unfold(tween, pivot.sequence==pivot_sequence)
 		pivot_sequence = pivot.sequence

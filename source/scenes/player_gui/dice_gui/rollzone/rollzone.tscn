@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bo2erx6gn1vii"]
+[gd_scene load_steps=10 format=3 uid="uid://bo2erx6gn1vii"]
 
 [ext_resource type="Script" uid="uid://bxqvo6xk1aiyp" path="res://scenes/player_gui/dice_gui/rollzone/rollzone.gd" id="1_dac2p"]
 [ext_resource type="PackedScene" uid="uid://c6mitq2hlr2wj" path="res://scenes/player_gui/touch_controls/touch_controls.tscn" id="2_r0is7"]
+[ext_resource type="PackedScene" uid="uid://baq5yryu6nux1" path="res://scenes/player_gui/action_button/action_button.tscn" id="3_f4pdc"]
+[ext_resource type="Texture2D" uid="uid://dne4yuef0wmyh" path="res://assets/icons/CANCEL.svg" id="4_oacuq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dac2p"]
 size = Vector3(20, 0, 20)
@@ -104,3 +106,17 @@ disabled = true
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 25
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="SkipButton" parent="MarginContainer" instance=ExtResource("3_f4pdc")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+icon = ExtResource("4_oacuq")
+type = "CANCEL"

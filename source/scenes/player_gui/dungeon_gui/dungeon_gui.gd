@@ -1,5 +1,9 @@
 extends Control
 
+#region signals
+signal summon_touched
+#endregion
+
 #region constants
 const DIMDICE_Y_POSITION = 2
 const DIMDICE_DRAG_THRESHOLD = 10
@@ -24,7 +28,9 @@ var dimcoor : Vector2i
 
 #region builtin functions
 func _ready() -> void:
-	controls.mask = Globals.LAYERS.DICE + Globals.LAYERS.BASE_TILES
+	controls.mask = Globals.LAYERS.DICE + \
+		Globals.LAYERS.BASE_TILES + \
+		Globals.LAYERS.SUMMONS
 	controls.set_raycast(get_viewport(), duel_camera)
 	controls.touch_released.connect(on_touch_released)
 	controls.dragging.connect(on_dragging)
@@ -60,7 +66,9 @@ func on_dimdice_selected(original_dimdice):
 
 func on_touch_released():
 	var object = controls.touched_object
-	if Globals.dungeon.dimdice and object in Globals.dungeon.tiles:
+	if object and object.collision_layer == Globals.LAYERS.SUMMONS:
+		summon_touched.emit(object)
+	elif Globals.dungeon.dimdice and object in Globals.dungeon.tiles:
 		var tile = object
 		dimdice_position = tile.global_position
 		dimdice_position.y += DIMDICE_Y_POSITION

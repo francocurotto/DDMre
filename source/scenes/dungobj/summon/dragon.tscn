@@ -11,7 +11,7 @@ top_radius = 0.4
 bottom_radius = 0.4
 height = 0.1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5lyxv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isp4i"]
 albedo_color = Color(0.08896736, 0.14766285, 0.44825733, 1)
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
@@ -39,7 +39,7 @@ script = ExtResource("1_isp4i")
 [node name="BaseMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 mesh = SubResource("CylinderMesh_fwims")
-surface_material_override/0 = SubResource("StandardMaterial3D_5lyxv")
+surface_material_override/0 = SubResource("StandardMaterial3D_isp4i")
 
 [node name="BaseShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

@@ -92,6 +92,7 @@ func on_dim_setup_finished():
 
 func on_dimension_started():
 	controls.disabled = true
+	%SkipButton.visible = false
 	remove_triplet()
 #endregion
 
@@ -165,4 +166,6 @@ func setup_dim(tween, dimdice_list):
 	var dimdice_positions = DIMPOS[len(dimdice_list)]
 	for i in len(dimdice_list):
 		dimdice_list[i].setup_dim_select(tween, dimdice_positions[i])
+	await tween.finished
+	%SkipButton.visible = true
 #endregion
