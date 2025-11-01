@@ -1,5 +1,6 @@
 ## FEATURES
-- make dungeon buttons have correct color
+- make pressing dungeon button not disappear
+- MOVEMENT!
 
 ## IMPROVEMENTS
 

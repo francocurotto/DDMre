@@ -71,19 +71,18 @@ func on_touch_released():
 		summon_touched.emit(object)
 		if player_gui.state == Globals.GUI_STATE.DUNGEON:
 			%DungeonButtons.visible = true
+			%EndTurn.visible = false
 	elif Globals.dungeon.dimdice and object in Globals.dungeon.tiles:
 		var tile = object
 		dimdice_position = tile.global_position
 		dimdice_position.y += DIMDICE_Y_POSITION
 		dimcoor = Globals.dungeon.get_tilecoor(tile)
 		Globals.dungeon.on_tile_touched(tile, dimdice_position, player_gui.net)
-	else:
-		summon_untouched.emit()
-		%DungeonButtons.visible = false
+	else: #TODO: fix not enter if dungeon button pressed
+		on_summon_untouched()
 
 func on_dragging(length, angle):
-	summon_untouched.emit()
-	%DungeonButtons.visible = false
+	on_summon_untouched()
 	var dimdice = Globals.dungeon.dimdice
 	if dimdice and controls.touched_object == dimdice:
 		if dimdice_dragging:
@@ -119,6 +118,11 @@ func _on_camera_reset_pressed() -> void:
 	%CameraReset.visible = false
 	duel_camera.on_camera_reset_pressed()
 	controls.disabled = false
+
+func on_summon_untouched():
+	%EndTurn.visible = true
+	%DungeonButtons.visible = false
+	summon_untouched.emit()
 
 func _on_end_turn_pressed() -> void:
 	%EndTurn.visible = false
