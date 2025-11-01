@@ -2,6 +2,7 @@ extends Control
 
 #region signals
 signal summon_touched
+signal summon_untouched
 #endregion
 
 #region constants
@@ -68,14 +69,21 @@ func on_touch_released():
 	var object = controls.touched_object
 	if object and object.collision_layer == Globals.LAYERS.SUMMONS:
 		summon_touched.emit(object)
+		if player_gui.state == Globals.GUI_STATE.DUNGEON:
+			%DungeonButtons.visible = true
 	elif Globals.dungeon.dimdice and object in Globals.dungeon.tiles:
 		var tile = object
 		dimdice_position = tile.global_position
 		dimdice_position.y += DIMDICE_Y_POSITION
 		dimcoor = Globals.dungeon.get_tilecoor(tile)
 		Globals.dungeon.on_tile_touched(tile, dimdice_position, player_gui.net)
+	else:
+		summon_untouched.emit()
+		%DungeonButtons.visible = false
 
 func on_dragging(length, angle):
+	summon_untouched.emit()
+	%DungeonButtons.visible = false
 	var dimdice = Globals.dungeon.dimdice
 	if dimdice and controls.touched_object == dimdice:
 		if dimdice_dragging:

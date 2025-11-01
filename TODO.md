@@ -1,5 +1,5 @@
 ## FEATURES
-- Make action buttons appear when selecting a monster in dungeon state
+- make dungeon buttons have correct color
 
 ## IMPROVEMENTS
 

@@ -67,6 +67,7 @@ func _ready() -> void:
 	$DiceGUI.rollzone.dimdice_selected.connect($DungeonGUI.on_dimdice_selected)
 	$DuelCamera.camera_moved.connect(func(): dungeon_gui.camera_reset.visible=true)
 	$DungeonGUI.summon_touched.connect($InfoGUI.on_summon_touched)
+	$DungeonGUI.summon_untouched.connect($InfoGUI.on_summon_untouched)
 	# setup dungeon_gui
 	dungeon_gui.set_raycast(get_viewport(), duel_camera)
 	# setup net

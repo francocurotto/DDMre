@@ -18,6 +18,9 @@ func on_dimdice_selected(dice):
 func on_summon_touched(summon):
 	activate_summon_info(summon)
 
+func on_summon_untouched():
+	deactivate_info()
+
 func on_dimension_started():
 	deactivate_info()
 #endregion
