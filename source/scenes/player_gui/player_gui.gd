@@ -96,5 +96,7 @@ func on_switched_to_roll_state():
 	net.reset_rotation_orientation(player)
 
 func on_switched_to_dungeon_state():
+	$InfoGUI.on_dimension_started() # same effect as skip button pressed
+	$DiceGUI.on_switched_to_dungeon_state()
 	$DungeonGUI.on_switched_to_dungeon_state()
 #endregion

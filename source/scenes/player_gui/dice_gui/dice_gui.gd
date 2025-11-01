@@ -53,6 +53,9 @@ func on_dimension_started(dimdice):
 	%Rollzone.on_dimension_started()
 	%Nets.disable_buttons()
 
+func on_switched_to_dungeon_state():
+	%Nets.disable_buttons()
+
 func on_switched_to_roll_state():
 	$TabContainer.current_tab = 0
 	%Dicepool.on_switched_to_roll_state()

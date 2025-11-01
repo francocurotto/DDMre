@@ -120,3 +120,5 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 icon = ExtResource("4_oacuq")
 type = "CANCEL"
+
+[connection signal="pressed" from="MarginContainer/SkipButton" to="." method="_on_skip_button_pressed"]

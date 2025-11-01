@@ -104,6 +104,7 @@ func on_dimension_finished():
 	player_gui.state = Globals.GUI_STATE.DUNGEON
 
 func on_switched_to_dungeon_state():
+	Globals.dungeon.remove_dimdice()
 	%EndTurn.visible = true
 
 func _on_camera_reset_pressed() -> void:

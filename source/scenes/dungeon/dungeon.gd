@@ -61,6 +61,11 @@ func return_dimdice(return_position, shake=false):
 		tween.tween_method(apply_dimdice_shake, 0.0, 1.0, DIMDICE_RETURN_TIME)
 	await tween.finished
 	dimdice.dimdice_movement_finished.emit()
+
+func remove_dimdice():
+	remove_tiles_highlight()
+	if dimdice:
+		dimdice.queue_free()
 #endregion
 
 #region signals callbacks
@@ -141,6 +146,9 @@ func get_neighbor_tiles(coor):
 
 func dimension_the_dice(net):
 	dimdice.unfold(net)
+	remove_tiles_highlight()
+
+func remove_tiles_highlight():
 	for tile in tiles:
 		tile.highlight = false
 

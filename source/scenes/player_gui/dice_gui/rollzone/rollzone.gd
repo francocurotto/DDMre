@@ -94,6 +94,10 @@ func on_dimension_started():
 	controls.disabled = true
 	%SkipButton.visible = false
 	remove_triplet()
+
+func _on_skip_button_pressed() -> void:
+	on_dimension_started() # same effect as skip button pressed
+	player_gui.state = Globals.GUI_STATE.DUNGEON
 #endregion
 
 #region private functions
