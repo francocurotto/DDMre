@@ -55,6 +55,7 @@ var dicelib = Globals.read_jsonfile(Globals.LIBPATH)
 #region builtin functions
 func _ready() -> void:
 	# setup player_gui reference
+	# TODO: change to find_parent
 	$DungeonGUI.player_gui = self
 	$DungeonGUI.duel_camera = duel_camera
 	$DiceGUI.dicepool.player_gui = self
