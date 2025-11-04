@@ -5,7 +5,7 @@
 
 ## IMPROVEMENTS
 - change player_gui refererence passing with find_parent
-- change dimdice and summon picking to automatically be done by activating physics_object_picking
+- change dimdice and summon touching to viewport physics_object_picking
 
 ## FIXES
 - fix player getting dungeon buttons when selecting opponent player
