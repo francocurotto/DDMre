@@ -1,10 +1,11 @@
 ## FEATURES
 - make pressing dungeon button not disappear
-    - use `_unhandled_input` instead of `_input`
+    - use `_gui_input` instead of `_input`
 - MOVEMENT!
 
 ## IMPROVEMENTS
 - change player_gui refererence passing with find_parent
+- change dimdice and summon picking to automatically be done by activating physics_object_picking
 
 ## FIXES
 - fix player getting dungeon buttons when selecting opponent player
