@@ -32,10 +32,10 @@ var threshold_flag : bool = false ## true if threshold was exceeded
 #endregion
 
 #region builtin functions
-func _input(event: InputEvent) -> void:
+func _gui_input(event: InputEvent) -> void:
 	if not disabled:
 		if event is InputEventScreenTouch and event.pressed:
-			if get_global_rect().has_point(event.position):
+			if get_rect().has_point(event.position):
 				if event.index == 0:
 					touch_flag = true
 					touch_position = viewport.get_mouse_position()
