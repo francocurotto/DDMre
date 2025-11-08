@@ -38,7 +38,7 @@ func _gui_input(event: InputEvent) -> void:
 			if get_rect().has_point(event.position):
 				if event.index == 0:
 					touch_flag = true
-					touch_position = viewport.get_mouse_position()
+					touch_position = event.position
 					touched_object = get_touched_object()
 					touch_pressed.emit()
 				else:
@@ -46,7 +46,7 @@ func _gui_input(event: InputEvent) -> void:
 		elif event is InputEventScreenDrag and touch_flag:
 			drag_flag = true
 			velocity = event.velocity
-			dragging.emit(get_drag_length(), get_drag_angle(event))
+			dragging.emit(get_drag_length(event), get_drag_angle(event))
 		elif event is InputEventScreenTouch and not event.pressed and touch_flag:
 			if drag_flag:
 				drag_released.emit()
@@ -77,17 +77,20 @@ func reset_flags():
 	threshold_flag = false
 
 func get_touched_object():
-	var ray_origin = camera3d.project_ray_origin(touch_position)
-	var ray_target = ray_origin + camera3d.project_ray_normal(touch_position) * 1000
+	var mouse_position = viewport.get_mouse_position()
+	var ray_origin = camera3d.project_ray_origin(mouse_position)
+	var ray_target = ray_origin + camera3d.project_ray_normal(mouse_position) * 1000
 	var space_state = camera3d.get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_target, mask)
 	var result = space_state.intersect_ray(query)
 	if result:
 		return result["collider"]
 
-func get_drag_length():
-	return  viewport.get_mouse_position().distance_to(touch_position)
+func get_drag_length(event):
+	return  event.position.distance_to(touch_position)
 
 func get_drag_angle(event):
+	#print("touch position:", touch_position, ", mouse position:", event.position)
+	#print("angle:", rad_to_deg(-touch_position.angle_to_point(event.position)))
 	return rad_to_deg(-touch_position.angle_to_point(event.position))
 #endregion
