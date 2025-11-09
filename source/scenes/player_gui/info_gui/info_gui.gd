@@ -1,7 +1,12 @@
 extends VBoxContainer
 
+#region public variables
+var player_gui
+#endregion
+
 #region builtin functions
 func _ready() -> void:
+	player_gui = find_parent("PlayerGUI?")
 	deactivate_info()
 #endregion
 
@@ -18,7 +23,7 @@ func on_dimdice_selected(dice):
 func on_summon_touched(summon):
 	activate_summon_info(summon)
 
-func on_summon_untouched():
+func on_dungeon_cancel_button_pressed():
 	deactivate_info()
 
 func on_dimension_started():
@@ -34,7 +39,7 @@ func activate_dice_info(dice):
 func activate_summon_info(summon):
 	$TabContainer.current_tab = 0
 	$TabContainer.set_tab_disabled(0, false)
-	%"Summon Info".set_summon_info(summon)
+	%"Summon Info".set_summon_info(player_gui.player, summon)
 
 func deactivate_info():
 	$TabContainer.current_tab = -1

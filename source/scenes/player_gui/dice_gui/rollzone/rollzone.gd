@@ -35,6 +35,7 @@ var triplet_size : int = 0 :
 
 #region builtin functions
 func _ready() -> void:
+	player_gui = find_parent("PlayerGUI?")
 	controls.set_raycast(%SubViewport, %Camera3D)
 	controls.touch_pressed.connect(on_touch_pressed)
 	controls.drag_released.connect(on_drag_released)

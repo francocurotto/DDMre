@@ -10,6 +10,7 @@ var button_group = ButtonGroup.new()
 
 #region builtin functions
 func _ready() -> void:
+	player_gui = find_parent("PlayerGUI?")
 	for button in %GridContainer.get_children():
 		button.button_group = button_group
 	button_group.pressed.connect(on_button_pressed)

@@ -1,8 +1,13 @@
 extends Control
 
+#region enums
+enum GUI_SUBSTATE {INIT, MOVE, ATTACK}
+#endregion
+
 #region signals
 signal summon_touched
 signal summon_untouched
+signal dungeon_cancel_button_pressed
 #endregion
 
 #region constants
@@ -13,10 +18,11 @@ const DIMDICE_INIT_ROTATION = {1: Vector3(0,0,0), 2: Vector3(0, PI, 0)}
 
 #region public variables
 var player_gui
-var duel_camera
+#var duel_camera
 #endregion
 
 #region private variables
+var gui_substate = GUI_SUBSTATE.INIT
 var dimdice_dragging = false
 var dimdice_position : Vector3
 var dimcoor : Vector2i
@@ -25,18 +31,20 @@ var dimcoor : Vector2i
 #region onready variables
 @onready var controls = $TouchControls
 @onready var camera_reset = %CameraReset
+@onready var dungeon_buttons = %DungeonButtons
 #endregion
 
 #region builtin functions
 func _ready() -> void:
+	player_gui = find_parent("PlayerGUI?")
 	controls.mask = Globals.LAYERS.DICE + \
 		Globals.LAYERS.BASE_TILES + \
 		Globals.LAYERS.SUMMONS
-	controls.set_raycast(get_viewport(), duel_camera)
 	controls.touch_released.connect(on_touch_released)
 	controls.dragging.connect(on_dragging)
 	controls.drag_released.connect(on_drag_released)
 	controls.pinching.connect(on_pinching)
+	dungeon_buttons.cancel_button_pressed.connect(on_cancel_button_pressed)
 #endregion
 
 #region public functions
@@ -67,19 +75,28 @@ func on_dimdice_selected(original_dimdice):
 
 func on_touch_released():
 	var object = controls.touched_object
-	if object and object.collision_layer == Globals.LAYERS.SUMMONS:
-		summon_touched.emit(object)
-		if player_gui.state == Globals.GUI_STATE.DUNGEON:
-			%DungeonButtons.visible = true
-			%EndTurn.visible = false
-	elif Globals.dungeon.dimdice and object in Globals.dungeon.tiles:
-		var tile = object
+	if not object: # case of no relevant touchable object touched
+		return
+	if object in Globals.dungeon.tiles: # if object is empty tile
+		on_tile_touched(object)
+	elif object.collision_layer == Globals.LAYERS.SUMMONS: # if object is summon
+		on_summon_touched(object)
+
+func on_tile_touched(tile):
+	# if dimdice exists, i.e. if in dimension state
+	if Globals.dungeon.dimdice:
 		dimdice_position = tile.global_position
 		dimdice_position.y += DIMDICE_Y_POSITION
 		dimcoor = Globals.dungeon.get_tilecoor(tile)
 		Globals.dungeon.on_tile_touched(tile, dimdice_position, player_gui.net)
-	#else: #TODO: fix not enter if dungeon button pressed
-	#	on_summon_untouched()
+
+func on_summon_touched(summon):
+	summon_touched.emit(summon)
+	if player_gui.state == Globals.GUI_STATE.DUNGEON:
+		if gui_substate == GUI_SUBSTATE.INIT:
+			if summon.type != "ITEM" and summon.player == player_gui.player:
+				dungeon_buttons.activate(player_gui.dice_gui.crestpool)
+				%EndTurn.visible = false
 
 func on_dragging(length, angle):
 	#on_summon_untouched()
@@ -116,13 +133,12 @@ func on_switched_to_dungeon_state():
 
 func _on_camera_reset_pressed() -> void:
 	%CameraReset.visible = false
-	duel_camera.on_camera_reset_pressed()
+	player_gui.duel_camera.on_camera_reset_pressed()
 	controls.disabled = false
 
-#func on_summon_untouched():
-#	%EndTurn.visible = true
-#	%DungeonButtons.visible = false
-#	summon_untouched.emit()
+func on_cancel_button_pressed():
+	%EndTurn.visible = true
+	dungeon_cancel_button_pressed.emit()
 
 func _on_end_turn_pressed() -> void:
 	%EndTurn.visible = false
@@ -163,8 +179,8 @@ func move_dimdice():
 	Globals.dungeon.move_dimdice(velocity, player, net, dimdice_position)
 
 func move_camera():
-	duel_camera.pan(controls.velocity)
+	player_gui.duel_camera.pan(controls.velocity)
 
 func on_pinching(factor):
-	duel_camera.zoom(factor)
+	player_gui.duel_camera.zoom(factor)
 #endregion

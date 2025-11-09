@@ -2,14 +2,17 @@ extends MarginContainer
 
 #region public functions
 func set_dice_info(dice):
-	set_summon_info(dice.summon)
+	set_summon_info(dice.player, dice.summon)
 	%SidesRow.set_sides(dice.sides, dice.summon.type)
 	%SidesRow.visible = true # reactivate dice info
 
-func set_summon_info(summon):
+func set_summon_info(player, summon):
 	%SidesRow.visible = false # hide dice info for summon only display
 	%SummonIcon.texture = load("res://assets/icons/SUMMON_%s.svg" % summon.type)
-	%Name.text = summon.summon_name
+	if player == summon.player or summon.type != "ITEM":
+		%Name.text = summon.summon_name
+	else:
+		%Name.text = "???"
 	%Level.value = summon.level
 	%Attack.value = summon.attack
 	%Defense.value = summon.defense

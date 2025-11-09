@@ -54,13 +54,6 @@ var dicelib = Globals.read_jsonfile(Globals.LIBPATH)
 
 #region builtin functions
 func _ready() -> void:
-	# setup player_gui reference
-	# TODO: change to find_parent
-	$DungeonGUI.player_gui = self
-	$DungeonGUI.duel_camera = duel_camera
-	$DiceGUI.dicepool.player_gui = self
-	$DiceGUI.rollzone.player_gui = self
-	$DiceGUI.net_buttons.player_gui = self
 	# setup gui signals connections
 	$DiceGUI.dicegui_tab_changed.connect($InfoGUI.on_dicegui_tab_changed)
 	$DiceGUI.dicepool.dice_button_focused.connect($InfoGUI.on_dice_button_focused)
@@ -68,7 +61,7 @@ func _ready() -> void:
 	$DiceGUI.rollzone.dimdice_selected.connect($DungeonGUI.on_dimdice_selected)
 	$DuelCamera.camera_moved.connect(func(): dungeon_gui.camera_reset.visible=true)
 	$DungeonGUI.summon_touched.connect($InfoGUI.on_summon_touched)
-	$DungeonGUI.summon_untouched.connect($InfoGUI.on_summon_untouched)
+	$DungeonGUI.dungeon_cancel_button_pressed.connect($InfoGUI.deactivate_info)
 	# setup dungeon_gui
 	dungeon_gui.set_raycast(get_viewport(), duel_camera)
 	# setup net

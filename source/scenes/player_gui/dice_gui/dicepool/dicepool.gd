@@ -20,6 +20,7 @@ var n_buttons_pressed : int = 0 :
 
 #region builtin functions
 func _ready() -> void:
+	player_gui = find_parent("PlayerGUI?")
 	for button in $Grid.get_children():
 		buttons.append(button)
 		button.button_focused.connect(on_dice_button_focused)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://dft43x10ihd30"]
+[gd_scene load_steps=21 format=3 uid="uid://dft43x10ihd30"]
 
+[ext_resource type="Script" uid="uid://bxr6yh3dvpqgq" path="res://scenes/player_gui/dungeon_gui/dungeon_buttons/dungeon_buttons.gd" id="1_61ltm"]
 [ext_resource type="PackedScene" uid="uid://baq5yryu6nux1" path="res://scenes/player_gui/action_button/action_button.tscn" id="1_rvkun"]
 [ext_resource type="Texture2D" uid="uid://ctu2stkxgoxfw" path="res://assets/icons/MOVE.svg" id="2_h36rc"]
 [ext_resource type="Texture2D" uid="uid://dho2ok8ktf2tv" path="res://assets/icons/ATTR_ATTACK.svg" id="3_61ltm"]
@@ -183,6 +184,7 @@ expand_margin_bottom = 2.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_constants/separation = 20
+script = ExtResource("1_61ltm")
 
 [node name="MoveButton" parent="." instance=ExtResource("1_rvkun")]
 layout_mode = 2
@@ -213,3 +215,5 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_ihuiw")
 theme_override_styles/focus = SubResource("StyleBoxFlat_3bxag")
 icon = ExtResource("4_h36rc")
 type = "CANCEL"
+
+[connection signal="pressed" from="CancelButton" to="." method="_on_cancel_button_pressed"]

@@ -12,6 +12,7 @@ var tab_bar
 @onready var dicepool = %Dicepool
 @onready var rollzone = %Rollzone
 @onready var net_buttons = %Nets
+@onready var crestpool = $Crestpool
 #endregion
 
 #region builtin functions
