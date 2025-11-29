@@ -1,6 +1,8 @@
 ## FEATURES
 - MOVEMENT!
-- Implement initial setup for dicepool and dungeon
+    - make tiles activate for movement
+    - check if path are correctly calculated
+- Implement initialization for dicepool, crestpool and dungeon
 
 ## IMPROVEMENTS
 - make info gui support two panels

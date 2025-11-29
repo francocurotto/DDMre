@@ -41,6 +41,7 @@ const PLAYER_MATERIALS = [
 #endregion
 
 #region public variables
+var duel
 var dungeon
 #endregion
 

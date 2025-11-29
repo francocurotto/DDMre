@@ -5,6 +5,9 @@ var player_guis = {}
 #endregion
 
 #region builtin functions
+func _enter_tree() -> void:
+	Globals.duel = self
+
 func _ready() -> void:
 	player_guis[1] = $PlayerGUI1
 	player_guis[2] = $PlayerGUI2

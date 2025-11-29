@@ -50,6 +50,7 @@ const SUMMON_TIME = 1.0
 #region public variables
 var summon_name : String = ""
 var level : int = 0
+var tile = null
 #endregion
 
 #region public variables
@@ -59,6 +60,14 @@ func tween_dimension(tween):
 	tween.set_parallel(true)
 	tween.tween_property($SummonOverhead, "alpha", 1.0, SUMMON_TIME)
 	$BodyMesh.tween_dimension(tween, SUMMON_TIME)
+
+func is_passable_by(monster):
+	#TODO: update when implementing move abilities (FLY, TUNNEL)
+	#return monster == self or monster.pass_behavior.can_pass(self)
+	return monster == self
+
+func is_target():
+	return true
 #endregion
 
 #region private functions

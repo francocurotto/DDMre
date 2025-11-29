@@ -8,32 +8,6 @@ const BlockTile = preload("res://scenes/dungeon/tiles/block_tile/block_tile.tscn
 #endregion
 
 #region export variables
-#@export_enum("EMPTY", "PATH", "BLOCK") var type : String = "EMPTY" :
-	#set(_type):
-		#type = _type
-		#if $TileContainer.get_child_count() >= 1:
-			#$TileContainer.get_child(0).queue_free()
-		#if type == "PATH":
-			#var path_tile = PathTile.instantiate()
-			#path_tile.player = player
-			#$TileContainer.add_child(path_tile)
-		#elif type == "BLOCK":
-			#$TileContainer.add_child(BlockTile.instantiate())
-#
-#@export_range(0,2) var player : int = 1 :
-	#set(_player):
-		#player = _player
-		#if type == "PATH":
-			#var path_tile = $TileContainer.get_child(0)
-			#path_tile.player = player
-#
-#@export var monster_lord : bool :
-	#set(_monster_lord):
-		#monster_lord = _monster_lord
-		#if type == "PATH":
-			#var path_tile = $TileContainer.get_child(0)
-			#path_tile.monster_lord = monster_lord
-
 @export var highlight : bool = false :
 	set(_highlight):
 		highlight = _highlight
@@ -84,4 +58,10 @@ func is_empty():
 
 func has_path():
 	return overtile and overtile.is_path()
+
+func is_passable_by(monster):
+	return has_path() and overtile.is_passable_by(monster)
+
+func is_reachable():
+	return has_path() and overtile.is_reachable()
 #endregion

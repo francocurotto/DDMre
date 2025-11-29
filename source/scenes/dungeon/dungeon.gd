@@ -6,6 +6,10 @@ const DIMDICE_RETURN_TIME = 0.5
 const DIMDICE_DRAG_SPEED = 0.0002
 #endregion
 
+#region preloads
+const MovePathQueue = preload("res://scenes/dungeon/path_queue/move_path_queue.gd")
+#endregion
+
 #region public variables
 var dimdice :
 	set(_dimdice):
@@ -66,6 +70,17 @@ func remove_dimdice():
 	remove_tiles_highlight()
 	if dimdice:
 		dimdice.queue_free()
+
+func activate_move_tiles(monster):
+	var move_path_queue = MovePathQueue.new(self, monster)
+	var move_tiles = move_path_queue.tiles
+	print(move_tiles)
+
+func get_max_move_tiles(monster):
+	var player_gui = Globals.duel.player_guis[monster.player]
+	var move_crests = player_gui.dice_gui.crestpool.sides_dict["MOVEMENT"].amount
+	var move_cost = 1 #TODO: change when gluminizer is implemented
+	return min(floor(move_crests/move_cost*monster.speed), monster.max_move)
 #endregion
 
 #region signals callbacks
@@ -93,6 +108,18 @@ func flip_dimdice(player):
 #endregion
 
 #region private functions
+func get_tilecoor(tile):
+	return Vector2i(tile.get_index(), tile.get_parent().get_index())
+
+func get_tile(coor):
+	if coor_in_bound(coor):
+		return $Rows.get_child(coor.y).get_child(coor.x)
+
+func get_summon_tile(summon):
+	for tile in tiles:
+		if tile.dungobj and tile.dungobj == summon:
+			return tile
+
 func get_net_tiles(net, dimcoor):
 	var net_tiles = []
 	net.offset = dimcoor
@@ -101,13 +128,6 @@ func get_net_tiles(net, dimcoor):
 		if tile:
 			net_tiles.append(tile)
 	return net_tiles
-
-func get_tilecoor(tile):
-	return Vector2i(tile.get_index(), tile.get_parent().get_index())
-
-func get_tile(coor):
-	if coor_in_bound(coor):
-		return $Rows.get_child(coor.y).get_child(coor.x)
 
 func coor_in_bound(coor):
 	var in_bound_x = 0 <= coor.x and coor.x < Globals.DUNGEON_WIDTH

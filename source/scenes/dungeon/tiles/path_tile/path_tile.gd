@@ -30,6 +30,15 @@ const MonsterLord = preload("res://scenes/dungobj/monster_lord/monster_lord.tscn
 			highlight_tween.tween_property($Icon, "modulate", COLORLIST[player], 1)
 #endregion
 
+#region public variables
+var base_tile = null
+var content :
+	get():
+		if $DungobjContainer.get_child_count() >= 1:
+			return $DungobjContainer.get_child(0)
+		return null
+#endregion
+
 #region private variables
 var highlight_tween
 #endregion
@@ -40,12 +49,19 @@ func is_path():
 
 func add_summon(summon):
 	summon.reparent($DungobjContainer, false)
+	summon.tile = self
 	summon.global_rotation = Vector3.ZERO
 	summon.position = Vector3.ZERO
 
 func move_to_dungeon():
-	var base_tile = $RayCast3D.get_collider()
+	base_tile = $RayCast3D.get_collider()
 	base_tile.stack_path_tile(self)
+
+func is_passable_by(monster):
+	return is_empty() or content.is_passable_by(monster)
+
+func is_reachable():
+	return is_empty or not content.is_target()
 #endregion
 
 #region private functions
@@ -61,4 +77,7 @@ func set_player():
 		var monster_lord_obj = MonsterLord.instantiate()
 		monster_lord_obj.player = player
 		$DungobjContainer.add_child(monster_lord_obj)
+
+func is_empty():
+	return content == null
 #endregion

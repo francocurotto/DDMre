@@ -2,6 +2,7 @@ extends VBoxContainer
 
 #region signals
 signal cancel_button_pressed
+signal move_button_pressed
 #endregion
 
 #region public variables
@@ -18,4 +19,9 @@ func deactivate():
 func _on_cancel_button_pressed() -> void:
 	visible = false
 	cancel_button_pressed.emit()
+
+func _on_move_button_pressed() -> void:
+	$MoveButton.disabled = true
+	$AttackButton.disabled = true
+	move_button_pressed.emit()
 #endregion

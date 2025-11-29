@@ -18,7 +18,6 @@ const DIMDICE_INIT_ROTATION = {1: Vector3(0,0,0), 2: Vector3(0, PI, 0)}
 
 #region public variables
 var player_gui
-#var duel_camera
 #endregion
 
 #region private variables
@@ -26,6 +25,7 @@ var gui_substate = GUI_SUBSTATE.INIT
 var dimdice_dragging = false
 var dimdice_position : Vector3
 var dimcoor : Vector2i
+var selected_monster = null
 #endregion
 
 #region onready variables
@@ -45,6 +45,7 @@ func _ready() -> void:
 	controls.drag_released.connect(on_drag_released)
 	controls.pinching.connect(on_pinching)
 	dungeon_buttons.cancel_button_pressed.connect(on_cancel_button_pressed)
+	dungeon_buttons.move_button_pressed.connect(on_move_button_pressed)
 #endregion
 
 #region public functions
@@ -102,6 +103,7 @@ func on_summon_touched(summon):
 	if player_gui.state == Globals.GUI_STATE.DUNGEON:
 		if gui_substate == GUI_SUBSTATE.INIT:
 			if summon.type != "ITEM" and summon.player == player_gui.player:
+				selected_monster = summon
 				activate_dungeon_buttons()
 			else:
 				deactivate_dungeon_buttons()
@@ -146,6 +148,10 @@ func _on_camera_reset_pressed() -> void:
 func on_cancel_button_pressed():
 	%EndTurn.visible = true
 	dungeon_cancel_button_pressed.emit()
+
+func on_move_button_pressed():
+	gui_substate = GUI_SUBSTATE.MOVE
+	Globals.dungeon.activate_move_tiles(selected_monster)
 
 func _on_end_turn_pressed() -> void:
 	%EndTurn.visible = false

@@ -11,4 +11,7 @@ func set_summon(dice_dict, _player):
 	level = dice_dict["LEVEL"]
 	player = _player
 	set_pre_dimension()
+
+func is_target():
+	return false
 #endregion

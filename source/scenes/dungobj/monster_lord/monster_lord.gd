@@ -15,6 +15,14 @@ extends Node3D
 		set_icon()
 #endregion
 
+#region public functions
+func is_passable_by(_monster):
+	return false
+
+func is_target():
+	return true
+#endregion
+
 #region private functions
 func set_icon():
 	$Icon1.texture = load("res://assets/icons/HEARTS_P%d_%d.svg" % [player, hearts])
