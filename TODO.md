@@ -1,5 +1,6 @@
 ## FEATURES
 - MOVEMENT!
+- Implement initial setup for dicepool and dungeon
 
 ## IMPROVEMENTS
 - make info gui support two panels
