@@ -60,6 +60,7 @@ func _ready() -> void:
 	$DiceGUI.rollzone.dimdice_selected.connect($InfoGUI.on_dimdice_selected)
 	$DiceGUI.rollzone.dimdice_selected.connect($DungeonGUI.on_dimdice_selected)
 	$DuelCamera.camera_moved.connect(func(): dungeon_gui.camera_reset.visible=true)
+	$DungeonGUI.tile_touched.connect($InfoGUI.on_tile_touched)
 	$DungeonGUI.summon_touched.connect($InfoGUI.on_summon_touched)
 	$DungeonGUI.dungeon_cancel_button_pressed.connect($InfoGUI.deactivate_info)
 	# setup dungeon_gui

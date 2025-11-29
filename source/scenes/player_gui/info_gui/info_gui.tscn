@@ -3,19 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://dd0le7od3nqip" path="res://scenes/player_gui/info_gui/summon_info/summon_info.tscn" id="1_0uhxh"]
 [ext_resource type="Script" uid="uid://c4cu7struk2kq" path="res://scenes/player_gui/info_gui/info_gui.gd" id="1_uwko4"]
 
-[node name="InfoGUI" type="VBoxContainer"]
+[node name="InfoGUI" type="TabContainer"]
 offset_right = 720.0
-offset_bottom = 31.0
-script = ExtResource("1_uwko4")
-
-[node name="TabContainer" type="TabContainer" parent="."]
-layout_mode = 2
+offset_bottom = 242.0
 theme_override_font_sizes/font_size = 24
 current_tab = 0
 tabs_position = 1
 deselect_enabled = true
+script = ExtResource("1_uwko4")
 
-[node name="Summon Info" parent="TabContainer" instance=ExtResource("1_0uhxh")]
+[node name="Summon Info" parent="." instance=ExtResource("1_0uhxh")]
 unique_name_in_owner = true
 layout_mode = 2
 metadata/_tab_index = 0

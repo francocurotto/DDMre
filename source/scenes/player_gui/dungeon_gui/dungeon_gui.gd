@@ -5,8 +5,8 @@ enum GUI_SUBSTATE {INIT, MOVE, ATTACK}
 #endregion
 
 #region signals
+signal tile_touched
 signal summon_touched
-signal summon_untouched
 signal dungeon_cancel_button_pressed
 #endregion
 
@@ -75,31 +75,38 @@ func on_dimdice_selected(original_dimdice):
 
 func on_touch_released():
 	var object = controls.touched_object
-	if not object: # case of no relevant touchable object touched
+	print(object)
+	if not object: # object is null, nothing was touched
 		return
-	if object in Globals.dungeon.tiles: # if object is empty tile
+	elif object in Globals.dungeon.tiles: # if object is empty tile
 		on_tile_touched(object)
 	elif object.collision_layer == Globals.LAYERS.SUMMONS: # if object is summon
 		on_summon_touched(object)
 
 func on_tile_touched(tile):
-	# if dimdice exists, i.e. if in dimension state
+	# if dimdice exists, i.e. if in dimension state and dimdice selected
 	if Globals.dungeon.dimdice:
 		dimdice_position = tile.global_position
 		dimdice_position.y += DIMDICE_Y_POSITION
 		dimcoor = Globals.dungeon.get_tilecoor(tile)
 		Globals.dungeon.on_tile_touched(tile, dimdice_position, player_gui.net)
+		return
+	# case dungeon state
+	elif player_gui.state == Globals.GUI_STATE.DUNGEON:
+		if gui_substate == GUI_SUBSTATE.INIT:
+			deactivate_dungeon_buttons()
+	tile_touched.emit()
 
 func on_summon_touched(summon):
 	summon_touched.emit(summon)
 	if player_gui.state == Globals.GUI_STATE.DUNGEON:
 		if gui_substate == GUI_SUBSTATE.INIT:
 			if summon.type != "ITEM" and summon.player == player_gui.player:
-				dungeon_buttons.activate(player_gui.dice_gui.crestpool)
-				%EndTurn.visible = false
+				activate_dungeon_buttons()
+			else:
+				deactivate_dungeon_buttons()
 
 func on_dragging(length, angle):
-	#on_summon_untouched()
 	var dimdice = Globals.dungeon.dimdice
 	if dimdice and controls.touched_object == dimdice:
 		if dimdice_dragging:
@@ -183,4 +190,12 @@ func move_camera():
 
 func on_pinching(factor):
 	player_gui.duel_camera.zoom(factor)
+
+func activate_dungeon_buttons():
+	dungeon_buttons.activate(player_gui.dice_gui.crestpool)
+	%EndTurn.visible = false
+
+func deactivate_dungeon_buttons():
+	dungeon_buttons.deactivate()
+	%EndTurn.visible = true
 #endregion

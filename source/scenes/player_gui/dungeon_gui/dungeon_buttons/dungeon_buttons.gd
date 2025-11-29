@@ -9,6 +9,9 @@ func activate(crestpool):
 	visible = true
 	$MoveButton.disabled = crestpool.sides_dict["MOVEMENT"].amount <= 0
 	$AttackButton.disabled = crestpool.sides_dict["ATTACK"].amount <= 0
+
+func deactivate():
+	visible = false
 #endregion
 
 #region signals callbacks
