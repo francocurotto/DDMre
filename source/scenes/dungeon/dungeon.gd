@@ -74,7 +74,8 @@ func remove_dimdice():
 func activate_move_tiles(monster):
 	var move_path_queue = MovePathQueue.new(self, monster)
 	var move_tiles = move_path_queue.tiles
-	print(move_tiles)
+	for tile in move_tiles:
+		tile.highlight = true
 
 func get_max_move_tiles(monster):
 	var player_gui = Globals.duel.player_guis[monster.player]
