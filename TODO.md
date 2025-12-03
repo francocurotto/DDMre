@@ -1,7 +1,6 @@
 ## FEATURES
 - MOVEMENT!
-    - make tiles activate for movement
-    - fix move path highlight monster/monster lord tile in path
+    - fix deactivate move tiles on cancel
 - Implement initialization for dicepool, crestpool and dungeon
 
 ## IMPROVEMENTS

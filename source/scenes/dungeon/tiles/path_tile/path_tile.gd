@@ -61,7 +61,7 @@ func is_passable_by(monster):
 	return is_empty() or content.is_passable_by(monster)
 
 func is_reachable():
-	return is_empty or not content.is_target()
+	return is_empty() or not content.is_target()
 #endregion
 
 #region private functions
@@ -70,7 +70,7 @@ func set_player():
 	$Icon.modulate = COLORLIST[player]
 	var material = Globals.PLAYER_MATERIALS[player].duplicate()
 	$MeshInstance3D.set_surface_override_material(0, material)
-	# set mpnster lord
+	# set monster lord
 	if $DungobjContainer.get_child_count() >= 1:
 		$DungobjContainer.get_child(0).queue_free()
 	if monster_lord and player != 0:
