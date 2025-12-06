@@ -24,6 +24,7 @@ var dimdice :
 
 #region private variables
 var tiles = []
+var move_cost = 1
 #endregion
 
 #region builtin functions
@@ -77,11 +78,22 @@ func activate_move_tiles(monster):
 	for tile in move_tiles:
 		tile.highlight = true
 
+func activate_selected_move_path(monster, tile):
+	remove_tiles_highlight()
+	var move_path_queue = MovePathQueue.new(self, monster)
+	var path = move_path_queue.get_path(tile)
+	for path_tile in path:
+		path_tile.highlight = true
+	return get_move_cost(path, monster)
+
 func get_max_move_tiles(monster):
 	var player_gui = Globals.duel.player_guis[monster.player]
 	var move_crests = player_gui.dice_gui.crestpool.sides_dict["MOVEMENT"].amount
-	var move_cost = 1 #TODO: change when gluminizer is implemented
 	return min(floor(move_crests/move_cost*monster.speed), monster.max_move)
+
+func get_move_cost(path, monster):
+	var move_tiles = len(path)-1 
+	return ceil(move_tiles/monster.speed*move_cost)
 #endregion
 
 #region signals callbacks

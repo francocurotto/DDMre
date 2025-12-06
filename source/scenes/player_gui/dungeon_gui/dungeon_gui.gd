@@ -96,6 +96,8 @@ func on_tile_touched(tile):
 	elif player_gui.state == Globals.GUI_STATE.DUNGEON:
 		if gui_substate == GUI_SUBSTATE.INIT:
 			deactivate_dungeon_buttons()
+		elif gui_substate == GUI_SUBSTATE.MOVE:
+			activate_selected_move_path(tile)
 	tile_touched.emit()
 
 func on_summon_touched(summon):
@@ -146,6 +148,9 @@ func _on_camera_reset_pressed() -> void:
 	controls.disabled = false
 
 func on_cancel_button_pressed():
+	gui_substate = GUI_SUBSTATE.INIT
+	Globals.dungeon.remove_tiles_highlight()
+	selected_monster = null
 	%EndTurn.visible = true
 	dungeon_cancel_button_pressed.emit()
 
@@ -204,4 +209,8 @@ func activate_dungeon_buttons():
 func deactivate_dungeon_buttons():
 	dungeon_buttons.deactivate()
 	%EndTurn.visible = true
+
+func activate_selected_move_path(tile):
+	var move_cost = Globals.dungeon.activate_selected_move_path(selected_monster, tile)
+	#TODO: update dungeon buttons
 #endregion
