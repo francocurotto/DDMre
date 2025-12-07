@@ -32,7 +32,7 @@ size = Vector3(0.56, 0.1, 0.18)
 size = Vector3(0.16, 0.1, 0.18)
 
 [node name="Undead" type="StaticBody3D"]
-collision_layer = 4
+collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_y1ipp")
 

@@ -10,7 +10,8 @@ enum GUI_STATE {
 enum LAYERS {
 	DICE = 1,
 	BASE_TILES = 2,
-	SUMMONS = 4
+	PATH_TILES = 4,
+	SUMMONS = 8
 }
 #endregion
 

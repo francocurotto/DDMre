@@ -19,9 +19,6 @@ func on_dice_button_focused(dice):
 func on_dimdice_selected(dice):
 	activate_dice_info(dice)
 
-func on_tile_touched():
-	deactivate_info()
-
 func on_summon_touched(summon):
 	activate_summon_info(summon)
 

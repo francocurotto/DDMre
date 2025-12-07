@@ -40,6 +40,14 @@ var type : String = "ENDTURN" :
 		change_theme("pressed", COLORS_PRESSED)
 #endregion
 
+#region public functions
+func add_cost(cost):
+	$Cost.text = str(cost)
+
+func disable_cost():
+	$Cost.text = ""
+#endregion
+
 #region private functions
 func change_theme(style_name, colors):
 	var style = get_theme_stylebox(style_name)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://baq5yryu6nux1"]
 
-[ext_resource type="Texture2D" uid="uid://cri2lnbag5evh" path="res://assets/icons/ENDTURN.svg" id="2_aiwmg"]
+[ext_resource type="Texture2D" uid="uid://ctu2stkxgoxfw" path="res://assets/icons/MOVE.svg" id="1_aiwmg"]
 [ext_resource type="Script" uid="uid://dh5jylny8odw4" path="res://scenes/player_gui/action_button/action_button.gd" id="2_virli"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qt54"]
-bg_color = Color(0.7, 0.3, 0.3, 1)
+bg_color = Color(0.3, 0.3, 0.7, 1)
 corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
@@ -12,7 +12,7 @@ corner_radius_bottom_left = 40
 corner_detail = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_virli"]
-bg_color = Color(0.5, 0.1, 0.1, 1)
+bg_color = Color(0.1, 0.1, 0.5, 1)
 border_color = Color(0.6, 0.6, 0.6, 1)
 corner_radius_top_left = 40
 corner_radius_top_right = 40
@@ -21,7 +21,7 @@ corner_radius_bottom_left = 40
 corner_detail = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aiwmg"]
-bg_color = Color(0.7, 0.3, 0.3, 1)
+bg_color = Color(0.3, 0.3, 0.7, 1)
 corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
@@ -39,7 +39,23 @@ theme_override_constants/icon_max_width = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_4qt54")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_virli")
 theme_override_styles/hover = SubResource("StyleBoxFlat_aiwmg")
-icon = ExtResource("2_aiwmg")
+icon = ExtResource("1_aiwmg")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_virli")
+type = "MOVE"
+
+[node name="Cost" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 29
+horizontal_alignment = 2

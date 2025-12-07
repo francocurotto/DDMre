@@ -35,7 +35,7 @@ size = Vector3(0.205, 0.1, 0.23)
 size = Vector3(0.06, 0.555, 0.1)
 
 [node name="Warrior" type="StaticBody3D"]
-collision_layer = 4
+collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_ext84")
 

@@ -1,11 +1,11 @@
 extends Control
 
 #region enums
-enum GUI_SUBSTATE {INIT, MOVE, ATTACK}
+enum GUI_SUBSTATE {INIT, MOVE, MOVE2, ATTACK}
 #endregion
 
 #region signals
-signal tile_touched
+signal deactivate_summon_info
 signal summon_touched
 signal dungeon_cancel_button_pressed
 #endregion
@@ -39,6 +39,7 @@ func _ready() -> void:
 	player_gui = find_parent("PlayerGUI?")
 	controls.mask = Globals.LAYERS.DICE + \
 		Globals.LAYERS.BASE_TILES + \
+		Globals.LAYERS.PATH_TILES + \
 		Globals.LAYERS.SUMMONS
 	controls.touch_released.connect(on_touch_released)
 	controls.dragging.connect(on_dragging)
@@ -79,26 +80,36 @@ func on_touch_released():
 	print(object)
 	if not object: # object is null, nothing was touched
 		return
-	elif object in Globals.dungeon.tiles: # if object is empty tile
-		on_tile_touched(object)
+	elif object in Globals.dungeon.base_tiles: # if object is base tile
+		on_base_tile_touched(object)
+	elif object.collision_layer == Globals.LAYERS.PATH_TILES: # if object is path tile
+		on_path_tile_touched(object)
 	elif object.collision_layer == Globals.LAYERS.SUMMONS: # if object is summon
 		on_summon_touched(object)
 
-func on_tile_touched(tile):
+func on_base_tile_touched(tile):
 	# if dimdice exists, i.e. if in dimension state and dimdice selected
 	if Globals.dungeon.dimdice:
 		dimdice_position = tile.global_position
 		dimdice_position.y += DIMDICE_Y_POSITION
 		dimcoor = Globals.dungeon.get_tilecoor(tile)
 		Globals.dungeon.on_tile_touched(tile, dimdice_position, player_gui.net)
-		return
 	# case dungeon state
 	elif player_gui.state == Globals.GUI_STATE.DUNGEON:
 		if gui_substate == GUI_SUBSTATE.INIT:
 			deactivate_dungeon_buttons()
-		elif gui_substate == GUI_SUBSTATE.MOVE:
+			deactivate_summon_info.emit()
+
+func on_path_tile_touched(tile):
+	# case dungeon state
+	if player_gui.state == Globals.GUI_STATE.DUNGEON:
+		if gui_substate == GUI_SUBSTATE.MOVE:
 			activate_selected_move_path(tile)
-	tile_touched.emit()
+		else:
+			on_base_tile_touched(tile.base_tile)
+	# if not an implemented case, default to base tile behavior
+	else:
+		on_base_tile_touched(tile.base_tile)
 
 func on_summon_touched(summon):
 	summon_touched.emit(summon)
@@ -211,6 +222,7 @@ func deactivate_dungeon_buttons():
 	%EndTurn.visible = true
 
 func activate_selected_move_path(tile):
-	var move_cost = Globals.dungeon.activate_selected_move_path(selected_monster, tile)
-	#TODO: update dungeon buttons
+	gui_substate = GUI_SUBSTATE.MOVE2
+	var move_cost = Globals.dungeon.activate_selected_move_path(selected_monster, tile.base_tile)
+	dungeon_buttons.on_move_path_selected(move_cost)
 #endregion

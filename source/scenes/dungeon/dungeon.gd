@@ -23,7 +23,7 @@ var dimdice :
 #endregion
 
 #region private variables
-var tiles = []
+var base_tiles = []
 var move_cost = 1
 #endregion
 
@@ -39,13 +39,13 @@ func _ready() -> void:
 	$Rows/Row19/BaseTile7.overtile.monster_lord = true
 	for row in $Rows.get_children():
 		for tile in row.get_children():
-			tiles.append(tile)
+			base_tiles.append(tile)
 #endregion
 
 #region public functions
 func set_dimnet(net, dimcoor):
 	var net_tiles = get_net_tiles(net, dimcoor)
-	for tile in tiles:
+	for tile in base_tiles:
 		tile.highlight = tile in net_tiles
 
 func move_dimdice(velocity, player, net, return_position):
@@ -129,7 +129,7 @@ func get_tile(coor):
 		return $Rows.get_child(coor.y).get_child(coor.x)
 
 func get_summon_tile(summon):
-	for tile in tiles:
+	for tile in base_tiles:
 		if tile.dungobj and tile.dungobj == summon:
 			return tile
 
@@ -182,7 +182,7 @@ func dimension_the_dice(net):
 	remove_tiles_highlight()
 
 func remove_tiles_highlight():
-	for tile in tiles:
+	for tile in base_tiles:
 		tile.highlight = false
 
 func apply_dimdice_shake(t: float) -> void:

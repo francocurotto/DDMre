@@ -19,9 +19,15 @@ func deactivate():
 func _on_cancel_button_pressed() -> void:
 	visible = false
 	cancel_button_pressed.emit()
+	for button in get_children():
+		button.disable_cost()
 
 func _on_move_button_pressed() -> void:
 	$MoveButton.disabled = true
 	$AttackButton.disabled = true
 	move_button_pressed.emit()
+
+func on_move_path_selected(move_cost):
+	$MoveButton.add_cost(move_cost)
+	$MoveButton.disabled = false
 #endregion

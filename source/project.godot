@@ -40,7 +40,8 @@ pointing/emulate_touch_from_mouse=true
 
 3d_physics/layer_1="Dice"
 3d_physics/layer_2="Base Tiles"
-3d_physics/layer_3="Summons"
+3d_physics/layer_3="Path Tiles"
+3d_physics/layer_4="Summons"
 
 [rendering]
 
