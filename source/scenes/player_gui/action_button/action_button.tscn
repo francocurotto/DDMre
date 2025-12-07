@@ -46,6 +46,7 @@ script = ExtResource("2_virli")
 type = "MOVE"
 
 [node name="Cost" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

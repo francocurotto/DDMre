@@ -38,20 +38,19 @@ var type : String = "ENDTURN" :
 		change_theme("normal", COLORS_NORMAL)
 		change_theme("hover", COLORS_NORMAL)
 		change_theme("pressed", COLORS_PRESSED)
-#endregion
 
-#region public functions
-func add_cost(cost):
-	$Cost.text = str(cost)
+@export var cost_enabled : bool = false :
+	get():
+		return $Cost.visible
+	set(_cost_enabled):
+		$Cost.visible = _cost_enabled
 
-func disable_cost():
-	$Cost.text = ""
-
-func has_cost():
-	return $Cost.text != ""
-
-func get_cost():
-	return int($Cost.text)
+@export var cost : int = 0 :
+	get():
+		return int($Cost.text)
+	set(_cost):
+		$Cost.text = str(_cost)
+		cost_enabled = true
 #endregion
 
 #region private functions

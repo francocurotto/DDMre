@@ -16,7 +16,7 @@ func deactivate():
 	visible = false
 
 func get_move_cost():
-	return $MoveButton.get_cost()
+	return $MoveButton.cost
 #endregion
 
 #region signals callbacks
@@ -24,19 +24,19 @@ func _on_cancel_button_pressed() -> void:
 	visible = false
 	cancel_button_pressed.emit()
 	for button in get_children():
-		button.disable_cost()
+		button.cost_enabled = false
 
 func _on_move_button_pressed() -> void:
 	$MoveButton.disabled = true
 	$AttackButton.disabled = true
-	if not $MoveButton.has_cost():
+	if not $MoveButton.cost_enabled:
 		move_action_started.emit()
 	else:
 		visible = false
 		move_path_confirmed.emit()
-		$MoveButton.disable_cost()
+		$MoveButton.cost_enabled = false
 
 func on_move_path_selected(move_cost):
-	$MoveButton.add_cost(move_cost)
+	$MoveButton.cost = move_cost
 	$MoveButton.disabled = false
 #endregion
