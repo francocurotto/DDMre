@@ -18,4 +18,7 @@ func _ready() -> void:
 #region signals callbacks
 func on_crest_side_rolled(side):
 	sides_dict[side.crest].add_crest(side.mult)
+
+func on_monster_moved(cost):
+	sides_dict["MOVEMENT"].remove_crest(cost)
 #endregion

@@ -63,6 +63,7 @@ func _ready() -> void:
 	$DungeonGUI.deactivate_summon_info.connect($InfoGUI.deactivate_info)
 	$DungeonGUI.summon_touched.connect($InfoGUI.on_summon_touched)
 	$DungeonGUI.dungeon_cancel_button_pressed.connect($InfoGUI.deactivate_info)
+	$DungeonGUI.monster_moved.connect($DiceGUI.crestpool.on_monster_moved)
 	# setup dungeon_gui
 	dungeon_gui.set_raycast(get_viewport(), duel_camera)
 	# setup net

@@ -46,6 +46,12 @@ func add_cost(cost):
 
 func disable_cost():
 	$Cost.text = ""
+
+func has_cost():
+	return $Cost.text != ""
+
+func get_cost():
+	return int($Cost.text)
 #endregion
 
 #region private functions

@@ -26,6 +26,9 @@ var amount : int = 0 :
 #region public functions
 func add_crest(increment):
 	amount = amount + increment
+
+func remove_crest(decrement):
+	amount = amount - decrement
 #endregion
 
 #region private functions

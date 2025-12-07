@@ -8,6 +8,7 @@ enum GUI_SUBSTATE {INIT, MOVE, MOVE2, ATTACK}
 signal deactivate_summon_info
 signal summon_touched
 signal dungeon_cancel_button_pressed
+signal monster_moved
 #endregion
 
 #region constants
@@ -26,6 +27,7 @@ var dimdice_dragging = false
 var dimdice_position : Vector3
 var dimcoor : Vector2i
 var selected_monster = null
+var dest_move_tile = null
 #endregion
 
 #region onready variables
@@ -46,7 +48,8 @@ func _ready() -> void:
 	controls.drag_released.connect(on_drag_released)
 	controls.pinching.connect(on_pinching)
 	dungeon_buttons.cancel_button_pressed.connect(on_cancel_button_pressed)
-	dungeon_buttons.move_button_pressed.connect(on_move_button_pressed)
+	dungeon_buttons.move_action_started.connect(on_move_action_started)
+	dungeon_buttons.move_path_confirmed.connect(on_move_path_confirmed)
 #endregion
 
 #region public functions
@@ -162,12 +165,18 @@ func on_cancel_button_pressed():
 	gui_substate = GUI_SUBSTATE.INIT
 	Globals.dungeon.remove_tiles_highlight()
 	selected_monster = null
+	dest_move_tile = null
 	%EndTurn.visible = true
 	dungeon_cancel_button_pressed.emit()
 
-func on_move_button_pressed():
+func on_move_action_started():
 	gui_substate = GUI_SUBSTATE.MOVE
 	Globals.dungeon.activate_move_tiles(selected_monster)
+
+func on_move_path_confirmed():
+	monster_moved.emit(dungeon_buttons.get_move_cost())
+	#Globals.dungeon.move_monster(selected_monster, dest_move_tile.base_tile)
+	gui_substate = GUI_SUBSTATE.INIT
 
 func _on_end_turn_pressed() -> void:
 	%EndTurn.visible = false
@@ -223,6 +232,7 @@ func deactivate_dungeon_buttons():
 
 func activate_selected_move_path(tile):
 	gui_substate = GUI_SUBSTATE.MOVE2
+	dest_move_tile = tile
 	var move_cost = Globals.dungeon.activate_selected_move_path(selected_monster, tile.base_tile)
 	dungeon_buttons.on_move_path_selected(move_cost)
 #endregion
