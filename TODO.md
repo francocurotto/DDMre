@@ -1,6 +1,6 @@
 ## FEATURES
 - MOVEMENT!
-    - add confirm movement
+    - make enturn button aprear after movement tween finishes
 - Implement initialization for dicepool, crestpool and dungeon
 - ATTACK!
 
@@ -14,3 +14,4 @@
 
 ## GRAPHICS
 - make disabled dungeon buttons circle shaped
+- make dice more aesthetic with triangle corners

@@ -4,6 +4,8 @@ extends Node3D
 const DIMDICE_ROTATION_TIME = 0.1
 const DIMDICE_RETURN_TIME = 0.5
 const DIMDICE_DRAG_SPEED = 0.0002
+#const MONSTER_MOVE_TIME = 0.2
+const MONSTER_MOVE_TIME = 1
 #endregion
 
 #region preloads
@@ -84,7 +86,7 @@ func activate_selected_move_path(monster, tile):
 	var path = move_path_queue.get_path(tile)
 	for path_tile in path:
 		path_tile.highlight = true
-	return get_move_cost(path, monster)
+	return path
 
 func get_max_move_tiles(monster):
 	var player_gui = Globals.duel.player_guis[monster.player]
@@ -94,6 +96,17 @@ func get_max_move_tiles(monster):
 func get_move_cost(path, monster):
 	var move_tiles = len(path)-1 
 	return ceil(move_tiles/monster.speed*move_cost)
+
+func move_monster(monster, move_path):
+	var tween = create_tween()
+	for tile in move_path.slice(1):
+		var pos_x = tile.global_position.x
+		var pos_z = tile.global_position.z
+		var new_pos = Vector3(pos_x, monster.global_position.y, pos_z)
+		tween.tween_property(monster, "global_position", new_pos, MONSTER_MOVE_TIME)
+	await tween.finished
+	move_path[-1].overtile.add_summon(monster)
+	remove_tiles_highlight()
 #endregion
 
 #region signals callbacks
