@@ -1,6 +1,4 @@
 ## FEATURES
-- MOVEMENT!
-    - make enturn button aprear after movement tween finishes
 - Implement initialization for dicepool, crestpool and dungeon
 - ATTACK!
 

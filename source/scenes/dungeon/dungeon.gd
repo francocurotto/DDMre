@@ -4,8 +4,7 @@ extends Node3D
 const DIMDICE_ROTATION_TIME = 0.1
 const DIMDICE_RETURN_TIME = 0.5
 const DIMDICE_DRAG_SPEED = 0.0002
-#const MONSTER_MOVE_TIME = 0.2
-const MONSTER_MOVE_TIME = 1
+const MONSTER_MOVE_TIME = 0.2
 #endregion
 
 #region preloads

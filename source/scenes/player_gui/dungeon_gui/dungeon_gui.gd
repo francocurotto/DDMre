@@ -175,7 +175,7 @@ func on_move_action_started():
 
 func on_move_path_confirmed():
 	monster_moved.emit(dungeon_buttons.get_move_cost())
-	Globals.dungeon.move_monster(selected_monster, move_path)
+	await Globals.dungeon.move_monster(selected_monster, move_path)
 	gui_substate = GUI_SUBSTATE.INIT
 	%EndTurn.visible = true
 

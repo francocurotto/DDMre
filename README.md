@@ -13,7 +13,7 @@
 ### Game Mechanics
 - ✅ dice rolling
 - ✅ dice dimension
-- ❌ monster movement
+- ✅ monster movement
 - ❌ monster attack
 - ❌ monster guard
 - ❌ [0/46] monster/item abilities
