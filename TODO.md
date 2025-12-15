@@ -7,8 +7,8 @@
     - useful for consulting dungeon when an action is selected
 
 ## FIXES
-- fix rolling sometimes dice go in the opposite direcction
+- fix rolling sometimes dice go in the opposite direction
 
 ## GRAPHICS
 - make disabled dungeon buttons circle shaped
-- make dice more aesthetic with triangle corners
+    - to make this is easier to create a theme for each type of action button
