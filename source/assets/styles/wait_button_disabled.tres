@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://cgonrpg8bqmpg"]
+
+[resource]
+bg_color = Color(0.78431374, 0.78431374, 0.19607843, 0.23529412)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 15

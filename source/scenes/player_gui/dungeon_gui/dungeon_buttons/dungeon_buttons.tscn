@@ -1,184 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://dft43x10ihd30"]
+[gd_scene load_steps=9 format=3 uid="uid://dft43x10ihd30"]
 
 [ext_resource type="Script" uid="uid://bxr6yh3dvpqgq" path="res://scenes/player_gui/dungeon_gui/dungeon_buttons/dungeon_buttons.gd" id="1_61ltm"]
 [ext_resource type="PackedScene" uid="uid://baq5yryu6nux1" path="res://scenes/player_gui/action_button/action_button.tscn" id="1_rvkun"]
 [ext_resource type="Texture2D" uid="uid://ctu2stkxgoxfw" path="res://assets/icons/MOVE.svg" id="2_h36rc"]
+[ext_resource type="Theme" uid="uid://dm0a04mf1nikb" path="res://assets/themes/move_button.tres" id="3_8p5wg"]
 [ext_resource type="Texture2D" uid="uid://dho2ok8ktf2tv" path="res://assets/icons/ATTR_ATTACK.svg" id="3_61ltm"]
 [ext_resource type="Texture2D" uid="uid://dne4yuef0wmyh" path="res://assets/icons/CANCEL.svg" id="4_h36rc"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvkun"]
-bg_color = Color(0.3, 0.3, 0.7, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h36rc"]
-bg_color = Color(0.1, 0.1, 0.5, 1)
-border_color = Color(0.6, 0.6, 0.6, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61ltm"]
-bg_color = Color(0.3, 0.3, 0.7, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycfoe"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g04iy"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8p5wg"]
-bg_color = Color(0.7, 0.3, 0.3, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yh31"]
-bg_color = Color(0.5, 0.1, 0.1, 1)
-border_color = Color(0.6, 0.6, 0.6, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qupu"]
-bg_color = Color(0.7, 0.3, 0.3, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntj2x"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmkoj"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lnf1"]
-bg_color = Color(0.4, 0.4, 0.4, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyvlw"]
-bg_color = Color(0.1, 0.1, 0.1, 1)
-border_color = Color(0.6, 0.6, 0.6, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgx8e"]
-bg_color = Color(0.4, 0.4, 0.4, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihuiw"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bxag"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
+[ext_resource type="Theme" uid="uid://dl7up3lbkfibp" path="res://assets/themes/attack_button.tres" id="5_3yh31"]
+[ext_resource type="Theme" uid="uid://i5y3ju1gkts6" path="res://assets/themes/cancel_button.tres" id="7_4qupu"]
 
 [node name="DungeonButtons" type="VBoxContainer"]
 size_flags_horizontal = 0
@@ -188,31 +17,19 @@ script = ExtResource("1_61ltm")
 
 [node name="MoveButton" parent="." instance=ExtResource("1_rvkun")]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_rvkun")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h36rc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_61ltm")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_ycfoe")
-theme_override_styles/focus = SubResource("StyleBoxFlat_g04iy")
+theme = ExtResource("3_8p5wg")
 icon = ExtResource("2_h36rc")
 type = "MOVE"
 
 [node name="AttackButton" parent="." instance=ExtResource("1_rvkun")]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_8p5wg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_3yh31")
-theme_override_styles/hover = SubResource("StyleBoxFlat_4qupu")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_ntj2x")
-theme_override_styles/focus = SubResource("StyleBoxFlat_mmkoj")
+theme = ExtResource("5_3yh31")
 icon = ExtResource("3_61ltm")
 type = "ATTACK"
 
 [node name="CancelButton" parent="." instance=ExtResource("1_rvkun")]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_7lnf1")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_gyvlw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_pgx8e")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_ihuiw")
-theme_override_styles/focus = SubResource("StyleBoxFlat_3bxag")
+theme = ExtResource("7_4qupu")
 icon = ExtResource("4_h36rc")
 type = "CANCEL"
 

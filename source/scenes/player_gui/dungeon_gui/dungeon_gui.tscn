@@ -1,67 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dh8dx5olkti0o"]
+[gd_scene load_steps=6 format=3 uid="uid://dh8dx5olkti0o"]
 
 [ext_resource type="Script" uid="uid://sak83cm7tdar" path="res://scenes/player_gui/dungeon_gui/dungeon_gui.gd" id="1_1st0o"]
 [ext_resource type="PackedScene" uid="uid://c6mitq2hlr2wj" path="res://scenes/player_gui/touch_controls/touch_controls.tscn" id="2_dk4qo"]
 [ext_resource type="Texture2D" uid="uid://blc6rks53n7u2" path="res://assets/icons/CAMERA_RESET.png" id="3_gjjas"]
 [ext_resource type="PackedScene" uid="uid://baq5yryu6nux1" path="res://scenes/player_gui/action_button/action_button.tscn" id="4_bxgal"]
 [ext_resource type="PackedScene" uid="uid://dft43x10ihd30" path="res://scenes/player_gui/dungeon_gui/dungeon_buttons/dungeon_buttons.tscn" id="5_didtl"]
-[ext_resource type="Texture2D" uid="uid://cri2lnbag5evh" path="res://assets/icons/ENDTURN.svg" id="5_xc1yf"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_didtl"]
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xc1yf"]
-bg_color = Color(0.3, 0.3, 0.3, 1)
-border_color = Color(0.6, 0.6, 0.6, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xv7m1"]
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_761ja"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4chp"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
 
 [node name="DungeonGUI" type="Control"]
 layout_mode = 3
@@ -107,13 +50,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_didtl")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_xc1yf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_xv7m1")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_761ja")
-theme_override_styles/focus = SubResource("StyleBoxFlat_p4chp")
-icon = ExtResource("5_xc1yf")
-type = "ENDTURN"
 
 [node name="DungeonButtons" parent="MarginContainer" instance=ExtResource("5_didtl")]
 unique_name_in_owner = true

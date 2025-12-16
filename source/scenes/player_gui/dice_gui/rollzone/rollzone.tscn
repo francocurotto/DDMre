@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bo2erx6gn1vii"]
+[gd_scene load_steps=11 format=3 uid="uid://bo2erx6gn1vii"]
 
 [ext_resource type="Script" uid="uid://bxqvo6xk1aiyp" path="res://scenes/player_gui/dice_gui/rollzone/rollzone.gd" id="1_dac2p"]
 [ext_resource type="PackedScene" uid="uid://c6mitq2hlr2wj" path="res://scenes/player_gui/touch_controls/touch_controls.tscn" id="2_r0is7"]
 [ext_resource type="PackedScene" uid="uid://baq5yryu6nux1" path="res://scenes/player_gui/action_button/action_button.tscn" id="3_f4pdc"]
+[ext_resource type="Theme" uid="uid://i5y3ju1gkts6" path="res://assets/themes/cancel_button.tres" id="4_68det"]
 [ext_resource type="Texture2D" uid="uid://dne4yuef0wmyh" path="res://assets/icons/CANCEL.svg" id="4_oacuq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dac2p"]
@@ -19,64 +20,6 @@ friction = 0.1
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oacuq"]
 friction = 0.1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4pdc"]
-bg_color = Color(0.4, 0.4, 0.4, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oacuq"]
-bg_color = Color(0.1, 0.1, 0.1, 1)
-border_color = Color(0.6, 0.6, 0.6, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68det"]
-bg_color = Color(0.4, 0.4, 0.4, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4at2"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lv7xp"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
 
 [node name="Rollzone" type="PanelContainer"]
 offset_right = 720.0
@@ -177,11 +120,7 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_f4pdc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_oacuq")
-theme_override_styles/hover = SubResource("StyleBoxFlat_68det")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_a4at2")
-theme_override_styles/focus = SubResource("StyleBoxFlat_lv7xp")
+theme = ExtResource("4_68det")
 icon = ExtResource("4_oacuq")
 type = "CANCEL"
 
