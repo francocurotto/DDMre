@@ -28,6 +28,9 @@ func _ready() -> void:
 #region public functions
 func set_dice(i, dice, player):
 	%Dicepool.set_dice(i, dice, player)
+
+func set_crestpool(crest_dict):
+	$Crestpool.set_crestpool(crest_dict)
 #endregion
 
 #region signals callback

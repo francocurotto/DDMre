@@ -18,6 +18,8 @@ enum LAYERS {
 #region constants
 ## Path to the JSON file that has the dice information.
 const LIBPATH  = "res://databases/LIBRARY.json"
+## Path to the JSON file that has the default dungeon layout.
+const DUNGPATH = "res://databases/dungeons/default.json"
 const DUNGEON_HEIGHT = 19 ## Number of verical tiles of dungeon. 
 const DUNGEON_WIDTH  = 13 ## Number of horizontal tiles of dungeon.
 const DICEPOOL_SIZE  = 15 ## Number of dice in player dicepool.

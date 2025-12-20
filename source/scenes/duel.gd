@@ -9,6 +9,7 @@ func _enter_tree() -> void:
 	Globals.duel = self
 
 func _ready() -> void:
+	# setup player guis
 	player_guis[1] = $PlayerGUI1
 	player_guis[2] = $PlayerGUI2
 	$PlayerGUI1.player = 1
@@ -17,6 +18,14 @@ func _ready() -> void:
 	$PlayerGUI2.endturn_pressed.connect(on_endturn_pressed)
 	$PlayerGUI1.enable()
 	$PlayerGUI2.disable()
+	# set initial parameters for player guis and dungeon
+	var dungpath =  Init.get("DUNGPATH")
+	if not dungpath:
+		dungpath = Globals.DUNGPATH
+	var dunginit = Globals.read_jsonfile(dungpath)
+	$PlayerGUI1.set_initial(Init.get("POOL1PATH"), dunginit.get("CRESTS1"))
+	$PlayerGUI2.set_initial(Init.get("POOL2PATH"), dunginit.get("CRESTS2"))
+	$Dungeon.set_initial(dunginit)
 #endregion
 
 #region signals callbacks

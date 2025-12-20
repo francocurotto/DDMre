@@ -152,7 +152,7 @@ func resolve_crest_sides():
 
 func resolve_summon_sides(summon_dice):
 	var dim_dice = []
-	for level in range(1,4):
+	for level in range(1,5):
 		for dice in summon_dice:
 			if dice.rolled_side.mult == level:
 				dim_dice.append(dice)

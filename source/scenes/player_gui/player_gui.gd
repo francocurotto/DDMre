@@ -12,7 +12,7 @@ const DIMDICE_INIT_POSITION = {1: Vector3(0, 2, -3), 2: Vector3(0, 2, -15)}
 const DIMCOOR = {1: Vector2i(6, 3), 2: Vector2i(6, 15)}
 #endregion
 
-#region export vatriables
+#region export variables
 @export_range(1,2,1) var player : int = 1 :
 	set(_player):
 		player = _player
@@ -24,10 +24,6 @@ const DIMCOOR = {1: Vector2i(6, 3), 2: Vector2i(6, 15)}
 		# set dimdice
 		dungeon_gui.dimdice_position = DIMDICE_INIT_POSITION[player]
 		dungeon_gui.dimcoor = DIMCOOR[player]
-		# initialize dicepool
-		for i in Globals.DICEPOOL_SIZE:
-			var rand_dice = dicelib[str(randi_range(1,len(dicelib)))]
-			$DiceGUI.set_dice(i, rand_dice, player)
 #endregion
 
 #region public variables
@@ -72,6 +68,22 @@ func _ready() -> void:
 #endregion
 
 #region public functions
+func set_initial(pool_path, crest_dict):
+	# get pool data
+	var pool
+	if pool_path:
+		pool = Globals.read_jsonfile(pool_path)
+	# initialize dicepool
+	var dice
+	for i in Globals.DICEPOOL_SIZE:
+		if pool:
+			dice = dicelib[str(int(pool[i]))]
+		else:
+			dice = dicelib[str(randi_range(1,len(dicelib)))]
+		$DiceGUI.set_dice(i, dice, player)
+	# initialize crestpool
+	if crest_dict:
+		$DiceGUI.set_crestpool(crest_dict)
 func enable():
 	visible = true
 	duel_camera.current = true

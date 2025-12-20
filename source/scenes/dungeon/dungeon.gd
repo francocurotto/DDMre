@@ -34,16 +34,46 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	# initail conditions for dungeon
-	$Rows/Row1/BaseTile7.add_path_tile(1)
-	$Rows/Row1/BaseTile7.overtile.monster_lord = true
-	$Rows/Row19/BaseTile7.add_path_tile(2)
-	$Rows/Row19/BaseTile7.overtile.monster_lord = true
+	#$Rows/Row1/BaseTile7.add_path_tile(1)
+	#$Rows/Row1/BaseTile7.overtile.monster_lord = true
+	#$Rows/Row19/BaseTile7.add_path_tile(2)
+	#$Rows/Row19/BaseTile7.overtile.monster_lord = true
 	for row in $Rows.get_children():
 		for tile in row.get_children():
 			base_tiles.append(tile)
 #endregion
 
 #region public functions
+func set_initial(dunginit):
+	# set initial dungeon layout
+	for i in Globals.DUNGEON_HEIGHT:
+		for j in Globals.DUNGEON_WIDTH:
+			var coor = Vector2i(j, Globals.DUNGEON_HEIGHT-i-1)
+			var tile = get_tile(coor)
+			match dunginit["DUNGEON"][i][j]:
+				"O": 
+					pass
+				"X":
+					tile.add_block_tile()
+				"l":
+					tile.add_path_tile(1)
+					tile.overtile.monster_lord = true
+					if dunginit.has("HEART1"):
+						var monster_lord = tile.overtile.content
+						monster_lord.hearts = dunginit["HEARTS1"]
+				"L":
+					tile.add_path_tile(2)
+					tile.overtile.monster_lord = true
+					if dunginit.has("HEART2"):
+						var monster_lord = tile.overtile.content
+						monster_lord.hearts = dunginit["HEARTS2"]
+				"p":
+					tile.add_path_tile(1)
+				"P":
+					tile.add_path_tile(2)
+				"N":
+					tile.add_path_tile(0)
+
 func set_dimnet(net, dimcoor):
 	var net_tiles = get_net_tiles(net, dimcoor)
 	for tile in base_tiles:

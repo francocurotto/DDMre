@@ -15,6 +15,12 @@ func _ready() -> void:
 	}
 #endregion
 
+#region public functions
+func set_crestpool(crest_dict):
+	for crest in crest_dict:
+		sides_dict[crest].amount = crest_dict[crest]
+#endregion
+
 #region signals callbacks
 func on_crest_side_rolled(side):
 	sides_dict[side.crest].add_crest(side.mult)
