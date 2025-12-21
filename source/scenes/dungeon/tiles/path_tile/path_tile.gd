@@ -52,6 +52,7 @@ func add_summon(summon):
 	summon.tile = self
 	summon.global_rotation = Vector3.ZERO
 	summon.position = Vector3.ZERO
+	summon.visible = true
 
 func move_to_dungeon():
 	base_tile = $RayCast3D.get_collider()

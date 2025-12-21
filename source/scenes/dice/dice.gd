@@ -171,7 +171,6 @@ func unfold(net):
 		call("set_unfold_%s_flipped" % net.type)
 	var base_side = $Sides.get_child(0)
 	base_side.reparent_summon(summon)
-	summon.visible = true
 	for pivot in pivots:
 		pivot.unfold(tween, pivot.sequence==pivot_sequence)
 		pivot_sequence = pivot.sequence

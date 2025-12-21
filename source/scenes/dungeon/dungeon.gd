@@ -73,6 +73,11 @@ func set_initial(dunginit):
 					tile.add_path_tile(2)
 				"N":
 					tile.add_path_tile(0)
+	# set initial summons
+	if dunginit.has("SUMMONS1"):
+		set_initial_summons(dunginit["SUMMONS1"], 1)
+	if dunginit.has("SUMMONS2"):
+		set_initial_summons(dunginit["SUMMONS2"], 1)
 
 func set_dimnet(net, dimcoor):
 	var net_tiles = get_net_tiles(net, dimcoor)
@@ -163,6 +168,23 @@ func flip_dimdice(player):
 #endregion
 
 #region private functions
+func set_initial_summons(summons, player):
+	for summon_dict in summons:
+		var coor = pos_to_coor(summon_dict["POS"])
+		var diceidx = summon_dict["DICE"] - 1
+		# get summon from dice and mark not available
+		var dicepool = Globals.duel.player_guis[player].dice_gui.dicepool
+		var dice_button = dicepool.buttons[diceidx]
+		var summon = dice_button.dice.summon
+		var tile = get_tile(coor)
+		if tile.has_path():
+			dice_button.available = false
+			tile.overtile.add_summon(summon)
+			summon.tween_dimension(create_tween())
+
+func pos_to_coor(pos):
+	return Vector2i(ord(pos[0])-97, int(pos.substr(1))-1)
+
 func get_tilecoor(tile):
 	return Vector2i(tile.get_index(), tile.get_parent().get_index())
 

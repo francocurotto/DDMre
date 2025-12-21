@@ -45,7 +45,7 @@ Example:
 "SUMMONS1": [{"POS":"g2","DICE":5}, "POS":g4, "DICE":1}]
 "SUMMONS2": [{"POS":"g17","DICE":15}, {"POS":"g14","DICE":9}]
 ```
-- {"POS":"g2","DICE":5}: 
+- {"POS":"g2","DICE":5}:
     - `g2` : location in dungeon
     - `5` : dice index in pool to summon
 

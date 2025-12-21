@@ -1,5 +1,4 @@
 ## FEATURES
-- Implement initialization for summons in dungeon
 - ATTACK!
     - selection
     - guard/wait
