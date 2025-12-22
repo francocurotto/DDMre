@@ -11,6 +11,5 @@
     - useful for consulting dungeon when an action is selected
 
 ## FIXES
-- path tile set during initialization does not have base tile
 
 ## GRAPHICS

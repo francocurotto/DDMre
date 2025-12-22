@@ -42,10 +42,13 @@ func add_path_tile(player):
 		var path_tile = PathTile.instantiate()
 		path_tile.player = player
 		$TileContainer.add_child(path_tile)
+		path_tile.base_tile = self
 
 func add_block_tile():
 	if not overtile:
-		$TileContainer.add_child(BlockTile.instantiate())
+		var block_tile = BlockTile.instantiate()
+		$TileContainer.add_child(block_tile)
+		block_tile.base_tile = self
 
 func stack_path_tile(path_tile):
 	if not overtile:
