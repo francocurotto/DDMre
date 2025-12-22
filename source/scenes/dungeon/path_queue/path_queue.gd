@@ -18,6 +18,7 @@ func _init(_dungeon, _monster):
 	monster = _monster
 	paths = [[monster.tile.base_tile]]
 	tiles = [monster.tile.base_tile]
+	print(monster.tile.base_tile)
 	fill_paths()
 # endregion
 

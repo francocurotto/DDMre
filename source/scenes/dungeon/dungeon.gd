@@ -33,11 +33,6 @@ func _enter_tree() -> void:
 	Globals.dungeon = self
 
 func _ready() -> void:
-	# initail conditions for dungeon
-	#$Rows/Row1/BaseTile7.add_path_tile(1)
-	#$Rows/Row1/BaseTile7.overtile.monster_lord = true
-	#$Rows/Row19/BaseTile7.add_path_tile(2)
-	#$Rows/Row19/BaseTile7.overtile.monster_lord = true
 	for row in $Rows.get_children():
 		for tile in row.get_children():
 			base_tiles.append(tile)
@@ -77,7 +72,7 @@ func set_initial(dunginit):
 	if dunginit.has("SUMMONS1"):
 		set_initial_summons(dunginit["SUMMONS1"], 1)
 	if dunginit.has("SUMMONS2"):
-		set_initial_summons(dunginit["SUMMONS2"], 1)
+		set_initial_summons(dunginit["SUMMONS2"], 2)
 
 func set_dimnet(net, dimcoor):
 	var net_tiles = get_net_tiles(net, dimcoor)
