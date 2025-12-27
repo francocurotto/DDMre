@@ -1,7 +1,7 @@
 extends Control
 
 #region enums
-enum GUI_SUBSTATE {INIT, MOVE, MOVE2, ATTACK}
+enum GUI_SUBSTATE {INIT, MOVE, MOVE2, ATTACK, ATTACK2}
 #endregion
 
 #region signals
@@ -50,6 +50,7 @@ func _ready() -> void:
 	dungeon_buttons.cancel_button_pressed.connect(on_cancel_button_pressed)
 	dungeon_buttons.move_action_started.connect(on_move_action_started)
 	dungeon_buttons.move_path_confirmed.connect(on_move_path_confirmed)
+	dungeon_buttons.attack_action_started.connect(on_attack_action_started)
 #endregion
 
 #region public functions
@@ -172,6 +173,10 @@ func on_cancel_button_pressed():
 func on_move_action_started():
 	gui_substate = GUI_SUBSTATE.MOVE
 	Globals.dungeon.activate_move_tiles(selected_monster)
+
+func on_attack_action_started():
+	gui_substate = GUI_SUBSTATE.ATTACK
+	Globals.dungeon.activate_attack_tiles(selected_monster)
 
 func on_move_path_confirmed():
 	monster_moved.emit(dungeon_buttons.get_move_cost())

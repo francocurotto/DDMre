@@ -9,6 +9,7 @@ const MONSTER_MOVE_TIME = 0.2
 
 #region preloads
 const MovePathQueue = preload("res://scenes/dungeon/path_queue/move_path_queue.gd")
+const AttackPathQueue = preload("res://scenes/dungeon/path_queue/attack_path_queue.gd")
 #endregion
 
 #region public variables
@@ -108,6 +109,9 @@ func activate_move_tiles(monster):
 	var move_tiles = move_path_queue.tiles
 	for tile in move_tiles:
 		tile.highlight = true
+
+func activate_attack_tiles(monster):
+	var attack_path_queue = AttackPathQueue.new(self, monster)
 
 func activate_selected_move_path(monster, tile):
 	remove_tiles_highlight()

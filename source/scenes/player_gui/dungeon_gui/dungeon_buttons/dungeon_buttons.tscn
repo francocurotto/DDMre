@@ -34,4 +34,5 @@ icon = ExtResource("4_h36rc")
 type = "CANCEL"
 
 [connection signal="pressed" from="MoveButton" to="." method="_on_move_button_pressed"]
+[connection signal="pressed" from="AttackButton" to="." method="_on_attack_button_pressed"]
 [connection signal="pressed" from="CancelButton" to="." method="_on_cancel_button_pressed"]

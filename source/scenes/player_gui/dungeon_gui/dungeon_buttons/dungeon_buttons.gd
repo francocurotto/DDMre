@@ -4,6 +4,7 @@ extends VBoxContainer
 signal cancel_button_pressed
 signal move_action_started
 signal move_path_confirmed
+signal attack_action_started
 #endregion
 
 #region public variables
@@ -27,8 +28,7 @@ func _on_cancel_button_pressed() -> void:
 		button.cost_enabled = false
 
 func _on_move_button_pressed() -> void:
-	$MoveButton.disabled = true
-	$AttackButton.disabled = true
+	disable_action_buttons()
 	if not $MoveButton.cost_enabled:
 		move_action_started.emit()
 	else:
@@ -36,7 +36,18 @@ func _on_move_button_pressed() -> void:
 		move_path_confirmed.emit()
 		$MoveButton.cost_enabled = false
 
+func _on_attack_button_pressed() -> void:
+	disable_action_buttons()
+	if not $AttackButton.cost_enabled:
+		attack_action_started.emit()
+
 func on_move_path_selected(move_cost):
 	$MoveButton.cost = move_cost
 	$MoveButton.disabled = false
+#endregion
+
+#region private functions
+func disable_action_buttons():
+	$MoveButton.disabled = true
+	$AttackButton.disabled = true
 #endregion
