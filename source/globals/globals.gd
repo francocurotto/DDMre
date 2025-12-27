@@ -4,7 +4,8 @@ extends Node
 enum GUI_STATE {
 	ROLL,
 	DIMENSION,
-	DUNGEON
+	DUNGEON,
+	REPLY
 }
 
 enum LAYERS {

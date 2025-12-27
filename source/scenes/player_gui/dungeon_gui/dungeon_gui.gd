@@ -9,6 +9,7 @@ signal deactivate_summon_info
 signal summon_touched
 signal dungeon_cancel_button_pressed
 signal monster_moved
+signal monster_attacked
 #endregion
 
 #region constants
@@ -27,6 +28,7 @@ var dimdice_position : Vector3
 var dimcoor : Vector2i
 var selected_monster = null
 var move_path = null
+var attacked_monster = null
 var gui_substate = GUI_SUBSTATE.INIT
 #endregion
 
@@ -51,6 +53,7 @@ func _ready() -> void:
 	dungeon_buttons.move_action_started.connect(on_move_action_started)
 	dungeon_buttons.move_path_confirmed.connect(on_move_path_confirmed)
 	dungeon_buttons.attack_action_started.connect(on_attack_action_started)
+	dungeon_buttons.attack_confirmed.connect(on_attack_confirmed)
 #endregion
 
 #region public functions
@@ -108,7 +111,8 @@ func on_path_tile_touched(tile):
 	# case dungeon state
 	if player_gui.state == Globals.GUI_STATE.DUNGEON:
 		if gui_substate == GUI_SUBSTATE.MOVE:
-			activate_selected_move_path(tile)
+			if tile.highlight:
+				activate_selected_move_path(tile)
 		else:
 			on_base_tile_touched(tile.base_tile)
 	# if not an implemented case, default to base tile behavior
@@ -119,11 +123,15 @@ func on_summon_touched(summon):
 	summon_touched.emit(summon)
 	if player_gui.state == Globals.GUI_STATE.DUNGEON:
 		if gui_substate == GUI_SUBSTATE.INIT:
-			if summon.type != "ITEM" and summon.player == player_gui.player:
+			if summon.is_monster() and summon.player == player_gui.player:
 				selected_monster = summon
 				activate_dungeon_buttons()
 			else:
 				deactivate_dungeon_buttons()
+		elif gui_substate == GUI_SUBSTATE.ATTACK:
+			if summon.tile.highlight and summon.player != player_gui.player:
+				if summon.is_monster():
+					activate_selected_attack(summon)
 
 func on_dragging(length, angle):
 	var dimdice = Globals.dungeon.dimdice
@@ -167,6 +175,7 @@ func on_cancel_button_pressed():
 	Globals.dungeon.remove_tiles_highlight()
 	selected_monster = null
 	move_path = null
+	attacked_monster = null
 	%EndTurn.visible = true
 	dungeon_cancel_button_pressed.emit()
 
@@ -183,6 +192,9 @@ func on_move_path_confirmed():
 	await Globals.dungeon.move_monster(selected_monster, move_path)
 	gui_substate = GUI_SUBSTATE.INIT
 	%EndTurn.visible = true
+
+func on_attack_confirmed():
+	monster_attacked.emit(selected_monster, attacked_monster)
 
 func _on_end_turn_pressed() -> void:
 	%EndTurn.visible = false
@@ -241,4 +253,10 @@ func activate_selected_move_path(tile):
 	move_path = Globals.dungeon.activate_selected_move_path(selected_monster, tile.base_tile)
 	var move_cost = Globals.dungeon.get_move_cost(move_path, selected_monster)
 	dungeon_buttons.on_move_path_selected(move_cost)
+
+func activate_selected_attack(monster):
+	attacked_monster = monster
+	gui_substate = GUI_SUBSTATE.ATTACK2
+	Globals.dungeon.activate_selected_attack(selected_monster, attacked_monster)
+	dungeon_buttons.on_attack_selected()
 #endregion

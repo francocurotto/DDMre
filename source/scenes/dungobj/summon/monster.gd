@@ -4,6 +4,7 @@ extends "summon.gd"
 #region public variables
 var speed = 1
 var max_move = INF
+var attack_distance = 1
 #endregion
 
 #region public functions
@@ -15,4 +16,7 @@ func set_summon(dice_dict, _player):
 	original_health = dice_dict["HEALTH"]
 	player = _player
 	set_pre_dimension()
+
+func is_monster():
+	return true
 #endregion

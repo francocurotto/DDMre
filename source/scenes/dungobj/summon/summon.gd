@@ -61,6 +61,9 @@ func tween_dimension(tween):
 	tween.tween_property($SummonOverhead, "alpha", 1.0, SUMMON_TIME)
 	$BodyMesh.tween_dimension(tween, SUMMON_TIME)
 
+func is_monster():
+	return false
+
 func is_passable_by(monster):
 	#TODO: update when implementing move abilities (FLY, TUNNEL)
 	#return monster == self or monster.pass_behavior.can_pass(self)

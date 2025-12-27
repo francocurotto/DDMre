@@ -16,6 +16,9 @@ extends Node3D
 #endregion
 
 #region public functions
+func is_monster():
+	return false
+
 func is_passable_by(_monster):
 	return false
 

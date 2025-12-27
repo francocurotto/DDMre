@@ -2,6 +2,7 @@ extends VBoxContainer
 
 #region signals
 signal endturn_pressed
+signal monster_attacked
 #endregion
 
 #region constants
@@ -34,6 +35,7 @@ var state : int = Globals.GUI_STATE.ROLL :
 			match state :
 				Globals.GUI_STATE.ROLL: on_switched_to_roll_state()
 				Globals.GUI_STATE.DUNGEON: on_switched_to_dungeon_state()
+				Globals.GUI_STATE.REPLY: on_switched_to_reply_state()
 var net = Net.new()
 #endregion
 
@@ -60,6 +62,7 @@ func _ready() -> void:
 	$DungeonGUI.summon_touched.connect($InfoGUI.on_summon_touched)
 	$DungeonGUI.dungeon_cancel_button_pressed.connect($InfoGUI.deactivate_info)
 	$DungeonGUI.monster_moved.connect($DiceGUI.crestpool.on_monster_moved)
+	$DungeonGUI.monster_attacked.connect(on_monster_attacked)
 	# setup dungeon_gui
 	dungeon_gui.set_raycast(get_viewport(), duel_camera)
 	# setup net
@@ -108,4 +111,12 @@ func on_switched_to_dungeon_state():
 	$InfoGUI.on_dimension_started() # same effect as skip button pressed
 	$DiceGUI.on_switched_to_dungeon_state()
 	$DungeonGUI.on_switched_to_dungeon_state()
+
+func on_switched_to_reply_state():
+	#TODO: finish
+	pass
+
+func on_monster_attacked(attacker, attacked):
+	$DiceGUI.crestpool.on_monster_attacked()
+	monster_attacked.emit(attacker, attacked)
 #endregion

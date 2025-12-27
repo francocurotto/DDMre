@@ -16,6 +16,8 @@ func _ready() -> void:
 	$PlayerGUI2.player = 2
 	$PlayerGUI1.endturn_pressed.connect(on_endturn_pressed)
 	$PlayerGUI2.endturn_pressed.connect(on_endturn_pressed)
+	$PlayerGUI1.monster_attacked.connect(on_monster_attacked)
+	$PlayerGUI2.monster_attacked.connect(on_monster_attacked)
 	$PlayerGUI1.enable()
 	$PlayerGUI2.disable()
 	# set initial parameters for player guis and dungeon
@@ -30,8 +32,18 @@ func _ready() -> void:
 
 #region signals callbacks
 func on_endturn_pressed(player):
-	var new_player = player%2 + 1
-	player_guis[player].disable()
-	player_guis[new_player].enable()
+	var new_player = switch_player_guis(player)
 	player_guis[new_player].state = Globals.GUI_STATE.ROLL
+
+func on_monster_attacked(attacker, attacked):
+	var new_player = switch_player_guis(attacker.player)
+	player_guis[new_player].state = Globals.GUI_STATE.REPLY
+#endregion
+
+#region private functions
+func switch_player_guis(current_player):
+	var new_player = current_player%2 + 1
+	player_guis[current_player].disable()
+	player_guis[new_player].enable()
+	return new_player
 #endregion

@@ -1,6 +1,6 @@
 ## FEATURES
 - ATTACK!
-    - selection
+    - ✅ selection
     - guard/wait
     - damage
     - attack monster lord

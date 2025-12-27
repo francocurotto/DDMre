@@ -5,6 +5,7 @@ signal cancel_button_pressed
 signal move_action_started
 signal move_path_confirmed
 signal attack_action_started
+signal attack_confirmed
 #endregion
 
 #region public variables
@@ -40,10 +41,18 @@ func _on_attack_button_pressed() -> void:
 	disable_action_buttons()
 	if not $AttackButton.cost_enabled:
 		attack_action_started.emit()
+	else:
+		visible = false
+		attack_confirmed.emit()
+		$AttackButton.cost_enabled = false
 
 func on_move_path_selected(move_cost):
 	$MoveButton.cost = move_cost
 	$MoveButton.disabled = false
+
+func on_attack_selected():
+	$AttackButton.cost = 1
+	$AttackButton.disabled = false
 #endregion
 
 #region private functions

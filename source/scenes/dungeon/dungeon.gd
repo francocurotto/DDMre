@@ -112,6 +112,9 @@ func activate_move_tiles(monster):
 
 func activate_attack_tiles(monster):
 	var attack_path_queue = AttackPathQueue.new(self, monster)
+	var attack_tiles = attack_path_queue.tiles
+	for tile in attack_tiles:
+		tile.highlight = true
 
 func activate_selected_move_path(monster, tile):
 	remove_tiles_highlight()
@@ -120,6 +123,11 @@ func activate_selected_move_path(monster, tile):
 	for path_tile in path:
 		path_tile.highlight = true
 	return path
+
+func activate_selected_attack(attacker, attacked):
+	remove_tiles_highlight()
+	attacker.tile.highlight = true
+	attacked.tile.highlight = true
 
 func get_max_move_tiles(monster):
 	var player_gui = Globals.duel.player_guis[monster.player]

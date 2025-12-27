@@ -27,4 +27,7 @@ func on_crest_side_rolled(side):
 
 func on_monster_moved(cost):
 	sides_dict["MOVEMENT"].remove_crest(cost)
+
+func on_monster_attacked():
+	sides_dict["ATTACK"].remove_crest(1)
 #endregion
