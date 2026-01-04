@@ -165,6 +165,9 @@ func on_switched_to_dungeon_state():
 	Globals.dungeon.remove_dimdice()
 	%EndTurn.visible = true
 
+func on_switched_to_reply_state():
+	%ReplyButtons.visible = true
+
 func _on_camera_reset_pressed() -> void:
 	%CameraReset.visible = false
 	player_gui.duel_camera.on_camera_reset_pressed()

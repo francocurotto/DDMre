@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://b82nik0w2ts14"]
+
+[ext_resource type="Theme" uid="uid://cg1dkrxmd7lw0" path="res://assets/themes/guard_button.tres" id="2_5crcd"]
+[ext_resource type="PackedScene" uid="uid://baq5yryu6nux1" path="res://scenes/player_gui/action_button/action_button.tscn" id="2_xg6lg"]
+[ext_resource type="Texture2D" uid="uid://c3wqx4vyfp7x6" path="res://assets/icons/ATTR_DEFENSE.svg" id="3_10amn"]
+[ext_resource type="Theme" uid="uid://cvnva1aniug67" path="res://assets/themes/wait_button.tres" id="4_17cmq"]
+[ext_resource type="Texture2D" uid="uid://5e1jlahhhvc7" path="res://assets/icons/WAIT.svg" id="5_4bfsa"]
+
+[node name="ReplyButtons" type="VBoxContainer"]
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+
+[node name="GuardButton" parent="." instance=ExtResource("2_xg6lg")]
+layout_mode = 2
+theme = ExtResource("2_5crcd")
+icon = ExtResource("3_10amn")
+type = "GUARD"
+
+[node name="WaitButton" parent="." instance=ExtResource("2_xg6lg")]
+layout_mode = 2
+theme = ExtResource("4_17cmq")
+icon = ExtResource("5_4bfsa")
+type = "WAIT"
+
+[connection signal="pressed" from="GuardButton" to="." method="_on_move_button_pressed"]
+[connection signal="pressed" from="WaitButton" to="." method="_on_attack_button_pressed"]

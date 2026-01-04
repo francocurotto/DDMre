@@ -44,7 +44,7 @@ func on_roll_dice_removed(selected_dice_list):
 
 func on_roll_started():
 	tab_bar.set_tab_title(1, "Rollzone (0/3)")
-	%Dicepool.on_roll_started()
+	%Dicepool.disable_buttons()
 
 func _on_tab_container_tab_changed(_tab: int) -> void:
 	if is_node_ready(): # needed to avoid godot 4.5 error
@@ -64,4 +64,8 @@ func on_switched_to_roll_state():
 	$TabContainer.current_tab = 0
 	%Dicepool.on_switched_to_roll_state()
 	%Nets.enable_buttons()
+
+func on_switched_to_reply_state():
+	%Dicepool.disable_buttons()
+	%Nets.disable_buttons()
 #endregion

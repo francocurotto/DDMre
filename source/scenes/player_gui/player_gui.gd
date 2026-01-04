@@ -113,8 +113,8 @@ func on_switched_to_dungeon_state():
 	$DungeonGUI.on_switched_to_dungeon_state()
 
 func on_switched_to_reply_state():
-	#TODO: finish
-	pass
+	$DiceGUI.on_switched_to_reply_state()
+	$DungeonGUI.on_switched_to_reply_state()
 
 func on_monster_attacked(attacker, attacked):
 	$DiceGUI.crestpool.on_monster_attacked()

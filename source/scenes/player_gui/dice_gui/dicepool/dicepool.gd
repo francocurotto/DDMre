@@ -47,8 +47,8 @@ func on_dice_button_toggled(toggled_on, button):
 	else:
 		on_dice_button_released()
 
-func on_roll_started():
-	pass
+#func on_roll_started():
+func disable_buttons():
 	for button in buttons:
 		button.disabled = true
 
